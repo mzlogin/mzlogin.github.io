@@ -1,1 +1,4 @@
-baseurl: /
+baseurl: http://mazhuang.tk
+markdown: rdiscount
+pygments: true
+date_format: "ordinal" 
