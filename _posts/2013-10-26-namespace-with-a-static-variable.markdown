@@ -6,18 +6,15 @@ title: "有static变量的namespace被多个cpp包含"
 **有如下三个文件**  
 *header.h*
     #pragma once
-    
     namespace NS1
     {
     	static int var = 10;
     }
-    
     void print_var();
   
 *src.cpp*
     #include <stdio.h>
     #include "header.h"
-    
     void print_var()
     {
     	printf("%d\n", NS1::var);
@@ -26,15 +23,11 @@ title: "有static变量的namespace被多个cpp包含"
 *main.cpp*
     #include <stdio.h>
     #include "header.h"
-    
     int main()
     {
     	printf("%d\n", NS1::var);
-    
     	NS1::var = 0;
-    
     	print_var();
-    
     	return 0;
     }
 
@@ -51,6 +44,8 @@ title: "有static变量的namespace被多个cpp包含"
   
 **求证:**  
 将两个cpp文件中的printf语句都改为`printf("%d address is : 0x%X\n", NS1::var, &NS1::var);`，输出为：  
+    
     10 address is : 0x3C8004
-    10 address is : 0x3C8000
+    10 address is : 0x3C8000  
+
 可见两个源文件中的var非同一个。
