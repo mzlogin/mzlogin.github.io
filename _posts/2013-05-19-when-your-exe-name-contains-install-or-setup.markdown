@@ -16,6 +16,7 @@ Windows会自动进行启发式的安装包嗅探，估计其中的一条规则�
 满足如下两项之一：  
 一、在注册表项HKEY_CURRENT_USER\Software\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Compatibility Assistant\Persisted下有以可执行文件全路径为名，值为REG_DWORD类型的1的项。   
 二、为可执行文件添加类似如下的Manifest文件，指定程序支持Win7与Vista。  
+    
     <?xml version="1.0" encoding="UTF-8" standalone="yes"?> 
       <assembly xmlns="urn:schemas-microsoft-com:asm.v1" manifestVersion="1.0"> 
         <compatibility xmlns="urn:schemas-microsoft-com:compatibility.v1"> 
@@ -26,7 +27,8 @@ Windows会自动进行启发式的安装包嗅探，估计其中的一条规则�
               <supportedOS Id="{35138b9a-5d96-4fbd-8e2d-a2440225f93a}"/> 
           </application> 
         </compatibility>
-      </assembly>
+      </assembly>  
+    
 *问题2：*    
 目前没有找到什么好方法，靠谱的就是将软件改名吧！去掉install，去掉setup，世界从此清净了。    
   

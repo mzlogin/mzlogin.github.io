@@ -4,7 +4,9 @@ title: "文件被多个中间文件输出目录相同的工程包含"
 ---
 ### case:  
 　　两个工程Proj1和Proj2，同时包含demo.cpp，其中Proj1在工程配置里预定义宏MACRO\_PROJ1，Proj2在工程配置里预定义宏MACRO\_PROJ2，两个工程的中间文件输出目录为同一个，文件demo.cpp内容如下：  
+    
     #include <stdio.h>  
+    
     int main()  
     {
     #ifdef MACRO_PROJ1  
@@ -14,6 +16,7 @@ title: "文件被多个中间文件输出目录相同的工程包含"
     #endif      
         return 0;  
     }  
+    
 　　然后编译两工程生成Proj1.exe和Proj2.exe，期望的结果是Proj1.exe输出`output by proj1`，Proj2输出`output by proj2`，但是……意外发生了：  
 
 　　*会发现一定的概率下，两个exe输出的内容相同，至于是`output by proj1`还是`output by proj2`则比较随机。*  

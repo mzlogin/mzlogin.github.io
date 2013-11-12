@@ -5,24 +5,29 @@ title: "有static变量的namespace被多个cpp包含"
 
 **有如下三个文件**  
 *header.h*
+    
     #pragma once
     namespace NS1
     {
     	static int var = 10;
     }
     void print_var();
-  
+      
 *src.cpp*
+    
     #include <stdio.h>
     #include "header.h"
+    
     void print_var()
     {
     	printf("%d\n", NS1::var);
     }
-
+    
 *main.cpp*
+    
     #include <stdio.h>
     #include "header.h"
+    
     int main()
     {
     	printf("%d\n", NS1::var);
@@ -30,7 +35,7 @@ title: "有static变量的namespace被多个cpp包含"
     	print_var();
     	return 0;
     }
-
+    
 这三个文件是尝试的基础。
 
 **Situation A:**  
