@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 可执行文件名中包含install或setup
+categories: Windows
 ---
 
 **问题描述：**    

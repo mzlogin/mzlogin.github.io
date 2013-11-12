@@ -1,4 +1,5 @@
 baseurl: http://mazhuang.tk
+permalink: /:year/:month/:day/:title
 markdown: rdiscount
 pygments: true
 date_format: "ordinal" 

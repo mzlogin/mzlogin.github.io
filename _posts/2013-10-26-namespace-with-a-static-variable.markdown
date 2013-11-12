@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 有static变量的namespace被多个cpp包含
+categories: cplusplus
 ---
 
 **有如下三个文件**  
