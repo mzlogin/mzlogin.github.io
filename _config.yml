@@ -1,5 +1,21 @@
+# ---------------- #
+#   Main Configs   #
+# ---------------- #
 baseurl: http://mazhuang.tk
-permalink: /:year/:month/:day/:title
+url: http://mazhuang.tk
+date_format: "ordinal"
+title: 当然我也在扯淡
+author: Zhuang Ma 
+
+# ---------------- #
+#   RSS / Email    #
+# ---------------- #
+subscribe_rss: /atom.xml
+email:
+
+# ---------------- #
+#      Jekyll      #
+# ---------------- #
 markdown: rdiscount
 pygments: true
-date_format: "ordinal" 
+permalink: /:year/:month/:day/:title
