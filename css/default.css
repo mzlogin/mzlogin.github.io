@@ -61,24 +61,33 @@ blockquote {
 
 pre {
     font-family: Inconsolata, Consolas, "DEJA VU SANS MONO", "DROID SANS MONO", Proggy, monospace;
+    border: solid 1px #ddd;
+    border-radius: 3px;
+    background-color: #f8f8f8;
+    padding: 6px 10px;
     font-size: 75%;
-    border: solid 1px #CC929A;
-    background-color: Ivory;
-    padding: 5px;
     line-height: 130%;
-    margin-left: 10px;
     width: 95%;
+    overflow: auto;
 }
 
 
 code {
     font-family: Inconsolata, Consolas, "DEJA VU SANS MONO", "DROID SANS MONO", Proggy, monospace;
     font-size: 90%;
-    border: solid 1px #C3C3C3;
+    border: solid 1px #ddd;
+    border-radius: 3px;
+    background-color: #f8f8f8;
+    margin: 0 2px;
+    padding: 0px 5px;
 }
 
 pre code {
     border: none;
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    word-wrap: normal;
 }
 
 
