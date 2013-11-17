@@ -19,3 +19,8 @@ email:
 markdown: rdiscount
 pygments: true
 permalink: /:year/:month/:day/:title
+
+# ---------------- #
+#      Comments    #
+# ---------------- #
+duoshuo_short_name: mazhuang
