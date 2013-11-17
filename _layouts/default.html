@@ -6,10 +6,12 @@
         <link rel="stylesheet" href="{{ site.baseurl }}/css/default.css" type="text/css"/>
     </head>
     <body>
-        {% include navigation.html %}
-        <h2> {% if page.title %} {{ page.title }} {% else %} {{ site.title }} {% endif %} </h2>
-
-        {{ content }}
-
+        <div id="container">
+            {% include navigation.html %}
+            <div id="main">
+                <h2> {% if page.title %} {{ page.title }} {% else %} {{ site.title }} {% endif %} </h2>
+                {{ content }}
+            </div>
+        </div>
     </body>
 </html>
