@@ -119,6 +119,10 @@ nav {
     border-radius: 4px;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
     font-family: Consolas, "Liberation Mono", Courier, monospace;
+    margin: 5% 20% 5% 20%;
+    padding: 2% 5% 5% 5%;
+    width: 50%;
+    line-height: 150%;
 }
 
 img {
