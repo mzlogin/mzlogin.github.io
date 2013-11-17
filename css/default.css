@@ -116,3 +116,32 @@ img {
 hr {
     color: LightGrey;
 }
+
+#main-nav {
+  position: relative;
+}
+.main-nav-list {
+  margin: 0 -15px;
+}
+.main-nav-item {
+  padding: 20px 15px;
+  float: left;
+}
+.main-nav-link {
+  color: #fff;
+  opacity: 0.8;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+  filter: alpha(opacity=80);
+  text-decoration: none;
+  text-shadow: 0 1px rgba(0,0,0,0.2);
+  -webkit-transition: opacity 0.2s;
+  -moz-transition: opacity 0.2s;
+  -o-transition: opacity 0.2s;
+  -ms-transition: opacity 0.2s;
+  transition: opacity 0.2s;
+}
+.main-nav-link:hover {
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
+}
