@@ -60,7 +60,7 @@ blockquote {
 
 
 pre {
-    font-family: Inconsolata, Consolas, "DEJA VU SANS MONO", "DROID SANS MONO", Proggy, monospace;
+    font-family: Consolas, "Liberation Mono", Courier, monospace;
     border: solid 1px #ddd;
     border-radius: 3px;
     background-color: #f8f8f8;
@@ -73,7 +73,7 @@ pre {
 
 
 code {
-    font-family: Inconsolata, Consolas, "DEJA VU SANS MONO", "DROID SANS MONO", Proggy, monospace;
+    font-family: Consolas, "Liberation Mono", Courier, monospace;
     font-size: 90%;
     border: solid 1px #ddd;
     border-radius: 3px;
@@ -93,15 +93,12 @@ pre code {
 
 a {
     text-decoration: none;
-    /*cursor: crosshair;*/
-    border-bottom: 1px dashed Red;
     padding: 1px;
-    color: black;
+    color: #4183c4;
 }
 
 
 a:hover {
-	background-color: LightGrey;
 }
 
 
