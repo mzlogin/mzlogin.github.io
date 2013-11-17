@@ -138,3 +138,16 @@ img {
 hr {
     color: LightGrey;
 }
+
+#pre_next {
+    border-bottom: 2px LightGrey solid;
+    border-top: 2px LightGrey solid;
+}
+
+#post_pre {
+    align: left;
+}
+
+#post_next {
+    align: right;
+}
