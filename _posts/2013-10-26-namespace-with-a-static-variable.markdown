@@ -41,8 +41,7 @@ categories: cplusplus
 
 **Situation A:**  
 将header.h里的var的static去掉，发现编译通过，但是链接时提示：  
-    
-    main.obj : error LNK2005: "int NS1::var" (?var@NS1@@3HA) 已经在 src.obj 中定义，fatal error LNK1169: 找到一个或多个多重定义的符号。
+`main.obj : error LNK2005: "int NS1::var" (?var@NS1@@3HA) 已经在 src.obj 中定义，fatal error LNK1169: 找到一个或多个多重定义的符号。`  
     
   
 **Situation B:**  
@@ -52,6 +51,7 @@ categories: cplusplus
   
 **求证:**  
 将两个cpp文件中的printf语句都改为
+    
     printf("%d address is : 0x%X\n", NS1::var, &NS1::var);
 输出为：  
     
