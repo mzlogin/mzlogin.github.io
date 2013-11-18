@@ -1,9 +1,8 @@
 ---
 layout: page
-title: About Me
+title: Zhuang Ma
 ---
 
-###Zhuang Ma  
 **Software Engineer at [Sogou, Inc.](http://www.sogou.com)**  
 Beijing City, China | Computer Software  
   
