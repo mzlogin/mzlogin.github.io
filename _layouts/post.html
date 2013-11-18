@@ -1,26 +1,18 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
-        <title>{{ page.title }} </title>
-        <link rel="stylesheet" href="{{ site.baseurl }}/css/default.css" type="text/css"/>
-    </head>
-    <body>
-        <div id="container">
-            {% include navigation.html %}
-            <div id="main">
-                <h2> {{ page.title }} </h2>
-                {{ content }}
-                <div class="pre_next">
-                {% if page.previous.url %}
-                <a class="post_pre" href="{{page.previous.url}}" title="Previous Post: {{page.previous.title}}">&laquo; 前一篇</a>
-                {% endif %}
-                {% if page.next.url %}
-                <a class="post_next" href="{{page.next.url}}" title="Next Post: {{page.next.title}}">后一篇 &raquo;</a>
-                {% endif %}
-                </div>
-                {% include duoshuo.html %}
-            </div>
+{% include header.html %}
+<div id="container">
+    {% include navigation.html %}
+    <div id="main">
+        <h2> {{ page.title }} </h2>
+        {{ content }}
+        <div class="pre_next">
+        {% if page.previous.url %}
+        <a class="post_pre" href="{{page.previous.url}}" title="Previous Post: {{page.previous.title}}">&laquo; 前一篇</a>
+        {% endif %}
+        {% if page.next.url %}
+        <a class="post_next" href="{{page.next.url}}" title="Next Post: {{page.next.title}}">后一篇 &raquo;</a>
+        {% endif %}
         </div>
-    </body>
-</html>
+        {% include duoshuo.html %}
+    </div>
+</div>
+{% include footer.html %}
