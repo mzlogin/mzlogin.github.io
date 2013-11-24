@@ -22,3 +22,6 @@ categories: DesignPattern
 这个认识本身也没错，但是显然需要结合*封装变化*的设计原则使用才能适用更多场景，设计出弹性更好的系统来。  
   
 书中的示例代码都是使用java，我用C++将策略模式示例重新实现了一下，源码放在<a href="https://github.com/mzlogin/DesignPatternDemos" target="_blank">这个Solution的StrategyPattern工程里</a>。
+
+UML类图如下，Visio原图见[这里](https://github.com/mzlogin/DesignPatternDemos/DesignPatternDemos.vsd)：  
+<img src="/images/posts/designpattern/StrategyPattern.jpg" alt="Strategy Pattern UML Class Diagram" />
