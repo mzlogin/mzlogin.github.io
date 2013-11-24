@@ -24,4 +24,4 @@ categories: DesignPattern
 书中的示例代码都是使用java，我用C++将策略模式示例重新实现了一下，源码放在<a href="https://github.com/mzlogin/DesignPatternDemos" target="_blank">这个Solution的StrategyPattern工程里</a>。
 
 UML类图如下，Visio原图见[这里](https://github.com/mzlogin/DesignPatternDemos/DesignPatternDemos.vsd)：  
-<img src="/images/posts/designpattern/StrategyPattern.jpg" alt="Strategy Pattern UML Class Diagram" />
+<img src="/images/posts/designpattern/StrategyPattern.png" alt="Strategy Pattern UML Class Diagram" />
