@@ -13,7 +13,7 @@ layout: nil
     <name><![CDATA[{{ site.author | strip_html }}]]></name>
     {% if site.email %}<email><![CDATA[{{ site.email }}]]></email>{% endif %}
   </author>
-  <generator uri="http://mazhuang.tk/">Octopress</generator>
+  <generator uri="http://mazhuang.tk/">Zhuang Ma's Blog</generator>
 
   {% for post in site.posts %}
   <entry>
