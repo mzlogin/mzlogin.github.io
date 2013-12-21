@@ -1,7 +1,7 @@
 ---
 layout: post
 title: VIM常用操作
-categories: VIM
+categories: Wiki
 ---
 
 ###复制
