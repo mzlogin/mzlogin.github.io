@@ -1,6 +1,6 @@
 ﻿/* modified from https://github.com/yinwang0/blog-cn/blob/gh-pages/main.css */
 #main{
-    font-family: "SimSun", "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    font-family: STFangSong, Helvetica, Arial, Vernada, Tahoma, STXihei, "Microsoft YaHei", "Songti SC", SimSun, Heiti, sans-serif;
     font-size: 18px;
     margin: 0 20% 5% 20%;
     padding: 2% 5% 5% 5%;
@@ -10,11 +10,11 @@
 }
 
 H1 {
-    font-family: STKaiti, "Kaiti SC", "SimSun", "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, Helvetica, STKaiti, SimSun, serif;
 }
 
 H2 {
-    font-family: STKaiti, "Kaiti SC", "SimSun", "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, Helvetica, STKaiti, SimSun, serif;
     margin-bottom: 60px;
     margin-bottom: 40px;
     padding: 5px;
@@ -26,7 +26,7 @@ H2 {
 
 
 H3 {
-    font-family: STKaiti, "Kaiti SC", "SimSun", "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, Helvetica, STKaiti, SimSun, serif;
     margin-top: 40px;
     margin-bottom: 30px;
     border-bottom: 1px LightGrey solid;
@@ -37,7 +37,7 @@ H3 {
 
 
 H4 {
-    font-family: STKaiti, "Kaiti SC", "SimSun", "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, Helvetica, STKaiti, SimSun, serif;
     margin-top: 40px;
     margin-bottom: 30px;
     border-bottom: 1px LightGrey solid;
@@ -60,7 +60,7 @@ blockquote {
 
 
 pre {
-    font-family: Consolas, "Liberation Mono", Courier, monospace;
+    font-family: Inconsolata, Consolas, "DEJA VU SANS MONO", "DROID SANS MONO", Proggy, monospace;
     border: solid 1px #ddd;
     border-radius: 3px;
     background-color: #f8f8f8;
@@ -73,7 +73,7 @@ pre {
 
 
 code {
-    font-family: Consolas, "Liberation Mono", Courier, monospace;
+    font-family: Inconsolata, Consolas, "DEJA VU SANS MONO", "DROID SANS MONO", Proggy, monospace;
     font-size: 90%;
     border: solid 1px #ddd;
     border-radius: 3px;
