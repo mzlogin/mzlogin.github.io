@@ -1,4 +1,8 @@
 ﻿/* modified from https://github.com/yinwang0/blog-cn/blob/gh-pages/main.css */
+#container{
+    font-family: STFangSong, Helvetica, Arial, Vernada, Tahoma, STXihei, "Microsoft YaHei", "Songti SC", SimSun, Heiti, sans-serif;
+}
+
 #main{
     font-family: STFangSong, Helvetica, Arial, Vernada, Tahoma, STXihei, "Microsoft YaHei", "Songti SC", SimSun, Heiti, sans-serif;
     font-size: 18px;
