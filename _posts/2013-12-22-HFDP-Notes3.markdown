@@ -17,4 +17,4 @@ categories: DesignPattern
 
 ###书中示例的类图：
 Visio原图见<a href="https://github.com/mzlogin/DesignPatternDemos/blob/master/DesignPatternDemos.vsd" target="_blank">这里</a>:
-<img src="images/posts/designpattern/DecoratorPattern.png" width="80%" alt="Decorator Pattern UML Class Diagram" />
+<img src="/images/posts/designpattern/DecoratorPattern.png" width="80%" alt="Decorator Pattern UML Class Diagram" />
