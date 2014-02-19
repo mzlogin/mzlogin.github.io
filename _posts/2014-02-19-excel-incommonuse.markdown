@@ -31,3 +31,9 @@ categories: Wiki
 `=SUBSTITUTE(B2, "helo", "hello")`  
 
 ###去掉单元格里的空格
+**作用：**  
+除了单词之间的单个空格外，清除文本中所有的空格。  
+**语法：**  
+`TRIM(text)`  
+**示例：**  
+`=TRIM(B2)`  
