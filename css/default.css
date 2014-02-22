@@ -110,6 +110,7 @@ nav a {
 nav a:hover {
     /*text-decoration: underline;*/
     background-color: LightGrey;
+    color: #ffffff;
 }
 
 nav {
