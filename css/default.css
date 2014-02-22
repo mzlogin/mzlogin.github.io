@@ -104,11 +104,12 @@ a:hover {
 
 nav a {
     text-decoration: none;
-    color: #000000;
+    color: #d4d4d4;
 }
 
 nav a:hover {
-    text-decoration: underline;
+    /*text-decoration: underline;*/
+    background-color: LightGrey;
 }
 
 nav {
