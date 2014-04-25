@@ -1,8 +1,8 @@
 # ---------------- #
 #   Main Configs   #
 # ---------------- #
-baseurl: http://mzlogin.github.io
-url: http://mzlogin.github.io
+baseurl: http://www.mazhuang.org
+url: http://www.mazhuang.org
 date_format: "ordinal"
 title: 当然我也在扯淡
 author: Zhuang Ma 
