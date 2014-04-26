@@ -139,12 +139,12 @@ div.overview {
 }
 
 div.detail {
-    margin-left: 170px;
+    margin-left: 28%;
 }
 
 div.date { 
     float: left; 
-    width: 150px; 
+    width: 25%; 
     color: #555;
     text-align: right; 
     font-style: italic; 
