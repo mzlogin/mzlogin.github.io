@@ -133,6 +133,9 @@ img {
 
 hr {
     color: LightGrey;
+    margin: .7em 0;
+    border-top: 1px dashed #d0d0d0;
+    border-bottom: 1px dashed #f9f9f9;
 }
 
 div.overview {
@@ -160,14 +163,4 @@ div.paginator {
     color: #555;
     text-align: center;
     font-size: 12px;
-}
-
-hr {
-    display: block;
-    -webkit-margin-before: 0.5em;
-    -webkit-margin-after: 0.5em;
-    -webkit-margin-start: auto;
-    -webkit-margin-end: auto;
-    border-style: inset;
-    border-width: 1px;
 }
