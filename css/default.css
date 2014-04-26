@@ -135,6 +135,7 @@ hr {
     color: LightGrey;
     margin: .7em 0;
     border-top: 1px dashed #d0d0d0;
+    border: none;
 }
 
 div.overview {
