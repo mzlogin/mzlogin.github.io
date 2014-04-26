@@ -7,6 +7,7 @@
     width: 50%;
     line-height: 150%;
     border: 1px solid LightGrey;
+    background-color: white;
 }
 
 H1 {
@@ -113,7 +114,6 @@ div.nav {
     border-top: 1px solid #d4d4d4;
     border-left: 1px solid #d4d4d4;
     border-right: 1px solid #d4d4d4;
-    font-family: STFangSong, Helvetica, Arial, Vernada, Tahoma, STXihei, "Microsoft YaHei", "Songti SC", SimSun, Heiti, sans-serif;
     margin: 0 20% 0 20%;
     padding: 0 5% 0 5%;
     width: 50%;
