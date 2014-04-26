@@ -4,7 +4,7 @@ title: 为基于xulrunner的内嵌Gecko程序启用Profile
 categories: Gecko
 ---
 
-　　Mozilla自带的Profile支持实际上是非常给力的，看看%appdata%/Mozilla/Firefox下的文件就能知道，这里存放着许多的信息，它们提供了很多东西，例如：  
+Mozilla自带的Profile支持实际上是非常给力的，看看%appdata%/Mozilla/Firefox下的文件就能知道，这里存放着许多的信息，它们提供了很多东西，例如：  
 1.  可以通过Profiles/…default/chrome下的userchrome.css文件来定制自己的firefox外观，比如用#appmenu-button { display:none !important;}这样一句就可以去掉firefox左上角难看的按钮菜单  
 2.  安装的extensions，Addon放在这里  
 3.  证书相关、组件列表、cookie、插件列表等等都可以在这里找到  
