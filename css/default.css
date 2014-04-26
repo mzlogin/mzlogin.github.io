@@ -134,8 +134,7 @@ img {
 hr {
     color: LightGrey;
     margin: .7em 0;
-    border-top: 1px dashed #d0d0d0;
-    border: none;
+    border-top: 1px solid #d0d0d0;
 }
 
 div.overview {
