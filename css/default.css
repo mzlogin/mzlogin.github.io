@@ -95,7 +95,7 @@ pre code {
 a {
     text-decoration: none;
     padding: 1px;
-    color: #4183c4;
+    color: #204A87;
 }
 
 
@@ -142,4 +142,13 @@ img {
 
 hr {
     color: LightGrey;
+}
+
+div.date { 
+    padding-top: 2px;
+    float: left; 
+    width: 125px; 
+    color: #555;
+    text-align: right; 
+    font-style: italic; 
 }
