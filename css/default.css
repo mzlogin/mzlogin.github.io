@@ -143,6 +143,7 @@ div.detail {
 }
 
 div.date { 
+    padding-top: 1px;
     float: left; 
     width: 25%; 
     color: #555;
