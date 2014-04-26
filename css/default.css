@@ -121,6 +121,11 @@ div.nav {
     font-size: 18px;
 }
 
+div.nav_rss {
+    text-align: right;
+    float: right;
+}
+
 img {
     margin-left: 10px;
     display: block;
