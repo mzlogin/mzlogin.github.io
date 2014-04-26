@@ -142,12 +142,19 @@ div.detail {
     margin-left: 28%;
 }
 
-div.date, div.paginator { 
+div.date { 
     padding-top: 1px;
     float: left; 
     width: 25%; 
     color: #555;
     text-align: right; 
     font-style: italic; 
+    font-size: 12px;
+}
+
+div.paginator {
+    float: center;
+    width: 50%;
+    color: #555;
     font-size: 12px;
 }
