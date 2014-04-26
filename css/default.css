@@ -157,5 +157,6 @@ div.paginator {
     float: center;
     width: 60%;
     color: #555;
+    text-align: center;
     font-size: 12px;
 }
