@@ -142,7 +142,7 @@ div.detail {
     margin-left: 28%;
 }
 
-div.date { 
+div.date, div.paginator { 
     padding-top: 1px;
     float: left; 
     width: 25%; 
