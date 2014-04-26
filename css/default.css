@@ -1,6 +1,6 @@
 ﻿/* modified from https://github.com/yinwang0/blog-cn/blob/gh-pages/main.css */
 #main{
-    font-family: STFangSong, Helvetica, Arial, Vernada, Tahoma, STXihei, "Microsoft YaHei", "Songti SC", SimSun, Heiti, sans-serif;
+    font-family: "Palatino Linotype", "URW Palladio L", "palladio l", palatino, "book antiqua", times, serif;
     font-size: 18px;
     margin: 0 20% 5% 20%;
     padding: 2% 5% 5% 5%;
@@ -10,11 +10,9 @@
 }
 
 H1 {
-    font-family: "Palatino Linotype", "Book Antiqua", Palatino, Helvetica, STKaiti, SimSun, serif;
 }
 
 H2 {
-    font-family: "Palatino Linotype", "Book Antiqua", Palatino, Helvetica, STKaiti, SimSun, serif;
     margin-bottom: 60px;
     margin-bottom: 40px;
     padding: 5px;
@@ -26,7 +24,6 @@ H2 {
 
 
 H3 {
-    font-family: "Palatino Linotype", "Book Antiqua", Palatino, Helvetica, STKaiti, SimSun, serif;
     margin-top: 40px;
     margin-bottom: 30px;
     border-bottom: 1px LightGrey solid;
@@ -37,7 +34,6 @@ H3 {
 
 
 H4 {
-    font-family: "Palatino Linotype", "Book Antiqua", Palatino, Helvetica, STKaiti, SimSun, serif;
     margin-top: 40px;
     margin-bottom: 30px;
     border-bottom: 1px LightGrey solid;
@@ -103,26 +99,20 @@ a:hover {
     text-decoration: underline;
 }
 
-nav a {
+div.nav a {
     text-decoration: none;
     color: #d4d4d4;
 }
 
-nav a:hover {
-    /*text-decoration: underline;*/
+div.nav a:hover {
     background-color: LightGrey;
     color: #ffffff;
 }
 
-nav {
-    /*background-color: #fafafa;*/
-    /*background-image: linear-gradient(to bottom, #ffffff, #f2f2f2);*/
-    /*background-repeat: repeat-x;*/
+div.nav {
     border-top: 1px solid #d4d4d4;
     border-left: 1px solid #d4d4d4;
     border-right: 1px solid #d4d4d4;
-    /*border-radius: 4px;*/
-    /*box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);*/
     font-family: STFangSong, Helvetica, Arial, Vernada, Tahoma, STXihei, "Microsoft YaHei", "Songti SC", SimSun, Heiti, sans-serif;
     margin: 0 20% 0 20%;
     padding: 0 5% 0 5%;
