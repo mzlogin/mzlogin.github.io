@@ -145,18 +145,18 @@ hr {
 }
 
 div.overview {
-    margin: 25px 122px 25px 102px;
+    margin: 25px 22px 25px 22px;
 }
 
 div.detail {
-    margin-left: 140px;
+    margin-left: 170px;
 }
 
 div.date { 
-    padding-top: 2px;
     float: left; 
-    width: 125px; 
+    width: 150px; 
     color: #555;
     text-align: right; 
     font-style: italic; 
+    font-size: 12px;
 }
