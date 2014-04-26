@@ -20,7 +20,7 @@ H2 {
     border-bottom: 2px LightGrey solid;
     width: 90%;
     line-height: 150%;
-    color: DarkGreen;
+    color: #666666;
 }
 
 
@@ -30,7 +30,7 @@ H3 {
     border-bottom: 1px LightGrey solid;
     width: 80%;
     line-height: 150%;
-    color: DarkBlue;
+    color: #666666;
 }
 
 
@@ -40,7 +40,7 @@ H4 {
     border-bottom: 1px LightGrey solid;
     width: 80%;
     line-height: 150%;
-    color: DarkBlue;
+    color: #666666;
 }
 
 
