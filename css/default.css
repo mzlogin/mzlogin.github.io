@@ -124,6 +124,7 @@ div.nav {
 div.nav_rss {
     text-align: right;
     float: right;
+    color: blue;
 }
 
 img {
