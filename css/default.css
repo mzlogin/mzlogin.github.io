@@ -151,4 +151,9 @@ div.date {
     color: #555;
     text-align: right; 
     font-style: italic; 
+    display: block;
+}
+
+div.detail {
+    margin-left: 140px;
 }
