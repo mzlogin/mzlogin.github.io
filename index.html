@@ -3,7 +3,7 @@ layout: default
 ---
 
 <div class="postlist">
-    {% for post in site.posts %}
+    {% for post in paginator.posts %}
     <div class="overview">
         <div class="date">{{ post.date | date: "%b %d, %Y" }}</div>
         <div class="detail"><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></div>

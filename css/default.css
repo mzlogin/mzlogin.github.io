@@ -153,8 +153,9 @@ div.date {
 }
 
 div.paginator {
+    margin-left: 20%
     float: center;
-    width: 50%;
+    width: 60%;
     color: #555;
     font-size: 12px;
 }
