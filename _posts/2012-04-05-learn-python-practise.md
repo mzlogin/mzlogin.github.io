@@ -13,25 +13,30 @@ categories: Python
   
 2-4  
 (a)  
+
     str = raw_input('input a str:')
     print str
 
 (b)  
+
     str = raw_input('input a int:')
     print int(str)
 
 2-5  
 (a)  
+
     i = 0
     while i <= 10:
         print i,
         i += 1
 
 (b)  
+
     for eachNum in range(11):
         print eachNum,
 
 2-6  
+
     num = raw_input('input a num: ')
     if num > 0:
         print '正数',
@@ -41,6 +46,7 @@ categories: Python
         print '0',
 
 2-7  
+
     myStr = raw_input('input a str: ')
     i = 0
     while i < len(myStr):
@@ -52,6 +58,7 @@ categories: Python
         print c,
 
 2-8  
+
     aList = list()
     for i in range(5):
         num = raw_input('input a num : ')
@@ -66,6 +73,7 @@ categories: Python
     print 'myNum is : %d' % (myNum)
 
 2-9  
+
     aTuple = [ 1, 2, 3, 5, 6]
     myNum = 0
     for i in aTuple:
@@ -74,6 +82,7 @@ categories: Python
     print 'average value is : %f ' % (float(myNum) / len(aTuple))
 
 2-10  
+
     b = bool(False)
     while b is False:
         num = int(raw_input('input a num among 1 to 100 : '))
@@ -84,6 +93,7 @@ categories: Python
             print 'input error!'
 
 2-11  
+
     def display_menu():
         """展示菜单"""
         print '1.取五个数的和'
@@ -113,6 +123,7 @@ categories: Python
 
 2-15  
 (a)  
+
     num1 = int(raw_input('input num1:'))
     num2 = int(raw_input('input num2:'))
     num3 = int(raw_input('input num3:'))
@@ -132,6 +143,7 @@ categories: Python
     print 'min to max is %d, %d, %d' % (num1, num2, num3)
 
 (b)  
+
     num1 = int(raw_input('input num1:'))
     num2 = int(raw_input('input num2:'))
     num3 = int(raw_input('input num3:'))
@@ -151,6 +163,7 @@ categories: Python
     print 'min to max is %d, %d, %d' % (num1, num2, num3)
 
 2-16  
+
     fobj = open('hello.txt', 'r')
     for eachLine in fobj:
         print eachLine,
