@@ -144,6 +144,14 @@ hr {
     color: LightGrey;
 }
 
+div.overview {
+    margin: 25px 122px 25px 102px;
+}
+
+div.detail {
+    margin-left: 140px;
+}
+
 div.date { 
     padding-top: 2px;
     float: left; 
@@ -151,5 +159,4 @@ div.date {
     color: #555;
     text-align: right; 
     font-style: italic; 
-    display: block;
 }

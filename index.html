@@ -2,11 +2,11 @@
 layout: default
 ---
 
-<ul>
+<div class="postlist">
     {% for post in site.posts %}
-    <li>
+    <div class="overview">
         <div class="date">{{ post.date | date: "%B %d, %Y" }}</div>
-        <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
-    </li>
+        <div class="detail"><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></div>
+    </div>
     {% endfor %}
-</ul>
+</div>
