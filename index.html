@@ -5,7 +5,7 @@ layout: default
 <div class="postlist">
     {% for post in site.posts %}
     <div class="overview">
-        <div class="date">{{ post.date | date_to_string }}</div>
+        <div class="date">{{ post.date | date: "%b %d, %Y" }}</div>
         <div class="detail"><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></div>
     </div>
     {% endfor %}
