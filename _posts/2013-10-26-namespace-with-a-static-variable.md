@@ -30,16 +30,18 @@ void print_var()
     
 *main.cpp*
     
-    #include <stdio.h>
-    #include "header.h"
-    
-    int main()
-    {
-    	printf("%d\n", NS1::var);
-    	NS1::var = 0;
-    	print_var();
-    	return 0;
-    }
+```cpp
+#include <stdio.h>
+#include "header.h"
+
+int main()
+{
+	printf("%d\n", NS1::var);
+	NS1::var = 0;
+	print_var();
+	return 0;
+}
+```
     
 这三个文件是尝试的基础。
 
@@ -56,10 +58,13 @@ void print_var()
 **求证:**  
 将两个cpp文件中的printf语句都改为
     
-    printf("%d address is : 0x%X\n", NS1::var, &NS1::var);
+```cpp
+printf("%d address is : 0x%X\n", NS1::var, &NS1::var);
+```
 输出为：  
     
-    10 address is : 0x3C8004
-    10 address is : 0x3C8000  
-
+```
+10 address is : 0x3C8004
+10 address is : 0x3C8000  
+```
 可见两个源文件中的var非同一个。
