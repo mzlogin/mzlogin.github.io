@@ -17,9 +17,13 @@ email:
 # ---------------- #
 #      Jekyll      #
 # ---------------- #
-markdown: redcarpet
-redcarpet:
- extensions: ["fenced_code_blocks", "tables", "highlight", "with_toc_data", "strikethrough", "underline"]
+markdown: rdiscount
+rdiscount:
+  extensions: 
+    - autolink
+    - footnotes
+    - smart
+    - tables
 pygments: true
 permalink: /:year/:month/:day/:title
 
