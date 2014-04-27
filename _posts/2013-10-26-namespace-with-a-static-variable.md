@@ -7,22 +7,26 @@ categories: cplusplus
 **有如下三个文件**  
 *header.h*
     
-    #pragma once
-    namespace NS1
-    {
-    	static int var = 10;
-    }
-    void print_var();
+```cpp
+#pragma once
+namespace NS1
+{
+	static int var = 10;
+}
+void print_var();
+```
       
 *src.cpp*
     
-    #include <stdio.h>
-    #include "header.h"
-    
-    void print_var()
-    {
-    	printf("%d\n", NS1::var);
-    }
+```cpp
+#include <stdio.h>
+#include "header.h"
+
+void print_var()
+{
+	printf("%d\n", NS1::var);
+}
+```
     
 *main.cpp*
     
