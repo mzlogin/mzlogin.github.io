@@ -11,10 +11,7 @@ scholar, CS/IT
 
 *Contact:* `print '%s@%s' % ('ChumpMa', 'gmail.com')  #via Python`  
 
-*Social:*  
-微博 | <http://weibo.com/mzlogin>   
-豆瓣 | <http://www.douban.com/people/freedim/>   
-CSDN | <http://blog.csdn.net/mzlogin>   
+*Social:*  [微博](http://weibo.com/mzlogin) | [豆瓣](http://www.douban.com/people/freedim/) | [CSDN](http://blog.csdn.net/mzlogin)   
     
 ```c++
 #include <iostream>
