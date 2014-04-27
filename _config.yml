@@ -19,11 +19,7 @@ email:
 # ---------------- #
 markdown: rdiscount
 rdiscount:
-  extensions: 
-    - autolink
-    - footnotes
-    - smart
-    - tables
+  extensions: ["autolink", "footnotes", "smart", "tables"]
 pygments: true
 permalink: /:year/:month/:day/:title
 
