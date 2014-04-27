@@ -23,10 +23,100 @@ categories: Python
 3-10   
 用异常处理取代对os.path.exists()的调用：  
 
-    import os
+```python
+import os
 
+ls = os.linesep
+
+while True:
+    fname = raw_input('input a filename:')
+#    if os.path.exists(fname):
+#        print "Error: '%s' already exists" % fname
+#    else:
+#        break
+    try:
+        fobj = open(fname, 'r')
+    except IOError, e:
+        break;
+    else:
+        print "Error: '%s' already exists" % fname
+        fobj.close()
+
+all = []
+print "\nEnter lines ('.' by itself to quit).\n"
+
+while True:
+    entry = raw_input('>')
+    if entry == '.':
+        break
+    else:
+        all.append(entry)
+
+fobj = open(fname, 'w')
+fobj.writelines(['%s%s' % (x, ls) for x in all])
+fobj.close()
+print 'Done!'
+```
+
+用os.path.exists()取代异常处理方法：  
+
+```python
+import os
+
+fname = raw_input('Enter filename:')
+print
+
+#try:
+#    fobj = open(fname, 'r')
+#except IOError, e:
+#    print '*** file open error:', e
+#else:
+#    for eachLine in fobj:
+#        print eachLine,
+#    fobj.close()
+if os.path.exists(fname):
+    fobj = open(fname, 'r')
+    for eachLine in fobj:
+        print eachLine,
+    fobj.close()
+else:
+    print 'this file not exists'
+```
+
+3-11  
+
+```python
+import os
+
+fname = raw_input('Enter filename:')
+print
+
+#try:
+#    fobj = open(fname, 'r')
+#except IOError, e:
+#    print '*** file open error:', e
+#else:
+#    for eachLine in fobj:
+#        print eachLine,
+#    fobj.close()
+if os.path.exists(fname):
+    fobj = open(fname, 'r')
+    for eachLine in fobj:
+        print eachLine.strip()
+    fobj.close()
+else:
+    print 'this file not exists'
+```
+
+3-12  
+
+```python
+"""to read or make a file"""
+import os
+
+def makeTextFile():
+    '''make a file'''
     ls = os.linesep
-
     while True:
         fname = raw_input('input a filename:')
     #    if os.path.exists(fname):
@@ -56,33 +146,8 @@ categories: Python
     fobj.close()
     print 'Done!'
 
-用os.path.exists()取代异常处理方法：  
-
-    import os
-
-    fname = raw_input('Enter filename:')
-    print
-
-    #try:
-    #    fobj = open(fname, 'r')
-    #except IOError, e:
-    #    print '*** file open error:', e
-    #else:
-    #    for eachLine in fobj:
-    #        print eachLine,
-    #    fobj.close()
-    if os.path.exists(fname):
-        fobj = open(fname, 'r')
-        for eachLine in fobj:
-            print eachLine,
-        fobj.close()
-    else:
-        print 'this file not exists'
-
-3-11  
-
-    import os
-
+def readTextFile():
+    '''read a file'''
     fname = raw_input('Enter filename:')
     print
 
@@ -102,80 +167,23 @@ categories: Python
     else:
         print 'this file not exists'
 
-3-12  
+def main():
+    '''main menu'''
+    while True:
+        print '1.Read a file'
+        print '2.Make a file'
+        print 'x.exit'
+        myStr = raw_input('input your choice:')
+        if myStr == '1':
+            readTextFile()
+        elif myStr == '2':
+            makeTextFile()
+        elif myStr == 'x':
+            break
 
-    """to read or make a file"""
-    import os
-
-    def makeTextFile():
-        '''make a file'''
-        ls = os.linesep
-        while True:
-            fname = raw_input('input a filename:')
-        #    if os.path.exists(fname):
-        #        print "Error: '%s' already exists" % fname
-        #    else:
-        #        break
-            try:
-                fobj = open(fname, 'r')
-            except IOError, e:
-                break;
-            else:
-                print "Error: '%s' already exists" % fname
-                fobj.close()
-
-        all = []
-        print "\nEnter lines ('.' by itself to quit).\n"
-
-        while True:
-            entry = raw_input('>')
-            if entry == '.':
-                break
-            else:
-                all.append(entry)
-
-        fobj = open(fname, 'w')
-        fobj.writelines(['%s%s' % (x, ls) for x in all])
-        fobj.close()
-        print 'Done!'
-
-    def readTextFile():
-        '''read a file'''
-        fname = raw_input('Enter filename:')
-        print
-
-        #try:
-        #    fobj = open(fname, 'r')
-        #except IOError, e:
-        #    print '*** file open error:', e
-        #else:
-        #    for eachLine in fobj:
-        #        print eachLine,
-        #    fobj.close()
-        if os.path.exists(fname):
-            fobj = open(fname, 'r')
-            for eachLine in fobj:
-                print eachLine.strip()
-            fobj.close()
-        else:
-            print 'this file not exists'
-
-    def main():
-        '''main menu'''
-        while True:
-            print '1.Read a file'
-            print '2.Make a file'
-            print 'x.exit'
-            myStr = raw_input('input your choice:')
-            if myStr == '1':
-                readTextFile()
-            elif myStr == '2':
-                makeTextFile()
-            elif myStr == 'x':
-                break
-
-    if __name__ == '__main__':
-        main()
+if __name__ == '__main__':
+    main()
+```
 
 3-13  
 Windows下curses模块貌似无法正常使用……  

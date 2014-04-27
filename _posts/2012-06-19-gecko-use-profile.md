@@ -21,46 +21,54 @@ Mozilla自带的Profile支持实际上是非常给力的，看看%appdata%/Mozil
 二、将Lib链接进自己内嵌Gecko的程序  
 自写一个启用profile的函数，我这里直接使用WinEmbed例子里提供的StartupProfile函数： 
 
-    nsresult StartupProfile()
-    {
-        nsCOMPtr<nsIFile> appDataDir;
-        nsresult rv = NS_GetSpecialDirectory(NS_APP_APPLICATION_REGISTRY_DIR, getter_AddRefs(appDataDir));
-        if (NS_FAILED(rv))
-          return rv;
+```c++
+nsresult StartupProfile()
+{
+    nsCOMPtr<nsIFile> appDataDir;
+    nsresult rv = NS_GetSpecialDirectory(NS_APP_APPLICATION_REGISTRY_DIR, getter_AddRefs(appDataDir));
+    if (NS_FAILED(rv))
+      return rv;
 
-        appDataDir->AppendNative(nsCString("MozillaDemo"));
-        nsCOMPtr<nsILocalFile> localAppDataDir(do_QueryInterface(appDataDir));
+    appDataDir->AppendNative(nsCString("MozillaDemo"));
+    nsCOMPtr<nsILocalFile> localAppDataDir(do_QueryInterface(appDataDir));
 
-        nsCOMPtr<nsProfileDirServiceProvider> locProvider;
-        NS_NewProfileDirServiceProvider(PR_TRUE, getter_AddRefs(locProvider));
-        if (!locProvider)
-          return NS_ERROR_FAILURE;
-        
-        rv = locProvider->Register();
-        if (NS_FAILED(rv))
-          return rv;
-        
-        return locProvider->SetProfileDir(localAppDataDir);
-    }
+    nsCOMPtr<nsProfileDirServiceProvider> locProvider;
+    NS_NewProfileDirServiceProvider(PR_TRUE, getter_AddRefs(locProvider));
+    if (!locProvider)
+      return NS_ERROR_FAILURE;
+    
+    rv = locProvider->Register();
+    if (NS_FAILED(rv))
+      return rv;
+    
+    return locProvider->SetProfileDir(localAppDataDir);
+}
+```
 
 其中的”MozillaDemo”即是你的profile文件夹的名字，可以根据你的喜好改动，在这里会是%appdata%/Mozilla/MozillaDemo  
  
 在初始化Gecko运行环境的过程里调用完XRE_InitEmbedding2之后，添加  
 
-    if (NS_FAILED(StartupProfile())) {
-        result = 8;
-    }
-    else {
+```cpp
+if (NS_FAILED(StartupProfile())) {
+    result = 8;
+}
+else {
+```
 
 在此文件开始添加  
 
-    #include "nsAppDirectoryServiceDefs.h"
-    #include "nsDirectoryServiceDefs.h"
-    #include "nsProfileDirServiceProvider.h"
+```cpp
+#include "nsAppDirectoryServiceDefs.h"
+#include "nsDirectoryServiceDefs.h"
+#include "nsProfileDirServiceProvider.h"
+```
 
 在合适的地方添加  
 
-    #pragma comment(lib, "编译出的lib")
+```cpp
+#pragma comment(lib, "编译出的lib")
+```
 
 顺利的话，就大功告成了，运行一个你的内嵌Gecko程序然后去%appdata%/Mozilla/MozillaDemo看看吧~有图有真相哦。  
 <img src="/images/posts/gecko/geckouseprofile.png" width="80%" alt="Gecko Embed Program Use Profile"/>
