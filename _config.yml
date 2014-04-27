@@ -19,7 +19,7 @@ email:
 # ---------------- #
 markdown: redcarpet
 redcarpet:
-    extensions: ["tables"]
+    extensions: ["fenced_code_blocks", "tables", "highlight", "with_toc_data", "strikethrough", "underline"]
 pygments: true
 permalink: /:year/:month/:day/:title
 
