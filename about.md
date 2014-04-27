@@ -12,13 +12,13 @@ scholar, CS/IT
 *Contact:* `print '%s@%s' % ('ChumpMa', 'gmail.com')  #via Python`  
 
 *Social:*  
-|网站|网址|  
-|---|:---|  
-|微博|<http://weibo.com/mzlogin>|  
-|豆瓣|<http://www.douban.com/people/freedim/>|  
-|CSDN|<http://blog.csdn.net/mzlogin>|
+| 网站 | 网址 |
+| --- | :--- |
+| 微博 | http://weibo.com/mzlogin |
+| 豆瓣 | http://www.douban.com/people/freedim/ |
+| CSDN | http://blog.csdn.net/mzlogin |
     
-```cpp
+```c++
 #include <iostream>
 int main()
 {
