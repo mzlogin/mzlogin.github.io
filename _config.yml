@@ -18,8 +18,8 @@ email:
 #      Jekyll      #
 # ---------------- #
 markdown: rdiscount
-#rdiscount:
-#  extensions: ["autolink", "footnotes", "smart", "tables"]
+rdiscount:
+  extensions: ["autolink", "footnotes", "smart", "tables"]
 pygments: true
 permalink: /:year/:month/:day/:title
 
