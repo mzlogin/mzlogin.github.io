@@ -17,9 +17,9 @@ email:
 # ---------------- #
 #      Jekyll      #
 # ---------------- #
-#markdown: rdiscount
-#rdiscount:
-#  extensions: ["tables"]
+markdown: rdiscount
+rdiscount:
+  extensions: ["tables"]
 pygments: true
 permalink: /:year/:month/:day/:title
 
