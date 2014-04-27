@@ -11,9 +11,11 @@ scholar, CS/IT
 
 *Contact:* `print '%s@%s' % ('ChumpMa', 'gmail.com')  #via Python`
     
-    #include <iostream>
-    int main()
-    {
-    	std::cout << "Hello, my friend!" << std::endl;
-    	return 0;
-    }
+```cpp
+#include <iostream>
+int main()
+{
+	std::cout << "Hello, my friend!" << std::endl;
+	return 0;
+}
+```

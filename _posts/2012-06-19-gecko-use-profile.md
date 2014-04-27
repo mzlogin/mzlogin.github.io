@@ -21,7 +21,7 @@ Mozilla自带的Profile支持实际上是非常给力的，看看%appdata%/Mozil
 二、将Lib链接进自己内嵌Gecko的程序  
 自写一个启用profile的函数，我这里直接使用WinEmbed例子里提供的StartupProfile函数： 
 
-```c++
+```cpp
 nsresult StartupProfile()
 {
     nsCOMPtr<nsIFile> appDataDir;
