@@ -8,7 +8,6 @@ title: MarkDown Test
 * [列表](#toc_2)  
 * [任务列表](#toc_3)
 * [表格](#toc_4)  
-* [表格详解](#toc_4_0)
 
 ###超链接
 ```
@@ -52,7 +51,6 @@ title: MarkDown Test
 | ------- | :------ | :-----: | ------: |
 | content | content | content | content |
 
-####表格详解
 1. :----- 表示左对齐
 2. :----: 表示中对齐
 3. -----: 表示右对齐
