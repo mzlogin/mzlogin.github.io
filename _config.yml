@@ -17,9 +17,12 @@ email:
 # ---------------- #
 #      Jekyll      #
 # ---------------- #
-markdown: redcarpet
-redcarpet:
-  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]
+#markdown: redcarpet
+#redcarpet:
+#  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]
+markdown: kramdown
+kramdown:
+  input: GFM
 pygments: true
 permalink: /:year/:month/:day/:title
 
