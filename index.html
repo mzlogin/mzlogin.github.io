@@ -2,8 +2,12 @@
 layout: default
 ---
 
-<ul>
-    {% for post in site.posts %}
-    　　<li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
+<div class="postlist">
+    {% for post in paginator.posts %}
+    <div class="overview">
+        <div class="date">{{ post.date | date: "%b %d, %Y" }}</div>
+        <div class="detail"><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></div>
+    </div>
     {% endfor %}
-</ul>
+</div>
+{% include pagination.html %}
