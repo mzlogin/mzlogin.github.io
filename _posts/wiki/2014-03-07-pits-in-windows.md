@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Windows API中的坑
-categories: [Wiki,Windows]
+categories: Windows
 ---
 
 ###ExpandEnvironmentStrings  
