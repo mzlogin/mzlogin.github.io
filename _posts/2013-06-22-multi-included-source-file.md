@@ -6,7 +6,7 @@ categories: cplusplus
 ### case:  
 　　两个工程Proj1和Proj2，同时包含demo.cpp，其中Proj1在工程配置里预定义宏MACRO\_PROJ1，Proj2在工程配置里预定义宏MACRO\_PROJ2，两个工程的中间文件输出目录为同一个，文件demo.cpp内容如下：  
     
-```cpp
+```c++
 #include <stdio.h>  
 
 int main()  

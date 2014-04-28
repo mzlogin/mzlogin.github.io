@@ -7,7 +7,7 @@ categories: cplusplus
 **有如下三个文件**  
 *header.h*
     
-```cpp
+```c++
 #pragma once
 namespace NS1
 {
@@ -18,7 +18,7 @@ void print_var();
       
 *src.cpp*
     
-```cpp
+```c++
 #include <stdio.h>
 #include "header.h"
 
@@ -30,7 +30,7 @@ void print_var()
     
 *main.cpp*
     
-```cpp
+```c++
 #include <stdio.h>
 #include "header.h"
 
@@ -58,7 +58,7 @@ int main()
 **求证:**  
 将两个cpp文件中的printf语句都改为
     
-```cpp
+```c++
 printf("%d address is : 0x%X\n", NS1::var, &NS1::var);
 ```
 输出为：  

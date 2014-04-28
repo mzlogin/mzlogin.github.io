@@ -21,7 +21,7 @@ Mozilla自带的Profile支持实际上是非常给力的，看看%appdata%/Mozil
 二、将Lib链接进自己内嵌Gecko的程序  
 自写一个启用profile的函数，我这里直接使用WinEmbed例子里提供的StartupProfile函数： 
 
-```cpp
+```c++
 nsresult StartupProfile()
 {
     nsCOMPtr<nsIFile> appDataDir;
@@ -49,7 +49,7 @@ nsresult StartupProfile()
  
 在初始化Gecko运行环境的过程里调用完XRE_InitEmbedding2之后，添加  
 
-```cpp
+```c++
 if (NS_FAILED(StartupProfile())) {
     result = 8;
 }
@@ -58,7 +58,7 @@ else {
 
 在此文件开始添加  
 
-```cpp
+```c++
 #include "nsAppDirectoryServiceDefs.h"
 #include "nsDirectoryServiceDefs.h"
 #include "nsProfileDirServiceProvider.h"
@@ -66,7 +66,7 @@ else {
 
 在合适的地方添加  
 
-```cpp
+```c++
 #pragma comment(lib, "编译出的lib")
 ```
 
