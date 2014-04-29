@@ -169,3 +169,17 @@ div.paginator {
     text-align: center;
     font-size: 12px;
 }
+
+table {
+    border-collapse: collapse;
+    border: 1px solid LightGrey;
+}
+
+th {
+    border: 1px solid LightGrey;
+    background-color: #f8f8f8;
+}
+
+td {
+    border: 1px solid LightGrey;
+}
