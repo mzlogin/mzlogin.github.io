@@ -176,10 +176,12 @@ table {
 }
 
 th {
-    border: 1px solid LightGrey;
-    background-color: #666;
+    border: 1px solid #666;
+    background-color: #c0c0c0;
+    font-size: 90%;
 }
 
 td {
     border: 1px solid #666;
+    font-size: 75%
 }
