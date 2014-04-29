@@ -172,14 +172,14 @@ div.paginator {
 
 table {
     border-collapse: collapse;
-    border: 1px solid LightGrey;
+    border: 1px solid #666;
 }
 
 th {
     border: 1px solid LightGrey;
-    background-color: #f8f8f8;
+    background-color: #666;
 }
 
 td {
-    border: 1px solid LightGrey;
+    border: 1px solid #666;
 }
