@@ -15,7 +15,7 @@ Set MyWorkBook = wd.Workbooks.Open(".XXXX.xls")
 
 ####设置边框与自动筛选:  
 
-```
+```vbnet
 Set Rng = MyWorkSheet.UsedRange  
 With Rng  
     .Borders.LineStyle = xlContinuous  
@@ -26,13 +26,13 @@ End With
 
 ####获取或者设置单元格背景色:  
 
-```
+```vbnet
 MyWorkSheet.Cells(i, j).Interior.ColorIndex  
 ```
  
 ####保存/关闭工作簿:
 
-```
+```vbnet
 MyWorkBook.Save  
 MyWorkBook.Close  
 ```
