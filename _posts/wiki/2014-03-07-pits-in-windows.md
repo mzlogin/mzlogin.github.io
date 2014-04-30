@@ -4,7 +4,7 @@ title: Windows API中的坑
 categories: Windows
 ---
 
-###索引
+###Index
 * [ExpandEnvironmentStrings](#toc_1)  
 * [GetModuleFileName](#toc_2)  
 * [ShellExecuteEx](#toc_3)  
@@ -25,8 +25,8 @@ categories: Windows
 调用API之后，若初始MASK设置不正确，SHELLEXECUTEINFO结构体里的hProcess可能为空。  
 **建议：**
 若确定要使用hProcess，则在调用ShellExecuteEx前确认SHELLEXECUTEINFO结构体的fMask成员设置为SEE_MASK_NOCLOSEPROCESS。而且MSDN上对hProcess成员的注释如下：  
-> A handle to the newly started application. This member is set on return and is always NULL unless fMask is set to SEE_MASK_NOCLOSEPROCESS. Even if fMask is set to SEE_MASK_NOCLOSEPROCESS, hProcess will be NULL if no process was launched. For example, if a document to be launched is a URL and an instance of Internet Explorer is already running, it will display the document. No new process is launched, and hProcess will be NULL.
-> Note   ShellExecuteEx does not always return an hProcess, even if a process is launched as the result of the call. For example, an hProcess does not return when you use SEE_MASK_INVOKEIDLIST to invoke IContextMenu.
+> A handle to the newly started application. This member is set on return and is always NULL unless fMask is set to SEE_MASK_NOCLOSEPROCESS. Even if fMask is set to SEE_MASK_NOCLOSEPROCESS, hProcess will be NULL if no process was launched. For example, if a document to be launched is a URL and an instance of Internet Explorer is already running, it will display the document. No new process is launched, and hProcess will be NULL.  
+> Note   ShellExecuteEx does not always return an hProcess, even if a process is launched as the result of the call. For example, an hProcess does not return when you use SEE_MASK_INVOKEIDLIST to invoke IContextMenu.  
 
 ###UrlDownloadToFile
 **风险1：**  
