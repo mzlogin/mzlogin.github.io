@@ -6,7 +6,7 @@ categories: VBA
 
 ####创建一个EXCEL工作簿对象:  
 
-```
+```vbnet
 Set wd = CreateObject("excel.application")  
 Set MyWorkBook = wd.Workbooks.Open(".XXXX.xls")  
 ```
