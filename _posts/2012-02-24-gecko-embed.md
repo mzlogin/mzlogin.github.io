@@ -5,11 +5,12 @@ categories: Gecko
 ---
 
 最近在学习怎么将Gecko嵌入到自己的应用程序中，下载了一份比较早一点的源码在对照官方文档痛苦地推进——网上相关资料确实相当缺乏，难道大家都各种webkit去了？我的计划是先弄清怎么用，让程序跑起来，然后再根据官方文档结构说明去定制，削减掉不需要的部分，折腾这个移植就花了我不少时间，果断觉得应该跟大家分享之。废话不说,直接上过程。  
-###下载xulrunner源码并编译。我这里用的1.9.2rc1版本，对应firefox 3.6.X。  
-    源码下载地址：ftp://ftp.mozilla.org/pub/mozilla.org/xulrunner/releases/1.9.2rc1/source/  
-    编译环境mozilla-build下载地址：http://ftp.mozilla.org/pub/mozilla.org/mozilla/libraries/win32/MozillaBuildSetup-1.3.exe  
-    在解压的源码根目录内新建一个".mozconfig"文件，我使用的内容是（其中有用的就是组建目标是xulrunner，启动tests以生成示例程序）：  
-     
+###下载xulrunner源码并编译。  
+我这里用的1.9.2rc1版本，对应firefox 3.6.X。  
+源码下载地址：ftp://ftp.mozilla.org/pub/mozilla.org/xulrunner/releases/1.9.2rc1/source/  
+编译环境mozilla-build下载地址：http://ftp.mozilla.org/pub/mozilla.org/mozilla/libraries/win32/MozillaBuildSetup-1.3.exe  
+在解压的源码根目录内新建一个".mozconfig"文件，我使用的内容是（其中有用的就是组建目标是xulrunner，启动tests以生成示例程序）：  
+ 
 ```makefile
 mk_add_options MOZ_CO_PROJECT=xulrunner    
 mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/obj-xulrunner    
@@ -23,13 +24,13 @@ ac_add_options --with-windows-version=600
 ac_add_options --enable-tests    
 ```
   
-    运行mozilla-build 1.3 中的start-msvc9.bat（因为我使用的是Visual Studio 2008），切换到源码根目录下，运行“./configure"，然后"make"。等待几个小时（我的是用了四个小时左右）就OK了。  
+运行mozilla-build 1.3 中的start-msvc9.bat（因为我使用的是Visual Studio 2008），切换到源码根目录下，运行“./configure"，然后"make"。等待几个小时（我的是用了四个小时左右）就OK了。  
 ###注册GRE（Gecko运行时环境）。  
-    在经过上面第一步的编译后，会在源码根目录下生成名为dist的文件夹。"源码根/dist/bin/"目录下现在有xulrunner.exe等程序，在cmd下运行"xulrunner.exe --register-global"注册GRE。这时候实际上就可以跑"源码根/embedding/tests/winEmbed/winEmbed.exe"程序了，但是我们的目的是在VC下自己的工程里嵌入Gecko，所以需要尝试将这个示例工程winEmbed移植到VC中。  
+在经过上面第一步的编译后，会在源码根目录下生成名为dist的文件夹。"源码根/dist/bin/"目录下现在有xulrunner.exe等程序，在cmd下运行"xulrunner.exe --register-global"注册GRE。这时候实际上就可以跑"源码根/embedding/tests/winEmbed/winEmbed.exe"程序了，但是我们的目的是在VC下自己的工程里嵌入Gecko，所以需要尝试将这个示例工程winEmbed移植到VC中。  
 ###重点来了，将winEmbed移植到VC中。  
-    （1）新建工程”MozillaDemo"，将winEmbed文件夹下的resource.h、SMALL.ICO、WebBrowserChrome.cpp、WebBrowserChrome.h、WindowCreator.cpp、WindowCreator.h、winEmbed.cpp、winEmbed.h、winEmbed.ICO、winEmbed.rc引入工程。编译之，你会发现N多错误……  
-    （2）在VC++目录中，include里加入"源码根/dist/include"，Library里加入"源码根/dist/lib"，bin里加入"源码根/dist/bin"。  
-    （3）修改一些编译选项。如在预编译选项里添加XPCOM_GLUE，XP_WIN，_CRT_SECURE_NO_WARNINGS。将Project->Propeties->Configuration Properties->C/C++->Language下的Treat wchar_t as Built-in Type设为No (/Zc:wchar_t-)，在引入库里添加xpcomglue.lib。总之让编译命令行看起来像下面这样（具体为何后面解释）：  
+（1）新建工程”MozillaDemo"，将winEmbed文件夹下的resource.h、SMALL.ICO、WebBrowserChrome.cpp、WebBrowserChrome.h、WindowCreator.cpp、WindowCreator.h、winEmbed.cpp、winEmbed.h、winEmbed.ICO、winEmbed.rc引入工程。编译之，你会发现N多错误……  
+（2）在VC++目录中，include里加入"源码根/dist/include"，Library里加入"源码根/dist/lib"，bin里加入"源码根/dist/bin"。  
+（3）修改一些编译选项。如在预编译选项里添加XPCOM_GLUE，XP_WIN，_CRT_SECURE_NO_WARNINGS。将Project->Propeties->Configuration Properties->C/C++->Language下的Treat wchar_t as Built-in Type设为No (/Zc:wchar_t-)，在引入库里添加xpcomglue.lib。总之让编译命令行看起来像下面这样（具体为何后面解释）：  
 从项目属性的C/C++里看到的编译命令行：  
    
 ```c++
@@ -40,12 +41,12 @@ ac_add_options --enable-tests
 ```c++
 /OUT:"E:\MZ_Test_Code\MozillaDemo\Release\MozillaDemo.exe" /INCREMENTAL:NO /NOLOGO /MANIFEST /MANIFESTFILE:"Release\MozillaDemo.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"e:\MZ_Test_Code\MozillaDemo\Release\MozillaDemo.pdb" /OPT:REF /OPT:ICF /LTCG /DYNAMICBASE /NXCOMPAT /MACHINE:X86 /ERRORREPORT:PROMPT xpcomglue.lib  kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib    
 ```
-    （4）在winEmbed.cpp文件里添加一句  
+（4）在winEmbed.cpp文件里添加一句  
 ```c++
 #pragma comment(lib, "D:/1.9.2rc1/xulrunner-1.9.2rc1.source/mozilla-1.9.2/profile/dirserviceprovider/standalone/profdirserviceprovidersa_s.lib")    
 ```
 
-    大功告成，编译成功0 warning, 0 error。此时的程序也可以在别的机子上运行，但是需要将xulrunner.exe及其依赖文件拷到别的机子上并注册GRE。  
+大功告成，编译成功0 warning, 0 error。此时的程序也可以在别的机子上运行，但是需要将xulrunner.exe及其依赖文件拷到别的机子上并注册GRE。  
 程序运行示意图：  
 <img src="/images/posts/gecko/gecko_embed.gif" width="80%" alt="gecko embed program run demo" />
   
@@ -53,20 +54,20 @@ ac_add_options --enable-tests
 <img src="/images/posts/gecko/gecko_embed_err1.gif" width="80%" alt="gecko embed program run error 1" />  
 <img src="/imges/posts/gecko/gecko_embed_err2.gif" width="80%" alt="gecko embed program run error 2" />
    
-    至于为什么要做（3）和（4），且听我慢慢道来。  
-    1.为什么要添加预编译选项XPCOM_GLUE  
-    在原版的winEmbed目录下，有makefile文件，里面有DEFINES += -DXPCOM_GLUE这么一句。  
-    2.为什么要添加预编译选项XP_WIN  
-    在winEmbed/makefile文件里，有include $(DEPTH)/config/autoconf.mk这么一句，而在这个autoconf.mk里可以看到一大串的预编译选项，我试了多番才得出这个非加不可的结论……（试！！！冏！）  
-    3.为什么要添加引入库xpcomglue.lib，为什么要有（4）步骤  
-    在winEmbed/makefile文件里，有LIBS = \  
+至于为什么要做（3）和（4），且听我慢慢道来。  
+1.为什么要添加预编译选项XPCOM_GLUE  
+在原版的winEmbed目录下，有makefile文件，里面有DEFINES += -DXPCOM_GLUE这么一句。  
+2.为什么要添加预编译选项XP_WIN  
+在winEmbed/makefile文件里，有include $(DEPTH)/config/autoconf.mk这么一句，而在这个autoconf.mk里可以看到一大串的预编译选项，我试了多番才得出这个非加不可的结论……（试！！！冏！）  
+3.为什么要添加引入库xpcomglue.lib，为什么要有（4）步骤  
+在winEmbed/makefile文件里，有LIBS = \  
  $(DEPTH)/profile/dirserviceprovider/standalone/$(LIB_PREFIX)profdirserviceprovidersa_s.$(LIB_SUFFIX) \  
  $(XPCOM_STANDALONE_GLUE_LDOPTS) \  
  $(NULL)这么一段，很显然提示我们引入库profdirserviceprovidersa_s，然后在autoconf.mk文件里可以看到XPCOM_STANDALONE_GLUE_LDOPTS = $(LIBXUL_DIST)/lib/$(LIB_PREFIX)xpcomglue.$(LIB_SUFFIX)这么一个定义，所以也需要引入库xpcomglue。  
-    4.为什么要将Project->Propeties->Configuration Properties->C/C++->Language下的Treat wchar_t as Built-in Type设为No (/Zc:wchar_t-)  
-    很简单，因为编译报错提示呗……  
+4.为什么要将Project->Propeties->Configuration Properties->C/C++->Language下的Treat wchar_t as Built-in Type设为No (/Zc:wchar_t-)  
+很简单，因为编译报错提示呗……  
    
-    不执行这些操作将产生的错误：  
+不执行这些操作将产生的错误：  
 不将Project->Propeties->Configuration Properties->C/C++->Language下的Treat wchar_t as Built-in Type设为No (/Zc:wchar_t-)将报错  
 ```c++
 WebBrowserChrome.obj : error LNK2001: unresolved external symbol "public: wchar_t const * __thiscall nsAString::BeginReading(void)const " (?BeginReading@nsAString@@QBEPB_WXZ)    
