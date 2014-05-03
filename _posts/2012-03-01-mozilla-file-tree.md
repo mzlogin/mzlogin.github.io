@@ -116,18 +116,18 @@ Toolkit
 Toolkit被用于单独的产品。  
   
 components 包含警告，自动补全，命令行接口，控制台，cookies，下载管理器，文件选择器，历史，密码管理，前置类型查找，查看源码，等等。  
-content 包含为toolkit指定的XUL。
-library 包含libXUL work。
-locales 包含翻译过的文件。
-mozapps 包含共享的应用程序材料。
-obsolete 包含过时的材料。
-profile 包含属性管理器。
-themes 包含与toolkit有关的主题。
-xre 是XUL的运行时引擎。这个目录包含初始化toolkit的代码。
-
-Original Document Information
-•Author(s): Daniel Howard
-•Other Contributors: Heikki Toivonen (11-Nov-1999), HervÃ© Renault (for the French translation) (16-Nov-1999)
-•Last Updated Date: Michael Kaply 2-June-2005
-•Copyright Information: Portions of this content are © 1998-2007 by individual mozilla.org contributors; content available under a Creative Commons license | Details.
-•Further History: Document History.
+content 包含为toolkit指定的XUL。  
+library 包含libXUL work。  
+locales 包含翻译过的文件。  
+mozapps 包含共享的应用程序材料。  
+obsolete 包含过时的材料。  
+profile 包含属性管理器。  
+themes 包含与toolkit有关的主题。  
+xre 是XUL的运行时引擎。这个目录包含初始化toolkit的代码。  
+  
+Original Document Information  
+•Author(s): Daniel Howard  
+•Other Contributors: Heikki Toivonen (11-Nov-1999), HervÃ© Renault (for the French translation) (16-Nov-1999)  
+•Last Updated Date: Michael Kaply 2-June-2005  
+•Copyright Information: Portions of this content are © 1998-2007 by individual mozilla.org contributors; content available under a Creative Commons license | Details.  
+•Further History: Document History.  
