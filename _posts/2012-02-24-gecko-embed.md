@@ -33,12 +33,13 @@ ac_add_options --enable-tests
 （3）修改一些编译选项。如在预编译选项里添加XPCOM_GLUE，XP_WIN，_CRT_SECURE_NO_WARNINGS。将Project->Propeties->Configuration Properties->C/C++->Language下的Treat wchar_t as Built-in Type设为No (/Zc:wchar_t-)，在引入库里添加xpcomglue.lib。总之让编译命令行看起来像下面这样（具体为何后面解释）：  
 从项目属性的C/C++里看到的编译命令行：  
    
-```c++
-/O2 /Oi /GL /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "XPCOM_GLUE" /D "XP_WIN" /D "_CRT_SECURE_NO_WARNINGS" /D "_MBCS" /FD /EHsc /MD /Gy /Zc:wchar_t- /Fo"Release\\" /Fd"Release\vc90.pdb" /W3 /nologo /c /Zi /TP /errorReport:prompt ```
+```
+/O2 /Oi /GL /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "XPCOM_GLUE" /D "XP_WIN" /D "_CRT_SECURE_NO_WARNINGS" /D "_MBCS" /FD /EHsc /MD /Gy /Zc:wchar_t- /Fo"Release\\" /Fd"Release\vc90.pdb" /W3 /nologo /c /Zi /TP /errorReport:prompt 
+```
 
 从项目属性的Linker里看到的链接命令行：  
 
-```c++
+```
 /OUT:"E:\MZ_Test_Code\MozillaDemo\Release\MozillaDemo.exe" /INCREMENTAL:NO /NOLOGO /MANIFEST /MANIFESTFILE:"Release\MozillaDemo.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"e:\MZ_Test_Code\MozillaDemo\Release\MozillaDemo.pdb" /OPT:REF /OPT:ICF /LTCG /DYNAMICBASE /NXCOMPAT /MACHINE:X86 /ERRORREPORT:PROMPT xpcomglue.lib  kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib    
 ```
 
@@ -54,7 +55,7 @@ ac_add_options --enable-tests
   
 在自己编译的xulrunner环境下跑会产生下面两类错误，先忽略之让程序跑起来。（用官方提供的xulrunner-sdk里的程序来注册GRE并运行程序无报错）  
 <img src="/images/posts/gecko/gecko_embed_err1.gif" width="80%" alt="gecko embed program run error 1" />  
-<img src="/imges/posts/gecko/gecko_embed_err2.gif" width="80%" alt="gecko embed program run error 2" />
+<img src="/images/posts/gecko/gecko_embed_err2.gif" width="80%" alt="gecko embed program run error 2" />
    
 至于为什么要做（3）和（4），且听我慢慢道来。  
 1.为什么要添加预编译选项XPCOM_GLUE  
@@ -71,12 +72,14 @@ ac_add_options --enable-tests
    
 不执行这些操作将产生的错误：  
 不将Project->Propeties->Configuration Properties->C/C++->Language下的Treat wchar_t as Built-in Type设为No (/Zc:wchar_t-)将报错  
-```c++
+
+```
 WebBrowserChrome.obj : error LNK2001: unresolved external symbol "public: wchar_t const * __thiscall nsAString::BeginReading(void)const " (?BeginReading@nsAString@@QBEPB_WXZ)    
 ```
   
 拿掉预编译选项"XP_WIN"会产生错误  
-```c++
+
+```
 1>WebBrowserChrome.obj : error LNK2001: unresolved external symbol "public: void __thiscall nsCOMPtr_base::assign_from_helper(class nsCOMPtr_helper const &,struct nsID const &)" (?assign_from_helper@nsCOMPtr_base@@QAEXABVnsCOMPtr_helper@@ABUnsID@@@Z)    
 1>WebBrowserChrome.obj : error LNK2001: unresolved external symbol "public: void __thiscall nsCOMPtr_base::assign_from_qi(class nsQueryInterface,struct nsID const &)" (?assign_from_qi@nsCOMPtr_base@@QAEXVnsQueryInterface@@ABUnsID@@@Z)    
 1>WebBrowserChrome.obj : error LNK2001: unresolved external symbol "public: void __thiscall nsCOMPtr_base::assign_with_AddRef(class nsISupports *)" (?assign_with_AddRef@nsCOMPtr_base@@QAEXPAVnsISupports@@@Z)    
@@ -88,7 +91,8 @@ WebBrowserChrome.obj : error LNK2001: unresolved external symbol "public: wchar_
 ```
   
 拿掉预编译选项"XPCOM_GLUE"会产生错误  
-```c++
+
+```
 1>.\winEmbed.cpp(48) : error C2146: syntax error : missing ';' before identifier 'XRE_InitEmbedding'    
 1>.\winEmbed.cpp(48) : error C4430: missing type specifier - int assumed. Note: C++ does not support default-int    
 1>.\winEmbed.cpp(48) : error C4430: missing type specifier - int assumed. Note: C++ does not support default-int    
@@ -108,7 +112,8 @@ WebBrowserChrome.obj : error LNK2001: unresolved external symbol "public: wchar_
 ```
   
 拿掉引入库"xpcomglue.lib"会产生错误  
-```c++
+
+```
 1>WebBrowserChrome.obj : error LNK2001: unresolved external symbol _NS_StringContainerFinish    
 1>profdirserviceprovidersa_s.lib(nsProfileDirServiceProvider.obj) : error LNK2001: unresolved external symbol _NS_StringContainerFinish    
 1>profdirserviceprovidersa_s.lib(nsProfileLock.obj) : error LNK2001: unresolved external symbol _NS_StringContainerFinish    
@@ -166,7 +171,8 @@ WebBrowserChrome.obj : error LNK2001: unresolved external symbol "public: wchar_
 ```
   
 添加预编译选项_CRT_SECURE_NO_WARNINGS用来消除警告  
-```c++
+
+```
 1>e:\mz_test_code\mozillademo\mozillademo\webbrowserchrome.cpp(375) : warning C4996: '_snprintf': This function or variable may be unsafe. Consider using _snprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.    
 1>        d:\program files\microsoft visual studio 9.0\vc\include\stdio.h(358) : see declaration of '_snprintf'    
 1>WindowCreator.cpp    
@@ -181,6 +187,7 @@ WebBrowserChrome.obj : error LNK2001: unresolved external symbol "public: wchar_
   
 winEmbed.cpp文件里添加#pragma comment(lib, "D:/1.9.2rc1/xulrunner-1.9.2rc1.source/mozilla-1.9.2/profile/dirserviceprovider/standalone/profdirserviceprovidersa_s.lib")  
 否则将产生错误  
-```c++
+
+```
 1>winEmbed.obj : error LNK2019: unresolved external symbol "unsigned int __cdecl NS_NewProfileDirServiceProvider(int,class nsProfileDirServiceProvider * *)" (?NS_NewProfileDirServiceProvider@@YAIHPAPAVnsProfileDirServiceProvider@@@Z) referenced in function "unsigned int __cdecl StartupProfile(void)" (<a href="mailto:?StartupProfile@@YAIXZ">?StartupProfile@@YAIXZ</a>)    
 ```
