@@ -35,13 +35,15 @@ ac_add_options --enable-tests
    
 ```c++
 /O2 /Oi /GL /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "XPCOM_GLUE" /D "XP_WIN" /D "_CRT_SECURE_NO_WARNINGS" /D "_MBCS" /FD /EHsc /MD /Gy /Zc:wchar_t- /Fo"Release\\" /Fd"Release\vc90.pdb" /W3 /nologo /c /Zi /TP /errorReport:prompt ```
-   
+
 从项目属性的Linker里看到的链接命令行：  
-   
+
 ```c++
 /OUT:"E:\MZ_Test_Code\MozillaDemo\Release\MozillaDemo.exe" /INCREMENTAL:NO /NOLOGO /MANIFEST /MANIFESTFILE:"Release\MozillaDemo.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"e:\MZ_Test_Code\MozillaDemo\Release\MozillaDemo.pdb" /OPT:REF /OPT:ICF /LTCG /DYNAMICBASE /NXCOMPAT /MACHINE:X86 /ERRORREPORT:PROMPT xpcomglue.lib  kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib    
 ```
+
 （4）在winEmbed.cpp文件里添加一句  
+
 ```c++
 #pragma comment(lib, "D:/1.9.2rc1/xulrunner-1.9.2rc1.source/mozilla-1.9.2/profile/dirserviceprovider/standalone/profdirserviceprovidersa_s.lib")    
 ```
