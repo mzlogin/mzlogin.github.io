@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 对firefox和内嵌Gecko程序的插件（plugins）的注册搜索方式的一点认识
+title: 探索firefox和内嵌Gecko程序的插件(plugins)的注册搜索方式
 categories: Gecko
 ---
 
