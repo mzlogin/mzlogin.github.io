@@ -68,6 +68,6 @@ title: MarkDown Test
 <script src="https://gist.github.com/mzlogin/6e77e8977ce0ae7d5d7b.js?file=HelloFriend.cpp"></script>
 ```
 
-<script src="https://gist.github.com/mzlogin/6e77e8977ce0ae7d5d7b.js?file=HelloFriend.cpp"></script>
+<script src="https://gist.github.com/mzlogin/6e77e8977ce0ae7d5d7b.js?file=HelloFriend.cpp"></script>  
 
 <script src="https://gist.github.com/834610.js?file=Jekyll nd Octopress Liquid tag for MathJax.rb"></script>
