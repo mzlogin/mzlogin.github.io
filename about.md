@@ -21,3 +21,5 @@ int main()
 	return 0;
 }
 ```
+
+<% gist 6e77e8977ce0ae7d5d7b HelloFriend.cpp %>
