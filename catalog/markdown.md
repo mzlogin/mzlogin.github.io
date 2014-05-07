@@ -59,10 +59,10 @@ title: MarkDown Test
 ###代码块
 
 ```
-{% gist 6e77e8977ce0ae7d5d7b %}
+{% gist 6e77e8977ce0ae7d5d7b HelloFriend.cpp %}
 ```
 
-{% gist 6e77e8977ce0ae7d5d7b %}
+{% gist 6e77e8977ce0ae7d5d7b HelloFriend.cpp %}
 
 ```
 <script src="https://gist.github.com/mzlogin/6e77e8977ce0ae7d5d7b.js?file=HelloFriend.cpp"></script>
