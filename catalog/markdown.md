@@ -59,15 +59,13 @@ title: MarkDown Test
 ###代码块
 
 ```
-{% gist 6e77e8977ce0ae7d5d7b HelloFriend.cpp %}
+{% gist 3de7625b81250b980971 HelloFriend.cpp %}
 ```
 
-{% gist 6e77e8977ce0ae7d5d7b HelloFriend.cpp %}
+{% gist 3de7625b81250b980971 HelloFriend.cpp %}
 
 ```
-<script src="https://gist.github.com/mzlogin/6e77e8977ce0ae7d5d7b.js?file=HelloFriend.cpp"></script>
+<script src="https://gist.github.com/mzlogin/3de7625b81250b980971.js?file=HelloFriend.cpp"></script>
 ```
 
-<script src="https://gist.github.com/mzlogin/6e77e8977ce0ae7d5d7b.js?file=HelloFriend.cpp"></script>  
-
-<script src="https://gist.github.com/834610.js?file=Jekyll nd Octopress Liquid tag for MathJax.rb"></script>
+<script src="https://gist.github.com/mzlogin/3de7625b81250b980971.js?file=HelloFriend.cpp"></script>  
