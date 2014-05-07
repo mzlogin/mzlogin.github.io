@@ -8,6 +8,7 @@ title: MarkDown Test
 * [列表](#toc_2)  
 * [任务列表](#toc_3)
 * [表格](#toc_4)  
+* [代码块](#toc_5)
 
 ###超链接
 ```
@@ -54,3 +55,16 @@ title: MarkDown Test
 1. :----- 表示左对齐
 2. :----: 表示中对齐
 3. -----: 表示右对齐
+
+###代码块
+```
+{% gist 6e77e8977ce0ae7d5d7b %}
+```
+
+{% gist 6e77e8977ce0ae7d5d7b %}
+
+```
+<script src="https://gist.github.com/mzlogin/6e77e8977ce0ae7d5d7b.js?file=HelloFriend.cpp"></script>
+```
+
+<script src="https://gist.github.com/mzlogin/6e77e8977ce0ae7d5d7b.js?file=HelloFriend.cpp"></script>
