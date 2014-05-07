@@ -58,5 +58,4 @@ title: MarkDown Test
 
 ###代码块
 
-{% gist 3de7625b81250b980971 %}
-
+<script src="https://gist.github.com/mzlogin/3de7625b81250b980971.js"></script>
