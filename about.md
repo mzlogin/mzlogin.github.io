@@ -22,4 +22,4 @@ int main()
 }
 ```
 
-<% gist 6e77e8977ce0ae7d5d7b HelloFriend.cpp %>
+{% gist 6e77e8977ce0ae7d5d7b HelloFriend.cpp %}
