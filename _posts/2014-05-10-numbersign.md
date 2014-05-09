@@ -49,6 +49,7 @@ p5 = Nihao,Shijie!, strlen(p5) = 13
 ###字符串化操作(#)
 当用作字符串化操作时，`#`的主要作用是将宏参数不经扩展地转换成字符串常量。  
 **要点：**    
+
 -  宏定义参数的左右两边的空格会被忽略，参数的各个Token之间的多个空格会被转换成一个空格。  
 -  宏定义参数中含有需要特殊含义字符如`"`或`\`时，它们前面会自动被加上转义字符`\`。  
 
@@ -81,6 +82,7 @@ FB1(F B) --> FB1(abc def) --> FB(abc def) --> #abc def --> "abc def"
 ###标记连接操作(##)
 将多个Token连接成一个Token。  
 **要点：**  
+
 -  它不能是宏定义中的第一个或最后一个Token。  
 -  前后的空格可有可无。  
 
@@ -98,6 +100,7 @@ int main()
 ```
 
 `paster(9);`的预处理步骤应该如下：  
+
 -  `paster(9);`  
 -  `printf_s( "token" #9 " = %d", token##9 );`  
 -  `printf_s( "token" "9" " = %d", token9 );`  
@@ -106,5 +109,6 @@ int main()
 这样应该就很好理解了。
 
 ###参考MSDN
+
 -  Stringizing Operator(#) : <http://msdn.microsoft.com/EN-US/library/7e3a913x(v=VS.110,d=hv.2).aspx>  
 -  Token-Pasting Operator(##) : <http://msdn.microsoft.com/EN-US/library/09dwwt6y(v=VS.110,d=hv.2).aspx>
