@@ -125,8 +125,14 @@ div.nav {
 }
 
 div.nav_rss {
+    width: 20%;
     text-align: right;
     float: right;
+}
+
+div.nav_nav {
+    width: 80%;
+    float: left;
 }
 
 img {
