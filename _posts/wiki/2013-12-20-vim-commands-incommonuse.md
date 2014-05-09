@@ -13,7 +13,7 @@ categories: Wiki
 * [常用](#toc_6)
 * [vimdiff](#toc_7)
 * [Buffer](#toc_8)
-* [命令组合](#toc_9)
+* [组合命令](#toc_9)
 
 ###移动
 以字（符）为单位  
@@ -100,5 +100,5 @@ categories: Wiki
 |:b#|你之前待过的一个Buffer|
 |:bd num|从Buffer列表中删除num号Buffer|
 
-###命令组合
+###组合命令
 可以使用`|`来组合命令，比如`cmd1 | cmd2`。
