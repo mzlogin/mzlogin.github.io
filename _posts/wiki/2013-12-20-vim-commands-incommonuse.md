@@ -101,7 +101,4 @@ categories: Wiki
 |:bd num|从Buffer列表中删除num号Buffer|
 
 ###命令组合
-
-|命令|含义|
-|:---:|:---:|
-|||比如a|b|
+可以使用`|`来组合命令，比如`a|b`。
