@@ -43,6 +43,17 @@ dd              --> 剪切光标所在行
 ###常用
 :g/^$/d         --> 删除空行  
 
-##vimdiff  
+###vimdiff  
 [c              --> 移动到上一个不同处  
 ]c              --> 移动到下一个不同处
+
+###Buffer
+:ls             --> 查看Buffer列表  
+:bn             --> 转到Buffer列表中的下一个Buffer  
+:bp             --> 转到Buffer列表中的上一个Buffer  
+:b num          --> 转到Buffer列表中的num号Buffer  
+:b#             --> 你之前待过的一个Buffer  
+:bd num         --> 从Buffer列表中删除num号Buffer  
+
+###命令组合
+|               --> 比如`a|b`
