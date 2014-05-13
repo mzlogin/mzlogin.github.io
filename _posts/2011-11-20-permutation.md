@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 简单的全排列算法实现 
-categories: cplusplus
+categories: Algorithm
 ---
 
 ###问题描述：
