@@ -31,7 +31,7 @@ categories: cplusplus
 
 然后分别求它们后四个元素的全排列，依此类推。
  
-简单的C++实现：  
+###简单的C++实现：  
 
 ```c++
 #include <iostream>  
