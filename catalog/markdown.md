@@ -62,4 +62,4 @@ title: MarkDown Test
 print 'Hello, World!'
 ```
 
-{% gist 1027674 %}
+{% gist f6dbe25c70131113b7ec %}
