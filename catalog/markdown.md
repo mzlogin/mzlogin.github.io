@@ -61,5 +61,3 @@ title: MarkDown Test
 ```python
 print 'Hello, World!'
 ```
-
-{% gist f6dbe25c70131113b7ec %}
