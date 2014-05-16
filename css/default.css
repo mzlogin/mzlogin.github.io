@@ -180,6 +180,16 @@ div.paginator {
     font-size: 12px;
 }
 
+div.post_pre {
+    width: 50%;
+    text-align: left;
+}
+
+div.post_next {
+    width: 50%;
+    text-align: right;
+}
+
 table {
     border-collapse: collapse;
     border: 1px solid #666;
