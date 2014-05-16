@@ -11,6 +11,7 @@ body {
     width: 50%;
     line-height: 150%;
     border: 1px solid LightGrey;
+    box-shadow: 2px 2px 5px #ccc;
 }
 
 H1 {
@@ -123,6 +124,7 @@ div.nav {
     height: 27px;
     line-height: 150%;
     font-size: 18px;
+    box-shadow: 2px 2px 5px #ccc;
 }
 
 div.nav_rss {
