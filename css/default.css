@@ -183,11 +183,13 @@ div.paginator {
 div.post_pre {
     width: 50%;
     text-align: left;
+    float: left;
 }
 
 div.post_next {
     width: 50%;
     text-align: right;
+    float: right;
 }
 
 table {
