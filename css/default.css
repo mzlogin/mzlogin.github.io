@@ -180,6 +180,10 @@ div.paginator {
     font-size: 12px;
 }
 
+div.pre_next {
+    height: 27px;
+}
+
 div.post_pre {
     width: 50%;
     text-align: left;
