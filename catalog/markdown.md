@@ -61,3 +61,5 @@ title: MarkDown Test
 ```python
 print 'Hello, World!'
 ```
+
+{% gist 1027674 %}
