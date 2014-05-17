@@ -12,21 +12,22 @@ categories: Algorithm
 ###问题分析  
 设青蛙跳上n级台阶的跳法为f(n)种.  
 设Fibonacci数列的第x项值为fibo(x).  
-1. 当n=1时,f(n)=1  
-2. 当n=2时,f(n)=2  
+1. 当n=1时,f(n)=1=fibo(2)  
+2. 当n=2时,f(n)=2=fibo(3)  
 3. 当n>2时,分析可知,在跳上第n级台阶前一步,必然是在第(n-1)或(n-2)级台阶,故有f(n) = f(n-1) + f(n-2); 依此类推...  
     则有:  
-f(n)  
-= f(n-1) + f(n-2)  
-= 2f(n-2) + f(n-3)   
-= 3f(n-3) + 2f(n-4)  
-= 5 f(n-4) + 3f(n-5)  
-= 8f(n-5) + 5f(n-6)  
-= ...  
-= fibo(x+1)f(n-x)+fibo(x)f(n-(x+1))  
-=...  
-= fibo(n-1)f(n-(n-2)) + fibo(n-2)f(n-(n-1))  
-= fibo(n-1)f(2) + fibo(n-2)f(1)  
+~~f(n)~~  
+~~= f(n-1) + f(n-2)~~  
+~~= 2f(n-2) + f(n-3)~~   
+~~= 3f(n-3) + 2f(n-4)~~  
+~~= 5 f(n-4) + 3f(n-5)~~  
+~~= 8f(n-5) + 5f(n-6)~~  
+~~= ...~~  
+~~= fibo(x+1)f(n-x)+fibo(x)f(n-(x+1))~~  
+~~=...~~  
+~~= fibo(n-1)f(n-(n-2)) + fibo(n-2)f(n-(n-1))~~  
+~~= fibo(n-1)f(2) + fibo(n-2)f(1)~~  
+f(n)的规律符合Fibonacci数列的规律，它与Fibonacci的区别是Fibonacci的前两个元素是1，1，而f(n)的规律是1，2，即可知有`f(n)=fibo(n+1)`。
    
 ###简单的C++实现  
 
@@ -72,14 +73,15 @@ int main()
       
     int sum;  
   
-    if(1==n)  
-        sum = 1;  
-    else if (2==n)  
-        sum = 2;  
-    else  
-    {  
-        sum = 2 * fibo(n-1) + fibo(n-2);  
-    }  
+    //if(1==n)  
+    //    sum = 1;  
+    //else if (2==n)  
+    //    sum = 2;  
+    //else  
+    //{  
+    //    sum = 2 * fibo(n-1) + fibo(n-2);  
+    //}  
+    sum = fibo(n+1);
   
     cout << "共有 " << sum << " 种跳法." << endl;  
   
