@@ -125,6 +125,7 @@ div.nav {
     line-height: 150%;
     font-size: 18px;
     box-shadow: 2px 2px 5px #ccc;
+    text-shadow: 2px 2px 1px #ccc;
 }
 
 div.nav_rss {
