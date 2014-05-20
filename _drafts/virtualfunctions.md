@@ -81,19 +81,26 @@ int main()
     printf("sizeof FuncType is %d\n", sizeof(FuncType));
     printf("sizeof FuncType* is %d\n", sizeof(FuncType*));
 
-    CObj *pObj = new CObj(11,22);
-    printf("sizeof CObj is %d\n", sizeof(*pObj));
+    CObj *pObj1 = new CObj(11,22);
+    printf("sizeof CObj is %d\n", sizeof(*pObj1));
 
-    FuncType funcA = *(FuncType*)(*(int*)pObj);
-    funcA();
-    FuncType funcB = *((FuncType*)*(int*)pObj + 1);
-    funcB();
+    FuncType funcA1 = *(FuncType*)(*(int*)pObj1);
+    funcA1();
+    FuncType funcB1 = *((FuncType*)*(int*)pObj1 + 1);
+    funcB1();
 
-    printf("pObj->m_nData1 is %d\n", (int)(*((char*)pObj + sizeof(FuncType*))));
-    printf("pObj->m_nData2 is %d\n", (int)(*((char*)pObj + sizeof(FuncType*) + sizeof(int)/sizeof(char))));
+    printf("pObj1->m_nData1 is %d\n", (int)(*((char*)pObj1 + sizeof(FuncType*)/sizeof(char))));
+    printf("pObj1->m_nData2 is %d\n", (int)(*((char*)pObj1 + sizeof(FuncType*)/sizeof(char) + sizeof(int)/sizeof(char))));
 
-    delete pObj;
-    pObj = NULL;
+    CObj *pObj2 = new CObj(33,44);
+    FuncType funcA2 = *(FuncType*)(*(int*)pObj2);
+    printf("pObj1's vtable is %d, pObj2's vtable is %d\n", (FuncType*)(*(int*)pObj1), (FuncType*)(*(int*)pObj2));
+
+    delete pObj1;
+    pObj1 = NULL;
+
+    delete pObj2;
+    pObj2 = NULL;
     
     return 0;
 }
@@ -107,13 +114,127 @@ sizeof FuncType* is 8
 sizeof CObj is 16
 CObj::FuncA()
 CObj::FuncB()
-pObj->m_nData1 is 11
-pObj->m_nData2 is 22
+pObj1->m_nData1 is 11
+pObj1->m_nData2 is 22
+pObj1's vtable is 4316272, pObj2's vtable is 4316272
 ```
 
 ###单继承的类对象的内存结构
+子类覆盖父类虚函数之后虚函数表的变化可以通过对比明显的得出，这即是多态的实现机制。  
 * 子类无覆盖父类的虚函数  
+这种类型的子类对象的内存结构如图：  
+![derive no override](/images/posts/cplusplus/derivenooverride.png)  
+验证如下：  
+
+```c++
+// ENV : GCC 5.7.2 + Win7_X64
+#include <stdio.h>
+
+class CBase
+{
+public:
+    CBase() { m_nData1 = 10; }
+    virtual void FuncA() { printf("CBase::FuncA\n"); }
+
+private:
+    int m_nData1;
+};
+
+class CDerive : public CBase
+{
+public:
+    CDerive() { m_nData2 = 20; }
+    virtual void FuncB() { printf("CDerive::FuncB\n"); }
+    
+private:
+    int m_nData2;
+};
+
+int main()
+{
+    CDerive *pDerive = new CDerive;
+
+    typedef void (* FuncType) ();
+    
+    printf("pDerive->m_nData1 is %d\n", (int)(*((char*)pDerive + sizeof(FuncType*)/sizeof(char))));
+    printf("pDerive->m_nData2 is %d\n", (int)(*((char*)pDerive + sizeof(FuncType*)/sizeof(char) + sizeof(int)/sizeof(char))));
+
+    FuncType funcA = *(FuncType*)(*(int*)pDerive);
+    funcA();
+    FuncType funcB = *((FuncType*)(*(int*)pDerive) +1);
+    funcB();
+
+    return 0;
+}
+```
+
+输出为：  
+
+```
+pDerive->m_nData1 is 10
+pDerive->m_nData2 is 20
+CBase::FuncA
+CDerive::FuncB
+```
+
 * 子类有覆盖父类的虚函数  
+这种类型的子类对象的内存结构如图：  
+![derive override](/images/posts/cplusplus/deriveoverride.png)  
+验证如下：  
 
-###多继承的类对象的内存结构
+```c++
+// ENV : GCC 5.7.2 + Win7_X64
+#include <stdio.h>
 
+class CBase
+{
+public:
+    CBase() { m_nData1 = 10; }
+    virtual void FuncA() { printf("CBase::FuncA\n"); }
+
+private:
+    int m_nData1;
+};
+
+class CDerive : public CBase
+{
+public:
+    CDerive() { m_nData2 = 20; }
+    virtual void FuncA() { printf("CDerive::FuncA\n"); }    // add this line
+    virtual void FuncB() { printf("CDerive::FuncB\n"); }
+    
+private:
+    int m_nData2;
+};
+
+int main()
+{
+    CDerive *pDerive = new CDerive;
+
+    typedef void (* FuncType) ();
+    
+    printf("pDerive->m_nData1 is %d\n", (int)(*((char*)pDerive + sizeof(FuncType*)/sizeof(char))));
+    printf("pDerive->m_nData2 is %d\n", (int)(*((char*)pDerive + sizeof(FuncType*)/sizeof(char) + sizeof(int)/sizeof(char))));
+
+    FuncType funcA = *(FuncType*)(*(int*)pDerive);
+    funcA();
+    FuncType funcB = *((FuncType*)(*(int*)pDerive) +1);
+    funcB();
+
+    return 0;
+}
+```
+
+输出为：
+
+```
+pDerive->m_nData1 is 10
+pDerive->m_nData2 is 20
+CDerive::FuncA
+CDerive::FuncB
+```
+
+###普通多继承的类对象的内存结构
+* 
+
+###钻石结构的类对象的内存结构
