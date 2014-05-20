@@ -57,6 +57,59 @@ pObj->m_nData2 is 22
 ![Object with virtual functions](/images/posts/cplusplus/objectwithvirtual.png)  
 验证如下：  
 
+```c++
+// ENV : GCC 4.7.2 + Win7_X64
+#include <stdio.h>
+
+class CObj
+{
+public:
+    CObj(int nData1, int nData2) : m_nData1(nData1), m_nData2(nData2) {}
+    ~CObj() {}
+
+    virtual void FuncA() { printf("CObj::FuncA()\n"); }
+    virtual void FuncB() { printf("CObj::FuncB()\n"); }
+
+private:
+    int m_nData1;
+    int m_nData2;
+};
+
+int main()
+{
+    typedef void (* FuncType)();
+    printf("sizeof FuncType is %d\n", sizeof(FuncType));
+    printf("sizeof FuncType* is %d\n", sizeof(FuncType*));
+
+    CObj *pObj = new CObj(11,22);
+    printf("sizeof CObj is %d\n", sizeof(*pObj));
+
+    FuncType funcA = *(FuncType*)(*(int*)pObj);
+    funcA();
+    FuncType funcB = *((FuncType*)*(int*)pObj + 1);
+    funcB();
+
+    printf("pObj->m_nData1 is %d\n", (int)(*((char*)pObj + sizeof(FuncType*))));
+    printf("pObj->m_nData2 is %d\n", (int)(*((char*)pObj + sizeof(FuncType*) + sizeof(int)/sizeof(char))));
+
+    delete pObj;
+    pObj = NULL;
+    
+    return 0;
+}
+```
+
+输出为：  
+
+```
+sizeof FuncType is 8
+sizeof FuncType* is 8
+sizeof CObj is 16
+CObj::FuncA()
+CObj::FuncB()
+pObj->m_nData1 is 11
+pObj->m_nData2 is 22
+```
 
 ###单继承的类对象的内存结构
 * 子类无覆盖父类的虚函数  
