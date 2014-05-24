@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 从对象内存结构理解虚函数表
+title: 学习虚函数表与对象内存结构
 categories: cplusplus
 ---
 
@@ -8,11 +8,18 @@ categories: cplusplus
 
 *以下代码及运行结果基于Win7_64 + GCC 4.7.2环境，其它环境下可能程序运行结果等有出入，但是原理相通。*
 
-###类对象的内存结构
+###索引
+* [无继承类对象的内存结构](#toc_1)  
+* [单继承的类对象的内存结构](#toc_2)  
+* [普通多继承的类对象的内存结构](#toc_3)  
+* [单虚继承的类对象的内存结构](#toc_4)
+* [钻石结构的类对象的内存结构](#toc_5)  
+
+###无继承类对象的内存结构
 先来看看有与没有虚函数的类的对象的内存结构的不同之处：  
 
-**无虚函数的对象的内存结构**   
-无虚函数的对象的内存结构大致为：  
+**无虚函数的对象**   
+内存结构：  
 ![Object with no virtual function](/images/posts/cplusplus/objectwithnovirtual.png)  
 验证如下：  
 
@@ -43,8 +50,11 @@ int main()
 来看看obj的实际内存分布：  
 ![Object with no virtual function](/images/posts/cplusplus/objectwithnovirtual_mem.png)
 
-**有虚函数的对象的内存结构**  
-有虚函数的对象的内存结构大致为：  
+小结：  
+* 数据成员按声明顺序排列
+
+**有虚函数的对象**  
+内存结构：  
 ![Object with virtual functions](/images/posts/cplusplus/objectwithvirtual.png)  
 验证如下：  
 
@@ -77,10 +87,13 @@ int main()
 来看看obj1和obj2的实际内存结构：  
 ![Object with virtual functions](/images/posts/cplusplus/objectwithvirtual_mem.png)  
 
+小结：  
+* 虚函数指针在虚表内按声明顺序排列
+
 ###单继承的类对象的内存结构
 子类覆盖父类虚函数之后虚函数表的变化可以通过对比明显的得出，这即是多态的实现机制。  
 **子类无覆盖父类的虚函数**  
-这种类型的子类对象的内存结构如图：  
+内存结构：  
 ![derive no override](/images/posts/cplusplus/derivenooverride.png)  
 验证如下：  
 
@@ -118,9 +131,12 @@ int main()
 来看看pDerive的实际内存结构：  
 ![derive no override](/images/posts/cplusplus/derivenooverride_mem.png)  
 
+小结：  
+* 父类成员在子类成员之前  
+* 父类虚函数在子类虚函数之前
 
 **子类有覆盖父类的虚函数**  
-这种类型的子类对象的内存结构如图：  
+内存结构：  
 ![derive override](/images/posts/cplusplus/deriveoverride.png)  
 验证如下：  
 
@@ -160,7 +176,7 @@ int main()
 ![derive override](/images/posts/cplusplus/deriveoverride_mem.png)  
 
 ###普通多继承的类对象的内存结构
-这种类型的子类对象的内存结构如图：  
+内存结构：  
 ![multi derive](/images/posts/cplusplus/multiderive.png)  
 验证如下：  
 
@@ -212,8 +228,59 @@ int main()
 来看看pDerive、pBase1和pBase2在实际内存中的情况：  
 ![multi derive](/images/posts/cplusplus/multiderive_mem.png)  
 
+小结：  
+* 多个父类的成员在内存中按继承时声明的顺序排列  
+* 子类数据成员放在最后一个父类的数据成员之后  
+* 子类虚函数列表在第一个虚表中  
+* 第一张虚表中存放了所有的虚函数指针，其它虚表存放了某个父类的（可能是被覆盖后的）虚函数指针
+
+###单虚继承的类对象的内存结构
+内存结构：  
+![virtual derive](/image/posts/cplusplus/virtualderive.png)
+验证如下：  
+
+```c++
+#include <stdio.h>
+
+class CBase
+{
+public:
+    CBase() { m_nData1 = 10; }
+    virtual void FuncA() { printf("CBase::FuncA\n"); }
+
+private:
+    int m_nData1;
+};
+
+class CDerive : public virtual CBase
+{
+public:
+    CDerive() { m_nData2 = 20; }
+    virtual void FuncA() { printf("CDerive::FuncA\n"); }
+    virtual void FuncB() { printf("CDerive::FuncB\n"); }
+
+private:
+    int m_nData2;
+};
+
+int main()
+{
+    CDerive *pDerive = new CDerive;
+    CBase *pBase = pDerive;
+
+    return 0;
+}
+```
+
+来看看pDerive、pBase在实际内存中的情况：
+![virtual derive](/image/posts/cplusplus/virtualderive_mem.png)
+
+小结：  
+* 父类数据成员会放在第二张虚表指针之后  
+* 第一张虚表里存放了所有的虚函数指针
+
 ###钻石结构的类对象的内存结构
-这种类型的子类对象的内存结构如图：  
+内存结构：  
 ![diamond derive](/images/posts/cplusplus/diamond.png)  
 验证如下：  
 
@@ -275,3 +342,6 @@ int main()
 
 来看看pDerive、pBase、pBase1和pBase2在实际内存中的情况：  
 ![diamond derive](/images/posts/cplusplus/diamond_mem.png)  
+
+小结：  
+* 第一张虚表里没有存放根父类的虚函数指针  
