@@ -51,6 +51,7 @@ int main()
 ![Object with no virtual function](/images/posts/cplusplus/objectwithnovirtual_mem.png)
 
 小结：  
+
 * 数据成员按声明顺序排列
 
 **有虚函数的对象**  
@@ -88,6 +89,7 @@ int main()
 ![Object with virtual functions](/images/posts/cplusplus/objectwithvirtual_mem.png)  
 
 小结：  
+
 * 虚函数指针在虚表内按声明顺序排列
 
 ###单继承的类对象的内存结构
@@ -132,6 +134,7 @@ int main()
 ![derive no override](/images/posts/cplusplus/derivenooverride_mem.png)  
 
 小结：  
+
 * 父类成员在子类成员之前  
 * 父类虚函数在子类虚函数之前
 
@@ -229,6 +232,7 @@ int main()
 ![multi derive](/images/posts/cplusplus/multiderive_mem.png)  
 
 小结：  
+
 * 多个父类的成员在内存中按继承时声明的顺序排列  
 * 子类数据成员放在最后一个父类的数据成员之后  
 * 子类虚函数列表在第一个虚表中  
@@ -276,6 +280,7 @@ int main()
 ![virtual derive](/image/posts/cplusplus/virtualderive_mem.png)
 
 小结：  
+
 * 父类数据成员会放在第二张虚表指针之后  
 * 第一张虚表里存放了所有的虚函数指针
 
@@ -344,4 +349,5 @@ int main()
 ![diamond derive](/images/posts/cplusplus/diamond_mem.png)  
 
 小结：  
+
 * 第一张虚表里没有存放根父类的虚函数指针  
