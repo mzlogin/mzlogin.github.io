@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 学习虚函数表与对象内存结构
+title: 对象内存结构及虚函数表分析
 categories: cplusplus
 ---
 
