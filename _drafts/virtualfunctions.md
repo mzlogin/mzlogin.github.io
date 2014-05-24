@@ -11,7 +11,7 @@ categories: cplusplus
 ###类对象的内存结构
 先来看看有与没有虚函数的类的对象的内存结构的不同之处：  
 
-* **无虚函数的对象的内存结构**   
+**无虚函数的对象的内存结构**   
 无虚函数的对象的内存结构大致为：  
 ![Object with no virtual function](/images/posts/cplusplus/objectwithnovirtual.png)  
 验证如下：  
@@ -43,7 +43,7 @@ int main()
 来看看obj的实际内存分布：  
 ![Object with no virtual function](/images/posts/cplusplus/objectwithnovirtual_mem.png)
 
-* **有虚函数的对象的内存结构**  
+**有虚函数的对象的内存结构**  
 有虚函数的对象的内存结构大致为：  
 ![Object with virtual functions](/images/posts/cplusplus/objectwithvirtual.png)  
 验证如下：  
@@ -79,7 +79,7 @@ int main()
 
 ###单继承的类对象的内存结构
 子类覆盖父类虚函数之后虚函数表的变化可以通过对比明显的得出，这即是多态的实现机制。  
-* **子类无覆盖父类的虚函数**  
+**子类无覆盖父类的虚函数**  
 这种类型的子类对象的内存结构如图：  
 ![derive no override](/images/posts/cplusplus/derivenooverride.png)  
 验证如下：  
@@ -111,30 +111,15 @@ int main()
 {
     CDerive *pDerive = new CDerive;
 
-    typedef void (* FuncType) ();
-    
-    printf("pDerive->m_nData1 is %d\n", (int)(*((char*)pDerive + sizeof(FuncType*)/sizeof(char))));
-    printf("pDerive->m_nData2 is %d\n", (int)(*((char*)pDerive + sizeof(FuncType*)/sizeof(char) + sizeof(int)/sizeof(char))));
-
-    FuncType funcA = *(FuncType*)(*(int*)pDerive);
-    funcA();
-    FuncType funcB = *((FuncType*)(*(int*)pDerive) +1);
-    funcB();
-
     return 0;
 }
 ```
 
-输出为：  
+来看看pDerive的实际内存结构：  
+![derive no override](/images/posts/cplusplus/derivenooverride_mem.png)  
 
-```
-pDerive->m_nData1 is 10
-pDerive->m_nData2 is 20
-CBase::FuncA
-CDerive::FuncB
-```
 
-* **子类有覆盖父类的虚函数**  
+**子类有覆盖父类的虚函数**  
 这种类型的子类对象的内存结构如图：  
 ![derive override](/images/posts/cplusplus/deriveoverride.png)  
 验证如下：  
@@ -167,30 +152,126 @@ int main()
 {
     CDerive *pDerive = new CDerive;
 
-    typedef void (* FuncType) ();
-    
-    printf("pDerive->m_nData1 is %d\n", (int)(*((char*)pDerive + sizeof(FuncType*)/sizeof(char))));
-    printf("pDerive->m_nData2 is %d\n", (int)(*((char*)pDerive + sizeof(FuncType*)/sizeof(char) + sizeof(int)/sizeof(char))));
+    return 0;
+}
+```
 
-    FuncType funcA = *(FuncType*)(*(int*)pDerive);
-    funcA();
-    FuncType funcB = *((FuncType*)(*(int*)pDerive) +1);
-    funcB();
+来看看pDerive的实际内存结构：  
+![derive override](/images/posts/cplusplus/deriveoverride_mem.png)  
+
+###普通多继承的类对象的内存结构
+这种类型的子类对象的内存结构如图：  
+![multi derive](/images/posts/cplusplus/multiderive.png)  
+验证如下：  
+
+```c++
+#include <stdio.h>
+
+class CBase1
+{
+public:
+    CBase1() { m_nData1 = 10; }
+    virtual void FuncA() { printf("CBase1::FuncA\n"); }
+
+private:
+    int m_nData1;
+};
+
+class CBase2
+{
+public:
+    CBase2() { m_nData2 = 20; }
+    virtual void FuncB() { printf("CBase2::FuncB\n"); }
+    
+private:
+    int m_nData2;
+};
+
+class CDerive : public CBase1, public CBase2
+{
+public:
+    CDerive() { m_nData3 = 30; }
+    virtual void FuncA() { printf("CDerive::FuncA\n"); }
+    virtual void FuncB() { printf("CDerive::FuncB\n"); }
+    virtual void FuncC() { printf("CDerive::FuncC\n"); }
+    
+private:
+    int m_nData3;
+};
+
+int main()
+{
+    CDerive *pDerive = new CDerive;
+    CBase1 *pBase1 = pDerive;
+    CBase2 *pBase2 = pDerive;
 
     return 0;
 }
 ```
 
-输出为：
-
-```
-pDerive->m_nData1 is 10
-pDerive->m_nData2 is 20
-CDerive::FuncA
-CDerive::FuncB
-```
-
-###普通多继承的类对象的内存结构
-* 
+来看看pDerive、pBase1和pBase2在实际内存中的情况：  
+![multi derive](/images/posts/cplusplus/multiderive_mem.png)  
 
 ###钻石结构的类对象的内存结构
+这种类型的子类对象的内存结构如图：  
+![diamond derive](/images/posts/cplusplus/diamond.png)  
+验证如下：  
+
+```c++
+#include <stdio.h>
+
+class CBase
+{
+public:
+    CBase() { m_nData = 1; }
+    virtual void Func() { printf("CBase::Func\n"); }
+
+private:
+    int m_nData;
+};
+
+class CBase1 : virtual public CBase
+{
+public:
+    CBase1() { m_nData1 = 10; }
+    virtual void FuncA() { printf("CBase1::FuncA\n"); }
+
+private:
+    int m_nData1;
+};
+
+class CBase2 : virtual public CBase
+{
+public:
+    CBase2() { m_nData2 = 20; }
+    virtual void FuncB() { printf("CBase2::FuncB\n"); }
+    
+private:
+    int m_nData2;
+};
+
+class CDerive : public CBase1, public CBase2
+{
+public:
+    CDerive() { m_nData3 = 30; }
+    virtual void FuncA() { printf("CDerive::FuncA\n"); }
+    virtual void FuncB() { printf("CDerive::FuncB\n"); }
+    virtual void FuncC() { printf("CDerive::FuncC\n"); }
+    
+private:
+    int m_nData3;
+};
+
+int main()
+{
+    CDerive *pDerive = new CDerive;
+    CBase *pBase = pDerive;
+    CBase1 *pBase1 = pDerive;
+    CBase2 *pBase2 = pDerive;
+
+    return 0;
+}
+```
+
+来看看pDerive、pBase、pBase1和pBase2在实际内存中的情况：  
+![diamond derive](/images/posts/cplusplus/diamond_mem.png)  
