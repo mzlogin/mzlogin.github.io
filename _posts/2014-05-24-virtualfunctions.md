@@ -240,7 +240,7 @@ int main()
 
 ###单虚继承的类对象的内存结构
 内存结构：  
-![virtual derive](/image/posts/cplusplus/virtualderive.png)
+![virtual derive](/images/posts/cplusplus/virtualderive.png)
 验证如下：  
 
 ```c++
@@ -277,7 +277,7 @@ int main()
 ```
 
 来看看pDerive、pBase在实际内存中的情况：
-![virtual derive](/image/posts/cplusplus/virtualderive_mem.png)
+![virtual derive](/images/posts/cplusplus/virtualderive_mem.png)
 
 小结：  
 
