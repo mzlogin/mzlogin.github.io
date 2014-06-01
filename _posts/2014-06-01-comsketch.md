@@ -23,15 +23,15 @@ categories: COM
 **聚合**
 对象B聚合对象A，对象B使用聚合方式提供接口InterfaceA，则对象B不需要实现InterfaceA，直接暴露对象A的InterfaceA。  
 对象聚合示意图：  
-![对象聚合示意图](images/posts/com/polymerize.png)
+![对象聚合示意图](/images/posts/com/polymerize.png)
 对象A也需要为支持聚合做一些事情——实现一个委托IUnknown接口和一个非委托IUnknown接口。  
 >按照通常使用方式实现的IUnknown为非委托IUnknown，而委托IUnknown在不同的情况下有不同的行为：当对象被正常使用时，委托IUnknown把调用传递给对象的非委托IUnknown；当对象被聚合使用时，委托IUnknown把调用传递到外部对象的IUnknown接口，即对象被创建时传递进来的pUnknownOuter参数，并且，这时外部对象通过非委托IUnknown对内部对象进行控制。  
 
 支持聚合的对象在非聚合方式下的接口示意图：  
-![支持聚合的对象在非聚合方式下的接口示意图](images/posts/com/polynormal.png)
+![支持聚合的对象在非聚合方式下的接口示意图](/images/posts/com/polynormal.png)
 
 支持聚合的对象在聚合方式下的接口示意图：
-![支持聚合的对象在聚合方式下的接口示意图](images/posts/com/polypoly.png)
+![支持聚合的对象在聚合方式下的接口示意图](/images/posts/com/polypoly.png)
 
 ###进程外组件与客户程序的协作方式
 ![进程外组件与客户程序协作的结构图](/images/posts/com/outprocess.png)
