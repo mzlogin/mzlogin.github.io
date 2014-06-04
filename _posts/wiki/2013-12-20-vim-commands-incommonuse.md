@@ -43,6 +43,8 @@ categories: Wiki
 |CTRL-b|向上翻页|
 |CTRL-d|向下翻半页|
 |CTRL-u|向上翻半页|
+|CTRL-y|向上一行|
+|CTRL-e|向下一行|
 
 行号  
 
