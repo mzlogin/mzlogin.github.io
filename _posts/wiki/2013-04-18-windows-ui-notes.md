@@ -21,3 +21,6 @@ A：一个可能的原因是窗口标题为空
 
 Q：在XP任务栏右键无菜单，在Win7任务栏右键只有一个关闭项  
 A：给窗口添加WS_SYSMENU风格
+
+Q：程序的系统托盘图标右键菜单不消失
+A：在`menu.TrackPopupMenu`前调用`SetForegroundWindow(m_hWnd)`

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: VBA在Excel中的常用操作
-categories: VBA
+categories: Excel
 ---
 
 ####创建一个EXCEL工作簿对象:  

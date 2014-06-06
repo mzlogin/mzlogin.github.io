@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Windows实用技巧汇总
-categories: Wiki
+categories: Windows
 ---
 
 ###Win7不按Shift,右键显示"在此处打开命令窗口(W)"  

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: EXCEL常用操作
-categories: Wiki
+categories: Excel
 ---
 
 ###查找
