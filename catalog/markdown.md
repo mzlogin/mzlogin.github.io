@@ -58,7 +58,7 @@ title: MarkDown Test
 
 ###代码块
 
-```python
+```python HelloWorld
 print 'Hello, World!'
 ```
 
