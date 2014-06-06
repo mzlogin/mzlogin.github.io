@@ -69,7 +69,7 @@ pre {
     padding: 6px 10px;
     font-size: 75%;
     line-height: 130%;
-    width: 95%;
+    /*width: 95%;*/
     overflow: auto;
 }
 
@@ -199,6 +199,7 @@ div.post_next {
     float: right;
 }
 
+/*
 table {
     border-collapse: collapse;
     border: 1px solid #666;
@@ -214,3 +215,4 @@ td {
     border: 1px solid #666;
     font-size: 75%
 }
+*/
