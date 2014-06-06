@@ -50,7 +50,7 @@ H4 {
 
 li {
     margin-left: 10px;
-    /* display: block; */
+    //display: block;
 }
 
 
@@ -65,11 +65,11 @@ pre {
     font-family: Inconsolata, Consolas, "DEJA VU SANS MONO", "DROID SANS MONO", Proggy, monospace;
     border: solid 1px #ddd;
     border-radius: 3px;
-    background-color: #f8f8f8;
+    background-color: #f8f8ff;
     padding: 6px 10px;
     font-size: 75%;
     line-height: 130%;
-    /*width: 95%;*/
+    //width: 95%;
     overflow: auto;
 }
 
@@ -79,7 +79,7 @@ code {
     font-size: 90%;
     border: solid 1px #ddd;
     border-radius: 3px;
-    background-color: #f8f8f8;
+    background-color: #f8f8ff;
     margin: 0 2px;
     padding: 0px 5px;
 }
@@ -199,20 +199,19 @@ div.post_next {
     float: right;
 }
 
-/*
 table {
-    border-collapse: collapse;
-    border: 1px solid #666;
+    //border-collapse: collapse;
+    //border: 1px solid #666;
 }
 
 th {
-    border: 1px solid #666;
+    //border: 1px solid #666;
     background-color: #dedede;
     font-size: 90%;
 }
 
 td {
-    border: 1px solid #666;
+    //border: 1px solid #666;
+    background-color: #f8f8ff;
     font-size: 75%
 }
-*/
