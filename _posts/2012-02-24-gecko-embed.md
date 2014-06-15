@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 将Mozilla源码里的内嵌Gecko示例winEmbed工程移植到VC
+title: 将Mozilla源码里的winEmbed工程移植到VC
 categories: Gecko
 ---
 
