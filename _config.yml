@@ -29,3 +29,8 @@ gems:
 #      Comments    #
 # ---------------- #
 duoshuo_short_name: mazhuang
+
+# ---------------- #
+#      Adsense     #
+# ---------------- #
+adsense_switch: off
