@@ -60,7 +60,7 @@ categories: Lisp
            (enigma (cdr x)))))
 ```
 
-解答：判断x列表中是否有nil元素
+**解答：**判断x列表中是否有nil元素
 
 (b)  
 
@@ -74,7 +74,7 @@ categories: Lisp
         (and z (+ z 1))))))
 ```
 
-解答：查找x在列表y中的下标，如果没有则为nil
+**解答：**查找x在列表y中的下标，如果没有则为nil
 
 **6.下列表达式， x 该是什么，才会得到相同的结果？**  
 (a) > (car (x (cdr '(a (b c) d))))  
