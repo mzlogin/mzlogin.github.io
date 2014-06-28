@@ -20,6 +20,7 @@ categories: Lisp
 **答案：**`(NIL 3)`  
   
 **2.给出 3 种不同表示 (a b c) 的 cons 表达式 。**  
+**答案：**  
 
 ```cl
 (cons 'a '(b c))
@@ -28,6 +29,7 @@ categories: Lisp
 ```
 
 **3.使用 car 与 cdr 来定义一个函数，返回一个列表的第四个元素。**  
+**答案：**  
 
 ```cl
 (defun get-fourth (lst)
@@ -42,6 +44,7 @@ categories: Lisp
 ```
 
 **4.定义一个函数，接受两个实参，返回两者当中较大的那个。** 
+**答案：**  
 
 ```cl
 (defun get-max(x y)
@@ -60,7 +63,7 @@ categories: Lisp
            (enigma (cdr x)))))
 ```
 
-**解答：**判断x列表中是否有nil元素
+**答案：**判断x列表中是否有nil元素
 
 (b)  
 
@@ -74,7 +77,7 @@ categories: Lisp
         (and z (+ z 1))))))
 ```
 
-**解答：**查找x在列表y中的下标，如果没有则为nil
+**答案：**查找x在列表y中的下标，如果没有则为nil
 
 **6.下列表达式， x 该是什么，才会得到相同的结果？**  
 (a) > (car (x (cdr '(a (b c) d))))  
