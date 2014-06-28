@@ -4,7 +4,7 @@ title: ANSI Common Lisp第二章习题解答
 categories: Lisp
 ---
 
-本文是个人对[第二章：欢乐来到Lisp——ANSI Common Lisp 中文版](http://acl.readthedocs.org/en/latest/zhCN/ch2-cn.html)一文中习题的解答。
+本文是个人对[第二章：欢迎来到Lisp——ANSI Common Lisp 中文版](http://acl.readthedocs.org/en/latest/zhCN/ch2-cn.html)一文中习题的解答。
 
 **1.描述下列表达式求值之后的结果：**  
 (a) (+ (- 5 1) (+ 3 7))  
