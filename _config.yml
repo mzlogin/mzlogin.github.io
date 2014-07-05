@@ -33,5 +33,5 @@ duoshuo_short_name: mazhuang
 # ---------------- #
 #      Adsense     #
 # ---------------- #
-adsense: false
-amazon: true
+adsense: true
+amazon: false
