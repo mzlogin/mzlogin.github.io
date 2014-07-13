@@ -6,6 +6,7 @@ categories: Windows
 
 ###结论
 在默认情况下，Windows加载程序在用户磁盘上搜索DLL的搜索顺序：  
+
 1. 包含可执行文件的目录。  
 2. Windows的系统目录，该目录可以通过GetSystemDirectory得到，一般为System32目录，若为32位程序跑在64位系统下，则为SysWOW64目录。  
 3. 16位的系统目录，即Windows目录中的System目录。  
@@ -21,6 +22,7 @@ categories: Windows
 
 我对这个说法持保留意见，因为在我的验证中，在一个Windows XP SP1的环境中已经应用了此搜索顺序。  
 另外，有一些其它方法可以改变加载程序的搜索顺序，已知的有：  
+
 1. SetDllDirectory函数。如果传入一个有效路径，那么它将被插入在默认顺序的1与2之间。  
 2. HKEY\_LOCAL\_MACHINES\SYSTEM\CurrentControlSet\Control\Session Manager下的SafeDllSearchMode键值。  
 3. 调用LoadLibraryEx函数时使用LOAD\_WITH\_ALTERED\_SEARCH\_PATH等标志。  
@@ -83,7 +85,8 @@ int main()
 `gcc test.c -o test.exe`
 
 测试方法：  
-1. 在结论中提及的所有路径中各放置一份lib.dll文件。
+
+1. 在结论中提及的所有路径中各放置一份lib.dll文件。  
 2. 运行test.exe，可以看到控制台输出加载的lib.dll文件的路径。  
 3. 把本次test.exe加载到的lib.dll文件删掉。  
 4. 重复2-3步骤。
