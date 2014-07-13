@@ -20,7 +20,7 @@ categories: COM
 对象包容示意图：  
 ![对象包容示意图](/images/posts/com/contain.png)
 
-**聚合**
+**聚合**  
 对象B聚合对象A，对象B使用聚合方式提供接口InterfaceA，则对象B不需要实现InterfaceA，直接暴露对象A的InterfaceA。  
 对象聚合示意图：  
 ![对象聚合示意图](/images/posts/com/polymerize.png)
