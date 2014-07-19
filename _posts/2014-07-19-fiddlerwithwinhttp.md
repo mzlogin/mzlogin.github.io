@@ -19,49 +19,51 @@ Eric的那篇博客里已经列出了相关的方法和代码，本文只是对�
 `netsh winhttp import proxy ie`  
 *注：在Win7 64位系统下需要将System32目录和SysWOW64目录下的netsh命令各执行一次,下方将给出的脚本已覆盖这种情况。*  
 
-但是如果使用频繁，每次都还要去手动敲命令行还是挺痛苦的，作为能偷懒的地方绝不多放过的少年，一劳永逸的方法当然是让它随Fiddler的启动与关闭自动执行这些命令，这可以通过修改CustomRules.js实现（如果想对Fiddler的扩展机制进行深入了解可以去参阅Fiddler官网的文档）。  
+但是如果使用频繁，每次都还要去手动敲命令行还是挺痛苦的，作为能偷懒的地方绝不多放过的少年，一劳永逸的方法当然是让它随Fiddler的启动与关闭自动执行这些命令（当然这就是Eric的博客里讲述的方法）。  
   
 ###实现
-操作方法：  
-**打开Fiddler -- 点击菜单Rules -- 点击Customize Rules...**   
+这可以通过修改CustomRules.js实现（如果想对Fiddler的扩展机制进行深入了解可以去参阅Fiddler官网的文档）。  
   
-然后就打开了CustomRules.js文件，寻找到`OnAttach`与`OnDetach`函数，可以将Fiddler启动后与关闭前需要定制的一些自动动作分别填写在它们里头，我们为实现让Fiddler能抓取WinHTTP发送的请求的目的而修改后的代码如下，添加了`UpdateWinHTTPSettings`函数，在`OnAttach`和`OnDetach`里添加了对它的调用。
+操作方法：  
+**打开Fiddler > 点击菜单Rules > 点击Customize Rules...**   
+  
+然后就打开了CustomRules.js文件，寻找到`OnAttach`与`OnDetach`函数，可以将Fiddler启动后与关闭前需要定制的一些自动动作分别填写在它们里头，我们为实现让Fiddler能抓取WinHTTP发送的请求的目的而修改后的代码如下，添加了`UpdateWinHTTPSettings`函数，在`OnAttach`和`OnDetach`里添加了对它的调用，修改完后保存即可生效。
 
 ```js
-    static function OnAttach() {
-        UpdateWinHTTPSettings();
-    }
-    static function OnDetach() {
-        UpdateWinHTTPSettings();
-    }
-        
-    static function UpdateWinHTTPSettings() {
-        var oPSI: System.Diagnostics.ProcessStartInfo 
-            = new System.Diagnostics.ProcessStartInfo();
-        var os : OperatingSystem = Environment.OSVersion;
-        if (os.Version.Major >= 6) {
-            oPSI.UseShellExecute = true;
-            oPSI.FileName = "netsh.exe";
-            oPSI.Verb = "runas";
-            oPSI.Arguments = "winhttp import proxy ie";
-            System.Diagnostics.Process.Start(oPSI);
-        
-            // Re-run 32bit version
-            oPSI.FileName = oPSI.FileName = 
-                Environment.SystemDirectory.Replace("system32", "syswow64") 
-                + "\\netsh.exe";    
-            if (System.IO.File.Exists(oPSI.FileName)) {
-                System.Diagnostics.Process.Start(oPSI);
-            }
-        }
-        else {
-            oPSI.UseShellExecute = true;
-            oPSI.FileName = "proxycfg.exe";
-            oPSI.Verb = "open";
-            oPSI.Arguments = "-u";
+static function OnAttach() {
+    UpdateWinHTTPSettings();
+}
+static function OnDetach() {
+    UpdateWinHTTPSettings();
+}
+    
+static function UpdateWinHTTPSettings() {
+    var oPSI: System.Diagnostics.ProcessStartInfo 
+        = new System.Diagnostics.ProcessStartInfo();
+    var os : OperatingSystem = Environment.OSVersion;
+    if (os.Version.Major >= 6) {
+        oPSI.UseShellExecute = true;
+        oPSI.FileName = "netsh.exe";
+        oPSI.Verb = "runas";
+        oPSI.Arguments = "winhttp import proxy ie";
+        System.Diagnostics.Process.Start(oPSI);
+    
+        // Re-run 32bit version
+        oPSI.FileName = oPSI.FileName = 
+            Environment.SystemDirectory.Replace("system32", "syswow64") 
+            + "\\netsh.exe";    
+        if (System.IO.File.Exists(oPSI.FileName)) {
             System.Diagnostics.Process.Start(oPSI);
         }
     }
+    else {
+        oPSI.UseShellExecute = true;
+        oPSI.FileName = "proxycfg.exe";
+        oPSI.Verb = "open";
+        oPSI.Arguments = "-u";
+        System.Diagnostics.Process.Start(oPSI);
+    }
+}
 ```
 
 `UpdateWinHTTPSettings`函数里做的事情其实很简单，就是使用管理员权限执行文章前面说到的命令。

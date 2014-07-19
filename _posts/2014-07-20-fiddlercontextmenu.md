@@ -12,7 +12,9 @@ categories: Fiddler
 而联想到Fiddler的Composer功能能够将某条SESSION按自己的需要修改后重新发出，那利用Composer来做应该是比较容易实现且便捷的方式。
 
 ###实现
-对Fiddler的扩展比较方便的是使用FiddlerScript，修改CustomRules.js来做。比如希望在hostname为`www.mazhuang.org`的SESSION上右键后利用自己添加的菜单项将此SESSION的hostname修改为`mazhuang.org`后重新发送请求，最终在CustomRules.js文件中添加了如下代码即可。添加方法：  
+对Fiddler的扩展比较方便的是使用FiddlerScript，修改CustomRules.js来做。比如希望在hostname为`www.mazhuang.org`的SESSION上右键后利用自己添加的菜单项将此SESSION的hostname修改为`mazhuang.org`后重新发送请求，最终在CustomRules.js文件中添加了如下代码即可。  
+  
+添加方法：  
 **启动Fiddler > 选择菜单Rules > 选择菜单项Customize Rules... > 将如下代码粘贴在`OnDetach`函数后面 > 保存**  
 *注：发现将下面的函数放在`OnDetach`函数自己添加的菜单项就不是第一项，而放在`OnDetach`后就是第一项了，这个很奇怪，未想到合理原因。*  
 
