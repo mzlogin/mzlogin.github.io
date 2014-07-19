@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 定制Fiddler之让它能抓获WinHTTP请求
+title: 定制Fiddler之抓获WinHTTP请求
 categories: Fiddler
 ---
 
@@ -20,7 +20,7 @@ Eric的那篇博客里已经列出了相关的方法和代码，本文只是对�
 但是如果使用频繁，每次都还要去手动敲命令行还是挺痛苦的，作为能偷懒的地方绝不多放过的少年，一劳永逸的方法当然是让它随Fiddler的启动与关闭自动执行这些命令，这可以通过修改CustomRules.js实现（如果想对Fiddler的扩展机制进行深入了解可以去参阅Fiddler官网的文档）。  
 操作方法：  
 **打开Fiddler -- 点击菜单Rules -- 点击Customize Rules...**   
-然后就打开了CustomRules.js文件，寻找到`OnAttach`与`OnDetach`函数，可以将Fiddler启动后与关闭前需要定制的一些自动动作分别填写在它们里头，那我们为实现让Fiddler能抓取WinHTTP发送的请求的目的而修改后的代码如下，添加了`UpdateWinHTTPSettings`函数，在`OnAttach`和`OnDetach`里添加了对它的调用。
+然后就打开了CustomRules.js文件，寻找到`OnAttach`与`OnDetach`函数，可以将Fiddler启动后与关闭前需要定制的一些自动动作分别填写在它们里头，我们为实现让Fiddler能抓取WinHTTP发送的请求的目的而修改后的代码如下，添加了`UpdateWinHTTPSettings`函数，在`OnAttach`和`OnDetach`里添加了对它的调用。
 
 ```js
     static function OnAttach() {
