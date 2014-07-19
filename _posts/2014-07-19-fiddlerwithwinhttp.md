@@ -8,7 +8,7 @@ categories: Fiddler
 
 Eric的那篇博客里已经列出了相关的方法和代码，本文只是对其略做改进，让同一段代码可以适配不同的Windows版本。
 
-我们需要让Fiddler抓取WinHTTP的包时，要做的就是让WinHTTP的代理设置改为与WinINET一致，然后在Fiddler关闭时将其还原即可。这些通过Windows自带命令就可以做到：  
+我们需要让Fiddler抓取WinHTTP的包时，要做的就是让WinHTTP的代理设置改为与WinINET一致，因为WinINET在Fiddler启动后使用Fiddler作为代理。这些通过Windows自带命令就可以做到：  
 
 * 在XP下：  
 `proxycfg -u`  
