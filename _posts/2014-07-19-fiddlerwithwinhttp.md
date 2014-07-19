@@ -9,16 +9,18 @@ categories: Fiddler
 Eric的那篇博客里已经列出了相关的方法和代码，本文只是对其略做改进，让同一段代码可以适配不同的Windows版本。
 
 我们需要让Fiddler抓取WinHTTP的包时，要做的就是让WinHTTP的代理设置改为与WinINET一致，然后在Fiddler关闭时将其还原即可。这些通过Windows自带命令就可以做到：  
+
 * 在XP下：  
 `proxycfg -u`  
-* 在Win7下：  
+
+* 在Win7下（使用管理员权限的命令行）：  
 `netsh winhttp import proxy ie`  
 *注：在Win7 64位系统下需要将System32目录和SysWOW64目录下的netsh命令各执行一次,下方将给出的脚本已覆盖这种情况。*  
 
 但是如果使用频繁，每次都还要去手动敲命令行还是挺痛苦的，作为能偷懒的地方绝不多放过的少年，一劳永逸的方法当然是让它随Fiddler的启动与关闭自动执行这些命令，这可以通过修改CustomRules.js实现（如果想对Fiddler的扩展机制进行深入了解可以去参阅Fiddler官网的文档）。  
 操作方法：  
 **打开Fiddler -- 点击菜单Rules -- 点击Customize Rules...**   
-然后就打开了CustomRules.js文件，寻找到`OnAttach`与`OnDetach`函数，可以将Fiddler启动后与关闭前需要定制的一些自动动作分别填写在它们里头，那我们为实现让Fiddler能抓取WinHTTP发送的请求的目的而修改后的代码如下，添加了`UpdateWinHTTPSettings`函数，在`OnAttach`和`OnDetach`里添加了对它们的调用。
+然后就打开了CustomRules.js文件，寻找到`OnAttach`与`OnDetach`函数，可以将Fiddler启动后与关闭前需要定制的一些自动动作分别填写在它们里头，那我们为实现让Fiddler能抓取WinHTTP发送的请求的目的而修改后的代码如下，添加了`UpdateWinHTTPSettings`函数，在`OnAttach`和`OnDetach`里添加了对它的调用。
 
 ```js
     static function OnAttach() {
@@ -28,7 +30,6 @@ Eric的那篇博客里已经列出了相关的方法和代码，本文只是对�
         UpdateWinHTTPSettings();
     }
         
-    //public static ToolsAction("Update WinHTTPSettings")   // 这个不需要加到菜单项，加了没用……不是开关
     static function UpdateWinHTTPSettings() {
         var oPSI: System.Diagnostics.ProcessStartInfo 
             = new System.Diagnostics.ProcessStartInfo();
