@@ -8,8 +8,7 @@ categories: Fiddler
 对Fiddler抓取的某个特定SESSION能在必要时手动操作发往另一个服务器。
 
 ###设想
-在SESSION上点击右键弹出的菜单中添加一项，让它对应的响应事件来完成此操作。  
-而联想到Fiddler的Composer功能能够将某条SESSION按自己的需要修改后重新发出，那利用Composer来做应该是比较容易实现且便捷的方式。
+在SESSION上点击右键弹出的菜单中添加一项，让它对应的响应事件来完成此操作。而联想到Fiddler的Composer功能能够将某条SESSION按自己的需要修改后重新发出，那利用Composer来做应该是比较容易实现且便捷的方式。
 
 ###实现
 对Fiddler的扩展比较方便的是使用FiddlerScript，修改CustomRules.js来做。比如希望在hostname为`www.mazhuang.org`的SESSION上右键后利用自己添加的菜单项将此SESSION的hostname修改为`mazhuang.org`后重新发送请求，最终在CustomRules.js文件中添加了如下代码即可。  
