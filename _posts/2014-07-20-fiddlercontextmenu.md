@@ -15,7 +15,7 @@ categories: Fiddler
   
 添加方法：  
 **启动Fiddler > 选择菜单Rules > 选择菜单项Customize Rules... > 将如下代码粘贴在`OnDetach`函数后面 > 保存**  
-*注：发现将下面的函数放在`OnDetach`函数自己添加的菜单项就不是第一项，而放在`OnDetach`后就是第一项了，这个很奇怪，未想到合理原因。*  
+*注：发现将下面的函数放在`OnDetach`函数前自己添加的菜单项就不是第一项，而放在`OnDetach`后就是第一项了，这个很奇怪，未想到合理原因。*  
 
 ```js
 public static ContextAction("发送到mazhuang.org")
