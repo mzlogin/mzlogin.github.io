@@ -27,7 +27,7 @@ gems:
 collections:
     blog:
         output: true
-        permalink: /:path/
+        permalink: /blog/:year/:month/:day/:path
 
 # ---------------- #
 #      Comments    #
