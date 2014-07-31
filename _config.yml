@@ -18,8 +18,8 @@ email:
 #      Jekyll      #
 # ---------------- #
 markdown: redcarpet
-redcarpet:
-  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data", "strikethrough"]
+redcarpet: 
+    extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data", "strikethrough"]
 pygments: true
 permalink: /:year/:month/:day/:title
 gems:
@@ -27,7 +27,7 @@ gems:
 collections:
     blog:
         output: true
-        permalink: /blog/:year/:month/:day/:path
+        permalink: /blog/:path
 
 # ---------------- #
 #      Comments    #
