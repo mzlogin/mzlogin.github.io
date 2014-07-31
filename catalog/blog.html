@@ -1,0 +1,10 @@
+---
+layout: default
+title: Blog
+---
+
+<ul>
+    {% for blog in site.blog %}
+    <li><a href="{{ blog.url }}">{{ blog.title }}</a></li>
+    {% endfor %}
+</ul>
