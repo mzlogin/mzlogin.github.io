@@ -3,8 +3,12 @@ layout: default
 title: Blog
 ---
 
-<ul>
+<div class="postlist">
     {% for blog in site.blog %}
-    <li><a href="{{ blog.url }}">{{ blog.title }}</a></li>
+    <div class="overview">
+        <div class="date">{{ blog.date | date: "%b %d, %Y" }}</div>
+        <div class="detail"><a href="{{ site.baseurl }}{{ blog.url }}">{{ blog.title }}</a></div>
+    </div>
     {% endfor %}
-</ul>
+</div>
+{% include pagination.html %}
