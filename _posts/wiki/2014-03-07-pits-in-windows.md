@@ -5,10 +5,10 @@ categories: Windows
 ---
 
 ###Index
-* [ExpandEnvironmentStrings](#toc_1)  
-* [GetModuleFileName](#toc_2)  
-* [ShellExecuteEx](#toc_3)  
-* [UrlDownloadToFile](#toc_4)  
+* [ExpandEnvironmentStrings](#ExpandEnvironmentStrings)  
+* [GetModuleFileName](#GetModuleFileName)  
+* [ShellExecuteEx](#ShellExecuteEx)  
+* [UrlDownloadToFile](#UrlDownloadToFile)  
 
 ###ExpandEnvironmentStrings  
 **风险：**  
