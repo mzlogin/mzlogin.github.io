@@ -9,6 +9,7 @@ categories: Windows
 * [GetModuleFileName](#getmodulefilename)  
 * [ShellExecuteEx](#shellexecuteex)  
 * [UrlDownloadToFile](#urldownloadtofile)  
+* [RegQueryValueEx](#regqueryvalueex)
 
 ###ExpandEnvironmentStrings  
 **风险：**  
@@ -38,3 +39,10 @@ categories: Windows
 使用UrlDownloadToFile下载文件前它会自动先在本地缓存中查找此文件，所以可能最终得到的不是Server上的最新内容。  
 **建议：**  
 可以为URL添加随机参数以防止缓存，也可以使用DeleteUrlCacheEntry清理缓存后再使用UrlDownloadToFile下载文件。
+
+###RegQueryValueEx
+**风险：**  
+最后一个参数为inout参数，需要带入Buffer的Bytes数。  
+**建议：**  
+调用Windows API时对参数的in、out、inout及要求的取值弄清楚。  
+PS：这个严格来讲不算是坑，是在Windows API中存在的一种现象，但是如果不小心也可能出现很难解释和调试的BUG，记在此以备忘。
