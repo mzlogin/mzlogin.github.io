@@ -23,7 +23,7 @@ categories: Windows
 
 ###RegQueryValueEx
 **风险：**  
-最后一个参数为inout参数，需要带入Buffer的Bytes数。  
+最后一个参数为inout参数，需要带入Buffer的Bytes数。不然可能出现API调用失败，返回ERROR_MORE_DATA等错误码。  
 **建议：**  
 调用Windows API时对参数的in、out、inout及要求的取值弄清楚。  
 PS：这个严格来讲不算是坑，是在Windows API中存在的一种现象，但是如果不小心也可能出现很难解释和调试的BUG，记在此以备忘。
