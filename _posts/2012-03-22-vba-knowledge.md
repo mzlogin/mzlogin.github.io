@@ -36,3 +36,15 @@ MyWorkSheet.Cells(i, j).Interior.ColorIndex
 MyWorkBook.Save  
 MyWorkBook.Close  
 ```
+
+####让某表格选中的单元格变成指定颜色:
+在thisworkbook中添加如下代码段：
+
+```vbnet
+Private Sub Workbook_SheetSelectionChange(ByVal Sh As Object, ByVal Target As Range)
+    If ActiveSheet.Name = "yoursheet" Then
+        ActiveSheet.UsedRange.Interior.ColorIndex = 0
+        Target.Interior.ColorIndex = 6
+    End If
+End Sub
+```
