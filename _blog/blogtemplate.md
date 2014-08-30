@@ -2,7 +2,7 @@
 layout: post
 title: Blog Template
 categories: Blog
-date: 2014-7-31
+date: 2014-07-31
 ---
 
 Hello, blog.
