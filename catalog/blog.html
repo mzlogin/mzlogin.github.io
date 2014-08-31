@@ -4,7 +4,7 @@ title: Blog
 ---
 
 <div class="postlist">
-    {% for blog in site.blog %}
+    {% for blog in site.blog and blog.title != 'Blog Template'%}
     <div class="overview">
         <div class="date">{{ blog.date | date: "%b %d, %Y" }}</div>
         <div class="detail"><a href="{{ site.baseurl }}{{ blog.url }}">{{ blog.title }}</a></div>
