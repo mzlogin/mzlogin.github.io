@@ -5,4 +5,4 @@ categories: Blog
 date: 2014-07-31
 ---
 
-Hello, blog.
+Hello, blog. This is a template.
