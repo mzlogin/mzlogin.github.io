@@ -72,6 +72,7 @@ int main()
 	}
 	else
 	{
+		printf("################### after rename ###################\n\n");
 		OutputSelfpath();
 	}
 
