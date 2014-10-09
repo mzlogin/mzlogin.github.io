@@ -82,3 +82,6 @@ int main()
 
 ###运行结果
 ![QueryFullProcessImageName](/images/posts/windows/queryfullprocessimagename.png)
+
+###思考
+现象上讲就是如此了，这几个API的本质区别是什么呢？待续。
