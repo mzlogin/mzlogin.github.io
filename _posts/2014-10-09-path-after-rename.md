@@ -44,6 +44,7 @@ void OutputSelfpath()
 			printf("GetProcessImageFileName failed!\n");
 		}
 
+        memset(szFile, 0, MAX_PATH);
 		DWORD dwSize = MAX_PATH;
 		if (QueryFullProcessImageName(hProcess, 0, szFile, &dwSize))
 		{
