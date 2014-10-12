@@ -24,7 +24,7 @@ CSDN账号过一段时间就会累积几十个下载过但是未评论打分的�
 
 4. 用`GET`方法从 http://download.csdn.net/my/downloads 页面获取已下载资源总页数。从最后一个`pageliststy`的`href`中得到。
 
-5. 根据第4步中得到的总页数，根据每个页面num拼得url为 http://download.csdn.net/my/downloads/num ，使用`GET`方法访问之拿到该页面中所有待评论资源ID。从所有`class="btn-comment"的`a`标签的`href`中得到。
+5. 根据第4步中得到的总页数，根据每个页面num拼得url为 http://download.csdn.net/my/downloads/num ，使用`GET`方法访问之拿到该页面中所有待评论资源ID。从所有`class="btn-comment"`的`a`标签的`href`中得到。
 
 6. 对第5步中得到的所有待评论资源ID依次进行间隔至少60S的打分评论，随机打出1到5星，对应一句英文短句评论。出乎我意料的是评论这一步竟然也是用`GET`就可以做， http://download.csdn.net/index.php/comment/post_comment 后面带上`sourceid`、`content`（评论内容）、`rating`（打分）和`t`（时间戳）参数就可以。评论成功会返回`({"succ":1})`，失败会返回“两次评论需要间隔60秒”、“您已经发表过评论”等之类的`msg`。
 
@@ -35,7 +35,8 @@ CSDN账号过一段时间就会累积几十个下载过但是未评论打分的�
 ![CSDN自动评论得分](/images/posts/python/csdnscore.png)
 
 ###总结
-用Python干这种类型的活还是很有优势的，requests和BeautifulSoup简直神器啊！
+1. 用Python干这种类型的活还是很有优势的，requests和BeautifulSoup简直神器啊！  
+2. 我那点蹩脚的Python底子之所以能还比较顺利地把这个流程写下来，实际上也得亏CSDN对请求的验证相对较松，比如像我代码里那样写，`User-Agent`是带有`Python`字样的，而且很显然不是浏览器在访问，但CSDN并未对此作限制。  
 
 ###源码
 没有找到从Github Pages引用Github仓库里的源码的方法，所以把py文件放到一个gist里了，引用如下：
