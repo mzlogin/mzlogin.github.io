@@ -1,9 +1,13 @@
+body {
+    font-size: 100%;
+}
+
 #main {
-    font-size: large;
+    font-size: 2em;
     width: 100%;
 }
 
 div.nav {
-    font-size: large;
+    font-size: 2em;
     width: 100%;
 }
