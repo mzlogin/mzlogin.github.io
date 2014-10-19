@@ -8,6 +8,10 @@ div.nav {
     padding: 0 0 0 0;
 }
 
+div.detail {
+    margin-left: 0;
+}
+
 div.date {
     display: none;
 }
