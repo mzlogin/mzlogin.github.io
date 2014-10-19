@@ -5,7 +5,7 @@ body {
 
 #main {
     font-family: "Palatino Linotype", "URW Palladio L", "palladio l", palatino, "book antiqua", times, serif;
-    font-size: 18px;
+    font-size: 1.2em;
     margin: auto;
     padding: 2% 5% 5% 5%;
     width: 700px;
@@ -120,7 +120,7 @@ div.nav {
     width: 700px;
     height: 27px;
     line-height: 150%;
-    font-size: 18px;
+    font-size: 1.2em;
 }
 
 div.nav_rss {
@@ -164,7 +164,7 @@ div.date {
     color: #555;
     text-align: right; 
     font-style: italic; 
-    font-size: 12px;
+    font-size: 0.75em;
 }
 
 div.paginator {
@@ -173,7 +173,7 @@ div.paginator {
     width: 60%;
     color: #555;
     text-align: center;
-    font-size: 12px;
+    font-size: 0.75em;
 }
 
 div.pre_next {
