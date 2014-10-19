@@ -17,5 +17,5 @@ div.date {
 }
 
 div.gg_ads_footer {
-    display: none;
+    max-width: 100%;
 }
