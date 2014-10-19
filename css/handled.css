@@ -11,3 +11,7 @@ div.nav {
     font-size: 2em;
     width: 100%;
 }
+
+div.date {
+    display: none;
+}
