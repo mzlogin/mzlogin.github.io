@@ -7,13 +7,7 @@
         <title>{% if page.title %} {{ page.title }} {% else %} {{ site.title }} {% endif %} </title>
         <link rel="stylesheet" href="{{ site.baseurl }}/css/default.css" type="text/css" />
         <link rel="stylesheet" href="{{ site.baseurl }}/css/syntax.css" type="text/css" />
+        <link rel="stylesheet" href="{{ site.baseurl }}/css/handled.css" type="text/css" media="handled"/>
         <link rel="shortcut icon" href="{{ site.baseurl }}/favicon.ico" type="image/x-icon" />
-        <style type="text/css">
-            @media handled {
-                #main {
-                    width: 100%;
-                }
-            }
-        </style>
     </head>
     <body>
