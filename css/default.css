@@ -2,8 +2,6 @@
 body {
     background-color: white;
     font-size: 100%;
-    word-wrap: break-word;
-    word-break: break-all;
 }
 
 #main {
@@ -76,7 +74,7 @@ pre {
 
 code {
     font-family: Inconsolata, Consolas, "DEJA VU SANS MONO", "DROID SANS MONO", Proggy, monospace;
-    font-size: 1em;
+    font-size: 0.75em;
     border: solid 1px #ddd;
     border-radius: 3px;
     background-color: #f8f8ff;
@@ -97,6 +95,8 @@ a {
     text-decoration: none;
     padding: 1px;
     color: #204A87;
+    word-wrap: break-word;
+    word-break: break-all;
 }
 
 
