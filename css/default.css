@@ -80,6 +80,8 @@ code {
     background-color: #f8f8ff;
     margin: 0 2px;
     padding: 0px 5px;
+    word-wrap: break-word;
+    word-break: break-all;
 }
 
 pre code {
