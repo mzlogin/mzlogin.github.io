@@ -2,6 +2,8 @@
 body {
     background-color: white;
     font-size: 100%;
+    word-wrap: break-word;
+    word-break: break-all;
 }
 
 #main {
@@ -140,6 +142,7 @@ img {
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 30px;
+    max-width: 100%;
 }
 
 
