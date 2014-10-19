@@ -3,15 +3,14 @@ body {
     background-color: white;
 }
 
-#main{
+#main {
     font-family: "Palatino Linotype", "URW Palladio L", "palladio l", palatino, "book antiqua", times, serif;
     font-size: 18px;
-    margin: 0 20% 5% 20%;
+    margin: auto;
     padding: 2% 5% 5% 5%;
-    width: 50%;
+    width: 700px;
     line-height: 150%;
     border: 1px solid LightGrey;
-    //box-shadow: 2px 2px 5px #ccc;
 }
 
 H1 {
@@ -50,7 +49,6 @@ H4 {
 
 li {
     margin-left: 10px;
-    //display: block;
 }
 
 
@@ -69,7 +67,6 @@ pre {
     padding: 6px 10px;
     font-size: 75%;
     line-height: 130%;
-    //width: 95%;
     overflow: auto;
 }
 
@@ -118,14 +115,12 @@ div.nav {
     border-top: 1px solid #d4d4d4;
     border-left: 1px solid #d4d4d4;
     border-right: 1px solid #d4d4d4;
-    margin: 0 20% 0 20%;
+    margin: auto;
     padding: 0 5% 0 5%;
-    width: 50%;
+    width: 700px;
     height: 27px;
     line-height: 150%;
     font-size: 18px;
-    //box-shadow: 2px 2px 5px #ccc;
-    //text-shadow: 2px 2px 1px #ccc;
 }
 
 div.nav_rss {
@@ -203,18 +198,14 @@ div.gg_ads_footer {
 }
 
 table {
-    //border-collapse: collapse;
-    //border: 1px solid #666;
 }
 
 th {
-    //border: 1px solid #666;
     background-color: #dedede;
     font-size: 80%;
 }
 
 td {
-    //border: 1px solid #666;
     background-color: #f8f8ff;
     font-size: 67%
 }
