@@ -10,6 +10,10 @@ div.nav {
     border: none;
 }
 
+div.overview {
+    margin: 25px 0 25px 0;
+}
+
 div.detail {
     margin-left: 0;
 }
