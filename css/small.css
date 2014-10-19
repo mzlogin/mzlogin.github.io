@@ -23,3 +23,7 @@ div.gg_ads_footer {
 .gist .line-numbers {
     display: none;
 }
+
+.gist .line-data {
+    font-size: 1em;
+}
