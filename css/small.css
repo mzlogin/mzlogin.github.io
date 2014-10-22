@@ -17,14 +17,17 @@ H3,H4 {
     border: none;
     width: 100%;
     font-size: 1em;
-    background-color: yellowgreen;
+    color: blue;
 }
 
 div.nav {
     width: 100%;
     padding: 0 0 0 0;
     border: none;
-    background-color: lightgrey;
+}
+
+div.nav a {
+    text-decoration: underline;
 }
 
 div.nav_rss {
