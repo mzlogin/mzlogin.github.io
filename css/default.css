@@ -6,7 +6,7 @@ body {
 
 #main {
     font-family: "Palatino Linotype", "URW Palladio L", "palladio l", palatino, "book antiqua", times, serif;
-    font-size: 1.25em;
+    font-size: 1em;
     margin: auto;
     padding: 2% 5% 5% 5%;
     width: 700px;
@@ -125,7 +125,7 @@ div.nav {
     width: 700px;
     height: 27px;
     line-height: 150%;
-    font-size: 1.25em;
+    font-size: 1em;
 }
 
 div.nav_rss {
@@ -150,7 +150,7 @@ img {
 
 hr {
     color: LightGrey;
-    margin: .7em 0;
+    margin: 0.75em 0;
     border-top: 1px solid LightGrey;
     border-bottom: 1px solid LightGrey;
 }
