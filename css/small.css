@@ -4,10 +4,31 @@
     border: none;
 }
 
+H2 {
+    margin-bottom: 10px;
+    padding: 0;
+    width: 100%;
+    font-size: 1.25em;
+}
+
+H3,H4 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: none;
+    width: 100%;
+    font-size: 1em;
+    background-color: yellowgreen;
+}
+
 div.nav {
     width: 100%;
     padding: 0 0 0 0;
     border: none;
+    background-color: lightgrey;
+}
+
+div.nav_rss {
+    display: none;
 }
 
 div.overview {
