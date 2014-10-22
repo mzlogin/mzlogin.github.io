@@ -122,7 +122,7 @@ div.nav {
     margin: auto;
     padding: 0 5% 0 5%;
     width: 700px;
-    height: 27px;
+    height: 1.5em;
     line-height: 150%;
     font-size: 1em;
 }
@@ -182,7 +182,7 @@ div.paginator {
 }
 
 div.pre_next {
-    height: 23px;
+    height: 1.5em;
 }
 
 div.post_pre {
