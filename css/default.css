@@ -15,8 +15,8 @@ body {
 }
 
 H1, H2 {
-    margin-bottom: 2.5em;
-    padding: 0.3125em;
+    margin-bottom: 1.67em;
+    padding: 0.2em;
     border-bottom: 2px LightGrey solid;
     width: 90%;
     line-height: 150%;
@@ -24,8 +24,8 @@ H1, H2 {
 }
 
 H3, H4 {
-    margin-top: 2.5em;
-    margin-bottom: 1.75em;
+    margin-top: 2.14em;
+    margin-bottom: 1.5em;
     border-bottom: 1px LightGrey solid;
     width: 80%;
     line-height: 150%;
