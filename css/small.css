@@ -5,15 +5,15 @@
 }
 
 H1, H2 {
-    margin-bottom: 20px;
+    margin-bottom: 1.25em;
     padding: 0;
     width: 100%;
     font-size: 1.25em;
 }
 
 H3, H4 {
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 0.625em;
+    margin-bottom: 0.625em;
     border: none;
     width: 100%;
     font-size: 1em;
@@ -35,7 +35,7 @@ div.nav_rss {
 }
 
 div.overview {
-    margin: 25px 0 25px 0;
+    margin: 1.5em 0 1.5em 0;
 }
 
 div.detail {
