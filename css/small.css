@@ -4,14 +4,14 @@
     border: none;
 }
 
-H2 {
-    margin-bottom: 10px;
+H1, H2 {
+    margin-bottom: 20px;
     padding: 0;
     width: 100%;
     font-size: 1.25em;
 }
 
-H3,H4 {
+H3, H4 {
     margin-top: 10px;
     margin-bottom: 10px;
     border: none;

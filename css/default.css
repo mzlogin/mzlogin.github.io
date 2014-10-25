@@ -14,50 +14,29 @@ body {
     border: 1px solid LightGrey;
 }
 
-H1 {
-}
-
-H2 {
-    margin-bottom: 40px;
-    padding: 5px;
+H1, H2 {
+    margin-bottom: 2.5em;
+    padding: 0.5em;
     border-bottom: 2px LightGrey solid;
     width: 90%;
     line-height: 150%;
     color: #666666;
 }
 
-
-H3 {
-    margin-top: 40px;
-    margin-bottom: 30px;
+H3, H4 {
+    margin-top: 2.5em;
+    margin-bottom: 1.75em;
     border-bottom: 1px LightGrey solid;
     width: 80%;
     line-height: 150%;
     color: #666666;
 }
-
-
-H4 {
-    margin-top: 40px;
-    margin-bottom: 30px;
-    border-bottom: 1px LightGrey solid;
-    width: 80%;
-    line-height: 150%;
-    color: #666666;
-}
-
-
-li {
-    margin-left: 10px;
-}
-
 
 blockquote {
-    border-left: 4px lightgrey solid;
-    padding-left: 5px;
-    margin-left: 20px;
+    border-left: 0.25em lightgrey solid;
+    padding-left: 0.25em;
+    margin-left: 1.25em;
 }
-
 
 pre {
     font-family: Inconsolata, Consolas, "DEJA VU SANS MONO", "DROID SANS MONO", Proggy, monospace;
@@ -69,7 +48,6 @@ pre {
     line-height: 130%;
     overflow: auto;
 }
-
 
 code {
     font-family: Inconsolata, Consolas, "DEJA VU SANS MONO", "DROID SANS MONO", Proggy, monospace;
@@ -91,7 +69,6 @@ pre code {
     word-wrap: normal;
 }
 
-
 a {
     text-decoration: none;
     padding: 1px;
@@ -99,7 +76,6 @@ a {
     word-wrap: break-word;
     word-break: break-all;
 }
-
 
 a:hover {
     text-decoration: underline;
@@ -146,7 +122,6 @@ img {
     max-width: 100%;
 }
 
-
 hr {
     color: LightGrey;
     margin: 0.75em 0;
@@ -155,7 +130,7 @@ hr {
 }
 
 div.overview {
-    margin: 25px 22px 25px 22px;
+    margin: 1.75em 1.25em 1.75em 1.25em;
 }
 
 div.detail {
