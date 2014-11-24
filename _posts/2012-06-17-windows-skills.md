@@ -10,7 +10,7 @@ categories: Windows
 
 先说方法：
 
-将如下代码保存为.reg文件然后执行可以方便地完成如上三点操作。
+将如下代码保存为.reg文件然后执行即可。
 
 ```
 Windows Registry Editor Version 5.00
