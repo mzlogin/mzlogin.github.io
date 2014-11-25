@@ -21,15 +21,15 @@ Windows Registry Editor Version 5.00
 [HKEY_CLASSES_ROOT\Drive\shell\cmd]
 "Extended"=-
 
-[HKEY_CLASSES_ROOT\LibraryFolder\shell]
+[HKEY_CLASSES_ROOT\LibraryFolder\background\shell]
 @="none"
 
-[HKEY_CLASSES_ROOT\LibraryFolder\shell\cmd]
+[HKEY_CLASSES_ROOT\LibraryFolder\background\shell\cmd]
 @="@shell32.dll,-8506"
 "NoWorkingDirectory"=""
 "Extended"=-
 
-[HKEY_CLASSES_ROOT\LibraryFolder\shell\cmd\command]
+[HKEY_CLASSES_ROOT\LibraryFolder\background\shell\cmd\command]
 @="cmd.exe /s /k pushd \"%V\""
 ```
 
@@ -42,7 +42,7 @@ Windows Registry Editor Version 5.00
 将注册表HKEY_CLASSES_ROOT\Drive\shell\cmd下的键Extended改名或者删除  
 
 3. 库文件夹右键  
-在注册表HKEY_CLASSES_ROOT\LibraryFolder下建立和Directory或Drive中相同的键值
+在注册表HKEY_CLASSES_ROOT\LibraryFolder\background下建立和第一条的Directory\Background中相同的键值
 
 
 ###Win7搜索文件内容  
