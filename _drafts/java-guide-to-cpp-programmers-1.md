@@ -32,6 +32,16 @@ categories: java
 
 * 如果父类方法具有private访问权限，则该方法对其子类是隐藏的，因此其子类无法访问和重写该方法。
 
-* java中有instanceof运算符，c++中对应的RTTI方式是（typeid）？instanceof运算符的前一个操作数通常是一个引用类型的变量，后一个操作数通常是一个类（也可以是接口，可以把接口理解成一种特殊的类），它用于判断前面的对象是否是后面的类，或者其子类、实现类的实例。如果是，则返回true，否则返回false。
+* java中有instanceof运算符，c++中对应的RTTI方式是（typeid）？instanceof运算符的前一个操作数通常是一个引用类型的变量，后一个操作数通常是一个类（也可以是接口，可以把接口理解成一种特殊的类），它用于判断前面的对象是否是后面的类，或者其子类、实现类的实例。如果是，则返回true，否则返回false。判断是否是同一个类的实例时应使用obj1.getClass()==obj2.getClass()。
 
 * 初始化块和声明属性时指定初始值，这些按源程序中排列顺序执行。
+
+* java中只有值传递。
+
+* 对private方法，即使它使用final修饰，在子类中也可以定义一个相同的，因为这是子类定义了一个新方法，并非重写。
+
+* final和abstract永远不能同时使用；static和abstrace不能同时修饰某个方法；private和abstrace不能同时修饰某个方法。
+
+* java中的abstract方法不能有方法体，c++中的pure virtual函数可以有实现。
+
+* interface的方法只能是public abstract的，属性只能是public static final的，使用private等修饰编译会报错。
