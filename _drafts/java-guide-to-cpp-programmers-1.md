@@ -45,3 +45,16 @@ categories: java
 * java中的abstract方法不能有方法体，c++中的pure virtual函数可以有实现。
 
 * interface的方法只能是public abstract的，属性只能是public static final的，使用private等修饰编译会报错。
+
+* 从内部类里引用外部类的属性或者方法时，可以用命OuterClass.this.。
+
+* 非静态内部类里不能有静态成员。
+
+* 内部类可以使用static修饰，外部类不行。
+
+* 从外部类外创建内部非静态类的语法：OuterClass.InnerClass varName = OuterInstance.new InnerConstructor();  
+  从外部类外创建内部静态类的语法：OuterClass.InnerClass varName = new OuterClass.InnerConstructor();
+
+* 内部类不可能被外部类的子类中重写，因为命名空间不同。
+
+* 纠误一处：《疯狂Java讲义》P214讲道“如果匿名内部类需要访问外部类的局部变量，则必须使用final修饰符来修饰外部类的局部变量，否则系统将报错。经验证，在Java 8环境下不报错。
