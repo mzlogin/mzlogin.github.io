@@ -156,20 +156,32 @@ div.paginator {
     font-size: 0.75em;
 }
 
-div.pre_next {
-    height: 1.5em;
-}
-
-div.post_pre {
-    width: 50%;
-    text-align: left;
+ul.prev_next {
+    display: block;
+    color: #666;
+    clear: both;
     float: left;
+    margin: 0 0 0.3em 0;
+    padding: 0;
+    padding-top: 0.6em;
 }
 
-div.post_next {
-    width: 50%;
-    text-align: right;
-    float: right;
+li.post_prev_next {
+    list-style-type: none;
+    clear: both;
+    padding: 0 0 0.2em;
+    overflow: hidden;
+}
+
+li.post_prev_next span {
+    display: block;
+    float: left;
+    width: 3em;
+    padding: 0 0 0 1.75em;
+    height: 1.75em;
+    background-color: #999;
+    color: #fff;
+    margin-right: 0.5em;
 }
 
 div.gg_ads_footer {

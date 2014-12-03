@@ -4,18 +4,20 @@
     <div id="main">
         <h2> {{ page.title }} </h2>
         {{ content }}
-        <div class="pre_next">
-            <div class="post_pre">
-                {% if page.previous.url %}
-                <a href="{{page.previous.url}}" title="Previous Post: {{page.previous.title}}">&laquo; 前一篇</a>
-                {% endif %}
-            </div>
-            <div class="post_next">
-                {% if page.next.url %}
-                <a href="{{page.next.url}}" title="Next Post: {{page.next.title}}">后一篇 &raquo;</a>
-                {% endif %}
-            </div>
-        </div>
+        <ul class="prev_next">
+            {% if page.previous.url %}
+            <li class="post_prev_next">
+                <span>上一篇</span>
+                <a href="{{page.previous.url}}">{{page.previous.title}}</a>
+            </li>
+            {% endif %}
+            {% if page.next.url %}
+            <li class="post_prev_next">
+                <span>下一篇</span>
+                <a href="{{page.next.url}}">{{page.next.title}}</a>
+            </li>
+            {% endif %}
+        </ul>
         {% include ads_footer.html %}        
         {% include duoshuo.html %}
     </div>
