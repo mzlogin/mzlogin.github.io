@@ -156,7 +156,7 @@ div.paginator {
     font-size: 0.75em;
 }
 
-.prev_next ul{
+.prev_next ul {
     display: block;
     color: #666;
     clear: both;
@@ -166,14 +166,14 @@ div.paginator {
     padding-top: 0.6em;
 }
 
-.post_prev_next li{
+.post_prev_next li {
     list-style-type: none;
     clear: both;
     padding: 0 0 0.2em;
     overflow: hidden;
 }
 
-li.post_prev_next span {
+.post_prev_next li span {
     display: block;
     float: left;
     width: 3em;
