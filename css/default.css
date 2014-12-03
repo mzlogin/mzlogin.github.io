@@ -177,9 +177,9 @@ li.post_prev_next span {
     display: block;
     float: left;
     width: 3em;
-    padding: 0 0 0 1.75em;
+    padding: 0 0.5em 0 0.5em;
     height: 1.75em;
-    background-color: #999;
+    background-color: #555;
     color: #fff;
     margin-right: 0.5em;
 }
