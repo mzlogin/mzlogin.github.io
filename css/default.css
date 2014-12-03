@@ -158,28 +158,18 @@ div.paginator {
 
 .prev_next {
     display: block;
-    color: #666;
-    clear: both;
-    float: left;
-    margin: 0 0 0.3em 0;
     padding: 0;
     padding-top: 0.6em;
 }
 
 .prev_next li {
     list-style-type: none;
-    clear: both;
     padding: 0 0 0.2em;
-    overflow: hidden;
 }
 
 .prev_next li span {
-    display: block;
-    float: left;
-    width: 3em;
     padding: 0 0.5em 0 0.5em;
-    height: 1.75em;
-    background-color: #555;
+    background-color: lightslategrey;
     color: #fff;
     margin-right: 0.5em;
 }
