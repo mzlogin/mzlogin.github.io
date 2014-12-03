@@ -6,13 +6,13 @@
         {{ content }}
         <ul class="prev_next">
             {% if page.previous.url %}
-            <li class="post_prev_next">
+            <li>
                 <span>上一篇</span>
                 <a href="{{page.previous.url}}">{{page.previous.title}}</a>
             </li>
             {% endif %}
             {% if page.next.url %}
-            <li class="post_prev_next">
+            <li>
                 <span>下一篇</span>
                 <a href="{{page.next.url}}">{{page.next.title}}</a>
             </li>
