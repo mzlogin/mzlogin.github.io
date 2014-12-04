@@ -81,6 +81,11 @@ a:hover {
     text-decoration: underline;
 }
 
+div.tag_cloud a {
+    word-wrap: normal;
+    word-break: normal;
+}
+
 div.nav a {
     text-decoration: none;
     color: #555;
