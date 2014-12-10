@@ -5,10 +5,9 @@ title: Blog
 
 <div class="postlist">
     {% for post in site.categories.blog %}
-        <div class="overview">
-            <div class="date">{{ post.date | date: "%b %d, %Y" }}</div>
-            <div class="detail"><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></div>
-        </div>
-        {% endif %}
+    <div class="overview">
+        <div class="date">{{ post.date | date: "%b %d, %Y" }}</div>
+        <div class="detail"><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></div>
+    </div>
     {% endfor %}
 </div>
