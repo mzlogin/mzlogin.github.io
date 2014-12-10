@@ -24,10 +24,6 @@ pygments: true
 permalink: /:year/:month/:day/:title
 gems:
     - jekyll-sitemap
-collections:
-    blog:
-        output: true
-        permalink: /blog/:path/
 
 # ---------------- #
 #      Comments    #
