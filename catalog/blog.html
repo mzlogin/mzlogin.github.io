@@ -4,11 +4,10 @@ title: Blog
 ---
 
 <div class="postlist">
-    {% for blog in site.blog %}
-        {% if blog.title != 'Blog Template' %}
+    {% for post in site.categories.blog %}
         <div class="overview">
-            <div class="date">{{ blog.date | date: "%b %d, %Y" }}</div>
-            <div class="detail"><a href="{{ site.baseurl }}{{ blog.url }}">{{ blog.title }}</a></div>
+            <div class="date">{{ post.date | date: "%b %d, %Y" }}</div>
+            <div class="detail"><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></div>
         </div>
         {% endif %}
     {% endfor %}
