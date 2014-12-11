@@ -17,7 +17,7 @@ scholar, CS/IT
 #include <iostream>
 int main()
 {
-	std::cout << "Hello, my friend!" << std::endl;
+	std::cout << "Hello, friends!" << std::endl;
 	return 0;
 }
 ```
