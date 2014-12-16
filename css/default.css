@@ -36,6 +36,7 @@ blockquote {
     border-left: 0.25em lightgrey solid;
     padding-left: 0.25em;
     margin-left: 1.25em;
+    -webkit-margin-end: 0;
 }
 
 pre {
