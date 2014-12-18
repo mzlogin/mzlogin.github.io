@@ -21,7 +21,7 @@
         {% include ads_footer.html %}        
         <h3>相关阅读</h3>
         <ul>
-            {% for post in site.related_posts limit:5 %}
+            {% for post in page.category %}
             <li><a href="{{ post.url }}">{{ post.title }}</a></li>
             {% endfor %}
         </ul>
