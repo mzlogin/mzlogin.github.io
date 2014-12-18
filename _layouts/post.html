@@ -19,16 +19,6 @@
             {% endif %}
         </ul>
         {% include ads_footer.html %}        
-        <h3>相关阅读</h3>
-        {% for category in page.categories %}
-            <ul>
-                {% for post in category.last %}
-                    {% if post.url != page.url %}
-                        <li><a href="{{ post.url }}">{{ post.title }}</a></li>
-                    {% endif %}
-                {% endfor %}
-            </ul>
-        {% endfor %}
         {% include duoshuo.html %}
     </div>
 </div>
