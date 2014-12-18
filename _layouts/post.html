@@ -21,7 +21,7 @@
         {% include ads_footer.html %}        
         <h3>相关阅读</h3>
         <ul>
-            {% for post in page.category %}
+            {% for post in page.categories[0].last %}
             <li><a href="{{ post.url }}">{{ post.title }}</a></li>
             {% endfor %}
         </ul>
