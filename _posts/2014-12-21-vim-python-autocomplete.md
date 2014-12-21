@@ -45,12 +45,20 @@ E117: Unknown function: pythoncomplete#Complete
 
     ![gVim是32位程序](/images/posts/vim/gvim-32bit.png)
 
-    那看样子我安装的Python是64位版本的。在命令行里执行Python.exe看了一下果然如此。
+    那看样子我安装的Python是64位版本的。在命令行里执行Python.exe看了一下果然如此：
+
+    ```
+    Python 2.7.9 (default, Dec 10 2014, 12:28:03) [MSC v.1500 64 bit (AMD64)] on win 32
+    Type "help", "copyright", "credits" or "license" for more information.
+    >>>>>>
+    ```
 
 ###结论
-Vim官网下载的Windows版本gVim的GUI程序编译时启用了Python支持，但是由于gVim.exe是32位程序，所以需要加载32位的python27.dll。
+Vim官网下载的Windows版本gVim的GUI程序编译时启用了Python支持，但是由于gVim.exe是32位程序，需要加载32位的python27.dll。
 
-**所以如果在Windows下使用Vim写Python而且想要自动补全，就安装32位的Python吧！**
+所以：
+
+**如果在Windows下使用Vim写Python而且想要自动补全，就安装32位的Python吧！**
 
 ###验证
 卸载掉64位的Python，安装32位的，可以看到C:\Windows\SysWOW64文件夹下有了之前没有的python27.dll文件。再执行Python的自动补全，已经能看到了：
