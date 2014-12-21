@@ -7,7 +7,7 @@ categories: Vim
 ###问题描述
 环境：Win7 x64
 
-从gVim74的安装目录/path/to/Vim/Vim74/autoload下的pythoncomplete.vim看出，Vim在这个版本已经默认内置了对Python的自动补全的支持。然而我在自己的笔记本上用得很好的配置，同样的\_vimrc和插件平移到工作机上以后就出问题了，` <C-x><C-o> `的时候gVim底部提示：
+从gVim 7.4的安装目录/path/to/Vim/Vim74/autoload下的pythoncomplete.vim看出，Vim在这个版本已经默认内置了对Python的自动补全的支持。然而我在自己的笔记本上用得很好的配置，同样的\_vimrc和插件平移到工作机上以后就出问题了，` <C-x><C-o> `的时候gVim底部提示：
 
 ```
 Error: Required vim compiled with +python
@@ -58,7 +58,7 @@ Vim官网下载的Windows版本gVim的GUI程序编译时启用了Python支持，
 
 所以：
 
-**如果在Windows下使用Vim写Python而且想要自动补全，就安装32位的Python吧！**
+**如果在Windows下使用gVim写Python而且想要自动补全，就安装32位的Python吧！**
 
 ###验证
 卸载掉64位的Python，安装32位的，可以看到C:\Windows\SysWOW64文件夹下有了之前没有的python27.dll文件。再执行Python的自动补全，已经能看到了：
