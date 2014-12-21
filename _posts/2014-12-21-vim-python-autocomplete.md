@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 配置gVim的Python自动补全时遇到的问题
+title: 使用gVim的Python自动补全时遇到的问题
 categories: Vim
 ---
 
