@@ -60,6 +60,8 @@ Vim官网下载的Windows版本gVim的GUI程序编译时启用了Python支持，
 
 **如果在Windows下使用gVim写Python而且想要自动补全，就安装32位的Python吧！**
 
+当然如果愿意折腾，自己编译一个64位的gVim应该也不是一个坏主意。
+
 ###验证
 卸载掉64位的Python，安装32位的，可以看到C:\Windows\SysWOW64文件夹下有了之前没有的python27.dll文件。再执行Python的自动补全，已经能看到了：
 
