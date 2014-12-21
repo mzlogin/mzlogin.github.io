@@ -43,7 +43,7 @@ E117: Unknown function: pythoncomplete#Complete
 
     提示无法加载python27.dll。使用everything小工具在磁盘里找了一下，发现能找到C:\Windows\system32\python27.dll，这个路径应该是直接在系统环境变量里的，为何会无法加载呢？除非……gVim.exe是32位程序，在任务管理器里看：
 
-    ![gVim是32位程序](/images/posts/gvim-32bit.png)
+    ![gVim是32位程序](/images/posts/vim/gvim-32bit.png)
 
     那看样子我安装的Python是64位版本的。在命令行里执行Python.exe看了一下果然如此。
 
