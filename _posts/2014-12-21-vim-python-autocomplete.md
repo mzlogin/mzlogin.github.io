@@ -48,7 +48,7 @@ E117: Unknown function: pythoncomplete#Complete
     那看样子我安装的Python是64位版本的。在命令行里执行Python.exe看了一下果然如此：
 
     ```
-    Python 2.7.9 (default, Dec 10 2014, 12:28:03) [MSC v.1500 64 bit (AMD64)] on win 32
+    Python 2.7.9 (default, Dec 10 2014, 12:28:03) [MSC v.1500 64 bit (AMD64)] on win32
     Type "help", "copyright", "credits" or "license" for more information.
     >>>>>>
     ```
@@ -58,9 +58,9 @@ Vim官网下载的Windows版本gVim的GUI程序编译时启用了Python支持，
 
 所以：
 
-**如果在Windows下使用gVim写Python而且想要自动补全，就安装32位的Python吧！**
+**如果在Windows下使用gVim写Python而且想要自动补全，那安装的gVim与Python的版本要对应，比如使用的官网下载的32位gVim，就安装32位的Python吧！**
 
-当然如果愿意折腾，自己编译一个64位的gVim应该也不是一个坏主意。
+当然如果愿意折腾，使用64位Python，然后自己编译一个64位的gVim应该也不是一个坏主意。
 
 ###验证
 卸载掉64位的Python，安装32位的，可以看到C:\Windows\SysWOW64文件夹下有了之前没有的python27.dll文件。再执行Python的自动补全，已经能看到了：
