@@ -138,6 +138,12 @@ categories: Android
 
 当然程序精简带来的影响也是很明显的。
 
+1. 大小
+
+    |原始|移除appcompat\_v7|移除android-support-v4.jar|
+    |:---:|:---:|:---:|
+    |903KB|380KB|45KB|
+
 1. 界面
 
     |移除appcompat\_v7前|移除appcompat\_v7后|
