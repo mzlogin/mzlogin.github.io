@@ -144,6 +144,8 @@ categories: Android
     |:---:|:---:|:---:|
     |903KB|380KB|45KB|
 
+    可不可以只不导出android-support-v4.jar而继续依赖appcompat\_v7呢？答案是不可以，在<http://developer.android.com/tools/support-library/features.html#v7>的Note中显示v7 appcompat library是依赖v4 support library的。
+
 1. 界面
 
     |移除appcompat\_v7前|移除appcompat\_v7后|
@@ -152,4 +154,8 @@ categories: Android
 
 1. API
 
-    有大量实用的API用不了了，比如非常重要的Fragment，要么将minSdkVersion改为API level 11以上使用`android.app.Fragment`，要么需要依赖android-support-v4.jar使用`android.support.v4.app.Fragment`。
+    有大量实用的API用不了了，比如非常重要的Fragment，要么将minSdkVersion改为API level 11以上使用`android.app.Fragment`，要么需要依赖android-support-v4.jar使用`android.support.v4.app.Fragment`。如果只使用`android.support.v4.app.Fragment`而不Export android-support-v4.jar，那么程序在手机上将崩溃，提示
+
+    ```
+    java.lang.NoClassDefFoundError: android.support.v4.app.Fragment
+    ```
