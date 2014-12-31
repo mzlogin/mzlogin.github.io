@@ -152,4 +152,4 @@ categories: Android
 
 1. API
 
-    有大量实用的API用不了了，比如非常重要的Fragment，要么将minSdkVersion改为API level 11以上使用`android.app.Fragment`，要么需要依赖android-support-v4.jar使用`android.support.v4.app.Frgament`。
+    有大量实用的API用不了了，比如非常重要的Fragment，要么将minSdkVersion改为API level 11以上使用`android.app.Fragment`，要么需要依赖android-support-v4.jar使用`android.support.v4.app.Fragment`。
