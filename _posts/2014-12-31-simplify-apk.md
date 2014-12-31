@@ -42,7 +42,21 @@ categories: Android
 
     **解决方案**
 
-    默认生成的MainActivity继承自ActionBarActivity，将其改为Activity，并将`import android.support.v7.app.ActionBarActivity;`移除，添加`import android.app.Activity;并将`import android.support.v7.app.ActionBarActivity;`移除，添加`import android.app.Activity;`。
+    默认生成的MainActivity继承自ActionBarActivity，将其改为Activity，并将
+
+    `import android.support.v7.app.ActionBarActivity;`
+
+    移除，添加
+
+    `import android.app.Activity;`
+
+    并将
+
+    `import android.support.v7.app.ActionBarActivity;`
+
+    移除，添加
+
+    `import android.app.Activity;`
 
     **错误提示**
 
@@ -54,7 +68,11 @@ categories: Android
 
     出现这个提示一般是xml文件里出错导致无法自动生成R.java文件，根据Eclipse在Package Explorer里提示的小红叉，逐一排查修改。
 
-    res/values/style.xml和res/values-v11/style.xml文件里提示`error: Error retrieving parent for item: No resource found that matches the given name 'Theme.AppCompat.Light'.`，将
+    res/values/style.xml和res/values-v11/style.xml文件里提示
+
+    `error: Error retrieving parent for item: No resource found that matches the given name 'Theme.AppCompat.Light'.`
+
+    将
 
     ```
     <style name="AppBaseTheme" parent="Theme.AppCompat.Light">
@@ -66,9 +84,23 @@ categories: Android
     <style name="AppBaseTheme" parent="android:Theme.Light">
     ```
 
-    同理，将res/values-v14/style.xml里的`Theme.AppCompat.Light.DarkActionBar`改为`android:Theme.Light`。
+    同理，将res/values-v14/style.xml里的
 
-    res/menu/main.xml文件里提示`error: No resource identifier found for attribute 'showAsAction' in package 'org.mazhuang.android.helloworld'`，将该文件里的`app:showAsAction="never"`删除。
+    `Theme.AppCompat.Light.DarkActionBar`
+
+    改为
+
+    `android:Theme.Light`
+
+    res/menu/main.xml文件里提示
+
+    `error: No resource identifier found for attribute 'showAsAction' in package 'org.mazhuang.android.helloworld'`
+
+    将该文件里的
+
+    `app:showAsAction="never"`
+
+    删除。
 
     至此，工程应该能重新编译过了。
 
