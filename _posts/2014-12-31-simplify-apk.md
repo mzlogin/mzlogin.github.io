@@ -140,6 +140,6 @@ categories: Android
 
 1. 界面
 
-    |---|---|
     |移除appcompat\_v7前|移除appcompat\_v7后|
+    |---|---|
     |![view with v7](/images/posts/android/view-with-v7.png)|![view without v7](/images/posts/android/view-without-v7.png)|
