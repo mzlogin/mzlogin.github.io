@@ -44,19 +44,15 @@ categories: Android
 
     默认生成的MainActivity继承自ActionBarActivity，将其改为Activity，并将
 
-    `import android.support.v7.app.ActionBarActivity;`
+    ```
+    import android.support.v7.app.ActionBarActivity;
+    ```
 
     移除，添加
 
-    `import android.app.Activity;`
-
-    并将
-
-    `import android.support.v7.app.ActionBarActivity;`
-
-    移除，添加
-
-    `import android.app.Activity;`
+    ```
+    import android.app.Activity;
+    ```
 
     **错误提示**
 
@@ -70,7 +66,9 @@ categories: Android
 
     res/values/style.xml和res/values-v11/style.xml文件里提示
 
-    `error: Error retrieving parent for item: No resource found that matches the given name 'Theme.AppCompat.Light'.`
+    ```
+    error: Error retrieving parent for item: No resource found that matches the given name 'Theme.AppCompat.Light'.
+    ```
 
     将
 
@@ -86,19 +84,27 @@ categories: Android
 
     同理，将res/values-v14/style.xml里的
 
-    `Theme.AppCompat.Light.DarkActionBar`
+    ```
+    Theme.AppCompat.Light.DarkActionBar
+    ```
 
     改为
 
-    `android:Theme.Light`
+    ```
+    android:Theme.Light
+    ```
 
     res/menu/main.xml文件里提示
 
-    `error: No resource identifier found for attribute 'showAsAction' in package 'org.mazhuang.android.helloworld'`
+    ```
+    error: No resource identifier found for attribute 'showAsAction' in package 'org.mazhuang.android.helloworld'
+    ```
 
     将该文件里的
 
-    `app:showAsAction="never"`
+    ```
+    app:showAsAction="never"
+    ```
 
     删除。
 
