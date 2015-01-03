@@ -2,6 +2,8 @@
 layout: post
 title: 有static变量的namespace被多个cpp包含
 categories: cplusplus
+description: 如果一个头文件里定义的namespace里有static变量，而这个头文件被多个cpp文件包含，会导致什么问题呢？
+keywords: C++
 ---
 
 **有如下三个文件**  

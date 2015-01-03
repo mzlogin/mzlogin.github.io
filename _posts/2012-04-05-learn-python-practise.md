@@ -2,6 +2,8 @@
 layout: post
 title: Python核心编程中文第二版课后练习2.21答案
 categories: Python
+description: 自学Python核心编程过程中对课后习惯的答案记录。
+keywords: Python
 ---
 
 2-2  

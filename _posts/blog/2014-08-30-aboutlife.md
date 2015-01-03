@@ -2,6 +2,8 @@
 layout: post
 title: 我所理解的生活
 categories: Blog
+description: 我自己对生活的理解，认识上有改变就更新在这里。
+keywords: 自我认识, 改进
 ---
 
 每一次“嘴笨”的背后，都有平时疏于思考的懒惰。——写在最前面。

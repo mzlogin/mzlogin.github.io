@@ -2,6 +2,8 @@
 layout: post
 title: ANSI Common Lisp第二章习题解答
 categories: Lisp
+description: 学习ANSI Common Lisp第二章欢迎来到Lisp的笔记。
+keywords: Lisp
 ---
 
 本文是个人对[第二章：欢迎来到Lisp——ANSI Common Lisp 中文版](http://acl.readthedocs.org/en/latest/zhCN/ch2-cn.html)一文中习题的解答。

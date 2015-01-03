@@ -2,6 +2,8 @@
 layout: post
 title: Windows界面相关小知识点
 categories: Windows
+description: Win32编程中与界面相关的一些小的知识点总结。
+keywords: Windows, UI
 ---
 
 Q：禁止Win7下窗口被拖到顶部时自动飘到左上角  

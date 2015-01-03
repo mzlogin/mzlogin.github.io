@@ -2,6 +2,8 @@
 layout: post
 title: 可执行文件名中包含install或setup
 categories: Windows
+description: EXE文件名称中含有install或者setup会导致一些问题，现象和解决方法。
+keywords: EXE, Windows
 ---
 
 **问题描述：**    

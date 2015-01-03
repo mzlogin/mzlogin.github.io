@@ -2,6 +2,8 @@
 layout: post
 title: 工科男难找对象的那点事儿
 categories: Blog
+description: 为什么工科男难找对象？总结最可能的几个原因。
+keywords: 工科男, 找对象
 ---
 
 想讲的那点事儿其实可以用时下一句很火的话概括的：

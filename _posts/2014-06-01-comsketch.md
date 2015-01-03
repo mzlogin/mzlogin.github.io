@@ -2,6 +2,8 @@
 layout: post
 title: COM原理与应用学习笔记
 categories: COM
+description: 略读了一遍《COM原理与应用》后的摘要笔记。
+keywords: COM
 ---
 
 略读完了潘爱民老师的《COM原理与应用》一书，将书中个人认为一些比较重要的概念摘引如下，附少量自己的标注。

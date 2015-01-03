@@ -1,7 +1,9 @@
 ---
 layout: post
 title: CSDN已下载资源自动批量评论脚本
-categories: python
+categories: Python
+description: 自动一次性评论所有CSDN已下载资源的脚本。
+keywords: Python, CSDN
 ---
 
 ###背景

@@ -2,6 +2,8 @@
 layout: post
 title: Windows实用技巧汇总
 categories: Windows
+description: 平时使用Windows时总结的一些实用的小技巧。
+keywords: Windows, Skill
 ---
 
 ###Win7不按Shift,右键显示"在此处打开命令窗口(W)"  

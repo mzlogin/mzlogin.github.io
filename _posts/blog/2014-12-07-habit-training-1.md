@@ -2,6 +2,8 @@
 layout: post
 title: 好习惯one by one之一
 categories: Blog
+description: 一次训练一个好习惯的计划，第一期。
+keywords: 好习惯, 计划
 ---
 
 ###习惯

@@ -2,6 +2,8 @@
 layout: post
 title: Firefox和内嵌Gecko程序的Plugins
 categories: Gecko
+description: 对使用Gecko的程序的插件注册与搜索机制的探索。
+keywords: Gecko, Mozilla, Plugin
 ---
 
 昨日在JumuFENG同学建的firefox交流群(81424441)里与群友们说起插件相关的一些东西,自己在本地测试了一下,然后推论出一些粗浅认识总结如下: (欢迎有兴趣和正在进行mozilla相关的一些开发的朋友加群交流)  

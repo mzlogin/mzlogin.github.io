@@ -2,6 +2,8 @@
 layout: post
 title: Python核心编程中文第二版课后练习3.8答案
 categories: Python
+description: 自学Python核心编程过程中对课后习题的答案记录。
+keywords: Python
 ---
 
 3-1 变量在第一次被赋值时自动声明。在赋值时解释器会根据语法和右侧的操作数来决定新对象的类型。  

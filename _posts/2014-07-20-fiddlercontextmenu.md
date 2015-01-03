@@ -2,6 +2,8 @@
 layout: post
 title: 定制Fiddler之将请求发往另一服务器
 categories: Fiddler
+description: 利用Fiddler和Composer功能将某个特定的SESSION手动发往另一个服务器。
+keywords: Fiddler
 ---
 
 ###需求

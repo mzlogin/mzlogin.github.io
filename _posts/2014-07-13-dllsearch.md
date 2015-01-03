@@ -2,6 +2,8 @@
 layout: post
 title: 默认的DLL搜索路径优先级
 categories: Windows
+description: Windows上EXE加载DLL时的搜索路径与顺序。
+keywords: Dll, Windows
 ---
 
 ###结论

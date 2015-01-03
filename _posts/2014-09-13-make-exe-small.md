@@ -2,6 +2,8 @@
 layout: post
 title: 如何让你的EXE/DLL足够小
 categories: Windows
+description: 为了节省大量用户下载占用的带宽，又不便使用P2P技术，需要做一个尽量小的独立EXE，这里是对如何让一个简单的EXE体积尽量小的部分方法与每一步的实际效果。
+keywords: Windows
 ---
 
 为了节省大量用户下载占用的带宽，又不便使用P2P技术，需要做一个尽量小的独立EXE，这里是对如何让一个简单的EXE体积尽量小的部分方法与每一步的实际效果。

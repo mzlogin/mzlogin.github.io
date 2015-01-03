@@ -2,6 +2,8 @@
 layout: post
 title: VBA在Excel中的常用操作
 categories: Excel
+description: 使用VBA操作Excel表格的一些常用用法的笔记。
+keywords: VBA, Excel
 ---
 
 ####创建一个EXCEL工作簿对象:  

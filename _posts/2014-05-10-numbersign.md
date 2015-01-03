@@ -2,6 +2,8 @@
 layout: post
 title: C++中的#，##，和"
 categories: cplusplus
+description: 宏的常用用法。
+keywords: 宏, C++
 ---
 
 想要灵活应用宏，离不开`#`和`##`。

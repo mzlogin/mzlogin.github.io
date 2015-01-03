@@ -2,6 +2,8 @@
 layout: post
 title: 获取运行过程中改名的文件的路径
 categories: Windows
+description: 一个EXE在运行过程中（被）改名了，如何准确地获取它的文件名。
+keywords: Windows
 ---
 
 ###需求

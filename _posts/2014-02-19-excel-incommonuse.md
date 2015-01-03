@@ -2,6 +2,8 @@
 layout: post
 title: EXCEL常用操作
 categories: Excel
+description: 操作EXCEL的常用函数总结。
+keywords: Excel
 ---
 
 ###查找

@@ -2,6 +2,8 @@
 layout: post
 title: 使用gVim的Python自动补全时遇到的问题
 categories: Vim
+description: 使用gVim的Python自动补全时遇到了错误提示。
+keywords: gVim, Python
 ---
 
 ###问题描述

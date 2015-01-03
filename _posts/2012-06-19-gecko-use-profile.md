@@ -2,6 +2,8 @@
 layout: post
 title: 为基于xulrunner的内嵌Gecko程序启用Profile
 categories: Gecko
+description: 为基于xulrunner为内嵌Gecko程序启用Profile
+keywords: Gecko, Profile
 ---
 
 Mozilla自带的Profile支持实际上是非常给力的，看看%appdata%/Mozilla/Firefox下的文件就能知道，这里存放着许多的信息，它们提供了很多东西，例如：  

@@ -2,6 +2,8 @@
 layout: post
 title: Windows API中的坑
 categories: Windows
+description: 在Windows API中有一些坑，一不小心就会引发一些不易察觉的Bug。
+keywords: API
 ---
 
 ###Index
