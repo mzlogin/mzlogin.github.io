@@ -2,7 +2,7 @@
 layout: post
 title: 如何让HelloWorld.apk体积最小
 categories: Android
-description: 一个最简单的HelloWorld.apk体积都很大，探索如何让简单的Android程序体积最小。
+description: 一个默认生成的最简单的HelloWorld.apk体积都很大，探索如何让简单的Android程序体积最小。
 keywords: Android
 ---
 
@@ -10,7 +10,7 @@ keywords: Android
 
 ![ADT new project default settings](/images/posts/android/new-project.png)
 
-*（注：本文所述方法是以牺牲新的API和界面风格为代价的。）*
+*（注：本文所述方法是以牺牲新的API为代价的。）*
 
 默认生成的apk文件大小（903KB）：
 
@@ -20,7 +20,7 @@ keywords: Android
 
 创建一个Minimum Required SDK低于API level 11（对应Android 3.0），Target SDK高于API Level 11的工程，ADT会自动生成一个名为appcompat\_v7的库工程并且使你的工程依赖于它。关于appcompat\_v7的作用，可以参见<http://developer.android.com/tools/support-library/features.html#v7>，大概就是说有一系列的v7 xxx库，比如v7 appcompat library、v7 cardview library、v7 gridlayout library等，都是用于为Android 2.1（API level 7）或者更高的系统提供一些功能，其中v7 appcompat library是提供Action Bar相关的界面风格的支持，比如它里面包含了ActionBar、ActionBarActivity和ShareActionProvider等关键类。
 
-所以如果纯出于精简apk体积的考虑，并且可以接受牺牲Action Bar界面风格为代价，那就可以将appcompat\_v7依赖库移除。
+所以如果纯出于精简apk体积的考虑，那就可以将appcompat\_v7依赖库移除。
 
 移除步骤如下：
 
@@ -66,7 +66,7 @@ keywords: Android
 
     出现这个提示一般是xml文件里出错导致无法自动生成R.java文件，根据Eclipse在Package Explorer里提示的小红叉，逐一排查修改。
 
-    res/values/style.xml和res/values-v11/style.xml文件里提示
+    res/values/style.xml文件里提示
 
     ```
     error: Error retrieving parent for item: No resource found that matches the given name 'Theme.AppCompat.Light'.
@@ -84,17 +84,7 @@ keywords: Android
     <style name="AppBaseTheme" parent="android:Theme.Light">
     ```
 
-    同理，将res/values-v14/style.xml里的
-
-    ```
-    Theme.AppCompat.Light.DarkActionBar
-    ```
-
-    改为
-
-    ```
-    android:Theme.Light
-    ```
+    同理，将res/values-v11/style.xml和res/values-v14/style.xml里的`AppBaseTheme`分别改为`android:Theme.Holo.Light`和`android:Theme.Holo.Light.DarkActionBar`。
 
     res/menu/main.xml文件里提示
 
@@ -136,6 +126,8 @@ keywords: Android
 
 这个大小大致可以接受啦！
 
+*（注：如果关闭workspace后重新打开，这个取消导出会重新被勾选中，如果确定使用不导出方案，那么可在Package Explorer视图中该工程下libs里找到android-support-v4.jar，右键删除之。）*
+
 ###影响
 
 当然程序精简带来的影响也是很明显的。
@@ -147,12 +139,6 @@ keywords: Android
     |903KB|380KB|45KB|
 
     可不可以只不导出android-support-v4.jar而继续依赖appcompat\_v7呢？答案是不可以，在<http://developer.android.com/tools/support-library/features.html#v7>的Note中显示v7 appcompat library是依赖v4 support library的。
-
-1. 界面
-
-    |移除appcompat\_v7前|移除appcompat\_v7后|
-    |---|---|
-    |![view with v7](/images/posts/android/view-with-v7.png)|![view without v7](/images/posts/android/view-without-v7.png)|
 
 1. API
 
