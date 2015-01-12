@@ -1,7 +1,7 @@
 ---
 layout: post
 title: C++程序员的Java指南(1)
-categories: java
+categories: Java
 description: 一个C++程序员自己总结的Java学习中应该注意的点。
 keywords: C++, Java
 ---
