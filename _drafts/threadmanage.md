@@ -28,7 +28,7 @@ _beginthreadex(NULL, 0, ThreadFunc, 0, NULL);
 > 
 > The thread object remains in the system until the thread has terminated and all handles to it have been closed through a call to CloseHandle.
 
-所以在不需要的时候，还是忙不迭地把线程句柄关掉吧……不然线程对象会一直不销毁。于是代码又变成了这样：
+所以在不需要的时候，还是忙不迭地把线程句柄关掉吧！不然线程对象会一直逗留在进程里不回收。于是代码又变成了这样：
 
 ```
 HANDLE hThread = (HANDLE)_beginthreadex(NULL, 0, ThreadFunc, 0, NULL);
