@@ -3,6 +3,7 @@ layout: default
 title: Categories
 description: 本博客所有文章分类列表。
 keywords: 分类
+permalink: /catelog/categories.html
 ---
 
 <div class='tag_cloud'>
