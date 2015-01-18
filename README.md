@@ -13,4 +13,10 @@ My personal blog hosted on Github Pages.
 
 3. 言之有物，不做无痛之呻吟。
 
+###写博注意点
+
+1. keyword以C++这样的开头会有问题。
+
+1. toc link中的字母要全小写。
+
 ###思考中的问题
