@@ -1,6 +1,6 @@
 ---
-layout: post
-title: VIM常用操作
+layout: wiki
+title: Vim
 categories: Vim
 description: 个人最常用的Vim常用操作。
 keywords: Vim
