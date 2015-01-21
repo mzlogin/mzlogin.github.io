@@ -2,61 +2,61 @@
 layout: wiki
 title: Emacs
 categories: Emacs
-description: Emacs��ݼ����ܼ��ճ�ʹ�ü�¼��
-keywords: Emacs, ��ݼ�
+description: Emacs快捷键汇总及日常使用记录。
+keywords: Emacs, 快捷键
 ---
 
-Լ����`C-`ǰ׺��ʾCtrl��`M-`ǰ׺��ʾAlt��`S-`ǰ׺��ʾShift��
+约定：`C-`前缀表示Ctrl，`M-`前缀表示Alt，`S-`前缀表示Shift，上档字符比如`@`的实际按键应为`Shift+2`。
 
 ###Index
 
-* [�ƶ�](#�ƶ�)
-* [�༭](#�༭)
-* [�ļ�](#�ļ�)
-* [����](#����)
+* [移动](#移动)
+* [编辑](#编辑)
+* [文件](#文件)
+* [代码](#代码)
 
-###�ƶ�
+###移动
 
-�� C-p
+上 C-p
 
-�� C-n
+下 C-n
 
-�� C-b
+左 C-b
 
-�� C-f
+右 C-f
 
-ǰһ������ M-b
+前一个词首 M-b
 
-��һ����β M-f
+后一个词尾 M-f
 
-����ĳһ�� M-gg
+跳到某一行 M-gg
 
-�������� M-<
+跳到文首 M-<
 
-������β M->
+跳到文尾 M->
 
-###�༭
+###编辑
 
-ѡȡ�� C-@
+选取块 C-@
 
-�л�ֻ��/�༭ģʽ C-x C-q
+切换只读/编辑模式 C-x C-q
 
-������ǰ�ַ���ǰһ�ַ� C-t
+交换当前字符与前一字符 C-t
 
-������ǰ�������һ���� M-t
+交换当前单词与后一单词 M-t
 
-������ǰ������һ�� C-x C-t
+交换当前行与上一行 C-x C-t
 
-###�ļ�
+###文件
 
-���ļ� C-x C-f
+打开文件 C-x C-f
 
-�����ļ� C-x C-s
+保存文件 C-x C-s
 
-�������д򿪵��ļ� C-x s
+保存所有打开的文件 C-x s
 
-###����
+###代码
 
-ע��ѡ�п� C-x r t
+注释选中块 C-x r t
 
-��ע��ѡ�п� C-x r k
+反注释选中块 C-x r k
