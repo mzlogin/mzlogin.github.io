@@ -12,8 +12,11 @@ keywords: Emacs, 快捷键
 
 * [移动](#移动)
 * [编辑](#编辑)
+* [缓冲区](#缓冲区)
+* [窗口](#窗口)
 * [文件](#文件)
 * [代码](#代码)
+* [命令](#命令)
 
 ###移动
 
@@ -31,6 +34,10 @@ keywords: Emacs, 快捷键
 
 跳到某一行 M-gg
 
+下翻页 C-v
+
+上翻页 M-v
+
 跳到文首 M-<
 
 跳到文尾 M->
@@ -47,6 +54,18 @@ keywords: Emacs, 快捷键
 
 交换当前行与上一行 C-x C-t
 
+###缓冲区
+
+查看所有打开的缓冲区 C-x C-b
+
+切换缓冲区 C-x b
+
+###窗口
+
+关闭其它窗口 C-x 1
+
+关闭当前窗口 C-x 0
+
 ###文件
 
 打开文件 C-x C-f
@@ -60,3 +79,19 @@ keywords: Emacs, 快捷键
 注释选中块 C-x r t
 
 反注释选中块 C-x r k
+
+###命令
+
+输入命令 M-x
+
+运行SHELL shell
+
+运行ESHELL eshell
+
+列出elpa上可用包 list-packages
+
+安装插件 package-install
+
+选择某个模式（举例） outline-minor-mode
+
+输入外部命令 M-@
