@@ -15,7 +15,7 @@ keywords: Vim
 * [替换](#替换)
 * [常用](#常用)
 * [vimdiff](#vimdiff)
-* [Buffer](#Buffer)
+* [Buffer](#buffer)
 * [组合命令](#组合命令)
 * [代码](#代码)
 
