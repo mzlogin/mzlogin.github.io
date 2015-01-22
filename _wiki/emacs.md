@@ -56,6 +56,10 @@ keywords: Emacs, 快捷键
 
 交换当前行与上一行 C-x C-t
 
+撤消 C-/
+
+撤消撤消 C-g C-/
+
 ###缓冲区
 
 查看所有打开的缓冲区 C-x C-b
@@ -95,6 +99,8 @@ keywords: Emacs, 快捷键
 列出elpa上可用包 list-packages
 
 安装插件 package-install
+
+中止一个操作 C-g
 
 ###外部命令
 
