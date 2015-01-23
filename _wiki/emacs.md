@@ -48,6 +48,14 @@ keywords: Emacs, 快捷键
 
 选取块 C-@
 
+复制 M-w
+
+剪切 C-w
+
+粘贴 C-y
+
+全选 C-x h
+
 切换只读/编辑模式 C-x C-q
 
 交换当前字符与前一字符 C-t
@@ -56,7 +64,7 @@ keywords: Emacs, 快捷键
 
 交换当前行与上一行 C-x C-t
 
-撤消 C-/
+撤消 C-/ 或 C-x u
 
 撤消撤消 C-g C-/
 
