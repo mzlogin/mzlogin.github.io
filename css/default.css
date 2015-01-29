@@ -185,14 +185,20 @@ div.gg_ads_footer {
 }
 
 table {
+    border-collapse: collapse;
 }
 
 th {
-    background-color: #dedede;
-    font-size: 1em;
+    padding: 0.375em 0.8125em;
+    border: 1px solid #ddd;
+    font-weight: bold;
 }
 
 td {
-    background-color: #f8f8ff;
-    font-size: 0.75em;
+    padding: 0.375em 0.8125em;
+    border: 1px solid #ddd;
+}
+
+tr:nth-child(2n) {
+    background-color: #f8f8f8;
 }
