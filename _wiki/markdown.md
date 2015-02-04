@@ -1,6 +1,6 @@
 ---
 layout: wiki
-title: MarkDown
+title: Markdown
 categories: Markdown
 description: Markdown常用语法示例。
 keywords: Markdown
@@ -10,10 +10,11 @@ keywords: Markdown
 
 * [超链接](#超链接)
 * [列表](#列表)
-* [任务列表](#任务列表)
+* [强调](#强调)
 * [表格](#表格)
 * [代码块](#代码块)
 * [图片](#图片)
+* [锚点](#锚点)
 
 ###超链接
 
@@ -29,30 +30,63 @@ keywords: Markdown
 
 ###列表
 
+有序
+
 ```
 1. first
+
 2. second
+
 3. third
 ```
 
-1. first  
-2. second  
-3. third  
+1. first
 
-###任务列表
+2. second
+
+3. third
+
+无序
 
 ```
-- [] Task1
-- [] Task2
-- [1] Task3
-- [1] Task4
+* first
+
+* second
+
+* third
 ```
 
-- [] Task1  
-- [] Task2  
-- [1] Task3  
-- [1] Task4  
+* first
 
+* second
+
+* third
+
+###强调
+
+删除线
+
+```
+~~hello~~
+```
+
+~~hello~~
+
+加黑
+
+```
+**hello**
+```
+
+**hello**
+
+斜体
+
+```
+*hello*
+```
+
+*hello*
 
 ###表格
 
@@ -76,11 +110,18 @@ keywords: Markdown
 print 'Hello, World!'
 ```
 
-{% gist mzlogin/f6dbe25c70131113b7ec %}
-
 ###图片
+
 ```
 ![本站favicon](/favicon.ico)
 ```
 
 ![本站favicon](/favicon.ico)
+
+###锚点
+
+```
+* [目录](#目录)
+```
+
+* [目录](#目录)
