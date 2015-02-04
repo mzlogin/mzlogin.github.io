@@ -142,3 +142,5 @@ keywords: Vim
 展开当前区块 zo
 
 递归展开当前大区块 zO
+
+格式化json数据 :%!python -m json.tool
