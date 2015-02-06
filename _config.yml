@@ -33,9 +33,3 @@ collections:
 #      Comments    #
 # ---------------- #
 duoshuo_short_name: mazhuang
-
-# ---------------- #
-#      Adsense     #
-# ---------------- #
-adsense: false
-amazon: false
