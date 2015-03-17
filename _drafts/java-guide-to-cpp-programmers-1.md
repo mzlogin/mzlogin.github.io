@@ -18,6 +18,8 @@ keywords: C++, Java
 
 * boolean值只能是true和false，不能从整形等其它值转换而来。用于字符串连接的时候会自动转换成“true”和“false”。
 
+* if里只能接受boolean值，所以C++里的好习惯if (5 == var)在Java里不再必要，少写了一个=的时候IDE和编译器都会提示你。
+
 * new Person(); 必须有()，否则编译不过。
 
 * 数组的声明方式推荐int[] nArray = new int[4];或者int[] nArray = {1,2,3};，第一种称为动态初始化，第二种称为静态初始化。动态初始化时，系统按如下规则分配初始值：整形为0，浮点型为0.0，字符型为'\u0000'，布尔型为false，引用类型为null。
