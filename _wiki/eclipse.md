@@ -37,3 +37,5 @@ A --> Alt
 |删除当前行|C-d|
 |删除前一个词|C-Backspace|
 |删除后一个词|C-Delete|
+|缩进|Tab|
+|减少缩进|S-Tab|
