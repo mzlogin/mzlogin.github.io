@@ -18,7 +18,7 @@ keywords: Windows, Process
 
 * 最好使用volatile修饰变量。
 * 对变量的增减推荐使用原子操作函数InterlockedExchangedAdd。
-* g\_lInstances的值在第一个实例运行时总为0，其它实例中取到的值以当先于它运行的实例中改变后的值为准。
+* g\_lInstances的值在第一个实例运行时总为0，其它实例中取到的值以先于它运行的实例中改变后的值为准。
 
 示例代码：
 
