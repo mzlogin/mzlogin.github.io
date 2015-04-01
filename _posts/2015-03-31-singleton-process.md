@@ -59,7 +59,7 @@ int main(int argc, char *argv[])
 
 注意点：
 
-* 内核对象要使用全局命令，比如此处使用Global开头。
+* 内核对象要使用全局命名，比如此处使用Global开头。
 
 示例代码：
 
