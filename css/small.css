@@ -23,15 +23,11 @@ H3, H4 {
 div.nav {
     width: 100%;
     padding: 0 0 0 0;
-    border: none;
+    border: 1px solid #d4d4d4;
 }
 
-div.nav a {
-    text-decoration: underline;
-}
-
-div.nav_rss {
-    display: none;
+div.nav_a1 {
+    background: antiquewhite;
 }
 
 div.overview {
