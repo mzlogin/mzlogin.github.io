@@ -26,12 +26,16 @@ div.nav {
     border: 1px solid #d4d4d4;
 }
 
+div.nav a {
+    padding: 0.25em 0.75em;
+}
+
 div.nav_a1 {
-    background: antiquewhite;
+    background: #faebd7;
 }
 
 div.overview {
-    margin: 1.5em 0 1.5em 0;
+    margin: 1.5em;
 }
 
 div.detail {
