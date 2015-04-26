@@ -31,11 +31,11 @@ div.nav a {
 }
 
 a.nav_a1 {
-    background: #faebd7;
+    background: #d4d4d4;
 }
 
 div.overview {
-    margin: 1.5em;
+    margin: 1.5em 0 1.5em 0.75em;
 }
 
 div.detail {
