@@ -25,6 +25,7 @@ keywords: Emacs, 快捷键
 * [插件](#插件)
   * [ido](#ido)
   * [projectile](#projectile)
+  * [python](#python)
 
 ###移动
 
@@ -150,7 +151,7 @@ keywords: Emacs, 快捷键
 
 ###插件
 
-###ido
+####ido
 
 切换到上一个选项 C-r
 
@@ -159,3 +160,7 @@ keywords: Emacs, 快捷键
 ####projectile
 
 显示/刷新当前项目文件列表 C-c p f
+
+####python
+
+打开Python交互式Shell C-c C-p
