@@ -22,8 +22,12 @@ keywords: Emacs, 快捷键
 * [显示](#显示)
 * [搜索](#搜索)
 * [帮助](#帮助)
+* [右键菜单](#右键菜单)
 * [插件](#插件)
+  * [evil-nerd-commenter](#evil-nerd-commenter)
+  * [hexl-mode](#hexl-mode)
   * [ido](#ido)
+  * [jedi](#jedi)
   * [projectile](#projectile)
   * [python](#python)
 
@@ -149,13 +153,41 @@ keywords: Emacs, 快捷键
 
 查看函数的文档 C-h f
 
+###右键菜单
+
+将如下代码命令为.reg文件，运行后可为鼠标右键添加菜单项“Edit with Emacs”。
+
+```
+Windows Registry Editor Version 5.00
+
+[HKEY_CLASSES_ROOT\*\shell\Edit with Emacs]
+
+[HKEY_CLASSES_ROOT\*\shell\Edit with Emacs\command]
+@="\"D:\\emacs\\bin\\runemacs.exe\" \"%1\""
+```
+
 ###插件
+
+####evil-nerd-commenter
+
+注释/反注释 M-;
+注释多行 M-9 M-;
+
+####hexl-mode
+
+进入十六进制模式 M-x hexl-mode
+退出十六进制模式 M-x hexl-mode-exit
+输入十六进制数 M-x hexl-insert-hex-char
 
 ####ido
 
 切换到上一个选项 C-r
 
 切换到下一个选项 C-s
+
+####jedi
+
+显示光标处Python模块或函数的文档
 
 ####projectile
 
