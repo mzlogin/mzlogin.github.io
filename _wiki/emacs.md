@@ -30,6 +30,7 @@ keywords: Emacs, 快捷键
   * [jedi](#jedi)
   * [projectile](#projectile)
   * [python](#python)
+  * [function-args](#function-args)
 
 ###移动
 
@@ -107,6 +108,8 @@ keywords: Emacs, 快捷键
 
 保存所有打开的文件 C-x s
 
+在当前位置插入某文件内容 C-x i
+
 ###代码
 
 注释选中块 C-x r t
@@ -153,6 +156,12 @@ keywords: Emacs, 快捷键
 
 查看函数的文档 C-h f
 
+查看某快捷键说明 C-h k
+
+打开Tutorial C-h t
+
+打开帮助文档 C-h i
+
 ###右键菜单
 
 将如下代码命令为.reg文件，运行后可为鼠标右键添加菜单项“Edit with Emacs”。
@@ -171,12 +180,15 @@ Windows Registry Editor Version 5.00
 ####evil-nerd-commenter
 
 注释/反注释 M-;
+
 注释多行 M-9 M-;
 
 ####hexl-mode
 
 进入十六进制模式 M-x hexl-mode
+
 退出十六进制模式 M-x hexl-mode-exit
+
 输入十六进制数 M-x hexl-insert-hex-char
 
 ####ido
@@ -187,7 +199,7 @@ Windows Registry Editor Version 5.00
 
 ####jedi
 
-显示光标处Python模块或函数的文档
+显示光标处Python模块或函数的文档 C-c ?
 
 ####projectile
 
@@ -196,3 +208,11 @@ Windows Registry Editor Version 5.00
 ####python
 
 打开Python交互式Shell C-c C-p
+
+####function-args
+
+提示函数参数 M-i
+
+显示本文件大纲选择某项后跳转 C-M-j
+
+跳转到函数定义（显示函数参数的时候有效） M-j
