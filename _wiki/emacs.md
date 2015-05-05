@@ -172,6 +172,8 @@ keywords: Emacs, 快捷键
 
 重置字体 C-x C-0
 
+自定义颜色 M-x customize-face <RETURN> default <RETURN>
+
 ###搜索
 
 递增的搜索 C-s
