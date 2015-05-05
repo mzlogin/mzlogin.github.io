@@ -26,12 +26,13 @@ keywords: Emacs, 快捷键
 * [右键菜单](#右键菜单)
 * [插件](#插件)
   * [evil-nerd-commenter](#evil-nerd-commenter)
+  * [function-args](#function-args)
   * [hexl-mode](#hexl-mode)
   * [ido](#ido)
   * [jedi](#jedi)
   * [projectile](#projectile)
   * [python](#python)
-  * [function-args](#function-args)
+  * [package](#package)
 
 ###移动
 
@@ -208,6 +209,14 @@ Windows Registry Editor Version 5.00
 
 注释多行 M-9 M-;
 
+####function-args
+
+提示函数参数 M-i
+
+显示本文件大纲选择某项后跳转 C-M-j
+
+跳转到函数定义（显示函数参数的时候有效） M-j
+
 ####hexl-mode
 
 进入十六进制模式 M-x hexl-mode
@@ -234,10 +243,12 @@ Windows Registry Editor Version 5.00
 
 打开Python交互式Shell C-c C-p
 
-####function-args
+####package
 
-提示函数参数 M-i
+升级已安装的包 U
 
-显示本文件大纲选择某项后跳转 C-M-j
+选择要安装的包 i
 
-跳转到函数定义（显示函数参数的时候有效） M-j
+选择要删除的包 d
+
+执行操作 x
