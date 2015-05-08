@@ -150,6 +150,8 @@ keywords: Emacs, 快捷键
 
 安装插件 package-install
 
+格式化输出JSON json-pretty-print-buffer
+
 中止一个操作 C-g
 
 ###重复
