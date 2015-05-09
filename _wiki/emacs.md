@@ -114,6 +114,10 @@ keywords: Emacs, 快捷键
 
 关闭当前窗口 C-x 0
 
+在下面分割出一个窗口 C-x 2
+
+在右边分割出一个窗口 C-x 3
+
 依次切换到其它窗口 C-x o
 
 ###文件
@@ -132,11 +136,15 @@ keywords: Emacs, 快捷键
 
 反注释选中块 C-x r k
 
+注释/反注释 M-;
+
 格式化光标之前的代码 C-M-\
 
 与上一行合并 M-^
 
 带注释前缀换行 M-j
+
+解释运行当前elisp语句/函数 C-M-x
 
 ###命令
 
@@ -152,7 +160,9 @@ keywords: Emacs, 快捷键
 
 格式化输出JSON json-pretty-print-buffer
 
-ELisp交互解释器 ielm
+elisp交互解释器 ielm
+
+解释运行当前Buffer eval-buffer
 
 中止一个操作 C-g
 
