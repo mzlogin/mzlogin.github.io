@@ -96,7 +96,7 @@ keywords: Emacs, 快捷键
 
 撤消撤消 C-g C-/
 
-当前单词全大写 M-u
+当前单全大写 M-u
 
 当前单词全小写 M-l
 
@@ -151,6 +151,8 @@ keywords: Emacs, 快捷键
 安装插件 package-install
 
 格式化输出JSON json-pretty-print-buffer
+
+ELisp交互解释器 ielm
 
 中止一个操作 C-g
 
