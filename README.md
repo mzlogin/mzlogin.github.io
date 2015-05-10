@@ -17,6 +17,6 @@ My personal blog hosted on Github Pages.
 
 1. keywords以C++这样的开头会有问题。
 
-1. toc link中的字母要全小写。
+1. toc link中的字母要全小写，且如果有空格，要用`-`填充。
 
 ###思考中的问题
