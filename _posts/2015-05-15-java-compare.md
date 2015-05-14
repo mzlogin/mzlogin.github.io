@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Java中的比较运算符
+title: Java 中的比较运算符
 categories: Java
-description: Java中的比较运算符里有没有什么陷阱呢？
+description: Java 中的比较运算符里有没有什么陷阱呢？
 keywords: Java, Compare
 ---
 
