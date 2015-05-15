@@ -21,6 +21,7 @@ M --> Alt
 |格式化代码|C-M-l|
 |Outline|C-F12|
 |快速打开文件|C-S-n|
+|快速打开类所在文件|C-n|
 |搜索Everywhere|双击S|
 |最近使用的文件|C-E|
 |定位到导航条|M-Home|
