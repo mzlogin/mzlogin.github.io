@@ -212,7 +212,9 @@ elisp交互解释器 ielm
 
 ###右键菜单
 
-将如下代码命令为.reg文件，运行后可为鼠标右键添加菜单项“Edit with Emacs”。
+将如下代码命令为 .reg 文件，运行后可为鼠标右键添加菜单项“Edit with Emacs”（运行之前将 exe 路径先替换为自己的）。
+
+前提是在配置文件里添加了 `(server-start)`。
 
 ```
 Windows Registry Editor Version 5.00
@@ -220,7 +222,7 @@ Windows Registry Editor Version 5.00
 [HKEY_CLASSES_ROOT\*\shell\Edit with Emacs]
 
 [HKEY_CLASSES_ROOT\*\shell\Edit with Emacs\command]
-@="\"D:\\emacs\\bin\\runemacs.exe\" \"%1\""
+@="\"D:\\emacs\\bin\\emacsclientw.exe\" -a \"D:\\emacs\\bin\\runemacs.exe\" \"%1\""
 ```
 
 ###插件
