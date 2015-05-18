@@ -33,6 +33,8 @@ keywords: Emacs, 快捷键
   * [projectile](#projectile)
   * [python](#python)
   * [package](#package)
+* [其它需求](#其它需求)
+  * [统计字数](#统计字数)
 
 ###移动
 
@@ -166,13 +168,15 @@ elisp交互解释器 ielm
 
 中止一个操作 C-g
 
+对选中区域执行命令 M-|
+
 ###重复
 
 重复操作50次 M-50 命令
 
 ###外部命令
 
-输入外部命令 M-@
+输入外部命令 M-!
 
 ###模式
 
@@ -288,3 +292,14 @@ Windows Registry Editor Version 5.00
 重置缓冲区 g
 
 退出窗口 q
+
+
+###其它需求
+
+####统计字数
+
+（前提是 shell 下能运行 wc 程序）
+
+1. 选中要统计区域
+2. M-|
+3. wc -c
