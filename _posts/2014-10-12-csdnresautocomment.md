@@ -11,7 +11,7 @@ CSDN账号过一段时间就会累积几十个下载过但是未评论打分的�
 
 对于这类模拟HTTP请求然后可能频繁用到页面解析和正则表达式之类的活，用C++写还是有点蛋疼的，用我那半生不熟的Python练练手正合适。
 
-遂在github上建了个仓库开工，地址在这里：<https://github.com/mzlogin/CsdnResourceAutoComment>。
+遂在github上建了个仓库开工，地址在这里：<https://github.com/mzlogin/csdncommenter>。
 
 ###分析
 使用Fiddler把*登录-到待评论页面-评论*的完整流程抓了一下，整理程序逻辑大致如下：
