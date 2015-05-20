@@ -22,7 +22,7 @@ JSON编码解码器。
 
 * 格式化json文件
 
-	python -m json.tool src.json > dst.json
+    python -m json.tool src.json > dst.json
 
 ###CGIHTTPServer
 
@@ -32,4 +32,4 @@ JSON编码解码器。
 
 * 运行一个简易的HTTP服务器
 
-	python -m CGIHTTPServer 80
+    python -m CGIHTTPServer 80
