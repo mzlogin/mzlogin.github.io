@@ -27,13 +27,13 @@ keywords: Git, 版本控制
 
 1. 如何解决gitk中文乱码问题？
 
-	在~/.gitconfig中添加如下内容
+    在~/.gitconfig中添加如下内容
 
-	```
-	[gui]
-		encoding = utf-8
-	[i18n]
-		commitencoding = gbk
-	[svn]
-		pathnameencoding = gbk
-	```
+    ```
+    [gui]
+        encoding = utf-8
+    [i18n]
+        commitencoding = gbk
+    [svn]
+        pathnameencoding = gbk
+    ```
