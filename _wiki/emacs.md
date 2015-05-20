@@ -2,11 +2,11 @@
 layout: wiki
 title: Emacs
 categories: Emacs
-description: Emacs快捷键汇总及日常使用记录。
+description: Emacs 快捷键汇总及日常使用记录。
 keywords: Emacs, 快捷键
 ---
 
-约定：`C-`前缀表示Ctrl，`M-`前缀表示Alt，`S-`前缀表示Shift，上档字符比如`@`的实际按键应为`Shift+2`。
+约定：`C-` 前缀表示 Ctrl，`M-` 前缀表示 Alt，`S-` 前缀表示 Shift，上档字符比如 `@` 的实际按键应为 `Shift+2`。
 
 ###Index
 
@@ -110,6 +110,8 @@ keywords: Emacs, 快捷键
 
 关闭缓冲区 C-x k
 
+关闭 emacsclientw.exe 打开的缓冲区 C-x #
+
 ###窗口
 
 关闭其它窗口 C-x 1
@@ -146,25 +148,25 @@ keywords: Emacs, 快捷键
 
 带注释前缀换行 M-j
 
-解释运行当前elisp语句/函数 C-M-x
+解释运行当前 elisp 语句/函数 C-M-x
 
 ###命令
 
 输入命令 M-x
 
-运行SHELL shell
+运行 SHELL shell
 
-运行ESHELL eshell
+运行 ESHELL eshell
 
-列出elpa上可用包 list-packages
+列出 elpa 上可用包 list-packages
 
 安装插件 package-install
 
-格式化输出JSON json-pretty-print-buffer
+格式化输出 JSON json-pretty-print-buffer
 
-elisp交互解释器 ielm
+elisp 交互解释器 ielm
 
-解释运行当前Buffer eval-buffer
+解释运行当前 Buffer eval-buffer
 
 中止一个操作 C-g
 
@@ -172,7 +174,7 @@ elisp交互解释器 ielm
 
 ###重复
 
-重复操作50次 M-50 命令
+重复操作 50 次 M-50 命令
 
 ###外部命令
 
@@ -210,7 +212,7 @@ elisp交互解释器 ielm
 
 查看某快捷键说明 C-h k
 
-打开Tutorial C-h t
+打开 Tutorial C-h t
 
 打开帮助文档 C-h i
 
@@ -261,7 +263,7 @@ Windows Registry Editor Version 5.00
 
 ####jedi
 
-显示光标处Python模块或函数的文档 C-c ?
+显示光标处 Python 模块或函数的文档 C-c ?
 
 ####projectile
 
@@ -269,7 +271,7 @@ Windows Registry Editor Version 5.00
 
 ####python
 
-打开Python交互式Shell C-c C-p
+打开 Python 交互式Shell C-c C-p
 
 ####package
 
