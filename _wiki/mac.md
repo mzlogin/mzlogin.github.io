@@ -10,6 +10,7 @@ keywords: Mac
 * [窗口](#窗口)
 * [程序](#程序)
 * [Safari](#safari)
+* [Terminal](#terminal)
 
 快捷键约定：
 
@@ -50,3 +51,10 @@ Cmd --> Command
 |新建窗口|Cmd-N|
 |定位到地址栏|Cmd-L|
 |切换标签|Cmd-S-Left/Right|
+
+###Terminal
+
+|功能|快捷键|
+|:---|:---|
+|新建标签|Cmd-T|
+|上/下个标签|Cmd-{/}|
