@@ -22,6 +22,8 @@ M --> Alt/Option
 
 Cmd --> Command
 
+[Mac 键盘快捷键官方参考](https://support.apple.com/zh-cn/HT201236)
+
 ###窗口
 
 |功能|快捷键|
