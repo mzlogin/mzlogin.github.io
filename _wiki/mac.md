@@ -11,6 +11,7 @@ keywords: Mac
 * [程序](#程序)
 * [Safari](#safari)
 * [Terminal](#terminal)
+* [WireShark](#WireShark)
 
 快捷键约定：
 
@@ -34,6 +35,8 @@ Cmd --> Command
 |最小化窗口|Cmd-M|
 |关闭窗口|Cmd-W|
 |关闭当前程序|Cmd-Q|
+|新建标签|Cmd-T|
+|新建窗口|Cmd-N|
 
 ###程序
 
@@ -44,15 +47,15 @@ Cmd --> Command
 |切换输入法|Cmd-空格|
 |打开Alfred|M-空格|
 |打开Finder并查找|C-M-空格|
+|打开Launchpad|四指合拢|
 
 ###Safari
 
 |功能|快捷键|
 |:---|:---|
-|新建标签|Cmd-T|
-|新建窗口|Cmd-N|
 |定位到地址栏|Cmd-L|
 |切换标签|Cmd-S-Left/Right|
+|收藏页面|Cmd-D|
 
 ###Terminal
 
@@ -60,3 +63,8 @@ Cmd --> Command
 |:---|:---|
 |新建标签|Cmd-T|
 |上/下个标签|Cmd-{/}|
+|删除光标前的输入|C-U|
+
+###WireShark
+
+使用 WireShark 1.99 开发版，可以不依赖于 X11，界面基于 Qt，更加美观，符合 Mac 界面风格。
