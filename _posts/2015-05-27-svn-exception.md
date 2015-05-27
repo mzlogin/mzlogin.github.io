@@ -6,7 +6,7 @@ description: TortoiseSVN 从 GitHub 更新时发生异常，附解决方案。
 keywords: TortoiseSVN, github
 ---
 
-**问题描述**
+###问题描述
 
 使用 TortoiseSVN 从 GitHub 仓库 Update 时，弹出错误提示对话框：
 
@@ -59,3 +59,5 @@ svn update
 ```
 
 就可以了，再使用 GUI 的 Update 就不会报错了。
+
+为啥就好了仍然原因不明。
