@@ -30,7 +30,12 @@ to the clipboard using Ctrl-C):
 In file
  'D:\Development\SVN\Releases\TortoiseSVN-1.8.11\ext\subversion\subversion\libsvn_wc\update_editor.c'
  line 1550: assertion failed (action == svn_wc_conflict_action_delete)
+---------------------------
+确定   
+---------------------------
 ```
+
+推测发生原因可能是 GitHub 认为本地的目录结构与服务器冲突，因为能看到本地之前 Checkout 出来的一个文件夹显示未纳入版本控制，但是实际上服务器上这个文件夹一直存在在。
 
 查到在一个 [邮件列表](http://mail-archives.apache.org/mod_mbox/subversion-users/201503.mbox/%3C076701d05e91$234ef3b0$69ecdb10$@qqmail.nl%3E) 里说这是由 GitHub 的实现有点问题导致，但是，也如其它地方能查到的信息一样，并没有给出解决方案。
 
@@ -55,9 +60,20 @@ In file
 其实很简单，就是使用命令行
 
 ```
+svn cleanup
 svn update
 ```
 
 就可以了，再使用 GUI 的 Update 就不会报错了。
 
 为啥就好了仍然原因不明。
+
+###最新情况
+
+后来又出现了一次这样的情况，在命令行 `svn update` 也不好使了，提示
+
+```
+svn: E155010: The node 'a/folder/path/' was not found.
+```
+
+忍无可忍，切回使用 git。

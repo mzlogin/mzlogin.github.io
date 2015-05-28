@@ -39,3 +39,5 @@ A --> Alt
 |删除后一个词|C-Delete|
 |缩进|Tab|
 |减少缩进|S-Tab|
+|在下面新起一行|S-Enter|
+|在上面新起一行|C-S-Enter|
