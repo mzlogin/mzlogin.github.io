@@ -22,18 +22,23 @@ keywords: Git, 版本控制
 |查看本地远程仓库配置|git remote -v|
 |回滚|git reset --hard 提交SHA|
 |强制推送到远程仓库|git push -f origin master|
+|撤消操作|git commit --amend|
 
 ###Q&A
 
-1. 如何解决gitk中文乱码问题？
+1. 如何解决gitk中文乱码，git ls-files 中文文件名乱码问题？
 
     在~/.gitconfig中添加如下内容
 
     ```
+    [core]
+        quotepath = false
     [gui]
         encoding = utf-8
     [i18n]
-        commitencoding = gbk
+        commitencoding = utf-8 
     [svn]
-        pathnameencoding = gbk
+        pathnameencoding = utf-8 
     ```
+
+    参考 <http://zengrong.net/post/1249.htm>
