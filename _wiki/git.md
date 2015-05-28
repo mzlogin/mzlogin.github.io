@@ -22,7 +22,7 @@ keywords: Git, 版本控制
 |查看本地远程仓库配置|git remote -v|
 |回滚|git reset --hard 提交SHA|
 |强制推送到远程仓库|git push -f origin master|
-|撤消操作|git commit --amend|
+|修改上次commit|git commit --amend|
 
 ###Q&A
 
@@ -42,3 +42,11 @@ keywords: Git, 版本控制
     ```
 
     参考 <http://zengrong.net/post/1249.htm>
+
+2. 如何处理本地有更改需要从服务器合入新代码的情况？
+
+    ```
+    git stash
+    git pull
+    git stash pop
+    ```
