@@ -3,3 +3,4 @@ _site/
 *.~vsd
 \#*\#
 *~
+.DS_Store
