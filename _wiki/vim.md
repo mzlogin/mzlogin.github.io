@@ -22,6 +22,7 @@ keywords: Vim
 * [代码](#代码)
 * [插件](#插件)
     * [CtrlP](#ctrlp)
+    * [LeaderF](#leaderf)
 
 ###移动
 
@@ -200,3 +201,27 @@ C-p
 创建文件和它的父路径 C-y
 
 标记并打开多个文件 C-z C-o
+
+退出 CtrlP C-c
+
+####LeaderF
+
+打开文件 Leader-f
+
+打开缓冲区 Leader-b
+
+打开 MRU Leader-m （自定义的）
+
+退出 C-c
+
+切换模糊查找和正则查找 C-r
+
+粘贴 C-v
+
+清空输入 C-u
+
+上/下一个选项 C-k/j
+
+在新标签/垂直分割/水平分割打开文件 C-t/]/v
+
+刷新列表 F5
