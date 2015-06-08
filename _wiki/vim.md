@@ -20,6 +20,8 @@ keywords: Vim
 * [Buffer](#buffer)
 * [组合命令](#组合命令)
 * [代码](#代码)
+* [插件](#插件)
+    * [CtrlP](#ctrlp)
 
 ###移动
 
@@ -99,6 +101,8 @@ keywords: Vim
 
 重做/REDO C-r
 
+统计行/单词/字符/字节数 g C-g
+
 ###全局
 
 退出 :q
@@ -116,6 +120,10 @@ keywords: Vim
 保存 :w
 
 另存为对话框 :bro w
+
+查看历史文件列表 :ol
+
+查看并打开历史文件 :bro ol
 
 ###vimdiff
 
@@ -168,3 +176,27 @@ keywords: Vim
 递归展开当前大区块 zO
 
 格式化json数据 :%!python -m json.tool
+
+###插件
+
+####CtrlP
+
+C-p
+
+刷新列表 F5
+
+切换文件/缓冲区/MRU C-f/b
+
+切换全路径搜索/文件名搜索 C-d
+
+切换正则表达式模式 C-r
+
+上/下一个选项 C-k/j
+
+在新标签/垂直分割/水平分割打开文件 C-t/v/x
+
+历史选择记录的上/下一条 C-p/n
+
+创建文件和它的父路径 C-y
+
+标记并打开多个文件 C-z C-o
