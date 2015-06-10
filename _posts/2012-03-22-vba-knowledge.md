@@ -51,7 +51,7 @@ Private Sub Workbook_SheetSelectionChange(ByVal Sh As Object, ByVal Target As Ra
 End Sub
 ```
 
-### 引用单元格/区域
+####引用单元格/区域
 
 ```vbnet
 Range("A1") '表示A1单元格
@@ -74,4 +74,10 @@ Range(Range1, Range2) '取最大范围
 
 ```vbnet
 Range("1:1").Select '选中第一行
+```
+
+####获取当前选中区域
+
+```vbnet
+MyWorkSheet.Application.Selection
 ```
