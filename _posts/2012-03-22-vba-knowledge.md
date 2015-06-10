@@ -50,3 +50,28 @@ Private Sub Workbook_SheetSelectionChange(ByVal Sh As Object, ByVal Target As Ra
     End If
 End Sub
 ```
+
+### 引用单元格/区域
+
+```vbnet
+Range("A1") '表示A1单元格
+Range("A2:D1") '表示A2到D1区域
+Range("A2:D1")(3) '表示该区域里的第三个单元格
+Range("D" & i) 'i为变量
+Range("D3:F4,G10") '引用多个区域
+Range("2:2") '引用第二行
+Range("2:12") '引用第二行到第十二行
+Range("D:A") '引用第A到D列
+Rows(2) '引用第二行
+Rows("2:4") '引用第二到四行
+Columns("B")
+Columns("B:D")
+Range(Clee1, Cell2) '左上与右下
+Range(Range1, Range2) '取最大范围
+```
+
+####选中单元格/区域
+
+```vbnet
+Range("1:1").Select '选中第一行
+```
