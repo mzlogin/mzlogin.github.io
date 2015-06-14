@@ -82,7 +82,11 @@ Win7 64 with sp1
         * php\_openssl.dll
         * php\_sockets.dll
         * php\_xmlrpc.dll
-    * disable\_functions = passthru,exec,system,chroot,scandir,chgrp,chown,shell\_exec,proc\_open,proc\_get\_status,ini\_alter,ini\_alter,ini\_restore,dl,pfsockopen,openlog,syslog,readlink,symlink,popepassthru,stream\_socket\_server
+    * disable\_functions
+
+        ```
+        disable\_functions = passthru,exec,system,chroot,scandir,chgrp,chown,shell\_exec,proc\_open,proc\_get\_status,ini\_alter,ini\_alter,ini\_restore,dl,pfsockopen,openlog,syslog,readlink,symlink,popepassthru,stream\_socket\_server
+        ```
 
     据称 IIS 7 以下需要将 php.ini 复制到 C:\Windows\php.ini。
 
