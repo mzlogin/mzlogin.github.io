@@ -85,7 +85,7 @@ Win7 64 with sp1
     * disable\_functions
 
         ```
-        disable\_functions = passthru,exec,system,chroot,scandir,chgrp,chown,shell\_exec,proc\_open,proc\_get\_status,ini\_alter,ini\_alter,ini\_restore,dl,pfsockopen,openlog,syslog,readlink,symlink,popepassthru,stream\_socket\_server
+        disable_functions = passthru,exec,system,chroot,scandir,chgrp,chown,shell_exec,proc_open,proc_get_status,ini_alter,ini_alter,ini_restore,dl,pfsockopen,openlog,syslog,readlink,symlink,popepassthru,stream_socket_server
         ```
 
     据称 IIS 7 以下需要将 php.ini 复制到 C:\Windows\php.ini。
