@@ -78,6 +78,7 @@ Win7 64 with sp1
     * 找到并打开以下模块的支持（删掉模块配置前的分号）
         * php\_gd2.dll
         * php\_mbstring.dll
+        * php\_mysql.dll
         * php\_mysqli.dll
         * php\_openssl.dll
         * php\_sockets.dll
@@ -99,6 +100,8 @@ Win7 64 with sp1
     ![fastcgi](/images/posts/php/fastcgi.png)
 
 ####配置 MySQL
+
+如果需要安装 MySQL，首先确认有没有 MySQL 的历史残留文件，C:\ProgramData\MySQL 目录如果存在，删除之。不然 MySQL 的安装有可能总是在最后一步失败，提示 `error Nr. 1045` 和 `Access denied for user 'root'@localhost'(using password:No)` 之类的问题。
 
 **安装 MySQL**
 
@@ -168,7 +171,7 @@ datadir="D:/discuz/Database"
 
 （当然据说最好应该是把数据库文件和程序不放在同一个地方。）
 
-将 D:\discuz\MySQL\data 复制到 D:\discuz\，并重命名为 D:\discuz\Database。
+将 C:\ProgramData\MySQL\MySQL Server 5.5\data 下的内容复制到 D:\discuz\Database 里，然后删掉 C:\ProgramData\MySQL。
 
 重新启动 MySQL 服务看是否正常工作。
 
@@ -212,6 +215,26 @@ phpinfo();
 
 ![discuz](/images/posts/php/discuz.png)
 
+**配置确认**
+
+打开 D:\discuz\wwwroot\config\config\_global.php 确认数据库密码正确：
+
+```
+$_config['db']['1']['dbpw'] = '你的数据库密码';
+```
+
+打开 D:\discuz\wwwroot\config\config\_ucenter.php 确认数据库密码正确：
+
+```
+define('UC_DBPW', '你的数据库密码');
+```
+
+打开 D:\discuz\wwwroot\uc\_server\data\config.inc.php 确认数据库密码正确：
+
+```
+define('UC_DBPW', '你的数据库密码');
+```
+
 ####部署 phpMyAdmin（可选）
 
 将下载的 phpMyAdmin 文件解压到 D:\discuz\wwwroot\phpmyadmin 下，将 config.sample.inc.php 更名为 config.inc.php，找到 blowfish\_secret 并为它设置一个值，比如：
@@ -221,3 +244,13 @@ $cfg['blowfish_secret'] = 'hello';
 ```
 
 打开 <http://localhost/phpmyadmin> 用你的 MySQL 管理员账户密码登录就行了。
+
+####常用入口
+
+打开论坛 <http://localhost>
+
+论坛管理 <http://localhost/admin.php>
+
+查看数据库 <http://localhost/phpmyadmin>
+
+打开UCenter <http://localhost/uc_server>
