@@ -189,7 +189,9 @@ net start mysql
 
 ![add-website](/images/posts/php/add-website.png)
 
-然后在新建的网站的“默认文档”里添加 phpinfo.php 内容如下：
+然后在新建的网站的“默认文件”里添加 index.php。
+
+在 D:\discuz\wwwroot 下新建 phpinfo.php 文件内容如下：
 
 ```php
 <?php
@@ -254,3 +256,17 @@ $cfg['blowfish_secret'] = 'hello';
 查看数据库 <http://localhost/phpmyadmin>
 
 打开UCenter <http://localhost/uc_server>
+
+####让 Discuz! 局域网内可访问
+
+完成如上步骤后，在局域网内使用 http://ip:port 并不能访问我们装好的 Discuz!，完成这个需要两个步骤：
+
+1. 在防火墙添加 80 端口入站规则
+
+    打开【控制面板】--【系统和安全】--【Windows 防火墙】--【高级设置】，（若之前没有启动防火墙的请先开启）。
+
+    此时实际上是打开了【高级安全 Windows 防火墙】，右键“入站规则”，选择“新建规则”，规则类型选“端口”，协议和端口选择“TCP”和“特定本地端口：80”，操作选择“允许连接”，配置文件保持默认的全部勾选，然后取个名称后保存即可。
+
+2. 为网站添加本机 IP 绑定
+
+    ![](/images/posts/php/nat-bing-ip.png)
