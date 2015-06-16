@@ -269,4 +269,4 @@ $cfg['blowfish_secret'] = 'hello';
 
 2. 为网站添加本机 IP 绑定
 
-    ![](/images/posts/php/nat-bing-ip.png)
+    ![](/images/posts/php/nat-bind-ip.png)
