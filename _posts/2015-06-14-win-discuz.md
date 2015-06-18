@@ -203,6 +203,8 @@ phpinfo();
 
 打开浏览器访问 <http://localhost/phpinfo.php>，如果能显示如下网页表示环境已经准备就绪。
 
+![](/images/posts/php/phpinfo.png)
+
 ####安装 Zend Optimizer
 
 运行 Zend Optimizer 的安装包，安装到 D:\discuz\Zend，安装过程中需要指定你配置的 php.ini 的目标位置为 D:\discuz\PHP，指定 IIS 网站根目录位置为 D:\discuz\wwwroot。
