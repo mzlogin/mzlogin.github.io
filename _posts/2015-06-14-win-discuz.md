@@ -191,7 +191,7 @@ net start mysql
 
 ![add-website](/images/posts/php/add-website.png)
 
-然后在新建的网站的“默认文件”里添加 index.php。
+然后在新建的网站的“默认文档”里添加 index.php。
 
 在 D:\discuz\wwwroot 下新建 phpinfo.php 文件内容如下：
 
