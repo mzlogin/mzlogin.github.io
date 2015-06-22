@@ -9,6 +9,8 @@ keywords: Mac
 ###Index
 * [窗口](#窗口)
 * [程序](#程序)
+* [搜索](#搜索)
+* [复制文件路径](#复制文件路径)
 * [Safari](#safari)
 * [Terminal](#terminal)
 * [WireShark](#WireShark)
@@ -48,6 +50,40 @@ Cmd --> Command
 |打开Alfred|M-空格|
 |打开Finder并查找|C-M-空格|
 |打开Launchpad|四指合拢|
+
+###搜索
+
+* 使用 `find` 命令，例如：
+
+    ```
+    find ~ -iname aapt
+    ```
+
+* 使用 `mdfind` 命令，例如：
+
+    全局搜索
+
+    ```
+    mdfind -name aapt
+    ```
+
+    或搜索指定文件夹
+
+    ```
+    mdfind -onlyin ~/Library aapt
+    ```
+
+###复制文件路径
+
+* 在 Finder 下
+
+    先按键 Cmd-i，然后从弹出的窗口里复制。
+
+* 在 Terminal 下
+
+    ```
+    pwd|pbcopy
+    ```
 
 ###Safari
 
