@@ -14,13 +14,15 @@ Smali 相当于 Dalvik 虚拟机的汇编语言，语法可以参考 [Dalvik opc
 2. [跳转到定义](#跳转到定义)
 3. [Taglist 支持](#taglist-支持)
 
-以下内容假设读者已经配置好 Vim + Ctags + Taglist 环境，掌握了安装 Vim 插件的方法。
-
 最终效果图：
 
 ![](/images/posts/vim/smali-vim.png)
 
+当然因为现在 Android 应用打包时都会做不同程度的混淆，最后配置完后在 Taglist 下看到的可能是一堆 a，b，c 之类的名字。:-P
+
 我的最终配置托管在 GitHub 上可供参考：<https://github.com/mzlogin/config-files>。
+
+*以下内容假设读者已经配置好 Vim + Ctags + Taglist 环境，掌握了安装 Vim 插件的方法。*
 
 ###Smali 语法高亮
 
