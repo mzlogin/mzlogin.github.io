@@ -63,6 +63,8 @@ let g:tlist_smali_settings = "smali;f:field;m:method"
 
 到此，我们要实现的三个目标就已经完成了。
 
+###后话
+
 对于实现 Taglist 支持这一步，我在网上搜索良久未找到有效解决方案，最后是打开 taglist.vim 文件，看到有如下代码段后才知道能这么做的，所以以后遇到问题找不到方法而有源码的时候，读它吧！
 
 ```vim
@@ -92,6 +94,8 @@ let s:tlist_def_python_settings = 'python;c:class;m:member;f:function'
 " ...
 ```
 
+当前解决方案 Ctags 只解析、Taglist 只显示了 field 和 method 两类 tag，我对此的原理不是很懂，但是猜想应该是上面 .ctags 文件里的 `--regex-smali` 里我们只告诉了 Ctags 如何解析这两种 tag，本来考虑后续有时间把 class 等更多内容做进来，但转念一想，一个 smali 文件里也就一个类，这种需求似乎不那么强烈，遂作罢。
+
 ###参考链接
 
-[让Vim和Ctags支持smali语法](让Vim和Ctags支持smali语法)
+[让Vim和Ctags支持smali语法](http://www.claudxiao.net/2012/07/adding-smali-syntax-for-vim-and-ctags/)
