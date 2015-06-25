@@ -18,9 +18,10 @@ My personal blog hosted on Github Pages.
 1. keywords 以 C++ 这样的开头会有问题。
 
 1. toc link
-   * 字母要全小写。
-   * 如果有空格，要用 `-` 填充。
-   * / 这样的符号不用转义。
+    * 字母要全小写。
+    * 如果有空格，要用 `-` 填充。
+    * `/` 这样的符号不用转义。
+    * `!` 直接省略掉。
 
 1. 中文与英文之间要加空格，更多样式规范可以参考 <https://github.com/sparanoid/chinese-copywriting-guidelines>。
 
