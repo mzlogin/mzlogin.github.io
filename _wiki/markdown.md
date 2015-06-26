@@ -16,6 +16,7 @@ keywords: Markdown
 * [代码块](#代码块)
 * [图片](#图片)
 * [锚点](#锚点)
+* [Emoji](#emoji)
 
 ###超链接
 
@@ -58,6 +59,9 @@ keywords: Markdown
 * 无序列表项2
 
 * 无序列表项3
+
+- [x] 任务列表1
+- [ ] 任务列表2
 
 ###强调
 
@@ -130,3 +134,9 @@ print 'Hello, World!'
 ```
 
 * [目录](#目录)
+
+###Emoji
+
+:camel:
+:blush:
+:smile:
