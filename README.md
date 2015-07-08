@@ -25,6 +25,8 @@ My personal blog hosted on Github Pages.
 
 1. 中文与英文之间要加空格，更多样式规范可以参考 <https://github.com/sparanoid/chinese-copywriting-guidelines>。
 
+1. 列表项如果嵌套下属内容，需要缩进并且加空行；如果嵌套列表，那需要缩进，但不加空行。
+
 ###思考中的问题
 
 * 那些高质量的博主，他们的行文，内容组织方式，有什么值得学习借鉴的地方？
