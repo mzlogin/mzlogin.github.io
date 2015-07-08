@@ -35,6 +35,7 @@ keywords: Fiddler, Filter, Device
 *实现步骤：*
 
 1. 打开 CustomRules.js。
+
     启动Fiddler，依次选择菜单 Rules > Customize Rules...
 
 2. 在 `OnBeforeRequest` 前添加如下代码：
