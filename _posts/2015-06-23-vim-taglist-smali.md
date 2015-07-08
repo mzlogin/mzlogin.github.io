@@ -12,7 +12,7 @@ Smali 相当于 Dalvik 虚拟机的汇编语言，语法可以参考 [Dalvik opc
 
 1. [Smali 语法高亮](#smali-语法高亮)
 2. [跳转到定义](#跳转到定义)
-3. [Taglist/Tagbar 支持](#taglist/tagbar-支持)
+3. [Taglist/Tagbar 支持](#taglist-tagbar-支持)
     * [使用 Taglist](#使用-taglist)
     * [使用 Tagbar](#使用-tagbar)
 
