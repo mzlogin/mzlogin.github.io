@@ -1,204 +1,204 @@
 ﻿/* modified from https://github.com/yinwang0/blog-cn/blob/gh-pages/main.css */
 body {
-    background-color: white;
-    font-size: 100%;
+  background-color: white;
+  font-size: 100%;
 }
 
 #main {
-    font-family: "Palatino Linotype", "URW Palladio L", "palladio l", palatino, "book antiqua", times, serif;
-    font-size: 1em;
-    margin: auto;
-    padding: 2% 5% 5% 5%;
-    width: 700px;
-    line-height: 150%;
-    border: 1px solid LightGrey;
+  font-family: "Palatino Linotype", "URW Palladio L", "palladio l", palatino, "book antiqua", times, serif;
+  font-size: 1em;
+  margin: auto;
+  padding: 2% 5% 5% 5%;
+  width: 700px;
+  line-height: 150%;
+  border: 1px solid LightGrey;
 }
 
 H1, H2 {
-    margin-bottom: 1.67em;
-    padding: 0.2em;
-    border-bottom: 2px LightGrey solid;
-    width: 90%;
-    line-height: 150%;
-    color: #666666;
+  margin-bottom: 1.67em;
+  padding: 0.2em;
+  border-bottom: 2px LightGrey solid;
+  width: 90%;
+  line-height: 150%;
+  color: #666666;
 }
 
 H3, H4 {
-    margin-top: 2.14em;
-    margin-bottom: 1.5em;
-    border-bottom: 1px LightGrey solid;
-    width: 80%;
-    line-height: 150%;
-    color: #666666;
+  margin-top: 2.14em;
+  margin-bottom: 1.5em;
+  border-bottom: 1px LightGrey solid;
+  width: 80%;
+  line-height: 150%;
+  color: #666666;
 }
 
 blockquote {
-    margin: 0 0 0 0.25em;
-    padding: 0 0 0 0.5em;
-    border-left: 0.25em lightgrey solid;
+  margin: 0 0 0 0.25em;
+  padding: 0 0 0 0.5em;
+  border-left: 0.25em lightgrey solid;
 }
 
 pre {
-    font-family: Inconsolata, Consolas, "DEJA VU SANS MONO", "DROID SANS MONO", Proggy, monospace;
-    border: solid 1px #ddd;
-    border-radius: 3px;
-    background-color: #f8f8ff;
-    padding: 6px 10px;
-    font-size: 1em;
-    line-height: 100%;
-    overflow: auto;
+  font-family: Inconsolata, Consolas, "DEJA VU SANS MONO", "DROID SANS MONO", Proggy, monospace;
+  border: solid 1px #ddd;
+  border-radius: 3px;
+  background-color: #f8f8ff;
+  padding: 6px 10px;
+  font-size: 1em;
+  line-height: 100%;
+  overflow: auto;
 }
 
 code {
-    font-family: Inconsolata, Consolas, "DEJA VU SANS MONO", "DROID SANS MONO", Proggy, monospace;
-    font-size: 0.75em;
-    border: solid 1px #ddd;
-    border-radius: 3px;
-    background-color: #f8f8ff;
-    margin: 0 2px;
-    padding: 0px 5px;
-    word-wrap: break-word;
-    word-break: break-all;
+  font-family: Inconsolata, Consolas, "DEJA VU SANS MONO", "DROID SANS MONO", Proggy, monospace;
+  font-size: 0.75em;
+  border: solid 1px #ddd;
+  border-radius: 3px;
+  background-color: #f8f8ff;
+  margin: 0 2px;
+  padding: 0px 5px;
+  word-wrap: break-word;
+  word-break: break-all;
 }
 
 pre code {
-    border: none;
-    margin: 0;
-    padding: 0;
-    background-color: transparent;
-    word-wrap: normal;
+  border: none;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  word-wrap: normal;
 }
 
 a {
-    text-decoration: none;
-    padding: 1px;
-    color: #204A87;
-    word-wrap: break-word;
-    word-break: break-all;
+  text-decoration: none;
+  padding: 1px;
+  color: #204A87;
+  word-wrap: break-word;
+  word-break: break-all;
 }
 
 a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 div.tag_cloud a {
-    word-wrap: normal;
-    word-break: normal;
+  word-wrap: normal;
+  word-break: normal;
 }
 
 div.nav a {
-    text-decoration: none;
-    color: #555;
+  text-decoration: none;
+  color: #555;
 }
 
 div.nav a:hover {
-    background-color: LightGrey;
-    color: #ffffff;
+  background-color: LightGrey;
+  color: #ffffff;
 }
 
 div.nav {
-    border-top: 1px solid #d4d4d4;
-    border-left: 1px solid #d4d4d4;
-    border-right: 1px solid #d4d4d4;
-    margin: auto;
-    padding: 0 5% 0 5%;
-    width: 700px;
-    height: 1.5em;
-    line-height: 150%;
-    font-size: 1em;
+  border-top: 1px solid #d4d4d4;
+  border-left: 1px solid #d4d4d4;
+  border-right: 1px solid #d4d4d4;
+  margin: auto;
+  padding: 0 5% 0 5%;
+  width: 700px;
+  height: 1.5em;
+  line-height: 150%;
+  font-size: 1em;
 }
 
 div.nav_rss {
-    width: 20%;
-    text-align: right;
-    float: right;
+  width: 20%;
+  text-align: right;
+  float: right;
 }
 
 div.nav_nav {
-    width: 80%;
-    float: left;
+  width: 80%;
+  float: left;
 }
 
 img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 30px;
-    max-width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+  max-width: 100%;
 }
 
 hr {
-    color: LightGrey;
-    margin: 0.75em 0;
-    border-top: 1px solid LightGrey;
-    border-bottom: 1px solid LightGrey;
+  border: 0;
+  height: 2px;
+  background-color: LightGrey;
+  margin: 0.75em 0;
 }
 
 div.overview {
-    margin: 1.75em 1.25em 1.75em 1.25em;
+  margin: 1.75em 1.25em 1.75em 1.25em;
 }
 
 div.detail {
-    margin-left: 28%;
+  margin-left: 28%;
 }
 
 div.date { 
-    padding-top: 1px;
-    float: left; 
-    width: 25%; 
-    color: #555;
-    text-align: right; 
-    font-style: italic; 
-    font-size: 0.75em;
+  padding-top: 1px;
+  float: left; 
+  width: 25%; 
+  color: #555;
+  text-align: right; 
+  font-style: italic; 
+  font-size: 0.75em;
 }
 
 div.paginator {
-    margin-left: 20%;
-    float: center;
-    width: 60%;
-    color: #555;
-    text-align: center;
-    font-size: 0.75em;
+  margin-left: 20%;
+  float: center;
+  width: 60%;
+  color: #555;
+  text-align: center;
+  font-size: 0.75em;
 }
 
 .prev_next {
-    display: block;
-    padding: 0;
-    padding-top: 0.6em;
+  display: block;
+  padding: 0;
+  padding-top: 0.6em;
 }
 
 .prev_next li {
-    list-style-type: none;
-    padding: 0 0 0.2em;
+  list-style-type: none;
+  padding: 0 0 0.2em;
 }
 
 .prev_next li span {
-    padding: 0 0.5em 0 0.5em;
-    background-color: lightslategrey;
-    color: #fff;
-    margin-right: 0.5em;
+  padding: 0 0.5em 0 0.5em;
+  background-color: lightslategrey;
+  color: #fff;
+  margin-right: 0.5em;
 }
 
 div.gg_ads_footer {
-    margin: 0 auto;
-    text-align: center;
+  margin: 0 auto;
+  text-align: center;
 }
 
 table {
-    border-collapse: collapse;
+  border-collapse: collapse;
 }
 
 th {
-    padding: 0.375em 0.8125em;
-    border: 1px solid #ddd;
-    font-weight: bold;
+  padding: 0.375em 0.8125em;
+  border: 1px solid #ddd;
+  font-weight: bold;
 }
 
 td {
-    padding: 0.375em 0.8125em;
-    border: 1px solid #ddd;
+  padding: 0.375em 0.8125em;
+  border: 1px solid #ddd;
 }
 
 tr:nth-child(2n) {
-    background-color: #f8f8f8;
+  background-color: #f8f8f8;
 }
