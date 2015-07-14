@@ -2,7 +2,7 @@
 layout: wiki
 title: Android Studio
 categories: Android
-description: Android Studio快捷键及使用技巧汇总
+description: Android Studio 快捷键及使用技巧汇总
 keywords: Android, Android Studio
 ---
 
@@ -17,12 +17,13 @@ M --> Alt
 |功能|快捷键|
 |:---|:---|
 |注释/取消注释（//）|C-/|
-|注释/取消注释（/**/）|C-S-/|
+|注释/取消注释（/\*\*/）|C-S-/|
 |格式化代码|C-M-l|
 |Outline|C-F12|
 |快速打开文件|C-S-n|
 |快速打开类所在文件|C-n|
-|搜索Everywhere|双击S|
+|搜索 Everywhere|双击 S|
+|搜索文本|C-S-f|
 |最近使用的文件|C-E|
 |定位到导航条|M-Home|
 |智能Import|C-M-o|
@@ -44,4 +45,4 @@ M --> Alt
 |开/关断点|C-F8 or 鼠标左键单击编辑器左侧栏|
 |打开文件所在目录|M-F1 8|
 
-格式化代码的Ctrl+Alt+l和QQ锁热键冲突了，我去QQ的设置里删除了QQ锁热键。
+格式化代码的 Ctrl+Alt+l 和 QQ 锁热键冲突了，我去 QQ 的设置里删除了QQ锁热键。
