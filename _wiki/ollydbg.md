@@ -2,7 +2,7 @@
 layout: wiki
 title: OllyDbg
 categories: debug
-description: OllyDbg快捷键及常用法。
+description: OllyDbg 快捷键及常用法。
 keywords: debug, ollydbg
 ---
 

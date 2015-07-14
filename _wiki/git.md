@@ -2,7 +2,7 @@
 layout: wiki
 title: Git
 categories: Git
-description: Git常用操作记录。
+description: Git 常用操作记录。
 keywords: Git, 版本控制
 ---
 
@@ -22,7 +22,7 @@ keywords: Git, 版本控制
 |查看本地远程仓库配置|git remote -v|
 |回滚|git reset --hard 提交SHA|
 |强制推送到远程仓库|git push -f origin master|
-|修改上次commit|git commit --amend|
+|修改上次 commit|git commit --amend|
 
 ###Q&A
 

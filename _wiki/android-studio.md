@@ -24,7 +24,7 @@ M --> Alt
 |快速打开类所在文件|C-n|
 |搜索 Everywhere|双击 S|
 |搜索文本|C-S-f|
-|最近使用的文件|C-E|
+|最近使用的文件|C-e|
 |定位到导航条|M-Home|
 |智能Import|C-M-o|
 |Undo|C-z|

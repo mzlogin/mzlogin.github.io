@@ -44,12 +44,12 @@ Cmd --> Command
 
 |功能|快捷键|
 |:---|:---|
-|打开emoji表情窗口|C-Cmd-空格|
-|打开Spotlight|C-空格|
+|打开 emoji 表情窗口|C-Cmd-空格|
+|打开 Spotlight|C-空格|
 |切换输入法|Cmd-空格|
-|打开Alfred|M-空格|
-|打开Finder并查找|C-M-空格|
-|打开Launchpad|四指合拢|
+|打开 Alfred|M-空格|
+|打开 Finder 并查找|C-M-空格|
+|打开 Launchpad|四指合拢|
 
 ###搜索
 
@@ -71,6 +71,12 @@ Cmd --> Command
 
     ```
     mdfind -onlyin ~/Library aapt
+    ```
+
+* 使用 `locate` 命令，例如：
+
+    ```
+    locate aapt
     ```
 
 ###复制文件路径
