@@ -4,6 +4,15 @@
     <div id="main">
         <h2> {{ page.title }} </h2>
         {{ content }}
+        {% if page.categories %}
+        <div class="post_footer">
+          <p>Published on {{ page.date | date: "%b %d, %Y" }} in categories 
+          {% for cat in page.categories %}
+          <a href="/categories/#{{ cat }}" title="{{ cat }}">{{ cat }}</a>&nbsp;
+          {% endfor %}
+          <p>
+        </div>
+        {% endif %}
         <ul class="prev_next">
             {% if page.previous.url %}
             <li>
