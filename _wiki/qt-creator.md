@@ -29,7 +29,6 @@ Cmd --> Command
 |构建|Cmd-b|
 |运行|Cmd-r|
 |调试|Cmd-y|
-|构建
 |注释|Cmd-/|
 |换行|Cmd-Return|
 |跳到定义|F2|
