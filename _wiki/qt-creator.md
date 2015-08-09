@@ -28,3 +28,5 @@ Cmd --> Command
 |调试|Cmd-y|
 |注释|Cmd-/|
 |换行|Cmd-Return|
+|跳到定义|F2|
+|前进/后退|M-Cmd-Left/Right|
