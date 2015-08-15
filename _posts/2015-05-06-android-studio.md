@@ -23,3 +23,17 @@ keywords: Android, Android Studio
     ```
 
     参考： <http://ask.android-studio.org/?/article/14>
+
+2. 新建工程后构建时提示
+
+    ```
+    Error:Failed to find: com.android.support:appcompat-v7:22.+
+    ```
+
+    解决方案：
+
+    1. 打开 SDK Manager，然后安装 Extras 下的 Android Support Repository：
+
+    ![](images/posts/android/android-support-repository.png)
+
+    2. Rebuild 工程。
