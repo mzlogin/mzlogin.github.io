@@ -50,3 +50,11 @@ keywords: Git, 版本控制
     git pull
     git stash pop
     ```
+
+3. 如何合并 fork 的仓库的上游更新？
+
+    ```
+    git remote add upstream https://upstream-repo-url
+    git fetch upstream
+    git merge upstream/master
+    ```
