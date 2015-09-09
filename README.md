@@ -23,7 +23,7 @@ My personal blog hosted on Github Pages.
     * `/` ~~这样的符号不用转义。~~ 2015 年 7 月 8 日，发现需要使用 `-` 替换。
     * `!` 直接省略掉。
 
-1. 中文与英文之间要加空格，更多样式规范可以参考 <https://github.com/sparanoid/chinese-copywriting-guidelines>。
+1. 中文与英文之间要加空格，更多样式规范可以参考 <https://github.com/mzlogin/chinese-copywriting-guidelines>。
 
 1. 列表项如果嵌套下属内容，需要缩进并且加空行；如果嵌套列表，那需要缩进，但不加空行。
 
