@@ -1,7 +1,7 @@
 # ---------------- #
 #   Main Configs   #
 # ---------------- #
-baseurl: http://www.mazhuang.org
+baseurl: 
 url: http://www.mazhuang.org
 date_format: "ordinal"
 title: 靠谱-ing
