@@ -6,30 +6,37 @@ description: 自学Python核心编程过程中对课后习惯的答案记录。
 keywords: Python
 ---
 
-2-2  
-(a)计算1 + 2 * 4  
-(b)无输出  
-(c)一样。无输出语句。  
-(d)单独执行无输出，在交互解释器里执行输出结果。  
-(e)print 1 + 2 * 4  
-  
-2-4  
-(a)  
+2-2
+
+(a)计算1 + 2 * 4
+
+(b)无输出
+
+(c)一样。无输出语句。
+
+(d)单独执行无输出，在交互解释器里执行输出结果。
+
+(e)print 1 + 2 * 4
+
+2-4
+
+(a)
 
 ```python
 str = raw_input('input a str:')
 print str
 ```
 
-(b)  
+(b)
 
 ```python
 str = raw_input('input a int:')
 print int(str)
 ```
 
-2-5  
-(a)  
+2-5
+
+(a)
 
 ```python
 i = 0
@@ -38,14 +45,14 @@ while i <= 10:
     i += 1
 ```
 
-(b)  
+(b)
 
 ```python
 for eachNum in range(11):
     print eachNum,
 ```
 
-2-6  
+2-6
 
 ```python
 num = raw_input('input a num: ')
@@ -57,7 +64,7 @@ else:
     print '0',
 ```
 
-2-7  
+2-7
 
 ```python
 myStr = raw_input('input a str: ')
@@ -71,7 +78,7 @@ for c in myStr:
     print c,
 ```
 
-2-8  
+2-8
 
 ```python
 aList = list()
@@ -88,7 +95,7 @@ while i < len(aList):
 print 'myNum is : %d' % (myNum)
 ```
 
-2-9  
+2-9
 
 ```python
 aTuple = [ 1, 2, 3, 5, 6]
@@ -99,7 +106,7 @@ for i in aTuple:
 print 'average value is : %f ' % (float(myNum) / len(aTuple))
 ```
 
-2-10  
+2-10
 
 ```python
 b = bool(False)
@@ -112,7 +119,7 @@ while b is False:
         print 'input error!'
 ```
 
-2-11  
+2-11
 
 ```python
 def display_menu():
@@ -143,8 +150,9 @@ while True :
         continue
 ```
 
-2-15  
-(a)  
+2-15
+
+(a)
 
 ```python
 num1 = int(raw_input('input num1:'))
@@ -166,7 +174,7 @@ if num1 > num2:
 print 'min to max is %d, %d, %d' % (num1, num2, num3)
 ```
 
-(b)  
+(b)
 
 ```python
 num1 = int(raw_input('input num1:'))
@@ -188,7 +196,7 @@ if num1 < num2:
 print 'min to max is %d, %d, %d' % (num1, num2, num3)
 ```
 
-2-16  
+2-16
 
 ```python
 fobj = open('hello.txt', 'r')
@@ -196,4 +204,3 @@ for eachLine in fobj:
     print eachLine,
 fobj.close()
 ```
-

@@ -1,18 +1,20 @@
 ---
 layout: post
-title: Windows实用技巧汇总
+title: Windows 实用技巧汇总
 categories: Windows
-description: 平时使用Windows时总结的一些实用的小技巧。
+description: 平时使用 Windows 时总结的一些实用的小技巧。
 keywords: Windows, Skill
 ---
 
-###Win7不按Shift,右键显示"在此处打开命令窗口(W)"  
+### Win7 不按 Shift，右键显示 "在此处打开命令窗口(W)"
+
 <img src="/images/posts/windowsskill/rclick.png" alt="Windows Skills" />
-图上的这条右键命令一般在Win7下是需要Shift + 右键在弹出菜单里才能看到的，怎么省掉这个Shift，直接就能出来呢？  
+
+图上的这条右键命令一般在 Win7 下是需要 Shift + 右键在弹出菜单里才能看到的，怎么省掉这个 Shift，直接就能出来呢？
 
 先说方法：
 
-将如下代码保存为.reg文件然后执行即可。
+将如下代码保存为 .reg 文件然后执行即可。
 
 ```
 Windows Registry Editor Version 5.00
@@ -37,15 +39,18 @@ Windows Registry Editor Version 5.00
 
 再说原理：
 
-1. 普通文件夹右键  
-将注册表HKEY_CLASSES_ROOT\Directory\Background\shell\cmd下的键Extended改名或者删除  
+1. 普通文件夹右键
 
-2. 磁盘分区右键  
-将注册表HKEY_CLASSES_ROOT\Drive\shell\cmd下的键Extended改名或者删除  
+    将注册表 HKEY_CLASSES_ROOT\Directory\Background\shell\cmd 下的键 Extended 改名或者删除
 
-3. 库文件夹右键  
-在注册表HKEY_CLASSES_ROOT\LibraryFolder\background下建立和第一条的Directory\Background中相同的键值
+2. 磁盘分区右键
 
+    将注册表 HKEY_CLASSES_ROOT\Drive\shell\cmd 下的键 Extended 改名或者删除
 
-###Win7搜索文件内容  
+3. 库文件夹右键
+
+    在注册表 HKEY_CLASSES_ROOT\LibraryFolder\background 下建立和第一条的 Directory\Background 中相同的键值
+
+###Win7 搜索文件内容
+
 控制面板--索引选项--高级--文件类型--找到你想要搜索内容的文件后缀名，点中它，然后选中下面的“为属性和文件内容添加索引”。

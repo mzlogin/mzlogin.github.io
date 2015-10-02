@@ -1,29 +1,32 @@
 ---
 layout: post
-title: Python核心编程中文第二版课后练习3.8答案
+title: Python 核心编程中文第二版课后练习 3.8 答案
 categories: Python
-description: 自学Python核心编程过程中对课后习题的答案记录。
+description: 自学 Python 核心编程过程中对课后习题的答案记录。
 keywords: Python
 ---
 
-3-1 变量在第一次被赋值时自动声明。在赋值时解释器会根据语法和右侧的操作数来决定新对象的类型。  
+3-1 变量在第一次被赋值时自动声明。在赋值时解释器会根据语法和右侧的操作数来决定新对象的类型。
 
-3-2 函数总是返回一个值，显式return的值或者None。返回的值的类型也是动态确定。  
+3-2 函数总是返回一个值，显式 return 的值或者 None。返回的值的类型也是动态确定。
 
-3-3 因为变量名__xxx__对Python来说有特殊含义，对于普通的变量应当避免这种命名风格。  
+3-3 因为变量名 __xxx__ 对 Python 来说有特殊含义，对于普通的变量应当避免这种命名风格。
 
-3-4 可以，使用";"  
+3-4 可以，使用 ";"
 
-3-5 可以，使用"\"或者括号  
+3-5 可以，使用 "\" 或者括号
 
-3-6   
-(a)x = 1, y = 2, z = 3  
-(b)z = 2, x = 3, y = 1  
+3-6 
 
-3-7 40XL, $aving$, 0x40L, thisIsn'tAVar, big-daddy, 2hot2touch, counter-1不合法。不是以字母或者下划线开头，或者有非字母下划线数字的字符。print, if是关键字。  
+(a)x = 1, y = 2, z = 3
 
-3-10   
-用异常处理取代对os.path.exists()的调用：  
+(b)z = 2, x = 3, y = 1
+
+3-7 40XL, $aving$, 0x40L, thisIsn'tAVar, big-daddy, 2hot2touch, counter-1 不合法。不是以字母或者下划线开头，或者有非字母下划线数字的字符。print, if 是关键字。
+
+3-10 
+
+用异常处理取代对 os.path.exists() 的调用：
 
 ```python
 import os
@@ -60,7 +63,7 @@ fobj.close()
 print 'Done!'
 ```
 
-用os.path.exists()取代异常处理方法：  
+用 os.path.exists() 取代异常处理方法：
 
 ```python
 import os
@@ -85,7 +88,7 @@ else:
     print 'this file not exists'
 ```
 
-3-11  
+3-11
 
 ```python
 import os
@@ -110,7 +113,7 @@ else:
     print 'this file not exists'
 ```
 
-3-12  
+3-12
 
 ```python
 """to read or make a file"""
@@ -187,10 +190,16 @@ if __name__ == '__main__':
     main()
 ```
 
-3-13  
-Windows下curses模块貌似无法正常使用……  
-迂回的实现思路是将文件内容按行读取到一个列表里，  
-然后让用户修改每一行，  
-最后让用户选择是否保存，  
-保存则重写文件，  
-不保存则退出。  
+3-13
+
+Windows 下 curses 模块貌似无法正常使用……
+
+迂回的实现思路是将文件内容按行读取到一个列表里，
+
+然后让用户修改每一行，
+
+最后让用户选择是否保存，
+
+保存则重写文件，
+
+不保存则退出。
