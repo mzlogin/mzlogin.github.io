@@ -1,24 +1,24 @@
 ---
 layout: post
-title: Windows实现单实例进程的两种方法
+title: Windows 实现单实例进程的两种方法
 categories: Windows
-description: Windows实现单实例进程的两种方法：共享静态数据和Mutex。
+description: Windows 实现单实例进程的两种方法：共享静态数据和 Mutex。
 keywords: Windows, Process
 ---
 
 **方法一：共享静态数据。**
 
-此方法参见《Windows核心编程》第5版17.1.2章节《在同一个可执行文件或DLL的多个实例间共享静态数据》。
+此方法参见《Windows 核心编程》第 5 版 17.1.2 章节《在同一个可执行文件或 DLL 的多个实例间共享静态数据》。
 
 实现原理：
 
-创建一个自己命名的段，将其属性改为READ|WRITE|SHARED，其中SHARED属性表示该段的内容为多个实例所共享（实际上关闭了写时复制机制），将变量放在该段内若值被改变，多个实例间都会受到改变的影响。
+创建一个自己命名的段，将其属性改为 READ|WRITE|SHARED，其中 SHARED 属性表示该段的内容为多个实例所共享（实际上关闭了写时复制机制），将变量放在该段内若值被改变，多个实例间都会受到改变的影响。
 
 注意点：
 
-* 最好使用volatile修饰变量。
-* 对变量的增减推荐使用原子操作函数InterlockedExchangedAdd。
-* g\_lInstances的值在第一个实例运行时总为0，其它实例中取到的值以先于它运行的实例中改变后的值为准。
+* 最好使用 volatile 修饰变量。
+* 对变量的增减推荐使用原子操作函数 InterlockedExchangedAdd。
+* g\_lInstances 的值在第一个实例运行时总为 0，其它实例中取到的值以先于它运行的实例中改变后的值为准。
 
 示例代码：
 
@@ -49,9 +49,9 @@ int main(int argc, char *argv[])
 }
 ```
 
-**方法二：使用Mutex。**
+**方法二：使用 Mutex。**
 
-理论上能用于进程间同步的内核对象比如事件和互斥量等都能用于实现此功能，此处使用互斥量Mutex举例。
+理论上能用于进程间同步的内核对象比如事件和互斥量等都能用于实现此功能，此处使用互斥量 Mutex 举例。
 
 实现原理：
 
@@ -59,7 +59,7 @@ int main(int argc, char *argv[])
 
 注意点：
 
-* 内核对象要使用全局命名，比如此处使用Global开头。
+* 内核对象要使用全局命名，比如此处使用 Global 开头。
 
 示例代码：
 
@@ -76,7 +76,7 @@ int main(int argc, char *argv[])
 
         DWORD dwError = GetLastError();
 
-        if (ERROR_ALREADY_EXISTS == dwError || ERROR_ACCESS_DENIED == dwError) 
+        if (ERROR_ALREADY_EXISTS == dwError || ERROR_ACCESS_DENIED == dwError)
         {
             break;
         }
@@ -86,7 +86,7 @@ int main(int argc, char *argv[])
 
     } while (false);
 
-    if (NULL != hMutex) 
+    if (NULL != hMutex)
     {
         CloseHandle(hMutex);
     }

@@ -2,15 +2,15 @@
 layout: post
 title: 获取运行过程中改名的文件的路径
 categories: Windows
-description: 一个EXE在运行过程中（被）改名了，如何准确地获取它的文件名。
+description: 一个 EXE 在运行过程中（被）改名了，如何准确地获取它的文件名。
 keywords: Windows
 ---
 
 ###需求
-一个EXE在运行过程中（被）改名了，需要准确地获取它的文件名。
+一个 EXE 在运行过程中（被）改名了，需要准确地获取它的文件名。
 
 ###尝试
-原本以为这是一个非常简单的CASE，直接用GetModuleFileName不就行了吗？结果还真不如我所想。无论程序运行过程中被改名成什么样子，GetModuleFileName返回的都是EXE开始运行时的名字。然后又尝试了GetProcessImageFileName，也是如此，直到最后找到了QueryFullProcessImageName。
+原本以为这是一个非常简单的 CASE，直接用 GetModuleFileName 不就行了吗？结果还真不如我所想。无论程序运行过程中被改名成什么样子，GetModuleFileName 返回的都是 EXE 开始运行时的名字。然后又尝试了 GetProcessImageFileName，也是如此，直到最后找到了 QueryFullProcessImageName。
 
 ###示例代码
 
@@ -66,7 +66,7 @@ int main()
 	remove(pszNewFile);
 
 	OutputSelfpath();
-	
+
 	int nRet = rename(pszFile, pszNewFile);
 
 	if (0 != nRet)
@@ -88,4 +88,4 @@ int main()
 ![QueryFullProcessImageName](/images/posts/windows/queryfullprocessimagename.png)
 
 ###思考
-现象上讲就是如此了，这几个API的本质区别是什么呢？待续。
+现象上讲就是如此了，这几个 API 的本质区别是什么呢？待续。

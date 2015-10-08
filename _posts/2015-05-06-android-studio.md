@@ -1,22 +1,22 @@
 ---
 layout: post
-title: Android Studio遇到问题集锦
+title: Android Studio 遇到问题集锦
 categories: Android
-description: Android Studio使用过程中遇到的一些问题和解决方案集合。
+description: Android Studio 使用过程中遇到的一些问题和解决方案集合。
 keywords: Android, Android Studio
 ---
 
-1. 打开Android Studio卡在“Fetching Android SDK component information”界面。
+1. 打开 Android Studio 卡在“Fetching Android SDK component information”界面。
 
     如图：
 
     ![](/images/posts/android/android-studio-check-sdk.png)
 
-    Android Studio First Run检测Android SDK及更新，由于众所周知的原因，我们会“Unable to access Android SDK add-on list”，而且大家一般也已经提前配置好了Android SDK，真正需要更新的时候手动去SDK Manager更新就好了。
+    Android Studio First Run 检测 Android SDK 及更新，由于众所周知的原因，我们会“Unable to access Android SDK add-on list”，而且大家一般也已经提前配置好了 Android SDK，真正需要更新的时候手动去 SDK Manager 更新就好了。
 
     解决方案：
 
-    在Android Studio安装目录bin/idea.properties文件最后追加一句
+    在 Android Studio 安装目录 bin/idea.properties 文件最后追加一句
 
     ```
     disable.android.first.run=true

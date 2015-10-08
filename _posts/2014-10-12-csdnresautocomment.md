@@ -1,49 +1,49 @@
 ---
 layout: post
-title: CSDN已下载资源自动批量评论脚本
+title: CSDN 已下载资源自动批量评论脚本
 categories: Python
-description: 自动一次性评论所有CSDN已下载资源的脚本。
+description: 自动一次性评论所有 CSDN 已下载资源的脚本。
 keywords: Python, CSDN
 ---
 
 ###背景
-CSDN账号过一段时间就会累积几十个下载过但是未评论打分的资源，虽然现在上传了一些资源供别人下载后基本不愁积分，但是为了可持续发展，还是把评论一下就能顺手拿了的这种积分不客气地收入囊中吧！不过手动一个一个去评论真的很蛋疼……特别是CSDN还搞了个两个评论间隔不能小于60秒的限制，评论几十个就得至少花个几十分钟折腾，所以想想这种耗时、无脑的活还是交给程序来完成吧。
+CSDN 账号过一段时间就会累积几十个下载过但是未评论打分的资源，虽然现在上传了一些资源供别人下载后基本不愁积分，但是为了可持续发展，还是把评论一下就能顺手拿了的这种积分不客气地收入囊中吧！不过手动一个一个去评论真的很蛋疼……特别是 CSDN 还搞了个两个评论间隔不能小于 60 秒的限制，评论几十个就得至少花个几十分钟折腾，所以想想这种耗时、无脑的活还是交给程序来完成吧。
 
-对于这类模拟HTTP请求然后可能频繁用到页面解析和正则表达式之类的活，用C++写还是有点蛋疼的，用我那半生不熟的Python练练手正合适。
+对于这类模拟 HTTP 请求然后可能频繁用到页面解析和正则表达式之类的活，用 C++ 写还是有点蛋疼的，用我那半生不熟的 Python 练练手正合适。
 
-遂在github上建了个仓库开工，地址在这里：<https://github.com/mzlogin/csdncommenter>。
+遂在 github 上建了个仓库开工，地址在这里：<https://github.com/mzlogin/csdncommenter>。
 
 ###分析
-使用Fiddler把*登录-到待评论页面-评论*的完整流程抓了一下，整理程序逻辑大致如下：
+使用 Fiddler 把*登录 - 到待评论页面 - 评论*的完整流程抓了一下，整理程序逻辑大致如下：
 
-*注：如下HTTP请求均使用同一个SESSION。*
+*注：如下 HTTP 请求均使用同一个 SESSION。*
 
-1. 手动输入CSDN的用户名和密码。
+1. 手动输入 CSDN 的用户名和密码。
 
 2. 用`GET`方法从 https://passport.csdn.net/account/login 页面获取`lt`、`execution`和`_eventId`等参数。
 
-3. 将第1步中的用户名和密码，还有第2步中得到的参数`POST`给 https://passport.csdn.net/account/login ，从Response中判断是否登录成功——我采用的依据是status\_code为200且Reponse内容中有`lastLoginIP`。
+3. 将第 1 步中的用户名和密码，还有第 2 步中得到的参数`POST`给 https://passport.csdn.net/account/login ，从 Response 中判断是否登录成功——我采用的依据是 status\_code 为 200 且 Reponse 内容中有`lastLoginIP`。
 
 4. 用`GET`方法从 http://download.csdn.net/my/downloads 页面获取已下载资源总页数。从最后一个`pageliststy`的`href`中得到。
 
-5. 根据第4步中得到的总页数，根据每个页面num拼得url为 http://download.csdn.net/my/downloads/num ，使用`GET`方法访问之拿到该页面中所有待评论资源ID。从所有`class="btn-comment"`的`a`标签的`href`中得到。
+5. 根据第 4 步中得到的总页数，根据每个页面 num 拼得 url 为 http://download.csdn.net/my/downloads/num ，使用`GET`方法访问之拿到该页面中所有待评论资源 ID。从所有`class="btn-comment"`的`a`标签的`href`中得到。
 
-6. 对第5步中得到的所有待评论资源ID依次进行间隔至少60S的打分评论，随机打出1到5星，对应一句英文短句评论。出乎我意料的是评论这一步竟然也是用`GET`就可以做， http://download.csdn.net/index.php/comment/post_comment 后面带上`sourceid`、`content`（评论内容）、`rating`（打分）和`t`（时间戳）参数就可以。评论成功会返回`({"succ":1})`，失败会返回“两次评论需要间隔60秒”、“您已经发表过评论”等之类的`msg`。
+6. 对第 5 步中得到的所有待评论资源 ID 依次进行间隔至少 60S 的打分评论，随机打出 1 到 5 星，对应一句英文短句评论。出乎我意料的是评论这一步竟然也是用`GET`就可以做， http://download.csdn.net/index.php/comment/post_comment 后面带上`sourceid`、`content`（评论内容）、`rating`（打分）和`t`（时间戳）参数就可以。评论成功会返回`({"succ":1})`，失败会返回“两次评论需要间隔 60 秒”、“您已经发表过评论”等之类的`msg`。
 
 最终运行截图如下：
-![CSDN自动批量打分评论](/images/posts/python/csdncommenter.png)
+![CSDN 自动批量打分评论](/images/posts/python/csdncommenter.png)
 
-确认这种方式能有效拿到CSDN的分数：
-![CSDN自动评论得分](/images/posts/python/csdnscore.png)
+确认这种方式能有效拿到 CSDN 的分数：
+![CSDN 自动评论得分](/images/posts/python/csdnscore.png)
 
 ###总结
-1. 用Python干这种类型的活还是很有优势的，requests和BeautifulSoup简直神器啊！  
-2. 我那点蹩脚的Python底子之所以能还比较顺利地把这个流程写下来，实际上也得亏CSDN对请求的验证相对较松，比如像我代码里那样写，`User-Agent`是带有`Python`字样的，而且很显然不是浏览器在访问，但CSDN并未对此作限制。  
+1. 用 Python 干这种类型的活还是很有优势的，requests 和 BeautifulSoup 简直神器啊！
+2. 我那点蹩脚的 Python 底子之所以能还比较顺利地把这个流程写下来，实际上也得亏 CSDN 对请求的验证相对较松，比如像我代码里那样写，`User-Agent`是带有`Python`字样的，而且很显然不是浏览器在访问，但 CSDN 并未对此作限制。
 
 ###源码
-没有找到从Github Pages引用Github仓库里的源码的方法~~，所以把py文件放到一个gist里了，引用如下~~：
+没有找到从 Github Pages 引用 Github 仓库里的源码的方法~~，所以把 py 文件放到一个 gist 里了，引用如下~~：
 
-（Gist前几天被伟大的墙封了，还是直接贴上代码吧。2014/11/5 update）
+（Gist 前几天被伟大的墙封了，还是直接贴上代码吧。2014/11/5 update）
 
 ```python
 # auto comment csdn resources
@@ -59,12 +59,12 @@ import time
 import random
 import re
 import urllib
- 
+
 class CsdnCommenter():
     """Csdn operator"""
     def __init__(self):
         self.sess = requests.Session()
- 
+
     def login(self):
         """login and keep session"""
         username = raw_input('username: ')
@@ -72,11 +72,11 @@ class CsdnCommenter():
         url = 'https://passport.csdn.net/account/login'
         html = self.sess.get(url).text
         soup = BeautifulSoup(html)
- 
+
         lt = self.getElementValue(soup, 'name', 'lt')
         execution = self.getElementValue(soup, 'name', 'execution')
         _eventId = self.getElementValue(soup, 'name', '_eventId')
- 
+
         data = {
                 'username' : username,
                 'password' : password,
@@ -84,43 +84,43 @@ class CsdnCommenter():
                 'execution' : execution,
                 '_eventId' : _eventId
                 }
- 
+
         response = self.sess.post(url, data)
- 
+
         return self.isLoginSuccess(response)
- 
+
     def autoComment(self):
         """main handler"""
         if self.getSourceIds() is False:
             print 'No source can comment!'
             return
- 
+
         print 'Total %d source(s) wait for comment.' % len(self.sourceids)
- 
+
         nhandled = 0
         for sourceid in self.sourceids:
             left = len(self.sourceids) - nhandled
- 
+
             sec = random.randrange(61,71)
             print 'Wait %d seconds for start. %s source(s) left.' % (sec, left)
             time.sleep(sec)
- 
+
             self.comment(sourceid)
             nhandled += 1
- 
+
         print 'Finished!'
- 
+
     def getSourceIds(self):
         """get source ids wait for comment"""
         self.sourceids = set()
         pagecount = self.getPageCount()
         if pagecount == 0:
             return False
- 
+
         print 'Pagecount is %d.' % pagecount
- 
+
         pattern = re.compile(r'.+/(\d+)#comment')
- 
+
         for n in range(1, pagecount + 1):
             url = 'http://download.csdn.net/my/downloads/%d' % n
             html = self.sess.get(url).text
@@ -134,24 +134,24 @@ class CsdnCommenter():
                     rematch = pattern.match(href)
                     if rematch is not None:
                         self.sourceids.add(rematch.group(1))
- 
+
         return len(self.sourceids) > 0
- 
+
     def getPageCount(self):
         """get downloaded resources page count"""
         url = 'http://download.csdn.net/my/downloads'
         html = self.sess.get(url).text
         soup = BeautifulSoup(html)
- 
+
         pagelist = soup.findAll('a', attrs={'class' : 'pageliststy'})
         if pagelist is None:
             return 0
- 
+
         lasthref = pagelist[len(pagelist) - 1].get('href', None)
         if lasthref is None:
             return 0
         return int(filter(str.isdigit, str(lasthref)))
- 
+
     def comment(self, sourceid):
         """comment per source"""
         print 'sourceid %s commenting...' % sourceid
@@ -165,7 +165,7 @@ class CsdnCommenter():
         rating = random.randrange(1,6)
         content = contents[rating - 1]
         t = '%d' % (time.time() * 1000)
- 
+
         paramsmap = {
                 'sourceid' : sourceid,
                 'content' : content,
@@ -179,25 +179,25 @@ class CsdnCommenter():
             print 'sourceid %s comment succeed!' % sourceid
         else:
             print 'sourceid %s comment failed! response is %s.' % (sourceid, html)
- 
+
     @staticmethod
     def getElementValue(soup, element_name, element_value):
         element = soup.find(attrs={element_name : element_value})
         if element is None:
             return None
         return element.get('value', None)
- 
+
     @staticmethod
     def isLoginSuccess(response):
         if response.status_code != 200:
             return False
         return -1 != response.content.find('lastLoginIP')
- 
+
 if __name__ == '__main__':
     csdn = CsdnCommenter()
     while csdn.login() is False:
         print 'Login failed! Please try again.'
     print 'Login succeed!'
- 
+
     csdn.autoComment()
 ```
