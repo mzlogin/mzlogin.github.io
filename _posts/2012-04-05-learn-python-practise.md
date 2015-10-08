@@ -1,20 +1,20 @@
 ---
 layout: post
-title: Python核心编程中文第二版课后练习2.21答案
+title: Python 核心编程中文第二版课后练习 2.21 答案
 categories: Python
-description: 自学Python核心编程过程中对课后习惯的答案记录。
+description: 自学 Python 核心编程过程中对课后习惯的答案记录。
 keywords: Python
 ---
 
 2-2
 
-(a)计算1 + 2 * 4
+(a) 计算 1 + 2 * 4
 
-(b)无输出
+(b) 无输出
 
-(c)一样。无输出语句。
+(c) 一样。无输出语句。
 
-(d)单独执行无输出，在交互解释器里执行输出结果。
+(d) 单独执行无输出，在交互解释器里执行输出结果。
 
 (e)print 1 + 2 * 4
 
@@ -124,10 +124,10 @@ while b is False:
 ```python
 def display_menu():
     """展示菜单"""
-    print '1.取五个数的和'
-    print '2.取五个数的平均值'
-    print 'x.退出'
-    sel = str(raw_input('输入您的选项:'))
+    print '1. 取五个数的和'
+    print '2. 取五个数的平均值'
+    print 'x. 退出'
+    sel = str(raw_input('输入您的选项：'))
     return sel
 
 def tuple_sum(aTuple):

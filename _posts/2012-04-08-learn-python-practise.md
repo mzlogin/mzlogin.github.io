@@ -16,7 +16,7 @@ keywords: Python
 
 3-5 可以，使用 "\" 或者括号
 
-3-6 
+3-6
 
 (a)x = 1, y = 2, z = 3
 
@@ -24,7 +24,7 @@ keywords: Python
 
 3-7 40XL, $aving$, 0x40L, thisIsn'tAVar, big-daddy, 2hot2touch, counter-1 不合法。不是以字母或者下划线开头，或者有非字母下划线数字的字符。print, if 是关键字。
 
-3-10 
+3-10
 
 用异常处理取代对 os.path.exists() 的调用：
 

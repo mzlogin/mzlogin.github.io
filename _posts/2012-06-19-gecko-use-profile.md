@@ -28,7 +28,7 @@ Mozilla 自带的 Profile 支持实际上是非常给力的，看看 %appdata%/M
 
 二、将 Lib 链接进自己内嵌 Gecko 的程序
 
-自写一个启用 profile 的函数，我这里直接使用 WinEmbed 例子里提供的 StartupProfile 函数： 
+自写一个启用 profile 的函数，我这里直接使用 WinEmbed 例子里提供的 StartupProfile 函数：
 
 ```c++
 nsresult StartupProfile()
@@ -45,17 +45,17 @@ nsresult StartupProfile()
     NS_NewProfileDirServiceProvider(PR_TRUE, getter_AddRefs(locProvider));
     if (!locProvider)
       return NS_ERROR_FAILURE;
-    
+
     rv = locProvider->Register();
     if (NS_FAILED(rv))
       return rv;
-    
+
     return locProvider->SetProfileDir(localAppDataDir);
 }
 ```
 
 其中的”MozillaDemo”即是你的 profile 文件夹的名字，可以根据你的喜好改动，在这里会是 %appdata%/Mozilla/MozillaDemo
- 
+
 在初始化 Gecko 运行环境的过程里调用完 XRE_InitEmbedding2 之后，添加
 
 ```c++
@@ -76,7 +76,7 @@ else {
 在合适的地方添加
 
 ```c++
-#pragma comment(lib, "编译出的lib")
+#pragma comment(lib, "编译出的 lib")
 ```
 
 顺利的话，就大功告成了，运行一个你的内嵌 Gecko 程序然后去 %appdata%/Mozilla/MozillaDemo 看看吧~有图有真相哦。

@@ -6,7 +6,7 @@ description: 平时使用 Windows 时总结的一些实用的小技巧。
 keywords: Windows, Skill
 ---
 
-### Win7 不按 Shift，右键显示 "在此处打开命令窗口(W)"
+### Win7 不按 Shift，右键显示 "在此处打开命令窗口 (W)"
 
 <img src="/images/posts/windowsskill/rclick.png" alt="Windows Skills" />
 
@@ -53,4 +53,4 @@ Windows Registry Editor Version 5.00
 
 ###Win7 搜索文件内容
 
-控制面板--索引选项--高级--文件类型--找到你想要搜索内容的文件后缀名，点中它，然后选中下面的“为属性和文件内容添加索引”。
+控制面板 -- 索引选项 -- 高级 -- 文件类型 -- 找到你想要搜索内容的文件后缀名，点中它，然后选中下面的“为属性和文件内容添加索引”。

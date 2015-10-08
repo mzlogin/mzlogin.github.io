@@ -22,7 +22,7 @@ Set Rng = MyWorkSheet.UsedRange
 With Rng
     .Borders.LineStyle = xlContinuous
     .Borders.Weight = xlThin
-    .AutoFilter 
+    .AutoFilter
 End With
 ```
 
@@ -31,17 +31,17 @@ End With
 ```vbnet
 MyWorkSheet.Cells(i, j).Interior.ColorIndex
 ```
- 
-####保存/关闭工作簿：
+
+####保存 / 关闭工作簿：
 
 ```vbnet
 MyWorkBook.Save
 MyWorkBook.Close
 ```
 
-####让某表格选中的单元格变成指定颜色:
+####让某表格选中的单元格变成指定颜色：
 
-在thisworkbook中添加如下代码段：
+在 thisworkbook 中添加如下代码段：
 
 ```vbnet
 Private Sub Workbook_SheetSelectionChange(ByVal Sh As Object, ByVal Target As Range)
@@ -52,7 +52,7 @@ Private Sub Workbook_SheetSelectionChange(ByVal Sh As Object, ByVal Target As Ra
 End Sub
 ```
 
-####引用单元格/区域
+####引用单元格 / 区域
 
 ```vbnet
 Range("A1") '表示 A1 单元格
@@ -71,7 +71,7 @@ Range(Clee1, Cell2) '左上与右下
 Range(Range1, Range2) '取最大范围
 ```
 
-####选中单元格/区域
+####选中单元格 / 区域
 
 ```vbnet
 Range("1:1").Select '选中第一行

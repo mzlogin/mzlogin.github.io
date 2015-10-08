@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Moziila 文件结构概览(译)
+title: Moziila 文件结构概览（译）
 categories: Gecko
 description: 对 Mozilla 官方文档中的文件结构概览的翻译。
 keywords: Mozilla
@@ -18,10 +18,10 @@ keywords: Mozilla
 源码目录概览
 
 这个文档是一份为开发人员提供的 Mozilla 源码目录结构树的指南。它提供源码的鸟瞰以方便开发人员理解 Mozilla 里有什么，到哪里去找想要的东西。它对一个刚刚学习 Mozilla 源码的开发人员来讲是一份不错的文档。
- 
+
 这份文档包含 SeaMonkey，Firefox 和 Toolkit 的相关材料。
 
-这是一份根据 Mozilla 的源码树按月更新的文档。 
+这是一份根据 Mozilla 的源码树按月更新的文档。
 
 在 Mozilla Source Code Directory Structure 和 more detailed overview of how the parts of Gecko fit together 可以看到相似的内容。
 
@@ -61,9 +61,9 @@ rhapsody 包含使用 Yellow Box（Cocoa）的 Mac OS X Server（Which is based 
 
 beos 包含 BeOS 的专用源码。
 
-qt 包含 QT 工具包（可以运行在 X-Windows On Unix，Windows 95，Windows 98 和 Windows NT 4.0 的 C 库）的专用源码。 
+qt 包含 QT 工具包（可以运行在 X-Windows On Unix，Windows 95，Windows 98 和 Windows NT 4.0 的 C 库）的专用源码。
 
-photon 包含 Photon（一个使用在 QNX Software Systems Ltd. 的几个实时操作系统上的微内核窗口系统）的专用源码。 
+photon 包含 Photon（一个使用在 QNX Software Systems Ltd. 的几个实时操作系统上的微内核窗口系统）的专用源码。
 
 SeaMonkey
 
@@ -91,31 +91,31 @@ dbm 包含用于管理，读写哈希表的 C 代码。它用于 URL 编辑框�
 
 directory 包含 LDAP（轻量级目录访问协议）SDK。
 
-docshell 包含载入并展示单个网页（例如 scroll）的C接口和代码。[#seamonkey-embedding embedding]代码包装这些代码实现更高层次浏览器功能如向前，后退和历史。
+docshell 包含载入并展示单个网页（例如 scroll）的 C 接口和代码。[#seamonkey-embedding embedding] 代码包装这些代码实现更高层次浏览器功能如向前，后退和历史。
 
 dom 包含实现和跟踪 Javascript 里的 DOM（文档对象模型）对象的 C 接口和代码。它们组成 C 根据 Javascript 脚本创建，销毁和操纵内建及用户定义的对象的子体系结构。例如，如果 Javascript 脚本添加一个自定义的属性给文档（如 document.goofy = 1），代码将创建 "goofy" 结点，将它放到 "document" 结点并根据最近的 Javascript 命令来操纵它。
 
 editor 包含实现可以编辑纯文本和 HTML 的可嵌入编辑器组件的 C 接口，C 代码和 XUL。它被用于 HTML 编辑器（如在传统 Mozilla 中的编排器），纯文本及 HTML 组成的邮件，以及贯穿整个产品的文本字段和文本区域。这个编辑器被设计得像“带编辑特性的浏览器窗口”并且额外附带编辑文本和管理 undo/redo。
 
-embedding 包含实现泛型高级浏览器功能（如向前，后退，历史）的 C 接口和代码。[#seamonkey-webshell webshell]代码依据特定平台与支持的方式（如 ActiveX）包装这些接口。
+embedding 包含实现泛型高级浏览器功能（如向前，后退，历史）的 C 接口和代码。[#seamonkey-webshell webshell] 代码依据特定平台与支持的方式（如 ActiveX）包装这些接口。
 
-extensions 包含与浏览有关的各种插件的 C 接口，C 代码，XUL 和 Javascript 代码。包括：cookies，IRC，wallet，DOM Inspector，P3P， schema validation，spellchecker，transformiix，typeaheadfind，Javascript debugger，XForms等等。
+extensions 包含与浏览有关的各种插件的 C 接口，C 代码，XUL 和 Javascript 代码。包括：cookies，IRC，wallet，DOM Inspector，P3P， schema validation，spellchecker，transformiix，typeaheadfind，Javascript debugger，XForms 等等。
 
 gfx 包含平台相关的绘图与成像的 C 接口与代码。可以用于画 rectangles，lines，images 等等。本质上来讲，它是一个平台相关的设备上下文集。它不操作小部件或者特定绘制例程；它只是提供绘图的最原始操作。
 
 intl 包含本地化支持的 C 接口和代码。包含支持各种字符集，各种格式（如不同地方的日期和时间格式）和其它本地化功能的代码。
 
-ipc 包含？？（空白）
+ipc 包含？（空白）
 
 jpeg 包含读写 JPEG 图像的 C 代码。这些代码起源于对 the Independent JPEG Group 的 JPEG 规范的引用实现。
 
-js 包含将 Javascript 脚本语汇单元化，解析，解释和执行的C代码。这些代码起源于 Mozilla Classic。
+js 包含将 Javascript 脚本语汇单元化，解析，解释和执行的 C 代码。这些代码起源于 Mozilla Classic。
 
 l10n 包含本地化组建的代码。
 
 layout 包含实现布局引擎的 C 接口和代码。布局引擎决定如何划分窗口资源给一块块的内容。它依据 CSS1 和 CSS2（级联样式表），对齐风格和内容调整和对齐一块块的内容。它并不实际渲染内容；它只是将窗口的不同块分配给各种内容元素。它被称作“软熔”这些内容。这些代码也被称作 "NGLayout" 和 "Gecko"。
 
-lib 包含对Mac编程的开发人员参考的 C 代码。它不再使用。它展示了如何将 Mozilla 浏览器嵌入到 Mac 应用程序中去，就像一些示例文件——handling code from Apple。
+lib 包含对 Mac 编程的开发人员参考的 C 代码。它不再使用。它展示了如何将 Mozilla 浏览器嵌入到 Mac 应用程序中去，就像一些示例文件——handling code from Apple。
 
 mailnews 包含邮件和消息组件（如 Messenger in Mozilla Classic）的 C 代码。它包含管理邮件，读取新闻组消息，导入其它邮件格式，组成新的消息等功能的所有代码。
 
@@ -157,7 +157,7 @@ webshell 包含 C 接口，C 代码，Linux Shell 脚本和其它文件用于将
 
 widget 包含 C 接口和代码用于平台依赖的控件（小部件），如 scroll bars，radio buttons 和 list boxes。
 
-xpcom 包含低层次的 C 接口，C 代码，少量汇编代码和命令行工具用于实现 XPCOM 组件（which stands for "Cross Platform Component Object Model"）的基本机制。XPCOM 是一种允许 Mozilla 导出接口并且让它们自动化且有效于 Javascript 脚本，Microsoft COM 和规则的 Mozilla C 代码的机制。一些低层次的 XPCOM classes 和 interfaces 也在这里定义（如所有平台的事件循环）。XPCOM 能兼容并且与Microsoft COM 很像（虽然 XPCOM 是跨平台的）。
+xpcom 包含低层次的 C 接口，C 代码，少量汇编代码和命令行工具用于实现 XPCOM 组件（which stands for "Cross Platform Component Object Model"）的基本机制。XPCOM 是一种允许 Mozilla 导出接口并且让它们自动化且有效于 Javascript 脚本，Microsoft COM 和规则的 Mozilla C 代码的机制。一些低层次的 XPCOM classes 和 interfaces 也在这里定义（如所有平台的事件循环）。XPCOM 能兼容并且与 Microsoft COM 很像（虽然 XPCOM 是跨平台的）。
 
 xpfe 包含 C 接口，C 代码和 XUL 用于实现 "Cross Platform Front End"。本质上讲，这是 Mozilla 程序开始和管理其它组件完成任务的地方。这些代码中包括极少量平台相关的代码；它依赖于其它组件来提供平台相关的接口来提供平台特定的功能。
 
