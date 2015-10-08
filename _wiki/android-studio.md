@@ -28,7 +28,7 @@ Cmd --> Command
 |搜索文本|C-S-f|Cmd-S-f|
 |最近使用的文件|C-e|Cmd-e|
 |定位到导航条|M-Home|Cmd-Up|
-|智能Import|C-M-o|C-M-o|
+|智能 Import|C-M-o|C-M-o|
 |Undo|C-z|Cmd-z|
 |Redo|C-S-z|Cmd-S-z|
 |删除行|C-y|Cmd-x|
@@ -38,7 +38,7 @@ Cmd --> Command
 |上/下一处引用|C-M-Up/Down|Cmd-M-Up/Down|
 |关闭浮动窗口|S-Esc|S-Esc|
 |跳到变量/函数/类定义|C-b/鼠标左键|Cmd-b/鼠标左键/Down|
-|导航Back/Forward|C-M-Left/Right|Cmd-M-Left/Right|
+|导航 Back/Forward|C-M-Left/Right|Cmd-M-Left/Right|
 |单步|F8|F8|
 |步入|F7|F7|
 |继续执行|F9|Cmd-M-r|
@@ -46,7 +46,7 @@ Cmd --> Command
 |执行到光标处|M-F9|M-F9|
 |开/关断点|C-F8/鼠标左键|Cmd-F8|
 |打开文件所在目录|M-F1 8|M-F1 8|
-|打开 Project 视图||Cmd-1|
+|打开 Project 视图|M-1|Cmd-1|
 
 注：
 

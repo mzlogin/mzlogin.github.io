@@ -2,7 +2,7 @@
 layout: wiki
 title: Vim
 categories: Vim
-description: 个人最常用的Vim常用操作。
+description: 个人最常用的 Vim 常用操作。
 keywords: Vim
 ---
 
@@ -90,9 +90,9 @@ keywords: Vim
 
 ###替换
 
-将全文中的str1替换为str1 :%s/str1/str2/g
+将全文中的 str1 替换为 str1 :%s/str1/str2/g
 
-将1到5行中的str1替换为str2 :1,5/str1/str2/g
+将 1 到 5 行中的 str1 替换为 str2 :1,5/str1/str2/g
 
 ###常用
 
@@ -134,27 +134,27 @@ keywords: Vim
 
 ###Buffer
 
-查看Buffer列表 :ls
+查看 Buffer 列表 :ls
 
-转到Buffer列表中的下一个Buffer :bn
+转到 Buffer 列表中的下一个Buffer :bn
 
-转到Buffer列表中的上一个Buffer :bp
+转到 Buffer 列表中的上一个Buffer :bp
 
-转到Buffer列表中的num号Buffer :bnum
+转到 Buffer 列表中的num号Buffer :bnum
 
-你之前待过的一个Buffer :b#
+你之前待过的一个 Buffer :b#
 
-从Buffer列表中删除num号Buffer :bdnum
+从 Buffer 列表中删除 num 号 Buffer :bdnum
 
 ###组合命令
 
-可以使用`|`来组合命令，比如`cmd1 | cmd2`。
+可以使用 `|` 来组合命令，比如 `cmd1 | cmd2`。
 
 ###代码
 
 格式化代码 gg=G
 
-去除1-20行首的行号 :1,20s/^\\s\*[0-9]\*\\s\*//g
+去除 1-20 行首的行号 :1,20s/^\\s\*[0-9]\*\\s\*//g
 
 展开全部折叠 zR
 
@@ -176,7 +176,7 @@ keywords: Vim
 
 递归展开当前大区块 zO
 
-格式化json数据 :%!python -m json.tool
+格式化 json 数据 :%!python -m json.tool
 
 ###插件
 
