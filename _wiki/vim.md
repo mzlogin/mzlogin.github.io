@@ -136,11 +136,11 @@ keywords: Vim
 
 查看 Buffer 列表 :ls
 
-转到 Buffer 列表中的下一个Buffer :bn
+转到 Buffer 列表中的下一个 Buffer :bn
 
-转到 Buffer 列表中的上一个Buffer :bp
+转到 Buffer 列表中的上一个 Buffer :bp
 
-转到 Buffer 列表中的num号Buffer :bnum
+转到 Buffer 列表中的 num 号 Buffer :bnum
 
 你之前待过的一个 Buffer :b#
 
