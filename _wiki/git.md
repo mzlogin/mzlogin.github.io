@@ -58,3 +58,8 @@ keywords: Git, 版本控制
     git fetch upstream
     git merge upstream/master
     ```
+
+4. 如何通过 TortoiseSVN 带的 TortoiseMerge.exe 处理 git 产生的 conflict？
+    * 将 TortoiseMerge.exe 所在路径添加到 `path` 环境变量。
+    * 运行命令 `git config merge.tool TortoiseMerge.exe` 将 TortoiseMerge.exe 设置为默认的 merge tool。
+    * 在产生 conflict 的目录运行 `git mergetool`，TortoiseMerge.exe 会跳出来供你 resolve conflict。
