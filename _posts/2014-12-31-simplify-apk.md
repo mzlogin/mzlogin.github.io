@@ -134,9 +134,9 @@ keywords: Android
 
 1. 大小
 
-    |原始|移除 appcompat\_v7|移除 android-support-v4.jar|
-    |:---:|:---:|:---:|
-    |903KB|380KB|45KB|
+    |  原始 | 移除 appcompat\_v7 | 移除 android-support-v4.jar |
+    |:-----:|:------------------:|:---------------------------:|
+    | 903KB |        380KB       |             45KB            |
 
     可不可以只不导出 android-support-v4.jar 而继续依赖 appcompat\_v7 呢？答案是不可以，在<http://developer.android.com/tools/support-library/features.html#v7>的 Note 中显示 v7 appcompat library 是依赖 v4 support library 的。
 
