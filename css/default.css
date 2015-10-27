@@ -1,11 +1,11 @@
-﻿/* modified from https://github.com/yinwang0/blog-cn/blob/gh-pages/main.css */
+﻿/* modified from http://www.yinwang.org/main.css */
 body {
+  font-family:"lucida grande", "lucida sans unicode", lucida, helvetica, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   background-color: white;
-  font-size: 100%;
+  font-size: 18px;
 }
 
-#main {
-  font-family: "Palatino Linotype", "URW Palladio L", "palladio l", palatino, "book antiqua", times, serif;
+div.main {
   font-size: 1em;
   margin: auto;
   padding: 2% 5% 5% 5%;
@@ -14,22 +14,27 @@ body {
   border: 1px solid LightGrey;
 }
 
+H1, H2, H3, H4 {
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, Helvetica, STKaiti, SimSun, serif; 
+  width: 98%;
+  line-height: 150%;
+  color: #666666;
+}
+
 H1, H2 {
   margin-bottom: 1.67em;
   padding: 0.2em;
   border-bottom: 2px LightGrey solid;
-  width: 90%;
-  line-height: 150%;
-  color: #666666;
 }
 
 H3, H4 {
   margin-top: 2.14em;
   margin-bottom: 1.5em;
   border-bottom: 1px LightGrey solid;
-  width: 80%;
-  line-height: 150%;
-  color: #666666;
+}
+
+H4 {
+  border: none;
 }
 
 blockquote {
