@@ -45,7 +45,7 @@ CSDN 账号过一段时间就会累积几十个下载过但是未评论打分的
 
 （Gist 前几天被伟大的墙封了，还是直接贴上代码吧。2014/11/5 update）
 
-（还是创建了 GitHub 仓库：[csdncommenter](https://github.com/mzlogin/csdncommenter)，也可以通过 pip 安装使用了 `pip install csdncommenter` 然后 `csdncommenter`。2015/10/27 update）
+（GitHub 仓库：[mzlogin/csdncommenter](https://github.com/mzlogin/csdncommenter)，现在可以通过 pip 安装使用了 `pip install csdncommenter` 然后 `csdncommenter`。2015/10/27 update）
 
 ```python
 # auto comment csdn resources
