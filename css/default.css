@@ -134,6 +134,10 @@ hr {
   margin: 0.75em 0;
 }
 
+strong {
+  color: #666666;
+}
+
 div.overview {
   margin: 1.75em 1.25em 1.75em 1.25em;
 }
