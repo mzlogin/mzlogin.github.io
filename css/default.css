@@ -2,11 +2,10 @@
 body {
   font-family:"lucida grande", "lucida sans unicode", lucida, helvetica, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   background-color: white;
-  font-size: 18px;
+  font-size: 100%;
 }
 
 div.main {
-  font-size: 1em;
   margin: auto;
   padding: 2% 5% 5% 5%;
   width: 700px;
@@ -31,10 +30,6 @@ H3, H4 {
   margin-top: 2.14em;
   margin-bottom: 1.5em;
   border-bottom: 1px LightGrey solid;
-}
-
-H4 {
-  border: none;
 }
 
 blockquote {
