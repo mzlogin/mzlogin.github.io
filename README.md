@@ -1,11 +1,11 @@
 靠谱-ing
 =================
 
-My personal blog hosted on Github Pages.
+我的个人博客：<http://mazhuang.org>
 
-链接：[靠谱-ing](http://www.mazhuang.org)
+欢迎 Star 和 Fork。
 
-### 想要坚持的原则
+### 书写原则
 
 1. 简约，尽量每个页面都不展示多余的内容。
 
@@ -13,20 +13,25 @@ My personal blog hosted on Github Pages.
 
 3. 言之有物，不做无痛之呻吟。
 
-### 写博注意点
+### 书写提示
 
-1. keywords 以 C++ 这样的开头会有问题。
+1. keywords
+
+    以 C++ 这样的开头会有问题，需要转义。
 
 1. toc link
     * 字母要全小写。
-    * 如果有空格，要用 `-` 填充。
-    * `/` ~~这样的符号不用转义。~~ 2015 年 7 月 8 日，发现需要使用 `-` 替换。
+    * `/` 和「空格」需要使用 `-` 替换。
     * `!` 直接省略掉。
 
-1. 中文与英文之间要加空格，更多样式规范可以参考 <https://github.com/mzlogin/chinese-copywriting-guidelines>。
+1. 中文与英文
 
-1. 列表项如果嵌套下属内容，需要缩进并且加空行；如果嵌套列表，那需要缩进，但不加空行。
+    中英文之间要加空格，更多中文文案排版规范可以参考 [mzlogin/chinese-copywriting-guidelines](https://github.com/mzlogin/chinese-copywriting-guidelines)。
 
-### 思考中的问题
+1. 列表项下嵌套内容
+    * 如果嵌套非列表，需要缩进并且加空行。
+    * 如果嵌套列表，需要缩进，但不加空行。
+
+### 书写思考
 
 * 那些高质量的博主，他们的行文，内容组织方式，有什么值得学习借鉴的地方？
