@@ -6,7 +6,7 @@ description: Windows 上 EXE 加载 DLL 时的搜索路径与顺序。
 keywords: Dll, Windows
 ---
 
-###结论
+### 结论
 在默认情况下，Windows 加载程序在用户磁盘上搜索 DLL 的搜索顺序：
 
 1. 包含可执行文件的目录。
@@ -18,8 +18,8 @@ keywords: Dll, Windows
 
 如果调用 LoadLibrary 时传入的是绝对路径，那么加载程序将只尝试从该绝对路径搜索 DLL。
 
-###附注
-以上结论在“Windows 核心编程”中列出，书中指出：
+### 附注
+以上结论在「Windows 核心编程」中列出，书中指出：
 >注意，对应用程序当前目录的搜索位于 Windows 目录之后，这个改变始于 Windows XP SP2，其目的是防止加载程序在应用程序的当前目录中找到伪造的系统 DLL 并将它们载入，从而保证系统 DLL 始终都是从它们在 Windows 目录的正式位置载入的。
 
 我对这个说法持保留意见，因为在我的验证中，在一个 Windows XP SP1 的环境中已经应用了此搜索顺序。
@@ -29,7 +29,7 @@ keywords: Dll, Windows
 2. HKEY\_LOCAL\_MACHINES\SYSTEM\CurrentControlSet\Control\Session Manager 下的 SafeDllSearchMode 键值。
 3. 调用 LoadLibraryEx 函数时使用 LOAD\_WITH\_ALTERED\_SEARCH\_PATH 等标志。
 
-###验证
+### 验证
 证明代码片段：
 
 ```c

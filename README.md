@@ -5,7 +5,7 @@ My personal blog hosted on Github Pages.
 
 链接：[靠谱-ing](http://www.mazhuang.org)
 
-###想要坚持的原则
+### 想要坚持的原则
 
 1. 简约，尽量每个页面都不展示多余的内容。
 
@@ -13,7 +13,7 @@ My personal blog hosted on Github Pages.
 
 3. 言之有物，不做无痛之呻吟。
 
-###写博注意点
+### 写博注意点
 
 1. keywords 以 C++ 这样的开头会有问题。
 
@@ -27,6 +27,6 @@ My personal blog hosted on Github Pages.
 
 1. 列表项如果嵌套下属内容，需要缩进并且加空行；如果嵌套列表，那需要缩进，但不加空行。
 
-###思考中的问题
+### 思考中的问题
 
 * 那些高质量的博主，他们的行文，内容组织方式，有什么值得学习借鉴的地方？

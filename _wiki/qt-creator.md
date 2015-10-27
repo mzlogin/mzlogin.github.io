@@ -6,7 +6,7 @@ description: Qt Creator 的常用快捷键和操作记录
 keywords: Qt, Qt Creator
 ---
 
-###快捷键（for mac）
+### 快捷键（for mac）
 
 参考：<http://doc.qt.io/qtcreator/creator-keyboard-shortcuts.html>
 

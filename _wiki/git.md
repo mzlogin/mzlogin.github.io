@@ -24,7 +24,7 @@ keywords: Git, 版本控制
 | 强制推送到远程仓库        | git push -f origin master |
 | 修改上次 commit           | git commit --amend        |
 
-###Q&A
+### Q&A
 
 1. 如何解决gitk中文乱码，git ls-files 中文文件名乱码问题？
 

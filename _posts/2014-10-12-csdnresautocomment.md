@@ -6,14 +6,14 @@ description: 自动一次性评论所有 CSDN 已下载资源的脚本。
 keywords: Python, CSDN
 ---
 
-###背景
+### 背景
 CSDN 账号过一段时间就会累积几十个下载过但是未评论打分的资源，虽然现在上传了一些资源供别人下载后基本不愁积分，但是为了可持续发展，还是把评论一下就能顺手拿了的这种积分不客气地收入囊中吧！不过手动一个一个去评论真的很蛋疼……特别是 CSDN 还搞了个两个评论间隔不能小于 60 秒的限制，评论几十个就得至少花个几十分钟折腾，所以想想这种耗时、无脑的活还是交给程序来完成吧。
 
 对于这类模拟 HTTP 请求然后可能频繁用到页面解析和正则表达式之类的活，用 C++ 写还是有点蛋疼的，用我那半生不熟的 Python 练练手正合适。
 
 遂在 github 上建了个仓库开工，地址在这里：<https://github.com/mzlogin/csdncommenter>。
 
-###分析
+### 分析
 使用 Fiddler 把*登录 - 到待评论页面 - 评论*的完整流程抓了一下，整理程序逻辑大致如下：
 
 *注：如下 HTTP 请求均使用同一个 SESSION。*
@@ -28,7 +28,7 @@ CSDN 账号过一段时间就会累积几十个下载过但是未评论打分的
 
 5. 根据第 4 步中得到的总页数，根据每个页面 num 拼得 url 为 http://download.csdn.net/my/downloads/num ，使用`GET`方法访问之拿到该页面中所有待评论资源 ID。从所有`class="btn-comment"`的`a`标签的`href`中得到。
 
-6. 对第 5 步中得到的所有待评论资源 ID 依次进行间隔至少 60S 的打分评论，随机打出 1 到 5 星，对应一句英文短句评论。出乎我意料的是评论这一步竟然也是用`GET`就可以做， http://download.csdn.net/index.php/comment/post_comment 后面带上`sourceid`、`content`（评论内容）、`rating`（打分）和`t`（时间戳）参数就可以。评论成功会返回`({"succ":1})`，失败会返回“两次评论需要间隔 60 秒”、“您已经发表过评论”等之类的`msg`。
+6. 对第 5 步中得到的所有待评论资源 ID 依次进行间隔至少 60S 的打分评论，随机打出 1 到 5 星，对应一句英文短句评论。出乎我意料的是评论这一步竟然也是用`GET`就可以做， http://download.csdn.net/index.php/comment/post_comment 后面带上`sourceid`、`content`（评论内容）、`rating`（打分）和`t`（时间戳）参数就可以。评论成功会返回`({"succ":1})`，失败会返回「两次评论需要间隔 60 秒」、「您已经发表过评论」等之类的`msg`。
 
 最终运行截图如下：
 ![CSDN 自动批量打分评论](/images/posts/python/csdncommenter.png)
@@ -36,14 +36,16 @@ CSDN 账号过一段时间就会累积几十个下载过但是未评论打分的
 确认这种方式能有效拿到 CSDN 的分数：
 ![CSDN 自动评论得分](/images/posts/python/csdnscore.png)
 
-###总结
+### 总结
 1. 用 Python 干这种类型的活还是很有优势的，requests 和 BeautifulSoup 简直神器啊！
 2. 我那点蹩脚的 Python 底子之所以能还比较顺利地把这个流程写下来，实际上也得亏 CSDN 对请求的验证相对较松，比如像我代码里那样写，`User-Agent`是带有`Python`字样的，而且很显然不是浏览器在访问，但 CSDN 并未对此作限制。
 
-###源码
+### 源码
 没有找到从 Github Pages 引用 Github 仓库里的源码的方法~~，所以把 py 文件放到一个 gist 里了，引用如下~~：
 
 （Gist 前几天被伟大的墙封了，还是直接贴上代码吧。2014/11/5 update）
+
+（还是创建了 GitHub 仓库：[csdncommenter](https://github.com/mzlogin/csdncommenter)，也可以通过 pip 安装使用了 `pip install csdncommenter` 然后 `csdncommenter`。2015/10/27 update）
 
 ```python
 # auto comment csdn resources

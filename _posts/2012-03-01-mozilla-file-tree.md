@@ -95,7 +95,7 @@ docshell 包含载入并展示单个网页（例如 scroll）的 C 接口和代�
 
 dom 包含实现和跟踪 Javascript 里的 DOM（文档对象模型）对象的 C 接口和代码。它们组成 C 根据 Javascript 脚本创建，销毁和操纵内建及用户定义的对象的子体系结构。例如，如果 Javascript 脚本添加一个自定义的属性给文档（如 document.goofy = 1），代码将创建 "goofy" 结点，将它放到 "document" 结点并根据最近的 Javascript 命令来操纵它。
 
-editor 包含实现可以编辑纯文本和 HTML 的可嵌入编辑器组件的 C 接口，C 代码和 XUL。它被用于 HTML 编辑器（如在传统 Mozilla 中的编排器），纯文本及 HTML 组成的邮件，以及贯穿整个产品的文本字段和文本区域。这个编辑器被设计得像“带编辑特性的浏览器窗口”并且额外附带编辑文本和管理 undo/redo。
+editor 包含实现可以编辑纯文本和 HTML 的可嵌入编辑器组件的 C 接口，C 代码和 XUL。它被用于 HTML 编辑器（如在传统 Mozilla 中的编排器），纯文本及 HTML 组成的邮件，以及贯穿整个产品的文本字段和文本区域。这个编辑器被设计得像「带编辑特性的浏览器窗口」并且额外附带编辑文本和管理 undo/redo。
 
 embedding 包含实现泛型高级浏览器功能（如向前，后退，历史）的 C 接口和代码。[#seamonkey-webshell webshell] 代码依据特定平台与支持的方式（如 ActiveX）包装这些接口。
 
@@ -113,7 +113,7 @@ js 包含将 Javascript 脚本语汇单元化，解析，解释和执行的 C �
 
 l10n 包含本地化组建的代码。
 
-layout 包含实现布局引擎的 C 接口和代码。布局引擎决定如何划分窗口资源给一块块的内容。它依据 CSS1 和 CSS2（级联样式表），对齐风格和内容调整和对齐一块块的内容。它并不实际渲染内容；它只是将窗口的不同块分配给各种内容元素。它被称作“软熔”这些内容。这些代码也被称作 "NGLayout" 和 "Gecko"。
+layout 包含实现布局引擎的 C 接口和代码。布局引擎决定如何划分窗口资源给一块块的内容。它依据 CSS1 和 CSS2（级联样式表），对齐风格和内容调整和对齐一块块的内容。它并不实际渲染内容；它只是将窗口的不同块分配给各种内容元素。它被称作「软熔」这些内容。这些代码也被称作 "NGLayout" 和 "Gecko"。
 
 lib 包含对 Mac 编程的开发人员参考的 C 代码。它不再使用。它展示了如何将 Mozilla 浏览器嵌入到 Mac 应用程序中去，就像一些示例文件——handling code from Apple。
 
@@ -133,7 +133,7 @@ plugin 包含 Mac 上的 MRJ plugin 的代码。
 
 profile 包含创建新用户数据，管理已经存在的用户数据，从 Mozilla Classic 迁移数据和为流行的 ISPs（如 Earthlink 和 Concentric Networks）使用默认数据的代码。
 
-rdf 包含访问各种数据并且根据 RDF 组织它们之间的关系的 C 接口和代码。RDF 是一个开放的标准即“Resource Description Framework”。这些代码从本地文件系统，数据库，Internet 或者其它使用类 URL 语法的资源读写数据。
+rdf 包含访问各种数据并且根据 RDF 组织它们之间的关系的 C 接口和代码。RDF 是一个开放的标准即「Resource Description Framework」。这些代码从本地文件系统，数据库，Internet 或者其它使用类 URL 语法的资源读写数据。
 
 security 包含安全模块包括 NSS 和 PSM。
 

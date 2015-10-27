@@ -6,13 +6,13 @@ description: Android Studio 使用过程中遇到的一些问题和解决方案�
 keywords: Android, Android Studio
 ---
 
-1. 打开 Android Studio 卡在“Fetching Android SDK component information”界面。
+1. 打开 Android Studio 卡在「Fetching Android SDK component information」界面。
 
     如图：
 
     ![](/images/posts/android/android-studio-check-sdk.png)
 
-    Android Studio First Run 检测 Android SDK 及更新，由于众所周知的原因，我们会“Unable to access Android SDK add-on list”，而且大家一般也已经提前配置好了 Android SDK，真正需要更新的时候手动去 SDK Manager 更新就好了。
+    Android Studio First Run 检测 Android SDK 及更新，由于众所周知的原因，我们会「Unable to access Android SDK add-on list」，而且大家一般也已经提前配置好了 Android SDK，真正需要更新的时候手动去 SDK Manager 更新就好了。
 
     解决方案：
 

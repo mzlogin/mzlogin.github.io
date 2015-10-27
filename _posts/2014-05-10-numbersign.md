@@ -8,7 +8,7 @@ keywords: 宏，C++
 
 想要灵活应用宏，离不开`#`和`##`。
 
-###"
+### "
 在学习`#`和`##`之前，先来看一个关于`"`的例子：
 
 ```c++
@@ -48,7 +48,7 @@ p5 = Nihao,Shijie!, strlen(p5) = 13
 
 即 p1，p2，p3，p4 这四种写法是等价的，这一点作为之后解释`#`用法的前提。
 
-###字符串化操作 (#)
+### 字符串化操作 (#)
 当用作字符串化操作时，`#`的主要作用是将宏参数不经扩展地转换成字符串常量。
 **要点：**
 
@@ -67,7 +67,7 @@ FB(F B)
 FB1(F B)
 ```
 
-初看到时推测这两行预编译出来后效果是一样的，但是看了使用 gcc -E 编译出来代码，这才理解了 MSDN 上对“不经扩展”有了更深刻的理解，实际的预编译后代码为：
+初看到时推测这两行预编译出来后效果是一样的，但是看了使用 gcc -E 编译出来代码，这才理解了 MSDN 上对「不经扩展」有了更深刻的理解，实际的预编译后代码为：
 
 ```
 "F B";
@@ -81,7 +81,7 @@ FB(F B) --> #F B -->"F B"
 FB1(F B) --> FB1(abc def) --> FB(abc def) --> #abc def --> "abc def"
 ```
 
-###标记连接操作 (##)
+### 标记连接操作 (##)
 将多个 Token 连接成一个 Token。
 **要点：**
 
@@ -110,7 +110,7 @@ int main()
 
 这样应该就很好理解了。
 
-###参考 MSDN
+### 参考 MSDN
 
 -  Stringizing Operator(#) : <http://msdn.microsoft.com/EN-US/library/7e3a913x(v=VS.110,d=hv.2).aspx>
 -  Token-Pasting Operator(##) : <http://msdn.microsoft.com/EN-US/library/09dwwt6y(v=VS.110,d=hv.2).aspx>

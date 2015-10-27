@@ -6,7 +6,7 @@ description: 使用 gVim 的 Python 自动补全时遇到了错误提示。
 keywords: gVim, Python
 ---
 
-###问题描述
+### 问题描述
 环境：Win7 x64
 
 从 gVim 7.4 的安装目录 /path/to/Vim/Vim74/autoload 下的 pythoncomplete.vim 看出，Vim 在这个版本已经默认内置了对 Python 的自动补全的支持。然而我在自己的笔记本上用得很好的配置，同样的、_vimrc 和插件平移到工作机上以后就出问题了，` <C-x><C-o> `的时候 gVim 底部提示：
@@ -16,7 +16,7 @@ Error: Required vim compiled with +python
 E117: Unknown function: pythoncomplete#Complete
 ```
 
-###解决过程
+### 解决过程
 
 1. 排查 Vim 版本编译时的 Python 支持
 
@@ -55,7 +55,7 @@ E117: Unknown function: pythoncomplete#Complete
     >>>>>>
     ```
 
-###结论
+### 结论
 Vim 官网下载的 Windows 版本 gVim 的 GUI 程序编译时启用了 Python 支持，但是由于 gVim.exe 是 32 位程序，需要加载 32 位的 python27.dll。
 
 所以：
@@ -64,7 +64,7 @@ Vim 官网下载的 Windows 版本 gVim 的 GUI 程序编译时启用了 Python 
 
 当然如果愿意折腾，使用 64 位 Python，然后自己编译一个 64 位的 gVim 应该也不是一个坏主意。
 
-###验证
+### 验证
 卸载掉 64 位的 Python，安装 32 位的，可以看到 C:\Windows\SysWOW64 文件夹下有了之前没有的 python27.dll 文件。再执行 Python 的自动补全，已经能看到了：
 
 ![Python 自动补全](/images/posts/vim/vim-python-autocomplete.png)

@@ -6,15 +6,15 @@ description: Python 常用模块及资源记录。
 keywords: Python
 ---
 
-###requests
+### requests
 
 优雅简单的 HTTP 模块。
 
-###BeautifulSoup
+### BeautifulSoup
 
 很好用的 HTML/XML 解析器。
 
-###json
+### json
 
 JSON 编码解码器。
 
@@ -24,7 +24,7 @@ JSON 编码解码器。
 
     python -m json.tool src.json > dst.json
 
-###CGIHTTPServer
+### CGIHTTPServer
 
 简单实用的 HTTP 服务器。
 

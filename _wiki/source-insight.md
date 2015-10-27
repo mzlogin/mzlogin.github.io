@@ -6,7 +6,7 @@ description: Source Insight 工具的快捷键及使用日常。
 keywords: Source Insight
 ---
 
-###快捷键
+### 快捷键
 
 C --> Ctrl
 

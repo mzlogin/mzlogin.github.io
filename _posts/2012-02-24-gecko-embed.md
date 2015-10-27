@@ -8,7 +8,7 @@ keywords: winEmbed, Mozilla
 
 最近在学习怎么将 Gecko 嵌入到自己的应用程序中，下载了一份比较早一点的源码在对照官方文档痛苦地推进——网上相关资料确实相当缺乏，难道大家都各种 webkit 去了？我的计划是先弄清怎么用，让程序跑起来，然后再根据官方文档结构说明去定制，削减掉不需要的部分，折腾这个移植就花了我不少时间，果断觉得应该跟大家分享之。废话不说,直接上过程。
 
-###下载xulrunner源码并编译。
+### 下载xulrunner源码并编译。
 
 我这里用的 1.9.2rc1 版本，对应 firefox 3.6.X。
 
@@ -33,11 +33,11 @@ ac_add_options --enable-tests
   
 运行 mozilla-build 1.3 中的 start-msvc9.bat（因为我使用的是 Visual Studio 2008），切换到源码根目录下，运行 `./configure`，然后 `make`。等待几个小时（我的是用了四个小时左右）就 OK 了。
 
-###注册GRE（Gecko运行时环境）。
+### 注册GRE（Gecko运行时环境）。
 
 在经过上面第一步的编译后，会在源码根目录下生成名为 dist 的文件夹。`源码根/dist/bin/` 目录下现在有 xulrunner.exe 等程序，在 cmd 下运行 `xulrunner.exe --register-global` 注册 GRE。这时候实际上就可以跑 `源码根/embedding/tests/winEmbed/winEmbed.exe` 程序了，但是我们的目的是在 VC 下自己的工程里嵌入 Gecko，所以需要尝试将这个示例工程 winEmbed 移植到 VC 中。
 
-###重点来了，将winEmbed移植到VC中。
+### 重点来了，将winEmbed移植到VC中。
 
 （1）新建工程 `MozillaDemo`，将 winEmbed 文件夹下的 resource.h、SMALL.ICO、WebBrowserChrome.cpp、WebBrowserChrome.h、WindowCreator.cpp、WindowCreator.h、winEmbed.cpp、winEmbed.h、winEmbed.ICO、winEmbed.rc 引入工程。编译之，你会发现 N 多错误……
 

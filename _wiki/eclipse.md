@@ -6,7 +6,7 @@ description: Eclipse 常用快捷键和操作总结
 keywords: Eclipse
 ---
 
-###快捷键
+### 快捷键
 
 C --> Ctrl
 
@@ -44,7 +44,7 @@ A --> Alt
 
 ### Q&A
 
-1. 如何解决 Mac OS X 下安装的是 Java 1.8，运行 Eclipse 时提示「您需要安装旧 Java SE 6 运行环境才能打开“Eclipse.app”。」的问题？
+1. 如何解决 Mac OS X 下安装的是 Java 1.8，运行 Eclipse 时提示「您需要安装旧 Java SE 6 运行环境才能打开「Eclipse.app」。」的问题？
 
     ![](/images/wiki/eclipse-need-java6.png)
 

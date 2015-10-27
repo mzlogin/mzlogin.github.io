@@ -16,7 +16,7 @@ keywords: Android
 
 ![default apk size](/images/posts/android/default-size.png)
 
-###移除 appcompat\_v7 依赖
+### 移除 appcompat\_v7 依赖
 
 创建一个 Minimum Required SDK 低于 API level 11（对应 Android 3.0），Target SDK 高于 API Level 11 的工程，ADT 会自动生成一个名为 appcompat\_v7 的库工程并且使你的工程依赖于它。关于 appcompat\_v7 的作用，可以参见<http://developer.android.com/tools/support-library/features.html#v7>，大概就是说有一系列的 v7 xxx 库，比如 v7 appcompat library、v7 cardview library、v7 gridlayout library 等，都是用于为 Android 2.1（API level 7）或者更高的系统提供一些功能，其中 v7 appcompat library 是提供 Action Bar 相关的界面风格的支持，比如它里面包含了 ActionBar、ActionBarActivity 和 ShareActionProvider 等关键类。
 
@@ -106,7 +106,7 @@ keywords: Android
 
 ![apk size without appcompat\_v7](/images/posts/android/size-without-v7.png)
 
-###不导出 android-support-v4.jar
+### 不导出 android-support-v4.jar
 
 相对一个 HelloWorld 程序而言，380KB 仍然是太大了。
 
@@ -128,7 +128,7 @@ keywords: Android
 
 *（注：如果关闭 workspace 后重新打开，这个取消导出会重新被勾选中，如果确定使用不导出方案，那么可在 Package Explorer 视图中该工程下 libs 里找到 android-support-v4.jar，右键删除之。）*
 
-###影响
+### 影响
 
 当然程序精简带来的影响也是很明显的。
 

@@ -6,7 +6,7 @@ description: Android Studio 快捷键及使用技巧汇总
 keywords: Android, Android Studio
 ---
 
-###快捷键
+### 快捷键
 
 C --> Ctrl
 

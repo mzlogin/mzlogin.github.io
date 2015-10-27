@@ -6,7 +6,7 @@ description: 使用 Mac OS X 的一些快捷键和遇到的问题。
 keywords: Mac
 ---
 
-###Index
+### Index
 * [窗口](#窗口)
 * [程序](#程序)
 * [搜索](#搜索)
@@ -27,7 +27,7 @@ Cmd --> Command
 
 [Mac 键盘快捷键官方参考](https://support.apple.com/zh-cn/HT201236)
 
-###窗口
+### 窗口
 
 | 功能                   | 快捷键  |
 |:-----------------------|:--------|
@@ -40,7 +40,7 @@ Cmd --> Command
 | 新建标签               | Cmd-T   |
 | 新建窗口               | Cmd-N   |
 
-###程序
+### 程序
 
 | 功能                | 快捷键     |
 |:--------------------|:-----------|
@@ -51,7 +51,7 @@ Cmd --> Command
 | 打开 Finder 并查找  | C-M-空格   |
 | 打开 Launchpad      | 四指合拢   |
 
-###搜索
+### 搜索
 
 * 使用 `find` 命令，例如：
 
@@ -79,7 +79,7 @@ Cmd --> Command
     locate aapt
     ```
 
-###复制文件路径
+### 复制文件路径
 
 * 在 Finder 下
 
@@ -91,7 +91,7 @@ Cmd --> Command
     pwd|pbcopy
     ```
 
-###Safari
+### Safari
 
 | 功能         | 快捷键           |
 |:-------------|:-----------------|
@@ -99,7 +99,7 @@ Cmd --> Command
 | 切换标签     | Cmd-S-Left/Right |
 | 收藏页面     | Cmd-D            |
 
-###Terminal
+### Terminal
 
 | 功能             | 快捷键  |
 |:-----------------|:--------|
@@ -107,6 +107,6 @@ Cmd --> Command
 | 上/下个标签      | Cmd-{/} |
 | 删除光标前的输入 | C-U     |
 
-###WireShark
+### WireShark
 
 使用 WireShark 1.99 开发版，可以不依赖于 X11，界面基于 Qt，更加美观，符合 Mac 界面风格。

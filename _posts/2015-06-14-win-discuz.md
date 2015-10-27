@@ -12,7 +12,7 @@ keywords: PHP, Discuz
 
 Win7 64 with sp1
 
-###目录
+### 目录
 * [使用软件](#使用软件)
 * [详细步骤](#详细步骤)
     * [安装 IIS](#安装-iis)
@@ -25,7 +25,7 @@ Win7 64 with sp1
     * [常用入口](#常用入口)
     * [让 Discuz! 局域网内可访问](#让-discuz-局域网内可访问)
 
-###使用软件
+### 使用软件
 
 1. Discuz! X3.2
 
@@ -67,15 +67,15 @@ Win7 64 with sp1
 
     下载地址：<http://www.phpmyadmin.net/home_page/downloads.php>
 
-###详细步骤
+### 详细步骤
 
-####安装 IIS
+#### 安装 IIS
 
-打开【控制面板】--【程序】--【打开或关闭 Windows 功能】，勾选【Internet 信息服务】，**确认【万维网服务】--【应用程序开发功能】--【CGI】是勾选状态**，然后点“确定”安装。
+打开「控制面板」--「程序」--「打开或关闭 Windows 功能」，勾选「Internet 信息服务」，**确认「万维网服务」--「应用程序开发功能」--「CGI」是勾选状态**，然后点「确定」安装。
 
 ![](/images/posts/php/iis.png)
 
-####配置 PHP
+#### 配置 PHP
 
 1. 解压前面下载的 PHP 的 zip 包，放在合适的地方。
 
@@ -110,11 +110,11 @@ Win7 64 with sp1
 
 3. 添加 FastCGI 模块映射。
 
-    打开【控制面板】--【系统和安全】--【管理工具】--【Internet 信息服务(IIS)管理器】--【处理程序映射】，点击右方的“添加模块映射”，填写如下并确认：
+    打开「控制面板」--「系统和安全」--「管理工具」--「Internet 信息服务(IIS)管理器」--「处理程序映射」，点击右方的「添加模块映射」，填写如下并确认：
 
     ![fastcgi](/images/posts/php/fastcgi.png)
 
-####配置 MySQL
+#### 配置 MySQL
 
 如果需要安装 MySQL，首先确认有没有 MySQL 的历史残留文件，C:\ProgramData\MySQL 目录如果存在，删除之。不然 MySQL 的安装有可能总是在最后一步失败，提示 `error Nr. 1045` 和 `Access denied for user 'root'@localhost'(using password:No)` 之类的问题。
 
@@ -142,7 +142,7 @@ Win7 64 with sp1
 
 ![connections](/images/posts/php/mysql-5.png)
 
-设定网络参数，注意：勾消掉“Enable Strict Mode”。而“Add firewall exception for this port”仅在需要外连 MySQL 的时候勾上。
+设定网络参数，注意：勾消掉「Enable Strict Mode」。而「Add firewall exception for this port」仅在需要外连 MySQL 的时候勾上。
 
 ![networking](/images/posts/php/mysql-6.png)
 
@@ -198,13 +198,13 @@ net start mysql
 
 将 D:\Discuz\MySQL\lib\libmysql.dll 复制到 C:\Windows\System32 目录下。
 
-####检测环境是否准备好
+#### 检测环境是否准备好
 
-在【Internet 信息服务(IIS)管理器】中右击“网站”，选“添加网站”：
+在「Internet 信息服务(IIS)管理器」中右击「网站」，选「添加网站」：
 
 ![add-website](/images/posts/php/add-website.png)
 
-然后在新建的网站的“默认文档”里添加 index.php。
+然后在新建的网站的「默认文档」里添加 index.php。
 
 在 D:\discuz\wwwroot 下新建 phpinfo.php 文件内容如下：
 
@@ -218,13 +218,13 @@ phpinfo();
 
 ![](/images/posts/php/phpinfo.png)
 
-####安装 Zend Optimizer
+#### 安装 Zend Optimizer
 
 运行 Zend Optimizer 的安装包，安装到 D:\discuz\Zend，安装过程中需要指定你配置的 php.ini 的目标位置为 D:\discuz\PHP，指定 IIS 网站根目录位置为 D:\discuz\wwwroot。
 
 安装时会重启 IIS 服务。
 
-####部署 Discuz!
+#### 部署 Discuz!
 
 将前面下载的 Discuz! 包解压，把 upload 文件夹里的内容复制到 D:\discuz\wwwroot下，当然你也可以新建子目录来放置。
 
@@ -254,7 +254,7 @@ define('UC_DBPW', '你的数据库密码');
 define('UC_DBPW', '你的数据库密码');
 ```
 
-####部署 phpMyAdmin（可选）
+#### 部署 phpMyAdmin（可选）
 
 将下载的 phpMyAdmin 文件解压到 D:\discuz\wwwroot\phpmyadmin 下，将 config.sample.inc.php 更名为 config.inc.php，找到 blowfish\_secret 并为它设置一个值，比如：
 
@@ -264,7 +264,7 @@ $cfg['blowfish_secret'] = 'hello';
 
 打开 <http://localhost/phpmyadmin> 用你的 MySQL 管理员账户密码登录就行了。
 
-####常用入口
+#### 常用入口
 
 打开论坛 <http://localhost>
 
@@ -274,15 +274,15 @@ $cfg['blowfish_secret'] = 'hello';
 
 打开UCenter <http://localhost/uc_server>
 
-####让 Discuz! 局域网内可访问
+#### 让 Discuz! 局域网内可访问
 
 完成如上步骤后，在局域网内使用 http://ip:port 并不能访问我们装好的 Discuz!，完成这个需要两个步骤：
 
 1. 在防火墙添加 80 端口入站规则
 
-    打开【控制面板】--【系统和安全】--【Windows 防火墙】--【高级设置】，（若之前没有启动防火墙的请先开启）。
+    打开「控制面板」--「系统和安全」--「Windows 防火墙」--「高级设置」，（若之前没有启动防火墙的请先开启）。
 
-    此时实际上是打开了【高级安全 Windows 防火墙】，右键“入站规则”，选择“新建规则”，规则类型选“端口”，协议和端口选择“TCP”和“特定本地端口：80”，操作选择“允许连接”，配置文件保持默认的全部勾选，然后取个名称后保存即可。
+    此时实际上是打开了「高级安全 Windows 防火墙」，右键「入站规则」，选择「新建规则」，规则类型选「端口」，协议和端口选择「TCP」和「特定本地端口：80」，操作选择「允许连接」，配置文件保持默认的全部勾选，然后取个名称后保存即可。
 
 2. 为网站添加本机 IP 绑定
 
