@@ -22,9 +22,9 @@ keywords: Vim, Vimscript
 
 4. 传给函数的参数需要带作用域前缀才能使用。
 
-    ```viml
+    ```vim
     function FunA(name)
-        echom 'Your name is '.a:name
+        echom 'Your name is ' . a:name
     endfunction
     ```
 
