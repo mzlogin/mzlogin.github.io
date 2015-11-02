@@ -54,3 +54,36 @@ Windows Registry Editor Version 5.00
 ### Win7 搜索文件内容
 
 控制面板 -- 索引选项 -- 高级 -- 文件类型 -- 找到你想要搜索内容的文件后缀名，点中它，然后选中下面的「为属性和文件内容添加索引」。
+
+### 将 Caps Lock 映射为 Ctrl
+
+因为个人习惯输入大写字母时使用「Shift + 字母」的方式，所以 Caps Lock 键并没有什么用，而且经常使用 Vim，偶尔使用 Emacs，都需要频繁地按 Ctrl 键，在 Mac OS X 下已经将 Caps Lock 键映射为 Ctrl，为了统一体验和按键方便，也需要在 Windows 下做一个映射。
+
+先说方法：
+
+将如下代码保存为 .reg 文件然后执行即可。
+
+```
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layout]
+"Scancode Map"=hex:00,00,00,00,00,00,00,00,02,00,00,00,1d,00,3a,00,00,00,00,00
+```
+
+再说原理：
+
+Scancode Map 这个键值的讲解实例参见 [Keyboard and mouse class drivers (Windows Drivers)](https://msdn.microsoft.com/en-us/library/windows/hardware/jj128267(v=vs.85).aspx#code-snippet-1)，我们这里填写的值
+
+```
+00000000 00000000 02000000 1d003a00 00000000
+```
+
+可以对应理解如下：
+
+| 值         | 说明                                   |
+|------------|----------------------------------------|
+| 0x00000000 | Header: 版本。全部设置为 0。           |
+| 0x00000000 | Header: 标志。全部设置为 0。           |
+| 0x00000002 | 2 条映射条目（包括结尾的 null 条目）。 |
+| 0x003a001d | 左 Ctrl --> Caps Lock (0x3a --> 0x1d)  |
+| 0x00000000 | 终止符，即 null 条目。                 |
