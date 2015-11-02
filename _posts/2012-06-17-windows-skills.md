@@ -6,6 +6,12 @@ description: 平时使用 Windows 时总结的一些实用的小技巧。
 keywords: Windows, Skill
 ---
 
+### 目录
+
+* [Win7 不按 Shift，右键显示 "在此处打开命令窗口 (W)"](#win7-不按-shift，右键显示-quot-在此处打开命令窗口-w-quot)
+* [Win7 搜索文件内容](#win7-搜索文件内容)
+* [将 Caps Lock 映射为 Ctrl](#将-caps-lock-映射为-ctrl)
+
 ### Win7 不按 Shift，右键显示 "在此处打开命令窗口 (W)"
 
 <img src="/images/posts/windowsskill/rclick.png" alt="Windows Skills" />
