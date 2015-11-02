@@ -33,3 +33,17 @@ JSON 编码解码器。
 * 运行一个简易的 HTTP 服务器
 
     python -m CGIHTTPServer 80
+
+### base64
+
+方便地进行 base64 编解码的模块。
+
+应用举例：
+
+* 解码 base64
+
+    echo aGVsbG93b3JsZA== | python -m base64 -d
+
+    则能看到输出
+
+    helloworld
