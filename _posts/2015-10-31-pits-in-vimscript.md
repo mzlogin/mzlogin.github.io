@@ -10,9 +10,14 @@ keywords: Vim, Vimscript
 
 1. 使用 `==` 进行字符串比较是否忽略大小写与用户的设置相关。
 
-    比如 `&ignorecase` 为 1 时，`"foo" == "FOO"` 结果为 True；
+    如
 
-    而 `&ignorecase` 为 0 时，`"foo" == "FOO"` 则为 False。
+    ```vim
+    "foo" == "FOO"
+    ```
+    在 `&ignorecase` 为 1 时，结果为 True；
+
+    在 `&ignorecase` 为 0 时，结果为 False。
 
     **最佳实践**：总是使用 `==?` 与 `==#` 来指定忽略还是不忽略大小写。
 
