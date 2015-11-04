@@ -10,7 +10,9 @@ keywords: Vim, Vimscript
 
 1. 使用 `==` 进行字符串比较是否忽略大小写与用户的设置相关。
 
-    比如 `&ignorecase` 为 1 时，`if "foo" == "FOO"` 结果为 True；而 `&ignorecase` 为 0 时，`if "foo" == "FOO"` 则为 False。
+    比如 `&ignorecase` 为 1 时，`"foo" == "FOO"` 结果为 True；
+
+    而 `&ignorecase` 为 0 时，`"foo" == "FOO"` 则为 False。
 
     **最佳实践**：总是使用 `==?` 与 `==#` 来指定忽略还是不忽略大小写。
 
@@ -32,6 +34,26 @@ keywords: Vim, Vimscript
 
     如 `"1flower" + "1world"` 的结果为 2。
 
-    所以有连接字符串需求使用连接符 `.` 吧，另外注意 `10.1 . "hello"` 会报错 `using Float as a String`，有这种需求的话写成 `"" . 10.1 . "hello"` 吧。
+    所以有连接字符串需求使用连接符 `.` 吧！另外注意
 
-未完待续。
+    ```vim
+    10.1 . "hello"
+    ```
+
+    会报错 `using Float as a String`，有这种需求的话建议写成
+
+    ```vim
+    "" . 10.1 . "hello"
+    ```
+
+6. 列表和字符串的切片操作代表的下标区间是 `[m, n]`，而不是像 Python 那样是 `[m, n)`。
+
+    如
+
+    ```vim
+    ['a', 'b', 'c', 'd'][0:2]
+    ```
+
+    在 Python 里结果将为 `['a', 'b']`；
+
+    而在 Vimscript 里结果将为 `['a', 'b', 'c']`。
