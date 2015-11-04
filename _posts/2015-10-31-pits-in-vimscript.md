@@ -63,3 +63,16 @@ keywords: Vim, Vimscript
     在 Python 里结果将为 `['a', 'b']`；
 
     而在 Vimscript 里结果将为 `['a', 'b', 'c']`。
+
+7. 如果一个 Vimscript 变量要引用一个函数，即它的类型为 Funcref，它就要以大写字母开头；引用函数的列表的命名不受此限制。
+
+    ```vim
+    "let myFunc = function("len")
+    let MyFunc = function("len")
+    ```
+
+    如果像注释掉的那行那么写会报错
+
+    ```
+    E704: Funcref variable name must start with a capital: myFunc
+    ```
