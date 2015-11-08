@@ -34,3 +34,52 @@ keywords: Android, Android Studio
     1. 打开 SDK Manager，然后安装 Extras 下的 Android Support Repository：
         ![](/images/posts/android/android-support-repository.png)
     2. Rebuild 工程。
+
+3. aidl 文件的放置
+
+    按以前 Eclipse 的方式，将 aidl 及其包目录层级放置在与自己的顶级包同级的目录下，即如下的 android/content/pm：
+
+    ```
+    app/src/main
+    ├─assets
+    ├─java
+    │  ├─android
+    │  │  └─content
+    │  │      └─pm
+    │  └─org
+    │      └─mazhuang
+    │          └─easycleaner
+    └─res
+        ├─drawable
+        ├─layout
+        ├─menu
+        ...
+    ```
+
+    然而这样在调用处一直报错：
+
+    ```
+    Cannot resolve symbol 'IPackageStatsObserver'
+    ```
+
+    解决方案：
+
+    将 aidl 文件放置在与 app/src/main/java 目录同级的 app/src/main/aidl 文件夹下。
+
+    ```
+    app/src/main
+    ├─aidl
+    │  └─android
+    │      └─content
+    │          └─pm
+    ├─assets
+    ├─java
+    │  └─org
+    │      └─mazhuang
+    │          └─easycleaner
+    └─res
+        ├─drawable
+        ├─layout
+        ├─menu
+        ...
+    ```
