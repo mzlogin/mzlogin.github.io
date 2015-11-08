@@ -23,7 +23,7 @@ Cmd --> Command
 | 格式化代码              | C-M-l          | Cmd-M-l             |
 | Outline                 | C-F12          | Cmd-F12             |
 | 快速打开文件            | C-S-n          | Cmd-S-o             |
-| 快速打开类所在文件      | C-n            |                     |
+| 快速打开类定义文件      | C-n            | Cmd-S-b             |
 | 搜索 Everywhere         | 双击 S         | 双击 S              |
 | 搜索文本                | C-S-f          | Cmd-S-f             |
 | 最近使用的文件          | C-e            | Cmd-e               |
@@ -33,8 +33,8 @@ Cmd --> Command
 | Redo                    | C-S-z          | Cmd-S-z             |
 | 删除行                  | C-y            | Cmd-x               |
 | 复制行                  | C-c            | Cmd-d               |
-| 在下面另起一行          | S-Enter        |                     |
-| 在上面另起一行          | C-M-Enter      |                     |
+| 在下面另起一行          | S-Enter        | S-Enter             |
+| 在上面另起一行          | C-M-Enter      | Cmd-M-Enter         |
 | 上/下移动代码行         | M-S-Up/Down    | M-S-Up/Down         |
 | 查找引用                | M-F7           | M-F7                |
 | 上/下一处引用           | C-M-Up/Down    | Cmd-M-Up/Down       |
