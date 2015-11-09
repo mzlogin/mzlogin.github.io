@@ -23,7 +23,8 @@ Cmd --> Command
 | 格式化代码              | C-M-l          | Cmd-M-l             |
 | Outline                 | C-F12          | Cmd-F12             |
 | 快速打开文件            | C-S-n          | Cmd-S-o             |
-| 快速打开类定义文件      | C-n            | Cmd-S-b             |
+| 快速打开类定义          | C-n            | Cmd-n               |
+| 打开光标所在变量类定义  | C-S-b          | Cmd-S-b             |
 | 搜索 Everywhere         | 双击 S         | 双击 S              |
 | 搜索文本                | C-S-f          | Cmd-S-f             |
 | 最近使用的文件          | C-e            | Cmd-e               |
@@ -46,6 +47,8 @@ Cmd --> Command
 | 继续执行                | F9             | Cmd-M-r             |
 | 执行直到返回            | S-F8           | S-F8                |
 | 执行到光标处            | M-F9           | M-F9                |
+| 运行当前应用            | S-F10          |                     |
+| 调试当前应用            | S-F9           |                     |
 | 开/关断点               | C-F8/鼠标左键  | Cmd-F8              |
 | 打开文件所在目录        | M-F1 8         | M-F1 8              |
 | 打开 Project 视图       | M-1            | Cmd-1               |
