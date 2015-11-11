@@ -30,7 +30,7 @@ keywords: EXE, Windows
 
 ### 问题分析
 
-Windows 会自动进行启发式的安装包嗅探，估计其中的一条规则就是如果软件名中含有 install、update 或 setup 就会认为运行的软件是一个安装包。
+Windows 会自动进行启发式的安装包嗅探，估计其中的一条规则就是如果软件名中含有 install、update 或 setup 就会认为运行的软件是一个安装包，而这个它认为的「安装包」的 Manifest 文件里并没有指定能兼容当前系统。
 
 参考：
 
@@ -45,7 +45,7 @@ Windows 会自动进行启发式的安装包嗅探，估计其中的一条规则
 
 一、在注册表项 HKEY_CURRENT_USER\Software\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Compatibility Assistant\Persisted 下有以可执行文件全路径为名，值为 REG_DWORD 类型的 1 的项。
 
-二、为可执行文件添加类似如下的 Manifest 文件，指定程序支持 Win7 与 Vista。
+二、为可执行文件添加类似如下的 Manifest 文件，指定程序兼容 Win7 与 Vista。
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -65,6 +65,6 @@ Windows 会自动进行启发式的安装包嗅探，估计其中的一条规则
 
 目前没有找到什么好方法，靠谱的就是将程序改名吧！去掉 install，去掉 update，去掉 setup，世界从此清净了。
 
-**结论：**
+### 结论
 
 将程序改名吧！如果你也同意将精力放在纠结上面这些事情还不如去干点更有用的事件的观点的话。
