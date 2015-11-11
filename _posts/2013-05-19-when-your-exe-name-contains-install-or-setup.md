@@ -61,14 +61,14 @@ keywords: EXE, Windows
 * [Application Manifest](https://msdn.microsoft.com/en-us/library/windows/desktop/dd371711(v=vs.85).aspx)
 * [Application Compatibility: UAC: Standard User Changes](https://msdn.microsoft.com/zh-cn/enus/library/bb963893.aspx)
 
-微软的一个 PPT 讲了「安装包检测」和它可能误判以及解决的办法，给出的方案是内嵌或者外置一个名为「你的程序.exe.manifest」的 Manifest 文件：
+微软的一个 PPT 讲了「安装包检测」和它可能产生的误判以及解决的办法，给出的方案是内嵌 Manifest 或者外置一个名为「你的程序.exe.manifest」的文件：
 
 * [Installer Detection - Microsoft](https://www.google.com.hk/url?sa=t&rct=j&q=&esrc=s&source=web&cd=2&ved=0CCUQFjABahUKEwiPmdW8rYjJAhVHG5QKHQwjBzY&url=%68%74%74%70%3a%2f%2f%64%6f%77%6e%6c%6f%61%64%2e%6d%69%63%72%6f%73%6f%66%74%2e%63%6f%6d%2f%64%6f%77%6e%6c%6f%61%64%2f%38%2f%43%2f%44%2f%38%43%44%30%31%35%42%42%2d%30%38%31%42%2d%34%39%43%35%2d%41%35%30%36%2d%39%43%39%42%35%37%30%42%38%44%44%32%2f%49%6e%73%74%61%6c%6c%65%72%44%65%74%65%63%74%69%6f%6e%2e%70%70%74%78&usg=AFQjCNHXcaCOv_FFndx0mxn7eovywzKQMg)
 
 虽然 Windows 代替这个它认为的「安装包」做决定弹出了 UAC 提权申请，但是可能因为如下原因，它还是弹出了「程序兼容性助手」询问用户该程序是否「安装」成功：
 
-* Windows Vista+ 程序认为没有 Manifest 文件的 32 位程序是「古老」的。
 * 该程序被认为是安装包，但是并没有主动要求管理员权限，它的有些操作可能会因为权限不够而失败。
+* Windows Vista+ 程序认为没有 Manifest 文件的 32 位程序是「古老」的。
 
 ### 解决方案
 
