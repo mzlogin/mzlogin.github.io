@@ -65,3 +65,7 @@ keywords: Git, 版本控制
     * 在产生 conflict 的目录运行 `git mergetool`，TortoiseMerge.exe 会跳出来供你 resolve conflict。
 
         > 也可以运行 `git mergetool -t vimdiff` 使用 `-t` 参数临时指定一个想要使用的 merge tool。
+
+5. 不想跟踪的文件已经被提交了，如何不再跟踪而保留本地文件？
+
+    `git rm --cached /path/to/file`，然后正常 add 和 commit 即可。
