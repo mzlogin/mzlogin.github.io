@@ -43,8 +43,8 @@ Smali 相当于 Dalvik 虚拟机的汇编语言，语法可以参考 [Dalvik opc
 ```
 --langdef=smali
 --langmap=smali:.smali
---regex-smali=/^\.field (public )?(private )?(protected )?(static )?(final )?(synthetic )?([^:]*):.*/\7/f,field/
---regex-smali=/^\.method (public )?(private )?(protected )?(static )?(final )?(varargs )?(bridge )?(synthetic )?(.*)\(.*/\9/m,method/
+--regex-smali=/^\.field (public |private |protected )?(static )?(final )?(synthetic )?([^:]*):.*/\5/f,field/
+--regex-smali=/^\.method (public |private |protected )?(static )?(final )?(varargs )?(bridge )?(synthetic )?(declared-synchronized )?(.*)\(.*/\8/m,method/
 ```
 
 打开 Smali 文件后使用 `:!ctags -R .` 生成 tags 文件，对解析到的变量和方法等就可以 `Ctrl-]` 跳转到定义了。
