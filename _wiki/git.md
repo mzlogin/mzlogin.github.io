@@ -69,3 +69,19 @@ keywords: Git, 版本控制
 5. 不想跟踪的文件已经被提交了，如何不再跟踪而保留本地文件？
 
     `git rm --cached /path/to/file`，然后正常 add 和 commit 即可。
+
+6. 如何不建立一个没有 parent 的 branch？
+
+    ```
+    git checkout --orphan newbranch
+    ```
+    
+    此时 `git branch` 是不会显示该 branch 的，直到你做完更改首次 commit。比如你可能会想建立一个空的 gh-pages branch，那么：
+
+    ```
+    git checkout --orphan gh-pages
+    git rm -rf .
+    // add your gh-pages branch files
+    git add .
+    git commit -m "init commit"
+    ```
