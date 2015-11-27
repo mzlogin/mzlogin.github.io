@@ -1,7 +1,7 @@
 码志
 =================
 
-我的个人博客：<http://mazhuang.org>，外观根据 [读立写生](http://cnfeat.com) 修改，感谢！
+我的个人博客：<http://mzlog.com>，外观基于 [读立写生](http://cnfeat.com) 修改，感谢！
 
 欢迎 Star 和 Fork。
 
@@ -27,7 +27,7 @@
 
 1. 中文与英文
 
-    中英文之间要加空格，更多中文文案排版规范可以参考 [mzlogin/chinese-copywriting-guidelines](https://github.com/mzlogin/chinese-copywriting-guidelines)。
+    中英文之间要加空格，更多中文文案排版规范可以参考 [中文文案排版指北（简体中文版）][1]。
 
 1. 列表项下嵌套内容
     * 如果嵌套非列表，需要缩进并且加空行。
@@ -36,3 +36,5 @@
 ### 书写思考
 
 * 那些高质量的博主，他们的行文，内容组织方式，有什么值得学习借鉴的地方？
+
+[1]: https://github.com/mzlogin/chinese-copywriting-guidelines
