@@ -4,9 +4,12 @@
 baseurl: 
 url: http://www.mazhuang.org
 date_format: "ordinal"
-title: 靠谱-ing
+title: 码志
+description: "码志|码而立·码而生"
 author: Zhuang Ma 
-paginate: 9
+gavatar: /favicon.ico
+favicon: /favicon.ico
+timezone: Asia/Shanghai
 
 # ---------------- #
 #   RSS / Email    #
@@ -21,7 +24,8 @@ markdown: redcarpet
 redcarpet: 
     extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data", "strikethrough"]
 pygments: true
-permalink: /:year/:month/:day/:title
+paginate: 8
+permalink: /:year/:month/:day/:title/
 gems:
     - jekyll-sitemap
 collections:
@@ -30,7 +34,26 @@ collections:
         permalink: /wiki/:path/
 
 # ---------------- #
-#      Comments    #
+#      Socials     #
 # ---------------- #
-duoshuo_short_name: mazhuang
+duoshuo_username: mazhuang
+github_username: mzlogin
+douban_username: freedim
+facebook_username: mzlogin
+weibo_username: mzlogin
+zhihu_username: mzlogin
+twitter_username: mzlogin
 changyan: false
+
+# ---------------- #
+#  Posts default   #
+# ---------------- #
+defaults:
+    -
+        scope:
+            path: ""
+            type: "posts"
+        values:
+            layout: "post"
+            author: "Zhuang Ma"
+            header-img: "facebook.jpg"

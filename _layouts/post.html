@@ -1,33 +1,60 @@
-{% include header.html %}
+---
+layout: default
+---
+
+<!-- Post Header -->
+<style type="text/css">
+  header.intro-header{
+    background-image: url('{{ site.baseurl }}/images/theme/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}')
+  }
+</style>
+<header class="intro-header" >
 <div class="container">
-    {% include navigation.html %}
-    <div class="main">
-        <h2> {{ page.title }} </h2>
-        {{ content }}
-        {% if page.categories %}
-        <div class="post_footer">
-          <p>Published on {{ page.date | date: "%b %d, %Y" }} in categories 
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <div class="post-heading">
+        <div class="Tags">
           {% for cat in page.categories %}
-          <a href="/categories/#{{ cat }}" title="{{ cat }}">{{ cat }}</a>&nbsp;
+          <a class="tag" href="/categories/#{{ cat }}" title="{{ cat }}">{{ cat }}</a>&nbsp;
           {% endfor %}
-          <p>
         </div>
+        <h1>{{ page.title }}</h1>
+        {% if page.subtitle %}
+        <h2 class="subheading">{{ page.subtitle }}</h2>
         {% endif %}
-        <ul class="prev_next">
-            {% if page.previous.url %}
-            <li>
-                <span>上一篇</span>
-                <a href="{{page.previous.url}}">{{page.previous.title}}</a>
-            </li>
-            {% endif %}
-            {% if page.next.url %}
-            <li>
-                <span>下一篇</span>
-                <a href="{{page.next.url}}">{{page.next.title}}</a>
-            </li>
-            {% endif %}
-        </ul>
-        {% include duoshuo.html %}
+        <span class="meta">Posted by {% if page.author %}{{ page.author }}{% else %}{{ site.title }}{% endif %} on {{ page.date | date: "%B %-d, %Y" }}</span>
+      </div>
     </div>
+  </div>
 </div>
-{% include footer.html %}
+</header>
+
+<!-- Post Content -->
+<article>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 post-container">
+
+      {{ content }}
+
+      <hr>
+
+      <ul class="pager">
+        {% if page.previous.url %}
+        <li class="previous">
+        <a href="{{ page.previous.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.previous.title}}">&larr; Previous Post</a>
+        </li>
+        {% endif %}
+        {% if page.next.url %}
+        <li class="next">
+        <a href="{{ page.next.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.next.title}}">Next Post &rarr;</a>
+        </li>
+        {% endif %}
+      </ul>
+
+      {% include duoshuo.html %}
+
+    </div>
+  </div>
+</div>
+</article>

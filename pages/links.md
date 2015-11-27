@@ -1,11 +1,12 @@
 ---
 layout: page
 title: 友情链接
-description: 朋友们的博客和主页
+description: 有朋自远方来，不亦乐乎？
 keywords: 友情链接
+header-img: orange.jpg
 permalink: /links/
 ---
 
-<ul>
-<li><a href="http://zxning.github.io/">只宁静不致远</a></li>
+<ul class="listing">
+<li class="listing-item"><a href="http://zxning.github.io/">只宁静不致远</a></li>
 </ul>

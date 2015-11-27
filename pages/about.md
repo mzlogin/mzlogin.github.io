@@ -1,28 +1,42 @@
 ---
 layout: page
-title: Zhuang Ma
-description: Zhuang Ma的个人简介。
+title: About
+description: 码无止境
 keywords: Zhuang Ma, 马壮
-permalink: /about.html
+header-img: green.jpg
+permalink: /about/
 ---
 
-**Software Engineer at [Sogou, Inc.](http://www.sogou.com)**
+<center>
+    <p><img src="/favicon.ico" align="center"></p>
+</center>
 
-Beijing City, China | Computer Software
-  
-*Education:* Wuhan Institute of Technology
+我是马壮，生命不息，编码不止。
 
-scholar, CS/IT
+现在研习 **优雅编码的艺术** 。
 
-*Contact:* `print '%s@%s' % ('ChumpMa', 'gmail.com')  #via Python`
+###坚信
 
-*Social:*  [github](http://github.com/mzlogin) | [linkedin](http://www.linkedin.com/in/mazhuang) | [weibo](http://weibo.com/mzlogin) | [douban](http://www.douban.com/people/freedim/) | [csdn](http://blog.csdn.net/mzlogin)
-    
-```c++
-#include <iostream>
-int main()
-{
-	std::cout << "Hello, friends!" << std::endl;
-	return 0;
-}
-```
+- 熟能生巧
+- 努力改变人生
+
+###关注：
+
+- Android
+- C++
+- Python
+
+###代表作：
+
+还在码。
+
+###联系
+
+- 博客：[mzlog.com](http://mzlog.com)
+- 微博: [@mzlogin](http://weibo.com/mzlogin)
+- 知乎: [@mzlogin](http://www.zhihu.com/people/mzlogin)
+- 公众号：isprogrammer
+
+<center>
+    <p><img src="/images/theme/isprogrammer.jpg" align="center"></p>
+</center>
