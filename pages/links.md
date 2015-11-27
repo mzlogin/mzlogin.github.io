@@ -1,6 +1,6 @@
 ---
 layout: page
-title: 友情链接
+title: Links
 description: 有朋自远方来，不亦乐乎？
 keywords: 友情链接
 header-img: orange.jpg
