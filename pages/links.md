@@ -8,7 +8,7 @@ comments: true
 permalink: /links/
 ---
 
-## 朋友们的博客
+> God made relatives. Thank God we can choose our friends.
 
 <ul class="listing">
   <li class="listing-item"><a href="http://zxning.github.io/">只宁静不致远</a></li>
