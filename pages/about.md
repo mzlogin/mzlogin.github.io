@@ -1,9 +1,10 @@
 ---
 layout: page
 title: About
-description: 码无止境
+description: 打码改变世界
 keywords: Zhuang Ma, 马壮
 header-img: green.jpg
+comments: true
 permalink: /about/
 ---
 
@@ -11,26 +12,26 @@ permalink: /about/
     <p><img src="/favicon.ico" align="center"></p>
 </center>
 
-我是马壮，生命不息，编码不止。
+我是马壮，码而生，码而立。
 
-现在研习 **优雅编码的艺术** 。
+仰慕「优雅编码的艺术」。
 
-###坚信
+### 坚信
 
 - 熟能生巧
 - 努力改变人生
 
-###关注：
+### 关注
 
 - Android
 - C++
 - Python
 
-###代表作：
+### 代表作
 
 还在码。
 
-###联系
+### 联系
 
 - 博客：[mzlog.com](http://mzlog.com)
 - 微博: [@mzlogin](http://weibo.com/mzlogin)

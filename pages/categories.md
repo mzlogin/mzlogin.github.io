@@ -4,6 +4,7 @@ title: Categories
 description: 哈哈，你找到了我的文章基因库
 keywords: 分类
 header-img: semantic.jpg
+comments: false
 permalink: /categories/
 ---
 
