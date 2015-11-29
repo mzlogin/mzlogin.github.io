@@ -14,7 +14,7 @@ keywords: 游泳, 蛙泳
 
 * [蛙泳教学完整版](http://v.youku.com/v_show/id_XMjgwOTA4OTI0.html?from=s1.8-1-1.2)
 
-<iframe height=498 width=510 src="http://player.youku.com/embed/XMjgwOTA4OTI0" frameborder=0 allowfullscreen></iframe>
+<iframe style="max-width:100%" height=498 width=510 src="http://player.youku.com/embed/XMjgwOTA4OTI0" frameborder=0 allowfullscreen></iframe>
 
 ### 动作时序图
 
