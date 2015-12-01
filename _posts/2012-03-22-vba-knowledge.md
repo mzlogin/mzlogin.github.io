@@ -6,16 +6,16 @@ description: 使用 VBA 操作 Excel 表格的一些常用用法的笔记。
 keywords: VBA, Excel
 ---
 
-#### 创建一个 EXCEL 工作簿对象：
+### 创建一个 EXCEL 工作簿对象
 
 ```vbnet
 Set wd = CreateObject("excel.application")
 Set MyWorkBook = wd.Workbooks.Open(".XXXX.xls")
 ```
 
-用完后 wd.Quit
+用完后 `wd.Quit`
 
-#### 设置边框与自动筛选：
+### 设置边框与自动筛选
 
 ```vbnet
 Set Rng = MyWorkSheet.UsedRange
@@ -26,20 +26,20 @@ With Rng
 End With
 ```
 
-#### 获取或者设置单元格背景色：
+### 获取或者设置单元格背景色
 
 ```vbnet
 MyWorkSheet.Cells(i, j).Interior.ColorIndex
 ```
 
-#### 保存 / 关闭工作簿：
+### 保存 / 关闭工作簿
 
 ```vbnet
 MyWorkBook.Save
 MyWorkBook.Close
 ```
 
-#### 让某表格选中的单元格变成指定颜色：
+### 让某表格选中的单元格变成指定颜色
 
 在 thisworkbook 中添加如下代码段：
 
@@ -52,7 +52,7 @@ Private Sub Workbook_SheetSelectionChange(ByVal Sh As Object, ByVal Target As Ra
 End Sub
 ```
 
-#### 引用单元格 / 区域
+### 引用单元格 / 区域
 
 ```vbnet
 Range("A1") '表示 A1 单元格
@@ -71,13 +71,13 @@ Range(Clee1, Cell2) '左上与右下
 Range(Range1, Range2) '取最大范围
 ```
 
-#### 选中单元格 / 区域
+### 选中单元格 / 区域
 
 ```vbnet
 Range("1:1").Select '选中第一行
 ```
 
-#### 获取当前选中区域
+### 获取当前选中区域
 
 ```vbnet
 MyWorkSheet.Application.Selection
