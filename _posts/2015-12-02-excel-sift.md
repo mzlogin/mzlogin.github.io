@@ -3,10 +3,10 @@ layout: post
 title: Excel 保留行号的去重
 categories: Excel
 description: 使用简单的公式对 Excel 里的排序数据进行保留行号的去重。
-keywords: Excel
+keywords: Excel, Numbers
 ---
 
-**注：本文方法同时适用于 Excel 和 numbers。**
+*注：本文方法同时适用于 Excel 和 Numbers。*
 
 ### 问题
 
