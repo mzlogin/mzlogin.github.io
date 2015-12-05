@@ -5,6 +5,9 @@ body {
   color: #404040;
   overflow-x: hidden;
 }
+.post-container ul,
+.post-container ol,
+div.highlight,
 p {
   margin: 30px 0;
 }
@@ -18,6 +21,7 @@ h6 {
 
   line-height: 1.1;
   font-weight: 800;
+  margin: 30px 0;
 }
 h1 {
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -68,9 +72,6 @@ hr.small {
   border-width: 4px;
   border-color: white;
 }
-div.highlight {
-  margin: 30px 0;
-}
 @media screen and (max-width: 500px) {
   pre code {
     display: block;
@@ -84,15 +85,11 @@ div.highlight {
 .post-container a:focus {
   color: #6bb4bf;
 }
-.post-container ul,
-.post-container ol {
-  margin-bottom: 40px;
-}
 .post-container ol ol,
 .post-container ol ul,
 .post-container ul ol,
 .post-container ul ul {
-  margin-bottom: 5px;
+  margin: 0;
 }
 .post-container li p {
   margin: 0;
