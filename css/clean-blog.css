@@ -68,6 +68,9 @@ hr.small {
   border-width: 4px;
   border-color: white;
 }
+div.highlight {
+  margin: 30px 0;
+}
 @media screen and (max-width: 500px) {
   pre code {
     display: block;
