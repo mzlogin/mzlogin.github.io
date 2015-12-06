@@ -54,6 +54,12 @@ blockquote {
 blockquote p {
   margin: 0;
 }
+.post-heading a.tag {
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 999em;
+  padding: 0 0.5em;
+}
 @media screen and (max-width: 768px) {
   select {
     -webkit-appearance: none;
