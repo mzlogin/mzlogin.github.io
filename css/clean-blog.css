@@ -58,7 +58,7 @@ blockquote p {
 .post-heading a.tag:active {
   color: #fff;
   border-color: #fff;
-  background-color: rgba(255, 255, 255, .4);
+  background-color: rgba(255, 255, 255, 0.4);
   text-decoration: none;
 }
 .post-heading a.tag {
@@ -68,12 +68,14 @@ blockquote p {
   padding: 0 0.5em;
 }
 #tag_cloud a {
-  font-size: 14px;
-  border: none;
-  line-height: 28px;
-  margin: 0 2px;
-  margin-bottom: 8px;
+  margin-bottom: 0.5em;
   background: #D6D6D6;
+  display: inline-block;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 999em;
+  padding: 0 0.5em;
+  color: #fff;
+  text-decoration: none;
 }
 #tag_cloud a:hover,
 #tag_cloud a:active {
