@@ -29,6 +29,9 @@ paginate: 8
 permalink: /:year/:month/:day/:title/
 gems:
     - jekyll-sitemap
+    - jekyll-feed
+    - jekyll-mentions
+    - jemoji
 collections:
     wiki:
         output: true

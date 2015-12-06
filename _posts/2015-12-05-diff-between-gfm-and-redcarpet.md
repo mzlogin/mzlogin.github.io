@@ -108,6 +108,8 @@ GFM 自己添加的一些特性我甚是喜欢，可惜在 GitHub Pages 里使�
 
 #### 自动生成引用链接
 
+> Update 2015-12-06 参见 [@Mentions on GitHub Pages][7]，GitHub Pages 现在也支持使用 `@username` at 一个 GitHub 用户了，只是用户不会收到通知。@mzlogin
+
 对于如下格式的文本，GFM 会自动创建到对应用户对应仓库的对应链接。
 
 ```
@@ -122,6 +124,8 @@ GFM 自己添加的一些特性我甚是喜欢，可惜在 GitHub Pages 里使�
 
 #### Emoji
 
+> Update 2015-12-06 参见 [Emoji on GitHub Pages][8], GitHub Pages 现在也支持使用 Emoji 表情啦！:+1:
+
 GitHub Pages 如果能使用这个，文章一定生动不少。
 
 ### 参考链接
@@ -135,3 +139,4 @@ GitHub Pages 如果能使用这个，文章一定生动不少。
 [4]: https://github.com/vmg/redcarpet/issues/379
 [5]: https://github.com/blog/1375%0A-task-lists-in-gfm-issues-pulls-comments
 [6]: https://help.github.com/articles/writing-on-github/
+[7]: https://help.github.com/articles/mentions-on-github-pages
