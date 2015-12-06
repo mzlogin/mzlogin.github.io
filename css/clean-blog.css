@@ -11,6 +11,11 @@ div.highlight,
 p {
   margin: 30px 0;
 }
+.post-container blockquote ul,
+.post-container blockquote ol {
+  margin-top: 0;
+  margin-bottom: 0;
+}
 h2,
 h3,
 h4,
