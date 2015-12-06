@@ -54,11 +54,30 @@ blockquote {
 blockquote p {
   margin: 0;
 }
+.post-heading a.tag:hover,
+.post-heading a.tag:active {
+  color: #fff;
+  border-color: #fff;
+  background-color: rgba(255, 255, 255, .4);
+  text-decoration: none;
+}
 .post-heading a.tag {
   color: #fff;
   border: 1px solid rgba(255, 255, 255, 0.8);
   border-radius: 999em;
   padding: 0 0.5em;
+}
+#tag_cloud a {
+  font-size: 14px;
+  border: none;
+  line-height: 28px;
+  margin: 0 2px;
+  margin-bottom: 8px;
+  background: #D6D6D6;
+}
+#tag_cloud a:hover,
+#tag_cloud a:active {
+  background-color: #0085a1 !important;
 }
 @media screen and (max-width: 768px) {
   select {
