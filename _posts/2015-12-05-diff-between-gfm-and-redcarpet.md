@@ -140,3 +140,4 @@ GitHub Pages 如果能使用这个，文章一定生动不少。
 [5]: https://github.com/blog/1375%0A-task-lists-in-gfm-issues-pulls-comments
 [6]: https://help.github.com/articles/writing-on-github/
 [7]: https://help.github.com/articles/mentions-on-github-pages
+[8]: https://help.github.com/articles/emoji-on-github-pages
