@@ -86,6 +86,9 @@ blockquote p {
 #tag_cloud a:active {
   background-color: #0085a1 !important;
 }
+img.emoji.img-responsive {
+  display: inline;
+}
 @media screen and (max-width: 768px) {
   select {
     -webkit-appearance: none;
