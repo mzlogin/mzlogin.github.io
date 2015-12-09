@@ -2,7 +2,7 @@
 #   Main Configs   #
 # ---------------- #
 baseurl: 
-url: http://mzlog.com
+url: http://mazhuang.org
 date_format: "ordinal"
 title: 码志
 description: "码志|码而立·码而生"

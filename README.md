@@ -1,7 +1,7 @@
 码志
 =================
 
-我的个人博客：<http://mzlog.com>，外观基于 [读立写生](http://cnfeat.com) 修改，部分改动参考 [Hux Blog](http://huangxuan.me)，感谢！
+我的个人博客：<http://mazhuang.org>，外观基于 [读立写生](http://cnfeat.com) 修改，部分改动参考 [Hux Blog](http://huangxuan.me)，感谢！
 
 欢迎 Star 和 Fork。
 
@@ -24,4 +24,4 @@
 * 那些高质量的博主，他们的行文，内容组织方式，有什么值得学习借鉴的地方？
 
 [1]: https://github.com/mzlogin/chinese-copywriting-guidelines
-[2]: http://mzlog.com/2015/12/05/diff-between-gfm-and-redcarpet/
+[2]: http://mazhuang.org/2015/12/05/diff-between-gfm-and-redcarpet/
