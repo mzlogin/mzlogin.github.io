@@ -32,7 +32,7 @@ Other languages: [繁體中文](http://sparanoid.com/note/chinese-copywriting-gu
   - [专有名词使用正确的大小写](#专有名词使用正确的大小写)
   - [不要使用不地道的缩写](#不要使用不地道的缩写)
 - [争议](#争议)
-  - [中文链接之间增加空格](#中文链接之间增加空格)
+  - [链接之间增加空格](#链接之间增加空格)
   - [简体中文使用直角引号](#简体中文使用直角引号)
 - [工具](#工具)
 - [谁在这样做？](#谁在这样做？)
@@ -170,13 +170,13 @@ Microsoft 有个 [`-ms-text-autospace`](http://msdn.microsoft.com/en-us/library/
 
 正确：
 
-> 乔帮主那句话是怎么说的？「Stay hungry, stay foolish.」。
+> 乔布斯那句话是怎么说的？「Stay hungry, stay foolish.」。
 
 > 推荐你阅读『Hackers & Painters: Big Ideas from the Computer Age』，非常的有趣。
 
 错误：
 
-> 乔帮主那句话是怎么说的？「Stay hungry，stay foolish。」。
+> 乔布斯那句话是怎么说的？「Stay hungry，stay foolish。」。
 
 > 推荐你阅读『Hackers＆Painters：Big Ideas from the Computer Age』，非常的有趣。
 
@@ -230,7 +230,7 @@ Microsoft 有个 [`-ms-text-autospace`](http://msdn.microsoft.com/en-us/library/
 
 以下用法略带有个人色彩，既：无论是否遵循下述规则，从语法的角度来讲都是**正确**的。
 
-### 中文链接之间增加空格
+### 链接之间增加空格
 
 用法：
 
@@ -256,15 +256,16 @@ Microsoft 有个 [`-ms-text-autospace`](http://msdn.microsoft.com/en-us/library/
 
 ## 工具
 
-| 仓库                                                                            | 语言            |
-|---------------------------------------------------------------------------------|-----------------|
-| [vinta/paranoid-auto-spacing](https://github.com/vinta/paranoid-auto-spacing)   | JavaScript      |
-| [huei90/pangu.node](https://github.com/huei90/pangu.node)                       | Node.js         |
-| [huacnlee/auto-correct](https://github.com/huacnlee/auto-correct)               | Ruby            |
-| [sparanoid/space-lover](https://github.com/sparanoid/space-lover)               | PHP (WordPress) |
-| [nauxliu/auto-correct](https://github.com/NauxLiu/auto-correct)                 | PHP             |
-| [hotoo/pangu.vim](https://github.com/hotoo/pangu.vim)                           | Vim             |
-| [sparanoid/grunt-auto-spacing](https://github.com/sparanoid/grunt-auto-spacing) | Node.js (Grunt) |
+| 仓库                                                                                                                            | 语言            |
+|---------------------------------------------------------------------------------------------------------------------------------|-----------------|
+| [vinta/paranoid-auto-spacing](https://github.com/vinta/paranoid-auto-spacing)                                                   | JavaScript      |
+| [huei90/pangu.node](https://github.com/huei90/pangu.node)                                                                       | Node.js         |
+| [huacnlee/auto-correct](https://github.com/huacnlee/auto-correct)                                                               | Ruby            |
+| [sparanoid/space-lover](https://github.com/sparanoid/space-lover)                                                               | PHP (WordPress) |
+| [nauxliu/auto-correct](https://github.com/NauxLiu/auto-correct)                                                                 | PHP             |
+| [hotoo/pangu.vim](https://github.com/hotoo/pangu.vim)                                                                           | Vim             |
+| [sparanoid/grunt-auto-spacing](https://github.com/sparanoid/grunt-auto-spacing)                                                 | Node.js (Grunt) |
+| [hjiang/scripts/add-space-between-latin-and-cjk](https://github.com/hjiang/scripts/blob/master/add-space-between-latin-and-cjk) | Python          |
 
 ## 谁在这样做？
 
@@ -278,7 +279,7 @@ Microsoft 有个 [`-ms-text-autospace`](http://msdn.microsoft.com/en-us/library/
 | [Microsoft 台湾](http://www.microsoft.com/zh-tw/) | Yes  | N/A          |
 | [LeanCloud](http://leancloud.cn/)                 | Yes  | N/A          |
 | [知乎](http://www.zhihu.com/)                     | Yes  | 部分用户达成 |
-| [V2EX](http://www.v2ex.com/)                      | Yes  | 标题达成     |
+| [V2EX](http://www.v2ex.com/)                      | Yes  | Yes          |
 | [SegmentFault](http://segmentfault.com/)          | Yes  | 部分用户达成 |
 | [Apple4us](http://apple4us.com/)                  | Yes  | N/A          |
 | [豌豆荚](http://www.wandoujia.com/)               | Yes  | N/A          |
