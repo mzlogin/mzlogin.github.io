@@ -109,8 +109,15 @@
   <!-- Custom Theme JavaScript -->
   <script src="{{ "/js/clean-blog.min.js " | prepend: site.baseurl }}"></script>
 
+  {% if page.type == 'post' or page.type == 'wiki' %}
   <!-- Auto Generate Toc -->
   <script src="{{ "/js/jquery.toc.js " | prepend: site.baseurl }}"></script>
+  <script type="text/javascript">
+    $(document).ready(function(){ 
+      $('.toc-content').toc();
+    });
+  </script>
+  {% endif %}
 
   <!-- async load function -->
   <script>
