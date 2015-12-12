@@ -23,7 +23,14 @@ email:
 # ---------------- #
 markdown: redcarpet
 redcarpet: 
-    extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data", "strikethrough"]
+    extensions: 
+        - no_intra_emphasis
+        - fenced_code_blocks
+        - autolink
+        - tables
+        - with_toc_data
+        - strikethrough
+
 pygments: true
 paginate: 8
 permalink: /:year/:month/:day/:title/
@@ -61,3 +68,10 @@ defaults:
             layout: "post"
             author: "Zhuang Ma"
             header-img: "facebook.jpg"
+            autotoc: true
+    -
+        scope:
+            path: ""
+            type: "wiki"
+        values:
+            autotoc: true

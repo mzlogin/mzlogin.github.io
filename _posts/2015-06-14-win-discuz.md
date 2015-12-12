@@ -4,6 +4,7 @@ title: Win7 下部署 Discuz!
 categories: PHP
 description: 在 Win7 下部署 Discuz! 的详细步骤。
 keywords: PHP, Discuz
+autotoc: false
 ---
 
 需要在开发机上部署 Discuz!，结果在根据官方文档 [Discuz! X 系统部署](http://faq.comsenz.com/library/system/env/env_windows.htm) 操作时遇到了一些坑，有些是因为使用的组件版本不一样，有些是官方文档有谬误，所以在此将自己从零开始到部署成功的步骤记录下来，供备忘和参考。

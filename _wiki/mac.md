@@ -6,15 +6,6 @@ description: 使用 Mac OS X 的一些快捷键和遇到的问题。
 keywords: Mac
 ---
 
-### Index
-* [窗口](#窗口)
-* [程序](#程序)
-* [搜索](#搜索)
-* [复制文件路径](#复制文件路径)
-* [Safari](#safari)
-* [Terminal](#terminal)
-* [WireShark](#WireShark)
-
 快捷键约定：
 
 C --> Ctrl

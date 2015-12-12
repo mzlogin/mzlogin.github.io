@@ -4,6 +4,7 @@ title: 为 Vim 添加 Smali 语法高亮和 Taglist 支持
 categories: Vim
 description: 想使用 Vim 更加舒服地阅读 Smali 源码，那就为它添加上语法高亮，定义跳转和 Taglist 或 Tagbar 支持。
 keywords: Vim, Smali, Taglist, Ctags, Tagbar
+autotoc: false
 ---
 
 Smali 相当于 Dalvik 虚拟机的汇编语言，语法可以参考 [Dalvik opcodes](http://pallergabor.uw.hu/androidblog/dalvik_opcodes.html)。

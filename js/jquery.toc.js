@@ -94,7 +94,7 @@
     stack.push(0);
     var level = get_level(headers[0]),
       this_level,
-      html = "<strong class=\"toc-title\">" + settings.title + "</strong>\n";
+      html = "<p><strong class=\"toc-title\">" + settings.title + "</strong></p>\n";
       html += " <"+settings.listType+" class=\"toc\">";
     headers.on('click', function() {
       if (!settings.noBackToTopLinks) {
