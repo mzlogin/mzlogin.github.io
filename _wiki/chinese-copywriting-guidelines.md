@@ -11,7 +11,10 @@ GitHub repository: [mzlogin/chinese-copywriting-guidelines](https://github.com/m
 
 统一中文文案、排版的相关用法，降低团队成员之间的沟通成本，增强网站气质。
 
-Other languages: [繁體中文](http://sparanoid.com/note/chinese-copywriting-guidelines/)
+Other languages:
+
+[Chinese Traditional](http://sparanoid.com/note/chinese-copywriting-guidelines/)
+[English](https://github.com/mzlogin/chinese-copywriting-guidelines/blob/Simplified/README.en.md)
 
 -----
 
@@ -289,12 +292,12 @@ Microsoft 有个 [`-ms-text-autospace`](http://msdn.microsoft.com/en-us/library/
 
 ## 参考文献
 
-- [来自 About.com 的大小写用法（英文）](http://grammar.about.com/od/punctuationandmechanics/a/Guidelines-For-Using-Capital-Letters.htm)
-- [来自维基百科的关于大小写字符的相关条目（英文）](http://en.wikipedia.org/wiki/Letter_case)
-- [来自 Oxford Dictionaries 的标点相关用法（英文）](http://www.oxforddictionaries.com/us/words/punctuation)
-- [来自普渡大学的标点符号用法（英文）](https://owl.english.purdue.edu/owl/section/1/6/)
-- [来自 wikiHow 的英文标点符号用法 wiki（英文）](http://www.wikihow.com/Use-English-Punctuation-Correctly)
-- [格式－openSUSE](https://zh.opensuse.org/index.php?title=Help:%E6%A0%BC%E5%BC%8F)
+- [Guidelines for Using Capital Letters](http://grammar.about.com/od/punctuationandmechanics/a/Guidelines-For-Using-Capital-Letters.htm)
+- [Letter case - Wikipedia](http://en.wikipedia.org/wiki/Letter_case)
+- [Punctuation - Oxford Dictionaries](http://www.oxforddictionaries.com/us/words/punctuation)
+- [Punctuation - The Purdue OWL](https://owl.english.purdue.edu/owl/section/1/6/)
+- [How to Use English Punctuation Corrently - wikiHow](http://www.wikihow.com/Use-English-Punctuation-Correctly)
+- [格式 - openSUSE](https://zh.opensuse.org/index.php?title=Help:%E6%A0%BC%E5%BC%8F)
 - [全角和半角 - 维基百科](http://zh.wikipedia.org/wiki/%E5%85%A8%E5%BD%A2%E5%92%8C%E5%8D%8A%E5%BD%A2)
 - [引号 - 维基百科](http://zh.wikipedia.org/wiki/%E5%BC%95%E8%99%9F)
 - [疑问惊叹号 - 维基百科](http://zh.wikipedia.org/wiki/%E7%96%91%E5%95%8F%E9%A9%9A%E5%98%86%E8%99%9F)
