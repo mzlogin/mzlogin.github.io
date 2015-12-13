@@ -23,6 +23,8 @@ keywords: Git, 版本控制
 | 回滚                      | git reset --hard 提交SHA  |
 | 强制推送到远程仓库        | git push -f origin master |
 | 修改上次 commit           | git commit --amend        |
+| 推送 tags 到远程仓库      | git push --tags           |
+| 推送单个 tag 到远程仓库   | git push origin [tagname] |
 
 ### Q&A
 
