@@ -13,8 +13,8 @@ GitHub repository: [mzlogin/chinese-copywriting-guidelines](https://github.com/m
 
 Other languages:
 
-[Chinese Traditional](http://sparanoid.com/note/chinese-copywriting-guidelines/)
-[English](https://github.com/mzlogin/chinese-copywriting-guidelines/blob/Simplified/README.en.md)
+* [Chinese Traditional](http://sparanoid.com/note/chinese-copywriting-guidelines/)
+* [English](https://github.com/mzlogin/chinese-copywriting-guidelines/blob/Simplified/README.en.md)
 
 -----
 

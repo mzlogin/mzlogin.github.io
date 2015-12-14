@@ -8,6 +8,7 @@ body {
 .post-container ul,
 .post-container ol,
 div.highlight,
+table,
 p {
   margin: 30px 0;
 }
@@ -52,7 +53,6 @@ article {
 }
 blockquote {
   color: #808080;
-  font-style: italic;
   font-size: 0.95em;
   margin: 20px 0 20px;
 }
@@ -128,9 +128,10 @@ hr.small {
 .post-container ul ul {
   margin: 0;
 }
+.post-container li div.highlight,
+.post-container li blockquote,
 .post-container li p {
-  margin: 0;
-  margin-bottom: 5px;
+  margin: 0 0 5px 0;
 }
 .post-container li h1,
 .post-container li h2,
