@@ -112,7 +112,6 @@ hr.small {
 @media screen and (max-width: 500px) {
   pre code {
     display: block;
-    width: 500px;
   }
 }
 .post-container a {
