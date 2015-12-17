@@ -18,6 +18,7 @@ autotoc: false
 * [图片](#图片)
 * [锚点](#锚点)
 * [Emoji](#emoji)
+* [toc link test](#toc-link-test)
 
 ### 超链接
 
@@ -143,3 +144,19 @@ print 'Hello, World!'
 :camel:
 :blush:
 :smile:
+
+### toc link test
+
+#### “你好”
+#### 说“你好”
+#### 你好！
+#### 你还好吗？
+#### Are you ok?
+#### I am OK!
+#### 「引用」
+#### 『引用』
+#### -"hello"-
+#### "hello"
+#### ?!:""
+#### ？！：“”「」『』
+#### "
