@@ -25,7 +25,7 @@ Other languages:
 	* [中文与数字之间需要增加空格](#中文与数字之间需要增加空格)
 	* [数字与单位之间需要增加空格](#数字与单位之间需要增加空格)
 	* [全角标点与其他字符之间不加空格](#全角标点与其他字符之间不加空格)
-	* [`-ms-text-autospace` to the rescue?](#ms-text-autospace-to-the-rescue?)
+	* [`-ms-text-autospace` to the rescue?](#ms-text-autospace-to-the-rescue)
 * [标点符号](#标点符号)
 	* [不重复使用标点符号](#不重复使用标点符号)
 * [全角和半角](#全角和半角)
