@@ -8,7 +8,7 @@ body {
 .post-container ul,
 .post-container ol,
 div.highlight,
-table,
+.table-responsive,
 p {
   margin: 30px 0;
 }
@@ -109,10 +109,9 @@ hr.small {
   border-width: 4px;
   border-color: white;
 }
-@media screen and (max-width: 500px) {
-  pre code {
-    display: block;
-  }
+pre code {
+  display: block;
+  overflow-x: auto;
 }
 .post-container a {
   color: #2B4180;
