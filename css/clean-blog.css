@@ -112,6 +112,7 @@ hr.small {
 pre code {
   display: block;
   overflow-x: auto;
+  word-wrap: normal;
 }
 .post-container a {
   color: #2B4180;
