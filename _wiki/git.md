@@ -87,3 +87,39 @@ keywords: Git, 版本控制
     git add .
     git commit -m "init commit"
     ```
+
+7. submodule 的常用命令
+
+    **添加 submodule**
+
+    ```
+    git submodule add git@github.com:philsquared/Catch.git Catch
+    ```
+
+    这会在仓库根目录下生成如下 .gitmodules 文件并 clone 该 submodule 到本地。
+
+    ```
+    [submodule "Catch"]
+	path = Catch
+	url = git@github.com:philsquared/Catch.git
+    ```
+
+    **更新 submodule**
+
+    ```
+    git submodule update
+    ```
+
+    **删除 submodule**
+
+    在 .gitmodules 中删除对应 submodule 的信息，然后使用如下命令删除子模块所有文件：
+
+    ```
+    git rm --cached Catch
+    ```
+
+    **clone 仓库时拉取 submodule**
+
+    ```
+    git submodule update --init --recursive
+    ```
