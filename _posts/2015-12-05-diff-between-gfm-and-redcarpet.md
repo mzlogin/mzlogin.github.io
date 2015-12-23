@@ -13,8 +13,14 @@ GFM 即 [GitHub Flavored Markdown][1]，是 GitHub 用在 Respository、Issues�
 
 ```
 markdown: redcarpet
-redcarpet: 
-    extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data", "strikethrough"]
+redcarpet:
+    extensions: 
+        - no_intra_emphasis
+        - fenced_code_blocks
+        - autolink
+        - tables
+        - with_toc_data
+        - strikethrough
 ```
 
 在 [vmg/redcarpet#379][4] 的讨论中可以得知 GFM 其实是基于 Redcarpet 的一个非开源子集开发的，Redcarpet 也支持众多自定义的扩展，本文记录的是当前 GFM 与使用如上配置的 Redcarpet 的一些差异，以备在 GitHub 不同的地方写作时参考。
