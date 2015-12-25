@@ -60,7 +60,7 @@ GFM 与 Redcarpet 支持对 `#`、`##` 和 `###` 这样的标题自动生成锚�
 
 **当然，强烈建议在标题中不要使用奇怪的符号。**
 
-> 在这里做个小广告：如果你使用 Vim 编辑 Markdown，如果你也在被 GFM 和 Redcarpet 中不同 TOC 链接风格折磨，那可以试试我写的能自动生成这两种风格 TOC 的 Vim 插件 [vim-markdown-toc](https://github.com/mzlogin/vim-markdown-toc)。
+> 在这里做个小广告：如果你使用 Vim 编辑 Markdown，那可以试试我写的能自动生成 GFM 和 Redcarpet 这两种风格 TOC 的 Vim 插件 [vim-markdown-toc](https://github.com/mzlogin/vim-markdown-toc)。
 
 *共同点：*
 
@@ -68,9 +68,11 @@ GFM 与 Redcarpet 支持对 `#`、`##` 和 `###` 这样的标题自动生成锚�
 
 2. 字母要全小写。
 
-3. ` ` 会转换成 `-`。
+3. 空格会转换成 `-`。
 
 *不同点：*
+
+下面的表格列举了一些我曾经遇到过的案例，并不全，完整的实现逻辑在表格下方有说明。
 
 | 字符 | GFM  | Redcarpet                                  |
 |------|------|--------------------------------------------|
@@ -114,6 +116,24 @@ GFM 与 Redcarpet 支持对 `#`、`##` 和 `###` 这样的标题自动生成锚�
 | `——` | 忽略 | 保留                                       |
 
 总的来说就是 GFM 遇到奇怪的字符就忽略，而 Redcarpet 应用了几种不同的规则来处理。
+
+当然这只是表面上看起来的现象，这里简单说一下它们的实现逻辑：
+
+**GFM 的 TOC 链接处理实现**
+
+[参考链接（by Ruby）][9]
+
+1. 使用 Ruby 的正则表达式 `/[^\p{Word}\- ]/u` 过滤掉所有中英文标点符号、特殊符号等。
+2. 将空格替换为 `-`。
+3. 如果相同的链接 id 已经存在了，那在链接 id 后面添加 `-{num}`，比如标题 `hello,world` 生成链接 `#helloworld`，而标题 `hello!world` 生成链接 `#helloworld-1`。
+
+**Redcarpet 的 TOC 链接处理实现**
+
+[参考链接（by C）][10]
+
+1. 将 HTML 标签，即成对的 `<` 与 `>` 及它们之间的内容删除。
+2. 进行 HTML Encode，即将 `&`、`"` 和 `'` 等转换为相应 HTML 实体。
+3. 将字符 `` -&+$,/:;=?@\"#{}|^~[]`\\*()%.!`` 替换为 `-`，有两个及以上 `-` 的地方修复成一个，将链接串首尾的 `-_` 删除。
 
 ### 列表下嵌套内容
 
@@ -183,3 +203,5 @@ GitHub Pages 如果能使用这个，文章一定生动不少。
 [6]: https://help.github.com/articles/writing-on-github/
 [7]: https://help.github.com/articles/mentions-on-github-pages
 [8]: https://help.github.com/articles/emoji-on-github-pages
+[9]: https://github.com/jch/html-pipeline/blob/master/lib/html/pipeline/toc_filter.rb
+[10]: https://github.com/vmg/redcarpet/blob/master/ext/redcarpet/html.c#L274
