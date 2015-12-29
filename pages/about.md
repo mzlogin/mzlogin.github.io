@@ -18,14 +18,14 @@ permalink: /about/
 
 ### 坚信
 
-- 熟能生巧
-- 努力改变人生
+* 熟能生巧
+* 努力改变人生
 
 ### 关注
 
-- Android
-- C++
-- Python
+* Android
+* C++
+* Python
 
 ### 代表作
 
@@ -33,10 +33,13 @@ permalink: /about/
 
 ### 联系
 
-- 博客：[mzlog.com](http://mzlog.com)
-- 微博: [@mzlogin](http://weibo.com/mzlogin)
-- 知乎: [@mzlogin](http://www.zhihu.com/people/mzlogin)
-- 公众号：isprogrammer
+* GitHub：[@mzlogin](https://github.com/mzlogin)
+* LinkedIn：[@mazhuang](https://www.linkedin.com/in/mazhuang)
+* 博客：[{% site.title %}]({% site.url %})
+* 微博: [@mzlogin](http://weibo.com/mzlogin)
+* 知乎: [@mzlogin](http://www.zhihu.com/people/mzlogin)
+* 豆瓣: [@壮哥不胖](http://www.douban.com/people/freedim)
+* 公众号：isprogrammer
 
 <center>
     <p><img src="/images/theme/isprogrammer.jpg" align="center"></p>
