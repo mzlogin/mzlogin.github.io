@@ -35,7 +35,7 @@ permalink: /about/
 
 * GitHub：[@mzlogin](https://github.com/mzlogin)
 * LinkedIn：[@mazhuang](https://www.linkedin.com/in/mazhuang)
-* 博客：[{% site.title %}]({% site.url %})
+* 博客：[{{ site.title }}]({{ site.url }})
 * 微博: [@mzlogin](http://weibo.com/mzlogin)
 * 知乎: [@mzlogin](http://www.zhihu.com/people/mzlogin)
 * 豆瓣: [@壮哥不胖](http://www.douban.com/people/freedim)
