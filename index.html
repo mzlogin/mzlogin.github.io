@@ -46,6 +46,10 @@ class: home
                     </p>
                     <p class="repo-list-meta">
                         <span class="octicon octicon-calendar"></span> {{ post.date | date: "%Y/%m/%d" }}
+                        {% for cat in post.categories %}
+                        <span class="octicon octicon-file-directory"></span>
+                        <a href="/categories/#{{ cat }}" title="{{ cat }}">{{ cat }}</a>
+                        {% endfor %}
                     </p>
                 </li>
                 {% endfor %}
