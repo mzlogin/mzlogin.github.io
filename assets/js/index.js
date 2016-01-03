@@ -1,27 +1,18 @@
 /**
  * Created by chuandong on 15/12/17.
+ * Updated by mzlogin on 16/01/03.
  */
 
 var counter = 0;
+var len = 3;
+var subtitles = new Array("码而立·码而生", "熟能生巧", "打码改变人生");
 
 setInterval(function(){
     counter += 1;
 
     $("#sub-title").fadeOut(1000, function() {
-        switch (counter % 3) {
-            case 0:
-                $("#sub-title").html("码而立·码而生");
-                break;
-            case 1:
-                $("#sub-title").html("熟能生巧");
-                break;
-            case 2:
-                $("#sub-title").html("打码改变人生");
-                break;
-            default:
-                $("#sub-title").html("码而立·码而生");
-                break;
-        }
+        var pos = counter % len;
+        $("#sub-title").html(subtitles[pos]);
     });
     $("#sub-title").fadeIn(1000);
 
