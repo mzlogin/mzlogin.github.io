@@ -11,7 +11,8 @@
     padding-left: 2em;
 }
 
-.post-directory dt, dd, strong {
+.post-directory dt, dd,
+.post-directory strong {
     border-left: 5px solid #666;
     cursor: pointer;
     padding: 2px 5px 2px 15px;
@@ -64,7 +65,7 @@
     margin: 10px;
     padding: 0;
 
-    height: 30px;
+/*    height: 30px;*/
 }
 
 .posts-list-item a {
