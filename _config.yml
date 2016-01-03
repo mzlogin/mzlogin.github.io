@@ -44,7 +44,7 @@ navs:
 # ---------------- #
 #   RSS / Email    #
 # ---------------- #
-subscribe_rss: /atom.xml
+subscribe_rss: /feed.xml
 email: chumpma@gmail.com
 
 # ---------------- #
