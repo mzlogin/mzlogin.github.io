@@ -10,7 +10,7 @@ setInterval(function(){
     $("#sub-title").fadeOut(1000, function() {
         switch (counter % 3) {
             case 0:
-                $("#sub-title").html({{ site.subtitle }});
+                $("#sub-title").html("{{ site.subtitle }}");
                 break;
             case 1:
                 $("#sub-title").html("熟能生巧");

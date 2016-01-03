@@ -27,7 +27,7 @@
        <meta name="apple-mobile-web-app-status-bar-style" content="black">
     {% endif %}
     <link rel="alternate" type="application/atom+xml" title="overtrue" href="/atom.xml">
-    <link rel="shortcut icon" href="/favicon.png">
+    <link rel="shortcut icon" href="/favicon.ico">
     <link rel="apple-touch-icon-precomposed" href="/assets/images/apple-touch-icon-57x57-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/images/apple-touch-icon-{% if site.ios_app_name %}{{site.ios_app_name}}-{% endif %}72x72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/images/apple-touch-icon-114x114-precomposed.png">
@@ -75,7 +75,7 @@
 <body class="{{ page.class }}">
     <header class="site-header">
         <div class="container">
-            <h1><a href="/" title="{{ site.name }}"><span class="octicon octicon-mark-github"></span> {{ site.name }}</a></h1>
+            <h1><a href="/" title="{{ site.title }}"><span class="octicon octicon-mark-github"></span> {{ site.title }}</a></h1>
             <nav class="site-header-nav" role="navigation">
                 {% for nav in site.navs %}
                 <a href="{{ nav.href }}" class="{% if page.menu == nav.label %} selected {% endif %} site-header-nav-item" target="{{ nav.target | default: _self }}" title="{{ nav.label }}">{{ nav.label }}</a>

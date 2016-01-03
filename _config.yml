@@ -2,14 +2,13 @@
 #   Main Configs   #
 # ---------------- #
 baseurl: http://mazhuang.org
-url: "/"
+url: /
 domain: 
 date_format: "ordinal"
 title: 码志
 subtitle: "码而立·码而生"
 description: "码志|码而立·码而生"
 author: Zhuang Ma 
-name: Zhuang Ma 
 keywords: 码志
 gavatar: /favicon.ico
 favicon: /favicon.ico
