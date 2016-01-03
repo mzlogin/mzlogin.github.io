@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: wiki
 title: Source Insight
 categories: tools
 description: Source Insight 工具的快捷键及使用日常。

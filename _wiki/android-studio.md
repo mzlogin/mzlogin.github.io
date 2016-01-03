@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: wiki
 title: Android Studio
 categories: Android
 description: Android Studio 快捷键及使用技巧汇总

@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: wiki
 title: Emacs
 categories: Emacs
 description: Emacs 快捷键汇总及日常使用记录。

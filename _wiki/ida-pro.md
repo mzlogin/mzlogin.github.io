@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: wiki
 title: IDA Pro
 categories: Debug
 description: 静态分析神器

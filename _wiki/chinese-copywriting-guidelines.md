@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: wiki
 title: 中文文案排版指北（简体中文版）
 categories: Copywriting
 description: 中文文案排版指北（简体中文版）。

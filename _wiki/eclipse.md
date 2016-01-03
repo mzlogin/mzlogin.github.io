@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: wiki
 title: Eclipse
 categories: Eclipse
 description: Eclipse 常用快捷键和操作总结
