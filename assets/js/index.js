@@ -10,7 +10,7 @@ setInterval(function(){
     $("#sub-title").fadeOut(1000, function() {
         switch (counter % 3) {
             case 0:
-                $("#sub-title").html("{{ site.subtitle }}");
+                $("#sub-title").html("码而立·码而生");
                 break;
             case 1:
                 $("#sub-title").html("熟能生巧");
@@ -19,7 +19,7 @@ setInterval(function(){
                 $("#sub-title").html("打码改变人生");
                 break;
             default:
-                $("#sub-title").html("{{ site.subtitle }}");
+                $("#sub-title").html("码而立·码而生");
                 break;
         }
     });

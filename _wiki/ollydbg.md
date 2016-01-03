@@ -1,5 +1,5 @@
 ---
-layout: wiki
+layout: post
 title: OllyDbg
 categories: debug
 description: OllyDbg 快捷键及常用法。

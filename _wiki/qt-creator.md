@@ -1,5 +1,5 @@
 ---
-layout: wiki
+layout: post
 title: Qt Creator
 categories: Qt
 description: Qt Creator 的常用快捷键和操作记录

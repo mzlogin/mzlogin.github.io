@@ -18,6 +18,7 @@ permalink: /categories/
 <a class="posts-list-name" href="{{ post.url }}">{{ post.title }}</a>
 </li>
 {% endfor %}
+</ol>
 {% endfor %}
 </section>
 <!-- /section.content -->

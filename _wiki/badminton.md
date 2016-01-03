@@ -1,5 +1,5 @@
 ---
-layout: wiki
+layout: post
 title: Badminton
 categories: Hobbies
 description: 羽毛球学习资源整理。

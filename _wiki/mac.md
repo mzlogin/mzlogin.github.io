@@ -1,5 +1,5 @@
 ---
-layout: wiki
+layout: post
 title: Mac OS X
 categories: Mac
 description: 使用 Mac OS X 的一些快捷键和遇到的问题。
