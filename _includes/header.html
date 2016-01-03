@@ -1,32 +1,86 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+<html lang="zh-cmn-Hans" prefix="og: http://ogp.me/ns#" class="han-init">
+<head>
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="keywords" content="{% if page.keywords %}{{ page.keywords | join: ',' }}{% endif %}" />
-    <meta name="description" content="{% if page.description %}{{ page.description }}{% endif %}" />
-    <title>{% if page.title %}{{ page.title }} - {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
-    <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
-    <link rel="shortcut icon" href="{{ site.baseurl }}{{ site.favicon }}" type="image/x-icon" />
-    <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="{{ "/css/bootstrap.min.css" | prepend: site.baseurl }}">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="{{ "/css/clean-blog.css" | prepend: site.baseurl }}">
-    <!-- Back Top -->
-    <link rel="stylesheet" href="{{ "/css/backtop.css" | prepend: site.baseurl }}">
-    <!-- Pygments Github CSS -->
-    <link rel="stylesheet" href="{{ "/css/syntax.css" | prepend: site.baseurl }}">
-    <!-- Custom Fonts -->
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href='//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>{% if page.title %}{{ page.title }} &mdash; {% endif %}{{ site.title }}</title>
+    <link rel="stylesheet" href="/assets/vendor/primer-css/css/primer.css">
+    <link rel="stylesheet" href="/assets/vendor/primer-markdown/dist/user-content.min.css">
+    <link rel="stylesheet" href="/assets/vendor/octicons/octicons/octicons.css">
+    <link rel="stylesheet" href="/assets/css/components/collection.css">
+    <link rel="stylesheet" href="/assets/css/components/repo-card.css">
+    <link rel="stylesheet" href="/assets/css/sections/repo-list.css">
+    <link rel="stylesheet" href="/assets/css/sections/mini-repo-list.css">
+    <link rel="stylesheet" href="/assets/css/components/boxed-group.css">
+    <link rel="stylesheet" href="/assets/css/globals/common.css">
+    <link rel="stylesheet" href="/assets/vendor/share.js/dist/css/share.min.css">
+    <link rel="stylesheet" href="/assets/css/globals/responsive.css">
+    <link rel="stylesheet" href="/assets/css/posts/index.css">
+    <!-- Latest compiled and minified CSS -->
+    {% for css in page.css %}
+    <link rel="stylesheet" href="/assets/css/{{css}}">
+    {% endfor %}
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  </head>
-  <body ontouchstart="">
+    {% if site.ios_app_name %}
+       <meta name="apple-mobile-web-app-capable" content="yes">
+       <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    {% endif %}
+    <link rel="alternate" type="application/atom+xml" title="overtrue" href="/atom.xml">
+    <link rel="shortcut icon" href="/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="/assets/images/apple-touch-icon-57x57-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/images/apple-touch-icon-{% if site.ios_app_name %}{{site.ios_app_name}}-{% endif %}72x72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/images/apple-touch-icon-114x114-precomposed.png">
+    {% if page.title %}
+    <meta property="og:title" content="{{ page.title }}">
+      {% if page.keywords %}
+      {% assign keywords = page.keywords %}
+      {% else %}
+      {% assign keywords = site.keywords %}
+      {% endif %}
+    <meta name="keywords" content="{{ keywords | strip_html | strip_newlines}}">
+    <meta name="og:keywords" content="{{ keywords | strip_html | strip_newlines}}">
+      {% if page.excerpt %}
+    <meta name="description" content="{{ page.excerpt | strip_html | strip_newlines}}">
+    <meta name="og:description" content="{{ page.excerpt | strip_html | strip_newlines}}">
+      {% else if page.description %}
+    <meta name="description" content="{{ page.description | strip_html | strip_newlines}}">
+    <meta name="og:description" content="{{ page.description | strip_html | strip_newlines}}">
+      {% else if content %}
+    <meta name="description" content="{{ content | strip_html | strip_newlines | truncatewords: 100 }}">
+    <meta name="og:description" content="{{ content | strip_html | strip_newlines | truncatewords: 100 }}">
+      {% endif %}
+    {% else %}
+    <meta name="keywords" content="{{ site.keywords }}">
+    <meta name="description" content="{{ site.description }}">
+    {% endif %}
+    {% if page.og_image_url %}
+    <meta property="og:image" content="{{ page.og_image_url }}">
+    {% else %}
+        {% if page.photo_url %}
+    <meta property="og:image" content="{{ page.photo_url }}">
+        {% endif %}
+    {% endif %}
+    <meta property="og:url" content="{{ site.baseurl }}{{ page.url | remove_first:'index.html' }}">
+    <meta property="og:site_name" content="{{ site.domain }}">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="zh_CN" />
+    {% if page.date %}
+    <meta property="article:published_time" content="{{ page.date | date: "%Y-%m-%d" }}">
+    {% endif %}
+    <script src="/assets/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="/assets/js/index.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+</head>
+<body class="{{ page.class }}">
+    <header class="site-header">
+        <div class="container">
+            <h1><a href="/" title="{{ site.name }}"><span class="octicon octicon-mark-github"></span> {{ site.name }}</a></h1>
+            <nav class="site-header-nav" role="navigation">
+                {% for nav in site.navs %}
+                <a href="{{ nav.href }}" class="{% if page.menu == nav.label %} selected {% endif %} site-header-nav-item" target="{{ nav.target | default: _self }}" title="{{ nav.label }}">{{ nav.label }}</a>
+                {% endfor %}
+            </nav>
+        </div>
+    </header>
+    <!-- / header -->

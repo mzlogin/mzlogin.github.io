@@ -1,36 +1,38 @@
 ---
 layout: default
 ---
-
-<!-- Page Header -->
-<style type="text/css">
-  header.intro-header{
-    background-image: url('{{ site.baseurl }}/images/theme/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}')
-  }
-</style>
-<header class="intro-header" >
-<div class="container">
-  <div class="row">
-    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-      <div class="site-heading">
-        <h1>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</h1>
-        <hr class="small">
-        <span class="subheading">{{ page.description }}</span>
-      </div>
+<section class="collection-head small geopattern" data-pattern-id="{{ page.title | truncate: 3}}">
+    <div class="container">
+        <div class="collection-title">
+            <h1 class="collection-header">{{ page.title }}</h1>
+            {% if page.subtitle %}
+                <div class="collection-info">
+                    <span class="meta-info">
+                        {{ page.subtitle}}
+                    </span>
+                </div>
+            {% endif %}
+        </div>
     </div>
-  </div>
-</div>
-</header>
-
-<!-- Main Content -->
-<div class="container">
-  <div class="row">
-    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-      {{ content }}
-      {% if page.comments == true %}
-        <hr>
-        {% include duoshuo.html %}
-      {% endif %}
-    </div>
-  </div>
-</div>
+</section>
+<!-- / .banner -->
+ <section class="container content">
+        <div class="columns">
+            <div class="column three-fourths" >
+                <article class="article-content markdown-body">
+                    {{ content }}
+                </article>
+                <div class="share">
+                    {% include sns-share.html %}
+                </div>
+                <div class="comment">
+                    {% include disqus-comments.html %}
+                </div>
+            </div>
+            <div class="column one-fourth">
+                {% include sidebar-popular-repo.html %}
+                {% include sidebar-contribute-repo.html %}
+            </div>
+        </div>
+    </section>
+    <!-- /section.content -->

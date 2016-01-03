@@ -1,0 +1,36 @@
+{% if site.duoshuo_username and page.comments != false %}
+<!-- Duoshuo Comment BEGIN -->
+<!-- 多说评论框 BEGIN -->
+<div class="ds-thread" data-thread-key="{{ page.url }}" data-title="{{ page.title }}" data-url="{{ site.url }}{{ page.url }}"></div>
+<!-- 多说评论框 END -->
+<!-- 多说公共JS代码 BEGIN (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"{{ site.duoshuo_username }}"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0]
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 END -->
+<!-- Duoshuo Comment END -->
+{% endif %}
+{% if site.changyan and page.comments != false %}
+<!-- Changyan Comment BEGIN -->
+<div id="SOHUCS" sid="{{ page.url }}"></div> 
+<script type="text/javascript"> 
+(function(){ 
+  var appid = 'cyrQPfEd5'; 
+  var conf = '6d39b373e0fa44eed17fc5e251dcdaff'; 
+  if (window.screen.width < 960) { 
+    window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="http://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); 
+  } else { 
+    var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("http://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); 
+  } 
+})(); 
+</script>
+<!-- Changyan Comment END -->
+{% endif %}

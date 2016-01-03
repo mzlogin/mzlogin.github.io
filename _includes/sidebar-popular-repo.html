@@ -1,0 +1,26 @@
+<h3>Popular Repositories</h3>
+{% assign repos = site.github.public_repositories | sort: "stargazers_count" | reverse%}
+{% for repo in repos %}
+    {% if site.popular_repos contains repo.name %}
+        <section class="repo-card">
+            <a href="{{ repo.html_url }}" target="_blank">
+                <div class="repo-card-image geopattern" data-pattern-id="{{ repo.name | truncate: 9,'' }}">
+                    <h3 class="repo-card-title">{{ repo.name }}</h3>
+                </div>
+                <div class="repo-card-body-wrapper">
+                    <div class="repo-card-body">
+                        <p class="repo-card-description">{{ repo.description }}</p>
+                        <div class="repo-card-meta">
+                            <span class="meta-info tooltipped tooltipped-n PHP" aria-label="{{ repo.language }} project">{{ repo.language }}</span>
+                                <span class="meta-info tooltipped tooltipped-n" aria-label="{{ repo.stargazers_count }} stars">
+                                    <span class="octicon octicon-star"></span> {{ repo.stargazers_count }}</span>
+                                <span class="meta-info tooltipped tooltipped-n" aria-label="{{ repo.forks_count }} forks">
+                                    <span class="octicon octicon-git-branch"></span> {{ repo.forks_count }}
+                                </span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </section>
+    {% endif %}
+{% endfor %}

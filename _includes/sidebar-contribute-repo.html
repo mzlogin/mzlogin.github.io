@@ -1,0 +1,15 @@
+<div class="boxed-group flush" role="navigation">
+    <h3>Repositories contribute to</h3>
+    <ul class="boxed-group-inner mini-repo-list">
+        {% for repo in site.contribute_repos %}
+        <li class="public source ">
+            <a href="https://github.com/{{ repo }}" target="_blank" title="{{ repo }}" class="mini-repo-list-item css-truncate">
+                <span class="repo-icon octicon octicon-repo"></span>
+                <span class="repo-and-owner css-truncate-target">
+                    {{ repo }}
+                </span>
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>

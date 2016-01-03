@@ -1,156 +1,60 @@
-  <hr>
+    <footer class="container">
+        <div class="site-footer" role="contentinfo">
+            <div class="copyright left mobile-block">
+                    © 2015
+                    <span title="{{ site.author}}">{{ site.author }}</span>
+                    <a href="javascript:window.scrollTo(0,0)" class="right mobile-visible">TOP</a>
+            </div>
 
-  <div id="back-top">
-    <a href="#top" title="回到顶部"></a>
-  </div>
+            <ul class="site-footer-links right mobile-hidden">
+                <li>
+                    <a href="javascript:window.scrollTo(0,0)" >TOP</a>
+                </li>
+            </ul>
+            <a href="{{ site.source_code }}" target="_blank" aria-label="view source code">
+                <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+            </a>
+            <ul class="site-footer-links mobile-hidden">
+                {% for nav in site.navs %}
+                <li>
+                    <a href="{{ nav.href }}" title="{{ nav.label }}" target="{{ nav.target | default: _self }}">{{ nav.label }}</a>
+                </li>
+                {% endfor %}
+            </ul>
 
-  <!-- Footer -->
-  <footer>
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        <ul class="list-inline text-center">
-          <!-- kill the Facebook and Weibo -->
-          <li>
-          <a href="{{ "/feed.xml" | prepend: site.baseurl }}">
-            <span class="fa-stack fa-lg">
-              <i class="fa fa-circle fa-stack-2x"></i>
-              <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
-            </span>
-          </a>
-          </li>
+        </div>
+    </footer>
+    <!-- / footer -->
+    <script src="/assets/vendor/share.js/dist/js/share.min.js"></script>
+    <script src="/assets/js/geopattern.js"></script>
+    <script src="/assets/js/prism.js"></script>
+    <link rel="stylesheet" href="/assets/css/globals/prism.css">
+    <script>
+      jQuery(document).ready(function($) {
+        // geopattern
+        $('.geopattern').each(function(){
+          $(this).geopattern($(this).data('pattern-id'));
+        });
+       // hljs.initHighlightingOnLoad();
+      });
+    </script>
+    {% if site.google.analytics_id %}
+    <div style="display:none">
+      <script>
+        (function () {
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-          <!--
-          {% if site.twitter_username %}
-          <li>
-          <a href="https://twitter.com/{{ site.twitter_username }}">
-            <span class="fa-stack fa-lg">
-              <i class="fa fa-circle fa-stack-2x"></i>
-              <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-            </span>
-          </a>
-          </li>
-          {% endif %}
-          -->
+          ga('create', '{{ site.google.analytics_id }}', 'auto');
+          ga('send', 'pageview');
 
-          {% if site.douban_username %}
-          <li>
-          <a href="http://www.douban.com/people/{{ site.douban_username }}">
-            <span class="fa-stack fa-lg">
-              <i class="fa fa-circle fa-stack-2x"></i>
-              <i class="fa fa-douban fa-stack-1x fa-inverse">豆</i>
-            </span>
-          </a>
-          </li>
-          {% endif %}
-
-          {% if site.github_username %}
-          <li>
-          <a href="https://github.com/{{ site.github_username }}">
-            <span class="fa-stack fa-lg">
-              <i class="fa fa-circle fa-stack-2x"></i>
-              <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-            </span>
-          </a>
-          </li>
-          {% endif %}
-
-          <!--
-          {% if site.facebook_username %}
-          <li>
-          <a href="https://www.facebook.com/{{ site.facebook_username }}">
-            <span class="fa-stack fa-lg">
-              <i class="fa fa-circle fa-stack-2x"></i>
-              <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-            </span>
-          </a>
-          </li>
-          {% endif %}
-          -->
-
-          {% if site.zhihu_username %}
-          <li>
-          <a target="_blank" href="https://www.zhihu.com/people/{{ site.zhihu_username }}">
-            <span class="fa-stack fa-lg">
-              <i class="fa fa-circle fa-stack-2x"></i>
-              <i class="fa fa-stack-1x fa-inverse">知</i>
-            </span>
-          </a>
-          </li>
-          {% endif %}
-          <!--
-          {% if site.weibo_username %}
-          <li>
-          <a target="_blank" href="http://weibo.com/{{ site.weibo_username }}">
-            <span class="fa-stack fa-lg">
-              <i class="fa fa-circle fa-stack-2x"></i>
-              <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
-            </span>
-          </a>
-          </li>
-          {% endif %}
-          -->
-
-        </ul>
-        <p class="copyright text-muted">
-        &copy; {{ site.time | date: '%Y' }} {{ site.author }} ❖ Powered by Jekyll.
-        </p>
-      </div>
+          var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+          document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F3894395ec060e3e4d0d9397bb5c7dff9' type='text/javascript'%3E%3C/script%3E"));
+        })();
+      </script>
     </div>
-  </div>
-  </footer>
-
-  <!-- jQuery -->
-  <script src="{{ "/js/jquery.min.js " | prepend: site.baseurl }}"></script>
-
-  <!-- Bootstrap Core JavaScript -->
-  <script src="{{ "/js/bootstrap.min.js " | prepend: site.baseurl }}"></script>
-
-  <!-- Custom Theme JavaScript -->
-  <script src="{{ "/js/clean-blog.min.js " | prepend: site.baseurl }}"></script>
-
-  <!-- Auto Generate Toc -->
-  <script src="{{ "/js/jquery.toc.js " | prepend: site.baseurl }}"></script>
-  <script type="text/javascript">
-    $(document).ready(function(){ 
-      $('.toc-content').toc();
-    });
-  </script>
-
-  <!-- async load function -->
-  <script>
-      function async(u, c) {
-        var d = document, t = 'script',
-            o = d.createElement(t),
-            s = d.getElementsByTagName(t)[0];
-        o.src = u;
-        if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
-        s.parentNode.insertBefore(o, s);
-      }
-  </script>
-
-  <!-- Back Top -->
-  <script type="text/javascript" src="/js/backtop.js"></script>
-  <!-- Highlight.js -->
-  <script>
-    async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js",function(){
-      hljs.initHighlightingOnLoad();
-    })
-  </script>
-  <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
-
-  <!-- Tag Cloud -->
-  <script src="/js/jquery.tagcloud.js" type="text/javascript" charset="utf-8"></script> 
-  <script language="javascript">
-  $.fn.tagcloud.defaults = {
-      size: {start: 1, end: 1, unit: 'em'},
-        color: {start: '#00e3e3', end: '#003e3e'}
-  };
-
-  $(function () {
-      $('#tag_cloud a').tagcloud();
-  });
-  </script>
-
-  </body>
+    {% endif %}
+</body>
 </html>

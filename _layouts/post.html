@@ -1,62 +1,39 @@
 ---
 layout: default
 ---
-
-<!-- Post Header -->
-<style type="text/css">
-  header.intro-header{
-    background-image: url('{{ site.baseurl }}/images/theme/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}')
-  }
-</style>
-<header class="intro-header" >
-<div class="container">
-  <div class="row">
-    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-      <div class="post-heading">
-        <div class="Tags">
-          {% for cat in page.categories %}
-          <a class="tag" href="/categories/#{{ cat }}" title="{{ cat }}">{{ cat }}</a>&nbsp;
-          {% endfor %}
+<section class="collection-head small geopattern" data-pattern-id="{{ page.title | truncate: 15, ''}}">
+    <div class="container">
+        <div class="columns">
+            <div class="column three-fourths">
+                <div class="collection-title">
+                    <h1 class="collection-header">{{ page.title }}</h1>
+                    <div class="collection-info">
+                        <span class="meta-info">
+                            <span class="octicon octicon-calendar"></span> {{ page.date | date: "%Y/%m/%d" }}
+                        </span>
+                    </div>
+                </div>
+            </div>
         </div>
-        <h1>{{ page.title }}</h1>
-        {% if page.subtitle %}
-        <h2 class="subheading">{{ page.subtitle }}</h2>
-        {% endif %}
-        <span class="meta">Posted by {% if page.author %}{{ page.author }}{% else %}{{ site.author }}{% endif %} on {{ page.date | date: "%B %-d, %Y" }}</span>
-      </div>
     </div>
-  </div>
-</div>
-</header>
-
-<!-- Post Content -->
-<article>
-<div class="container">
-  <div class="row">
-    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 post-container">
-
-      {% include toc.html %}
-
-      {{ content }}
-
-      <hr>
-
-      <ul class="pager">
-        {% if page.previous.url %}
-        <li class="previous">
-        <a href="{{ page.previous.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.previous.title}}">&larr; Previous Post</a>
-        </li>
-        {% endif %}
-        {% if page.next.url %}
-        <li class="next">
-        <a href="{{ page.next.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.next.title}}">Next Post &rarr;</a>
-        </li>
-        {% endif %}
-      </ul>
-
-      {% include duoshuo.html %}
-
+</section>
+<!-- / .banner -->
+ <section class="container content">
+    <div class="columns">
+        <div class="column three-fourths" >
+            <article class="article-content markdown-body">
+                {{ content }}
+            </article>
+            <div class="share">
+                {% include sns-share.html %}
+            </div>
+            <div class="comment">
+                {% include comments.html %}
+            </div>
+        </div>
+        <div class="column one-fourth">
+            {% include sidebar-post-nav.html %}
+        </div>
     </div>
-  </div>
-</div>
-</article>
+</section>
+<!-- /section.content -->

@@ -1,22 +1,52 @@
 # ---------------- #
 #   Main Configs   #
 # ---------------- #
-baseurl: 
-url: http://mazhuang.org
+baseurl: http://mazhuang.org
+url: "/"
+domain: 
 date_format: "ordinal"
 title: 码志
+subtitle: "码而立·码而生"
 description: "码志|码而立·码而生"
 author: Zhuang Ma 
+name: Zhuang Ma 
+keywords: 码志
 gavatar: /favicon.ico
 favicon: /favicon.ico
 header-img: facebook.jpg
 timezone: Asia/Shanghai
+encoding: "utf-8"
+source_code: https://github.com/mzlogin/mzlogin.github.io
+
+# ---------------- #
+#    Navigation    #
+# ---------------- #
+navs:
+  -
+    href: /
+    label: 首页
+
+  -
+    href: /categories/
+    label: 分类
+
+  -
+    href: /wiki/
+    label: 维基
+
+  -
+    href: /links/
+    label: 链接
+
+  -
+    href: /about/
+    label: 关于
 
 # ---------------- #
 #   RSS / Email    #
 # ---------------- #
 subscribe_rss: /atom.xml
-email:
+email: chumpma@gmail.com
 
 # ---------------- #
 #      Jekyll      #
@@ -33,8 +63,14 @@ redcarpet:
 
 pygments: true
 paginate: 8
+lsi: false
+quiet: false
+excerpt_separator: "\n\n"
 permalink: /:year/:month/:day/:title/
 gems:
+    - rouge
+    - jekyll-html-pipeline
+    - jekyll-paginate
     - jekyll-sitemap
     - jekyll-feed
     - jemoji
@@ -57,7 +93,7 @@ twitter_username: mzlogin
 changyan: false
 
 # ---------------- #
-#  Posts default   #
+#     Defaults     #
 # ---------------- #
 defaults:
     -
@@ -75,3 +111,13 @@ defaults:
             type: "wiki"
         values:
             autotoc: true
+
+# ---------------- #
+#      Datas       #
+# ---------------- #
+skill_software_keywords: [Java, C++, Python, Design Patterns]
+skill_mobile_app_keywords: [Android, Reverse Engineering]
+skill_windows_keywords: [Win32 SDK, DuiLib, WTL, COM]
+popular_repos: ['chinese-copywriting-guidelines','android-reverse-engineering', 'csdncommenter', 'mzlogin.github.io', 'vim-markdown-toc']
+contribute_repos: ['sparanoid/chinese-copywriting-guidelines', 'waylife/RentCrawer']
+
