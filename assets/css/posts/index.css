@@ -13,15 +13,9 @@
     list-style: none;
 }
 
-.post-directory dt, dd,
 .post-directory strong {
     border-left: 5px solid #999;
-    cursor: pointer;
     padding: 2px 5px 2px 15px;
-
-    -webkit-transition: all 0.3s ease-in;
-    -moz-transition: all 0.3s ease-in;
-    -o-transition: all 0.3s ease-in;
 }
 
 .post-directory a {
@@ -29,14 +23,9 @@
     color: #bababa;
 }
 
-.post-directory dt:hover, dd:hover {
-    background: #333;
-    border-left: 5px solid #000;
-}
-
-.post-directory dt:hover a, dd:hover a {
-    font-weight: bold;
-    color: #fff;
+.post-directory a:hover,
+.post-directory a:active {
+    color: #4183c4;
 }
 
 .posts-list {
@@ -66,8 +55,6 @@
     border-bottom: 1px dashed #ccc;
     margin: 10px;
     padding: 0;
-
-/*    height: 30px;*/
 }
 
 .posts-list-item a {
