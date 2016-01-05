@@ -1,8 +1,8 @@
 # ---------------- #
 #   Main Configs   #
 # ---------------- #
-baseurl: http://mazhuang.org
-url: /
+baseurl: 
+url: http://mazhuang.org
 domain: 
 date_format: "ordinal"
 title: 码志
