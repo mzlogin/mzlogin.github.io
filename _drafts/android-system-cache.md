@@ -30,73 +30,196 @@ keywords: Android, Cache, Cleaner, System Cache
 
 这里显示的大小是如何计算出来的，它实际上的文件组成是怎么样的呢？可以从 Android 系统自带的 Settings APP 的源码中找到答案。
 
-Settings APP 的源码在 Android 源码树的 /packages/apps/Settings 目录里，在它下面的 src/com/android/settings/applications 目录能找到 InstalledAppDetails.java 文件，从名字上看它应该就是对应我们上图中的「应用详情页」，它是一个 Fragment，在它的 `onResume` 中调用了 `refreshUi`，它里面调用的 `refreshSizeInfo` 方法中可以看到如下代码：
+Settings APP 的源码在 Android 源码树的 packages/apps/Settings 目录里，在它里面能找到 InstalledAppDetails.java 文件，从名字上看它应该就是对应我们上图中的「应用详情页」，它是一个 Fragment，在它的 `onResume` 方法中调用了 `refreshUi` 方法，它里面又调用了 `refreshSizeInfo` 方法：
 
 ```java
-long cacheSize = mAppEntry.cacheSize + mAppEntry.externalCacheSize;
-if (mLastCacheSize != cacheSize) {
-    mLastCacheSize = cacheSize;
-    mCacheSize.setText(getSizeStr(cacheSize));
+private void refreshSizeInfo() {
+    if (mAppEntry.size == ApplicationsState.SIZE_INVALID
+            || mAppEntry.size == ApplicationsState.SIZE_UNKNOWN) {
+        ......
+    } else {
+        ......
+        long cacheSize = mAppEntry.cacheSize + mAppEntry.externalCacheSize;
+        if (mLastCacheSize != cacheSize) {
+            mLastCacheSize = cacheSize;
+            mCacheSize.setText(getSizeStr(cacheSize));
+        }
+        ......
+    }
 }
 ```
+
+这个方法定义在文件 packages/apps/Settings/src/com/android/settings/applications/InstalledAppDetails.java 中。
 
 很显然这里的 `cacheSize` 就是对应上图里的缓存大小，从这几行代码的字面意义里可以看出缓存是由「内部缓存」加「外部缓存」组成，甚至可以初步推测出本节的结论，当然我是一个严谨的人，继续深究一下其中的原理。
 
-在` refreshUi` 里能找到给 `mAppEntry` 赋值的地方：
+找到给 `mAppEntry` 赋值的地方：
 
 ```java
-mAppEntry = mState.getEntry(packageName);
-```
-
-在 `ApplicationsStat.getEntry` 方法里，
-
-```java
-ApplicationInfo info = mApplications.get(i);
-if (packageName.equals(info.packageName)) {
-    entry = getEntryLocked(info);
-    break;
+private boolean refreshUi() {
+    ......
+    mAppEntry = mState.getEntry(packageName);
+    ......
 }
 ```
 
-找到给 `mApplications` 添加数据的地方，在 `addPackage` 方法里：
+这个方法定义在文件 packages/apps/Settings/src/com/android/settings/applications/InstalledAppDetails.java 中。
+
+继续看 `getEntry` 里做了什么：
 
 ```java
-ApplicationInfo info = mPm.getApplicationInfo(pkgName,
-        PackageManager.GET_UNINSTALLED_PACKAGES |
-        PackageManager.GET_DISABLED_COMPONENTS);
-mApplications.add(info);
-if (!mBackgroundHandler.hasMessages(BackgroundHandler.MSG_LOAD_ENTRIES)) {
-    mBackgroundHandler.sendEmptyMessage(BackgroundHandler.MSG_LOAD_ENTRIES);
-}
-```
-
-它在 `mApplications.add(info);` 后顺便发了个消息，经过 `MSG_LOAD_ENTRIES` 到 `MSG_LOAD_ICONS` 到 `MSG_LOAD_SIZES` 的消息链，在 `mBackgroundHander` 的 `handleMessage` 方法的 `case MSG_LOAD_SIZES` 节里，我们看到了一个从名字上就看出来很重要的关键方法调用：
-
-```java
-mPm.getPackageSizeInfo(mCurComputingSizePkg, mStatsObserver);
-```
-
-`mPm` 是 `PackageManager` 类型的，这是一个抽象类型，它的最终实现为 `/frameworks/base/services/java/com/android/server/pm/PackageManagerService.java`，我们可以看到 `PackageManagerService` 类里的 `getPackageSizeInfo` 方法里，发送 `INIT_COPY` 消息后（注意 `msg.obj` 的类型为 `MeasureParams`），
-
-```java
-case INIT_COPY: {
-    HandlerParams params = (HandlerParams) msg.obj;
-    int idx = mPendingInstalls.size();
-    if (!mBound) {
-        if (!connectToService()) {
-            params.serviceError();
-            return;
-        } else {
-            mPendingInstalls.add(idx, params);
+AppEntry getEntry(String packageName) {
+    if (DEBUG_LOCKING) Log.v(TAG, "getEntry about to acquire lock...");
+    synchronized (mEntriesMap) {
+        AppEntry entry = mEntriesMap.get(packageName);
+        if (entry == null) {
+            for (int i=0; i<mApplications.size(); i++) {
+                ApplicationInfo info = mApplications.get(i);
+                if (packageName.equals(info.packageName)) {
+                    entry = getEntryLocked(info);
+                    break;
+                }
+            }
         }
-    } else {
-        mPendingInstalls.add(idx, params);
-        if (idx == 0) {
-            mHandler.sendEmptyMessage(MCS_BOUND);
+        if (DEBUG_LOCKING) Log.v(TAG, "...getEntry releasing lock");
+        return entry;
+    }
+}
+```
+
+这个方法定义在文件 packages/apps/Settings/src/com/android/settings/applications/ApplicationsState.java 中。
+
+找到给 `mApplications` 添加数据的地方：
+
+```java
+void addPackage(String pkgName) {
+    try {
+        synchronized (mEntriesMap) {
+            ......
+            ApplicationInfo info = mPm.getApplicationInfo(pkgName,
+                    PackageManager.GET_UNINSTALLED_PACKAGES |
+                    PackageManager.GET_DISABLED_COMPONENTS);
+            mApplications.add(info);
+            if (!mBackgroundHandler.hasMessages(BackgroundHandler.MSG_LOAD_ENTRIES)) {
+                mBackgroundHandler.sendEmptyMessage(BackgroundHandler.MSG_LOAD_ENTRIES);
+            }
+            ......
+        }
+    } catch (NameNotFoundException e) {
+    }
+}
+```
+
+这个方法定义在文件 packages/apps/Settings/src/com/android/settings/applications/ApplicationsState.java 中。
+
+它在 `mApplications.add(info);` 后顺便发了个消息，经过 `MSG_LOAD_ENTRIES` 到 `MSG_LOAD_ICONS` 到 `MSG_LOAD_SIZES` 的消息链，我们看到一个从名字上就看出来很重要的关键方法调用：
+
+```java
+class BackgroundHandler extends Handler {
+    ......
+    @Override
+    public void handleMessage(Message msg) {
+        ......
+        switch (msg.what) {
+            ......
+            case MSG_LOAD_ENTRIES: {
+                ......
+                if (numDone >= 6) {
+                    ......
+                } else {
+                    sendEmptyMessage(MSG_LOAD_ICONS);
+                }
+            } break;
+            case MSG_LOAD_ICONS: {
+                ......
+                if (numDone >= 2) {
+                    ......
+                } else {
+                    sendEmptyMessage(MSG_LOAD_SIZES);
+                }
+            } break;
+            case MSG_LOAD_SIZES: {
+                synchronized (mEntriesMap) {
+                    ......
+                    for (int i=0; i<mAppEntries.size(); i++) {
+                        AppEntry entry = mAppEntries.get(i);
+                        if (entry.size == SIZE_UNKNOWN || entry.sizeStale) {
+                            if (entry.sizeLoadStart == 0 ||
+                                    (entry.sizeLoadStart < (now-20*1000))) {
+                                ......
+                                mPm.getPackageSizeInfo(mCurComputingSizePkg, mStatsObserver);
+                            }
+                            ......
+                        }
+                    }
+                    ......
+                }
+            } break;
         }
     }
-    break;
+    ......
+}
 ```
+
+这个类定义在文件 packages/apps/Settings/src/com/android/settings/applications/ApplicationsState.java 中。
+
+`mPm` 是 `PackageManager` 类型的，这是一个抽象类型，我们找到这个调用的最终实现：
+
+```java
+public void getPackageSizeInfo(final String packageName,
+        final IPackageStatsObserver observer) {
+    ......
+    Message msg = mHandler.obtainMessage(INIT_COPY);
+    msg.obj = new MeasureParams(stats, observer);
+    mHandler.sendMessage(msg);
+}
+```
+
+这个方法定义在文件 frameworks/base/services/java/com/android/server/pm/PackageManagerService.java 中。
+
+这里我们注意 `msg.obj` 的类型为 `MeasureParams`，`INIT_COPY` 消息对应的处理：
+
+```java
+class PackageHandler extends Handler {
+    private boolean mBound = false;
+    ......
+    public void handleMessage(Message msg) {
+        ......
+            doHandleMessage(msg);
+        ......
+    }
+
+    void doHandleMessage(Message msg) {
+        switch (msg.what) {
+            case INIT_COPY: {
+                ......
+                if (!mBound) {
+                    if (!connectToService()) {
+                        ......
+                    } else {
+                        ......
+                    }
+                } else {
+                    ......
+                }
+                break;
+            }
+            case MCS_BOUND: {
+                ......
+                        if (params.startCopy()) {
+                            ......
+                        }
+                ......
+                break;
+            }
+            ......
+        }
+    }
+    ......
+}
+```
+
+这个类定义在文件 frameworks/base/services/java/com/android/server/pm/PackageManagerService.java 中。
 
 `mBound` 默认值为 false，所以会进 `connectToService` 方法，里面会触发 `DefaultContainerConnection.onServiceConnected` 回调，发送了 `MCS_BOUND` 的消息，通过 `params.startCopy()` 来到 `MeasureParams` 的 `handleStartCopy` 方法里，可以直接看到 `externalCacheSize` 的计算方法：
 
@@ -106,7 +229,7 @@ void handleStartCopy() throws RemoteException {
         mSuccess = getPackageSizeInfoLI(mStats.packageName, mStats);
     }
 
-    // ... some code here
+    ......
 
     if (mounted) {
         final File externalCacheDir = Environment
@@ -115,78 +238,120 @@ void handleStartCopy() throws RemoteException {
                 .calculateDirectorySize(externalCacheDir.getPath());
         mStats.externalCacheSize = externalCacheSize;
 
-        // ... some code here
+        ......
     }
 }
 ```
+
+这个方法定义在文件 frameworks/base/services/java/com/android/server/pm/PackageManagerService.java 中。
 
 这里面的 `Environment.getExternalStorageAppCacheDirectory` 返回的就是 /sdcard/Android/data/packagename/cache。
 
-而 Internal 的 `cacheSize` 部分在 `getPackageSizeInfoLI` 方法里调用 /frameworks/base/services/java/com/android/server/pm/Installer.java 的 `getSizeInfo` 方法，最终是通过给 /dev/socket/installd 发送 `getsize packagename apkpath` 获取的输出中解析出来。
+而 Internal 的 `cacheSize` 部分在 `getPackageSizeInfoLI` 方法里，
 
 ```java
-public int getSizeInfo(String pkgName, String apkPath, String fwdLockApkPath,
-        String asecPath, PackageStats pStats) {
-    StringBuilder builder = new StringBuilder("getsize");
-    builder.append(' ');
-    builder.append(pkgName);
-    builder.append(' ');
-    builder.append(apkPath);
-    builder.append(' ');
-    builder.append(fwdLockApkPath != null ? fwdLockApkPath : "!");
-    builder.append(' ');
-    builder.append(asecPath != null ? asecPath : "!");
-
-    String s = transaction(builder.toString());
-    String res[] = s.split(" ");
-
-    if ((res == null) || (res.length != 5)) {
-        return -1;
-    }
-    try {
-        pStats.codeSize = Long.parseLong(res[1]);
-        pStats.dataSize = Long.parseLong(res[2]);
-        pStats.cacheSize = Long.parseLong(res[3]);
-        pStats.externalCodeSize = Long.parseLong(res[4]);
-        return Integer.parseInt(res[0]);
-    } catch (NumberFormatException e) {
-        return -1;
-    }
+private boolean getPackageSizeInfoLI(String packageName, PackageStats pStats) {
+    ......
+        int res = mInstaller.getSizeInfo(packageName, p.mPath, publicSrcDir,
+                asecPath, pStats);
+    ......
 }
 ```
 
-/dev/socket/installd 的源码在 /frameworks/base/cmds/installd，`getsize` 命令最后在 /frameworks/base/cmds/installd/commands.c 的 `get_size` 函数中处理，
+这个方法定义在文件 frameworks/base/services/java/com/android/server/pm/PackageManagerService.java 中。
+
+```java
+class Installer {
+    ......
+    private boolean connect() {
+            ......
+            LocalSocketAddress address = new LocalSocketAddress("installd",
+                    LocalSocketAddress.Namespace.RESERVED);
+
+            mSocket.connect(address);
+            ......
+    }
+    ......
+    private synchronized String transaction(String cmd) {
+        if (!connect()) {
+            ......
+        }
+
+        if (!writeCommand(cmd)) {
+            ......
+        }
+        if (readReply()) {
+            ......
+            return s;
+        } else {
+            ......
+        }
+    }
+    public int getSizeInfo(String pkgName, String apkPath, String fwdLockApkPath,
+            String asecPath, PackageStats pStats) {
+        StringBuilder builder = new StringBuilder("getsize");
+        builder.append(' ');
+        builder.append(pkgName);
+        builder.append(' ');
+        builder.append(apkPath);
+        ......
+
+        String s = transaction(builder.toString());
+        String res[] = s.split(" ");
+
+        ......
+        try {
+            ......
+            pStats.cacheSize = Long.parseLong(res[3]);
+            ......
+        } catch (NumberFormatException e) {
+            return -1;
+        }
+    }
+    ......
+}
+```
+
+这个方法定义在文件 frameworks/base/services/java/com/android/server/pm/Installer.java 中。
+
+`getSizeInfo` 方法最终是通过给 /dev/socket/installd 发送 `getsize packagename apkpath ...` 获取的输出中解析出来。
+
+/dev/socket/installd 的源码在 frameworks/base/cmds/installd，`getsize` 命令最后在 `get_size` 函数中处理，
 
 ```c
-/* most stuff in the pkgdir is data, except for the "cache"
- * directory and below, which is cache, and the "lib" directory
- * and below, which is code...
- */
-while ((de = readdir(d))) {
-    const char *name = de->d_name;
+int get_size(const char *pkgname, const char *apkpath,
+             const char *fwdlock_apkpath, const char *asecpath,
+             int64_t *_codesize, int64_t *_datasize, int64_t *_cachesize,
+             int64_t* _asecsize)
+{
+    ......
+    while ((de = readdir(d))) {
+        const char *name = de->d_name;
 
-    if (de->d_type == DT_DIR) {
-        int subfd;
-            /* always skip "." and ".." */
-        if (name[0] == '.') {
-            if (name[1] == 0) continue;
-            if ((name[1] == '.') && (name[2] == 0)) continue;
-        }
-        subfd = openat(dfd, name, O_RDONLY | O_DIRECTORY);
-        if (subfd >= 0) {
-            int64_t size = calculate_dir_size(subfd);
-            if (!strcmp(name,"lib")) {
-                codesize += size;
-            } else if(!strcmp(name,"cache")) {
-                cachesize += size;
-            } else {
-                datasize += size;
+        if (de->d_type == DT_DIR) {
+            int subfd;
+                /* always skip "." and ".." */
+            if (name[0] == '.') {
+                if (name[1] == 0) continue;
+                if ((name[1] == '.') && (name[2] == 0)) continue;
             }
-        }
-    } else {
-        if (fstatat(dfd, name, &s, AT_SYMLINK_NOFOLLOW) == 0) {
-            datasize += stat_size(&s);
+            subfd = openat(dfd, name, O_RDONLY | O_DIRECTORY);
+            if (subfd >= 0) {
+                int64_t size = calculate_dir_size(subfd);
+                if (!strcmp(name,"lib")) {
+                    codesize += size;
+                } else if(!strcmp(name,"cache")) {
+                    cachesize += size;
+                } else {
+                    datasize += size;
+                }
+            }
+        } else {
+            ......
         }
     }
+    ......
 }
 ```
+
+这个函数定义在文件 frameworks/base/cmds/installd/commands.c 中。
