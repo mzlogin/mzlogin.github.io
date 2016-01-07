@@ -6,7 +6,7 @@ description: 深入理解 Android 的进程、Task、Activity 等之间的关系
 keywords: Android, Cache, Cleaner, System Cache
 ---
 
-本文记录的是我对 Android 的「系统缓存」的探索与理解。
+本文记录的是我对 Android 的「系统缓存」及其扫描和清理方法的探索与理解。
 
 ## 系统缓存的定义
 
@@ -69,10 +69,7 @@ private boolean refreshUi() {
 
 ```java
 AppEntry getEntry(String packageName) {
-    if (DEBUG_LOCKING) Log.v(TAG, "getEntry about to acquire lock...");
-    synchronized (mEntriesMap) {
-        AppEntry entry = mEntriesMap.get(packageName);
-        if (entry == null) {
+    ......
             for (int i=0; i<mApplications.size(); i++) {
                 ApplicationInfo info = mApplications.get(i);
                 if (packageName.equals(info.packageName)) {
@@ -80,10 +77,7 @@ AppEntry getEntry(String packageName) {
                     break;
                 }
             }
-        }
-        if (DEBUG_LOCKING) Log.v(TAG, "...getEntry releasing lock");
-        return entry;
-    }
+    .......
 }
 ```
 
@@ -112,7 +106,7 @@ void addPackage(String pkgName) {
 
 这个方法定义在文件 packages/apps/Settings/src/com/android/settings/applications/ApplicationsState.java 中。
 
-它在 `mApplications.add(info);` 后顺便发了个消息，经过 `MSG_LOAD_ENTRIES` 到 `MSG_LOAD_ICONS` 到 `MSG_LOAD_SIZES` 的消息链，我们看到一个从名字上就看出来很重要的关键方法调用：
+它在 `mApplications.add(info);` 后顺便发了个消息，经过 `MSG_LOAD_ENTRIES` 到 `MSG_LOAD_ICONS` 到 `MSG_LOAD_SIZES` 的消息链，我们看到一个从名字上就看出来很重要的关键方法调用 `getPackageSizeInfo`：
 
 ```java
 class BackgroundHandler extends Handler {
@@ -141,17 +135,7 @@ class BackgroundHandler extends Handler {
             case MSG_LOAD_SIZES: {
                 synchronized (mEntriesMap) {
                     ......
-                    for (int i=0; i<mAppEntries.size(); i++) {
-                        AppEntry entry = mAppEntries.get(i);
-                        if (entry.size == SIZE_UNKNOWN || entry.sizeStale) {
-                            if (entry.sizeLoadStart == 0 ||
-                                    (entry.sizeLoadStart < (now-20*1000))) {
-                                ......
                                 mPm.getPackageSizeInfo(mCurComputingSizePkg, mStatsObserver);
-                            }
-                            ......
-                        }
-                    }
                     ......
                 }
             } break;
@@ -163,15 +147,19 @@ class BackgroundHandler extends Handler {
 
 这个类定义在文件 packages/apps/Settings/src/com/android/settings/applications/ApplicationsState.java 中。
 
-`mPm` 是 `PackageManager` 类型的，这是一个抽象类型，我们找到这个调用的最终实现：
+`mPm` 是 `PackageManager` 类型的，这是一个抽象类型，它的实现类为 `ApplicationPackageManager`，`ApplicationPackageManager.getPackageSizeInfo` 里调用了 `IPackageManager.getPackageSizeInfo`，`IPackageManager` 的实例在 `ContexImpl.getPackageManager` 方法里通过 `ActivityThread.getPackageManager()` 构造，它的方法调用最终是反映到通过 Binder 机制返回的 `PackageManagerService` 实例上，我们找到 `getPackageSizeInfo` 的最终实现：
 
 ```java
-public void getPackageSizeInfo(final String packageName,
-        final IPackageStatsObserver observer) {
+public class PackageManagerService extends IPackageManager.Stub {
     ......
-    Message msg = mHandler.obtainMessage(INIT_COPY);
-    msg.obj = new MeasureParams(stats, observer);
-    mHandler.sendMessage(msg);
+    public void getPackageSizeInfo(final String packageName,
+            final IPackageStatsObserver observer) {
+        ......
+        Message msg = mHandler.obtainMessage(INIT_COPY);
+        msg.obj = new MeasureParams(stats, observer);
+        mHandler.sendMessage(msg);
+    }
+    ......
 }
 ```
 
@@ -223,7 +211,7 @@ class PackageHandler extends Handler {
 
 `mBound` 默认值为 false，所以会进 `connectToService` 方法，里面会触发 `DefaultContainerConnection.onServiceConnected` 回调，发送了 `MCS_BOUND` 的消息，通过 `params.startCopy()` 来到 `MeasureParams` 的 `handleStartCopy` 方法里，可以直接看到 `externalCacheSize` 的计算方法：
 
- ```java
+```java
 void handleStartCopy() throws RemoteException {
     synchronized (mInstallLock) {
         mSuccess = getPackageSizeInfoLI(mStats.packageName, mStats);
@@ -329,12 +317,7 @@ int get_size(const char *pkgname, const char *apkpath,
         const char *name = de->d_name;
 
         if (de->d_type == DT_DIR) {
-            int subfd;
-                /* always skip "." and ".." */
-            if (name[0] == '.') {
-                if (name[1] == 0) continue;
-                if ((name[1] == '.') && (name[2] == 0)) continue;
-            }
+            ......
             subfd = openat(dfd, name, O_RDONLY | O_DIRECTORY);
             if (subfd >= 0) {
                 int64_t size = calculate_dir_size(subfd);
