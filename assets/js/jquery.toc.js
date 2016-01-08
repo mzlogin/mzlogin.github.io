@@ -158,7 +158,7 @@
 $(document).ready(function(){
   $('.post-directory').toc();
 
-  var fixmeTop = $('#post-directory-module').offset().top;       // get initial position of the element
+  var fixmeTop = $('#post-directory-module').offset().top;
   var tocSections = $('.clickable-header');
   var tocSectionOffsets = [];
 
@@ -169,6 +169,8 @@ $(document).ready(function(){
     })
   }
   calculateTocSections();
+  // Calculates the toc section offsets, which can change as images get loaded
+  $(window).bind('load', calculateTocSections);
 
   var highlightTocSection = function(){
     var highlightIndex = 0;
