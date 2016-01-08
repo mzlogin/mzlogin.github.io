@@ -25,7 +25,8 @@
 }
 
 .post-directory a:hover,
-.post-directory a:active {
+.post-directory a:active,
+.post-directory a.on {
     color: #4183c4;
 }
 

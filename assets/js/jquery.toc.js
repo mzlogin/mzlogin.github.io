@@ -153,3 +153,67 @@
     render[settings.showEffect]();
   };
 })(jQuery);
+
+$(document).ready(function(){
+  $('.post-directory').toc();
+
+  var fixmeTop = $('#post-directory-module').offset().top;       // get initial position of the element
+  var tocSections = $('.clickable-header');
+  var tocSectionOffsets = [];
+
+  var calculateTocSections = function(){
+    tocSectionOffsets = [];
+    tocSections.each(function(index, section){
+      tocSectionOffsets.push(section.offsetTop);
+    })
+  }
+  calculateTocSections();
+
+  var highlightTocSection = function(){
+    var highlightIndex = 0;
+    var sectionsCount = tocSectionOffsets.length;
+    var currentScroll = $(window).scrollTop();
+
+    if (currentScroll+60 > tocSectionOffsets[sectionsCount-1]) {
+      highlightIndex = sectionsCount;
+    } else {
+      for (var i=0; i<sectionsCount; i++) {
+        if (currentScroll+60 <= tocSectionOffsets[i]) {
+          highlightIndex = i;
+          break;
+        }
+      }
+    }
+    if (highlightIndex == 0) {
+      highlightIndex += 1;
+    }
+    $('.toc-item .jumper').removeClass('on');
+    $('.toc-item .jumper').eq(highlightIndex-1).addClass('on');
+  }
+  highlightTocSection();
+
+  $(window).scroll(function() {
+    var currentScroll = $(window).scrollTop();
+    if (currentScroll >= fixmeTop) {
+      $('#post-directory-module').css({
+        top: '0',
+        position: 'fixed',
+        width: 'inherit'
+      });
+    } else {
+      $('#post-directory-module').css({
+        position: 'inherit',
+        width: 'inherit'
+      });
+    }
+
+    highlightTocSection();
+  });
+});
+
+$(".jumper").on("click", function( e ) {
+  e.preventDefault();
+  $("body, html").animate({
+    scrollTop: $( $(this).attr('href') ).offset().top
+  }, 600);
+});
