@@ -551,7 +551,7 @@ class BackgroundHandler extends Handler {
     }
     ```
 
-4. 获取一个应用的缓存解决了，获取所有应用的系统缓存也就是遍历系统已安装应用，然后挨个调用 `getPackageInfo` 的事儿了。
+4. 获取一个应用的缓存的问题解决了，获取所有应用的系统缓存也就是遍历系统已安装应用，然后挨个调用 `getPackageInfo` 的事儿了。
 
 完整的实例见 <https://github.com/mzlogin/CleanExpert>。
 
