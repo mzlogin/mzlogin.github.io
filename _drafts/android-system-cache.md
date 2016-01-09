@@ -507,12 +507,15 @@ class BackgroundHandler extends Handler {
 这里有两个问题需要解决：
 
 1. `getPackageSizeInfo` 方法需要通过反射来调用。
+
 2. 传给 `getPackageSizeInfo` 方法的第二个参数类型 `IPackageStatsObserver` 是在 android.content.pm 包下，需要自已通过 aidl 方式定义。
 
 解决步骤：
 
 1. 在自己的工程的 src 目录下创建包目录结构 android/content/pm。
+
 2. 将 Android 源码 frameworks/base/core/java/android/content/pm 目录下的 IPackageStatsObserver.aidl 与其依赖的 PackageStats.aidl 拷贝到上面一步创建的目录里。
+
 3. 获取 QQ 的系统缓存大小的示例代码：
 
     ```java
