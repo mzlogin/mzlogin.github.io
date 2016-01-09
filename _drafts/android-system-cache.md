@@ -516,7 +516,13 @@ class BackgroundHandler extends Handler {
 
 2. 将 Android 源码 frameworks/base/core/java/android/content/pm 目录下的 IPackageStatsObserver.aidl 与其依赖的 PackageStats.aidl 拷贝到上面一步创建的目录里。
 
-3. 获取 QQ 的系统缓存大小的示例代码：
+3. 根据 frameworks/base/core/java/android/content/pm/PackageManager.java 的 `getPackageSizeInfo` 接口上面的注释可知，需要在 AndroidManifest 里声明需要 `GET_PACKAGE_SIZE` 权限。
+
+    ```
+    <uses-permission android:name="android.permission.GET_PACKAGE_SIZE"></uses-permission>
+    ```
+
+4. 获取 QQ 的系统缓存大小的示例代码：
 
     ```java
     public void someFunc() {
@@ -551,7 +557,7 @@ class BackgroundHandler extends Handler {
     }
     ```
 
-4. 获取一个应用的缓存的问题解决了，获取所有应用的系统缓存也就是遍历系统已安装应用，然后挨个调用 `getPackageInfo` 的事儿了。
+5. 获取一个应用的缓存的问题解决了，获取所有应用的系统缓存也就是遍历系统已安装应用，然后挨个调用 `getPackageInfo` 的事儿了。
 
 完整的实例见 <https://github.com/mzlogin/CleanExpert>。
 
