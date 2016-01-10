@@ -508,6 +508,8 @@ class BackgroundHandler extends Handler {
 
 1. `getPackageSizeInfo` 方法需要通过反射来调用。
 
+    `getPackageSizeInfo` 方法需要 `GET_PACKAGE_SIZE` 权限，幸运的是，从 Android API 文档里可知，该权限的 Protection level 为 normal，是可以正常声明的。
+
 2. 传给 `getPackageSizeInfo` 方法的第二个参数类型 `IPackageStatsObserver` 是在 android.content.pm 包下，需要自已通过 aidl 方式定义。
 
 解决步骤：
