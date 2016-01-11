@@ -506,9 +506,9 @@ class BackgroundHandler extends Handler {
 
 这里有两个问题需要解决：
 
-1. `getPackageSizeInfo` 方法需要通过反射来调用。
+1. `getPackageSizeInfo` 方法是一个 `@hide` 方法，需要通过反射来调用。
 
-    `getPackageSizeInfo` 方法需要 `GET_PACKAGE_SIZE` 权限，幸运的是，从 Android API 文档里可知，该权限的 Protection level 为 normal，是可以正常声明的。
+    从 PackageManager.java 文件的 `getPackageSizeInfo` 方法定义处可知，它需要 `GET_PACKAGE_SIZE` 权限，幸运的是，从 Android API 文档里可知，该权限的 Protection level 为 normal，是可以正常声明的。
 
 2. 传给 `getPackageSizeInfo` 方法的第二个参数类型 `IPackageStatsObserver` 是在 android.content.pm 包下，需要自已通过 aidl 方式定义。
 
@@ -564,5 +564,80 @@ class BackgroundHandler extends Handler {
 完整的实例见 <https://github.com/mzlogin/CleanExpert>。
 
 ## 系统缓存的清理
+
+既然借鉴 Settings APP 的做法如此好使，在做缓存清理时我们当然故伎重施。我们先来看看它是怎样清理某一个应用的缓存的。
+
+在 InstalledAppDetails.java 里能根据名称找到对应「清除缓存」按钮相关的代码：
+
+```java
+public class InstalledAppDetails extends Fragment
+        implements View.OnClickListener, CompoundButton.OnCheckedChangeListener,
+        ApplicationsState.Callbacks {
+    ......
+    private Button mClearCacheButton;
+    ......
+    class ClearCacheObserver extends IPackageDataObserver.Stub {
+        public void onRemoveCompleted(final String packageName, final boolean succeeded) {
+            final Message msg = mHandler.obtainMessage(CLEAR_CACHE);
+            msg.arg1 = succeeded ? OP_SUCCESSFUL:OP_FAILED;
+            mHandler.sendMessage(msg);
+         }
+     }
+    ......
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        ......
+        mClearCacheButton = (Button) view.findViewById(R.id.clear_cache_button);
+        ......
+    }
+    ......
+    private void refreshSizeInfo() {
+        ......
+        if (cacheSize <= 0) {
+            mClearCacheButton.setEnabled(false);
+        } else {
+            mClearCacheButton.setEnabled(true);
+            mClearCacheButton.setOnClickListener(this);
+        }
+    }
+    ......
+    public void onClick(View v) {
+        ......
+        } else if (v == mClearCacheButton) {
+            // Lazy initialization of observer
+            if (mClearCacheObserver == null) {
+                mClearCacheObserver = new ClearCacheObserver();
+            }
+            mPm.deleteApplicationCacheFiles(packageName, mClearCacheObserver);
+        }
+        ......
+    }
+```
+
+这个类定义在文件 packages/apps/Settings/src/com/android/settings/applications/InstalledAppDetails.java 中。
+
+是不是很熟悉？是不是很激动？是不是觉得顶多再次祭出反射大法就能继续拯救世界了？先冷静一下，看看 frameworks/base/core/java/android/content/pm/PackageManager.java 文件里 `deleteApplicationCacheFiles` 方法上面的注释。
+
+```
+/**
+ * Attempts to delete the cache files associated with an application.
+ * Since this may take a little while, the result will
+ * be posted back to the given observer.  A deletion will fail if the calling context
+ * lacks the {@link android.Manifest.permission#DELETE_CACHE_FILES} permission, if the
+ * named package cannot be found, or if the named package is a "system package".
+ *
+ * ......
+ *
+ * @hide
+ */
+```
+
+没错它又是一个 `@hide` 方法，关键是它需要 `DELETE_CACHE_FILES` 权限，而该权限在 Android 文档里的说明里有一句：
+
+```
+Not for use by third-party applications.
+```
+
+此路不通。
 
 ## 有 root 权限的系统缓存计算与清理
