@@ -508,7 +508,18 @@ class BackgroundHandler extends Handler {
 
 1. `getPackageSizeInfo` 方法是一个 `@hide` 方法，需要通过反射来调用。
 
-    从 PackageManager.java 文件的 `getPackageSizeInfo` 方法定义处可知，它需要 `GET_PACKAGE_SIZE` 权限，幸运的是，从 Android API 文档里可知，该权限的 Protection level 为 normal，是可以正常声明的。
+    从 PackageManager.java 文件的 `getPackageSizeInfo` 方法定义处可知，它需要 `GET_PACKAGE_SIZE` 权限，幸运的是，从 frameworks/base/core/res/AndroidManifex.xml 文件里可知，该权限的 Protection level 为 normal，是可以正常声明的。
+
+    ```xml
+    <!-- Allows an application to find out the space used by any package. -->
+    <permission android:name="android.permission.GET_PACKAGE_SIZE"
+        android:permissionGroup="android.permission-group.SYSTEM_TOOLS"
+        android:protectionLevel="normal"
+        android:label="@string/permlab_getPackageSize"
+        android:description="@string/permdesc_getPackageSize" />
+    ```
+
+    这段代码定义在文件 packages/apps/Settings/src/com/android/settings/applications/ApplicationsState.java 中。
 
 2. 传给 `getPackageSizeInfo` 方法的第二个参数类型 `IPackageStatsObserver` 是在 android.content.pm 包下，需要自已通过 aidl 方式定义。
 
@@ -518,9 +529,9 @@ class BackgroundHandler extends Handler {
 
 2. 将 Android 源码 frameworks/base/core/java/android/content/pm 目录下的 IPackageStatsObserver.aidl 与其依赖的 PackageStats.aidl 拷贝到上面一步创建的目录里。
 
-3. 根据 frameworks/base/core/java/android/content/pm/PackageManager.java 的 `getPackageSizeInfo` 接口上面的注释可知，需要在 AndroidManifest 里声明需要 `GET_PACKAGE_SIZE` 权限。
+3. 根据 frameworks/base/core/java/android/content/pm/PackageManager.java 的 `getPackageSizeInfo` 接口上面的注释可知，需要在 AndroidManifest.xml 里声明需要 `GET_PACKAGE_SIZE` 权限。
 
-    ```
+    ```xml
     <uses-permission android:name="android.permission.GET_PACKAGE_SIZE"></uses-permission>
     ```
 
@@ -632,12 +643,107 @@ public class InstalledAppDetails extends Fragment
  */
 ```
 
-没错它又是一个 `@hide` 方法，关键是它需要 `DELETE_CACHE_FILES` 权限，而该权限在 Android 文档里的说明里有一句：
+没错它又是一个 `@hide` 方法，关键是它需要 `DELETE_CACHE_FILES` 权限，而该权限的相关声明如下：
 
+```xml
+<!-- Allows an application to delete cache files. -->
+<permission android:name="android.permission.DELETE_CACHE_FILES"
+    android:label="@string/permlab_deleteCacheFiles"
+    android:description="@string/permdesc_deleteCacheFiles"
+    android:protectionLevel="signature|system" />
 ```
-Not for use by third-party applications.
-```
+
+这段声明定义在 frameworks/base/core/res/AndroidManifest.xml 中。
+
+它的 protectionLevel 为 `signature|system`，系统应用或者与系统采用相同签名的应用才能获得此权限。
 
 此路不通。
 
+那就继续想其它办法了。frameworks/base/core/java/android/content/pm/PackageManager.java 里提供了很多实用的功能，比如上面的系统缓存的大小计算以及清理都是它里面声明的方法，仔细看一下它里面声明的其它方法还真是有发现：
+
+```java
+/**
+ * Free storage by deleting LRU sorted list of cache files across
+ * all applications. If the currently available free storage
+ * on the device is greater than or equal to the requested
+ * free storage, no cache files are cleared. If the currently
+ * available storage on the device is less than the requested
+ * free storage, some or all of the cache files across
+ * all applications are deleted (based on last accessed time)
+ * to increase the free storage space on the device to
+ * the requested value. There is no guarantee that clearing all
+ * the cache files from all applications will clear up
+ * enough storage to achieve the desired value.
+ * @param freeStorageSize The number of bytes of storage to be
+ * freed by the system. Say if freeStorageSize is XX,
+ * and the current free storage is YY,
+ * if XX is less than YY, just return. if not free XX-YY number
+ * of bytes if possible.
+ * @param observer call back used to notify when
+ * the operation is completed
+ *
+ * @hide
+ */
+public abstract void freeStorageAndNotify(long freeStorageSize, IPackageDataObserver observer);
+```
+
+从解释来看很像是用来在必要时清理所有应用的缓存的，在 Android 源码里搜索一下它被调用的地方，有一处是在 frameworks/base/services/java/com/android/server/DeviceStorageMonitorService.java 中，大致的逻辑是在系统空间不够的时候，提示用户清理系统缓存。后来事实证明它确实可以帮我们清理所有应用的缓存。
+
+这个方法的注释里没有提及它需要申请什么权限，但事实上它是需要 `CLEAR_APP_CACHE` 权限的，这一点从实际执行清理过程的 service 的代码里可以映证：
+
+```java
+public class PackageManagerService extends IPackageManager.Stub {
+    ......
+    public void freeStorageAndNotify(final long freeStorageSize, final IPackageDataObserver observer) {
+        mContext.enforceCallingOrSelfPermission(
+                android.Manifest.permission.CLEAR_APP_CACHE, null);
+        ......
+    }
+    ......
+}
+```
+
+这个类定义在文件 frameworks/base/services/java/com/android/server/pm/PackageManagerService.java 中。
+
+该权限的相关声明：
+
+```xml
+<!-- Allows an application to clear the caches of all installed
+     applications on the device.  -->
+<permission android:name="android.permission.CLEAR_APP_CACHE"
+    android:permissionGroup="android.permission-group.SYSTEM_TOOLS"
+    android:protectionLevel="dangerous"
+    android:label="@string/permlab_clearAppCache"
+    android:description="@string/permdesc_clearAppCache" />
+```
+
+这段声明定义在 frameworks/base/core/res/AndroidManifest.xml 中。
+
+虽然它的 protectionLevel 是 `dangerous`，但是好歹还是能用的。
+
+参考 frameworks/base/services/java/com/android/server/DeviceStorageMonitorService.java 中对 `freeStorageAndNotify` 的相关调用，最后我们的实现步骤如下：
+
+1. 在自己的工程的 src 目录下创建包目录结构 android/content/pm。
+
+2. 将 Android 源码 frameworks/base/core/java/android/content/pm 目录下的 IPackageDataObserver.aidl 拷贝到上面一步创建的目录里。
+
+3. 在 AndroidManifest.xml 里声明 `CLEAR_APP_CACHE` 权限。
+
+    ```xml
+    <uses-permission android:name="android.permission.CLEAR_APP_CACHE"></uses-permission>
+    ```
+
+4. 通过反射调用 `freeStorageAndNotify` 方法。
+
+TODO：这里应该有示例代码。
+
+完整的实例见 <https://github.com/mzlogin/CleanExpert>。
+
+**备注：该方法在 Android 5.0 版本及以上已经失效，因为源码里已经给 `freeStorageAndNotify` 方法声明添加了 `@SystemApi` 注释（开始是 `@PrivateApi`，后修改为 `@SystemApi`），见「[添加][1]」和「[修改][2]」两次提交，已经无法通过反射来正常调用，而且 `CLEAR_APP_CACHE` 方法的权限已经改成了 `system|signature`，所以在 Android 5.0 版本及以上需要另想办法了。**
+
 ## 有 root 权限的系统缓存计算与清理
+
+TODO：待添加
+
+[1]: https://github.com/android/platform_frameworks_base/commit/8b0cfb7dbde6f19a5dd5879fef3d16576f2eeba4#diff-a5f0b5ebe6a871aca1c5841bc0497538R3225
+[2]: https://github.com/android/platform_frameworks_base/commit/d5a5b5a547462f3e7c6315a501909bce2418ba86#diff-a5f0b5ebe6a871aca1c5841bc0497538R3233
