@@ -2,7 +2,8 @@
 <h3>Blog Categories</h3>
 <div id="blog-categories">
   <ul class="list-group">
-    {% for category in site.categories %}
+    {% assign sorted_categories = site.categories | sort %}
+    {% for category in sorted_categories %}
     <li class="list-group-item">
     <a href="#{{ category[0] }}">{{ category | first }}</a>
     <span class="badge">{{ category[1].size }}</span>
