@@ -629,7 +629,7 @@ public class InstalledAppDetails extends Fragment
 
 是不是很熟悉？是不是很激动？是不是觉得顶多再次祭出反射大法就能继续拯救世界了？先冷静一下，看看 frameworks/base/core/java/android/content/pm/PackageManager.java 文件里 `deleteApplicationCacheFiles` 方法上面的注释。
 
-```
+```java
 /**
  * Attempts to delete the cache files associated with an application.
  * Since this may take a little while, the result will
@@ -687,7 +687,7 @@ public class InstalledAppDetails extends Fragment
 public abstract void freeStorageAndNotify(long freeStorageSize, IPackageDataObserver observer);
 ```
 
-从解释来看很像是用来在必要时清理所有应用的缓存的，在 Android 源码里搜索一下它被调用的地方，有一处是在 frameworks/base/services/java/com/android/server/DeviceStorageMonitorService.java 中，大致的逻辑是在系统空间不够的时候，提示用户清理系统缓存。后来事实证明它确实可以帮我们清理所有应用的缓存。
+从解释来看它是用来在必要时释放所有应用的缓存所占空间的，在 Android 源码里搜索一下它被调用的地方，有一处是在 frameworks/base/services/java/com/android/server/DeviceStorageMonitorService.java 中，大致的逻辑是在系统空间不够的时候，提示用户清理系统缓存。后来事实证明它确实可以帮我们清理所有应用的缓存。
 
 这个方法的注释里没有提及它需要申请什么权限，但事实上它是需要 `CLEAR_APP_CACHE` 权限的，这一点从实际执行清理过程的 service 的代码里可以映证：
 
@@ -733,17 +733,28 @@ public class PackageManagerService extends IPackageManager.Stub {
     <uses-permission android:name="android.permission.CLEAR_APP_CACHE"></uses-permission>
     ```
 
-4. 通过反射调用 `freeStorageAndNotify` 方法。
+4. 通过反射调用 `freeStorageAndNotify` 方法，第一个参数给它一个足够大的值，它就会帮我们清理掉所有应用的缓存了。
 
 TODO：这里应该有示例代码。
 
 完整的实例见 <https://github.com/mzlogin/CleanExpert>。
 
-**备注：该方法在 Android 5.0 版本及以上已经失效，因为源码里已经给 `freeStorageAndNotify` 方法声明添加了 `@SystemApi` 注释（开始是 `@PrivateApi`，后修改为 `@SystemApi`），见「[添加][1]」和「[修改][2]」两次提交，已经无法通过反射来正常调用，而且 `CLEAR_APP_CACHE` 方法的权限已经改成了 `system|signature`，所以在 Android 5.0 版本及以上需要另想办法了。**
+**备注：**经测试该方法在 Android 6.0 版本和部分 5.0+ 版本上已经失效，Android 源码里已经给 `freeStorageAndNotify` 方法声明添加了 `@SystemApi` 注释（开始添加了 `@PrivateApi`，后修改为 `@SystemApi`），见「[添加][1]」和「[修改][2]」两次提交，而且 ``CLEAR_APP_CACHE`` 方法的权限已经由 `dangerous` 改成了 `system|signature`，已经无法通过反射来正常调用，会产生 `java.lang.reflect.InvocationTargetException`，所以在这些版本上需要另想办法了，StackOverflow 上的一个相关讨论链接：[What's the meaning of new @SystemApi annotation, any difference from @hide?][3]。
 
 ## 有 root 权限的系统缓存计算与清理
 
-TODO：待添加
+如果能获取到 root 权限，/data/data 目录的访问限制也就不再是问题，计算缓存大小和清理缓存也就不用再受上面说的方法与权限的限制了，而且能做一些没有 root 权限的情况下做不到的事情，比如：
+
+1. 清理单个应用的缓存。
+
+2. 列出应用的缓存文件列表供用户选择性清理。
+
+实现思路很简单粗暴（如下思路未写实例验证）：
+
+**思路一** 通过 `su` 命令获取一个有 root 权限的 shell，然后通过与它交互来获取缓存文件夹的大小或清理缓存，比如让它执行命令 `du -h /data/data/com.trello/cache` 就能获取到 trello 的「内部缓存」大小，让它执行 `rm -rf /data/data/com.trello/cache` 就能删除 trello 的「内部缓存」。
+
+**思路二** 或者，也可以做一个原生程序专门来负责缓存计算与清理，通过 `su` 命令获取有 root 权限的 shell，再用 shell 创建该原生程序进程，它继承 shell 的 root 权限，然后它就可以计算缓存大小与清理缓存，再将结果上报给 APP 进程。
 
 [1]: https://github.com/android/platform_frameworks_base/commit/8b0cfb7dbde6f19a5dd5879fef3d16576f2eeba4#diff-a5f0b5ebe6a871aca1c5841bc0497538R3225
 [2]: https://github.com/android/platform_frameworks_base/commit/d5a5b5a547462f3e7c6315a501909bce2418ba86#diff-a5f0b5ebe6a871aca1c5841bc0497538R3233
+[3]: http://stackoverflow.com/questions/26752656/whats-the-meaning-of-new-systemapi-annotation-any-difference-from-hide/27321030#27321030
