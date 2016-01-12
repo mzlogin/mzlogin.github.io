@@ -1,13 +1,15 @@
 ---
 layout: post
-title: 使用 Ubuntu 遇到的问题及解决办法笔记
+title: Ubuntu 使用笔记
 categories: Linux
-description: 使用 Ubuntu 遇到一些问题，笔记在此备忘
+description: 使用 Ubuntu 遇到一些问题，笔记在此备忘。
 keywords: Linux, Ubuntu
 autotoc: true
 ---
 
-### 使用 git 遇到问题 `Agent admitted failure to sign using the key.`
+## 使用 git pull 遇到问题
+
+提示
 
 ```
 Agent admitted failure to sign using the key.
@@ -24,17 +26,19 @@ and the repository exists.
 ssh-add ~/.ssh/id_rsa
 ```
 
-### 图形界面编辑配置文件
+## 图形界面编辑配置文件
 
-安装 dconf-editor
+安装 dconf-editor。
 
-### 配置 Exchange
+## 配置 Exchange
 
 为 ThunderBird 安装插件 ExQuilla，有时被墙。
 
 http://mesquilla.net/exquilla-currentrelease-tb-linux.xpi
 
-### 安装和配置 JDK
+## 安装和配置 JDK
+
+在 Terminal 运行：
 
 ```sh
 sudo add-apt-repository ppa:webupd8team/java
@@ -49,7 +53,7 @@ export CLASSPATH=.:$JAVA_HOME/lib:$JRE_HOME/lib
 export PATH=$JAVA_HOME/bin:$JRE_HOME/bin:$PATH
 ```
 
-### 配置 adt
+## 配置 adt
 
 安装兼容 32 位 adb 运行的环境
 
@@ -64,7 +68,9 @@ export ANDROID_SDK_HOME=/home/mzlogin/android/sdk
 export PATH=$ANDROID_SDK_HOME/platform-tools:$ANDROID_SDK_HOME/tools:$PATH
 ```
 
-### 安装 SVN 图形前端 RabbitVCS
+## 安装 SVN 图形前端 RabbitVCS
+
+在 Terminal 运行：
 
 ```sh
 sudo add-apt-repository ppa:rabbitvcs/ppa
@@ -72,7 +78,7 @@ sudo apt-get update
 sudo apt-get install rabbitvcs-nautilus3 rabbitvcs-thunar rabbitvcs-gedit rabbitvcs-cli
 ```
 
-### 创建 eclipse 快捷方式
+## 创建 eclipse 快捷方式
 
 /usr/share/applications 里新建 Eclipse.desktop，填如下内容：
 
@@ -87,7 +93,7 @@ Terminal=false
 Type=Application
 ```
 
-### 安装 XMind
+## 安装 XMind
 
 到 XMind 官网下载安装包，然后 ：
 
@@ -95,13 +101,13 @@ Type=Application
 sudo dpkg --ignore-depends=lame,libwebkitgtk-1.0-0 -i xmind-linux-3.5.0.201410310637_amd64.deb
 ```
 
-### 切换输入法
+## 切换输入法
 
 添加一个英文，一个五笔，将切换到上一个源和下一个源的快捷键分别设为左和右 Shift，这样就可以使用左右 Shift 在中英之间来回切换了。
 
 安装 im-switch 会导致语言支持被移除，恢复用 `sudo apt-get install language-selector-gnome`。
 
-### 消除启动 gVim 在 terminal 中的警告
+## 消除启动 gVim 在 terminal 中的警告
 
 安装 vim-gnome 后运行 gVim 会提示：
 
@@ -111,7 +117,7 @@ GLib-GObject-WARNING **: Attempt to add property GnomeProgram::sm-connect after 
 
 改为安装 vim-gtk 就好了。
 
-### 解决 ibus 五笔候选词水平显示和个数的问题
+## 解决 ibus 五笔候选词水平显示和个数的问题
 
 修改 /usr/share/ibus-table/tables/wubi-jidian86.db 的 ime 表里的 orientation（水平 0 垂直 1）和 select_keys（有几个选择键就有几个项，从下面代码可知用 `,` 分隔）。
 
@@ -122,7 +128,7 @@ def get_page_size (self):
     return len(self.get_select_keys().split(','))
 ```
 
-### 将 Caps Lock 映射为 Ctrl
+## 将 Caps Lock 映射为 Ctrl
 
 1. 安装 Gnome Tweak Tool
 
@@ -134,7 +140,7 @@ def get_page_size (self):
 
 参考 <http://askubuntu.com/questions/462021/how-do-i-turn-caps-lock-into-an-extra-control-key>
 
-### 将个人文件夹下文件夹名改为英文
+## 将个人文件夹下文件夹名改为英文
 
 ~ 目录下的「桌面」和「文档」等文件夹是中文，在 Terminal 下输入很不方便，将其改为英文的方法：
 
@@ -153,6 +159,6 @@ def get_page_size (self):
 
 2. 在文件管理器中将 HOME 目录下的中文文件夹名改成与上面的配置对应。
 
-### 在 Ubuntu 下输入 「与」
+## 在 Ubuntu 下输入 「与」
 
 极点五笔中文输入状态下，按 [] 即输入「」，按 {} 即输入『』。
