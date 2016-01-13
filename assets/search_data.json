@@ -6,7 +6,8 @@ layout: null
   {% for post in site.posts %}
   "{{ post.url | slugify }}": {
     "title": "{{ post.title | xml_escape }}",
-    "url": " {{ post.url | xml_escape }}"
+    "url": " {{ post.url | xml_escape }}",
+    "category": "{{ post.categories[0] | xml_escape }}"
   },
   {% endfor %}
 
