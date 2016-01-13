@@ -8,7 +8,6 @@ date_format: "ordinal"
 title: 码志
 subtitle: "打码改变人生"
 description: "码志|打码改变人生"
-author: Zhuang Ma 
 keywords: 码志
 gavatar: /favicon.ico
 favicon: /favicon.ico
@@ -16,6 +15,15 @@ header-img: facebook.jpg
 timezone: Asia/Shanghai
 encoding: "utf-8"
 source_code: https://github.com/mzlogin/mzlogin.github.io
+
+# ---------------- #
+#      Author      #
+# ---------------- #
+author: Zhuang Ma 
+organization: Sogou, Inc.
+organization_url: https://www.sogou.com
+location: Beijing, China
+email: chumpma@gmail.com
 
 # ---------------- #
 #    Navigation    #
@@ -42,10 +50,9 @@ navs:
     label: 关于
 
 # ---------------- #
-#   RSS / Email    #
+#       RSS        #
 # ---------------- #
 subscribe_rss: /feed.xml
-email: chumpma@gmail.com
 
 # ---------------- #
 #      Jekyll      #
