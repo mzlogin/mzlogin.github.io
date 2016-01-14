@@ -8,7 +8,7 @@ keywords: Android, Cache, Cleaner, System Cache
 
 本文记录的是我对 Android 的「系统缓存」及其扫描和清理方法的探索与理解。
 
-本文讲述内容的完整的实例见 <https://github.com/mzlogin/CleanExpert>。
+本文讲述内容的完整代码实例见 <https://github.com/mzlogin/CleanExpert>。
 
 ## 系统缓存的定义
 
@@ -22,7 +22,7 @@ keywords: Android, Cache, Cleaner, System Cache
 
 **「系统缓存」由所有已安装应用的 /data/data/packagename/cache 文件夹和 /sdcard/Android/data/packagename/cache 文件夹组成。**
 
-如下是原理分析，不感兴趣的可以直接跳到[下一节](#系统缓存的计算)。
+如下是原理分析，不感兴趣的可以直接跳到[下一节](#系统缓存大小的计算)。
 
 我们先来看一个熟悉的界面：
 
