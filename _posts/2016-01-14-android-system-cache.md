@@ -8,6 +8,8 @@ keywords: Android, Cache, Cleaner, System Cache
 
 本文记录的是我对 Android 的「系统缓存」及其扫描和清理方法的探索与理解。
 
+本文讲述内容的完整的实例见 <https://github.com/mzlogin/CleanExpert>。
+
 ## 系统缓存的定义
 
 如下是我捏造的非官方定义：
@@ -18,9 +20,9 @@ keywords: Android, Cache, Cleaner, System Cache
 
 先说结论：
 
-**「系统缓存」由 /data/data/packagename/cache 文件夹和 /sdcard/Android/data/packagename/cache 文件夹组成。**
+**「系统缓存」由所有已安装应用的 /data/data/packagename/cache 文件夹和 /sdcard/Android/data/packagename/cache 文件夹组成。**
 
-如下是原理分析，不感兴趣的可以直接跳到下一节。
+如下是原理分析，不感兴趣的可以直接跳到[下一节](#系统缓存的计算)。
 
 我们先来看一个熟悉的界面：
 
@@ -31,6 +33,12 @@ keywords: Android, Cache, Cleaner, System Cache
 这里显示的大小是如何计算出来的，它实际上的文件组成是怎么样的呢？可以从 Android 系统自带的 Settings APP 的源码中找到答案。
 
 *注：下面的分析基于我手边的 Android 4.1 源码，比较古老了，但并不妨碍理解。*
+
+### 探索「外部缓存」
+
+按惯例先说结论：
+
+**「外部缓存」由所有已安装应用的 /sdcard/Android/data/packagename/cache 文件夹组成。**
 
 Settings APP 的源码在 Android 源码树的 packages/apps/Settings 目录里，在它里面能找到 InstalledAppDetails.java 文件，从名字上看它应该就是对应我们上图中的「应用详情页」，它是一个 Fragment，在它的 `onResume` 方法中调用了 `refreshUi` 方法，它里面又调用了 `refreshSizeInfo` 方法：
 
@@ -257,9 +265,15 @@ public class Environment {
 
 即有小结论一：
 
-**「外部缓存」即 /sdcard/Android/data/packagename/cache 文件夹。**
+**「外部缓存」由所有已安装应用的 /sdcard/Android/data/packagename/cache 文件夹组成。**
 
-而 Internal 的 `cacheSize` 部分在 `getPackageSizeInfoLI` 方法里，
+### 探索「内部缓存」
+
+先说结论：
+
+**「内部缓存」由所有已安装应用的 /data/data/packagename/cache 文件夹组成。**
+
+从上面的 `handleStartCopy` 方法中可知 Internal 的 `cacheSize` 部分在 `getPackageSizeInfoLI` 方法里，
 
 ```java
 private boolean getPackageSizeInfoLI(String packageName, PackageStats pStats) {
@@ -447,11 +461,11 @@ shell@aries:/ $ echo $ANDROID_DATA
 
 即有小结论二：
 
-**「内部缓存」即 /data/data/packagename/cache 文件夹。**
+**「内部缓存」由所有已安装应用的 /data/data/packagename/cache 文件夹组成。**
 
 以上，我们的结论得证。
 
-## 系统缓存的计算
+## 系统缓存大小的计算
 
 通过上一节我们已经知道了「系统缓存」的文件构成，在想要计算系统缓存大小的时候下意识的想法就是，用代码计算一下这两个文件夹的大小不就行了？
 
@@ -464,6 +478,8 @@ shell@aries:/ $ echo $ANDROID_DATA
 这里分了两种情况：能获取 root 权限和不能获取 root 权限。我们这里先讨论非 root 权限的系统缓存计算和清理，root 权限的情况在后文会有说明。
 
 既然直接计算文件夹大小的方法行不通了，那就仍然重复上面的故事，参考 Settings APP 的做法吧。
+
+### Settings 计算缓存大小的方法
 
 Settings APP 使用了 `PackageManager.getPackageSizeInfo` 方法来做此事，难道 so easy？屁颠屁颠去查了一下 Android API，发现 `PacakgeManager` 的文档中压根就没有出现 `getPackageSizeInfo` 的身影，好吧这是一个不对外公开的 API。
 
@@ -522,6 +538,8 @@ class BackgroundHandler extends Handler {
     这段代码定义在文件 packages/apps/Settings/src/com/android/settings/applications/ApplicationsState.java 中。
 
 2. 传给 `getPackageSizeInfo` 方法的第二个参数类型 `IPackageStatsObserver` 是在 android.content.pm 包下，需要自已通过 aidl 方式定义。
+
+### 计算缓存大小的实现
 
 解决步骤：
 
@@ -583,6 +601,8 @@ class BackgroundHandler extends Handler {
 ## 系统缓存的清理
 
 既然借鉴 Settings APP 的做法如此好使，在做缓存清理时我们当然故伎重施。我们先来看看它是怎样清理某一个应用的缓存的。
+
+### Settings 清理缓存的方法
 
 在 InstalledAppDetails.java 里能根据名称找到对应「清除缓存」按钮相关的代码：
 
@@ -664,6 +684,8 @@ public class InstalledAppDetails extends Fragment
 它的 protectionLevel 为 `signature|system`，系统应用或者与系统采用相同签名的应用才能获得此权限。
 
 此路不通。
+
+### 新的发现
 
 那就继续想其它办法了。frameworks/base/core/java/android/content/pm/PackageManager.java 里提供了很多实用的功能，比如上面的系统缓存的大小计算以及清理都是它里面声明的方法，仔细看一下它里面声明的其它方法还真是有发现：
 
@@ -790,6 +812,8 @@ int free_cache(int64_t free_size)
 实际就是遍历 /data/data 下的所有文件夹，依次删除它们下面的 cache 子目录，直到磁盘的可用空间大于需要的空间为止。
 
 **也就是说，`freeStorageAndNotify` 只是删除了「内部缓存」，扩展存储上的「外部缓存」需要我们另外处理。**
+
+### 清理缓存的实现
 
 参考 frameworks/base/services/java/com/android/server/DeviceStorageMonitorService.java 中对 `freeStorageAndNotify` 的相关调用，最后我们的实现步骤如下：
 
