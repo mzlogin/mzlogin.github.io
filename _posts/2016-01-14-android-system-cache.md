@@ -2,7 +2,7 @@
 layout: post
 title: 「Android 垃圾清理」之系统缓存
 categories: Android
-description: 深入理解 Android 的进程、Task、Activity 等之间的关系。
+description: Android 系统缓存从原理探索到实现。
 keywords: Android, Cache, Cleaner, System Cache
 ---
 
@@ -369,7 +369,7 @@ int get_size(const char *pkgname, const char *apkpath,
 }
 ```
 
-这个函数定义在文件 frameworks/base/cmds/installd/commands.c 中。
+这个函数定义在文件 frameworks/base/cmds/installd/Commands.c 中。
 
 我们来看一下 `path` 是什么值：
 
@@ -527,6 +527,8 @@ class BackgroundHandler extends Handler {
 
 1. 在自己的工程的 src/main 目录下创建包目录结构 aidl/android/content/pm。
 
+    *注：这是使用 Android Studio 的默认做法，使用 Eclipse 默认在 src 目录下创建包目录结构 android/content/pm。*
+
 2. 将 Android 源码 frameworks/base/core/java/android/content/pm 目录下的 IPackageStatsObserver.aidl 与其依赖的 PackageStats.aidl 拷贝到上面一步创建的目录里。
 
 3. 根据 frameworks/base/core/java/android/content/pm/PackageManager.java 的 `getPackageSizeInfo` 接口上面的注释可知，需要在 AndroidManifest.xml 里声明需要 `GET_PACKAGE_SIZE` 权限。
@@ -545,12 +547,16 @@ class BackgroundHandler extends Handler {
 
     public void getPackageInfo(String packageName, IPackageStatsObserver.Stub observer) {
         try {
-            PackageManager pm = mAppContext.getPackageManager();
+            PackageManager pm = ContextUtil.applicationContext.getPackageManager();
             Method getPackageSizeInfo = pm.getClass()
                     .getMethod("getPackageSizeInfo", String.class, IPackageStatsObserver.class);
 
             getPackageSizeInfo.invoke(pm, packageName, observer);
-        } catch (Exception e) {
+        } catch (NoSuchMethodException e ) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
             e.printStackTrace();
         }
     }
@@ -687,9 +693,9 @@ public class InstalledAppDetails extends Fragment
 public abstract void freeStorageAndNotify(long freeStorageSize, IPackageDataObserver observer);
 ```
 
-从解释来看它是用来在必要时释放所有应用的缓存所占空间的，在 Android 源码里搜索一下它被调用的地方，有一处是在 frameworks/base/services/java/com/android/server/DeviceStorageMonitorService.java 中，大致的逻辑是在系统空间不够的时候，提示用户清理系统缓存。后来事实证明它确实可以帮我们清理所有应用的缓存。
+从解释来看它是用来在必要时释放所有应用的缓存所占空间的，在 Android 源码里搜索一下它被调用的地方，有一处是在 frameworks/base/services/java/com/android/server/DeviceStorageMonitorService.java 中，大致的逻辑是在系统空间不够的时候，提示用户清理系统缓存。
 
-这个方法的注释里没有提及它需要申请什么权限，但事实上它是需要 `CLEAR_APP_CACHE` 权限的，这一点从实际执行清理过程的 service 的代码里可以映证：
+我们来看看这个方法实际做了什么事情：
 
 ```java
 public class PackageManagerService extends IPackageManager.Stub {
@@ -697,13 +703,32 @@ public class PackageManagerService extends IPackageManager.Stub {
     public void freeStorageAndNotify(final long freeStorageSize, final IPackageDataObserver observer) {
         mContext.enforceCallingOrSelfPermission(
                 android.Manifest.permission.CLEAR_APP_CACHE, null);
-        ......
+        // Queue up an async operation since clearing cache may take a little while.
+        mHandler.post(new Runnable() {
+            public void run() {
+                mHandler.removeCallbacks(this);
+                int retCode = -1;
+                retCode = mInstaller.freeCache(freeStorageSize);
+                if (retCode < 0) {
+                    Slog.w(TAG, "Couldn't clear application caches");
+                }
+                if (observer != null) {
+                    try {
+                        observer.onRemoveCompleted(null, (retCode >= 0));
+                    } catch (RemoteException e) {
+                        Slog.w(TAG, "RemoveException when invoking call back");
+                    }
+                }
+            }
+        });
     }
     ......
 }
 ```
 
 这个类定义在文件 frameworks/base/services/java/com/android/server/pm/PackageManagerService.java 中。
+
+也就是说，这个方法的注释里没有提及它需要申请什么权限，但事实上它是需要 `CLEAR_APP_CACHE` 权限的。
 
 该权限的相关声明：
 
@@ -721,9 +746,56 @@ public class PackageManagerService extends IPackageManager.Stub {
 
 虽然它的 protectionLevel 是 `dangerous`，但是好歹还是能用的。
 
+另外，跟踪实际执行清理过程的 `retCode = mInstaller.freeCache(freeStorageSize);` 这一行实际是通过给 /dev/socket/installd 发送 `freecache freeStorageSize` 来完成清理过程，最终调用到如下函数：
+
+```c
+int free_cache(int64_t free_size)
+{
+    ......
+    char datadir[PKG_PATH_MAX];
+    avail = disk_free();
+    ......
+    if (avail >= free_size) return 0;
+
+    if (create_persona_path(datadir, 0)) { // /data/data
+        ......
+    }
+
+    d = opendir(datadir);
+    ......
+    dfd = dirfd(d);
+
+    while ((de = readdir(d))) {
+        if (de->d_type != DT_DIR) continue;
+        name = de->d_name;
+        ......
+        subfd = openat(dfd, name, O_RDONLY | O_DIRECTORY);
+        if (subfd < 0) continue;
+
+        delete_dir_contents_fd(subfd, "cache");
+        close(subfd);
+
+        avail = disk_free();
+        if (avail >= free_size) {
+            closedir(d);
+            return 0;
+        }
+    }
+    ......
+}
+```
+
+这个函数定义在文件 frameworks/base/cmds/installd/Commands.c 中。
+
+实际就是遍历 /data/data 下的所有文件夹，依次删除它们下面的 cache 子目录，直到磁盘的可用空间大于需要的空间为止。
+
+**也就是说，`freeStorageAndNotify` 只是删除了「内部缓存」，扩展存储上的「外部缓存」需要我们另外处理。**
+
 参考 frameworks/base/services/java/com/android/server/DeviceStorageMonitorService.java 中对 `freeStorageAndNotify` 的相关调用，最后我们的实现步骤如下：
 
 1. 在自己的工程的 src/main 目录下创建包目录结构 aidl/android/content/pm。
+
+    *注：这是使用 Android Studio 的默认做法，使用 Eclipse 默认在 src 目录下创建包目录结构 android/content/pm。*
 
 2. 将 Android 源码 frameworks/base/core/java/android/content/pm 目录下的 IPackageDataObserver.aidl 拷贝到上面一步创建的目录里。
 
@@ -735,7 +807,61 @@ public class PackageManagerService extends IPackageManager.Stub {
 
 4. 通过反射调用 `freeStorageAndNotify` 方法，第一个参数给它一个足够大的值，它就会帮我们清理掉所有应用的缓存了。
 
-TODO：这里应该有示例代码。
+    ```java
+    public static void freeAllAppsCache(final Handler handler) {
+
+        Context context = ContextUtil.applicationContext;
+
+        File externalDir = context.getExternalCacheDir();
+        if (externalDir == null) {
+            return;
+        }
+
+        PackageManager pm = context.getPackageManager();
+        List<ApplicationInfo> installedPackages = pm.getInstalledApplications(PackageManager.GET_GIDS);
+        for (ApplicationInfo info : installedPackages) {
+            String externalCacheDir = externalDir.getAbsolutePath()
+                    .replace(context.getPackageName(), info.packageName);
+            File externalCache = new File(externalCacheDir);
+            if (externalCache.exists() && externalCache.isDirectory()) {
+                deleteFile(externalCache);
+            }
+        }
+
+        try {
+            Method freeStorageAndNotify = pm.getClass()
+                    .getMethod("freeStorageAndNotify", long.class, IPackageDataObserver.class);
+            long freeStorageSize = Long.MAX_VALUE;
+
+            freeStorageAndNotify.invoke(pm, freeStorageSize, new IPackageDataObserver.Stub() {
+                @Override
+                public void onRemoveCompleted(String packageName, boolean succeeded) throws RemoteException {
+                    Message msg = handler.obtainMessage(JunkCleanActivity.MSG_SYS_CACHE_CLEAN_FINISH);
+                    msg.sendToTarget();
+                }
+            });
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static boolean deleteFile(File file) {
+        if (file.isDirectory()) {
+            String[] children = file.list();
+            for (String name : children) {
+                boolean suc = deleteFile(new File(file, name));
+                if (!suc) {
+                    return false;
+                }
+            }
+        }
+        return file.delete();
+    }
+    ```
 
 完整的实例见 <https://github.com/mzlogin/CleanExpert>。
 
@@ -752,6 +878,8 @@ TODO：这里应该有示例代码。
 实现思路很简单粗暴（如下思路未写实例验证）：
 
 **思路一** 通过 `su` 命令获取一个有 root 权限的 shell，然后通过与它交互来获取缓存文件夹的大小或清理缓存，比如让它执行命令 `du -h /data/data/com.trello/cache` 就能获取到 trello 的「内部缓存」大小，让它执行 `rm -rf /data/data/com.trello/cache` 就能删除 trello 的「内部缓存」。
+
+*注：`du` 命令行与参数在不同 ROM 下的不一致，所以并不推荐此做法。*
 
 **思路二** 或者，也可以做一个原生程序专门来负责缓存计算与清理，通过 `su` 命令获取有 root 权限的 shell，再用 shell 创建该原生程序进程，它继承 shell 的 root 权限，然后它就可以计算缓存大小与清理缓存，再将结果上报给 APP 进程。
 
