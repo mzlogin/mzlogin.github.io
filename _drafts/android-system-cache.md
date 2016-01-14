@@ -525,7 +525,7 @@ class BackgroundHandler extends Handler {
 
 解决步骤：
 
-1. 在自己的工程的 src 目录下创建包目录结构 android/content/pm。
+1. 在自己的工程的 src/main 目录下创建包目录结构 aidl/android/content/pm。
 
 2. 将 Android 源码 frameworks/base/core/java/android/content/pm 目录下的 IPackageStatsObserver.aidl 与其依赖的 PackageStats.aidl 拷贝到上面一步创建的目录里。
 
@@ -723,7 +723,7 @@ public class PackageManagerService extends IPackageManager.Stub {
 
 参考 frameworks/base/services/java/com/android/server/DeviceStorageMonitorService.java 中对 `freeStorageAndNotify` 的相关调用，最后我们的实现步骤如下：
 
-1. 在自己的工程的 src 目录下创建包目录结构 android/content/pm。
+1. 在自己的工程的 src/main 目录下创建包目录结构 aidl/android/content/pm。
 
 2. 将 Android 源码 frameworks/base/core/java/android/content/pm 目录下的 IPackageDataObserver.aidl 拷贝到上面一步创建的目录里。
 
