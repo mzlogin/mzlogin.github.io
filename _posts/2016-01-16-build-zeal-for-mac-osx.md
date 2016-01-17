@@ -54,6 +54,7 @@ Zeal 的源码在 [zealdocs/zeal][1]，编译方法在 README 的 [How to compil
 4. 编译。
     * 使用 Qt Creator 打开源码下的 zeal.pro 文件，点击「项目」标签，将构建设置里的「编辑构建配置」改为 Release。
     * 打开 src/core/core.pri 文件，在最后添加如下内容（需要将路径替换为你的机器上 libarchive 的对应完整路径）：
+
         ```
         macx: {
             INCLUDEPATH += /usr/local/Cellar/libarchive/3.1.2/include
