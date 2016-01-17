@@ -133,6 +133,8 @@ When executing step "Make"
 
 **解决方法：** 安装 libarchive，将根据上面编译步骤 4 里的说明修改 src/core/core.pri 文件。
 
+关于这个问题的讨论见 [zealdocs/zeal#372][5]。
+
 ### 打包时报错
 
 在打包 dmg 文件的过程中会提示 ERROR，这个貌似不影响，直接忽略就好。
@@ -150,3 +152,4 @@ ERROR: no file at "/usr/local/lib/libpq.5.dylib"
 [2]: https://github.com/zealdocs/zeal#how-to-compile
 [3]: http://www.hjue.me/post/compile-zear-on-mac-os-x
 [4]: http://pan.baidu.com/s/1boqExRp
+[5]: https://github.com/zealdocs/zeal/pull/372
