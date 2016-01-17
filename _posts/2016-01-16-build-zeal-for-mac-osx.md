@@ -62,6 +62,7 @@ Zeal 的源码在 [zealdocs/zeal][1]，编译方法在 README 的 [How to compil
         }
         ```
     * Qt Creator 里的菜单项 「构建」——「构建所有项目」。
+
         如果编译不报错，在你的「项目」标签里的「构建目录」里填写的目录下的 bin 子目录里应该有 Zeal.app 了。
 
 5. 生成安装包。
