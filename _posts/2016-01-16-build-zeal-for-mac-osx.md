@@ -23,7 +23,7 @@ autotoc: true
 
 我在本机编译做的 dmg 文件我上传到了百度网盘，不想折腾的同学可以直接下载拿走。
 
-下载地址：[Zeal.dmg][4]
+下载地址：[Zeal-for-Mac-OSX.dmg][4]
 
 打开后将 Zeal.app 拖到「应用程序」文件夹就行了。
 
@@ -54,14 +54,12 @@ Zeal 的源码在 [zealdocs/zeal][1]，编译方法在 README 的 [How to compil
 4. 编译。
     * 使用 Qt Creator 打开源码下的 zeal.pro 文件，点击「项目」标签，将构建设置里的「编辑构建配置」改为 Release。
     * 打开 src/core/core.pri 文件，在最后添加如下内容（需要将路径替换为你的机器上 libarchive 的对应完整路径）：
-
         ```
         macx: {
             INCLUDEPATH += /usr/local/Cellar/libarchive/3.1.2/include
             LIBS += -L/usr/local/Cellar/libarchive/3.1.2/lib -larchive
         }
         ```
-
     * Qt Creator 里的菜单项 「构建」——「构建所有项目」。
         如果编译不报错，在你的「项目」标签里的「构建目录」里填写的目录下的 bin 子目录里应该有 Zeal.app 了。
 
@@ -80,6 +78,8 @@ Zeal 的源码在 [zealdocs/zeal][1]，编译方法在 README 的 [How to compil
 ![zeal-for-mac](/images/posts/mac/zeal-for-mac.png)
 
 ## 遇到过的问题
+
+### 编译时报错
 
 编译过程中遇到过若干种报错，其实都是由于 libarchive 造成的，正确安装并配置 include 和 lib 目录即可。
 
@@ -130,6 +130,8 @@ When executing step "Make"
 ```
 
 **解决方法：** 安装 libarchive，将根据上面编译步骤 4 里的说明修改 src/core/core.pri 文件。
+
+### 打包时报错
 
 在打包 dmg 文件的过程中会提示 ERROR，这个貌似不影响，直接忽略就好。
 
