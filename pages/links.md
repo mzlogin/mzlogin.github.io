@@ -11,6 +11,5 @@ permalink: /links/
 
 > God made relatives. Thank God we can choose our friends.
 
-<ul class="listing">
-  <li class="listing-item"><a href="http://zxning.github.io/">只宁静不致远</a></li>
-</ul>
+* [只宁静不致远](http://zxning.github.io/)
+* [Blog Something](http://chenxiaoyoyo.github.io)
