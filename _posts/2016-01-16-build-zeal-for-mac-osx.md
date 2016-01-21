@@ -31,7 +31,7 @@ autotoc: true
 
 Zeal 的源码在 [zealdocs/zeal][1]，编译方法在 README 的 [How to compile][2] 一节。
 
-编译的方法我参考了 [Compile Zeal on Mac OS X][3]，不过现在情况跟他那时候有了一些变化，至少从我这里编译的情况来看 Mac OS X 下可以不需要再安装 X11，而源码直接 qmake 和 make 编译通不过了。
+编译的步骤我参考了 [Compile Zeal on Mac OS X][3]，不过现在情况跟他那时候有了一些变化，至少从我这里编译的情况来看 Mac OS X 下可以不需要再安装 X11，而源码直接 qmake 和 make 编译通不过了。
 
 如下是编译步骤：
 
