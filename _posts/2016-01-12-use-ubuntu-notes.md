@@ -7,6 +7,8 @@ keywords: Linux, Ubuntu
 autotoc: true
 ---
 
+使用 Ubuntu 过程中遇到的问题及解决方案。
+
 ## 使用 git pull 遇到问题
 
 提示
@@ -119,7 +121,7 @@ GLib-GObject-WARNING **: Attempt to add property GnomeProgram::sm-connect after 
 
 ## 解决 ibus 五笔候选词水平显示和个数的问题
 
-修改 /usr/share/ibus-table/tables/wubi-jidian86.db 的 ime 表里的 orientation（水平 0 垂直 1）和 select_keys（有几个选择键就有几个项，从下面代码可知用 `,` 分隔）。
+修改 /usr/share/ibus-table/tables/wubi-jidian86.db 的 ime 表里的 orientation（水平 0 垂直 1）和 select\_keys（有几个选择键就有几个项，从下面代码可知用 `,` 分隔）。
 
 /usr/share/ibus-tables/engine/tabsqlitedb.py 中
 
@@ -162,3 +164,32 @@ def get_page_size (self):
 ## 输入「」与『』
 
 极点五笔中文输入状态下，按 [] 即输入「」，按 {} 即输入『』。
+
+## 分辨率无法调整
+
+Ubuntu 14.04 LTS 刚安装完时，分辨率只有 640\*480 一种选项，无法调整。
+
+解决方法：
+
+1. 打开 xdiagnose
+
+    ![](/images/posts/linux/xdiagnose.png)
+
+2. 勾选 Debug 下的所有选项
+
+    ![](/images/posts/linux/xdiagnose-2.png)
+
+3. 重启
+
+4. 安装增强功能
+
+    ![](/images/posts/linux/install-additions.png)
+
+    然后：
+
+    ```
+    cd /media/<username>/VBOXADDITIONS_X.X.XX_XXXXX
+    sudo ./VBoxLinuxAdditions.run
+    ```
+
+    （注意把 username 替换成自己的，VBOXADDITIONS 后面的 X 换成具体版本号）
