@@ -54,6 +54,8 @@ Cmd --> Command
 | 打开文件所在目录        | M-F1 8         | M-F1 8              |
 | 打开 Project 视图       | M-1            | Cmd-1               |
 | 自动生成                | M-Insert       | Cmd-n               |
+| 隐藏底部视图            | S-Esc          | S-Esc               |
+| 删除一个单词            |                | M-delete            |
 
 注：
 
