@@ -55,7 +55,8 @@ Cmd --> Command
 | 打开 Project 视图       | M-1            | Cmd-1               |
 | 自动生成                | M-Insert       | Cmd-n               |
 | 隐藏底部视图            | S-Esc          | S-Esc               |
-| 删除一个单词            |                | M-delete            |
+| 删除一个单词            | C-Backspace    | M-delete            |
+| 重构 - 重命名           |                | S-F6                |
 
 注：
 
