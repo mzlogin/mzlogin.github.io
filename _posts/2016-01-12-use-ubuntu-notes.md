@@ -4,7 +4,6 @@ title: Ubuntu 使用笔记
 categories: Linux
 description: 使用 Ubuntu 遇到一些问题，笔记在此备忘。
 keywords: Linux, Ubuntu
-autotoc: true
 ---
 
 使用 Ubuntu 过程中遇到的问题及解决方案。

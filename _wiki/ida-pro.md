@@ -4,7 +4,6 @@ title: IDA Pro
 categories: Debug
 description: 静态分析神器
 keywords: debug, IDA Pro
-autotoc: true
 ---
 
 ### 快捷键

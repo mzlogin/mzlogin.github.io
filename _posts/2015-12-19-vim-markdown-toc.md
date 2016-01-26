@@ -4,7 +4,6 @@ title: 为 Markdown 生成 TOC 的 Vim 插件
 categories: Vim
 description: 为 Markdown 自动生成 Table of Contents 的 Vim 插件
 keywords: vim, markdown, toc
-autotoc: false
 ---
 
 因为饱受 GFM 和 Redcarpet 两种 Markdown 引擎生成 TOC 链接的差异的折磨，而我又不得不同时使用它们——博客基于 Jekyll 使用 Redcarpet，而其它放在 GitHub 仓库里的文档使用 GFM，我决定为我常用的 Markdown 编辑器 Vim 做一款同时支持 GFM 和 Redcarpet 两种 TOC 链接风格的 Table of Contents 自动生成插件。

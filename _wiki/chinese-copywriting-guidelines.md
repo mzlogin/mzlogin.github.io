@@ -4,7 +4,6 @@ title: 中文文案排版指北（简体中文版）
 categories: Copywriting
 description: 中文文案排版指北（简体中文版）。
 keywords: 中文文案排版指北
-autotoc: false
 ---
 
 GitHub repository: [mzlogin/chinese-copywriting-guidelines](https://github.com/mzlogin/chinese-copywriting-guidelines)

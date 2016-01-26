@@ -4,7 +4,6 @@ title: Build Zeal for Mac OS X
 categories: Mac
 description: Build Zeal for Mac OS X
 keywords: Mac OS X, Zeal
-autotoc: true
 ---
 
 我承认，初次遇到 Dash 的时候，我是惊艳的。

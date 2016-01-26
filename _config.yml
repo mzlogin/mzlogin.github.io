@@ -3,7 +3,6 @@
 # ---------------- #
 baseurl: 
 url: http://mazhuang.org
-domain: 
 date_format: "ordinal"
 title: 码志
 subtitle: "打码改变人生"
@@ -11,7 +10,6 @@ description: "码志|打码改变人生"
 keywords: 码志
 gavatar: /favicon.ico
 favicon: /favicon.ico
-header-img: facebook.jpg
 timezone: Asia/Shanghai
 encoding: "utf-8"
 source_code: https://github.com/mzlogin/mzlogin.github.io
@@ -97,26 +95,6 @@ weibo_username: mzlogin
 zhihu_username: mzlogin
 twitter_username: mzlogin
 changyan: false
-
-# ---------------- #
-#     Defaults     #
-# ---------------- #
-defaults:
-    -
-        scope:
-            path: ""
-            type: "posts"
-        values:
-            layout: "post"
-            author: "Zhuang Ma"
-            header-img: "facebook.jpg"
-            autotoc: true
-    -
-        scope:
-            path: ""
-            type: "wiki"
-        values:
-            autotoc: true
 
 # ---------------- #
 #      Datas       #
