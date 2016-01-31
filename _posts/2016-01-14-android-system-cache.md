@@ -535,7 +535,7 @@ class BackgroundHandler extends Handler {
         android:description="@string/permdesc_getPackageSize" />
     ```
 
-    这段代码定义在文件 packages/apps/Settings/src/com/android/settings/applications/ApplicationsState.java 中。
+    这段代码定义在文件 frameworks/base/core/res/AndroidManifex.xml 中。
 
 2. 传给 `getPackageSizeInfo` 方法的第二个参数类型 `IPackageStatsObserver` 是在 android.content.pm 包下，需要自已通过 aidl 方式定义。
 
