@@ -24,17 +24,17 @@ keywords: 算法，Fibonacci
 
 则有：
 
-~~f(n)~~  
-~~= f(n-1) + f(n-2)~~  
-~~= 2f(n-2) + f(n-3)~~  
-~~= 3f(n-3) + 2f(n-4)~~  
-~~= 5 f(n-4) + 3f(n-5)~~  
-~~= 8f(n-5) + 5f(n-6)~~  
-~~= ...~~  
-~~= fibo(x+1)f(n-x)+fibo(x)f(n-(x+1))~~  
-~~=...~~  
-~~= fibo(n-1)f(n-(n-2)) + fibo(n-2)f(n-(n-1))~~  
-~~= fibo(n-1)f(2) + fibo(n-2)f(1)~~  
+<del>f(n)</del>  
+<del>= f(n-1) + f(n-2)</del>  
+<del>= 2f(n-2) + f(n-3)</del>  
+<del>= 3f(n-3) + 2f(n-4)</del>  
+<del>= 5 f(n-4) + 3f(n-5)</del>  
+<del>= 8f(n-5) + 5f(n-6)</del>  
+<del>= ...</del>  
+<del>= fibo(x+1)f(n-x)+fibo(x)f(n-(x+1))</del>  
+<del>=...</del>  
+<del>= fibo(n-1)f(n-(n-2)) + fibo(n-2)f(n-(n-1))</del>  
+<del>= fibo(n-1)f(2) + fibo(n-2)f(1)</del>  
 
 f(n) 的规律符合 Fibonacci 数列的规律，它与 Fibonacci 的区别是 Fibonacci 的前两个元素是 1，1，而 f(n) 的规律是 1，2，即可知有 `f(n)=fibo(n+1)`。
 
