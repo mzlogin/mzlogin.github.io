@@ -133,9 +133,9 @@ def get_page_size (self):
 
 1. 安装 Gnome Tweak Tool
 
-    ```sh
-    sudo apt-get install gnome-tweak-tool
-    ```
+   ```sh
+   sudo apt-get install gnome-tweak-tool
+   ```
 
 2. 打开 tweak-tool，找到「打字」－「大写锁定键行为」，选择「将 CapsLock 作为额外的 Ctrl」
 
@@ -147,16 +147,16 @@ def get_page_size (self):
 
 1. 打开 ~/.config/user-dirs.dirs，将其中的中文改掉：
 
-    ```
-    XDG_DESKTOP_DIR="$HOME/desktop"
-    XDG_DOWNLOAD_DIR="$HOME/downloads"
-    XDG_TEMPLATES_DIR="$HOME/templates"
-    XDG_PUBLICSHARE_DIR="$HOME/public"
-    XDG_DOCUMENTS_DIR="$HOME/documents"
-    XDG_MUSIC_DIR="$HOME/music"
-    XDG_PICTURES_DIR="$HOME/pictures"
-    XDG_VIDEOS_DIR="$HOME/videos"
-    ```
+   ```
+   XDG_DESKTOP_DIR="$HOME/desktop"
+   XDG_DOWNLOAD_DIR="$HOME/downloads"
+   XDG_TEMPLATES_DIR="$HOME/templates"
+   XDG_PUBLICSHARE_DIR="$HOME/public"
+   XDG_DOCUMENTS_DIR="$HOME/documents"
+   XDG_MUSIC_DIR="$HOME/music"
+   XDG_PICTURES_DIR="$HOME/pictures"
+   XDG_VIDEOS_DIR="$HOME/videos"
+   ```
 
 2. 在文件管理器中将 HOME 目录下的中文文件夹名改成与上面的配置对应。
 
@@ -172,23 +172,23 @@ Ubuntu 14.04 LTS 在 VirtualBox 中刚安装完时，分辨率只有 640\*480 �
 
 1. 打开 xdiagnose
 
-    ![](/images/posts/linux/xdiagnose.png)
+   ![](/images/posts/linux/xdiagnose.png)
 
 2. 勾选 Debug 下的所有选项
 
-    ![](/images/posts/linux/xdiagnose-2.png)
+   ![](/images/posts/linux/xdiagnose-2.png)
 
 3. 重启
 
 4. 安装增强功能
 
-    ![](/images/posts/linux/install-additions.png)
+   ![](/images/posts/linux/install-additions.png)
 
-    然后：
+   然后：
 
-    ```
-    cd /media/<username>/VBOXADDITIONS_X.X.XX_XXXXX
-    sudo ./VBoxLinuxAdditions.run
-    ```
+   ```
+   cd /media/<username>/VBOXADDITIONS_X.X.XX_XXXXX
+   sudo ./VBoxLinuxAdditions.run
+   ```
 
-    （注意把 username 替换成自己的，VBOXADDITIONS 后面的 X 换成具体版本号）
+   （注意把 username 替换成自己的，VBOXADDITIONS 后面的 X 换成具体版本号）

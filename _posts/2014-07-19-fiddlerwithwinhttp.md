@@ -18,12 +18,12 @@ Eric 的那篇博客里已经列出了相关的方法和代码，本文只是对
 
 * 在 XP 下：
 
-    `proxycfg -u`
+  `proxycfg -u`
 
 * 在 Win7 下（使用管理员权限的命令行）：
 
-    `netsh winhttp import proxy ie`
-    *注：在 Win7 64 位系统下需要将 System32 目录和 SysWOW64 目录下的 netsh 命令各执行一次，下方将给出的脚本已覆盖这种情况。*
+  `netsh winhttp import proxy ie`
+  *注：在 Win7 64 位系统下需要将 System32 目录和 SysWOW64 目录下的 netsh 命令各执行一次，下方将给出的脚本已覆盖这种情况。*
 
 但是如果使用频繁，每次都还要去手动敲命令行还是挺痛苦的，作为能偷懒的地方绝不多放过的少年，一劳永逸的方法当然是让它随 Fiddler 的启动与关闭自动执行这些命令（当然这就是 Eric 的博客里讲述的方法）。
 

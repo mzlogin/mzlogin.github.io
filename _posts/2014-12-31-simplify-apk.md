@@ -26,81 +26,81 @@ keywords: Android
 
 1. 从 HelloWorld 工程设置中移除库依赖
 
-    右键 HelloWorld 工程 --> Properties --> Android
+   右键 HelloWorld 工程 --> Properties --> Android
 
-    在如下对话框的 Library 部分选中 appcompat\_v7，并点击 Remove。
+   在如下对话框的 Library 部分选中 appcompat\_v7，并点击 Remove。
 
-    ![remove appcompat\_v7](/images/posts/android/remove-appcompat.png)
+   ![remove appcompat\_v7](/images/posts/android/remove-appcompat.png)
 
 2. 解决由第 1 步操作带来的各种错误
 
-    做完第 1 步以后，Eclipse 会报各种错，根据提示逐一解决即可。
+   做完第 1 步以后，Eclipse 会报各种错，根据提示逐一解决即可。
 
-    **错误提示**
+   **错误提示**
 
-    ```
-    ActionBarActivity cannot be resolved to a type
-    ```
+   ```
+   ActionBarActivity cannot be resolved to a type
+   ```
 
-    **解决方案**
+   **解决方案**
 
-    默认生成的 MainActivity 继承自 ActionBarActivity，将其改为 Activity，并将
+   默认生成的 MainActivity 继承自 ActionBarActivity，将其改为 Activity，并将
 
-    ```
-    import android.support.v7.app.ActionBarActivity;
-    ```
+   ```
+   import android.support.v7.app.ActionBarActivity;
+   ```
 
-    移除，添加
+   移除，添加
 
-    ```
-    import android.app.Activity;
-    ```
+   ```
+   import android.app.Activity;
+   ```
 
-    **错误提示**
+   **错误提示**
 
-    ```
-    R cannot be resolved to a variable
-    ```
+   ```
+   R cannot be resolved to a variable
+   ```
 
-    **解决方案**
+   **解决方案**
 
-    出现这个提示一般是 xml 文件里出错导致无法自动生成 R.java 文件，根据 Eclipse 在 Package Explorer 里提示的小红叉，逐一排查修改。
+   出现这个提示一般是 xml 文件里出错导致无法自动生成 R.java 文件，根据 Eclipse 在 Package Explorer 里提示的小红叉，逐一排查修改。
 
-    res/values/style.xml 文件里提示
+   res/values/style.xml 文件里提示
 
-    ```
-    error: Error retrieving parent for item: No resource found that matches the given name 'Theme.AppCompat.Light'.
-    ```
+   ```
+   error: Error retrieving parent for item: No resource found that matches the given name 'Theme.AppCompat.Light'.
+   ```
 
-    将
+   将
 
-    ```
-    <style name="AppBaseTheme" parent="Theme.AppCompat.Light">
-    ```
+   ```
+   <style name="AppBaseTheme" parent="Theme.AppCompat.Light">
+   ```
 
-    改为
+   改为
 
-    ```
-    <style name="AppBaseTheme" parent="android:Theme.Light">
-    ```
+   ```
+   <style name="AppBaseTheme" parent="android:Theme.Light">
+   ```
 
-    同理，将 res/values-v11/style.xml 和 res/values-v14/style.xml 里的`AppBaseTheme`分别改为`android:Theme.Holo.Light`和`android:Theme.Holo.Light.DarkActionBar`。
+   同理，将 res/values-v11/style.xml 和 res/values-v14/style.xml 里的`AppBaseTheme`分别改为`android:Theme.Holo.Light`和`android:Theme.Holo.Light.DarkActionBar`。
 
-    res/menu/main.xml 文件里提示
+   res/menu/main.xml 文件里提示
 
-    ```
-    error: No resource identifier found for attribute 'showAsAction' in package 'org.mazhuang.android.helloworld'
-    ```
+   ```
+   error: No resource identifier found for attribute 'showAsAction' in package 'org.mazhuang.android.helloworld'
+   ```
 
-    将该文件里的
+   将该文件里的
 
-    ```
-    app:showAsAction="never"
-    ```
+   ```
+   app:showAsAction="never"
+   ```
 
-    删除。
+   删除。
 
-    至此，工程应该能重新编译过了。
+   至此，工程应该能重新编译过了。
 
 此时编译生成的 apk 文件大小（380KB）：
 
@@ -134,16 +134,16 @@ keywords: Android
 
 1. 大小
 
-    |  原始 | 移除 appcompat\_v7 | 移除 android-support-v4.jar |
-    |:-----:|:------------------:|:---------------------------:|
-    | 903KB |        380KB       |             45KB            |
+   |  原始 | 移除 appcompat\_v7 | 移除 android-support-v4.jar |
+   |:-----:|:------------------:|:---------------------------:|
+   | 903KB |        380KB       |             45KB            |
 
-    可不可以只不导出 android-support-v4.jar 而继续依赖 appcompat\_v7 呢？答案是不可以，在<http://developer.android.com/tools/support-library/features.html#v7>的 Note 中显示 v7 appcompat library 是依赖 v4 support library 的。
+   可不可以只不导出 android-support-v4.jar 而继续依赖 appcompat\_v7 呢？答案是不可以，在<http://developer.android.com/tools/support-library/features.html#v7>的 Note 中显示 v7 appcompat library 是依赖 v4 support library 的。
 
 1. API
 
-    有大量实用的 API 用不了了，比如非常重要的 Fragment，要么将 minSdkVersion 改为 API level 11 以上使用`android.app.Fragment`，要么需要依赖 android-support-v4.jar 使用`android.support.v4.app.Fragment`。如果只使用`android.support.v4.app.Fragment`而不 Export android-support-v4.jar，那么程序在手机上将崩溃，提示
+   有大量实用的 API 用不了了，比如非常重要的 Fragment，要么将 minSdkVersion 改为 API level 11 以上使用`android.app.Fragment`，要么需要依赖 android-support-v4.jar 使用`android.support.v4.app.Fragment`。如果只使用`android.support.v4.app.Fragment`而不 Export android-support-v4.jar，那么程序在手机上将崩溃，提示
 
-    ```
-    java.lang.NoClassDefFoundError: android.support.v4.app.Fragment
-    ```
+   ```
+   java.lang.NoClassDefFoundError: android.support.v4.app.Fragment
+   ```

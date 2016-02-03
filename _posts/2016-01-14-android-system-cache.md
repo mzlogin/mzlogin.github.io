@@ -524,18 +524,18 @@ class BackgroundHandler extends Handler {
 
 1. `getPackageSizeInfo` 方法是一个 `@hide` 方法，需要通过反射来调用。
 
-    从 PackageManager.java 文件的 `getPackageSizeInfo` 方法定义处可知，它需要 `GET_PACKAGE_SIZE` 权限，幸运的是，从 frameworks/base/core/res/AndroidManifex.xml 文件里可知，该权限的 Protection level 为 normal，是可以正常声明的。
+   从 PackageManager.java 文件的 `getPackageSizeInfo` 方法定义处可知，它需要 `GET_PACKAGE_SIZE` 权限，幸运的是，从 frameworks/base/core/res/AndroidManifex.xml 文件里可知，该权限的 Protection level 为 normal，是可以正常声明的。
 
-    ```xml
-    <!-- Allows an application to find out the space used by any package. -->
-    <permission android:name="android.permission.GET_PACKAGE_SIZE"
-        android:permissionGroup="android.permission-group.SYSTEM_TOOLS"
-        android:protectionLevel="normal"
-        android:label="@string/permlab_getPackageSize"
-        android:description="@string/permdesc_getPackageSize" />
-    ```
+   ```xml
+   <!-- Allows an application to find out the space used by any package. -->
+   <permission android:name="android.permission.GET_PACKAGE_SIZE"
+       android:permissionGroup="android.permission-group.SYSTEM_TOOLS"
+       android:protectionLevel="normal"
+       android:label="@string/permlab_getPackageSize"
+       android:description="@string/permdesc_getPackageSize" />
+   ```
 
-    这段代码定义在文件 frameworks/base/core/res/AndroidManifex.xml 中。
+   这段代码定义在文件 frameworks/base/core/res/AndroidManifex.xml 中。
 
 2. 传给 `getPackageSizeInfo` 方法的第二个参数类型 `IPackageStatsObserver` 是在 android.content.pm 包下，需要自已通过 aidl 方式定义。
 
@@ -545,54 +545,54 @@ class BackgroundHandler extends Handler {
 
 1. 在自己的工程的 src/main 目录下创建包目录结构 aidl/android/content/pm。
 
-    *注：这是使用 Android Studio 的默认做法，使用 Eclipse 默认在 src 目录下创建包目录结构 android/content/pm。*
+   *注：这是使用 Android Studio 的默认做法，使用 Eclipse 默认在 src 目录下创建包目录结构 android/content/pm。*
 
 2. 将 Android 源码 frameworks/base/core/java/android/content/pm 目录下的 IPackageStatsObserver.aidl 与其依赖的 PackageStats.aidl 拷贝到上面一步创建的目录里。
 
 3. 根据 frameworks/base/core/java/android/content/pm/PackageManager.java 的 `getPackageSizeInfo` 接口上面的注释可知，需要在 AndroidManifest.xml 里声明需要 `GET_PACKAGE_SIZE` 权限。
 
-    ```xml
-    <uses-permission android:name="android.permission.GET_PACKAGE_SIZE"></uses-permission>
-    ```
+   ```xml
+   <uses-permission android:name="android.permission.GET_PACKAGE_SIZE"></uses-permission>
+   ```
 
 4. 获取 QQ 的系统缓存大小的示例代码：
 
-    ```java
-    public void someFunc() {
-        IPackageStatsObserver.Stub observer = new PackageSizeObserver();
-        getPackageInfo("com.tencent.mobileqq", observer);
-    }
+   ```java
+   public void someFunc() {
+       IPackageStatsObserver.Stub observer = new PackageSizeObserver();
+       getPackageInfo("com.tencent.mobileqq", observer);
+   }
 
-    public void getPackageInfo(String packageName, IPackageStatsObserver.Stub observer) {
-        try {
-            PackageManager pm = ContextUtil.applicationContext.getPackageManager();
-            Method getPackageSizeInfo = pm.getClass()
-                    .getMethod("getPackageSizeInfo", String.class, IPackageStatsObserver.class);
+   public void getPackageInfo(String packageName, IPackageStatsObserver.Stub observer) {
+       try {
+           PackageManager pm = ContextUtil.applicationContext.getPackageManager();
+           Method getPackageSizeInfo = pm.getClass()
+                   .getMethod("getPackageSizeInfo", String.class, IPackageStatsObserver.class);
 
-            getPackageSizeInfo.invoke(pm, packageName, observer);
-        } catch (NoSuchMethodException e ) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
-        }
-    }
+           getPackageSizeInfo.invoke(pm, packageName, observer);
+       } catch (NoSuchMethodException e ) {
+           e.printStackTrace();
+       } catch (IllegalAccessException e) {
+           e.printStackTrace();
+       } catch (InvocationTargetException e) {
+           e.printStackTrace();
+       }
+   }
 
-    private class PackageSizeObserver extends IPackageStatsObserver.Stub {
-        @Override
-        public void onGetStatsCompleted(PackageStats packageStats, boolean succeeded)
-                throws RemoteException {
-            if (packageStats == null || !succeeded) {
-            } else {
-                AppEntry entry = new AppEntry();
-                entry.packageName = packageStats.packagename;
-                entry.cacheSize = packageStats.cacheSize + packageStats.externalCacheSize;
-                // do something else，比如把 entry 通过消息发送给需要的地方，或者添加到你的列表里
-            }
-        }
-    }
-    ```
+   private class PackageSizeObserver extends IPackageStatsObserver.Stub {
+       @Override
+       public void onGetStatsCompleted(PackageStats packageStats, boolean succeeded)
+               throws RemoteException {
+           if (packageStats == null || !succeeded) {
+           } else {
+               AppEntry entry = new AppEntry();
+               entry.packageName = packageStats.packagename;
+               entry.cacheSize = packageStats.cacheSize + packageStats.externalCacheSize;
+               // do something else，比如把 entry 通过消息发送给需要的地方，或者添加到你的列表里
+           }
+       }
+   }
+   ```
 
 5. 获取一个应用的缓存的问题解决了，获取所有应用的系统缓存也就是遍历系统已安装应用，然后挨个调用 `getPackageInfo` 的事儿了。
 
@@ -819,73 +819,73 @@ int free_cache(int64_t free_size)
 
 1. 在自己的工程的 src/main 目录下创建包目录结构 aidl/android/content/pm。
 
-    *注：这是使用 Android Studio 的默认做法，使用 Eclipse 默认在 src 目录下创建包目录结构 android/content/pm。*
+   *注：这是使用 Android Studio 的默认做法，使用 Eclipse 默认在 src 目录下创建包目录结构 android/content/pm。*
 
 2. 将 Android 源码 frameworks/base/core/java/android/content/pm 目录下的 IPackageDataObserver.aidl 拷贝到上面一步创建的目录里。
 
 3. 在 AndroidManifest.xml 里声明 `CLEAR_APP_CACHE` 权限。
 
-    ```xml
-    <uses-permission android:name="android.permission.CLEAR_APP_CACHE"></uses-permission>
-    ```
+   ```xml
+   <uses-permission android:name="android.permission.CLEAR_APP_CACHE"></uses-permission>
+   ```
 
 4. 通过反射调用 `freeStorageAndNotify` 方法，第一个参数给它一个足够大的值，它就会帮我们清理掉所有应用的缓存了。
 
-    ```java
-    public static void freeAllAppsCache(final Handler handler) {
+   ```java
+   public static void freeAllAppsCache(final Handler handler) {
 
-        Context context = ContextUtil.applicationContext;
+       Context context = ContextUtil.applicationContext;
 
-        File externalDir = context.getExternalCacheDir();
-        if (externalDir == null) {
-            return;
-        }
+       File externalDir = context.getExternalCacheDir();
+       if (externalDir == null) {
+           return;
+       }
 
-        PackageManager pm = context.getPackageManager();
-        List<ApplicationInfo> installedPackages = pm.getInstalledApplications(PackageManager.GET_GIDS);
-        for (ApplicationInfo info : installedPackages) {
-            String externalCacheDir = externalDir.getAbsolutePath()
-                    .replace(context.getPackageName(), info.packageName);
-            File externalCache = new File(externalCacheDir);
-            if (externalCache.exists() && externalCache.isDirectory()) {
-                deleteFile(externalCache);
-            }
-        }
+       PackageManager pm = context.getPackageManager();
+       List<ApplicationInfo> installedPackages = pm.getInstalledApplications(PackageManager.GET_GIDS);
+       for (ApplicationInfo info : installedPackages) {
+           String externalCacheDir = externalDir.getAbsolutePath()
+                   .replace(context.getPackageName(), info.packageName);
+           File externalCache = new File(externalCacheDir);
+           if (externalCache.exists() && externalCache.isDirectory()) {
+               deleteFile(externalCache);
+           }
+       }
 
-        try {
-            Method freeStorageAndNotify = pm.getClass()
-                    .getMethod("freeStorageAndNotify", long.class, IPackageDataObserver.class);
-            long freeStorageSize = Long.MAX_VALUE;
+       try {
+           Method freeStorageAndNotify = pm.getClass()
+                   .getMethod("freeStorageAndNotify", long.class, IPackageDataObserver.class);
+           long freeStorageSize = Long.MAX_VALUE;
 
-            freeStorageAndNotify.invoke(pm, freeStorageSize, new IPackageDataObserver.Stub() {
-                @Override
-                public void onRemoveCompleted(String packageName, boolean succeeded) throws RemoteException {
-                    Message msg = handler.obtainMessage(JunkCleanActivity.MSG_SYS_CACHE_CLEAN_FINISH);
-                    msg.sendToTarget();
-                }
-            });
-        } catch (NoSuchMethodException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
-        }
-    }
+           freeStorageAndNotify.invoke(pm, freeStorageSize, new IPackageDataObserver.Stub() {
+               @Override
+               public void onRemoveCompleted(String packageName, boolean succeeded) throws RemoteException {
+                   Message msg = handler.obtainMessage(JunkCleanActivity.MSG_SYS_CACHE_CLEAN_FINISH);
+                   msg.sendToTarget();
+               }
+           });
+       } catch (NoSuchMethodException e) {
+           e.printStackTrace();
+       } catch (IllegalAccessException e) {
+           e.printStackTrace();
+       } catch (InvocationTargetException e) {
+           e.printStackTrace();
+       }
+   }
 
-    public static boolean deleteFile(File file) {
-        if (file.isDirectory()) {
-            String[] children = file.list();
-            for (String name : children) {
-                boolean suc = deleteFile(new File(file, name));
-                if (!suc) {
-                    return false;
-                }
-            }
-        }
-        return file.delete();
-    }
-    ```
+   public static boolean deleteFile(File file) {
+       if (file.isDirectory()) {
+           String[] children = file.list();
+           for (String name : children) {
+               boolean suc = deleteFile(new File(file, name));
+               if (!suc) {
+                   return false;
+               }
+           }
+       }
+       return file.delete();
+   }
+   ```
 
 完整的实例见 <https://github.com/mzlogin/CleanExpert>。
 

@@ -46,41 +46,41 @@ Cmd --> Command
 
 * 使用 `find` 命令，例如：
 
-    ```
-    find ~ -iname aapt
-    ```
+  ```
+  find ~ -iname aapt
+  ```
 
 * 使用 `mdfind` 命令，例如：
 
-    全局搜索
+  全局搜索
 
-    ```
-    mdfind -name aapt
-    ```
+  ```
+  mdfind -name aapt
+  ```
 
-    或搜索指定文件夹
+  或搜索指定文件夹
 
-    ```
-    mdfind -onlyin ~/Library aapt
-    ```
+  ```
+  mdfind -onlyin ~/Library aapt
+  ```
 
 * 使用 `locate` 命令，例如：
 
-    ```
-    locate aapt
-    ```
+  ```
+  locate aapt
+  ```
 
 ### 复制文件路径
 
 * 在 Finder 下
 
-    先按键 Cmd-i，然后从弹出的窗口里复制。
+  先按键 Cmd-i，然后从弹出的窗口里复制。
 
 * 在 Terminal 下
 
-    ```
-    pwd|pbcopy
-    ```
+  ```
+  pwd|pbcopy
+  ```
 
 ### Safari
 

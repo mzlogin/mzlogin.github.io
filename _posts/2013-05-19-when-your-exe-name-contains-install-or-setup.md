@@ -12,21 +12,20 @@ keywords: EXE, Windows
 
 1. 每次软件运行完退出后会弹出「程序兼容性助手」（Program Compatibility Assistant, 简称 PCA），提示软件未正确安装。
 
-    ![](/images/posts/windows/pca.png)
+   ![](/images/posts/windows/pca.png)
 
 2. 在 Vista+ 的操作系统下任务栏右键该程序缺少「将此程序锁定到任务栏」和软件名同名项。
 
-    | 程序名    | 运行时任务栏右键                     |
-    |-----------|--------------------------------------|
-    | a.exe     | ![](/images/posts/windows/a.png)     |
-    | setup.exe | ![](/images/posts/windows/setup.png) |
-
+   | 程序名    | 运行时任务栏右键                     |
+   |-----------|--------------------------------------|
+   | a.exe     | ![](/images/posts/windows/a.png)     |
+   | setup.exe | ![](/images/posts/windows/setup.png) |
 
 3. 你的程序没打算要求管理员权限的，但是运行的时候却弹 UAC 了。
 
-    完全相同的两个 EXE 文件，名字不一样：
+   完全相同的两个 EXE 文件，名字不一样：
 
-    ![](/images/posts/windows/name.png)
+   ![](/images/posts/windows/name.png)
 
 ### 问题分析
 

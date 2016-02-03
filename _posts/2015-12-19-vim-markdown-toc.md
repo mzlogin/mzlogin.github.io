@@ -26,15 +26,15 @@ keywords: vim, markdown, toc
 
 1. `:GenTocGFM`
 
-    生成 GFM 链接风格的 Table of Contents.
+   生成 GFM 链接风格的 Table of Contents.
 
-    适用于 GitHub 仓库里的 Markdown 文件，还有使用启用 GFM 支持的 kramdown 作为 Markdown 引擎的 Jekyll/gh-pages 等环境。
+   适用于 GitHub 仓库里的 Markdown 文件，还有使用启用 GFM 支持的 kramdown 作为 Markdown 引擎的 Jekyll/gh-pages 等环境。
 
 2. `:GenTocRedcarpet`
 
-    生成 Redcarpet 链接风格的 Table of Contents.
+   生成 Redcarpet 链接风格的 Table of Contents.
 
-    适用于使用 Redcarpet 作为 Markdown 引擎的 Jekyll/gh-pages 或其它地方。
+   适用于使用 Redcarpet 作为 Markdown 引擎的 Jekyll/gh-pages 或其它地方。
 
 ### 安装方法
 
@@ -42,9 +42,9 @@ keywords: vim, markdown, toc
 
 1. 在你的 vimrc 文件中添加如下内容：
 
-    ```
-    Plugin 'mzlogin/vim-markdown-toc'
-    ```
+   ```
+   Plugin 'mzlogin/vim-markdown-toc'
+   ```
 
 2. `:so $MYVIMRC`
 

@@ -43,15 +43,15 @@ In file
 
 1. Clean up
 
-    Clean up 本身能成功，但是再 Update 依然报错。
+   Clean up 本身能成功，但是再 Update 依然报错。
    
 2. 在一个新的文件夹 Checkout
 
-    没有问题。
+   没有问题。
 
 3. 删除可疑文件和文件夹，重新 Update。
 
-    依然报错。
+   依然报错。
    
 无奈之下试了一下命令行，找到了解决办法。
 

@@ -21,40 +21,40 @@ E117: Unknown function: pythoncomplete#Complete
 
 1. 排查 Vim 版本编译时的 Python 支持
 
-    根据上面的错误提示，首先想到的是 gVim 编译时未加入 +python 选项。
+   根据上面的错误提示，首先想到的是 gVim 编译时未加入 +python 选项。
 
-    `vim --version`
+   `vim --version`
 
-    ![Vim 的 Python 支持](/images/posts/vim/vim-without-python.png)
+   ![Vim 的 Python 支持](/images/posts/vim/vim-without-python.png)
 
-    `gvim --version`
+   `gvim --version`
 
-    ![gVim 的 Python 支持](/images/posts/vim/gvim-with-python.png)
+   ![gVim 的 Python 支持](/images/posts/vim/gvim-with-python.png)
 
-    由此看出，在 Vim.org 下载的 Windows 版 gVim 的 Vim 编译时倒确实未启用 Python 支持，但是 gVim 启用了。我明明使用的是 gVim，不是 Vim 呀！难道 gVim 其实只是一个调用 Vim 的壳？窃以为不太可能……上 Vim.org 找了半天，从描述上没看出来提供的几个 MS-Windows 安装包的 Python 支持的相关说明，下载了一个与之前下载的版本不同的版本安装了，结果还是与上面一样，笔记本上都可以做到，那应该不是 gVim 版本的问题。
+   由此看出，在 Vim.org 下载的 Windows 版 gVim 的 Vim 编译时倒确实未启用 Python 支持，但是 gVim 启用了。我明明使用的是 gVim，不是 Vim 呀！难道 gVim 其实只是一个调用 Vim 的壳？窃以为不太可能……上 Vim.org 找了半天，从描述上没看出来提供的几个 MS-Windows 安装包的 Python 支持的相关说明，下载了一个与之前下载的版本不同的版本安装了，结果还是与上面一样，笔记本上都可以做到，那应该不是 gVim 版本的问题。
 
 2. 验证 gVim 的 Python 支持
 
-    `:python print 'hello'`
+   `:python print 'hello'`
 
-    看到 gVim 下方的错误输出：
+   看到 gVim 下方的错误输出：
 
-    ```
-    E370: Could not load library python27.dll
-    E263: Sorry, this command is disabled, the Python library could not be loaded.
-    ```
+   ```
+   E370: Could not load library python27.dll
+   E263: Sorry, this command is disabled, the Python library could not be loaded.
+   ```
 
-    提示无法加载 python27.dll。使用 everything 小工具在磁盘里找了一下，发现能找到 C:\Windows\system32\python27.dll，这个路径应该是直接在系统环境变量里的，为何会无法加载呢？除非……gVim.exe 是 32 位程序，在任务管理器里看：
+   提示无法加载 python27.dll。使用 everything 小工具在磁盘里找了一下，发现能找到 C:\Windows\system32\python27.dll，这个路径应该是直接在系统环境变量里的，为何会无法加载呢？除非……gVim.exe 是 32 位程序，在任务管理器里看：
 
-    ![gVim 是 32 位程序](/images/posts/vim/gvim-32bit.png)
+   ![gVim 是 32 位程序](/images/posts/vim/gvim-32bit.png)
 
-    那看样子我安装的 Python 是 64 位版本的。在命令行里执行 Python.exe 看了一下果然如此：
+   那看样子我安装的 Python 是 64 位版本的。在命令行里执行 Python.exe 看了一下果然如此：
 
-    ```
-    Python 2.7.9 (default, Dec 10 2014, 12:28:03) [MSC v.1500 64 bit (AMD64)] on win32
-    Type "help", "copyright", "credits" or "license" for more information.
-    >>>>>>
-    ```
+   ```
+   Python 2.7.9 (default, Dec 10 2014, 12:28:03) [MSC v.1500 64 bit (AMD64)] on win32
+   Type "help", "copyright", "credits" or "license" for more information.
+   >>>>>>
+   ```
 
 ### 结论
 

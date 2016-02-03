@@ -22,7 +22,7 @@ JSON 编码解码器。
 
 * 格式化 json 文件
 
-    python -m json.tool src.json > dst.json
+  python -m json.tool src.json > dst.json
 
 ### CGIHTTPServer
 
@@ -32,7 +32,7 @@ JSON 编码解码器。
 
 * 运行一个简易的 HTTP 服务器
 
-    python -m CGIHTTPServer 80
+  python -m CGIHTTPServer 80
 
 ### base64
 
@@ -42,8 +42,8 @@ JSON 编码解码器。
 
 * 解码 base64
 
-    echo aGVsbG93b3JsZA== | python -m base64 -d
+  echo aGVsbG93b3JsZA== | python -m base64 -d
 
-    则能看到输出
+  则能看到输出
 
-    helloworld
+  helloworld

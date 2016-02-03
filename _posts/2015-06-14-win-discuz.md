@@ -29,43 +29,43 @@ Win7 64 with sp1
 
 1. Discuz! X3.2
 
-    我们要部署的目的程序。
+   我们要部署的目的程序。
 
-    下载地址：<http://www.discuz.net/thread-3570835-1-1.html>
+   下载地址：<http://www.discuz.net/thread-3570835-1-1.html>
 
-    我选的 GBK 版本。
+   我选的 GBK 版本。
 
 1. IIS 7.5
 
-    Web 服务器。
+   Web 服务器。
 
-    下载地址：可直接在系统设置里安装，无需下载。
+   下载地址：可直接在系统设置里安装，无需下载。
 
-    如果使用 IIS 7 以下的版本，可能需要额外安装 FastCGI，下载地址 <http://www.iis.net/expand/fastcgi>。
+   如果使用 IIS 7 以下的版本，可能需要额外安装 FastCGI，下载地址 <http://www.iis.net/expand/fastcgi>。
 
 1. PHP 5.4.42
 
-    因为 PHP 5.2.10 开始已经不再提供 php5isapi.dll，也即在 IIS 上只能使用 FastCGI 而能使用 ISAPI 方式了，所以选用 Non Thread Safe 版本。关于 PHP5 的 Non Thread Safe 与 Thread Safe 的区别参见 <http://zhidao.baidu.com/question/2075132638027071628>。
+   因为 PHP 5.2.10 开始已经不再提供 php5isapi.dll，也即在 IIS 上只能使用 FastCGI 而能使用 ISAPI 方式了，所以选用 Non Thread Safe 版本。关于 PHP5 的 Non Thread Safe 与 Thread Safe 的区别参见 <http://zhidao.baidu.com/question/2075132638027071628>。
 
-    下载地址：<http://windows.php.net/download/#php-5.4-nts-VC9-x86>
+   下载地址：<http://windows.php.net/download/#php-5.4-nts-VC9-x86>
 
 1. MySQL 5.5.44
 
-    数据库。我选用的 winx64 版本。
+   数据库。我选用的 winx64 版本。
 
-    下载地址：<http://dev.mysql.com/downloads/mysql/5.5.html#downloads>
+   下载地址：<http://dev.mysql.com/downloads/mysql/5.5.html#downloads>
 
 1. Zend Optimizer
 
-    用于提高 PHP 应用程序的执行速度。详见搜狗百科 <http://baike.sogou.com/v7557079.htm>。
+   用于提高 PHP 应用程序的执行速度。详见搜狗百科 <http://baike.sogou.com/v7557079.htm>。
 
-    下载地址：<http://211.162.54.70/dl.softmgr.qq.com/original/System/ZendOptimizerwindows.exe>
+   下载地址：<http://211.162.54.70/dl.softmgr.qq.com/original/System/ZendOptimizerwindows.exe>
 
 1. phpMyAdmin 4.4.9 （可选）
 
-    用于可视化管理 MySQL 数据库。
+   用于可视化管理 MySQL 数据库。
 
-    下载地址：<http://www.phpmyadmin.net/home_page/downloads.php>
+   下载地址：<http://www.phpmyadmin.net/home_page/downloads.php>
 
 ### 详细步骤
 
@@ -79,40 +79,40 @@ Win7 64 with sp1
 
 1. 解压前面下载的 PHP 的 zip 包，放在合适的地方。
 
-    比如我放在 D:\discuz\PHP。
+   比如我放在 D:\discuz\PHP。
 
 2. 修改 php.ini。
 
-    将 D:\discuz\PHP 文件夹内的 php.ini-development 拷贝一份为 php.ini，找到并修改下列内容如下：
-    * fastcgi.impersonate = 1
-    * cgi.fix\_pathinfo = 1
-    * cgi.force\_redirect = 0
-    * cgi.rfc2616\_headers = 1
-    * extension\_dir = "D:\discuz\PHP\ext"
-    * date.timezone = Asia/Shanghai
-    * 找到并打开以下模块的支持（删掉模块配置前的分号）
-        * php\_gd2.dll
-        * php\_mbstring.dll
-        * php\_mysql.dll
-        * php\_mysqli.dll
-        * php\_openssl.dll
-        * php\_sockets.dll
-        * php\_xmlrpc.dll
-    * disable\_functions
+   将 D:\discuz\PHP 文件夹内的 php.ini-development 拷贝一份为 php.ini，找到并修改下列内容如下：
+   * fastcgi.impersonate = 1
+   * cgi.fix\_pathinfo = 1
+   * cgi.force\_redirect = 0
+   * cgi.rfc2616\_headers = 1
+   * extension\_dir = "D:\discuz\PHP\ext"
+   * date.timezone = Asia/Shanghai
+   * 找到并打开以下模块的支持（删掉模块配置前的分号）
+     * php\_gd2.dll
+     * php\_mbstring.dll
+     * php\_mysql.dll
+     * php\_mysqli.dll
+     * php\_openssl.dll
+     * php\_sockets.dll
+     * php\_xmlrpc.dll
+   * disable\_functions
 
-        ```
-        disable_functions = passthru,exec,system,chroot,scandir,chgrp,chown,shell_exec,proc_open,proc_get_status,ini_alter,ini_alter,ini_restore,dl,pfsockopen,openlog,syslog,readlink,symlink,popepassthru,stream_socket_server
-        ```
+     ```
+     disable_functions = passthru,exec,system,chroot,scandir,chgrp,chown,shell_exec,proc_open,proc_get_status,ini_alter,ini_alter,ini_restore,dl,pfsockopen,openlog,syslog,readlink,symlink,popepassthru,stream_socket_server
+     ```
 
-    据称 IIS 7 以下需要将 php.ini 复制到 C:\Windows\php.ini。
+   据称 IIS 7 以下需要将 php.ini 复制到 C:\Windows\php.ini。
 
-    另外，官方文档上显示的需要找开的模块比上面列出的多，但是在配置文件里并没有找到。
+   另外，官方文档上显示的需要找开的模块比上面列出的多，但是在配置文件里并没有找到。
 
 3. 添加 FastCGI 模块映射。
 
-    打开「控制面板」--「系统和安全」--「管理工具」--「Internet 信息服务(IIS)管理器」--「处理程序映射」，点击右方的「添加模块映射」，填写如下并确认：
+   打开「控制面板」--「系统和安全」--「管理工具」--「Internet 信息服务(IIS)管理器」--「处理程序映射」，点击右方的「添加模块映射」，填写如下并确认：
 
-    ![fastcgi](/images/posts/php/fastcgi.png)
+   ![fastcgi](/images/posts/php/fastcgi.png)
 
 #### 配置 MySQL
 
@@ -280,10 +280,10 @@ $cfg['blowfish_secret'] = 'hello';
 
 1. 在防火墙添加 80 端口入站规则
 
-    打开「控制面板」--「系统和安全」--「Windows 防火墙」--「高级设置」，（若之前没有启动防火墙的请先开启）。
+   打开「控制面板」--「系统和安全」--「Windows 防火墙」--「高级设置」，（若之前没有启动防火墙的请先开启）。
 
-    此时实际上是打开了「高级安全 Windows 防火墙」，右键「入站规则」，选择「新建规则」，规则类型选「端口」，协议和端口选择「TCP」和「特定本地端口：80」，操作选择「允许连接」，配置文件保持默认的全部勾选，然后取个名称后保存即可。
+   此时实际上是打开了「高级安全 Windows 防火墙」，右键「入站规则」，选择「新建规则」，规则类型选「端口」，协议和端口选择「TCP」和「特定本地端口：80」，操作选择「允许连接」，配置文件保持默认的全部勾选，然后取个名称后保存即可。
 
 2. 为网站添加本机 IP 绑定
 
-    ![](/images/posts/php/nat-bind-ip.png)
+   ![](/images/posts/php/nat-bind-ip.png)
