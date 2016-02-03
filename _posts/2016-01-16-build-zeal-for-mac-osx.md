@@ -36,43 +36,43 @@ Zeal 的源码在 [zealdocs/zeal][1]，编译方法在 README 的 [How to compil
 
 1. 安装最新版 Qt，官方文档推荐的是 v5.2.0+，我安装的是 v5.5。
 
-    下载地址：<http://www.qt.io/download-open-source/>
+   下载地址：<http://www.qt.io/download-open-source/>
 
 2. 安装 libarchive。
 
-    ```
-    brew install libarchive
-    ```
+   ```
+   brew install libarchive
+   ```
 
 3. 下载源码。
 
-    ```
-    git clone git@github.com:zealdocs/zeal.git
-    ```
+   ```
+   git clone git@github.com:zealdocs/zeal.git
+   ```
 
 4. 编译。
-    * 使用 Qt Creator 打开源码下的 zeal.pro 文件，点击「项目」标签，将构建设置里的「编辑构建配置」改为 Release。
-    * 打开 src/core/core.pri 文件，在最后添加如下内容（需要将路径替换为你的机器上 libarchive 的对应完整路径）：
+   * 使用 Qt Creator 打开源码下的 zeal.pro 文件，点击「项目」标签，将构建设置里的「编辑构建配置」改为 Release。
+   * 打开 src/core/core.pri 文件，在最后添加如下内容（需要将路径替换为你的机器上 libarchive 的对应完整路径）：
 
-        ```
-        macx: {
-            INCLUDEPATH += /usr/local/Cellar/libarchive/3.1.2/include
-            LIBS += -L/usr/local/Cellar/libarchive/3.1.2/lib -larchive
-        }
-        ```
-    * Qt Creator 里的菜单项 「构建」——「构建所有项目」。
+     ```
+     macx: {
+         INCLUDEPATH += /usr/local/Cellar/libarchive/3.1.2/include
+         LIBS += -L/usr/local/Cellar/libarchive/3.1.2/lib -larchive
+     }
+     ```
+   * Qt Creator 里的菜单项 「构建」——「构建所有项目」。
 
-        如果编译不报错，在你的「项目」标签里的「构建目录」里填写的目录下的 bin 子目录里应该有 Zeal.app 了。
+     如果编译不报错，在你的「项目」标签里的「构建目录」里填写的目录下的 bin 子目录里应该有 Zeal.app 了。
 
 5. 生成安装包。
 
-    使用 Terminal 进入 Zeal.app 所在目录，运行如下命令生成 Zeal.dmg 文件：
+   使用 Terminal 进入 Zeal.app 所在目录，运行如下命令生成 Zeal.dmg 文件：
 
-    ```
-    macdeployqt Zeal.app -dmg
-    ```
+   ```
+   macdeployqt Zeal.app -dmg
+   ```
 
-    macdeployqt 命令在 Qt 安装目录下能找到，比如我的这个命令在 /Users/mazhuang/Qt5.5.0/5.5/clang_64/bin 目录下。
+   macdeployqt 命令在 Qt 安装目录下能找到，比如我的这个命令在 /Users/mazhuang/Qt5.5.0/5.5/clang_64/bin 目录下。
 
 ## 使用截图
 
