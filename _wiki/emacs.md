@@ -8,33 +8,10 @@ keywords: Emacs, 快捷键
 
 约定：`C-` 前缀表示 Ctrl，`M-` 前缀表示 Alt，`S-` 前缀表示 Shift，上档字符比如 `@` 的实际按键应为 `Shift+2`。
 
-### Index
+**目录**
 
-* [移动](#移动)
-* [编辑](#编辑)
-* [缓冲区](#缓冲区)
-* [窗口](#窗口)
-* [文件](#文件)
-* [代码](#代码)
-* [命令](#命令)
-* [重复](#重复)
-* [外部命令](#外部命令)
-* [模式](#模式)
-* [显示](#显示)
-* [搜索](#搜索)
-* [帮助](#帮助)
-* [右键菜单](#右键菜单)
-* [插件](#插件)
-  * [evil-nerd-commenter](#evil-nerd-commenter)
-  * [function-args](#function-args)
-  * [hexl-mode](#hexl-mode)
-  * [ido](#ido)
-  * [jedi](#jedi)
-  * [projectile](#projectile)
-  * [python](#python)
-  * [package](#package)
-* [其它需求](#其它需求)
-  * [统计字数](#统计字数)
+* TOC
+{:toc}
 
 ### 移动
 

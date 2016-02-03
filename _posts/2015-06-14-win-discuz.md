@@ -12,18 +12,10 @@ keywords: PHP, Discuz
 
 Win7 64 with sp1
 
-### 目录
-* [使用软件](#使用软件)
-* [详细步骤](#详细步骤)
-    * [安装 IIS](#安装-iis)
-    * [配置 PHP](#配置-php)
-    * [配置 MySQL](#配置-mysql)
-    * [检测环境是否准备好](#检测环境是否准备好)
-    * [安装 Zend Optimizer](#安装-zend-optimizer)
-    * [部署 Discuz!](#部署-discuz)
-    * [部署 phpMyAdmin（可选）](#部署-phpmyadmin（可选）)
-    * [常用入口](#常用入口)
-    * [让 Discuz! 局域网内可访问](#让-discuz-局域网内可访问)
+**目录**
+
+* TOC
+{:toc}
 
 ### 使用软件
 

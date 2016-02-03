@@ -10,11 +10,10 @@ Smali 相当于 Dalvik 虚拟机的汇编语言，语法可以参考 [Dalvik opc
 
 本文介绍的是如何使用 Vim + Ctags + Taglist（或 Tagbar） 来实现如下需求：
 
-1. [Smali 语法高亮](#smali-语法高亮)
-2. [跳转到定义](#跳转到定义)
-3. [Taglist/Tagbar 支持](#taglist-tagbar-支持)
-    * [使用 Taglist](#使用-taglist)
-    * [使用 Tagbar](#使用-tagbar)
+**目录**
+
+* TOC
+{:toc}
 
 最终效果图：
 
