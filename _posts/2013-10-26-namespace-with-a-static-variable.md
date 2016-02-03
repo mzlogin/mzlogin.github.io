@@ -9,7 +9,7 @@ keywords: C++
 **有如下三个文件**
 *header.h*
 
-```c++
+```cpp
 #pragma once
 namespace NS1
 {
@@ -20,7 +20,7 @@ void print_var();
 
 *src.cpp*
 
-```c++
+```cpp
 #include <stdio.h>
 #include "header.h"
 
@@ -32,7 +32,7 @@ void print_var()
 
 *main.cpp*
 
-```c++
+```cpp
 #include <stdio.h>
 #include "header.h"
 
@@ -60,7 +60,7 @@ int main()
 **求证：**
 将两个 cpp 文件中的 printf 语句都改为
 
-```c++
+```cpp
 printf("%d address is : 0x%X\n", NS1::var, &NS1::var);
 ```
 输出为：

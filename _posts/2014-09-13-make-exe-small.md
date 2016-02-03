@@ -12,7 +12,7 @@ keywords: Windows
 
 用 VC++ 生成一个最简单的 Win32 Console Application，调用少量简单的 CRT 函数，因为要独立 EXE，所以使用 /MT，示例代码部分如下，然后 Release 编译看看体积。
 
-```c++
+```cpp
 #include "stdafx.h"
 #include <string.h>
 
@@ -56,7 +56,7 @@ Project - Property - C/C++ - Optimization 将 Enable Intrinsic Functions 设为 
 
 这样修改后的代码如下：
 
-```c++
+```cpp
 #include "stdafx.h"
 //#include <string.h>
 

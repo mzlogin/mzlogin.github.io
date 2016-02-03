@@ -16,7 +16,7 @@ keywords: Windows
 
 ### 示例代码
 
-```C++
+```cpp
 #include <Windows.h>
 #include <Psapi.h>
 #include <stdio.h>

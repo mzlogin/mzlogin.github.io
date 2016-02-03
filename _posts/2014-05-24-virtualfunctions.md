@@ -69,7 +69,7 @@ int main()
 
 验证如下：
 
-```c++
+```cpp
 #include <stdio.h>
 
 class CObj
@@ -115,7 +115,7 @@ int main()
 
 验证如下：
 
-```c++
+```cpp
 #include <stdio.h>
 
 class CBase
@@ -163,7 +163,7 @@ int main()
 
 验证如下：
 
-```c++
+```cpp
 #include <stdio.h>
 
 class CBase
@@ -207,7 +207,7 @@ int main()
 
 验证如下：
 
-```c++
+```cpp
 #include <stdio.h>
 
 class CBase1
@@ -271,7 +271,7 @@ int main()
 
 验证如下：
 
-```c++
+```cpp
 #include <stdio.h>
 
 class CBase
@@ -321,7 +321,7 @@ int main()
 
 验证如下：
 
-```c++
+```cpp
 #include <stdio.h>
 
 class CBase

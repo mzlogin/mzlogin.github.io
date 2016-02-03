@@ -11,7 +11,7 @@ keywords: 宏，C++
 ### "
 在学习`#`和`##`之前，先来看一个关于`"`的例子：
 
-```c++
+```cpp
 #include <stdio.h>
 #include <string.h>
 
@@ -57,7 +57,7 @@ p5 = Nihao,Shijie!, strlen(p5) = 13
 
 还是通过 MSDN 上的例子来看看容易懂：
 
-```c++
+```cpp
 #define F abc
 #define B def
 #define FB(arg) #arg
@@ -90,7 +90,7 @@ FB1(F B) --> FB1(abc def) --> FB(abc def) --> #abc def --> "abc def"
 
 来理解一下 MSDN 上举的例子：
 
-```c++
+```cpp
 #include <stdio.h>
 #define paster( n ) printf_s( "token" #n " = %d", token##n )
 int token9 = 9;

@@ -12,7 +12,7 @@ keywords: Windows, Process
 
 实现原理：
 
-创建一个自己命名的段，将其属性改为 READ|WRITE|SHARED，其中 SHARED 属性表示该段的内容为多个实例所共享（实际上关闭了写时复制机制），将变量放在该段内若值被改变，多个实例间都会受到改变的影响。
+创建一个自己命名的段，将其属性改为 READ\|WRITE\|SHARED，其中 SHARED 属性表示该段的内容为多个实例所共享（实际上关闭了写时复制机制），将变量放在该段内若值被改变，多个实例间都会受到改变的影响。
 
 注意点：
 
@@ -22,7 +22,7 @@ keywords: Windows, Process
 
 示例代码：
 
-```C++
+```cpp
 #include <Windows.h>
 
 #pragma data_seg("Shared")
@@ -63,7 +63,7 @@ int main(int argc, char *argv[])
 
 示例代码：
 
-```C++
+```cpp
 #include <Windows.h>
 
 int main(int argc, char *argv[])

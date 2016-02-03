@@ -33,9 +33,11 @@ CSDN 账号过一段时间就会累积几十个下载过但是未评论打分的
 6. 对第 5 步中得到的所有待评论资源 ID 依次进行间隔至少 60S 的打分评论，随机打出 1 到 5 星，对应一句英文短句评论。出乎我意料的是评论这一步竟然也是用`GET`就可以做， http://download.csdn.net/index.php/comment/post_comment 后面带上`sourceid`、`content`（评论内容）、`rating`（打分）和`t`（时间戳）参数就可以。评论成功会返回`({"succ":1})`，失败会返回「两次评论需要间隔 60 秒」、「您已经发表过评论」等之类的`msg`。
 
 最终运行截图如下：
+
 ![CSDN 自动批量打分评论](/images/posts/python/csdncommenter.png)
 
 确认这种方式能有效拿到 CSDN 的分数：
+
 ![CSDN 自动评论得分](/images/posts/python/csdnscore.png)
 
 ### 总结

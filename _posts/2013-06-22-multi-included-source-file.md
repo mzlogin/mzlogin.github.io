@@ -10,7 +10,7 @@ keywords: C++
 
 两个工程 Proj1 和 Proj2，同时包含 demo.cpp，其中 Proj1 在工程配置里预定义宏 MACRO\_PROJ1，Proj2 在工程配置里预定义宏 MACRO\_PROJ2，两个工程的中间文件输出目录为同一个，文件 demo.cpp 内容如下：
 
-```c++
+```cpp
 #include <stdio.h>
 
 int main()

@@ -59,7 +59,7 @@ ac_add_options --enable-tests
 
 （4）在 winEmbed.cpp 文件里添加一句
 
-```c++
+```cpp
 #pragma comment(lib, "D:/1.9.2rc1/xulrunner-1.9.2rc1.source/mozilla-1.9.2/profile/dirserviceprovider/standalone/profdirserviceprovidersa_s.lib")
 ```
 

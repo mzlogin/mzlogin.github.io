@@ -57,19 +57,19 @@ Number objects are compared using '!=', not 'equals()'
 * 每种数值类型都有对应的包装类，比如 long 的包装类 Long。包装类的实例可以与数值型的值比较，是直接取出包装类实例所包装的数值来比较的。
 * 涉及自动装箱后情况复杂了一些，比如
 
-   ```java
-   Integer ina = 18;
-   Integer inb = 18;
+  ```java
+  Integer ina = 18;
+  Integer inb = 18;
 
-   Integer inc = 188;
-   Integer ind = 188;
-   ```
+  Integer inc = 188;
+  Integer ind = 188;
+  ```
 
-   这时 `ina == inb` 成立，而 `inc == ind` 不成立。
+  这时 `ina == inb` 成立，而 `inc == ind` 不成立。
 
-   原因是在 java.lang.Integer 类里，对 -128~127 之间的整数自动装箱成 Integer 实例，并且缓存了起来，所以对此范围内的整数自动装箱时，实际上都指向了缓存里的对象，所以会出现上面的情况。
+  原因是在 java.lang.Integer 类里，对 -128~127 之间的整数自动装箱成 Integer 实例，并且缓存了起来，所以对此范围内的整数自动装箱时，实际上都指向了缓存里的对象，所以会出现上面的情况。
 
-   与此类似的是 String 类型也会对诸如 `String stra = "Hello";` 这样的直接赋值创建的实例进行缓存。
+  与此类似的是 String 类型也会对诸如 `String stra = "Hello";` 这样的直接赋值创建的实例进行缓存。
 
 ### 最佳实践
 

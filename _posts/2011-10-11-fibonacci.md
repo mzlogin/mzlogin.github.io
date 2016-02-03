@@ -40,7 +40,7 @@ f(n) 的规律符合 Fibonacci 数列的规律，它与 Fibonacci 的区别是 F
 
 ### 简单的 C++ 实现
 
-```c++
+```cpp
 #include <iostream>
 using namespace std;
 

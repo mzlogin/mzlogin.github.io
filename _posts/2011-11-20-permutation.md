@@ -38,7 +38,7 @@ keywords: 算法, 全排列, 递归
  
 ### 简单的 C++ 实现
 
-```c++
+```cpp
 #include <iostream>
 using namespace std;
 

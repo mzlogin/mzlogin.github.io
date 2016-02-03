@@ -30,7 +30,7 @@ Mozilla 自带的 Profile 支持实际上是非常给力的，看看 %appdata%/M
 
 自写一个启用 profile 的函数，我这里直接使用 WinEmbed 例子里提供的 StartupProfile 函数：
 
-```c++
+```cpp
 nsresult StartupProfile()
 {
     nsCOMPtr<nsIFile> appDataDir;
@@ -58,7 +58,7 @@ nsresult StartupProfile()
 
 在初始化 Gecko 运行环境的过程里调用完 XRE_InitEmbedding2 之后，添加
 
-```c++
+```cpp
 if (NS_FAILED(StartupProfile())) {
     result = 8;
 }
@@ -67,7 +67,7 @@ else {
 
 在此文件开始添加
 
-```c++
+```cpp
 #include "nsAppDirectoryServiceDefs.h"
 #include "nsDirectoryServiceDefs.h"
 #include "nsProfileDirServiceProvider.h"
@@ -75,7 +75,7 @@ else {
 
 在合适的地方添加
 
-```c++
+```cpp
 #pragma comment(lib, "编译出的 lib")
 ```
 
