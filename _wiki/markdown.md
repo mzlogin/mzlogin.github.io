@@ -122,6 +122,14 @@ Tips: `#` 与标题中间要加空格。
 print 'Hello, World!'
 ```
 
+1. list item1
+
+2. list item2
+
+   ```python
+   print 'hello'
+   ```
+
 ### 图片
 
 ```
