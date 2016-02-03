@@ -44,6 +44,7 @@ p5 = Nihao,Shijie!, strlen(p5) = 13
 ```
 
 查看 PE 文件的常量字符串段，发现经过编译器优化后只存在一个`Hello,World!`串。
+
 ![img](/images/posts/cplusplus/staticstring_helloworld.png)
 
 即 p1，p2，p3，p4 这四种写法是等价的，这一点作为之后解释`#`用法的前提。

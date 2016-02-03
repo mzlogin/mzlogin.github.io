@@ -66,11 +66,13 @@ ac_add_options --enable-tests
 大功告成，编译成功 0 warning, 0 error。此时的程序也可以在别的机子上运行，但是需要将 xulrunner.exe 及其依赖文件拷到别的机子上并注册 GRE。
 
 程序运行示意图：
+
 <img src="/images/posts/gecko/gecko_embed.gif" width="80%" alt="gecko embed program run demo" />
 
 在自己编译的 xulrunner 环境下跑会产生下面两类错误，先忽略之让程序跑起来。（用官方提供的 xulrunner-sdk 里的程序来注册 GRE 并运行程序无报错）
 
 <img src="/images/posts/gecko/gecko_embed_err1.gif" width="80%" alt="gecko embed program run error 1" />
+
 <img src="/images/posts/gecko/gecko_embed_err2.gif" width="80%" alt="gecko embed program run error 2" />
  
 至于为什么要做（3）和（4），且听我慢慢道来。
