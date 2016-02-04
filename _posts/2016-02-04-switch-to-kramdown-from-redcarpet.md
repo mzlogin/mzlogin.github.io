@@ -85,23 +85,11 @@ in kramdown:
 * unordered list item two
 ```
 
-## Collections 列表
+## 遍历 Collections
 
-我在本博客做了一个 wiki collection，在 Redcarpet 中用如下写法可列出所有 wiki 的列表：
+我在本博客做了一个 wiki collection，在 Redcarpet 中用 `for doc in site.documents` 可遍历所有 wiki。
 
-```liquid
-{% for doc in site.documents %}
-......
-{% endfor %}
-```
-
-而切换到 kramdown 后需要写成这样：
-
-```liquid
-{% for wiki in site.wiki %}
-......
-{% endfor %}
-```
+而切换到 kramdown 后这样的写法将遍历所有的 wiki 和 posts，需要使用 `for wiki in site.wiki` 来遍历 wiki。
 
 不过这点其实严格说起来应该是我在使用 Redcarpet 时的写法没有遵循 Jekyll 的文档，参考 [Collections][3]。
 
