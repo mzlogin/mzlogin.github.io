@@ -133,6 +133,10 @@ public class Process {
 
 我做了一个 Demo APP，通过 `Runtime.getRuntime().exec("am start xxxxxxx");` 来启动拔号程序界面，有两个按钮分别模拟了传递与不传递 --user 参数的情况，有兴趣的同学可以看看现象，完整源码在 [AuthorityDemo][4]。
 
+运行截图如下：
+
+![authority demo](/images/posts/android/authority-demo.png)
+
 ## 分析
 
 接下来我们将借助于源码对 am start 的执行过程进行分析，一点一点吹散迷雾。
