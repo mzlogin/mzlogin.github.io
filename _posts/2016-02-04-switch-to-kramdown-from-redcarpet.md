@@ -138,6 +138,8 @@ READ|WRITE|SHARE
 READ\|WRITE\|SHARE
 ```
 
+相关讨论见：[gettalong/kramdown#151][5]
+
 ## 高亮的语言名称
 
 使用 Redcarpet + pygments 的组合时，`cpp`、`C++` 和 `c++` 都能对 C++ 代码片断进行语法高亮。
@@ -165,3 +167,4 @@ Hello, world!
 [2]: https://github.com/gettalong/kramdown/issues/209
 [3]: http://jekyllrb.com/docs/collections/
 [4]: http://mazhuang.org/2015/12/05/diff-between-gfm-and-redcarpet/#section-1
+[5]: https://github.com/gettalong/kramdown/issues/151
