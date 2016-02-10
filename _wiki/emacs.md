@@ -280,5 +280,5 @@ Windows Registry Editor Version 5.00
 （前提是 shell 下能运行 wc 程序）
 
 1. 选中要统计区域
-2. M-|
+2. M-\|
 3. wc -c
