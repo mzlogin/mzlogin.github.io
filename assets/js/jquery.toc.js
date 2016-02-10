@@ -1,50 +1,6 @@
 // https://github.com/ghiculescu/jekyll-table-of-contents
 // Updated by http://mazhuang.org
 (function($){
-
-  function Stack(){
-    this.dataStore = []
-    this.top    = 0;
-    this.push   = push
-    this.pop    = pop
-    this.peek   = peek
-    this.length = length;
-    this.toc_number = toc_number;
-    this.inc_number = inc_number;
-  }
-
-  function push(element){
-    this.dataStore[this.top++] = element;
-  }
-
-  function peek(element){
-    return this.dataStore[this.top-1];
-  }
-
-  function pop(){
-    return this.dataStore[--this.top];
-  }
-
-  function clear(){
-    this.top = 0
-  }
-
-  function length(){
-    return this.top
-  }
-
-  function toc_number() {
-    var num = "";
-    for (i = 0; i < this.top; i++) {
-      num += this.dataStore[i] + ".";
-    }
-    return num;
-  }
-
-  function inc_number() {
-    this.dataStore[this.top - 1]++;
-  }
-
   $.fn.toc = function(options) {
     var defaults = {
       noBackToTopLinks: false,
@@ -91,8 +47,6 @@
     var highest_level = headers.map(function(_, ele) { return get_level(ele); }).get().sort()[0];
     var return_to_top = '<i class="icon-arrow-up back-to-top"> </i>';
 
-    var stack = new Stack();
-    stack.push(0);
     var level = get_level(headers[0]),
     this_level,
     html = "<p><strong class=\"toc-title\">" + settings.title + "</strong></p>\n";
@@ -109,35 +63,24 @@
         $(header).addClass('top-level-header').after(return_to_top);
       }
       if (this_level === level) {// same level as before; same indenting
-        stack.inc_number();
         html += "<li class=\"toc-item toc-level-" + this_level + "\">";
         html += "<a class=\"jumper\" href='#" + fixedEncodeURIComponent(header.id) + "'>";
-        //        html += "<span class='toc-number'>" + stack.toc_number() + "</span>"
         html += "<span class='toc-text'>" + header.innerHTML + "</span>";
         html += "</a>";
 
       } else if (this_level <= level){ // higher level than before; end parent ol
         for(i = this_level; i < level; i++) {
-          stack.pop();
           html += "</li></"+settings.listType+">"
         }
-        stack.inc_number();
         html += "<li class='toc-item toc-level-" + this_level + "'><a class=\"jumper\" href='#" + fixedEncodeURIComponent(header.id) + "'>";
-        //        html += "<span class='toc-number'>" + stack.toc_number() + "</span>"
         html += "<span class='toc-text'>" + header.innerHTML + "</span>";
         html += "</a>";
       }
       else if (this_level > level) { // lower level than before; expand the previous to contain a ol
-        if (stack.length() > 1) {
-          return;
-        }
         for(i = this_level; i > level; i--) {
-          stack.push(0);
           html += "<"+settings.listType+" class='toc-child'><li class='toc-item toc-level-" + i + "'>"
         }
-        stack.inc_number();
         html += "<a class=\"jumper\" href='#" + fixedEncodeURIComponent(header.id) + "'>";
-        //        html += "<span class='toc-number'>" + stack.toc_number() + "</span>"
         html += "<span class='toc-text'>" + header.innerHTML + "</span>";
         html += "</a>";
       }
