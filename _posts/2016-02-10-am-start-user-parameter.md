@@ -129,7 +129,7 @@ public class Process {
 
 在 API level 17 以上的 Android 设备里，通过 am start 命令来启动 Activity 时会校验调用 am 命令的进程的 user id 与 am 进程从 --user 参数获取到的 user id（默认值为 UserHandle.USER\_CURRENT，即 -2）是否相等， 如果想在 APP 或者 APP 调用的 Native 进程里使用 am start 来启动 Activity，那么需要给其传递能通过校验的 --user 参数，参数值可以直接硬编码为 0，也可以使用 `android.os.Process.myUserHandle().hashCode()` 的值。
 
-如果不给 am start 添加正确的 --user 参数，那调用进程对应 uid 需要拥有 INTERACT\_ACROSS\_USERS\_FULL 权限，但是该权限的 protectionLevel 为 `signature|installer`，一般场景下是无法获取到的。
+如果不给 am start 传递正确的 --user 参数，那调用进程对应 uid 需要拥有 INTERACT\_ACROSS\_USERS\_FULL 权限，但是该权限的 protectionLevel 为 `signature|installer`，一般场景下是无法获取到的。
 
 我做了一个 Demo APP，通过 `Runtime.getRuntime().exec("am start xxxxxxx");` 来启动拔号程序界面，有两个按钮分别模拟了传递与不传递 --user 参数的情况，有兴趣的同学可以看看现象，完整源码在 [AuthorityDemo][4]。
 
@@ -364,7 +364,7 @@ int handleIncomingUser(int callingPid, int callingUid, int userId, boolean allow
 
 如果没有 INTERACT\_ACROSS\_USERS\_FULL 权限，allowMode 参数值又为 ALLOW\_FULL\_ONLY 则将抛出 SecurityException，从上一小节「ActivityManagerService.startActivityAsUser」中调用 handleIncomingUser 的参数可知 allowMode 参数就是 ALLOW\_FULL\_ONLY。
 
-上方代码段里的 `Permission Denial: `、` asks to run as user ` 和 ` but is calling from user ` 等字符串是不是很熟悉？这就是从文首开始困惑我们的异常抛出的地方。
+上方代码段里的 ``Permission Denial: ``、`` asks to run as user `` 和 `` but is calling from user `` 等字符串是不是很熟悉？这就是从文首开始困惑我们的异常抛出的地方。
 
 至此，am start 的大概执行过程和异常发生的情景分析完成。
 
