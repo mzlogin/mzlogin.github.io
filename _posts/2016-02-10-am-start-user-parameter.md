@@ -467,7 +467,7 @@ public final int startActivity(IApplicationThread caller, String callingPackage,
 
 ![app process](/images/posts/android/app-process.svg)
 
-在第 2 步，AndroidRuntime::start 中调用了 `startVm` 启动虚拟机，最终在第 5 步 AppRuntime::onStarted 中调用通过参数传进来的类的 main 函数，并将类名后的参数传给它。
+在第 2 步，AndroidRuntime::start 中调用了 `startVm` 启动虚拟机，最终在第 5 步 AppRuntime::onStarted 中调用通过参数传进来的类的 main 方法，并将类名后的参数传给它。
 
 [1]: http://developer.android.com/reference/android/os/Process.html#myUid()
 [2]: http://developer.android.com/reference/android/os/Process.html#myUserHandle()
