@@ -376,7 +376,7 @@ int handleIncomingUser(int callingPid, int callingUid, int userId, boolean allow
 
 从上文的分析可知，该参数应该与 am 进程的 user id 相等，所以传递父进程的 user id 即可。（user id 由 uid 运算得来，而 uid 与父进程相同。）
 
-则「背景」一切可知，所有 APP 进程的 user id 都为 0，所以该参数直接写 0 是可以的；如果不想硬编码，那么可以先用 Process 类的 `myUserHandle()` 方法获取进程的 user handle：
+由「背景」一节可知，所有 APP 进程的 user id 都为 0，所以该参数直接写 0 是可以的；如果不想硬编码，那么可以先用 Process 类的 `myUserHandle()` 方法获取进程的 user handle：
 
 ```java
 /**
@@ -426,7 +426,7 @@ public final class UserHandle implements Parcelable {
 
 ## 引申思考
 
-启动 Activity 并非只有在 APP 进程里使用 am start 一种，还有通过 adb 命令 adb shell am start 或在 APP 进程里使用 startActivity 等，它们为什么没有抛出此异常呢？继续探索。
+启动 Activity 的方法并非只有在 APP 进程里使用 am start 一种，还有通过 adb 命令 adb shell am start 或在 APP 进程里使用 startActivity 等，它们为什么没有抛出此异常呢？继续探索。
 
 ### 为何 adb shell am start 不抛此异常
 
