@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 将 GitHub Pages 从 Redcarpet 切换到 kramdown
-categories: markdown
+categories: Markdown
 description: 从 Redcarpet 切换到 kramdown 会遇到一些问题，这里记录了它们的解决办法。
 keywords: GitHub Pages, markdown, Redcarpet, kramdown
 ---

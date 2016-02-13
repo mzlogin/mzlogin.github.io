@@ -1,7 +1,7 @@
 ---
 layout: post
 title: TortoiseSVN 从 GitHub 更新时发生异常
-categories: svn
+categories: Svn
 description: TortoiseSVN 从 GitHub 更新时发生异常，附解决方案。
 keywords: TortoiseSVN, github
 ---

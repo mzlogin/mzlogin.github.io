@@ -1,7 +1,7 @@
 ---
 layout: post
 title: GFM 与 Redcarpet 的不同点
-categories: markdown
+categories: Markdown
 description: GFM 与 Redcarpet 有些许不同，在 GitHub Repository 与 GitHub Pages 里写作时应该注意这些区别，避免解析出来不是自己想要的效果。
 keywords: markdown, GFM, Redcarpet
 ---
