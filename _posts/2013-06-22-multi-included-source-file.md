@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 文件被多个中间文件输出目录相同的工程包含
-categories: Cplusplus
+categories: CPlusPlus
 description: 当一个文件被多个工程包含，并且这几个工程的中间文件输出目录相同时会出现问题。
 keywords: C++
 ---
