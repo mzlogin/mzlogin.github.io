@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 「Android 垃圾清理」之系统缓存
+title: Android 垃圾清理之系统缓存
 categories: Android
 description: Android 系统缓存从原理探索到实现。
 keywords: Android, Cache, Cleaner, System Cache
