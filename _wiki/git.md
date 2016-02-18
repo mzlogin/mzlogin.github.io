@@ -123,3 +123,10 @@ keywords: Git, 版本控制
    ```
    git submodule update --init --recursive
    ```
+
+8. 删除远程 tag
+
+   ```git
+   git tag -d v0.0.9
+   git push origin :refs/tags/v0.0.9
+   ```
