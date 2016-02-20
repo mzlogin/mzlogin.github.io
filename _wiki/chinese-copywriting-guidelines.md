@@ -26,7 +26,7 @@ Other languages:
 
 「有研究显示，打字的时候不喜欢在中文和英文之间加空格的人，感情路都走得很辛苦，有七成的比例会在 34 岁的时候跟自己不爱的人结婚，而其余三成的人最后只能把遗产留给自己的猫。毕竟爱情跟书写都需要适时地留白。
 
-与大家共勉之。」——[vinta/paranoid-auto-spacing](https://github.com/vinta/paranoid-auto-spacing)
+与大家共勉之。」——[vinta/paranoid-auto-spacing](https://github.com/vinta/pangu.js)
 
 ### 中英文之间需要增加空格
 
@@ -154,15 +154,15 @@ Microsoft 有个 [`-ms-text-autospace`](http://msdn.microsoft.com/en-us/library/
 
 正确：
 
-> 乔布斯那句话是怎么说的？「Stay hungry, stay foolish.」。
+> 乔布斯那句话是怎么说的？「Stay hungry, stay foolish.」
 
-> 推荐你阅读『Hackers & Painters: Big Ideas from the Computer Age』，非常的有趣。
+> 推荐你阅读《Hackers & Painters: Big Ideas from the Computer Age》，非常的有趣。
 
 错误：
 
-> 乔布斯那句话是怎么说的？「Stay hungry，stay foolish。」。
+> 乔布斯那句话是怎么说的？「Stay hungry，stay foolish。」
 
-> 推荐你阅读『Hackers＆Painters：Big Ideas from the Computer Age』，非常的有趣。
+> 推荐你阅读《Hackers＆Painters：Big Ideas from the Computer Age》，非常的有趣。
 
 ## 名词
 
@@ -261,20 +261,20 @@ Microsoft 有个 [`-ms-text-autospace`](http://msdn.microsoft.com/en-us/library/
 | [Microsoft 中国](http://www.microsoft.com/zh-cn/) | Yes  | N/A          |
 | [Microsoft 香港](http://www.microsoft.com/zh-hk/) | Yes  | N/A          |
 | [Microsoft 台湾](http://www.microsoft.com/zh-tw/) | Yes  | N/A          |
-| [LeanCloud](http://leancloud.cn/)                 | Yes  | N/A          |
-| [知乎](http://www.zhihu.com/)                     | Yes  | 部分用户达成 |
-| [V2EX](http://www.v2ex.com/)                      | Yes  | Yes          |
-| [SegmentFault](http://segmentfault.com/)          | Yes  | 部分用户达成 |
+| [LeanCloud](https://leancloud.cn/)                 | Yes  | N/A          |
+| [知乎](https://www.zhihu.com/)                     | Yes  | 部分用户达成 |
+| [V2EX](https://www.v2ex.com/)                      | Yes  | Yes          |
+| [SegmentFault](https://segmentfault.com/)          | Yes  | 部分用户达成 |
 | [Apple4us](http://apple4us.com/)                  | Yes  | N/A          |
-| [豌豆荚](http://www.wandoujia.com/)               | Yes  | N/A          |
-| [Ruby China](http://ruby-china.org/)              | Yes  | 标题达成     |
-| [PHPHub](http://phphub.org/)                      | Yes  | 标题达成     |
+| [豌豆荚](https://www.wandoujia.com/)               | Yes  | N/A          |
+| [Ruby China](https://ruby-china.org/)              | Yes  | 标题达成     |
+| [PHPHub](https://phphub.org/)                      | Yes  | 标题达成     |
 
 ## 参考文献
 
 - [Guidelines for Using Capital Letters](http://grammar.about.com/od/punctuationandmechanics/a/Guidelines-For-Using-Capital-Letters.htm)
 - [Letter case - Wikipedia](http://en.wikipedia.org/wiki/Letter_case)
-- [Punctuation - Oxford Dictionaries](http://www.oxforddictionaries.com/us/words/punctuation)
+- [Punctuation - Oxford Dictionaries](http://www.oxforddictionaries.com/words/punctuation)
 - [Punctuation - The Purdue OWL](https://owl.english.purdue.edu/owl/section/1/6/)
 - [How to Use English Punctuation Corrently - wikiHow](http://www.wikihow.com/Use-English-Punctuation-Correctly)
 - [格式 - openSUSE](https://zh.opensuse.org/index.php?title=Help:%E6%A0%BC%E5%BC%8F)
