@@ -146,6 +146,10 @@ READ\|WRITE\|SHARE
 
 而改为 kramdown + rouge 的组合后，只能使用 `cpp`。
 
+rouge 支持的语言列表可以参考如下链接：
+
+* [List of supported languages and lexers][6]
+
 ## 图片上面空行
 
 在 Redcarpet 中，如下写法的图片和文字之间会换行：
@@ -168,3 +172,4 @@ Hello, world!
 [3]: http://jekyllrb.com/docs/collections/
 [4]: http://mazhuang.org/2015/12/05/diff-between-gfm-and-redcarpet/#section-1
 [5]: https://github.com/gettalong/kramdown/issues/151
+[6]: https://github.com/jneen/rouge/wiki/List-of-supported-languages-and-lexers
