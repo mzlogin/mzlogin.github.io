@@ -30,3 +30,7 @@ M --> Alt
 1. 新建工程后函数跳转等遇到 `symbol not found` 如何解决？
 
    打开菜单里的「Project」-「Synchronize Files」（快捷键 <kbd>Alt</kbd> + <kbd>Shift</kbd> +<kbd>S</kbd>），勾选 `Force all files to be re-parsed` 后点击 `OK`，等待 Source Insight 重新解析工程里的文件完成即可。
+
+2. 如何在标题栏里显示文件全路径？
+
+   打开菜单里的「Options」-「Preferences」-「Display」，取消勾选 `Trim long path names with ellipses`。
