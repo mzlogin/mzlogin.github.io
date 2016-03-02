@@ -120,7 +120,7 @@ in kramdown:
 
 <del>hello world</del>
 
-*update 2016/03/02:* kramdown 主分支已经解决了这个问题，见 [gettalong/kramdown#304][7]，坐等 Release 后 GitHub Pages 更新就能用了。
+**update 2016/03/02:** kramdown 主分支已经解决了这个问题，见 [gettalong/kramdown#304][7]，坐等 Release 后 GitHub Pages 更新就能用了。
 
 ## 表格
 
