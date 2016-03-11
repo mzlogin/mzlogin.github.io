@@ -19,6 +19,8 @@
 
 2. 中英文之间要加空格，更多中文文案排版规范可以参考 [中文文案排版指北（简体中文版）][1]。
 
+3. 在本地预览博客效果可以参考 [Setting up your Pages site locally with Jekyll][3]。
+
 ### 书写经验
 
 * 如果写技术文章，那先将技术原理完全理清了再开始写，一边摸索技术一边组织文章效率较低。
@@ -31,3 +33,4 @@
 
 [1]: https://github.com/mzlogin/chinese-copywriting-guidelines
 [2]: http://mazhuang.org/2015/12/05/diff-between-gfm-and-redcarpet/
+[3]: https://help.github.com/articles/setting-up-your-pages-site-locally-with-jekyll/

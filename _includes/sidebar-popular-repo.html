@@ -1,4 +1,5 @@
 <h3>Popular Repositories</h3>
+{% if site.github.public_repositories != null %}
 {% assign repos = site.github.public_repositories | sort: "stargazers_count" | reverse%}
 {% for repo in repos %}
     {% if site.popular_repos contains repo.name %}
@@ -24,3 +25,4 @@
         </section>
     {% endif %}
 {% endfor %}
+{% endif %}
