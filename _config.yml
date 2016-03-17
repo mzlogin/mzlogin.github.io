@@ -89,8 +89,8 @@ twitter_username: mzlogin
 # ---------------- #
 #      Comments    #
 # ---------------- #
-duoshuo_username: mazhuang
-# disqus_username: mzlogin
+# duoshuo_username: mazhuang
+disqus_username: mzlogin
 changyan: false
 
 # ---------------- #
