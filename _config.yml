@@ -79,7 +79,8 @@ collections:
 # ---------------- #
 #      Socials     #
 # ---------------- #
-duoshuo_username: mazhuang
+# duoshuo_username: mazhuang
+disqus_username: mzlogin
 github_username: mzlogin
 douban_username: freedim
 facebook_username: mzlogin
