@@ -79,14 +79,18 @@ collections:
 # ---------------- #
 #      Socials     #
 # ---------------- #
-# duoshuo_username: mazhuang
-disqus_username: mzlogin
 github_username: mzlogin
 douban_username: freedim
 facebook_username: mzlogin
 weibo_username: mzlogin
 zhihu_username: mzlogin
 twitter_username: mzlogin
+
+# ---------------- #
+#      Comments    #
+# ---------------- #
+duoshuo_username: mazhuang
+# disqus_username: mzlogin
 changyan: false
 
 # ---------------- #
