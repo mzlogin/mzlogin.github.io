@@ -89,9 +89,10 @@ twitter_username: mzlogin
 # ---------------- #
 #      Comments    #
 # ---------------- #
-# duoshuo_username: mazhuang
+# support provider: disqus, duoshuo, changyan
+comments_provider: disqus
+duoshuo_username: mazhuang
 disqus_username: mzlogin
-changyan: false
 
 # ---------------- #
 #      Datas       #
