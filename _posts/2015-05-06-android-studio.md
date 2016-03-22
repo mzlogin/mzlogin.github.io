@@ -85,3 +85,28 @@ keywords: Android, Android Studio
        ├─menu
        ...
    ```
+
+4. 在 Android Studio 里编译通过之后，命令行使用 gradlew build 为什么还是会重新下载 Gradle？
+
+   Gradle 的版本在 Android Studio 工程里有三处：
+
+   一、gradle/wrapper/gradle-wrapper.properties 文件的 distributionUrl 字段里指定的。
+
+   ```
+   #Wed Oct 21 11:34:03 PDT 2015
+   distributionBase=GRADLE_USER_HOME
+   distributionPath=wrapper/dists
+   zipStoreBase=GRADLE_USER_HOME
+   zipStorePath=wrapper/dists
+   distributionUrl=https\://services.gradle.org/distributions/gradle-2.8-all.zip
+   ```
+
+   比如这里指定的是 2.8 版本。
+
+   二、Android Studio 的 File > Project Structure > Project 里显示的。
+
+   这个实际上就是显示的「一」里的版本。
+
+   三、Android Studio 的 File > Settings > Build, Execution, Deployment > Build Tools > Gradle 里选择的是「Use default gradle wrapper (recommended)」还是「Use local gradle distribution」。
+
+   出现题目里的问题一般是由于「三」中选择的是「Use local gradle distribution」，这个选项下的「Gradle home」路径一般是指向 Android Studio 安装目录下的 Gradle 目录，比如 C:/Program Files/Android/Android Studio/gradle/gradle-2.8，而 gradlew 脚本是独立于 Android Studio 的，所以并不受其配置的影响，它是使用「一」里指定的版本，会到 ~/.gradle/wrapper/dists 目录下去寻找对应版本的 Gradle 是否已经存在，如果没有话就会去重新下载。
