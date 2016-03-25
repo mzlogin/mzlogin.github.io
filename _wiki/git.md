@@ -112,6 +112,12 @@ url = git@github.com:philsquared/Catch.git
 git submodule update
 ```
 
+当 submodule 的 remote 有更新的时候，需要
+
+```
+git submodule update --remote
+```
+
 **删除 submodule**
 
 在 .gitmodules 中删除对应 submodule 的信息，然后使用如下命令删除子模块所有文件：
