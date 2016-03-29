@@ -34,6 +34,7 @@ Cmd --> Command
 | Redo                    | C-S-z          | Cmd-S-z             |
 | 删除行                  | C-y            | Cmd-x               |
 | 复制行                  | C-c            | Cmd-d               |
+| 复制当前行到下一行      | C-d            |                     |
 | 在下面另起一行          | S-Enter        | S-Enter             |
 | 在上面另起一行          | C-M-Enter      | Cmd-M-Enter         |
 | 上/下移动代码行         | M-S-Up/Down    | M-S-Up/Down         |
