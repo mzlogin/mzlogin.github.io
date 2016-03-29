@@ -122,7 +122,7 @@ in kramdown:
 
 **update 2016/03/02:** kramdown 主分支已经解决了这个问题，见 [gettalong/kramdown#304][7]，坐等 Release 后 GitHub Pages 更新就能用了。
 
-**update 2016/03/29:** [pages-gem][8] 当前使用的 1.10.0 版本已经包含了主分支对此的修复，已经可以愉快地使用 ``~~hello world~~`` 来表示 ~~hello world~~ 了。
+**update 2016/03/29:** [pages-gem][8] 当前使用的 1.10.0 版本的 kramdown 已经包含了主分支对此的修复，已经可以愉快地使用 ``~~hello world~~`` 来表示 ~~hello world~~ 了。
 
 ## 表格
 
