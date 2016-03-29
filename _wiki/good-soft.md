@@ -19,3 +19,4 @@ keywords: 软件, 推荐
 | Android 开发  | Android Studio | Android Studio |
 | 源码阅读      |                | Source Insight |
 | 笔记          | OneNote        | OneNote        |
+| 终端          | zsh            | Cmder          |

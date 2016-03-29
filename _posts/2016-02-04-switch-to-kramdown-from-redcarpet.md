@@ -122,6 +122,8 @@ in kramdown:
 
 **update 2016/03/02:** kramdown 主分支已经解决了这个问题，见 [gettalong/kramdown#304][7]，坐等 Release 后 GitHub Pages 更新就能用了。
 
+**update 2016/03/29:** [pages-gem][8] 当前使用的 1.10.0 版本已经包含了主分支对此的修复，已经可以愉快地使用 ``~~hello world~~`` 来表示 ~~hello world~~ 了。
+
 ## 表格
 
 在 Redcarpet 中如下写法能直接显示你写的内容：
@@ -176,3 +178,4 @@ Hello, world!
 [5]: https://github.com/gettalong/kramdown/issues/151
 [6]: https://github.com/jneen/rouge/wiki/List-of-supported-languages-and-lexers
 [7]: https://github.com/gettalong/kramdown/issues/304
+[8]: https://github.com/github/pages-gem

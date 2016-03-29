@@ -14,14 +14,14 @@ keywords: Markdown
 ### 超链接
 
 ```
-[靠谱-ing](http://www.mazhuang.org)
+[靠谱-ing](http://mazhuang.org)
 
-<http://www.mazhuang.org>
+<http://mazhuang.org>
 ```
 
-[靠谱-ing](http://www.mazhuang.org)  
+[靠谱-ing](http://mazhuang.org)  
 
-<http://www.mazhuang.org>
+<http://mazhuang.org>
 
 ### 列表
 
@@ -83,13 +83,6 @@ keywords: Markdown
 ###### 六级标题
 ```
 
-# 一级标题
-## 二级标题
-### 三级标题
-#### 四级标题
-##### 五级标题
-###### 六级标题
-
 Tips: `#` 与标题中间要加空格。
 
 ### 表格
@@ -144,44 +137,8 @@ print 'Hello, World!'
 :blush:
 :smile:
 
-### toc link test
+### Footnotes
 
-#### hello world
-#### -hello-world-
-#### hello——world
-#### _hello_world_
-#### @hello@world@
-#### #hello#world#
-#### $hello$world$
-#### %hello%world%
-#### ^hello^world^
-#### &hello&world&
-#### *hello*world*
-#### (hello()world)
-#### +hello+world+
-#### /hello/world/
-#### ~hello~world~
-#### !hello!world!
-#### 'hello'world'
-#### ;hello;world;
-#### "hello"world"
-#### .hello.world.
-#### ,hello,world,
-#### ?hello?world?
-#### :hello:world:
-#### |hello|world|
-#### ”
-#### “
-#### “hello”world“
-#### 「
-#### 」
-#### 「hello」world「
-#### ？
-#### ？hello？world？
-#### ！
-#### ！hello！world！
-#### ：
-#### ：hello：world：
-#### 《
-#### 》
-#### 《hello《》world》
+This is a text with footnote[^1].
+
+[^1]: Here is the footnote 1 definition.
