@@ -1,7 +1,7 @@
 # ---------------- #
 #   Main Configs   #
 # ---------------- #
-baseurl: 
+baseurl:
 url: http://mazhuang.org
 date_format: "ordinal"
 title: 码志
@@ -16,7 +16,7 @@ source_code: https://github.com/mzlogin/mzlogin.github.io
 # ---------------- #
 #      Author      #
 # ---------------- #
-author: Zhuang Ma 
+author: Zhuang Ma
 organization: Sogou, Inc.
 organization_url: https://www.sogou.com
 location: Beijing, China
@@ -91,6 +91,8 @@ twitter_username: mzlogin
 # ---------------- #
 # support provider: disqus, duoshuo, changyan
 comments_provider: disqus
+# !!!重要!!! 请修改下面两个用户名为你自己申请的
+# !!!Important!!! Please modify usernames below to yours
 duoshuo_username: mazhuang
 disqus_username: mzlogin
 
@@ -102,4 +104,3 @@ skill_mobile_app_keywords: [Android, Reverse Engineering]
 skill_windows_keywords: [Win32 SDK, DuiLib, WTL, COM, WinDbg]
 popular_repos: ['chinese-copywriting-guidelines','android-reverse-engineering', 'csdncommenter', 'mzlogin.github.io', 'vim-markdown-toc']
 contribute_repos: ['sparanoid/chinese-copywriting-guidelines', 'waylife/RentCrawer']
-
