@@ -134,6 +134,14 @@ keywords: Android, Android Studio
 
    将 debug.keystore 文件拷贝到 $ANDROID_SDK_HOME/.android 目录下。
 
+   BTW:
+
    关于给 App 签名的手动、自动方法参考 [Signing Your Applications][1]。
+
+   Android Studio 自动生成的 debug.keystore 的信息：
+
+   * Keystore password: android
+   * Key alias: androiddebugkey
+   * Key password: android
 
 [1]: http://developer.android.com/tools/publishing/app-signing.html
