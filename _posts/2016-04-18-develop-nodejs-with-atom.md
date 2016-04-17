@@ -8,7 +8,7 @@ keywords: Atom, Node.js, ternjs
 
 Node.js 的开发环境选择很多，比如 WebStrom/Visual Studio Code/Atom/HBuilder，还有万能的 Vim/Emacs 等等。
 
-根据我个人的试用，WebStorm 应该是智能配置起来最省心，用起来最顺手的选择，而且从有 Android Studio 和 PyCharm 的使用经验上手毫无障碍。但一来 WebStorm 价格不菲，二来最近刚刚被 Atom 圈粉，而 Visual Studio Code 和 Atom 又是这些编辑器里面与 Node.js 渊源最深的，所以最终决定最近在学习 Node.js 写一些练手项目时以使用 Atom 为主，Vim 为辅。
+根据我个人的试用，WebStorm 应该是配置起来最省心，用起来最顺手的选择，而且有 Android Studio 和 PyCharm 的使用经验上手毫无障碍。但一来 WebStorm 价格不菲，二来最近刚刚被 Atom 圈粉，而 Visual Studio Code 和 Atom 又是这些编辑器里面与 Node.js 渊源最深的，所以最终决定最近在学习 Node.js 以及写一些练手项目时以使用 Atom 为主，Vim 为辅。
 
 ## 安装 Atom 插件
 
@@ -37,7 +37,7 @@ atom-ternjs 插件对项目配置做了可视化，可以通过菜单来操作�
 
 2. Package > Atom Ternjs > Configure project
 
-   ![/images/posts/node/ternjs-configure-project.jpeg]
+   ![](/images/posts/node/ternjs-configure-project.jpeg)
 
    配置文件里常用字段：
 
@@ -77,7 +77,7 @@ atom-ternjs 插件对项目配置做了可视化，可以通过菜单来操作�
 
 最终效果：
 
-![/images/posts/node/ternjs-auto-completion.jpeg]
+![](/images/posts/node/ternjs-auto-completion.jpeg)
 
 ## Q & A
 
