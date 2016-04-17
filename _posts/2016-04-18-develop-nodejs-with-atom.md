@@ -12,6 +12,13 @@ Node.js 的开发环境选择很多，比如 WebStrom/Visual Studio Code/Atom/HB
 
 ## 安装 Atom 插件
 
+主要是它们：
+
+* **atom-ternjs** 用于 Javascript 和 Node.js 的自动补全
+* **script** 用于一键运行程序
+
+### 自动补全插件
+
 Atom 上的 Javascript 自动补全主要依赖 atom-ternjs 插件，貌似没有什么其它更好的选择。（配合 autocomplete-plus 插件使用，Atom 默认已经安装。）
 
 安装方法与安装其它插件无异，主要有两种选择：
@@ -28,6 +35,16 @@ Atom 上的 Javascript 自动补全主要依赖 atom-ternjs 插件，貌似没�
    cd atom-ternjs
    npm install
    ```
+
+### 一键运行插件
+
+安装 script 插件，然后有两种方法可以一键运行程序了：
+
+1. Packages > Script > Run Script。
+
+2. 在 Mac 下使用快捷键 <kbd>cmd</kbd>+<kbd>i</kbd>。
+
+使用 <kbd>ctrl</kbd>+<kbd>c</kbd> 终止程序。
 
 ## 配置项目
 
@@ -96,6 +113,17 @@ atom-ternjs 插件对项目配置做了可视化，可以通过菜单来操作�
    别提了，如果没有把 .tern-project 文件配置好，打一个 `.` 之后能卡五秒，严重拉低 Vim 编辑速度。
 
    不过 tern\_for\_vim 也有一个好处，那就是不用像 atom-ternjs 这样每次改完配置后都要手动 Restart server。
+
+## 后话
+
+ternjs 功能强大，包括：
+
+* 自动补全方法和变量
+* 查找引用/定义
+* 显示方法详情，包括方法签名和文档等
+* 简单的重构
+
+把它用好了还是能不错地提升开发效率的。
 
 [atom-ternjs]: https://github.com/tststs/atom-ternjs
 [tern_for_vim]: https://github.com/ternjs/tern_for_vim
