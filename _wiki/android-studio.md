@@ -58,7 +58,10 @@ Cmd --> Command
 | 隐藏底部视图            | S-Esc          | S-Esc               |
 | 删除一个单词            | C-Backspace    | M-delete            |
 | 重构 - 重命名           |                | S-F6                |
+| Find Action             | C-S-a          |                     |
+| 打开设置                | C-M-s          | Cmd-,               |
 
 注：
 
-* 在 Windows 下格式化代码的 Ctrl+Alt+l 和 QQ 锁热键冲突了，我去 QQ 的设置里删除了QQ锁热键。
+* 在 Windows 下格式化代码的 Ctrl+Alt+l 和 QQ 锁热键冲突了，我去 QQ 的设置里删除了QQ 锁热键。
+* 在 Windows 下打开 Settings 的 Ctrl+Alt+s 与 QQ 打开消息盒子热键冲突了，我删除了 QQ 里的该热键。
