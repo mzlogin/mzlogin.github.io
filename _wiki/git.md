@@ -138,3 +138,22 @@ git submodule update --init --recursive
 git tag -d v0.0.9
 git push origin :refs/tags/v0.0.9
 ```
+
+#### 清除未跟踪文件
+
+```
+git clean
+```
+
+可选项：
+
+| 选项                    | 含义                             |
+|-------------------------|----------------------------------|
+| -q, --quiet             | 不显示删除文件名称               |
+| -n, --dry-run           | 试运行                           |
+| -f, --force             | 强制删除                         |
+| -i, --interactive       | 交互式删除                       |
+| -d                      | 删除文件夹                       |
+| -e, --exclude <pattern> | 忽略符合 <pattern> 的文件        |
+| -x                      | 清除包括 .gitignore 里忽略的文件 |
+| -X                      | 只清除 .gitignore 里忽略的文件   |
