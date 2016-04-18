@@ -21,13 +21,23 @@ Node.js 的开发环境选择很多，比如 WebStrom/Visual Studio Code/Atom/HB
 
 Atom 上的 Javascript 自动补全主要依赖 atom-ternjs 插件，貌似没有什么其它更好的选择。（配合 autocomplete-plus 插件使用，Atom 默认已经安装。）
 
-安装方法与安装其它插件无异，主要有两种选择：
+安装方法与安装其它插件无异，主要有三种选择：
 
-1. 在 Settings 的 Install 里搜索找到 atom-ternjs 并安装。
+1. 图形界面。
+
+   在 Atom 的 Settings > Install 里搜索找到 atom-ternjs 并安装。
 
    这种方法在国内需要科学上网。
 
-2. 本地安装。
+2. 命令行。
+
+   ```sh
+   apm install atom-ternjs
+   ```
+
+   这种方法在国内也需要科学上网。
+
+3. 本地安装。
 
    ```sh
    cd ~/.atom/packages
@@ -38,13 +48,16 @@ Atom 上的 Javascript 自动补全主要依赖 atom-ternjs 插件，貌似没�
 
 ### 一键运行插件
 
-安装 script 插件，然后有两种方法可以一键运行程序了：
+安装 script 插件，然后有两种方法可以一键运行/结束程序了：
 
-1. Packages > Script > Run Script。
+1. Packages > Script > Run Script/Stop Script。
 
-2. 在 Mac 下使用快捷键 <kbd>cmd</kbd>+<kbd>i</kbd>。
+2. 快捷键。
 
-使用 <kbd>ctrl</kbd>+<kbd>c</kbd> 终止程序。
+   |      | Mac                          | Windows                                       |
+   |------|------------------------------|-----------------------------------------------|
+   | 运行 | <kbd>cmd</kbd>+<kbd>i</kbd>  | <kbd>ctrl</kbd>+<kbd>shift</kbd>+<kbd>b</kbd> |
+   | 结束 | <kbd>ctrl</kbd>+<kbd>c</kbd> | <kbd>ctrl</kbd>+<kbd>q</kbd>                  |
 
 ## 配置项目
 
@@ -100,7 +113,7 @@ atom-ternjs 插件对项目配置做了可视化，可以通过菜单来操作�
 
 1. 在 Mac 下按步骤官方的 README 操作后自动提示出不来？
 
-   我在 Windows 下按官方指南配置 atom-ternjs 倒是很顺利，按默认步骤操作完，然后在 plugins 一节添加 node 里就一切 OK 了，但在 Mac 下貌似不配置 loadEagerly 为 `**/*.js` 智能提示出不来。
+   我在 Windows 下按官方指南配置 atom-ternjs 倒是很顺利，按默认步骤操作完，然后在 plugins 一节添加 node 就一切 OK 了，但在 Mac 下貌似不配置 loadEagerly 为 `**/*.js` 智能提示出不来。
 
    另外就是 .tern-project 文件放置的位置，最好与 package.json 放在同级目录。
 
