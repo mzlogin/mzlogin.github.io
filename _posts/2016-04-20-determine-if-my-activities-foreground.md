@@ -8,7 +8,7 @@ keywords: Android, Activity, Foreground
 
 本文记录的是一种判断当前激活的 Activity 是否属于本进程的方法。
 
-*约定：文中表述说一个 Activity 处于激活状态是指它是屏幕上当前展示的 Activity，且没有被 Dialog 覆盖。*
+**约定：文中表述说一个 Activity 处于激活状态是指它是屏幕上当前展示的 Activity，且没有被 Dialog 覆盖。**
 
 ## 原理
 
@@ -42,7 +42,7 @@ public interface ActivityLifecycleCallbacks {
 
 ```java
 public class MyApplication extends Application {
-    private static hasActivityForeground = false;
+    private static hasActivityActivate = false;
 
     @Override
     public void onCreate() {
@@ -60,12 +60,12 @@ public class MyApplication extends Application {
 
             @Override
             public void onActivityResumed(Activity activity) {
-                hasActivityForeground = true;
+                hasActivityActivate = true;
             }
 
             @Override
             public void onActivityPaused(Activity activity) {
-                hasActivityForeground = false;
+                hasActivityActivate = false;
             }
 
             @Override
@@ -85,8 +85,8 @@ public class MyApplication extends Application {
         });
     }
 
-    public static boolean isCurrentProcessForeground() {
-        return (sActionCount > 0);
+    public static boolean hasActivityActivate() {
+        return hasActivityActivate;
     }
 }
 ```
@@ -102,7 +102,7 @@ public class MyApplication extends Application {
 
 ## 后话
 
-本文记录的只是判断当前进程是否有 Activity 处于前台的方法，判断当前应用、其它应用的前后台情况有多种方法，它们的优缺点、适用场景在以下 GitHub 仓库有详细列举，有需求的同学可以参考：
+本文记录的只是判断当前进程是否有 Activity 处于激活状态的方法，判断当前应用、其它应用的前后台情况有多种方法，它们的优缺点、适用场景在以下 GitHub 仓库有详细列举，有需求的同学可以参考：
 
 <https://github.com/wenmingvs/AndroidProcess>
 
