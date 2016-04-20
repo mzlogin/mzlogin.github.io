@@ -91,6 +91,8 @@ public class MyApplication extends Application {
 }
 ```
 
+然后在需要的时候调用 `MyApplication.hasActivityActivate()` 就行了。
+
 当然别忘了在 AndroidManifest.xml 里声明指定你的 Application 类名：
 
 ```xml
