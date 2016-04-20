@@ -42,7 +42,7 @@ public interface ActivityLifecycleCallbacks {
 
 ```java
 public class MyApplication extends Application {
-    private static hasActivityActivate = false;
+    private static boolean hasActivityActivate = false;
 
     @Override
     public void onCreate() {
