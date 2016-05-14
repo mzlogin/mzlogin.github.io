@@ -23,7 +23,8 @@ keywords: 软件, 推荐
 | 源码阅读       | Source Insight |                |
 | 笔记           | OneNote        | OneNote        |
 | 终端           | Cmder          | zsh            |
-| 视频播放器     |                | mpv            |
+| 视频播放器     | QQ 影音        | mpv            |
+| 下载           | 迅雷精简版     | 迅雷           |
 
 ## 亮点
 
