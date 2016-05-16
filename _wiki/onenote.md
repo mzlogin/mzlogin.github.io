@@ -20,6 +20,7 @@ Cmd --> Command
 |:-----------------|:--------|:------------|
 | 插入日期         | M-S-d   | Cmd-d       |
 | 插入日期+时间    | M-S-f   | Cmd-S-d     |
+| 插入链接         | C-k     | Cmd-k       |
 | 新建页面         | C-n     | Cmd-n       |
 | 返回访问的上一页 | M-Left  | C-Cmd-Left  |
 | 返回访问的下一页 | M-Right | C-Cmd-Right |
