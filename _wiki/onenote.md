@@ -30,3 +30,7 @@ Cmd --> Command
 ## 小技巧
 
 * 搜索带特殊字符如「空格」等，用 `"` 将搜索关键字括起来。
+
+* 删除「我的模板」
+
+  在 Windows 下的 `C:\Users\<username>\AppData\Roaming\Microsoft\Templates` 里找到文件 `我的模板.one`，双击打开将显示你所有的模板页面，删除你想要删除的然后关闭即可。
