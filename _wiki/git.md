@@ -165,3 +165,13 @@ git clean
 | -e, --exclude <pattern> | 忽略符合 <pattern> 的文件        |
 | -x                      | 清除包括 .gitignore 里忽略的文件 |
 | -X                      | 只清除 .gitignore 里忽略的文件   |
+
+#### 忽略文件属性更改
+
+因为临时需求对某个文件 chmod 了一下，结果这个就被记为了更改，有时候这是想要的，有时候这会造成困扰。
+
+```
+git config --global core.filemode false
+```
+
+参考：[How do I make Git ignore file mode (chmod) changes?](http://stackoverflow.com/questions/1580596/how-do-i-make-git-ignore-file-mode-chmod-changes)
