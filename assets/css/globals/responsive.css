@@ -80,11 +80,12 @@
   .collapsed {
     float: right;
     display: block;
-    width: 40px;
+    width: 22px;
     height: 2em;
     background-color: transparent;
     background-image: none;
-    border: 1px solid transparent;
+    border: none;
+    padding: 0;
     cursor: pointer;
     outline: none;
   }
