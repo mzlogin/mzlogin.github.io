@@ -56,7 +56,21 @@ keywords: GitHub Pages, SSL, Let's Encrypt
 
 ## 后话
 
-看 Kloudsec 的文档里描述的 [HOW DOES IT WORK?](https://docs.kloudsec.com/#section-how-does-it-work-)，它提供的服务处于我们的网站服务器和我们的网站的访问者之间，其原理是缓存了我们服务器上的页面，所以实际用户建立的 HTTPS 连接是用户的浏览器与 Kloudsec 之间的。
+### 实现原理
+
+看 Kloudsec 的文档里描述的 [HOW DOES IT WORK?](https://docs.kloudsec.com/#section-how-does-it-work-)，它提供的服务处于我们的网站服务器和我们的网站访问者之间，其原理是缓存了我们服务器上的页面，所以实际用户建立的 HTTPS 连接是用户的浏览器与 Kloudsec 之间的。
+
+### 使用 Kloudsec 的好处
+
+* 摆脱了证书不可信存在安全风险的不友好提示。
+* 配置方便，一劳永逸。
+* 访问速度并未受影响。
+* 小绿锁看着舒心。
+
+### 使用 Kloudsec 的风险和影响
+
+* 貌似是个小公司，这样的免费服务能提供多长时间只有天知道。
+* 因为用户看到是在 Kloudsec 上的缓存页面，所以我们更新 GitHub Pages 内容后，刷新线上页面效果的时间变久了，以前基本上传完就行，现在大概延迟两三分钟，基本能忍。
 
 接下来，能做的就是祈祷 Kloudsec 不要挂了。:laughing:
 
