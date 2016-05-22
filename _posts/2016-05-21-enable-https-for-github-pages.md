@@ -48,7 +48,17 @@ keywords: GitHub Pages, SSL, Let's Encrypt
 
    ![Web Server Origin IP](/images/posts/github/https-config-server-ip.png)
 
-5. 进入到 Dashboard 的 PLUGIN STORE，启用 Offline Protection、Page Optimizer 和 One-Click Encryption，一般来讲免费的计划就够用了，如果你想要使用付费计划提供更多更好的服务，那按需选择吧。
+5. 开启 HTTP 自动跳转到 HTTPS。*（非必须，按自己需求来。）*
+
+   进入到 Dashboard 的 PROTECTION，点击 SSL Encryption 里的按钮，选择你的网站：
+
+   ![PROTECTION](/images/posts/github/https-config-redirection-1.png)
+
+   将 Automatically redirect to HTTPS site? 下面的开关切换到 ON：
+
+   ![Automatically redirect to HTTPS site?](/images/posts/github/https-config-redirection-2.png)
+
+6. 进入到 Dashboard 的 PLUGIN STORE，启用 Offline Protection、Page Optimizer 和 One-Click Encryption，一般来讲免费的计划就够用了，如果你想要使用付费计划提供更多更好的服务，那按需选择吧。
 
    ![Plugin Store](/images/posts/github/https-config-plugin-store.png)
 
@@ -71,6 +81,7 @@ keywords: GitHub Pages, SSL, Let's Encrypt
 
 * 貌似是个小公司，这样的免费服务能提供多长时间只有天知道。
 * 因为用户看到是在 Kloudsec 上的缓存页面，所以我们更新 GitHub Pages 内容后，刷新线上页面效果的时间变久了，以前上传完基本马上就能看到，现在部分页面有时候会延迟两三分钟，我勉强能接受。
+* 很偶尔会出现样式加载不完整的情况，刷新就好了。
 
 接下来，能做的就是祈祷 Kloudsec 不要挂了。:laughing:
 
