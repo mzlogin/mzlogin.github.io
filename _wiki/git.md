@@ -175,3 +175,47 @@ git config --global core.filemode false
 ```
 
 参考：[How do I make Git ignore file mode (chmod) changes?](http://stackoverflow.com/questions/1580596/how-do-i-make-git-ignore-file-mode-chmod-changes)
+
+#### patch
+
+将未添加到暂存区的更改生成 patch 文件：
+
+```
+git diff > demo.patch
+```
+
+将已添加到暂存区的更改生成 patch 文件：
+
+```
+git diff --cached > demo.patch
+```
+
+合并上面两条命令生成的 patch 文件包含的更改：
+
+```
+git apply demo.patch
+```
+
+将从 HEAD 之前的 3 次 commit 生成 3 个 patch 文件：
+
+（HEAD 可以换成 sha1 码）
+
+```
+git format-patch -3 HEAD
+```
+
+生成 af8e2 与 eaf8e 之间的 commits 的 patch 文件：
+
+（注意 af8e2 比 eaf8e 早）
+
+```
+git format-patch af8e2..eaf8e
+```
+
+合并 format-patch 命令生成的 patch 文件：
+
+```
+git am 0001-Update.patch
+```
+
+与 `git apply` 不同，这会直接 add 和 commit。
