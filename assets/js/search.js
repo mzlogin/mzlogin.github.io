@@ -20,13 +20,19 @@ jQuery(function() {
         });
     });
 
-    // Event when the form is submitted
-    $("#site_search").submit(function(){
-        event.preventDefault();
+    // Event when search action triggered
+    $("#site_search_do").click(function(){
         var query = $("#search_box").val(); // Get the value for the text field
         var results = window.idx.search(query); // Get lunr to perform a search
         display_search_results(results); // Hand the results off to be displayed
     });
+
+    $("#search_box").keydown(function(e) {
+        if (e.which == 13) {
+            $("#site_search_do").click();
+            return false;
+        }
+    })
 
     function display_search_results(results) {
         var $search_results = $("#search_results");
