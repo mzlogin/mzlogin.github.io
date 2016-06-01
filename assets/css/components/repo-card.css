@@ -16,6 +16,7 @@
 
 .card-image h3 {
     margin: 0;
+    font-size: 1.5em;
 }
 
 .card-image a {
@@ -46,6 +47,28 @@
 .card .thumbnail:hover .card-title a{
     color:#000;
     text-decoration:none;
+}
+
+.thumbnail {
+  display: block;
+  padding: 4px;
+  margin-bottom: 20px;
+  line-height: 1.42857143;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  -webkit-transition: border .2s ease-in-out;
+  -o-transition: border .2s ease-in-out;
+  transition: border .2s ease-in-out
+}
+
+.thumbnail .caption {
+  padding: 9px;
+  color: #333;
+}
+
+.card-text {
+  font-size: 0.75em;
 }
 
 .card-text .meta-info {
