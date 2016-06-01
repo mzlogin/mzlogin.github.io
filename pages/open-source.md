@@ -2,9 +2,10 @@
 layout: default
 title: Open Source Projects
 keywords: 开源,open-source,GitHub,开源项目
-description: 开源改变世界。我是一个热衷于开源的人，也多多少于参与与创建了一些开源项目，希望在开源这条路上能做出更大更多的贡献。
+description: 开源改变世界。
 permalink: /open-source/
 ---
+
 <section class="container">
     <header class="text-center">
         <h1>Open Source Projects</h1>
@@ -41,7 +42,7 @@ permalink: /open-source/
         var repoList = $('<ul class="collection-listing clearfix"></ul>');
         var repoCount = 0;
 
-        $.get('https://api.github.com/users/mzlogin/repos?type=owner',
+        $.get('https://api.github.com/users/{{ site.github_username }}/repos?type=owner',
           function(repos){
             if (!repos) {
               repoListWrap.html('<div class="blankslate"><h3>加载失败</h3><p>请刷新或稍后再试...</p></div>');
