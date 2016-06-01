@@ -1,26 +1,34 @@
 <h3>My Popular Repositories</h3>
 {% if site.github.public_repositories != null %}
 {% assign repos = site.github.public_repositories | sort: "stargazers_count" | reverse%}
-{% for repo in repos limit:5 %}
-      <section class="repo-card">
-          <a href="{{ repo.html_url }}" target="_blank">
-              <div class="repo-card-image geopattern" data-pattern-id="{{ repo.name | truncate: 9,'' }}">
-                  <h3 class="repo-card-title">{{ repo.name }}</h3>
-              </div>
-              <div class="repo-card-body-wrapper">
-                  <div class="repo-card-body">
-                      <p class="repo-card-description">{{ repo.description }}</p>
-                      <div class="repo-card-meta">
-                          <span class="meta-info tooltipped tooltipped-n PHP" aria-label="{{ repo.language }} project">{{ repo.language }}</span>
-                              <span class="meta-info tooltipped tooltipped-n" aria-label="{{ repo.stargazers_count }} stars">
-                                  <span class="octicon octicon-star"></span> {{ repo.stargazers_count }}</span>
-                              <span class="meta-info tooltipped tooltipped-n" aria-label="{{ repo.forks_count }} forks">
-                                  <span class="octicon octicon-git-branch"></span> {{ repo.forks_count }}
-                              </span>
-                      </div>
-                  </div>
-              </div>
-          </a>
-      </section>
+{% for repo in repos | limit: site.side_bar_repo_limit %}
+<div class="card text-center">
+    <div class="thumbnail">
+        <div class="card-image geopattern" data-pattern-id="{{ repo.name }}">
+            <div class="card-image-cell">
+                <h3 class="card-title">
+                    <a href="{{ repo.html_url }}" target="_blank">{{ repo.name }}</a>
+                </h3>
+            </div>
+        </div>
+        <div class="caption">
+            <div class="card-description">
+                <p class="card-text">{{ repo.description }}</p>
+            </div>
+            <div class="card-text">
+                <span data-toggle="tooltip" class="meta-info" title="{{ repo.stargazers_count }} stars">
+                    <span class="octicon octicon-star"></span> {{ repo.stargazers_count }}
+                </span>
+                <span data-toggle="tooltip" class="meta-info" title="{{ repo.forks_count }} forks">
+                    <span class="octicon octicon-git-branch"></span> {{ repo.forks_count }}
+                </span>
+                <span data-toggle="tooltip" class="meta-info" title="Last updated：{{ repo.updated_at }}">
+                    <span class="octicon octicon-clock"></span>
+                    <time datetime="{{ repo.updated_at }}" title="{{ repo.updated_at }}">{{ repo.updated_at | date: '%Y-%m-%d' }}</time>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
 {% endfor %}
 {% endif %}
