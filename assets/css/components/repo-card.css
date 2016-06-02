@@ -31,6 +31,15 @@
     overflow: hidden;
 }
 
+.card a {
+  color: white;
+}
+
+.card a:hover,
+.card a:active {
+  text-decoration: none;
+}
+
 .card .thumbnail {
     border: 1px solid rgba(0,0,0,0.075);
     border-bottom-color: rgba(0,0,0,0.125);

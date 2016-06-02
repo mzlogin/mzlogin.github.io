@@ -18,12 +18,12 @@ permalink: /open-source/
         <!-- Check here for github metadata -->
         <!-- https://help.github.com/articles/repository-metadata-on-github-pages/ -->
         {% for repo in sorted_repos %}
-        <div class="one-third-column card text-center">
+        <a href="{{ repo.html_url }}" target="_blank" class="one-third-column card text-center">
             <div class="thumbnail">
                 <div class="card-image geopattern" data-pattern-id="{{ repo.name }}">
                     <div class="card-image-cell">
                         <h3 class="card-title">
-                            <a href="{{ repo.html_url }}" target="_blank">{{ repo.name }}</a>
+                            {{ repo.name }}
                         </h3>
                     </div>
                 </div>
@@ -45,7 +45,7 @@ permalink: /open-source/
                     </div>
                 </div>
             </div>
-        </div>
+        </a>
         {% endfor %}
     </div>
 </section>
