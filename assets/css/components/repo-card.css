@@ -20,6 +20,7 @@
 .card-image h3 {
     margin: 0;
     font-size: 1.5em;
+    color: white;
 }
 
 .card-image a {
@@ -31,12 +32,8 @@
     overflow: hidden;
 }
 
-.card a {
-  color: white;
-}
-
-.card a:hover,
-.card a:active {
+.card:hover,
+.card:active {
   text-decoration: none;
 }
 
