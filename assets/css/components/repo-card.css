@@ -1,3 +1,10 @@
+.one-third-column {
+  width: 33.333333%;
+  float: left;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
 .card-image {
     display: table;
     height: 120px;

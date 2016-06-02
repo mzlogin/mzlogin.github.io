@@ -6,6 +6,7 @@ description: 开源改变世界。
 permalink: /open-source/
 ---
 
+{% if site.github.public_repositories != null %}
 {% assign sorted_repos = (site.github.public_repositories | sort: 'stargazers_count') | reverse %}
 
 <section class="container">
@@ -17,7 +18,7 @@ permalink: /open-source/
         <!-- Check here for github metadata -->
         <!-- https://help.github.com/articles/repository-metadata-on-github-pages/ -->
         {% for repo in sorted_repos %}
-        <div class="one-third card text-center">
+        <div class="one-third-column card text-center">
             <div class="thumbnail">
                 <div class="card-image geopattern" data-pattern-id="{{ repo.name }}">
                     <div class="card-image-cell">
@@ -48,3 +49,4 @@ permalink: /open-source/
         {% endfor %}
     </div>
 </section>
+{% endif %}
