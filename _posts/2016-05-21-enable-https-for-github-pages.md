@@ -18,6 +18,8 @@ keywords: GitHub Pages, SSL, Let's Encrypt
 
 几个理由加在一起，终于战胜了懒癌，让我动了起来。
 
+![enable https for GitHub Pages](/images/posts/github/github-pages-with-https.png)
+
 ## 步骤
 
 @nubela 提供的工具非常友好且方便，第一次使用的我只简单做了一些配置，没有对 GitHub Pages 仓库做任何更改就实现了全站 HTTPS 化，自动使用了 Let's Encrypt 提供的免费 SSL 证书，有效期 90 天，Kloudsec 会在它过期前自动续期，换句话说，只要 Kloudsec 还活着并且免费提供这项服务的话，后面就不用管这个了。
