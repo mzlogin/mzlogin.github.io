@@ -38,7 +38,8 @@
   .mobile-md-section {
     padding: 10px 0
   }
-  .column {
+  .column,
+  .one-third-column {
     width: 100%!important;
     float: none;
   }
