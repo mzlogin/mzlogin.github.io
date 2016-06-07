@@ -89,6 +89,10 @@ keywords: GitHub Pages, SSL, Let's Encrypt
 
 接下来，能做的就是祈祷 Kloudsec 不要挂了。:laughing:
 
+## 其它做法
+
+如果使用 GitLab 使用的 Pages 服务，那它原生就支持添加自定义域名的 SSL 证书，可以配合免费申请的 SSL 证书一起使用。详情可见 [零成本打造安全博客的简单办法](https://www.figotan.org/2016/04/26/using-free-wosign-to-certificate-your-blog-on-gitlab/)。
+
 [1]: https://www.zhihu.com/question/33495825
 [2]: https://github.com/nubela
 [3]: https://kloudsec.com/github-pages/new
