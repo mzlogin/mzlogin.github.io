@@ -219,3 +219,21 @@ git am 0001-Update.patch
 ```
 
 与 `git apply` 不同，这会直接 add 和 commit。
+
+#### 只下载最新代码
+
+```
+git clone --depth 1 git://xxxxxx
+```
+
+这样 clone 出来的仓库会是一个 shallow 的状态，要让它变成一个完整的版本：
+
+```
+git fetch --unshallow
+```
+
+或
+
+```
+git pull --unshallow
+```
