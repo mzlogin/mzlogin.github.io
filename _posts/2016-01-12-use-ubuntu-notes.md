@@ -192,3 +192,24 @@ Ubuntu 14.04 LTS 在 VirtualBox 中刚安装完时，分辨率只有 640\*480 �
    ```
 
    （注意把 username 替换成自己的，VBOXADDITIONS 后面的 X 换成具体版本号）
+
+## 与 Win7 共享 SSH key
+
+如下步骤适用于在 Ubuntu 上使用从 Win7 拷贝的 SSH key，反之应该也一样能用。
+
+创建 ~/.ssh 目录，确认其权限为 0700，将 Windows %userprofile%/.ssh 下的 id\_rsa 和 id\_rsa.pub 文件拷贝到 ~/.ssh 目录下，权限分别改为 0600 和 0644。
+
+```sh
+mzlogin@ubuntu:~$ ll ~/.ssh
+total 20
+drwx------  2 mzlogin mzlogin 4096 Jun 22 01:03 ./
+drwxr-xr-x 20 mzlogin mzlogin 4096 Jun 22 01:02 ../
+-rw-------  1 mzlogin mzlogin 1679 Jun 21 05:17 id_rsa
+-rw-r--r--  1 mzlogin mzlogin  399 Jun 21 05:17 id_rsa.pub
+```
+
+然后
+
+```sh
+ssh-add ~/.ssh/id_rsa
+```
