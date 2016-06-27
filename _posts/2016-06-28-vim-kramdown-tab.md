@@ -100,4 +100,4 @@ kramdown 的作者对列表嵌套内容的缩进规则的 [描述][0] 是：
 [1]: https://mazhuang.org/2016/02/04/switch-to-kramdown-from-redcarpet/
 [2]: https://github.com/mzlogin/vim-kramdown-tab
 [3]: http://github.com/VundleVim/Vundle.Vim
-[4]: https://github.com/mzlogin/vim-kramdown-tab/blob/master/screenshots/test.gif
+[4]: https://raw.githubusercontent.com/mzlogin/vim-kramdown-tab/master/screenshots/test.gif
