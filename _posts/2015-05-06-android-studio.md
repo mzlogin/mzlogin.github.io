@@ -6,7 +6,7 @@ description: Android Studio 使用过程中遇到的一些问题和解决方案�
 keywords: Android, Android Studio
 ---
 
-1. 打开 Android Studio 卡在「Fetching Android SDK component information」界面。
+## 打开 Android Studio 卡在「Fetching Android SDK component information」界面。
 
    如图：
 
@@ -24,7 +24,7 @@ keywords: Android, Android Studio
 
    参考： <http://ask.android-studio.org/?/article/14>
 
-2. 新建工程后构建时提示
+## 新建工程后构建时提示找不到 appcompat-v7
 
    ```
    Error:Failed to find: com.android.support:appcompat-v7:22.+
@@ -37,7 +37,7 @@ keywords: Android, Android Studio
 
    2. Rebuild 工程。
 
-3. aidl 文件的放置
+## aidl 文件的放置
 
    按以前 Eclipse 的方式，将 aidl 及其包目录层级放置在与自己的顶级包同级的目录下，即如下的 android/content/pm：
 
@@ -86,7 +86,7 @@ keywords: Android, Android Studio
        ...
    ```
 
-4. 在 Android Studio 里编译通过之后，命令行使用 gradlew build 为什么还是会重新下载 Gradle？
+## 在 Android Studio 里编译通过之后，命令行使用 gradlew build 为什么还是会重新下载 Gradle？
 
    Gradle 的版本在 Android Studio 工程里有三处：
 
@@ -111,7 +111,7 @@ keywords: Android, Android Studio
 
    出现题目里的问题一般是由于「三」中选择的是「Use local gradle distribution」，这个选项下的「Gradle home」路径一般是指向 Android Studio 安装目录下的 Gradle 目录，比如 C:/Program Files/Android/Android Studio/gradle/gradle-2.8，而 gradlew 脚本是独立于 Android Studio 的，所以并不受其配置的影响，它是使用「一」里指定的版本，会到 ~/.gradle/wrapper/dists 目录下去寻找对应版本的 Gradle 是否已经存在，如果没有话就会去重新下载。
 
-5. 模拟器启动失败。
+## 模拟器启动失败
 
    ```
    PANIC: ANDROID_SDK_HOME is defined but could not find Nexus_5_API_23.ini file in $ANDROID_SDK_HOME/.android/avd
@@ -124,7 +124,7 @@ keywords: Android, Android Studio
 
    添加 $ANDROID_AVD_HOME 环境变量，值为 $HOME/.android/avd 的展开全路径。
 
-6. debug.keystore 的存放位置。
+## debug.keystore 的存放位置
 
    在使用高德地图 SDK 时，需要 key 与 keystore 文件的 sha1 校验通过，而我将 debug.keystore 拷贝到 $HOME/.android 目录下后发现一直提示 key 校验失败，也就是没有使用我拷贝到 $HOME/.android 目录下的 debug.keystore 来做 debug 签名。
 
