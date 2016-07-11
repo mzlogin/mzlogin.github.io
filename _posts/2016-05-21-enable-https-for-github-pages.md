@@ -6,6 +6,8 @@ description: 为绑定域名的 GitHub Pages 添加免费、自动续期的 SSL 
 keywords: GitHub Pages, SSL, Let's Encrypt
 ---
 
+**Update 2016/07/11: 收到 Kloudsec 的邮件，说将在 2016/08/01 停止服务，所以如下方法在那之后会无法使用，寻找 GitHub Pages + Custom Domain + HTTPS 的方法的童鞋请不要再尝试 Kloudsec 了，去找一找别的方法吧。**
+
 虽然现在各种网站都在 HTTPS 化，甚至有的个人网站在添加链接的说明里明确声明只与启用 HTTPS 的网站交换链接，但一直以来我启用 HTTPS 的需求并不强烈，又加上有懒癌在身，实在是没有动力去折腾，直到最近发生了几件事情。
 
 ## 缘起
