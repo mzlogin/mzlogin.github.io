@@ -26,6 +26,7 @@
        <meta name="apple-mobile-web-app-capable" content="yes">
        <meta name="apple-mobile-web-app-status-bar-style" content="black">
     {% endif %}
+    <link rel="canonical" href="{{ page.url | prepend: site.url }}">
     <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="{{ site.subscribe_rss }}">
     <link rel="shortcut icon" href="/favicon.ico">
     {% if page.title %}
