@@ -4,17 +4,15 @@
 
 ## 概览
 
-* [屏幕截图](#屏幕截图)
+* [效果预览](#效果预览)
 * [Fork 指南](#fork-指南)
-* [书写原则](#书写原则)
-* [书写提示](#书写提示)
-* [书写经验](#书写经验)
-* [书写思考](#书写思考)
+* [贴心提示](#贴心提示)
+* [经验与思考](#经验与思考)
 * [致谢](#致谢)
 
-## 屏幕截图
+## 效果预览
 
-![screenshot home](./images/screenshots/home.png)
+![screenshot home](./assets/images/screenshots/home.png)
 
 ## Fork 指南
 
@@ -32,51 +30,45 @@ Fork 本项目之后，还需要做一些事情才能让你的页面「正确」
 
    网站的配置基本都集中在 \_config.yml 文件中，将其中与个人信息相关的部分替换成你自己的，比如网站的 title、subtitle、duoshuo 和 Disqus 的用户名等。
 
-   **注意：** 因为 Disqus 处理用户名与域名白名单的策略存在缺陷，请一定将 disqus\_username 修改成你自己的。我对该缺陷的记录见 [Issues#2][4]。
+   **注意：** 因为 Disqus 处理用户名与域名白名单的策略存在缺陷，请一定将 disqus\_username 修改成你自己的。我对该缺陷的记录见 [Issues#2][3]。
 
-4. 删除我的文章。
+4. 删除我的文章与图片。
 
    如下文件夹中除了 template.md 文件外，都可以全部删除，然后添加你自己的内容。
 
    * \_posts 文件夹中是我已发布的博客文章。
    * \_drafts 文件夹中是我尚未发布的博客文章。
    * \_wiki 文件夹中是我已发布的 wiki 页面。
+   * images 文件夹中是我的文章和页面里使用的图片。
 
 5. 修改「关于」页面。
 
    pages/about.md 文件内容对应网站的「关于」页面，里面的内容多为个人相关，将它们替换成你自己的信息。
 
-## 书写原则
+## 贴心提示
 
-1. 简约，尽量每个页面都不展示多余的内容。
+1. 排版建议遵照一定的规范，推荐 [中文文案排版指北（简体中文版）][1]。
 
-2. 有时一图抵千言，有时可能只会拖慢网页加载速度。
+2. 在本地预览博客效果可以参考 [Setting up your Pages site locally with Jekyll][2]。
 
-3. 言之有物，不做无痛之呻吟。
+## 经验与思考
 
-## 书写提示
+* 简约，尽量每个页面都不展示多余的内容。
 
-1. 在 Github Flavored Markdown 书写与 Redcarpt 有些许差异，可以参考 [GFM 与 Redcarpet 的不同点][2]。
+* 有时一图抵千言，有时可能只会拖慢网页加载速度。
 
-2. 中英文之间要加空格，更多中文文案排版规范可以参考 [中文文案排版指北（简体中文版）][1]。
-
-3. 在本地预览博客效果可以参考 [Setting up your Pages site locally with Jekyll][3]。
-
-## 书写经验
+* 言之有物，不做无痛之呻吟。
 
 * 如果写技术文章，那先将技术原理完全理清了再开始写，一边摸索技术一边组织文章效率较低。
 
 * 杜绝难断句、难理解的长句子，如果不能将其拆分成几个简洁的短句，说明脑中的理解并不清晰。
 
-## 书写思考
-
-* 那些高质量的博主，他们的行文，内容组织方式，有什么值得学习借鉴的地方？
+* 可以学习一下那些高质量的博主，他们的行文，内容组织方式，有什么值得借鉴的地方。
 
 ## 致谢
 
 本博客外观基于 [DONGChuan](http://dongchuan.github.io) 修改，感谢！
 
 [1]: https://github.com/mzlogin/chinese-copywriting-guidelines
-[2]: http://mazhuang.org/2015/12/05/diff-between-gfm-and-redcarpet/
-[3]: https://help.github.com/articles/setting-up-your-pages-site-locally-with-jekyll/
-[4]: https://github.com/mzlogin/mzlogin.github.io/issues/2
+[2]: https://help.github.com/articles/setting-up-your-pages-site-locally-with-jekyll/
+[3]: https://github.com/mzlogin/mzlogin.github.io/issues/2
