@@ -12,7 +12,7 @@
 
 ## 效果预览
 
-![screenshot home](./assets/images/screenshots/home.png)
+![screenshot home](http://mazhuang.org/assets/images/screenshots/home.png)
 
 ## Fork 指南
 
