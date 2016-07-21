@@ -10,21 +10,22 @@ keywords: 软件, 推荐
 
 ## 目录
 
-| 功能           | Windows        | Mac OS X       |
-|----------------|----------------|----------------|
-| 文本编辑       | gVim           | MacVim         |
-| 离线 API 文档  | Zeal           | Dash           |
-| UML            | Visio          | StarUML        |
-| 流程图         | Visio          | ProcessOn.com  |
-| 文件查找       | Everything     | Alfred         |
-| 文件内容查找   | FileLocator    | Alfred         |
-| Android 开发   | Android Studio | Android Studio |
-| Android 虚拟机 | Genymotion     | Genymotion     |
-| 源码阅读       | Source Insight |                |
-| 笔记           | OneNote        | OneNote        |
-| 终端           | Cmder          | zsh            |
-| 视频播放器     | QQ 影音        | mpv            |
-| 下载           | 迅雷精简版     | 迅雷           |
+| 功能             | Windows        | Mac OS X       |
+|------------------|----------------|----------------|
+| 文本编辑         | gVim           | MacVim         |
+| 离线 API 文档    | Zeal           | Dash           |
+| UML              | Visio          | StarUML        |
+| 流程图           | Visio          | ProcessOn.com  |
+| 文件查找         | Everything     | Alfred         |
+| 文件内容查找     | FileLocator    | Alfred         |
+| Android 开发     | Android Studio | Android Studio |
+| Android 虚拟机   | Genymotion     | Genymotion     |
+| 源码阅读         | Source Insight |                |
+| 笔记             | OneNote        | OneNote        |
+| 终端             | Cmder          | zsh            |
+| 视频播放器       | QQ 影音        | mpv            |
+| 下载             | 迅雷精简版     | 迅雷           |
+| 录制屏幕生成 GIF | LICEcap        | LICEcap        |
 
 ## 亮点
 
