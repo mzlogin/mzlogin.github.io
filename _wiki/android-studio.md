@@ -33,8 +33,8 @@ Cmd --> Command
 | Undo                    | C-z            | Cmd-z               |
 | Redo                    | C-S-z          | Cmd-S-z             |
 | 删除行                  | C-y            | Cmd-x               |
-| 复制行                  | C-c            | Cmd-d               |
-| 复制当前行到下一行      | C-d            |                     |
+| 复制行                  | C-c            | Cmd-c               |
+| 复制当前行到下一行      | C-d            | Cmd-d               |
 | 在下面另起一行          | S-Enter        | S-Enter             |
 | 在上面另起一行          | C-M-Enter      | Cmd-M-Enter         |
 | 上/下移动代码行         | M-S-Up/Down    | M-S-Up/Down         |
@@ -51,14 +51,14 @@ Cmd --> Command
 | 运行当前应用            | S-F10          | C-r                 |
 | 调试当前应用            | S-F9           | C-d                 |
 | 开/关断点               | C-F8/鼠标左键  | Cmd-F8              |
-| 查看所有断点            | C-S-F8         |                     |
+| 查看所有断点            | C-S-F8         | Cmd-S-F8            |
 | 打开文件所在目录        | M-F1 8         | M-F1 8              |
 | 打开 Project 视图       | M-1            | Cmd-1               |
 | 自动生成                | M-Insert       | Cmd-n               |
 | 隐藏底部视图            | S-Esc          | S-Esc               |
 | 删除一个单词            | C-Backspace    | M-delete            |
-| 重构 - 重命名           |                | S-F6                |
-| Find Action             | C-S-a          |                     |
+| 重构 - 重命名           | S-F6           | S-F6                |
+| Find Action             | C-S-a          | Cmd-S-a             |
 | 打开设置                | C-M-s          | Cmd-,               |
 
 注：
