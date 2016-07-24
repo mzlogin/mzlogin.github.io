@@ -6,13 +6,24 @@ description: 自动一次性评论所有 CSDN 已下载资源的脚本。
 keywords: Python, CSDN
 ---
 
+用 Python 实现自动批量打分评论指定 CSDN 账号内所有下载过待评论的资源。
+
+GitHub 仓库地址：<https://github.com/mzlogin/csdncommenter>
+
+可通过 pip 安装运行：
+
+```
+pip install csdncommenter
+csdncommenter
+```
+
 ### 背景
 
 CSDN 账号过一段时间就会累积几十个下载过但是未评论打分的资源，虽然现在上传了一些资源供别人下载后基本不愁积分，但是为了可持续发展，还是把评论一下就能顺手拿了的这种积分不客气地收入囊中吧！不过手动一个一个去评论真的很蛋疼……特别是 CSDN 还搞了个两个评论间隔不能小于 60 秒的限制，评论几十个就得至少花个几十分钟折腾，所以想想这种耗时、无脑的活还是交给程序来完成吧。
 
 对于这类模拟 HTTP 请求然后可能频繁用到页面解析和正则表达式之类的活，用 C++ 写还是有点蛋疼的，用我那半生不熟的 Python 练练手正合适。
 
-遂在 github 上建了个仓库开工，地址在这里：<https://github.com/mzlogin/csdncommenter>。
+遂在 GitHub 上建了个仓库开工，地址在这里：<https://github.com/mzlogin/csdncommenter>。
 
 ### 分析
 
@@ -54,12 +65,11 @@ CSDN 账号过一段时间就会累积几十个下载过但是未评论打分的
 （GitHub 仓库：[mzlogin/csdncommenter](https://github.com/mzlogin/csdncommenter)，现在可以通过 pip 安装使用了 `pip install csdncommenter` 然后 `csdncommenter`。2015/10/27 update）
 
 ```python
-# auto comment csdn resources
 # File   : CsdnCommenter.py
 # Author : Zhuang Ma
 # E-mail : ChumpMa(at)gmail.com
 # Website: http://www.mazhuang.org
-# Date   : 2014-10-12
+# Date   : 2015-05-17
 import requests
 from BeautifulSoup import BeautifulSoup
 import getpass
@@ -67,6 +77,7 @@ import time
 import random
 import re
 import urllib
+import traceback
 
 class CsdnCommenter():
     """Csdn operator"""
@@ -78,7 +89,9 @@ class CsdnCommenter():
         username = raw_input('username: ')
         password = getpass.getpass('password: ')
         url = 'https://passport.csdn.net/account/login'
-        html = self.sess.get(url).text
+        html = self.getUrlContent(self.sess, url)
+        if html is None:
+            return False
         soup = BeautifulSoup(html)
 
         lt = self.getElementValue(soup, 'name', 'lt')
@@ -93,7 +106,12 @@ class CsdnCommenter():
                 '_eventId' : _eventId
                 }
 
-        response = self.sess.post(url, data)
+        response = None
+        try:
+            response = self.sess.post(url, data)
+        except:
+#             traceback.print_exc()
+            pass
 
         return self.isLoginSuccess(response)
 
@@ -131,7 +149,9 @@ class CsdnCommenter():
 
         for n in range(1, pagecount + 1):
             url = 'http://download.csdn.net/my/downloads/%d' % n
-            html = self.sess.get(url).text
+            html = self.getUrlContent(self.sess, url)
+            if html is None:
+                continue
             soup = BeautifulSoup(html)
             sourcelist = soup.findAll('a', attrs={'class' : 'btn-comment'})
             if sourcelist is None:
@@ -148,7 +168,10 @@ class CsdnCommenter():
     def getPageCount(self):
         """get downloaded resources page count"""
         url = 'http://download.csdn.net/my/downloads'
-        html = self.sess.get(url).text
+        html = self.getUrlContent(self.sess, url)
+        if html is None:
+            print 'Get pagecount failed'
+            return 0
         soup = BeautifulSoup(html)
 
         pagelist = soup.findAll('a', attrs={'class' : 'pageliststy'})
@@ -182,11 +205,11 @@ class CsdnCommenter():
                 }
         params = urllib.urlencode(paramsmap)
         url = 'http://download.csdn.net/index.php/comment/post_comment?%s' % params
-        html = self.sess.get(url).text
-        if html.find('({"succ":1})') != -1:
-            print 'sourceid %s comment succeed!' % sourceid
-        else:
+        html = self.getUrlContent(self.sess, url)
+        if html is None or html.find('({"succ":1})') == -1:
             print 'sourceid %s comment failed! response is %s.' % (sourceid, html)
+        else:
+            print 'sourceid %s comment succeed!' % sourceid
 
     @staticmethod
     def getElementValue(soup, element_name, element_value):
@@ -197,15 +220,31 @@ class CsdnCommenter():
 
     @staticmethod
     def isLoginSuccess(response):
-        if response.status_code != 200:
+        if response is None or response.status_code != 200:
             return False
         return -1 != response.content.find('lastLoginIP')
 
-if __name__ == '__main__':
+    @staticmethod
+    def getUrlContent(session, url):
+        html = None
+        try:
+            response = session.get(url)
+            if response is not None:
+                html = response.text
+        except requests.exceptions.ConnectionError as e:
+#             traceback.print_exc()
+            pass
+
+        return html
+
+def main():
     csdn = CsdnCommenter()
     while csdn.login() is False:
         print 'Login failed! Please try again.'
     print 'Login succeed!'
 
     csdn.autoComment()
+
+if __name__ == '__main__':
+    main()
 ```
