@@ -1,12 +1,12 @@
 ---
 layout: post
-title: am start 的 --user 参数详解
+title: 从 am start 的 --user 参数说到 Android 多用户
 categories: Android
 description: am start 命令有时并不会乖乖如我们所愿，这时候我们需要知对策并知其所以然。
-keywords: am start, user, adb
+keywords: am start, user, adb, INTERACT_ACROSS_USERS_FULL
 ---
 
-我估计你之所以来看这篇文章，是因为遇到了如下异常：
+本文的讨论围绕一个 `java.lang.SecurityException` 展开，异常的关键词是权限 `android.permission.INTERACT_ACROSS_USERS_FULL`。
 
 ```java
 java.lang.SecurityException: Permission Denial: startActivity asks to run as user -2 but is calling from user 0; this requires android.permission.INTERACT_ACROSS_USERS_FULL
