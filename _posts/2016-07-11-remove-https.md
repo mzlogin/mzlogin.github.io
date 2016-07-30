@@ -80,3 +80,15 @@ Sigh!
 本来 GitHub Pages + Custom Domain + HTTPS 也还有其它解决方案，但我已不想再折腾了，多引入一层中间服务，就多一层出状况的风险，我只是想作一名安静地写博客的美男子啊。
 
 所以决定去掉自定义域名的 HTTPS，恢复 HTTP，现在 GitHub Pages 已经支持 `*.github.io` 域名的 HTTPS，除非哪天它原生支持 Custom Domain 的 HTTPS，否则我不再折腾这个事情。
+
+## 采取的措施
+
+当初之所以想开启 HTTPS 的一个重要原因就是 Google 收录了博客的 HTTPS 链接，但是证书不对导致用户打不开或者有警告，既然使用自定义域名没有办法让证书对，那就让 Google 不收录 HTTPS 的链接吧。
+
+### 告诉 Google 不收录 HTTPS 链接
+
+如果一个页面使用 HTTPS 和 HTTP 都能访问，那如果想 Google 只收录 HTTP 版，而不收录 HTTPS 版，那可以在页面的 `head` 里添加 `canonical` 给爬虫以建议，具体方法如下：
+
+```html
+<link rel="canonical" href="http 开头的 URL">
+```
