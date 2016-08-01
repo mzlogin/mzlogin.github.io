@@ -62,6 +62,8 @@ Windows Registry Editor Version 5.00
 
 ### 将 Caps Lock 映射为 Ctrl
 
+**注：**经验证此方法也适用于 Win10，但是完成后需要**重启**。
+
 因为个人习惯输入大写字母时使用「Shift + 字母」的方式，所以 Caps Lock 键并没有什么用，而且经常使用 Vim，偶尔使用 Emacs，都需要频繁地按 Ctrl 键，在 Mac OS X 下已经将 Caps Lock 键映射为 Ctrl，为了统一体验和按键方便，也需要在 Windows 下做一个映射。
 
 先说方法：
