@@ -49,7 +49,7 @@ tagbar 正常工作依赖于 Vim 7.0+ 和 Exuberant ctags。
 
 下载后将 ctags 可执行文件放置到一个在 PATH 环境变量的文件夹里，或者 Vim 安装目录的 Vim74 文件夹下，比如我是将 ctags.exe 放在 `D:\Program Files (x86)\Vim\vim74` 文件夹下。
 
-### 配置 tagbar 显示 Markdown 文件大纲视图
+### 配置 tagbar 显示 Markdown 大纲视图
 
 tagbar 默认并不支持 Markdown 文件，但配置一下就好了。
 
@@ -84,7 +84,7 @@ tagbar 默认并不支持 Markdown 文件，但配置一下就好了。
 
 ### 更多自定义配置
 
-1. 现在你可以使用 `:TagbarToggle<CR>` 来打开大纲视图了，但毕竟不是那么方便,配置快捷键来操作更顺手，在你的 vimrc 文件里增加一个映射：
+1. 现在你可以使用 `:TagbarToggle<CR>` 来打开大纲视图了，但每次开关大纲视图都要敲这么长一串命令毕竟不够方便，配置快捷键来操作更顺手，在你的 vimrc 文件里增加一个映射：
 
    ```viml
    nnoremap <leader>tb :TagbarToggle<CR>
