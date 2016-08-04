@@ -103,4 +103,5 @@ tagbar 默认并不支持 Markdown 文件，但配置一下就好了。
 
 ## 参考链接
 
-<https://github.com/majutsushi/tagbar/issues/70>
+* [majutsushi/tagbar#70](https://github.com/majutsushi/tagbar/issues/70)
+* [Support for additional filetypes](https://github.com/majutsushi/tagbar/wiki)
