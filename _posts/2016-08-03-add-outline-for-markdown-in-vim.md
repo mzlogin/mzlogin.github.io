@@ -1,8 +1,8 @@
 ---
 layout: post
-title: 在 Vim 里展现 Markdown 文档的大纲视图
+title: 在 Vim 里展现 Markdown 文档的导航窗格
 categories: Vim
-description: 在一个很长的 Markdown 文档里要准确跳转到某标题并不容易，如果像 Word 那样有个大纲视图就好了。
+description: 在一个很长的 Markdown 文档里要准确跳转到某标题并不容易，如果像 Word 那样有个导航窗格就好了。
 keywords: Vim, Markdown, Outline
 ---
 
@@ -13,7 +13,7 @@ keywords: Vim, Markdown, Outline
 3. 记得行号，精确跳转（请收下我的膝盖）。
 4. ...
 
-不知你此时感受如何，反正我是无比想念 Word 的大纲视图，各种编程 IDE 的 Outline。
+不知你此时感受如何，反正我是无比想念 Word 的导航窗格，各种编程 IDE 的 Outline。
 
 但等等，我们正在用编辑器之神 Vim 诶！无论想弄啥折腾折腾就有了。
 
@@ -27,7 +27,7 @@ keywords: Vim, Markdown, Outline
 
 ### 安装 tagbar
 
-这里我们借助于 tagbar 插件实现大纲视图。当然 tagbar 的功能远不限于此，可以为 C、C++、Python 和 Java 等很多语言提供类和方法列表视图等等，详见 [tagbar](https://github.com/majutsushi/tagbar)。
+这里我们借助于 tagbar 插件实现导航窗格。当然 tagbar 的功能远不限于此，可以为 C、C++、Python 和 Java 等很多语言提供类和方法列表视图等等，详见 [tagbar](https://github.com/majutsushi/tagbar)。
 
 推荐使用 [Vundle](https://github.com/VundleVim/Vundle.vim) 管理 Vim 插件，这样就可以简单几步安装插件了。
 
@@ -49,7 +49,7 @@ tagbar 正常工作依赖于 Vim 7.0+ 和 Exuberant ctags。
 
 下载后将 ctags 可执行文件放置到一个在 PATH 环境变量的文件夹里，或者 Vim 安装目录的 Vim74 文件夹下，比如我是将 ctags.exe 放在 `D:\Program Files (x86)\Vim\vim74` 文件夹下。
 
-### 配置 tagbar 显示 Markdown 大纲视图
+### 配置 tagbar 显示 Markdown 导航窗格
 
 tagbar 默认并不支持 Markdown 文件，但配置一下就好了。
 
@@ -84,15 +84,15 @@ tagbar 默认并不支持 Markdown 文件，但配置一下就好了。
 
 ### 更多自定义配置
 
-1. 现在你可以使用 `:TagbarToggle<CR>` 来打开大纲视图了，但每次开关大纲视图都要敲这么长一串命令毕竟不够方便，配置快捷键来操作更顺手，在你的 vimrc 文件里增加一个映射：
+1. 现在你可以使用 `:TagbarToggle<CR>` 来打开导航窗格了，但每次开关导航窗格都要敲这么长一串命令毕竟不够方便，配置快捷键来操作更顺手，在你的 vimrc 文件里增加一个映射：
 
    ```viml
    nnoremap <leader>tb :TagbarToggle<CR>
    ```
 
-   现在你可以使用 `<leader>tb` 来随时开/关大纲视图了。
+   现在你可以使用 `<leader>tb` 来随时开/关导航窗格了。
 
-2. 大纲视图默认是在右边，如果你也像我一样喜欢它在左边，也想指定它的宽度，可以在你的 vimrc 文件里配置：
+2. 导航窗格默认是在右边，如果你也像我一样喜欢它在左边，也想指定它的宽度，可以在你的 vimrc 文件里配置：
 
    ```viml
    let g:tagbar_width = 30
