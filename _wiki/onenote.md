@@ -25,6 +25,7 @@ Cmd --> Command
 | 返回访问的上一页 | M-Left  | C-Cmd-Left  |
 | 返回访问的下一页 | M-Right | C-Cmd-Right |
 | 清除所有格式     | C-S-n   |             |
+| 停靠到桌面       | C-M-d   |             |
 
 参考：[OneNote 2010 的键盘快捷键](https://support.office.com/zh-cn/article/OneNote-2010-%E7%9A%84%E9%94%AE%E7%9B%98%E5%BF%AB%E6%8D%B7%E9%94%AE-7504cf95-1a03-40d9-9544-090901174620?ui=zh-CN&rs=zh-CN&ad=CN&fromAR=1)
 
