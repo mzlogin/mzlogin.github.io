@@ -10,9 +10,9 @@ keywords: C++, Java
 
 * char 是两个字节（字符及字符串默认都是 utf-16）。
 
-* 浮点数默认是 double，所以要写成 float f = (float)5.0，不然会报错。
+* 浮点数默认是 double，所以要写成 float f = (float)5.0 或 5.0f，不然会报错。
 
-* 整数除整数会导致除零异常，而浮点数不会。
+* 整数除整数可能导致除零异常，而浮点数不会。
 
 * break 和 continue 能够使用 flag 来跳出和继续指定循环。
 
