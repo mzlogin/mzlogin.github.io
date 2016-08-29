@@ -13,6 +13,7 @@ keywords: 游泳, 蛙泳
 ### 视频
 
 * [蛙泳教学完整版](http://v.youku.com/v_show/id_XMjgwOTA4OTI0.html?from=s1.8-1-1.2)
+* [值得一看的自由泳教学视频](http://v.youku.com/v_show/id_XNzIxMTkwOTY0.html?beta&from=s1.8-1-2.999&f=18195375&sf=10102&spm=0.0.0.0.lMFhS6)
 
 <iframe style="max-width:100%" height=498 width=510 src="http://player.youku.com/embed/XMjgwOTA4OTI0" frameborder=0 allowfullscreen></iframe>
 
