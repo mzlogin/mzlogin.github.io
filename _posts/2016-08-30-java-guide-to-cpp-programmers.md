@@ -16,7 +16,7 @@ keywords: C++, Java
 
 一个知乎问答下有我的答案，与本篇文章内容同步：[习惯写C++的人突然转去写Java，会有什么样的坑？](https://www.zhihu.com/question/49770330/answer/118395115?from=profile_answer_card)
 
-## 不同点
+## 注意点
 
 * char 是两个字节（字符及字符串默认都是 utf-16）。
 
