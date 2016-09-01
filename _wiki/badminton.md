@@ -20,8 +20,8 @@ keywords: 羽毛球
 
 * 和蔡赟聊羽毛球
 
-  ![](http://mp.weixin.qq.com/rr?timestamp=1472520489&src=3&ver=1&signature=NZvbIPFYyc2koVz8*Mhr1Zml1VcAu0wDSdMEERQDjKgC37-HN1ZEfvDY8YCueXilZueK5YZ9Jvq0qD4-V0eSEYCHL8r6k8J4aVE-ggw8-VM=)
+  微信号：caiyunliaoyumaoqiu
 
 * 羽毛球
 
-  ![](http://mp.weixin.qq.com/rr?timestamp=1472520595&src=3&ver=1&signature=NZvbIPFYyc2koVz8*Mhr1fJBeh9*YLzNR50J*PHa49dNJLuole4V1juwtwj465WPriHqRazKZW5zx4QCFwNKSKYuKdKSQAUGu46mvL*GFqs=)
+  微信号：yu-mao-qiu
