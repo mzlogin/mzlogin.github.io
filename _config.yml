@@ -97,7 +97,7 @@ comments_provider: disqus
 duoshuo_username: mazhuang
 disqus_username: mzlogin
 # 在使用 disqus 的时候可点击显示多说评论框
-lazy_load_duoshuo: true
+lazy_load_duoshuo: false
 
 # ---------------- #
 #    Analytics     #
