@@ -33,6 +33,32 @@
           </script>
           <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
         {% endif %}
+        {% if site.lazy_load_duoshuo and site.duoshuo_username %}
+        <a href="#" class="show_duoshuo_comment" onclick="return false;">点击查看评论</a>
+        <!-- Duoshuo Comment BEGIN -->
+        <!-- 多说评论框 BEGIN -->
+        <div class="ds-thread" data-thread-key="{{ page.url }}" data-title="{{ page.title }}" data-url="{{ site.url }}{{ page.url }}"></div>
+        <!-- 多说评论框 END -->
+        <!-- 多说公共JS代码 BEGIN (一个网页只需插入一次) -->
+        <script type="text/javascript">
+        var clicked = false;
+        function showDuoshuo() {
+            if (clicked) {
+                return;
+            }
+            clicked = true;
+            var duoshuoQuery = {short_name:"{{ site.duoshuo_username }}"};
+            var ds = document.createElement('script');
+            ds.type = 'text/javascript';ds.async = true;
+            ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+            ds.charset = 'UTF-8';
+            (document.getElementsByTagName('head')[0]
+            || document.getElementsByTagName('body')[0]).appendChild(ds);
+        }
+        </script>
+        <!-- 多说公共JS代码 END -->
+        <!-- Duoshuo Comment END -->
+        {% endif %}
       {% endif %}
     {% when 'duoshuo' %}
       {% if site.duoshuo_username %}
