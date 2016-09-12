@@ -78,3 +78,7 @@ keywords: C++, Java
 * Set 判断两个对象是否相同不是使用 == 运算符，而是根据 equals 方法。
 
 * HashSet 判断两个元素相等的标准是两个对象通过 equals 方法比较相等，并且两个对象的 hashCode() 方法返回值也相等。
+
+* foreach 循环仅应用于实现了 Iterable 接口的 Java array 和 Collection 类。
+
+* 遍历任何 Collection（例如 Map、Set 或 List）时要删除元素只能使用 Iterator 的 remove 方法。
