@@ -73,7 +73,7 @@ keywords: C++, Java
 
 * 纠误一处：《疯狂 Java 讲义》P214 讲道「如果匿名内部类需要访问外部类的局部变量，则必须使用 final 修饰符来修饰外部类的局部变量，否则系统将报错。经验证，只要这个局部变量在后续不改变其值，即使它不以 final 修饰，但实际表现是有效的 final 时，在 Java 8 环境下编译后会自动为它加上 final，不报错。
 
-* switch 表达式可以使用整形或者枚举类实例。
+* switch 表达式可以使用整形或者枚举类实例（从 Java 7 开始，可以使用 String 对象了，参考：[Strings in switch Statements](http://docs.oracle.com/javase/7/docs/technotes/guides/language/strings-switch.html)）。
 
 * Set 判断两个对象是否相同不是使用 == 运算符，而是根据 equals 方法。
 
