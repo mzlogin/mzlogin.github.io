@@ -24,7 +24,11 @@ keywords: Java
 
 ```java
 public void print() {
-    if (true){System.out.print("a");}if(false) {
+    if (true) {
+        System.out.print("a");
+    }
+
+    if (false) {
         System.out.print("a");
     } else {
         System.out.print("b");
