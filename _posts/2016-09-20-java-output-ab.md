@@ -109,8 +109,32 @@ public void print() {
 
 严格来讲这个不一定能算作正确答案，因为要增加 `import java.util.function.BooleanSupplier;`。
 
+## 脑洞大开
+
+讲完严肃的解法，来看看网友 [穷小子](https://www.zhihu.com/people/qiong-xiao-zi-158) 开脑洞的思路：
+
+```java
+public void print() {
+//    if ( ) {
+        System.out.print("a");
+//    } else {
+        System.out.print("b");
+//    }
+}
+```
+
+如果没有特意说明只能在括号里加东西，倒真是个妙计！
+
+同样看得我一愣一愣的还有 [caiwei](https://www.zhihu.com/people/caiwei710) 同学的答案，他和朋友们发现题目里少写了个大括号（真的），于是我们看到他的朋友老方的解决方案：
+
+![add-brace](/images/posts/java/add-brace.jpg)
+
+真是防不胜防啊~不过我喜欢！:+1:
+
 ## 参考
 
 * [RednaxelaFX 的回答](https://www.zhihu.com/question/50801791/answer/122781965)
 * [仓鼠君 的回答](https://www.zhihu.com/question/50801791/answer/122773831)
 * [放开那女孩 的回答](https://www.zhihu.com/question/50801791/answer/122769426)
+* [穷小子 的回答](https://www.zhihu.com/question/50801791/answer/122863062)
+* [caiwei 的回答](https://www.zhihu.com/question/50801791/answer/122795854)
