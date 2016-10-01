@@ -115,4 +115,5 @@ skill_windows_keywords: [Win32 SDK, DuiLib, WTL, COM, WinDbg]
 # ---------------- #
 # Github metadata  #
 # ---------------- #
-gems: ['jekyll-github-metadata','jekyll-paginate']
+gems: ['jekyll-github-metadata','jekyll-paginate','jekyll-feed']
+repository: mzlogin/mzlogin.github.io
