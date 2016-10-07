@@ -11,7 +11,6 @@ keywords: 码志, Zhuang Ma, mzlogin, mazhuang
 favicon: /favicon.ico
 timezone: Asia/Shanghai
 encoding: "utf-8"
-source_code: https://github.com/mzlogin/mzlogin.github.io
 side_bar_repo_limit: 5
 
 # ---------------- #
@@ -65,6 +64,7 @@ quiet: false
 excerpt_separator: "\n\n"
 permalink: /:year/:month/:day/:title/
 gems:
+    - jekyll-github-metadata
     - rouge
 #     - jekyll-html-pipeline
     - jekyll-paginate
@@ -111,9 +111,3 @@ google:
 skill_software_keywords: [Java, C++, Python, Design Patterns]
 skill_mobile_app_keywords: [Android, Reverse Engineering]
 skill_windows_keywords: [Win32 SDK, DuiLib, WTL, COM, WinDbg]
-
-# ---------------- #
-# Github metadata  #
-# ---------------- #
-gems: ['jekyll-github-metadata','jekyll-paginate','jekyll-feed']
-repository: mzlogin/mzlogin.github.io
