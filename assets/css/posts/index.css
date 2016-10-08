@@ -1,3 +1,7 @@
+#post-directory-module {
+    z-index: 999;
+}
+
 .post-directory {
     font-size: 14px;
     background: #fff;
