@@ -159,6 +159,7 @@ $(document).ready(function(){
         width: 'inherit'
       });
       $('.post-directory').css('overflow', 'hidden');
+      $('.post-directory').scrollTop(0);
     }
 
     highlightTocSection();
