@@ -237,3 +237,11 @@ git fetch --unshallow
 ```
 git pull --unshallow
 ```
+
+#### 基于某次 commit 创建分支
+
+```sh
+git checkout -b test 5234ab
+```
+
+表示以 commit hash 为 `5234ab` 的代码为基础创建分支 `test`。
