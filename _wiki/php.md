@@ -68,7 +68,7 @@ The openssl extension is required for SSL/TLS protection but is not available. I
 
 修改 php.ini 文件，配置 `display_errors = On`。
 
-### 安装 Memcache （not Memcached） for php7
+### 安装 Memcache（not Memcached）for php7
 
 当前（2016-10-19）Memcache 扩展并未有官方的支持办法，所以从源码编译安装。
 

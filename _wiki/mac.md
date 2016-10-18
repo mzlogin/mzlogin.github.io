@@ -135,3 +135,16 @@ Killall SystemUIServer
 ```
 
 如果要保留窗口截图时的阴影，则将 TRUE 改为 FALSE。
+
+### iBooks 里的电子书保存路径
+
+`/Users/<username>/Library/Containers/com.apple.BKAgentService/Data/Documents/iBooks/Books`
+
+### 安装 mpv 没有图形界面
+
+使用 `brew options mpv` 可以看到有个 `--with-bundle` 是安装时创建 .app 文件。
+
+```sh
+brew install mpv --with-bundle
+brew linkapps mpv
+```
