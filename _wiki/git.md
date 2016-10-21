@@ -42,9 +42,9 @@ keywords: Git, 版本控制
 [gui]
    encoding = utf-8
 [i18n]
-   commitencoding = utf-8 
+   commitencoding = utf-8
 [svn]
-   pathnameencoding = utf-8 
+   pathnameencoding = utf-8
 ```
 
 参考 <http://zengrong.net/post/1249.htm>
@@ -245,3 +245,11 @@ git checkout -b test 5234ab
 ```
 
 表示以 commit hash 为 `5234ab` 的代码为基础创建分支 `test`。
+
+#### 恢复单个文件到指定版本
+
+```sh
+git reset 5234ab MainActivity.java
+```
+
+恢复 MainActivity.java 文件到 `5234ab` 时的状态。
