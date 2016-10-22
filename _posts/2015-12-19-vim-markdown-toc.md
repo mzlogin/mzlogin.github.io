@@ -18,9 +18,9 @@ keywords: vim, markdown, toc
 
 * 为 Markdown 文件生成 Table of Contents，目前支持 GFM 和 Redcarpet 两种链接风格。
 
-* 更新已经存在的 Table of Contents.
+* 更新已经存在的 Table of Contents。
 
-* 保存文件时自动更新 Table of Contents.
+* 保存文件时自动更新 Table of Contents。
 
 ## 使用方法
 
@@ -30,13 +30,13 @@ keywords: vim, markdown, toc
 
 1. `:GenTocGFM`
 
-   生成 GFM 链接风格的 Table of Contents.
+   生成 GFM 链接风格的 Table of Contents。
 
    适用于 GitHub 仓库里的 Markdown 文件，比如 README.md，也适用用于生成 GitBook 的 Markdown 文件。
 
 2. `:GenTocRedcarpet`
 
-   生成 Redcarpet 链接风格的 Table of Contents.
+   生成 Redcarpet 链接风格的 Table of Contents。
 
    适用于使用 Redcarpet 作为 Markdown 引擎的 Jekyll 项目或其它地方。
 
