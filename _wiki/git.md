@@ -252,4 +252,4 @@ git checkout -b test 5234ab
 git reset 5234ab MainActivity.java
 ```
 
-恢复 MainActivity.java 文件到 `5234ab` 时的状态。
+恢复 MainActivity.java 文件到 commit hash 为 `5234ab` 时的状态。
