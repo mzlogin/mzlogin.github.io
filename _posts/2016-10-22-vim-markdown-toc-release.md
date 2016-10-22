@@ -10,6 +10,8 @@ keywords: Vim, Markdown, Table of Contents
 
 它的主要功能是为 Markdown 文件生成 toc（Table of Contents）、更新已经存在的 toc 和在保存时自动更新 toc。
 
+说它是当前使用 Vim 编辑 Markdown 文件时维护 Table of Contents 的最佳解决方案应该不为过。
+
 ## 下载地址
 
 * [vim-markdown-toc](https://github.com/mzlogin/vim-markdown-toc)
@@ -26,13 +28,13 @@ keywords: Vim, Markdown, Table of Contents
 
 ## 一些体会
 
-1. 相比于 [awesome-adb](https://github.com/mzlogin/awesome-adb) 这个项目的一千多个 Star，[vim-markdown-toc](https://github.com/mzlogin/vim-markdown-toc) 的三十多个 Star 在我心目中含金量更高。
+1. 相比于 [awesome-adb](https://github.com/mzlogin/awesome-adb) 的一千多个 Star，[vim-markdown-toc](https://github.com/mzlogin/vim-markdown-toc) 的三十多个 Star 在我心目中含金量更高。
 
 2. 做能挣钱的东西，或者对自己有用的东西。
 
-   有天和我们组去年来的小朋友聊天，他说了一个观点我觉得很有道理：做能很可能给自己产生经济效益的东西，你才有动力持续下去。虽然听起来功利，但不无道理。
+   有天和我们组去年来的小朋友聊天，他说了一个观点我觉得很有道理：做能给自己产生经济效益的东西，你才有动力持续下去。虽然听起来功利，但不无道理。
 
-   这么一个插件显然不能挣钱，它属于第二种。本次更新的功能其实在半年前就有网友提过需求，见 [#6](https://github.com/mzlogin/vim-markdown-toc/issues/6)，但我却迟迟没有动手。半年后的某个夜里，突然就决定要把这些做出来，并且花了几个小时就做完了。究其原因，还是因为自己现在有了需求，我现在要维护几份比较长的 Markdown 文档，如果每次手动去删除已有 toc 然后再次生成，虽然比纯手工写 toc 要不知道方便和准确到哪里去了，但归根结底还是不够完美。果然最后用着自己做的功能替自己省下不少重复劳动时，那种感觉还是很爽的。
+   这么一个插件显然不能挣钱，它属于第二种。本次更新的功能其实在半年前就有网友提过需求，见 [#6](https://github.com/mzlogin/vim-markdown-toc/issues/6)，但我却迟迟没有动手。半年后的某个夜里，突然就决定要把这些做出来，并且花了几个小时就做完了。究其原因，还是因为自己现在有了需求，我现在要维护几份比较长的 Markdown 文档，如果每次手动去删除已有 toc 然后再次生成，虽然比纯手工写 toc 要不知道方便和准确到哪里去了，但归根结底还是不够完美。果然最后用着自己做的功能替自己省下不少重复劳动时，那种感觉也是很爽的。
 
 3. 酒香也怕巷子深。
 
