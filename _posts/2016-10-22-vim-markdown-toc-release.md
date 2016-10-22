@@ -6,7 +6,7 @@ description: 我写的第一款 Vim 插件的 Release 版本。
 keywords: Vim, Markdown, Table of Contents
 ---
 
-前几天，完全由我独立开发的第一款 Vim 插件 vim-markdown-toc 升级了功能，发布了 v1.0 版本。
+前几天，第一款由我独立开发的 Vim 插件 vim-markdown-toc 升级了功能，发布了 v1.0 版本。
 
 它的主要功能是为 Markdown 文件生成 toc（Table of Contents）、更新已经存在的 toc 和在保存时自动更新 toc。
 
