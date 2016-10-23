@@ -45,7 +45,7 @@
     -webkit-transition: border-color 0.1s ease-in-out, box-shadow 0.1s ease-in-out;
     transition: border-color 0.1s ease-in-out, box-shadow 0.1s ease-in-out;
     opacity: 0.8;
-    overflow-x: scroll;
+    overflow-x: hidden;
 }
 
 .card .thumbnail:hover{
