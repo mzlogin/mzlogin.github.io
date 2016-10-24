@@ -42,7 +42,7 @@ keywords: vim, markdown, toc
 
 ### 更新已存在的 Table of Contents
 
-使用 `:UpdateToc` 命令。
+通常不需要手动做这件事，保存文件时会自动更新已经存在的 Table of Contents，如果必须手动更新的话，使用 `:UpdateToc` 命令。
 
 ## 安装方法
 
