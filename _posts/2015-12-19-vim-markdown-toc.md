@@ -42,7 +42,9 @@ keywords: vim, markdown, toc
 
 ### 更新已存在的 Table of Contents
 
-通常不需要手动做这件事，保存文件时会自动更新已经存在的 Table of Contents，如果必须手动更新的话，使用 `:UpdateToc` 命令。
+通常不需要手动做这件事，保存文件时会自动更新已经存在的 Table of Contents。
+
+除非是在配置里关闭了保存时自动更新，并且维持插入 Table of Contents 前后的 `<!-- vim-markdown-toc -->`，此时可使用 `:UpdateToc` 命令手动更新。
 
 ## 安装方法
 
@@ -76,7 +78,7 @@ keywords: vim, markdown, toc
 
    默认值：0
 
-   在默认情况下，`:GenTocXXX` 命令会在插入的 Table of Contents 前后加上 `<!-- vim-markdown-toc -->`，这是为了实现保存时自动更新 Table of Contents 功能。
+   在默认情况下，`:GenTocXXX` 命令会在插入的 Table of Contents 前后加上 `<!-- vim-markdown-toc -->`，这是为了实现自动和手动更新 Table of Contents 功能。
 
    如果你不想看到它们，可以在 vimrc 文件里加入如下内容移除：
 
@@ -84,7 +86,7 @@ keywords: vim, markdown, toc
    let g:vmt_dont_insert_fence = 1
    ```
 
-   需要注意的是移除之后插件将无法再帮你保存文件时自动更新 Table of Contents 了。
+   需要注意的是移除之后插件将无法再帮你保存文件时自动更新 Table of Contents 了，也无法使用 `:UpdateToc` 命令了。这里如果还想更新 Table of Contents，只能先手动删除已经存在的，然后重新运行 `:GenTocXXX` 命令。
 
 ## 屏幕截图
 
