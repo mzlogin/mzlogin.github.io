@@ -6,7 +6,6 @@
 
 <!-- vim-markdown-toc GFM -->
 * [效果预览](#效果预览)
-	* [在线预览 &rarr;](#在线预览-rarr)
 * [Fork 指南](#fork-指南)
 * [贴心提示](#贴心提示)
 * [经验与思考](#经验与思考)
@@ -16,7 +15,7 @@
 
 ## 效果预览
 
-### [在线预览 &rarr;](http://mazhuang.org)
+**[在线预览 &rarr;](http://mazhuang.org)**
 
 ![screenshot home](http://mazhuang.org/assets/images/screenshots/home.png)
 
