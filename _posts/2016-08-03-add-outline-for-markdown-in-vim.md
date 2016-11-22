@@ -58,12 +58,12 @@ tagbar 默认并不支持 Markdown 文件，但配置一下就好了。
    ```viml
    --langdef=markdown
    --langmap=markdown:.md
-   --regex-markdown=/^#{1}[ \t]*([^#]+.*)/. \1/h,heading1/
-   --regex-markdown=/^#{2}[ \t]*([^#]+.*)/.   \1/h,heading2/
-   --regex-markdown=/^#{3}[ \t]*([^#]+.*)/.     \1/h,heading3/
-   --regex-markdown=/^#{4}[ \t]*([^#]+.*)/.       \1/h,heading4/
-   --regex-markdown=/^#{5}[ \t]*([^#]+.*)/.         \1/h,heading5/
-   --regex-markdown=/^#{6}[ \t]*([^#]+.*)/.           \1/h,heading6/
+   --regex-markdown=/^#{1}[ \t]*([^#]+.*)/. \1/h,headings/
+   --regex-markdown=/^#{2}[ \t]*([^#]+.*)/.   \1/h,headings/
+   --regex-markdown=/^#{3}[ \t]*([^#]+.*)/.     \1/h,headings/
+   --regex-markdown=/^#{4}[ \t]*([^#]+.*)/.       \1/h,headings/
+   --regex-markdown=/^#{5}[ \t]*([^#]+.*)/.         \1/h,headings/
+   --regex-markdown=/^#{6}[ \t]*([^#]+.*)/.           \1/h,headings/
    ```
 
    这表示提取 Markdown 文件里的一到六级标题，并使用空格缩进表示层次。
