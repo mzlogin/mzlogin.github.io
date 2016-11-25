@@ -57,6 +57,26 @@ git pull
 git stash pop
 ```
 
+#### stash
+
+查看 stash 列表：
+
+```
+git stash list
+```
+
+查看某一次 stash 的改动文件列表（不传最后一个参数默认显示最近一次）：
+
+```
+git stash show stash@{0}
+```
+
+以 patch 方式显示改动内容
+
+```
+git stash show -p stash@{0}
+```
+
 #### 如何合并 fork 的仓库的上游更新？
 
 ```
