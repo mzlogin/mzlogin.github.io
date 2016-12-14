@@ -14,19 +14,21 @@ RTFSC 是程序员打怪升级路上避不开的功课，那营造一个舒适�
 
 1. IDE
 
-    在看特定类型项目时这是我的首选。比如它原本就是一个 Visual Studio 工程，那当然用 Visual Studio 来打开阅读，看 Android App 或者 Library 源码当然用 Android Studio 体验更好。
+   在看特定类型项目时这是我的首选。比如它原本就是一个 Visual Studio 工程，那当然用 Visual Studio 来打开阅读，看 Android App 或者 Library 源码当然用 Android Studio 体验更好。
 
 2. 编辑器配合插件
 
-    比如 Vim + Ctags + Cscope，再配合文件模糊查找插件 LeaderF 和神器 YouCompleteMe，在源码规模不大时很方便，打开也轻快，阅读一些小项目时我还是乐意使用它们。
+   比如 Vim + Ctags + Cscope，再配合文件模糊查找插件 LeaderF 和神器 YouCompleteMe，在源码规模不大时很方便，打开也轻快，阅读一些小项目时我还是乐意使用它们。
 
 3. 专门的源码阅读工具
 
-    一类是商业软件，比如 Windows 下有著名的 Source Insight，跨平台的有 Understand，功能都很强大，都是不错的选择。当然它们都价格不菲。
+   在针对特大型源码时，比如 AOSP 和 Chromium，使用上述两种方案可能会感觉乏力，这时候就需要祭出专门的源码阅读工具了。
 
-    而我这里要讲的主角 OpenGrok 属于另一类，免费，开源，运行流畅，功能也毫不逊色。
+   一类是商业软件，比如 Windows 下有著名的 Source Insight，跨平台的有 Understand，功能都很强大，都是不错的选择。当然它们都价格不菲。
 
-如果你还在寻觅适合你自己的解决方案，大可以花一点时间将以上几种都尝试一遍，哪个称手用哪个。不愿意折腾的也可以直接看看一些使用 OpenGrok 的在线源码查看网站，看看它能否满足你的需求，其中的一些列在 [OpenGrok installations](https://github.com/OpenGrok/OpenGrok/wiki/OpenGrok-installations)。
+   而我这里要讲的主角 OpenGrok 属于另一类，免费，开源，运行流畅，功能也毫不逊色。
+
+如果你还在寻觅适合你自己的解决方案，大可以花一点时间将以上几种都尝试一遍，哪个称手用哪个，也可以像我一样，针对不同的项目使用不同的工具。想直观了解 OpenGrok 的同学可以直接先看看一些使用 OpenGrok 的在线源码查看网站，看看它能否满足你的需求，其中的一些列在 [OpenGrok installations](https://github.com/OpenGrok/OpenGrok/wiki/OpenGrok-installations)。
 
 ## OpenGrok 特性
 
@@ -191,4 +193,4 @@ Windows 下建立软链接的方法是使用 `mklink /J android D:\sources\andro
 
 ## 后话
 
-古人就有工欲善其事，必先利其器的智慧，我们也不能沉迷和徘徊于工具的选择，选择一样自己感觉最称手的，把它用熟练，少再在这上面花时间折腾，毕竟把有限的生命投入到无限的 RTFSC 才是正道不是么。
+古人教会了我们工欲善其事，必先利其器的智慧，但我们也不能沉迷和徘徊于各种利器之间，选择一样自己感觉最称手的工具，把它用熟练，少再在这上面花时间折腾，毕竟把有限的生命投入到无限的 RTFSC 才是正道不是么。
