@@ -33,6 +33,12 @@ keywords: Visual Studio
 | 步过                | F10       |
 | 步入                | F11       |
 
+## 插件
+
+* [Go To Definition](https://marketplace.visualstudio.com/items?itemName=NoahRichards.GoToDefinition)
+
+  Make ctrl+click perform a "Go To Definition" on the identifier under the cursor.
+
 ## 参考
 
 * [visual studio 2013 快捷键大全、VS2013常用快捷键完整页](http://wenku.baidu.com/link?url=HPb7QlXnADYV7xgZ9lBHgGWTMcS-srDHselMynLfgG_kd7OXGM25qv6KWxzHfU5HbHDJTHHFLXJ0RsJv9295VFxJKusvjo1JlvQ0yfoUuda)
