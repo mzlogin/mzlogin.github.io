@@ -39,6 +39,10 @@ keywords: Visual Studio
 
   Make ctrl+click perform a "Go To Definition" on the identifier under the cursor.
 
+* [Visual Assist](https://marketplace.visualstudio.com/items?itemName=WholeTomatoSoftware.VisualAssist)
+
+  Productivity tool for C/C++ and C# that improves IDE features related to navigation, refactoring, code generation, and coding assistance.
+
 ## 参考
 
 * [visual studio 2013 快捷键大全、VS2013常用快捷键完整页](http://wenku.baidu.com/link?url=HPb7QlXnADYV7xgZ9lBHgGWTMcS-srDHselMynLfgG_kd7OXGM25qv6KWxzHfU5HbHDJTHHFLXJ0RsJv9295VFxJKusvjo1JlvQ0yfoUuda)
