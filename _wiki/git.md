@@ -273,3 +273,32 @@ git reset 5234ab MainActivity.java
 ```
 
 恢复 MainActivity.java 文件到 commit hash 为 `5234ab` 时的状态。
+
+#### 设置全局 hooks
+
+```sh
+git config --global core.hooksPath C:/Users/mazhuang/git-hooks
+```
+
+然后把对应的 hooks 文件放在最后一个参数指定的目录即可。
+
+比如想要设置在 commit 之前如果检测到没有从服务器同步则不允许 commit，那在以上目录下建立文件 pre-commit，内容如下：
+
+```sh
+#!/bin/sh
+
+git fetch
+
+HEAD=$(git rev-parse HEAD)
+FETCH_HEAD=$(git rev-parse FETCH_HEAD)
+
+if [ "$FETCH_HEAD" = "$HEAD" ];
+then
+    echo "Pre-commit check passed"
+    exit 0
+fi
+
+echo "Error: you need to update from remote first"
+
+exit 1
+```
