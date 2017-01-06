@@ -287,7 +287,9 @@ git config --global core.hooksPath C:/Users/mazhuang/git-hooks
 ```sh
 #!/bin/sh
 
-git fetch
+CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
+
+git fetch origin $CURRENT_BRANCH
 
 HEAD=$(git rev-parse HEAD)
 FETCH_HEAD=$(git rev-parse FETCH_HEAD)
