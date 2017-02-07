@@ -1,7 +1,7 @@
 # ---------------- #
 #   Main Configs   #
 # ---------------- #
-baseurl:
+baseurl:Log/
 url: https://jiayue0107.github.io/Log/
 date_format: "ordinal"
 title: Log
