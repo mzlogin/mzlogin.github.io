@@ -77,7 +77,7 @@ collections:
         output: true
         permalink: /wiki/:path/
 
-repository: https://jiayue0107.github.io/Log/
+repository: Log/jiayue0107.github.io
 # ---------------- #
 #      Socials     #
 # ---------------- #
