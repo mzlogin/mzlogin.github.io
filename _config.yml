@@ -1,14 +1,14 @@
 # ---------------- #
 #   Main Configs   #
 # ---------------- #
-baseurl:Log/
+baseurl:
 url: https://jiayue0107.github.io/Log/
 date_format: "ordinal"
 title: Log
 subtitle: "Object not found exception"
 description: "贾悦的个人博客"
 keywords: Log, Yue Jia, jiayue
-favicon: /favicon.ico
+favicon: /Log/favicon.ico
 timezone: Asia/Beijing
 encoding: "utf-8"
 side_bar_repo_limit: 5
@@ -27,29 +27,29 @@ email: cloundg@gmail.com
 # ---------------- #
 navs:
   -
-    href: /
+    href: /Log/
     label: 首页
 
   -
-    href: /categories/
+    href: /Log/categories/
     label: 分类
 
   -
-    href: /wiki/
+    href: /Log/wiki/
     label: 维基
 
   -
-    href: /links/
+    href: /Log/links/
     label: 链接
 
   -
-    href: /about/
+    href: /Log/about/
     label: 关于
 
 # ---------------- #
 #       RSS        #
 # ---------------- #
-subscribe_rss: /feed.xml
+subscribe_rss: /Log/feed.xml
 
 # ---------------- #
 #      Jekyll      #
@@ -75,7 +75,7 @@ gems:
 collections:
     wiki:
         output: true
-        permalink: /wiki/:path/
+        permalink: /Log/wiki/:path/
 
 repository: jiayue0107/Log
 # ---------------- #
@@ -112,5 +112,3 @@ google:
 skill_software_keywords: [Java, Object C]
 skill_mobile_app_keywords: [Android,iOS]
 skill_windows_keywords: []
-
-theme: jekyll-theme-cayman
