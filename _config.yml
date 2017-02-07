@@ -2,14 +2,14 @@
 #   Main Configs   #
 # ---------------- #
 baseurl:
-url: http://mazhuang.org
+url: http://jiayue.org
 date_format: "ordinal"
 title: Log
 subtitle: "Object not found exception"
 description: "贾悦的个人博客"
 keywords: Log, Yue jia, jiayue
 favicon: /favicon.ico
-timezone: Asia/Shanghai
+timezone: Asia/Beijing
 encoding: "utf-8"
 side_bar_repo_limit: 5
 
@@ -77,12 +77,12 @@ collections:
         output: true
         permalink: /wiki/:path/
 
-repository: mzlogin/mzlogin.github.io
+repository: jiayue0107/ein.github.io
 
 # ---------------- #
 #      Socials     #
 # ---------------- #
-github_username: mzlogin
+github_username: jiayue0107
 douban_username: freedim
 facebook_username: mzlogin
 weibo_username: mzlogin
@@ -96,8 +96,8 @@ twitter_username: mzlogin
 comments_provider: disqus
 # !!!重要!!! 请修改下面两个用户名为你自己申请的
 # !!!Important!!! Please modify usernames below to yours
-duoshuo_username: mazhuang
-disqus_username: mzlogin
+duoshuo_username: JY
+disqus_username: Yue jia
 # 在使用 disqus 的时候可点击显示多说评论框
 lazy_load_duoshuo: true
 
@@ -110,6 +110,6 @@ google:
 # ---------------- #
 #      Datas       #
 # ---------------- #
-skill_software_keywords: [Java, C++, Python, Design Patterns]
-skill_mobile_app_keywords: [Android, Reverse Engineering]
-skill_windows_keywords: [Win32 SDK, DuiLib, WTL, COM, WinDbg]
+skill_software_keywords: [Java, Object C]
+skill_mobile_app_keywords: [Android,iOS]
+skill_windows_keywords: []
