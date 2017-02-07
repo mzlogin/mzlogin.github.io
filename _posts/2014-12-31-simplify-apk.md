@@ -8,13 +8,13 @@ keywords: Android
 
 按照最新 ADT 的默认设置（如下图所示）创建一个最简单的 HelloWorld 程序，会发现最后生成的 apk 文件大小就已经达到了惊人的 903KB。如果只是想做一个功能非常简单的 APP，体积也这么大的话那太让人沮丧了，那我们就来探索一下如何让这个 HelloWorld.apk 体积最小。
 
-![ADT new project default settings](/images/posts/android/new-project.png)
+![ADT new project default settings](/Log/images/posts/android/new-project.png)
 
 *（注：本文所述方法是以牺牲新的 API 为代价的。）*
 
 默认生成的 apk 文件大小（903KB）：
 
-![default apk size](/images/posts/android/default-size.png)
+![default apk size](/Log/images/posts/android/default-size.png)
 
 ### 移除 appcompat\_v7 依赖
 
@@ -30,7 +30,7 @@ keywords: Android
 
    在如下对话框的 Library 部分选中 appcompat\_v7，并点击 Remove。
 
-   ![remove appcompat\_v7](/images/posts/android/remove-appcompat.png)
+   ![remove appcompat\_v7](/Log/images/posts/android/remove-appcompat.png)
 
 2. 解决由第 1 步操作带来的各种错误
 
@@ -104,7 +104,7 @@ keywords: Android
 
 此时编译生成的 apk 文件大小（380KB）：
 
-![apk size without appcompat\_v7](/images/posts/android/size-without-v7.png)
+![apk size without appcompat\_v7](/Log/images/posts/android/size-without-v7.png)
 
 ### 不导出 android-support-v4.jar
 
@@ -118,11 +118,11 @@ keywords: Android
 
 取消 Android Private Libraries 前面的勾。
 
-![remove private libraries](/images/posts/android/private-library.png)
+![remove private libraries](/Log/images/posts/android/private-library.png)
 
 然后 Clean 和 Refresh 工程，再看生成的 HelloWorld.apk 的大小（45KB）：
 
-![size without v4 library](/images/posts/android/size-without-v4.png)
+![size without v4 library](/Log/images/posts/android/size-without-v4.png)
 
 这个大小大致可以接受啦！
 

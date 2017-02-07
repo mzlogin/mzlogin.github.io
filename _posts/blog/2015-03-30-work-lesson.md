@@ -22,7 +22,7 @@ keywords: 教训
 
 不然就有可能陷入一个怪圈：
 
-![meet-problem](/images/blog/meet-problem.png)
+![meet-problem](/Log/images/blog/meet-problem.png)
 
 尽量做到知其然且知其所以然，让知识点之间关联成或大或小的知识岛，不然临时学到的那一丁点知识因为是孤立的小石礁，会很快就被脑海里每天接纳的大量信息淹没。
 
@@ -34,11 +34,11 @@ keywords: 教训
 
 第一种：（我管它叫广度优先）
 
-![solve-method1](/images/blog/solve-method1.png)
+![solve-method1](/Log/images/blog/solve-method1.png)
 
 第二种：（我管它叫深度优先）
 
-![solve-method2](/images/blog/solve-method2.png)
+![solve-method2](/Log/images/blog/solve-method2.png)
 
 对于不同的问题，在思考解决方案的可行性、付诸行动时，哪一种思维方式更加合理呢？尝试去解决问题的我对此不能没有概念，迷糊中下意识地去跨出步子将必然是低效的。
 

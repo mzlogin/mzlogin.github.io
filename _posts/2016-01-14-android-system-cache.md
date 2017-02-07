@@ -26,7 +26,7 @@ keywords: Android, Cache, Cleaner, System Cache
 
 我们先来看一个熟悉的界面：
 
-![](/images/posts/android/installed-app-details.png)
+![](/Log/images/posts/android/installed-app-details.png)
 
 这是手机的「设置」——「应用」里的已安装应用的详情页，这里面会显示缓存的大小，而且提供了清理缓存的功能，这就是我们做「系统缓存」清理想做的事情。
 

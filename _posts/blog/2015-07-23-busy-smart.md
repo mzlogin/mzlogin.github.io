@@ -6,7 +6,7 @@ description: 忙分为「不知所谓的忙」和「有目的性高效踏实的�
 keywords: 生活的艺术
 ---
 
-![](/images/blog/landscape.jpg)
+![](/Log/images/blog/landscape.jpg)
 
 > 所有生活的美学旨在抵抗一个字——忙。忙就是心灵死亡，不要再忙了——你就开始有生活的美学。
 

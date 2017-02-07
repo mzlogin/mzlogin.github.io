@@ -47,17 +47,17 @@ keywords: 高效能, 七个习惯
 
 想要源源不断地收获金蛋，那就要用心去养好自己的几只鹅，让它们心情愉悦精力充沛，远离死亡的威胁。据说这是一份相对合理的每天养身体、智慧和感情这三只鹅的一天二十四小时时间分配图，可以以此为基础根据自己实际情况稍作修改做一份适合自己的作息计划：
 
-![三只鹅](/images/blog/three-gooses.png)
+![三只鹅](/Log/images/blog/three-gooses.png)
 
 ### 反射弧里加一环
 
 一般来讲，我们感觉遇到困难的处境后是这样的：
 
-![两步回应图](/images/blog/two-steps.png)
+![两步回应图](/Log/images/blog/two-steps.png)
 
 但是实际上发生的过程是这样的：
 
-![三步回应图](/images/blog/three-steps.png)
+![三步回应图](/Log/images/blog/three-steps.png)
 
 这就是为何同一件事情，不同的人会有不同的感受和回应方式的秘密。觉察到中间这一环，就能自由选择以什么样的心情和方式来回应。
 
@@ -79,7 +79,7 @@ keywords: 高效能, 七个习惯
 
    **影响圈** 包括所有可以影响的因素。比如可能有别人的意愿、自己的沟通技能技巧、第三方的力量和证明材料等等。
 
-   ![关注圈和影响圈](/images/blog/two-circles.png)
+   ![关注圈和影响圈](/Log/images/blog/two-circles.png)
 
    主动积极的人会努力扩大影响圈，而消极的人则可能会在困难面前畏缩而导致影响圈里的一些东西被关注圈吞噬。
 
@@ -91,7 +91,7 @@ keywords: 高效能, 七个习惯
 
 >不能管理时间，便什么都不能管理。 ——彼德.德鲁克
 
-![时间管理](/images/blog/time-manage.png)
+![时间管理](/Log/images/blog/time-manage.png)
 
 据说努力让手上的事务主要集中在II区域会让你成为一个下面这样的神人：
 
@@ -117,7 +117,7 @@ keywords: 高效能, 七个习惯
 
 好吧扯了半天貌似跟原书关系不大，说的都是些野路子，那么下面干货来了，据说这张图是《高效能人士的七个习惯》这本书的核心。
 
-![追求卓越模式图](/images/blog/excellence.png)
+![追求卓越模式图](/Log/images/blog/excellence.png)
 
 主要理念：
 

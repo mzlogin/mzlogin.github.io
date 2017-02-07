@@ -12,7 +12,7 @@ keywords: Java
 
 ## 题目
 
-![java-output-ab](/images/posts/java/output-ab.jpg)
+![java-output-ab](/Log/images/posts/java/output-ab.jpg)
 
 ## 思路一
 
@@ -127,7 +127,7 @@ public void print() {
 
 同样看得我一愣一愣的还有 [caiwei](https://www.zhihu.com/people/caiwei710) 同学的答案，他和朋友们发现题目里少写了个大括号（真的），于是我们看到他的朋友老方的解决方案：
 
-![add-brace](/images/posts/java/add-brace.jpg)
+![add-brace](/Log/images/posts/java/add-brace.jpg)
 
 真是防不胜防啊~不过我喜欢！:+1:
 

@@ -51,11 +51,11 @@ CSDN 账号过一段时间就会累积几十个下载过但是未评论打分的
 
 最终运行截图如下：
 
-![CSDN 自动批量打分评论](/images/posts/python/csdncommenter.png)
+![CSDN 自动批量打分评论](/Log/images/posts/python/csdncommenter.png)
 
 确认这种方式能有效拿到 CSDN 的分数：
 
-![CSDN 自动评论得分](/images/posts/python/csdnscore.png)
+![CSDN 自动评论得分](/Log/images/posts/python/csdnscore.png)
 
 ### 总结
 

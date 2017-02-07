@@ -135,7 +135,7 @@ public class Process {
 
 运行截图如下：
 
-![authority demo](/images/posts/android/authority-demo.png)
+![authority demo](/Log/images/posts/android/authority-demo.png)
 
 ## 分析
 
@@ -162,7 +162,7 @@ am 命令是通过 app\_process 最终调用到 com.android.commands.am.Am 类�
 
 am start 的关键方法调用如下：
 
-![am start call stack](/images/posts/android/am-start-call-stack.svg)
+![am start call stack](/Log/images/posts/android/am-start-call-stack.svg)
 
 文章开始处的异常就是在 handleIncomingUser 方法里校验 user id 和权限失败之后抛出的。下面按方法调用层级详细分析一下，如下源码所在源文件可以在上图中找到：
 
@@ -448,7 +448,7 @@ public final class UserHandle implements Parcelable {
 
 ### Java 代码里 startActivity 的执行过程
 
-![start activity call stack](/images/posts/android/start-activity-call-stack.svg)
+![start activity call stack](/Log/images/posts/android/start-activity-call-stack.svg)
 
 其实与 am start 一样，都是执行到了 ActivityManagerService.startActivityAsUser，区别在于参数。
 
@@ -469,7 +469,7 @@ public final int startActivity(IApplicationThread caller, String callingPackage,
 
 ### app\_process 简要执行过程
 
-![app process](/images/posts/android/app-process.svg)
+![app process](/Log/images/posts/android/app-process.svg)
 
 在第 2 步，AndroidRuntime::start 中调用了 `startVm` 启动虚拟机，最终在第 5 步 AppRuntime::onStarted 中调用通过参数传进来的类的 main 方法，并将类名后的参数传给它。
 
