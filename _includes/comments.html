@@ -14,8 +14,8 @@
           <div id="disqus_thread"></div>
           <script>
             var disqus_config = function () {
-              this.page.url = '{{ site.url }}{{ page.url }}';
-              this.page.identifier = '{{ page.url }}';
+              this.page.url = '/Log{{ site.url }}{{ page.url }}';
+              this.page.identifier = '/Log{{ page.url }}';
               this.page.title = '{{ page.title }}';
             };
             (function() { // DON'T EDIT BELOW THIS LINE
@@ -37,7 +37,7 @@
         <a href="#" class="show_duoshuo_comment" onclick="return false;" style="color:rgba(30,55,70,.4);font-size:0.75em;">想留言却没看到评论框？点这里。</a>
         <!-- Duoshuo Comment BEGIN -->
         <!-- 多说评论框 BEGIN -->
-        <div class="ds-thread" data-thread-key="{{ page.url }}" data-title="{{ page.title }}" data-url="{{ site.url }}{{ page.url }}"></div>
+        <div class="ds-thread" data-thread-key="/Log{{ page.url }}" data-title="{{ page.title }}" data-url="{{ site.url }}{{ page.url }}"></div>
         <!-- 多说评论框 END -->
         <!-- 多说公共JS代码 BEGIN (一个网页只需插入一次) -->
         <script type="text/javascript">
