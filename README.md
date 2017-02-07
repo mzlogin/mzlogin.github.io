@@ -1,6 +1,5 @@
-# 码志
-
-我的个人博客：<http://mazhuang.org>，欢迎 Star 和 Fork。
+# Log
+我的个人博客：<https://jiayue0107.github.io/Log/>，欢迎 Star 和 Fork。
 
 ## 概览
 
@@ -33,9 +32,8 @@ Fork 本项目之后，还需要做一些事情才能让你的页面「正确」
 
 3. 修改配置。
 
-   网站的配置基本都集中在 \_config.yml 文件中，将其中与个人信息相关的部分替换成你自己的，比如网站的 title、subtitle、duoshuo 和 Disqus 的用户名等。
-
-   **注意：** 因为 Disqus 处理用户名与域名白名单的策略存在缺陷，请一定将 disqus\_username 修改成你自己的。我对该缺陷的记录见 [Issues#2][3]。
+   网站的配置基本都集中在 \_config.yml 文件中，将其中与个人信息相关的部分替换成你自己的，比如网站的 title、subtitle、duoshuo 和 Disqus 的用户名等。倒入css，和js的部分需要改成自己的项目名。
+   **注意：** 因为 Disqus 处理用户名与域名白名单的策略存在缺陷，请一定将 disqus\_username 修改成你自己的。我对该缺陷的记录见 [Issues#2][3]。
 
 4. 删除我的文章与图片。
 
