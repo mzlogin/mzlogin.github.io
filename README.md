@@ -14,9 +14,9 @@
 
 ## 效果预览
 
-**[在线预览 &rarr;](http://mazhuang.org)**
+**[在线预览 &rarr;](https://jiayue0107.github.io/Log/)**
 
-![screenshot home](http://mazhuang.org/assets/images/screenshots/home.png)
+![screenshot home](https://jiayue0107.github.io/Log/assets/images/screenshots/home.png)
 
 ## Fork 指南
 
