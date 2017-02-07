@@ -92,7 +92,7 @@ twitter_username: mzlogin
 #      Comments    #
 # ---------------- #
 # support provider: disqus, duoshuo
-comments_provider: disqus
+comments_provider: duoshuo
 # !!!重要!!! 请修改下面两个用户名为你自己申请的
 # !!!Important!!! Please modify usernames below to yours
 duoshuo_username: JY
