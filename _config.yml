@@ -4,10 +4,10 @@
 baseurl:
 url: http://mazhuang.org
 date_format: "ordinal"
-title: 码志
-subtitle: "打码改变人生"
-description: "马壮的个人博客"
-keywords: 码志, Zhuang Ma, mzlogin, mazhuang
+title: Log
+subtitle: "Object not found exception"
+description: "贾悦的个人博客"
+keywords: Log, Yue jia, jiayue
 favicon: /favicon.ico
 timezone: Asia/Shanghai
 encoding: "utf-8"
@@ -16,11 +16,11 @@ side_bar_repo_limit: 5
 # ---------------- #
 #      Author      #
 # ---------------- #
-author: Zhuang Ma
-organization: Sogou, Inc.
-organization_url: https://www.sogou.com
+author: Yue jia
+organization: 
+organization_url: 
 location: Beijing, China
-email: chumpma@gmail.com
+email: cloundg@gmail.com
 
 # ---------------- #
 #    Navigation    #
