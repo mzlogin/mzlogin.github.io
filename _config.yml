@@ -82,17 +82,17 @@ repository: Log/jiayue0107.github.io
 #      Socials     #
 # ---------------- #
 github_username: jiayue0107
-douban_username: freedim
-facebook_username: mzlogin
-weibo_username: mzlogin
-zhihu_username: mzlogin
-twitter_username: mzlogin
+douban_username: Zwei
+facebook_username: 贾悦
+weibo_username: JiaYue0107
+zhihu_username: 贾悦
+twitter_username: JiaYue0107
 
 # ---------------- #
 #      Comments    #
 # ---------------- #
 # support provider: disqus, duoshuo
-comments_provider: duoshuo
+comments_provider: disqus
 # !!!重要!!! 请修改下面两个用户名为你自己申请的
 # !!!Important!!! Please modify usernames below to yours
 duoshuo_username: JY
