@@ -36,7 +36,7 @@ comments: false
                 {% for post in paginator.posts %}
                 <li class="repo-list-item">
                     <h3 class="repo-list-name">
-                      <a href="{{ post.url }}">{{ post.title }}</a>
+                      <a href="/Log{{ post.url }}">{{ post.title }}</a>
                     </h3>
                     <p class="repo-list-description">
                         {{ post.excerpt | strip_html | strip }}
