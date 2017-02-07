@@ -2,7 +2,7 @@
 #   Main Configs   #
 # ---------------- #
 baseurl:
-url: http://jiayue.org
+url: https://jiayue0107.github.io/Log/
 date_format: "ordinal"
 title: Log
 subtitle: "Object not found exception"
