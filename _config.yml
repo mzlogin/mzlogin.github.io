@@ -75,7 +75,7 @@ gems:
 collections:
     wiki:
         output: true
-        permalink: /Log/wiki/:path/
+        permalink: /wiki/:path/
 
 repository: https://jiayue0107.github.io/Log/
 # ---------------- #
