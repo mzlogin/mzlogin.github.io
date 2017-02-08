@@ -1,11 +1,12 @@
 ---
 layout: post
-title: template page
+title: 通过JavaMail发送邮件的简单实现
 categories: Java
 description: 通过JavaMail发送邮件的简单实现
 keywords: JavaMail, SSL, 腾讯企业邮箱
 ---
 今天遇到了一个要做站内邮件通知系统的需求，写一篇文档来记录遇到的问题，和解决方案。
+
 <p>1.如果是maven项目，需要引入依赖包：</p>
 
 <pre>
