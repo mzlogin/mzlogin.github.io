@@ -143,7 +143,8 @@ keywords: JavaMail, SSL, 腾讯企业邮箱
 <p>3.要频繁使用的时候不要是使用Transport的静态方法</p>
 * 应该这样使用：
 <pre>
-  <code>Properties props = new Properties();  
+  <code>
+  Properties props = new Properties();  
   props.setProperty("mail.smtp.auth", "true");  
   props.setProperty("mail.transport.protocol", "smtp");//没写的时候  javax.mail.NoSuchProviderException: Invalid protocol: null  
   Session session = Session.getInstance(props);  
