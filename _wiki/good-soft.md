@@ -26,6 +26,7 @@ keywords: 软件, 推荐
 | 视频播放器       | QQ 影音        | mpv            |
 | 下载             | 迅雷精简版     | 迅雷           |
 | 录制屏幕生成 GIF | LICEcap        | LICEcap        |
+| 数据库管理工具    | DataGrip        | DataGrip     |
 
 ## 亮点
 
