@@ -9,11 +9,10 @@ keywords: JavaMail, SSL, 腾讯企业邮箱
 
 <p>1.如果是maven项目，需要引入依赖包：</p>
 
-<pre>
-  <code>&lt;dependency&gt;  
-    &lt;groupId&gt;javax.mail&lt;/groupId&gt;  
-    &lt;artifactId&gt;mail&lt;/artifactId&gt;
-    &lt;version&gt;1.4.4&lt;/version&gt;  
+<pre><code>&lt;dependency&gt;  
+  &lt;groupId&gt;javax.mail&lt;/groupId&gt;  
+  &lt;artifactId&gt;mail&lt;/artifactId&gt;
+  &lt;version&gt;1.4.4&lt;/version&gt;  
 &lt;/dependency&gt;</code>
 </pre>
 
@@ -26,26 +25,24 @@ keywords: JavaMail, SSL, 腾讯企业邮箱
 
 <p>3.下面放一下通过JavaMail发送邮件的代码：</p>
 * 首先写一个配置文件来存储邮箱信息email.properties
-<pre>
-  <code>mail.from=邮箱用户名
-mail.host=邮箱对应的smtp host，例如企业qq的smtp.exmail.qq.com
-mail.account=邮箱用户名
-mail.password=邮箱密码
-mail.smtp.auth=true
-mail.smtp.timeout=25000
-mail.port=465
-mail.ssl=true
-mail.protocol=smtp</code>
-</pre>
+<pre><code>mail.from=邮箱用户名
+  mail.host=邮箱对应的smtp host，例如企业qq的smtp.exmail.qq.com
+  mail.account=邮箱用户名
+  mail.password=邮箱密码
+  mail.smtp.auth=true
+  mail.smtp.timeout=25000
+  mail.port=465
+  mail.ssl=true
+  mail.protocol=smtp</code></pre>
 
 * SendEmailUtils.java
 <pre>
   <code>import java.io.IOException;
-import java.io.InputStream;
-import java.io.UnsupportedEncodingException;
-import java.security.GeneralSecurityException;
-import java.util.Date;
-import java.util.Properties;
+  import java.io.InputStream;
+  import java.io.UnsupportedEncodingException;
+  import java.security.GeneralSecurityException;
+  import java.util.Date;
+  import java.util.Properties;
 
   import javax.mail.Authenticator;
   import javax.mail.Message;
@@ -140,12 +137,11 @@ import java.util.Properties;
             e.printStackTrace();
         }
     }
-}</pre>
+  }</code></pre>
 
 <p>3.要频繁使用的时候不要是使用Transport的静态方法</p>
 * 应该这样使用：
-<pre><code>
-  Properties props = new Properties();  
+<pre><code>Properties props = new Properties();  
   props.setProperty("mail.smtp.auth", "true");  
   props.setProperty("mail.transport.protocol", "smtp");//没写的时候  javax.mail.NoSuchProviderException: Invalid protocol: null  
   Session session = Session.getInstance(props);  
