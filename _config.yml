@@ -2,7 +2,7 @@
 #   Main Configs   #
 # ---------------- #
 baseurl:
-url: https://akun.github.io/
+url: http://akun.github.io/
 date_format: "ordinal"
 title: 阿坤
 subtitle: "C’est La Vie"
