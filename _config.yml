@@ -7,7 +7,7 @@ date_format: "ordinal"
 title: 阿坤
 subtitle: "C’est La Vie"
 description: "阿坤的个人博客"
-keywords: 前端
+keywords: php
 favicon: /favicon.ico
 timezone: Asia/Shanghai
 encoding: "utf-8"
@@ -75,11 +75,11 @@ repository: SuperKunkunkun/akun.github.io
 #      Socials     #
  ---------------- #
 github_username: SuperKunkunkun
-#douban_username: 
-#facebook_username: tongkun
-#weibo_username: mzlogin
-#zhihu_username: mzlogin
-#twitter_username: mzlogin
+douban_username: tongkun
+facebook_username: tongkun
+weibo_username: tongkun
+zhihu_username: tongkun
+twitter_username: tongkun
 
 # ---------------- #
 #      Comments    #
