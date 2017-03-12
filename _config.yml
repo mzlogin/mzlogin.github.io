@@ -1,7 +1,7 @@
 # ---------------- #
 #   Main Configs   #
 # ---------------- #
-baseurl:/
+baseurl:
 url: 
 date_format: "ordinal"
 title: 小董
