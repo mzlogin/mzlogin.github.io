@@ -76,8 +76,7 @@ collections:
         output: true
         permalink: /wiki/:path/
 
-repository: https://xiaodongpei.github.io
-
+repository: https://xiaodongpei.github.io/myblog
 # ---------------- #
 #      Socials     #
 # ---------------- #
