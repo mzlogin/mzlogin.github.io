@@ -1,8 +1,8 @@
 # ---------------- #
 #   Main Configs   #
 # ---------------- #
-baseurl: "/myblog"
-url: "https://xiaodongpei.github.io"
+baseurl: ""
+url: ""
 date_format: "ordinal"
 title: 小董
 subtitle: "打码改变人生"
@@ -76,7 +76,7 @@ collections:
         output: true
         permalink: /wiki/:path/
 
-repository: https://xiaodongpei.github.io/myblog
+repository: github.com/xiaodongpei
 # ---------------- #
 #      Socials     #
 # ---------------- #
