@@ -1,7 +1,7 @@
 # ---------------- #
 #   Main Configs   #
 # ---------------- #
-baseurl:
+baseurl:myblog/
 url: 
 date_format: "ordinal"
 title: 小董
