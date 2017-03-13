@@ -112,5 +112,3 @@ google:
 skill_software_keywords: [Java, C++, Python, Design Patterns]
 skill_mobile_app_keywords: [Android, Reverse Engineering]
 skill_windows_keywords: [Win32 SDK, DuiLib, WTL, COM, WinDbg]
-
-theme: minima
