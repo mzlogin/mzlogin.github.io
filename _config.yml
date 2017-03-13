@@ -1,13 +1,13 @@
 # ---------------- #
 #   Main Configs   #
 # ---------------- #
-baseurl:
-url: http://mazhuang.org
+baseurl: ""
+url: ""
 date_format: "ordinal"
-title: 码志
+title: 小董
 subtitle: "打码改变人生"
-description: "马壮的个人博客"
-keywords: 码志, Zhuang Ma, mzlogin, mazhuang
+description: "小董的个人博客"
+keywords: dongpeipei, 董佩佩
 favicon: /favicon.ico
 timezone: Asia/Shanghai
 encoding: "utf-8"
@@ -16,12 +16,11 @@ side_bar_repo_limit: 5
 # ---------------- #
 #      Author      #
 # ---------------- #
-author: Zhuang Ma
+author: Dong Pei Pei
 organization: Sogou, Inc.
 organization_url: https://www.sogou.com
 location: Beijing, China
-email: chumpma@gmail.com
-
+email: 1062976845@qq.com
 # ---------------- #
 #    Navigation    #
 # ---------------- #
@@ -77,17 +76,16 @@ collections:
         output: true
         permalink: /wiki/:path/
 
-repository: mzlogin/mzlogin.github.io
-
+repository: github.com/xiaodongpei
 # ---------------- #
 #      Socials     #
 # ---------------- #
-github_username: mzlogin
-douban_username: freedim
-facebook_username: mzlogin
-weibo_username: mzlogin
-zhihu_username: mzlogin
-twitter_username: mzlogin
+github_username: xiaodongpei
+#douban_username: freedim
+facebook_username: dongpeipei
+weibo_username: dong18739954882pei@163.com
+#zhihu_username: mzlogin
+#twitter_username: mzlogin
 
 # ---------------- #
 #      Comments    #
@@ -96,8 +94,8 @@ twitter_username: mzlogin
 comments_provider: disqus
 # !!!重要!!! 请修改下面两个用户名为你自己申请的
 # !!!Important!!! Please modify usernames below to yours
-duoshuo_username: mazhuang
-disqus_username: mzlogin
+#duoshuo_username: mazhuang
+disqus_username: dongpeipei
 # 在使用 disqus 的时候可点击显示多说评论框
 lazy_load_duoshuo: true
 
@@ -113,3 +111,5 @@ google:
 skill_software_keywords: [Java, C++, Python, Design Patterns]
 skill_mobile_app_keywords: [Android, Reverse Engineering]
 skill_windows_keywords: [Win32 SDK, DuiLib, WTL, COM, WinDbg]
+
+theme: jekyll-theme-merlot
