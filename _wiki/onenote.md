@@ -41,8 +41,6 @@ Cmd --> Command
 | 显示当前分区的第一个页面   | M-Home      |             |
 | 显示当前分区的最后一个页面 | M-End       |             |
 
-参考：[OneNote 2010 的键盘快捷键](https://support.office.com/zh-cn/article/OneNote-2010-%E7%9A%84%E9%94%AE%E7%9B%98%E5%BF%AB%E6%8D%B7%E9%94%AE-7504cf95-1a03-40d9-9544-090901174620?ui=zh-CN&rs=zh-CN&ad=CN&fromAR=1)
-
 ## 小技巧
 
 * 搜索带特殊字符如「空格」等，用 `"` 将搜索关键字括起来。
@@ -50,3 +48,8 @@ Cmd --> Command
 * 删除「我的模板」
 
   在 Windows 下的 `C:\Users\<username>\AppData\Roaming\Microsoft\Templates` 里找到文件 `我的模板.one`，双击打开将显示你所有的模板页面，删除你想要删除的然后关闭即可。
+
+## 参考
+
+* [OneNote 2010 的键盘快捷键](https://support.office.com/zh-cn/article/OneNote-2010-%E7%9A%84%E9%94%AE%E7%9B%98%E5%BF%AB%E6%8D%B7%E9%94%AE-7504cf95-1a03-40d9-9544-090901174620?ui=zh-CN&rs=zh-CN&ad=CN&fromAR=1)
+* [Keyboard shortcuts in OneNote for Windows 10](https://support.office.com/zh-cn/article/Keyboard-shortcuts-in-OneNote-for-Windows-10-1b57578a-b72e-467a-b38d-266363fe73b0?ui=zh-CN&rs=zh-CN&ad=CN)
