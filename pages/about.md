@@ -1,4 +1,4 @@
-﻿---
+---
 layout: page
 title: About
 description: 人心未散
