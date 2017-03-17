@@ -1,4 +1,4 @@
----
+﻿---
 layout: page
 title: Links
 description: 没有链接的博客是孤独的
@@ -10,7 +10,4 @@ permalink: /links/
 
 > God made relatives. Thank God we can choose our friends.
 
-* [Connie酱](https://connie99.github.io)
-* [只宁静不致远](http://zxning.github.io/)
-* [Blog Something](http://chenxiaoyoyo.github.io)
-* [码志](http://mazhuang.org)
+* [心未](http://b.jzd.party/)
