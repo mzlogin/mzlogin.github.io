@@ -80,16 +80,6 @@ collections:
 repository: mzlogin/mzlogin.github.io
 
 # ---------------- #
-#      Socials     #
-# ---------------- #
-github_username: mzlogin
-douban_username: freedim
-facebook_username: mzlogin
-weibo_username: mzlogin
-zhihu_username: mzlogin
-twitter_username: mzlogin
-
-# ---------------- #
 #      Comments    #
 # ---------------- #
 # support provider: disqus
@@ -103,10 +93,3 @@ disqus_username: mzlogin
 # ---------------- #
 google:
     analytics_id: UA-80669434-1
-
-# ---------------- #
-#      Datas       #
-# ---------------- #
-skill_software_keywords: [Java, C++, Python, Design Patterns]
-skill_mobile_app_keywords: [Android, Reverse Engineering]
-skill_windows_keywords: [Win32 SDK, DuiLib, WTL, COM, WinDbg]
