@@ -83,11 +83,14 @@ repository: mzlogin/mzlogin.github.io
 # ---------------- #
 #      Comments    #
 # ---------------- #
-# support provider: disqus
-comments_provider: disqus
-# !!!重要!!! 请修改下面这些用户名为你自己申请的
-# !!!Important!!! Please modify usernames below to yours
+# support provider: disqus, netease_gentie
+comments_provider: netease_gentie
+# !!!重要!!! 请修改下面这些信息为你自己申请的
+# !!!Important!!! Please modify infos below to yours
 disqus_username: mzlogin
+netease_gentie_key: 560ed243b708465d82d5a0a5f3b83da1
+# 在使用网易云跟帖时可点击显示 Disqus
+lazy_load_disqus : true
 
 # ---------------- #
 #    Analytics     #
