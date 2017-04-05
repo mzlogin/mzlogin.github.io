@@ -4,10 +4,10 @@
 baseurl:
 url: http://mazhuang.org
 date_format: "ordinal"
-title: 码志
-subtitle: "打码改变人生"
-description: "马壮的个人博客"
-keywords: 码志, Zhuang Ma, mzlogin, mazhuang
+title: lapuda
+subtitle: "热爱人生"
+description: "CaoSang的个人博客"
+keywords: 拉普达, CaoSang,
 favicon: /favicon.ico
 timezone: Asia/Shanghai
 encoding: "utf-8"
@@ -19,9 +19,9 @@ side_bar_repo_limit: 5
 author: Zhuang Ma
 organization: Sogou, Inc.
 organization_url: https://www.sogou.com
-github_username: mzlogin
-location: Beijing, China
-email: chumpma@gmail.com
+github_username: laouda2013HUO
+location: changsha, China
+email: lapuda2013@icloud.com
 
 # ---------------- #
 #    Navigation    #
