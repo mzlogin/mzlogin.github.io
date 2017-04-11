@@ -29,23 +29,23 @@ email: yusutehot@gmail.com
 navs:
   -
     href: /
-    label: home
+    label: Home
 
   -
     href: /categories/
-    label: categories
+    label: Categories
 
   -
     href: /wiki/
-    label: wiki
+    label: Wiki
 
   -
     href: /links/
-    label: links
+    label: Links
 
   -
     href: /about/
-    label: about
+    label: About
 
 # ---------------- #
 #       RSS        #
