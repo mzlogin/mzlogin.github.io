@@ -2,12 +2,12 @@
 #   Main Configs   #
 # ---------------- #
 baseurl:
-url: http://mazhuang.org
+url: http://www.yusute.com
 date_format: "ordinal"
-title: 码志
-subtitle: "打码改变人生"
-description: "马壮的个人博客"
-keywords: 码志, Zhuang Ma, mzlogin, mazhuang
+title: 杜乐乐hot
+subtitle: "My life and my story"
+description: "Welcome to 杜乐乐hot's Blog!"
+keywords: 杜乐乐hot, blog, yusute
 favicon: /favicon.ico
 timezone: Asia/Shanghai
 encoding: "utf-8"
@@ -16,12 +16,12 @@ side_bar_repo_limit: 5
 # ---------------- #
 #      Author      #
 # ---------------- #
-author: Zhuang Ma
-organization: zkh360.com
-organization_url: http://www.zkh360.com
-github_username: mzlogin
-location: Wuhan, China
-email: chumpma@gmail.com
+author: 杜乐乐hot
+organization: yusute.com
+organization_url: http://www.yusute.com
+github_username: yusute
+location: Beijing, China
+email: yusutehot@gmail.com
 
 # ---------------- #
 #    Navigation    #
@@ -29,23 +29,23 @@ email: chumpma@gmail.com
 navs:
   -
     href: /
-    label: 首页
+    label: home
 
   -
     href: /categories/
-    label: 分类
+    label: categories
 
   -
     href: /wiki/
-    label: 维基
+    label: wiki
 
   -
     href: /links/
-    label: 链接
+    label: links
 
   -
     href: /about/
-    label: 关于
+    label: about
 
 # ---------------- #
 #       RSS        #
@@ -78,7 +78,7 @@ collections:
         output: true
         permalink: /wiki/:path/
 
-repository: mzlogin/mzlogin.github.io
+repository: yusute/yusute.github.io
 
 # ---------------- #
 #      Comments    #
@@ -87,8 +87,8 @@ repository: mzlogin/mzlogin.github.io
 comments_provider: netease_gentie
 # !!!重要!!! 请修改下面这些信息为你自己申请的
 # !!!Important!!! Please modify infos below to yours
-disqus_username: mzlogin
-netease_gentie_key: 560ed243b708465d82d5a0a5f3b83da1
+disqus_username: yusute
+netease_gentie_key: 55730e22f16f4aaaaba3491e49fbf0ef
 # 在使用网易云跟帖时可点击显示 Disqus
 lazy_load_disqus : true
 
@@ -96,4 +96,4 @@ lazy_load_disqus : true
 #    Analytics     #
 # ---------------- #
 google:
-    analytics_id: UA-80669434-1
+    analytics_id: UA-93472347-1
