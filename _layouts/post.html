@@ -13,12 +13,12 @@ layout: default
             <span class="octicon octicon-calendar"></span> {{ page.date | date: "%Y-%m-%d" }}
           </span>
           {% endif %}
-          {% for cat in page.categories %}
           <span class="meta-info">
             <span class="octicon octicon-file-directory"></span>
+            {% for cat in page.categories %}
             <a href="/categories/#{{ cat }}" title="{{ cat }}">{{ cat }}</a>
+            {% endfor %}
           </span>
-          {% endfor %}
         </div>
       </div>
     </div>
