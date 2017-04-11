@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Intellij IDEA解决乱码
-categories: IDEA, TOMCAT
+categories: IDEA TOMCAT
 description: 刚开始使用IDEA总会在工程中碰到中文乱码的情况，这里给大家列出来几处常见的编码设置，以及字体设置。
 keywords: IDEA, TOMCAT, 乱码
 ---
