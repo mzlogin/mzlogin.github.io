@@ -1,6 +1,6 @@
 ---
 layout: post
-title: spring webflow教程-环境搭建
+title: Spring Webflow教程-环境搭建
 categories: SPRING-WEBFLOW
 description: Spring Web Flow 是 Spring 的一个子项目，其最主要的目的是解决跨越多个请求的、用户与服务器之间的、有状态交互问题。最新版本为 2.x。
 keywords: 教程, 环境, SPRING-WEBFLOW
