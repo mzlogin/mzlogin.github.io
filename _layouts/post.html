@@ -10,7 +10,7 @@ layout: default
         <div class="collection-info">
           {% if page.date %}
           <span class="meta-info">
-            <span class="octicon octicon-calendar"></span> {{ page.date | date: "%Y/%m/%d" }}
+            <span class="octicon octicon-calendar"></span> {{ page.date | date: "%Y-%m-%d" }}
           </span>
           {% endif %}
           {% for cat in page.categories %}
