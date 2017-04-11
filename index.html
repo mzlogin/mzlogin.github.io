@@ -45,14 +45,15 @@ comments: false
                         <span class="meta-info">
                           <span class="octicon octicon-calendar"></span> {{ post.date | date: "%Y-%m-%d" }}
                         </span>
-                        {% if post.categories %}
                         <span class="meta-info">
                           <span class="octicon octicon-file-directory"></span>
                           {% for cat in post.categories %}
                           <a href="/categories/#{{ cat }}" title="{{ cat }}">{{ cat }}</a>
                           {% endfor %}
                         </span>
-                        {% endif %}
+                        <span class="meta-info">
+                          <a href="{{ post.url }}" title="{{ post.title }}">Read More</a>
+                        </span>
                     </p>
                 </li>
                 {% endfor %}
