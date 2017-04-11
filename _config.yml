@@ -5,8 +5,8 @@ baseurl:
 url: http://www.yusute.com
 date_format: "ordinal"
 title: 杜乐乐hot
-subtitle: "My life and my story"
-description: "Welcome to 杜乐乐hot's Blog!"
+subtitle: "Welcome to 杜乐乐hot's Blog!"
+description: "A software developer for Java!"
 keywords: 杜乐乐hot, blog, yusute
 favicon: /favicon.ico
 timezone: Asia/Shanghai
