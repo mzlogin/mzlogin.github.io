@@ -10,13 +10,13 @@ keywords: Excel, SQL, Skill
    2、通过Excel生成相应的SQL语句，然后，放到SQL的新建查询中，执行。下面就来说一说该方法怎么用：
    我要将对应物业公司的boss_id修改成Excel C列中的值。
    
-![1](/Log/posts/images/excel/14920480331645/14920483409274)
+![1](/Log/images/posts/excel/14920483409274.png)
 
 在Excel的D2单元格中，写一段SQL语句，只需要写这一句就可以：
 
 `="update uf_property_corp set boss_id = "&C2&" where accountName = '"&A2&"'"`
 
-![2](/Log/posts/images/excel/14920480331645/14920486412508)
+![2](/Log/images/posts/excel/14920486412508.png)
 
 然后直接从头拉到尾，你会发现所有的数据都有对应的脚本，然后直接复制相关的SQL语句，到分析器中，command+return,OK,任务完成！
 
