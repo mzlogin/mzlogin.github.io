@@ -9,7 +9,7 @@ keywords: Excel, SQL, Skill
    1、将Excel的数据整理好，通过SQL的导入功能直接导入到数据库中，但是要保证数据库的字段和Excel的字段一致。
    2、通过Excel生成相应的SQL语句，然后，放到SQL的新建查询中，执行。下面就来说一说该方法怎么用：
    我要将对应物业公司的boss_id修改成Excel C列中的值。
-![](/Log/images/posts/excel／14920480331645/14920483409274.jpg)
+![](/Log/images/posts/excel/14920480331645/14920483409274.jpg)
 
 
 在Excel的D2单元格中，写一段SQL语句，只需要写这一句就可以：
