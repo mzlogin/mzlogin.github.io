@@ -43,14 +43,17 @@ comments: false
                     </p>
                     <p class="repo-list-meta">
                         <span class="meta-info">
-                          <span class="octicon octicon-calendar"></span> {{ post.date | date: "%Y/%m/%d" }}
+                          <span class="octicon octicon-calendar"></span> {{ post.date | date: "%Y-%m-%d" }}
                         </span>
-                        {% for cat in post.categories %}
                         <span class="meta-info">
                           <span class="octicon octicon-file-directory"></span>
+                          {% for cat in post.categories %}
                           <a href="/categories/#{{ cat }}" title="{{ cat }}">{{ cat }}</a>
+                          {% endfor %}
                         </span>
-                        {% endfor %}
+                        <span class="meta-info-more">
+                          <a href="{{ post.url }}" title="{{ post.title }}">Read More</a>
+                        </span>
                     </p>
                 </li>
                 {% endfor %}
