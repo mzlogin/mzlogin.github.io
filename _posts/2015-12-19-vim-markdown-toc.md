@@ -88,6 +88,38 @@ keywords: vim, markdown, toc
 
    需要注意的是移除之后插件将无法再帮你保存文件时自动更新 Table of Contents 了，也无法使用 `:UpdateToc` 命令了。这里如果还想更新 Table of Contents，只能先手动删除已经存在的，然后重新运行 `:GenTocXXX` 命令。
 
+3. `g:vmt_cycle_list_item_markers`
+
+   默认值：0
+
+   在默认情况下，所有 Table of Contents 项目前面的标记都是 `*`：
+
+   ```
+   * [Level 1](#level-1)
+       * [Level 1-1](#level-1-1)
+       * [Level 1-2](#level-1-2)
+           * [Level 1-2-1](#level-1-2-1)
+   * [Level 2](level-2)
+   ```
+
+   这里提供一个选项改变这个行为，如果设置：
+
+   ```viml
+   let g:vmt_cycle_list_item_markers = 1
+   ```
+
+   那标记将根据级别循环使用 `*`、`-` 和 `+`：
+
+   ```
+   * [Level 1](#level-1)
+       - [Level 1-1](#level-1-1)
+       - [Level 1-2](#level-1-2)
+           + [Level 1-2-1](#level-1-2-1)
+   * [Level 2](level-2)
+   ```
+
+   这不会影响 Markdown 文档解析后的显示效果，只用于提升源文件的可读性。
+
 ## 屏幕截图
 
 [使用本插件生成 TOC 的英文文档在线示例](https://github.com/mzlogin/chinese-copywriting-guidelines/blob/Simplified/README.en.md)
