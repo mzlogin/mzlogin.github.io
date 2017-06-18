@@ -145,4 +145,8 @@ Android Studio 自动生成的 debug.keystore 的信息：
 * Key alias: androiddebugkey
 * Key password: android
 
+## 一直提示 Please configure Android SDK
+
+这是在一次电脑断电后出现的，试了一些方法，更新 Android Studio，将 SDK Platforms 删除了重新下，都不行，后来发现 Build Tools 可以更新，更新完后就好了。
+
 [1]: http://developer.android.com/tools/publishing/app-signing.html
