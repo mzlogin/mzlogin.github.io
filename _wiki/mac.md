@@ -168,6 +168,10 @@ brew install mpv --with-bundle
 brew linkapps mpv
 ```
 
+## 屏幕取色
+
+使用 Mac 自带的“数码测色计”。
+
 ## 参考
 
 * [你可能不知道的 Mac 技巧 - 截图，Gif 制作及 App 推荐](https://zhuanlan.zhihu.com/p/25154768)

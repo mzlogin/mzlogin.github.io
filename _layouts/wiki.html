@@ -18,7 +18,6 @@ layout: default
   <div class="column three-fourths" >
     <article class="article-content markdown-body">
     {{ content }}
-    {% include article-footer.html %}
     </article>
     <div class="share">
       {% include sns-share.html %}
@@ -29,6 +28,7 @@ layout: default
   </div>
   <div class="column one-fourth">
     {% include sidebar-search.html %}
+    {% include sidebar-qrcode.html %}
     {% include sidebar-post-nav.html %}
   </div>
 </div>
