@@ -149,4 +149,28 @@ Android Studio 自动生成的 debug.keystore 的信息：
 
 这是在一次电脑断电后出现的，试了一些方法，更新 Android Studio，将 SDK Platforms 删除了重新下，都不行，后来发现 Build Tools 可以更新，更新完后就好了。
 
+## More than one file was found with OS independent path
+
+比如，在 netty-buffer-4.1.5.Final.jar 与 netty-common-4.1.5.Final.jar 中都有 META-INF/io.netty.version.properties，所以编译时报错：
+
+```
+More than one file was found with OS independent path 'META-INF/io.netty.versions.properties'
+```
+
+解决方法：
+
+在 app/build.gradle 里添加如下内容：
+
+```gradle
+android {
+    packagingOptions {
+        pickFirst 'META-INF/*'
+    }
+}
+```
+
+表示只保留一份该文件。
+
+参考：[Android Studio: Duplicate files copied in APK META-INF/DEPENDENCIES when compile](https://stackoverflow.com/questions/27977396/android-studio-duplicate-files-copied-in-apk-meta-inf-dependencies-when-compile)
+
 [1]: http://developer.android.com/tools/publishing/app-signing.html
