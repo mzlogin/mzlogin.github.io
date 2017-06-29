@@ -88,9 +88,11 @@ OpenGrok 提供如下特性：
 
 如下以 Windows 下为例，Mac OS X 与 Linux 下与此类似，很多步骤能使用 brew 或者 apt-get 会更方便。
 
-1. 安装 [JDK](http://www.oracle.com/technetwork/java/)。
+1. 安装 [JDK](http://www.oracle.com/technetwork/java/)，并配置 JAVA_HOME 或者 JRE_HOME 环境变量为安装目录。
 
-2. 下载 [Tomcat](http://tomcat.apache.org/)，解压到一个目录，如 D:\Programs\apache-tomcat-8.5.8。
+2. 下载 [Tomcat](http://tomcat.apache.org/)，解压到一个目录，如 D:\Programs\apache-tomcat-8.5.8，并将此目录添加为 CATALINA_HOME 环境变量。
+
+   ![](/images/posts/tools/catalina-home.png)
 
 3. 下载 [Universal Ctags](https://github.com/universal-ctags/ctags) for Windows，将 ctags.exe 文件所在目录添加到 PATH 环境变量。
 
