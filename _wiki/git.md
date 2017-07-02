@@ -336,3 +336,23 @@ cherry-pick 有更多详细的用法，可以参见帮助文档。
 #### 命令行自动补全
 
 在 shell 里加载 git-completion 系列脚本，详见 <https://github.com/git/git/tree/master/contrib/completion>
+
+#### 文件每一行变更明细
+
+```sh
+git blame <filename>
+```
+
+#### 找回曾经的历史
+
+```sh
+git reflog
+```
+
+列出 HEAD 曾指向过的一系列 commit，它们只存在于本机，不是版本仓库的一部分。
+
+还有：
+
+```sh
+git fsck
+```
