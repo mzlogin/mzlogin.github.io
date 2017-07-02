@@ -333,6 +333,6 @@ git cherry-pick <commit-hash-id>
 
 cherry-pick 有更多详细的用法，可以参见帮助文档。
 
-#### 命令行自动实例
+#### 命令行自动补全
 
 在 shell 里加载 git-completion 系列脚本，详见 <https://github.com/git/git/tree/master/contrib/completion>
