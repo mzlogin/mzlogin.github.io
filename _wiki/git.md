@@ -306,3 +306,33 @@ echo "Error: you need to update from remote first"
 
 exit 1
 ```
+
+#### 查看某次 commit 的修改内容
+
+```sh
+git show <commit-hash-id>
+```
+
+#### 查看某个文件的修改历史
+
+```sh
+git log -p <filename>
+```
+
+#### 查看最近两次的修改内容
+
+```sh
+git log -p -2
+```
+
+#### 应用已存在的某次更改
+
+```sh
+git cherry-pick <commit-hash-id>
+```
+
+cherry-pick 有更多详细的用法，可以参见帮助文档。
+
+#### 命令行自动实例
+
+在 shell 里加载 git-completion 系列脚本，详见 <https://github.com/git/git/tree/master/contrib/completion>
