@@ -82,3 +82,21 @@ Range("1:1").Select '选中第一行
 ```vbnet
 MyWorkSheet.Application.Selection
 ```
+
+### 隐藏行
+
+```vbnet
+MyWorkSheet.Rows(i).Hidden = True
+```
+
+### String to Integer、Double
+
+```vbnet
+CInt(MyWorkSheet.Cells(1,7))
+
+CDbl(MyWorkSheet.Cells(1,7))
+```
+
+## 参考
+
+[VBA Converting Data Types](http://software-solutions-online.com/converting-data-types/)
