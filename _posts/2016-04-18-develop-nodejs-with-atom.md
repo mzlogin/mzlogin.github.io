@@ -41,7 +41,7 @@ Atom 上的 Javascript 自动补全主要依赖 atom-ternjs 插件，貌似没�
 
    ```sh
    cd ~/.atom/packages
-   git clone git@github.com:tststs/atom-ternjs.git
+   git clone https://github.com/tststs/atom-ternjs.git
    cd atom-ternjs
    npm install
    ```
