@@ -83,16 +83,13 @@ repository: mzlogin/mzlogin.github.io
 # ---------------- #
 #      Comments    #
 # ---------------- #
-# support provider: disqus, netease_gentie, gitment
+# support provider: disqus, gitment
 comments_provider: gitment
 # !!!重要!!! 请修改下面这些信息为你自己申请的
 # !!!Important!!! Please modify infos below to yours
 # https://disqus.com
 disqus:
     username: mzlogin
-# https://gentie.163.com
-netease_gentie:
-    productKey: 560ed243b708465d82d5a0a5f3b83da1
 # https://imsun.net/posts/gitment-introduction/
 gitment:
     owner: mzlogin
