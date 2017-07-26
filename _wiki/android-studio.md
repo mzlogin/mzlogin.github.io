@@ -89,6 +89,12 @@ Cmd --> Command
 * 在 Windows 下格式化代码的 Ctrl+Alt+l 和 QQ 锁热键冲突了，我去 QQ 的设置里删除了QQ 锁热键。
 * 在 Windows 下打开 Settings 的 Ctrl+Alt+s 与 QQ 打开消息盒子热键冲突了，我删除了 QQ 里的该热键。
 
+## 插件
+
+* [android-styler](https://github.com/alexzaitsev/android-styler)
+
+  Android Studio / IDEA plugin that helps to create styles
+
 ## 其它信息
 
 ### Android Plugin 与 Gradle 版本对应
