@@ -6,14 +6,64 @@ description: 使用 VBA 操作 Excel 表格的一些常用用法的笔记。
 keywords: VBA, Excel
 ---
 
+## 文件操作
+
 ### 创建一个 EXCEL 工作簿对象
 
 ```vbnet
+Dim wd As Excel.Application
+Dim wb As Workbook
+
 Set wd = CreateObject("excel.application")
-Set MyWorkBook = wd.Workbooks.Open(".XXXX.xls")
+wd.Visible = True
+Set wb = wd.Workbooks.Open(ThisWorkbook.Path & "/test.xls")
+
+' ...
+
+wb.Close
+wd.Quit
 ```
 
-用完后 `wd.Quit`
+### 打开/保存/关闭工作簿
+
+```vbnet
+Dim wb As Workbook
+
+wb = Workbooks.Open(ThisWorkbook.Path & "/test.xls")
+
+' ...
+
+wb.Save
+wb.Close
+```
+
+### 拷贝文件
+
+```vbnet
+oldfile = ThisWorkBook.Path & "/old.xlsx"
+newfile = ThisWorkBook.Path & "/new.xlsx"
+FileCopy oldfile, newfile
+```
+
+### 删除文件夹下的所有文件
+
+```vbnet
+base = ThisWorkBook.Path & "/文件夹/"
+pattern = base & "*.*"
+file = Dir(pattern, vbReadOnly)
+While str <> ""
+    Kill base & file
+    file = Dir
+Wend
+```
+
+### 创建文件夹
+
+```vbnet
+MkDir(directory)
+```
+
+## 格式操作
 
 ### 设置边框与自动筛选
 
@@ -32,13 +82,6 @@ End With
 MyWorkSheet.Cells(i, j).Interior.ColorIndex
 ```
 
-### 保存 / 关闭工作簿
-
-```vbnet
-MyWorkBook.Save
-MyWorkBook.Close
-```
-
 ### 让某表格选中的单元格变成指定颜色
 
 在 thisworkbook 中添加如下代码段：
@@ -51,6 +94,14 @@ Private Sub Workbook_SheetSelectionChange(ByVal Sh As Object, ByVal Target As Ra
     End If
 End Sub
 ```
+
+### 隐藏行
+
+```vbnet
+MyWorkSheet.Rows(i).Hidden = True
+```
+
+## 选择
 
 ### 引用单元格 / 区域
 
@@ -83,11 +134,7 @@ Range("1:1").Select '选中第一行
 MyWorkSheet.Application.Selection
 ```
 
-### 隐藏行
-
-```vbnet
-MyWorkSheet.Rows(i).Hidden = True
-```
+## 语言基础
 
 ### String to Integer、Double
 
@@ -95,6 +142,14 @@ MyWorkSheet.Rows(i).Hidden = True
 CInt(MyWorkSheet.Cells(1,7))
 
 CDbl(MyWorkSheet.Cells(1,7))
+```
+
+### 字符串分割/获取数组长度
+
+```vbnet
+Dim arr() As String
+arr() = Split(ws.Cells(a, b).Value, "-")
+alen = UBound(arr) - LBound(arr) + 1
 ```
 
 ## 参考
