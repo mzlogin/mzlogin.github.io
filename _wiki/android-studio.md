@@ -95,6 +95,26 @@ Cmd --> Command
 
   Android Studio / IDEA plugin that helps to create styles
 
+## 设置
+
+此部分与 Intellj IDEA 通用。
+
+### 在工程视图里隐藏指定类型文件
+
+比如要隐藏 Vim 打开文件产生的 `*.swp` 文件，操作步骤：
+
+1. 在 Android Studio 里打开 File - Settings - Editor - File Types；
+
+2. 在 Ignore files and folders 里加上 `*.swp`，点 OK 保存。
+
+### 屏蔽 IDE 的某些弹出通知
+
+有些 IDE 通知经常弹出，而你却并不想看到它，比如 Usage Statistics，Vcs Notifications 等，屏蔽步骤：
+
+1. 在 Android Studio 里打开 File - Settings - Appearance & Behavior - Notifications；
+
+2. 在界面上找到你想屏蔽的 Group，将 Popup 列改为 No popup，点 OK 保存即可。
+
 ## 其它信息
 
 ### Android Plugin 与 Gradle 版本对应
