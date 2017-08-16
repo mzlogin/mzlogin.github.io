@@ -46,6 +46,10 @@ keywords: vim, markdown, toc
 
 除非是在配置里关闭了保存时自动更新，并且维持插入 Table of Contents 前后的 `<!-- vim-markdown-toc -->`，此时可使用 `:UpdateToc` 命令手动更新。
 
+### 删除 Table of Contents
+
+`:RemoveToc` 命令可以帮你删除本插件生成的 Table of Contents。
+
 ## 安装方法
 
 推荐使用 [Vundle](http://github.com/VundleVim/Vundle.Vim) 来管理你的 Vim 插件，这样你就可以简单三步完成安装：
