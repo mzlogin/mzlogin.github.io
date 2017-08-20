@@ -16,13 +16,13 @@ public class Test {
 
     public static void main(String[] args) {
         Long value = null;
-
+        // ...
         test(value);
     }
 }
 ```
 
-main 方法里的代码实际上当于调用 `test(null);`，为什么不直接这样写呢？因为编译不过，会报 `错误: 不兼容的类型: <空值>无法转换为long`。
+main 方法里的代码实际上相当于调用 `test(null);`，为什么不直接这样写呢？因为编译不过，会报 `错误: 不兼容的类型: <空值>无法转换为long`。
 
 ## 抛出问题
 
@@ -125,9 +125,9 @@ Integer value = 10;
 
 ### 定义与实现机制
 
-自动装箱，是指从基本数据类型值到其对应的包装类对象的自动转换。比如 `Integer value = 10;`，是通过调用 Integer.valueOf 方法实现转换的。
+**自动装箱**，是指从基本数据类型值到其对应的包装类对象的自动转换。比如 `Integer value = 10;`，是通过调用 Integer.valueOf 方法实现转换的。
 
-自动拆箱，是指从包装类对象到其对应的基本数据类型值的自动转换。比如 `int primitive = value;`，是通过调用 Integer.intValue 方法实现转换的。
+**自动拆箱**，是指从包装类对象到其对应的基本数据类型值的自动转换。比如 `int primitive = value;`，是通过调用 Integer.intValue 方法实现转换的。
 
 | 基本数据类型 | 包装类型  | 装箱方法                 | 拆箱方法               |
 |--------------|-----------|--------------------------|------------------------|
@@ -333,7 +333,7 @@ public final class Short extends Number implements Comparable<Short> {
    }
    ```
    
-   在循环过程中会分别调用 4000 次 Integer.intValue() 和 Integer.valueOf(int)，并 new 4000 个 Integer 对象，而这些操作将 sum 的类型转变为 int 即可避免，节约运行时间和空间，提升性能。
+   在循环过程中会分别调用 4000 次 Integer.intValue() 和 Integer.valueOf(int)，并 new 4000 个 Integer 对象，而这些操作将 sum 的类型改为 int 即可避免，节约运行时间和空间，提升性能。
 
 2. java.lang.NullPointerException
 
