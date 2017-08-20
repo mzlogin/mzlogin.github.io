@@ -10,26 +10,14 @@ keywords: Java, 自动装箱, 自动拆箱
 
 ```java
 public class Test {
-    static class Inner {
-        private Long value;
-
-        public Inner(Long value) {
-            this.value = value;
-        }
-
-        public Long getValue() {
-            return value;
-        }
-    }
-
     public static long test(long value) {
         return value;
     }
 
     public static void main(String[] args) {
-        Inner inner = new Inner(null);
+        Long value = null;
 
-        test(inner.getValue());
+        test(value);
     }
 }
 ```
@@ -38,11 +26,11 @@ main 方法里的代码实际上当于调用 `test(null);`，为什么不直接�
 
 ## 抛出问题
 
-运行时提示 `test(inner.getValue());` 这一行抛出 NullPointerException，但是看着以上代码会有些许困惑：`inner` 明明不是空对象啊，NullPointerException 从何而来？
+运行时提示 `test(value);` 这一行抛出 NullPointerException，但是看着以上代码会有些许困惑：以上代码里一个对象方法都没有调用啊，NullPointerException 从何而来？
 
 ## 原因分析
 
-这时，如果留意到 test 方法接受的参数是 long 类型，而 Inner 类的 getValue() 方法返回的是 Long，就会想到这里会经历一次从类型 Long 到基本数据类型 long 的自动拆箱过程，那会不会是这个过程中抛出的 NullPointerException 呢？因为以前只知道 Java 为一些基础数据类型与对应的包装器类型之间提供了自动装箱拆箱机制，而并不知这机制的具体实现方法是怎么样的，正好学习一下。
+这时，如果留意到 test 方法接受的参数是 long 类型，而我们传入的是 Long 类型（虽然其实是 null），就会想到这会经历一次从类型 Long 到基本数据类型 long 的自动拆箱过程，那会不会是这个过程中抛出的 NullPointerException 呢？因为以前只知道 Java 为一些基础数据类型与对应的包装器类型之间提供了自动装箱拆箱机制，而并不知这机制的具体实现方法是怎么样的，正好学习一下。
 
 用命令 `javap -c Test` 将以上代码编译出的 Test.class 文件进行反汇编，可以看到如下输出：
 
@@ -62,29 +50,24 @@ public class Test {
 
   public static void main(java.lang.String[]);
     Code:
-       0: new           #2                  // class Test$Inner
-       3: dup
-       4: aconst_null
-       5: invokespecial #3                  // Method Test$Inner."<init>":(Ljava/lang/Long;)V
-       8: astore_1
-       9: aload_1
-      10: invokevirtual #4                  // Method Test$Inner.getValue:()Ljava/lang/Long;
-      13: invokevirtual #5                  // Method java/lang/Long.longValue:()J
-      16: invokestatic  #6                  // Method test:(J)J
-      19: pop2
-      20: return
+       0: aconst_null
+       1: astore_1
+       2: aload_1
+       3: invokevirtual #2                  // Method java/lang/Long.longValue:()J
+       6: invokestatic  #3                  // Method test:(J)J
+       9: pop2
+      10: return
 }
 ```
 
-从以上字节码及对应的注释可以看出，`test(inner.getValue());` 这一行被编译后等同于如下代码：
+从以上字节码及对应的注释可以看出，`test(value);` 这一行被编译后等同于如下代码：
 
 ```java
-Long value = inner.getValue();
 long primitive = value.longValue();
 test(promitive);
 ```
 
-相比实际代码，中间多出的 `long primitive = value.longValue();` 这一行看起来就是自动拆箱的过程了，而我们传入的 `value` 为 null，`value.longValue()` 会抛出 NullPointerException，一切就解释得通了。用更简洁的代码表达出了更丰富的含义，这就是所谓的语法糖了。
+相比实际代码，多出的 `long primitive = value.longValue();` 这一行看起来就是自动拆箱的过程了，而我们传入的 `value` 为 null，`value.longValue()` 会抛出 NullPointerException，一切就解释得通了。用更简洁的代码表达出了更丰富的含义，这就是所谓的语法糖了。
 
 ## 证实猜想
 
