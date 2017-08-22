@@ -352,6 +352,37 @@ public final class Short extends Number implements Comparable<Short> {
    int v3 = v1 + 10; // NullPointerException
    ```
 
+   还有一种更隐蔽的情形，感谢 [@周少](https://www.zhihu.com/people/zhou-shao-68-55) 补充：
+
+   ```java
+   public class Test {
+       public static void main(String[] args) {
+           long value = true ? null : 1; // NullPointerException
+       }
+   }
+   ```
+
+   这实际上还是对一个值为 null 的 Long 类型进行自动拆箱，反汇编代码：
+
+   ```java
+   Compiled from "Test.java"
+   public class Test {
+     public Test();
+       Code:
+          0: aload_0
+          1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+          4: return
+
+     public static void main(java.lang.String[]);
+       Code:
+          0: aconst_null
+          1: checkcast     #2                  // class java/lang/Long
+          4: invokevirtual #3                  // Method java/lang/Long.longValue:()J
+          7: lstore_1
+          8: return
+   }
+   ```
+
 ## 参考
 
 * [Java中的自动装箱与拆箱](http://droidyue.com/blog/2015/04/07/autoboxing-and-autounboxing-in-java/index.html)
