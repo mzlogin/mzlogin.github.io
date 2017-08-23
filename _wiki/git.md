@@ -356,3 +356,25 @@ git reflog
 ```sh
 git fsck
 ```
+
+#### 记住 http(s) 方式的用户名密码
+
+在有些情况下无法使用 git 协议，比如公司的 git 服务器设置了 IP 白名单，只能在公司内网使用 ssh，那么在外面就只能使用 http(s) 上传下载源码了，但每次都手动输入用户名/密码特别惨，于是乎就记住吧。
+
+设置记住密码（默认 15 分钟）：
+
+```sh
+git config --global credential.helper cache
+```
+
+自定义记住的时间（如下面是一小时）：
+
+```sh
+git config credential.helper 'cache --timeout=3600'
+```
+
+长期存储密码：
+
+```sh
+git config --global credential.helper store
+```
