@@ -325,7 +325,7 @@ git log -p <filename>
 git log -p -2
 ```
 
-#### 应用已存在的某次更改
+#### 应用已存在的某次更改 / merge 某一个 commit
 
 ```sh
 git cherry-pick <commit-hash-id>
