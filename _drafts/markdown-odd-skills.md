@@ -71,9 +71,7 @@ N 与图片高度有关。
 
 标准的 Markdown 图片标记 `![]()` 无法指定图片的大小和位置，只能依赖默认的图片大小，默认居左。
 
-而有时候源图太大想要缩小一点，或者想将图片居中，就仍需要借助 HTML 的标签来实现了。图片居中可以使用 `<center>` 标签来控制，图片宽高则用 `width` 和 `height` 来控制。
-
-*注：`<img>` 标签的 `align` 属性和 `<center>` 标签在 HTML 中已建议弃用，但不影响使用。*
+而有时候源图太大想要缩小一点，或者想将图片居中，就仍需要借助 HTML 的标签来实现了。图片居中可以使用 `<div>` 标签加 `align` 属性来控制，图片宽高则用 `width` 和 `height` 来控制。
 
 示例代码：
 
@@ -84,7 +82,7 @@ N 与图片高度有关。
 
 **加以控制后的效果：**
 
-<center><img width="65" height="75" src="https://raw.githubusercontent.com/mzlogin/mzlogin.github.io/master/images/posts/markdown/demo.png"/></center>
+<div align="center"><img width="65" height="75" src="https://raw.githubusercontent.com/mzlogin/mzlogin.github.io/master/images/posts/markdown/demo.png"/></div>
 ```
 
 示例效果：
@@ -95,7 +93,7 @@ N 与图片高度有关。
 
 **加以控制后的效果：**
 
-<center><img width="65" height="75" src="https://raw.githubusercontent.com/mzlogin/mzlogin.github.io/master/images/posts/markdown/demo.png"/></center>
+<div align="center"><img width="65" height="75" src="https://raw.githubusercontent.com/mzlogin/mzlogin.github.io/master/images/posts/markdown/demo.png"/></div>
 
 ## 格式化表格
 
