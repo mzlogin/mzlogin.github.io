@@ -157,7 +157,7 @@ Android Studio 自动生成的 debug.keystore 的信息：
 More than one file was found with OS independent path 'META-INF/io.netty.versions.properties'
 ```
 
-解决方法：
+**解决方案：**
 
 在 app/build.gradle 里添加如下内容：
 
@@ -172,5 +172,31 @@ android {
 表示只保留一份该文件。
 
 参考：[Android Studio: Duplicate files copied in APK META-INF/DEPENDENCIES when compile](https://stackoverflow.com/questions/27977396/android-studio-duplicate-files-copied-in-apk-meta-inf-dependencies-when-compile)
+
+## 打开 uiautomatorviewer 报错
+
+打开 uiautomatorviewer 报错，提示：
+
+```
+Unable to connect to adb. Check if adb is installed correctly.
+```
+
+实际 adb 命令是可正常使用的。
+
+解决方法：
+
+打开 uiautomatorviewer.bat 文件（Windows 下，其它系统可能是 .sh），找到下面这行（一般是最后一行）：
+
+```sh
+call "%java_exe%" "-Djava.ext.dirs=%javaextdirs%" "-Dcom.android.uiautomator.bindir=%prog_dir%" -jar %jarpath% %*
+```
+
+将其中的 `%prog_dir%` 改为 Android SDK 的 tools 目录路径，比如：
+
+```sh
+call "%java_exe%" "-Djava.ext.dirs=%javaextdirs%" "-Dcom.android.uiautomator.bindir=D:\Android\sdk\tools" -jar %jarpath% %*
+```
+
+参考：[In UI automator viewer Error Obtaining Device screenshot, Reason : Error Unable to connect to adb. Check if adb is installed correctly](https://stackoverflow.com/questions/42696158/in-ui-automator-viewer-error-obtaining-device-screenshot-reason-error-unable)
 
 [1]: http://developer.android.com/tools/publishing/app-signing.html

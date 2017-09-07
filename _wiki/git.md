@@ -378,3 +378,35 @@ git config credential.helper 'cache --timeout=3600'
 ```sh
 git config --global credential.helper store
 ```
+
+#### git commit 使用 vim 编辑 commit message 中文乱码
+
+这个问题在 Windows 下出现了，没找到能完美解决的办法，一种方法是在 vim 打开后输入：
+
+```sh
+:set termencoding=GBK
+```
+
+这就有点太麻烦了，折衷的方法是改为使用 gVim 或其它你喜欢的编辑器来编辑 commit message：
+
+```sh
+git config --global core.editor gvim
+```
+
+参考：
+* [How do I make Git use the editor of my choice for commits?](https://stackoverflow.com/questions/2596805/how-do-i-make-git-use-the-editor-of-my-choice-for-commits)
+* [转：git windows中文 乱码问题解决汇总](http://www.cnblogs.com/youxin/p/3227961.html)
+
+#### git log 中文乱码
+
+只在 Windows 下遇到。
+
+```sh
+git config --global i18n.logoutputencoding gbk
+```
+
+#### git diff 中文乱码
+
+只在 Windows 下遇到，目前尚未找到有效办法。
+
+参考：[Git for windows 中文乱码解决方案](https://segmentfault.com/a/1190000000578037)
