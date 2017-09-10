@@ -367,7 +367,7 @@ mysql> SELECT *
 
 4. MySQL 不支持 FULL OUTER JOIN；
 
-5. 还有更多的 JOIN 用法，比如 NATURAL JOIN、CROSS JOIN、SELF JOIN，目前我还未在实际应用中遇到过，且不太好用图来表示，所以并未在本文中进行讲解。如果感兴趣，可以参考 [SQL JOINS Slide Presentation][4] 学习。
+5. 还有更多的 JOIN 用法，比如 NATURAL JOIN、CROSS JOIN、SELF JOIN，目前我还未在实际应用中遇到过，且不太好用图来表示，所以并未在本文中进行讲解。如果需要，可以参考 [SQL JOINS Slide Presentation][4] 学习。
 
 假如你对我的文章感兴趣，可以关注我的微信公众号 isprogrammer 随时阅读更多内容。
 
