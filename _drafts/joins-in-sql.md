@@ -87,7 +87,7 @@ ON A.PK = B.PK;
 
 ### LEFT JOIN
 
-LEFT JOIN 一般被译作左连接。左连接查询会返回左表（表 A）中所有记录，不管右表（表 B）中有没有关联的数据。在右表中找到的关联数据列也会被一起返回。
+LEFT JOIN 一般被译作左连接，也写作 LEFT OUTER JOIN。左连接查询会返回左表（表 A）中所有记录，不管右表（表 B）中有没有关联的数据。在右表中找到的关联数据列也会被一起返回。
 
 **文氏图：**
 
@@ -123,7 +123,7 @@ ON A.PK = B.PK;
 
 ### RIGHT JOIN
 
-RIGHT JOIN 一般被译作右连接。右连接查询会返回右表（表 B）中所有记录，不管左表（表 A）中有没有关联的数据。在左表中找到的关联数据列也会被一起返回。
+RIGHT JOIN 一般被译作右连接，也写作 RIGHT OUTER JOIN。右连接查询会返回右表（表 B）中所有记录，不管左表（表 A）中有没有关联的数据。在左表中找到的关联数据列也会被一起返回。
 
 **文氏图：**
 
@@ -221,7 +221,7 @@ mysql> SELECT *
 
 ![](https://raw.githubusercontent.com/mzlogin/mzlogin.github.io/master/images/posts/database/general-joins.png)
 
-有没有感觉少了些什么，有几种情况没有列出来？确实如此，继续看。
+有没有感觉少了些什么，学数学集合时完全不止这几种情况？确实如此，继续看。
 
 ## 延伸用法
 
@@ -367,11 +367,17 @@ mysql> SELECT *
 
 4. MySQL 不支持 FULL OUTER JOIN；
 
+5. 还有更多的 JOIN 用法，比如 NATURAL JOIN、CROSS JOIN、SELF JOIN，目前我还未在实际应用中遇到过，且不太好用图来表示，所以并未在本文中进行讲解。如果感兴趣，可以参考 [SQL JOINS Slide Presentation][4] 学习。
+
+假如你对我的文章感兴趣，可以关注我的微信公众号 isprogrammer 随时阅读更多内容。
+
 ## 参考
 
 * [Visual Representation of SQL Joins][2]
 * [How to do a FULL OUTER JOIN in MySQL?][3]
+* [SQL JOINS Slide Presentation][4]
 
 [1]: https://www.codeproject.com/script/Membership/View.aspx?mid=5909363
 [2]: https://www.codeproject.com/Articles/33052/Visual-Representation-of-SQL-Joins
 [3]: https://stackoverflow.com/questions/4796872/how-to-do-a-full-outer-join-in-mysql
+[4]: https://www.w3resource.com/slides/sql-joins-slide-presentation.php
