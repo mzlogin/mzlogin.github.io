@@ -6,15 +6,15 @@ description: 用文氏图和示例来理解 SQL 里的各种 JOIN。
 keywords: SQL, Database, 文氏图
 ---
 
-从业以来主要在做客户端，一直用到的数据库就是表结构比较简单的 SQLite，以我那还给老师一大半的 SQL 水平倒也能对付。现在偶尔需要直接到后台的 SQL Server 里追查一些数据问题，就显得有点捉襟见肘了，特别是各种 JOIN，有时候傻傻分不清楚，于是索性弄明白并做个记录。
+从业以来主要在做客户端，用到的数据库都是表结构比较简单的 SQLite，以我那还给老师一大半的 SQL 水平倒也能对付。现在偶尔需要到后台的 SQL Server 里追查一些数据问题，就显得有点捉襟见肘了，特别是各种 JOIN，有时候傻傻分不清楚，于是索性弄明白并做个记录。
 
 ## 前言
 
-在各种问答社区里谈及 SQL 里的各种 JOIN 之间的区别时，最被广为引用的文章是 CodeProject 上 [C.L. Moffatt][1] 的文章 [Visual Representation of SQL Joins][2]，这篇文章确实简单明了，使用文氏图能很好地帮助理解。本文将沿用他的讲解方式，稍有演绎，视为该文较为粗糙的中译版也未尝不可。
+在各种问答社区里谈及 SQL 里的各种 JOIN 之间的区别时，最被广为引用的是 CodeProject 上 [C.L. Moffatt][1] 的文章 [Visual Representation of SQL Joins][2]，他确实讲得简单明了，使用文氏图来帮助理解，效果明显。本文将沿用他的讲解方式，稍有演绎，可以视为该文较为粗糙的中译版。
 
 ## 约定
 
-下文将使用两个数据库表来对每一种 JOIN 的使用进行示例讲解，会使用到两个数据表 Table\_A 和 Table\_B，其结构与数据分别如下：
+下文将使用两个数据库表 Table\_A 和 Table\_B 来进行示例讲解，其结构与数据分别如下：
 
 ```
 mysql> SELECT * FROM Table_A ORDER BY PK ASC;
