@@ -405,6 +405,12 @@ git config --global core.editor gvim
 git config --global i18n.logoutputencoding gbk
 ```
 
+编辑 git 安装目录下 etc/profile 文件，在最后添加如下内容：
+
+```
+export LESSCHARSET=utf-8
+```
+
 参考：[Git for windows 中文乱码解决方案](https://segmentfault.com/a/1190000000578037)
 
 #### git diff 中文乱码
