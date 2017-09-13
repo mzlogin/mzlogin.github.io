@@ -18,35 +18,25 @@ keywords: SQL, Database, 文氏图
 
 ```
 mysql> SELECT * FROM Table_A ORDER BY PK ASC;
-+----+------------+
-| PK | Value      |
-+----+------------+
-|  1 | FOX        |
-|  2 | COP        |
-|  3 | TAXI       |
-|  4 | LINCION    |
-|  5 | ARIZONA    |
-|  6 | WASHINGTON |
-|  7 | DELL       |
-| 10 | LUCENT     |
-+----+------------+
-8 rows in set (0.00 sec)
++----+---------+
+| PK | Value   |
++----+---------+
+|  1 | both ab |
+|  2 | only a  |
++----+---------+
+2 rows in set (0.00 sec)
 
 mysql> SELECT * from Table_B ORDER BY PK ASC;
-+----+-----------+
-| PK | Value     |
-+----+-----------+
-|  1 | TROT      |
-|  2 | CAR       |
-|  3 | CAB       |
-|  6 | MONUMENT  |
-|  7 | PC        |
-|  8 | MICROSOFT |
-|  9 | APPLE     |
-| 11 | SCOTCH    |
-+----+-----------+
-8 rows in set (0.00 sec)
++----+---------+
+| PK | Value   |
++----+---------+
+|  1 | both ab |
+|  3 | only b  |
++----+---------+
+2 rows in set (0.00 sec)
 ```
+
+其中 PK 为 1 的记录在 Table\_A 和 Table\_B 中都有，2 为 Table\_A 特有，3 为 Table\_B 特有。
 
 ## 常用的 JOIN
 
@@ -71,16 +61,12 @@ ON A.PK = B.PK;
 查询结果：
 
 ```
-+------+------+------------+----------+
-| A_PK | B_PK | A_Value    | B_Value  |
-+------+------+------------+----------+
-|    1 |    1 | FOX        | TROT     |
-|    2 |    2 | COP        | CAR      |
-|    3 |    3 | TAXI       | CAB      |
-|    6 |    6 | WASHINGTON | MONUMENT |
-|    7 |    7 | DELL       | PC       |
-+------+------+------------+----------+
-5 rows in set (0.00 sec)
++------+------+---------+---------+
+| A_PK | B_PK | A_Value | B_Value |
++------+------+---------+---------+
+|    1 |    1 | both ab | both ab |
++------+------+---------+---------+
+1 row in set (0.00 sec)
 ```
 
 *注：其中 `A` 为 `Table_A` 的别名，`B` 为 `Table_B` 的别名，下同。*
@@ -106,19 +92,13 @@ ON A.PK = B.PK;
 查询结果：
 
 ```
-+------+------+------------+----------+
-| A_PK | B_PK | A_Value    | B_Value  |
-+------+------+------------+----------+
-|    1 |    1 | FOX        | TROT     |
-|    2 |    2 | COP        | CAR      |
-|    3 |    3 | TAXI       | CAB      |
-|    4 | NULL | LINCION    | NULL     |
-|    5 | NULL | ARIZONA    | NULL     |
-|    6 |    6 | WASHINGTON | MONUMENT |
-|    7 |    7 | DELL       | PC       |
-|   10 | NULL | LUCENT     | NULL     |
-+------+------+------------+----------+
-8 rows in set (0.00 sec)
++------+------+---------+---------+
+| A_PK | B_PK | A_Value | B_Value |
++------+------+---------+---------+
+|    1 |    1 | both ab | both ba |
+|    2 | NULL | only a  | NULL    |
++------+------+---------+---------+
+2 rows in set (0.00 sec)
 ```
 
 ### RIGHT JOIN
@@ -142,19 +122,13 @@ ON A.PK = B.PK;
 查询结果：
 
 ```
-+------+------+------------+-----------+
-| A_PK | B_PK | A_Value    | B_Value   |
-+------+------+------------+-----------+
-|    1 |    1 | FOX        | TROT      |
-|    2 |    2 | COP        | CAR       |
-|    3 |    3 | TAXI       | CAB       |
-|    6 |    6 | WASHINGTON | MONUMENT  |
-|    7 |    7 | DELL       | PC        |
-| NULL |    8 | NULL       | MICROSOFT |
-| NULL |    9 | NULL       | APPLE     |
-| NULL |   11 | NULL       | SCOTCH    |
-+------+------+------------+-----------+
-8 rows in set (0.00 sec)
++------+------+---------+---------+
+| A_PK | B_PK | A_Value | B_Value |
++------+------+---------+---------+
+|    1 |    1 | both ab | both ba |
+| NULL |    3 | NULL    | only b  |
++------+------+---------+---------+
+2 rows in set (0.00 sec)
 ```
 
 ### FULL OUTER JOIN
@@ -197,22 +171,14 @@ mysql> SELECT *
     -> RIGHT JOIN Table_B 
     -> ON Table_A.PK = Table_B.PK
     -> WHERE Table_A.PK IS NULL;
-+------+------------+------+-----------+
-| PK   | Value      | PK   | Value     |
-+------+------------+------+-----------+
-|    1 | FOX        |    1 | TROT      |
-|    2 | COP        |    2 | CAR       |
-|    3 | TAXI       |    3 | CAB       |
-|    4 | LINCION    | NULL | NULL      |
-|    5 | ARIZONA    | NULL | NULL      |
-|    6 | WASHINGTON |    6 | MONUMENT  |
-|    7 | DELL       |    7 | PC        |
-|   10 | LUCENT     | NULL | NULL      |
-| NULL | NULL       |    8 | MICROSOFT |
-| NULL | NULL       |    9 | APPLE     |
-| NULL | NULL       |   11 | SCOTCH    |
-+------+------------+------+-----------+
-11 rows in set (0.00 sec)
++------+---------+------+---------+
+| PK   | Value   | PK   | Value   |
++------+---------+------+---------+
+|    1 | both ab |    1 | both ba |
+|    2 | only a  | NULL | NULL    |
+| NULL | NULL    |    3 | only b  |
++------+---------+------+---------+
+3 rows in set (0.00 sec)
 ```
 
 ### 小结
@@ -250,11 +216,9 @@ WHERE B.PK IS NULL;
 +------+------+---------+---------+
 | A_PK | B_PK | A_Value | B_Value |
 +------+------+---------+---------+
-|    4 | NULL | LINCION | NULL    |
-|    5 | NULL | ARIZONA | NULL    |
-|   10 | NULL | LUCENT  | NULL    |
+|    2 | NULL | only a  | NULL    |
 +------+------+---------+---------+
-3 rows in set (0.00 sec)
+1 row in set (0.01 sec)
 ```
 
 ### RIGHT JOIN EXCLUDING INNER JOIN
@@ -279,14 +243,12 @@ WHERE A.PK IS NULL;
 查询结果：
 
 ```
-+------+------+---------+-----------+
-| A_PK | B_PK | A_Value | B_Value   |
-+------+------+---------+-----------+
-| NULL |    8 | NULL    | MICROSOFT |
-| NULL |    9 | NULL    | APPLE     |
-| NULL |   11 | NULL    | SCOTCH    |
-+------+------+---------+-----------+
-3 rows in set (0.00 sec)
++------+------+---------+---------+
+| A_PK | B_PK | A_Value | B_Value |
++------+------+---------+---------+
+| NULL |    3 | NULL    | only b  |
++------+------+---------+---------+
+1 row in set (0.00 sec)
 ```
 
 ### FULL OUTER JOIN EXCLUDING INNER JOIN
@@ -332,17 +294,13 @@ mysql> SELECT *
     -> RIGHT JOIN Table_B
     -> ON Table_A.PK = Table_B.PK
     -> WHERE Table_A.PK IS NULL;
-+------+---------+------+-----------+
-| PK   | Value   | PK   | Value     |
-+------+---------+------+-----------+
-|    4 | LINCION | NULL | NULL      |
-|    5 | ARIZONA | NULL | NULL      |
-|   10 | LUCENT  | NULL | NULL      |
-| NULL | NULL    |    8 | MICROSOFT |
-| NULL | NULL    |    9 | APPLE     |
-| NULL | NULL    |   11 | SCOTCH    |
-+------+---------+------+-----------+
-6 rows in set (0.00 sec)
++------+--------+------+--------+
+| PK   | Value  | PK   | Value  |
++------+--------+------+--------+
+|    2 | only a | NULL | NULL   |
+| NULL | NULL   |    3 | only b |
++------+--------+------+--------+
+2 rows in set (0.00 sec)
 ```
 
 ## 总结
@@ -357,6 +315,83 @@ mysql> SELECT *
 
 ![SQL JOINS](https://raw.githubusercontent.com/mzlogin/mzlogin.github.io/master/images/posts/database/Visual_SQL_JOINS_orig.jpg)
 
+## 更新：更多的 JOIN
+
+除以上几种外，还有更多的 JOIN 用法，比如 CROSS JOIN（迪卡尔集）、SELF JOIN，可以参考 [SQL JOINS Slide Presentation][4] 学习。
+
+### CROSS JOIN
+
+返回左表与右表之间符合条件的记录的迪卡尔集。
+
+**图示：**
+
+![CORSS JOIN](https://raw.githubusercontent.com/mzlogin/mzlogin.github.io/master/images/posts/database/cross-join.png)
+
+**示例查询：**
+
+```sql
+SELECT A.PK AS A_PK, B.PK AS B_PK,
+       A.Value AS A_Value, B.Value AS B_Value
+FROM Table_A A
+CROSS JOIN Table_B B;
+```
+
+查询结果：
+
+```
++------+------+---------+---------+
+| A_PK | B_PK | A_Value | B_Value |
++------+------+---------+---------+
+|    1 |    1 | both ab | both ba |
+|    2 |    1 | only a  | both ba |
+|    1 |    3 | both ab | only b  |
+|    2 |    3 | only a  | only b  |
++------+------+---------+---------+
+4 rows in set (0.00 sec)
+```
+
+上面讲过的几种 JOIN 查询的结果都可以用 CROSS JOIN 加条件模拟出来，比如 INNER JOIN 对应 `CROSS JOIN ... WHERE A.PK = B.PK`。
+
+### SELF JOIN
+
+返回表与自己连接后符合条件的记录，一般用在表里有一个字段是用主键作为外键的情况。
+
+比如 Table\_C 的结构与数据如下：
+
+```
++--------+----------+-------------+
+| EMP_ID | EMP_NAME | EMP_SUPV_ID |
++--------+----------+-------------+
+|   1001 | Ma       |        NULL |
+|   1002 | Zhuang   |        1001 |
++--------+----------+-------------+
+2 rows in set (0.00 sec)
+```
+
+EMP\_ID 字段表示员工 ID，EMP\_NAME 字段表示员工姓名，EMP\_SUPV\_ID 表示主管 ID。
+
+**示例查询：**
+
+现在我们想查询所有有主管的员工及其对应的主管 ID 和姓名，就可以用 SELF JOIN 来实现。
+
+```sql
+SELECT A.EMP_ID AS EMP_ID, A.EMP_NAME AS EMP_NAME, 
+    B.EMP_ID AS EMP_SUPV_ID, B.EMP_NAME AS EMP_SUPV_NAME
+FROM Table_C A, Table_C B
+WHERE A.EMP_SUPV_ID = B.EMP_ID;
+```
+
+查询结果：
+
+```
++--------+----------+-------------+---------------+
+| EMP_ID | EMP_NAME | EMP_SUPV_ID | EMP_SUPV_NAME |
++--------+----------+-------------+---------------+
+|   1002 | Zhuang   |        1001 | Ma            |
++--------+----------+-------------+---------------+
+1 row in set (0.00 sec)
+```
+
 ## 补充说明
 
 1. 文中的图使用 Keynote 绘制；
@@ -367,8 +402,6 @@ mysql> SELECT *
 
 4. MySQL 不支持 FULL OUTER JOIN，可以使用 LEFT JOIN 和 UNION 来达到相同的效果；
 
-5. 还有更多的 JOIN 用法，比如 CROSS JOIN（迪卡尔集）、SELF JOIN，目前我还未在实际应用中遇到过，且不太好用图来表示，所以并未在本文中进行讲解。如果需要，可以参考 [SQL JOINS Slide Presentation][4] 学习。
-
 假如你对我的文章感兴趣，可以关注我的微信公众号 isprogrammer 随时阅读更多内容。
 
 ## 参考
@@ -376,8 +409,10 @@ mysql> SELECT *
 * [Visual Representation of SQL Joins][2]
 * [How to do a FULL OUTER JOIN in MySQL?][3]
 * [SQL JOINS Slide Presentation][4]
+* [SQL Self Join][5]
 
 [1]: https://www.codeproject.com/script/Membership/View.aspx?mid=5909363
 [2]: https://www.codeproject.com/Articles/33052/Visual-Representation-of-SQL-Joins
 [3]: https://stackoverflow.com/questions/4796872/how-to-do-a-full-outer-join-in-mysql
 [4]: https://www.w3resource.com/slides/sql-joins-slide-presentation.php
+[5]: https://www.w3resource.com/sql/joins/perform-a-self-join.php
