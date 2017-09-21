@@ -91,4 +91,4 @@ Toast
  
 开篇，就当先立个 Flag 在这里，万一成了呢，牛皮都不敢吹还哪敢做成什么事啊，了不起毕竟还有「世上无难事，只要肯放弃」嘛，有兴趣的朋友，请关注我的微信公众号「闷骚的程序员」，一起 RTFSC。
 
-<center>![](http://mazhuang.org/assets/images/qrcode.jpg)</center>
+<div align="center"><img width="192px" height="192px" src="http://mazhuang.org/assets/images/qrcode.jpg"/></div>
