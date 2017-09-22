@@ -93,8 +93,8 @@ Toast
 
 目前的计划是按照我最近一段时间更新公众号的频率，大约十天更新一篇，阅读源码主要使用的工具和方式是：
 
-* GitHub 上的源码仓库配合 Chrome 插件 insight.io
-* 自己电脑上搭建的 OpenGrok 浏览 Android 7.1.2 源码
+* GitHub 上的相关源码配合 Chrome 插件 insight.io
+* [自己电脑上搭建的 OpenGrok 浏览 Android 7.1.2 源码](http://mazhuang.org/2016/12/14/rtfsc-with-opengrok/)
 * <http://androidxref.com/7.1.1_r6/>
 
 大致思路就是这样，实践一阵试试。不知道自顶向下的思路是否走得下去，要是实在不行，还是乖乖回去跟着老罗的脚步学习吧。
