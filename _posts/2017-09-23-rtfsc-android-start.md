@@ -111,3 +111,5 @@ Toast
 开篇，就当先立个 Flag 在这里，万一坚持做下去了呢，牛皮都不敢吹还哪敢做成什么事啊，最次也「世上无难事，只要肯放弃」嘛。对此有兴趣的朋友，请关注我的微信公众号「闷骚的程序员」，一起 Read The F\*cking Android Source Code。
 
 <div align="center"><img width="192px" height="192px" src="http://mazhuang.org/assets/images/qrcode.jpg"/></div>
+
+后续相关的系列文章，会在 GitHub 仓库 [mzlogin/rtfsc-android](https://github.com/mzlogin/rtfsc-android) 汇总更新，欢迎关注，看我起高楼，或是啪啪打脸。
