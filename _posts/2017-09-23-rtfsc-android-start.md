@@ -13,6 +13,7 @@ keywords: Android, RTFSC
 * 《Android Programming: The Big Nert Ranch Guide》
 * 《疯狂 Java 讲义》
 * 《疯狂 Android 讲义》
+* 《Android 软件安全与逆向分析》
 * 《深入理解 Java 虚拟机》
 * 《Android Training》
 * 《Android 开发艺术探索》
