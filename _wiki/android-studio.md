@@ -95,6 +95,11 @@ Cmd --> Command
 
   Android Studio / IDEA plugin that helps to create styles
 
+## 打包
+
+* [Gradle编译打包小结](http://blog.csdn.net/byhook/article/details/51746825)
+* [Gradle构建Android项目](https://segmentfault.com/a/1190000002910311)
+
 ## 设置
 
 此部分与 Intellj IDEA 通用。
