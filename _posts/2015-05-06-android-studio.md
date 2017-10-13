@@ -199,4 +199,47 @@ call "%java_exe%" "-Djava.ext.dirs=%javaextdirs%" "-Dcom.android.uiautomator.bin
 
 参考：[In UI automator viewer Error Obtaining Device screenshot, Reason : Error Unable to connect to adb. Check if adb is installed correctly](https://stackoverflow.com/questions/42696158/in-ui-automator-viewer-error-obtaining-device-screenshot-reason-error-unable)
 
+## is not translated in "zh"
+
+报错信息：
+
+```
+Error: "app_name" is not translated in "zh" (Chinese) [MissingTranslation]
+```
+
+在引用了 Umeng 的 SDK 后编译报错，疑是 Umeng 包里的 values-zh 导致。
+
+解决方案 1：
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<resources
+  xmlns:tools="http://schemas.android.com/tools"
+  tools:ignore="MissingTranslation" >
+```
+
+解决方案 2：
+
+在主项目的 build.gradle 里添加如下代码：
+
+```groovy
+android {
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+}
+```
+
+参考：
+
+* <http://blog.csdn.net/cxc19890214/article/details/39120415>
+* <https://segmentfault.com/a/1190000000599530>
+
+## 一直卡在 Gradle:Resolve dependencies'app:debugCompile'
+
+这种情况一般是 Gradle 去拉取某个 dependencies 的时候连不上导致。
+
+一种方法是如果本地有能编译通过的其它工程，修改 compileSdkVersion 和 buildToolsVersion 及 dependencies 里的版本为能编译通过的工程的版本；另一种方法是将对应的依赖包 jar 下载到本地放到 libs 里面；还有一种思路是修改 jcenter() 为其它可用的源。
+
 [1]: http://developer.android.com/tools/publishing/app-signing.html
