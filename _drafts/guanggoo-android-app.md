@@ -35,13 +35,13 @@ keywords: Android, 光谷社区
 
 部分界面截图：
 
-![](/images/posts/android/topic-list.png)
+![](http://mazhuang.org/guanggoo-android/screenshots/topic-list.png)
 
-![](/images/posts/android/topic-detail.png)
+![](http://mazhuang.org/guanggoo-android/screenshots/topic-detail.png)
 
-![](/images/posts/android/nodes-list.png)
+![](http://mazhuang.org/guanggoo-android/screenshots/nodes-list.png)
 
-![](/images/posts/android/drawer.png)
+![](http://mazhuang.org/guanggoo-android/screenshots/drawer.png)
 
 更多的功能开发、完善以及优化还在进行中，也希望看到的朋友们下载试用起来，多提建议多交流。
 
