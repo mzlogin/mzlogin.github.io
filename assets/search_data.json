@@ -1,30 +1,20 @@
 ---
-layout: null
 ---
-
-{
-  {% for post in site.posts %}
-  "{{ post.url | slugify }}": {
-    "title": "{{ post.title | xml_escape }}",
-    "url": " {{ post.url | xml_escape }}",
-    "category": "{{ post.categories[0] | xml_escape }}"
-  },
-  {% endfor %}
-
+[
   {% for pg in site.pages %}
   {% if pg.title != nil %}
-  "{{ pg.url | slugify }}": {
-    "title": "{{ pg.title | xml_escape }}",
-    "url": "{{ pg.url | xml_escape }}"
-  },
+    {
+      "title"    : "{{ pg.title | escape }}",
+      "url"      : "{{ site.url }}{{ pg.url }}"
+    } ,
   {% endif %}
   {% endfor %}
 
   {% for doc in site.documents %}
-  "{{ doc.url | slugify }}": {
-    "title": "{{ doc.title | xml_escape }}",
-    "url": "{{ doc.url | xml_escape }}",
-    "category": "{{ doc.categories | xml_escape }}"
-  }{% unless forloop.last %},{% endunless %}
+    {
+      "title"    : "{{ doc.title | escape }}",
+      "category" : "{{ doc.categories[0] | xml_escape }}",
+      "url"      : "{{ site.url }}{{ doc.url }}"
+    } {% unless forloop.last %},{% endunless %}
   {% endfor %}
-}
+]
