@@ -58,6 +58,14 @@ Caused by: java.io.FileNotFoundException: class path resource [spring-demo.xml] 
 </build>
 ```
 
+### 如何导出 jar 包
+
+File -> Project Structure -> Artifacts -> Click green plus sign -> Jav -> From modules with dependencies
+
+Build -> Build Artifacts
+
 ## 参考
 
 * [解决IntelliJ IDEA无法读取配置*.properties文件的问题](http://www.cnblogs.com/zqr99/p/7642712.html)
+* [How to build jars from IntelliJ properly?](https://stackoverflow.com/questions/1082580/how-to-build-jars-from-intellij-properly)
+
