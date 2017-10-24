@@ -52,6 +52,8 @@ keywords: 1024, 程序员节
 
 ![](/images/blog/doubt.jpeg)
 
+关我屁事？
+
 ## 公众号们怎么过
 
 也算一年一度的节，相关的公众号们也没闲着。
@@ -74,7 +76,7 @@ keywords: 1024, 程序员节
 
 （InfoQ）
 
-![](/images/blog/release-books.jepg)
+![](/images/blog/release-books.jpeg)
 
 （码农翻身）
 
