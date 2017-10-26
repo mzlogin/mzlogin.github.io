@@ -5,6 +5,7 @@
 ## 概览
 
 <!-- vim-markdown-toc GFM -->
+
 * [效果预览](#效果预览)
 * [Fork 指南](#fork-指南)
 * [贴心提示](#贴心提示)
@@ -33,7 +34,9 @@ Fork 本项目之后，还需要做一些事情才能让你的页面「正确」
 
 3. 修改配置。
 
-   网站的配置基本都集中在 \_config.yml 文件中，将其中与个人信息相关的部分替换成你自己的，比如网站的 title、subtitle 和 Disqus 的用户名等。
+   网站的配置基本都集中在 \_config.yml 文件中，将其中与个人信息相关的部分替换成你自己的，比如网站的 url、title、subtitle 和第三方评论模块的配置等。
+
+   **评论模块：** 目前支持 disqus、gitment 和 gitalk，选用其中一种就可以了，推荐使用 gitalk。它们各自的配置指南链接在 \_config.yml 文件的 Comments 一节里都贴出来了。
 
    **注意：** 因为 Disqus 处理用户名与域名白名单的策略存在缺陷，请一定将 disqus.username 修改成你自己的。我对该缺陷的记录见 [Issues#2][3]。
 
