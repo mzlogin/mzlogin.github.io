@@ -8,7 +8,7 @@ keywords: RTFSC, Android, Toast
 
 本系列文章在 <https://github.com/mzlogin/rtfsc-android> 持续更新中，欢迎有兴趣的童鞋们关注。
 
-![](./assets/toast.png)
+![](/images/posts/android/toast.png)
 
 （图 from Android Developers）
 
