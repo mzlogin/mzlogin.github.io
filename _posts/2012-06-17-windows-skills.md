@@ -106,3 +106,21 @@ Scancode Map 这个键值的讲解实例参见 [Keyboard and mouse class drivers
    ![](/images/posts/windows/library-to-computer-step-2.png)
 
 参考：[如何将Win7/Win8任务栏库图标变为打开计算机](http://jingyan.baidu.com/article/046a7b3ee71d61f9c27fa91a.html)
+
+### Win10 x64 下使用 ComMonitor
+
+ComMonitor 算是比较好用的串口调试工具了，但是已经很久没有更新，在 Win10 下无法直接使用，打开会弹出错误提示：
+
+```
+没有找到 C:\Windows\system32\msrd3x43.dll
+```
+
+要在 Win10 64 位操作系统下正常使用 ComMonitor 的步骤是：
+
+1. 下载 msrd3x43.dll，放到 C:\Windows\SysWOW64 下；
+
+2. 右键 ComMonitor.exe -- 属性 -- 兼容性 -- 以兼容模式运行这个程序，选择 “Windows XP (Service Pack 2)”，应用。
+
+我使用的 ComMinotor v4.5 版本及 msrd3x43.dll 文件可以到百度网盘下载：
+
+<https://pan.baidu.com/s/1nuDa0JJ>
