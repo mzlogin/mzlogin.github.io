@@ -2,12 +2,12 @@
 #   Main Configs   #
 # ---------------- #
 baseurl:
-url: http://mazhuang.org
+url: http://kago.site
 date_format: "ordinal"
-title: 码志
-subtitle: "打码改变人生"
-description: "马壮的个人博客"
-keywords: 码志, Zhuang Ma, mzlogin, mazhuang
+title: 
+subtitle: "知识重在积累"
+description: "new的个人博客"
+keywords: niuchp, Changping Niu, new, niuchangping
 timezone: Asia/Shanghai
 encoding: "utf-8"
 side_bar_repo_limit: 5
@@ -15,12 +15,12 @@ side_bar_repo_limit: 5
 # ---------------- #
 #      Author      #
 # ---------------- #
-author: Zhuang Ma
-organization: zkh360.com
-organization_url: http://www.zkh360.com
-github_username: mzlogin
-location: Wuhan, China
-email: chumpma@gmail.com
+author: Changping Niu
+organization: timeondata.com
+organization_url: http://www.timeondata.com
+github_username: niuchp
+location: Beijing, China
+email: niuchp@126.com
 
 # ---------------- #
 #    Navigation    #
