@@ -242,4 +242,99 @@ android {
 
 一种方法是如果本地有能编译通过的其它工程，修改 compileSdkVersion 和 buildToolsVersion 及 dependencies 里的版本为能编译通过的工程的版本；另一种方法是将对应的依赖包 jar 下载到本地放到 libs 里面；还有一种思路是修改 jcenter() 为其它可用的源。
 
+## 更新到 Android Studio 3.0 后报错
+
+提示信息：
+
+```
+Unable to resolve dependency for ':internal@packagingOptions/compileClasspath': Could not resolve project :commonlib.
+
+Could not resolve project :commonlib.
+Required by:
+    project :internal
+ > Unable to find a matching configuration of project :commonlib:
+     - Configuration 'debugApiElements':
+         - Required com.android.build.api.attributes.BuildTypeAttr 'packagingOptions' and found incompatible value 'debug'.
+         - Required com.android.build.gradle.internal.dependency.AndroidTypeAttr 'Aar' and found compatible value 'Aar'.
+         - Found com.android.build.gradle.internal.dependency.VariantAttr 'debug' but wasn't required.
+         - Required org.gradle.api.attributes.Usage 'java-api' and found compatible value 'java-api'.
+     - Configuration 'debugRuntimeElements':
+         - Required com.android.build.api.attributes.BuildTypeAttr 'packagingOptions' and found incompatible value 'debug'.
+         - Required com.android.build.gradle.internal.dependency.AndroidTypeAttr 'Aar' and found compatible value 'Aar'.
+         - Found com.android.build.gradle.internal.dependency.VariantAttr 'debug' but wasn't required.
+         - Required org.gradle.api.attributes.Usage 'java-api' and found incompatible value 'java-runtime'.
+     - Configuration 'releaseApiElements':
+         - Required com.android.build.api.attributes.BuildTypeAttr 'packagingOptions' and found incompatible value 'release'.
+         - Required com.android.build.gradle.internal.dependency.AndroidTypeAttr 'Aar' and found compatible value 'Aar'.
+         - Found com.android.build.gradle.internal.dependency.VariantAttr 'release' but wasn't required.
+         - Required org.gradle.api.attributes.Usage 'java-api' and found compatible value 'java-api'.
+     - Configuration 'releaseRuntimeElements':
+         - Required com.android.build.api.attributes.BuildTypeAttr 'packagingOptions' and found incompatible value 'release'.
+         - Required com.android.build.gradle.internal.dependency.AndroidTypeAttr 'Aar' and found compatible value 'Aar'.
+         - Found com.android.build.gradle.internal.dependency.VariantAttr 'release' but wasn't required.
+         - Required org.gradle.api.attributes.Usage 'java-api' and found incompatible value 'java-runtime'.
+```
+
+情况是有一个叫 internal 的 project 依赖一个叫 commonlib 的 module，最后查到原因如下：
+
+internal project 的 build.gradle 文件里写了这么一段：
+
+```groovy
+android {
+    ...
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.release
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+        packagingOptions {
+            exclude 'META-INF/INDEX.LIST'
+            exclude 'log4j.xml'
+        }
+    }
+}
+```
+
+实际 packagingOptions 应该放到 buildTypes 之外，改成这样就 OK 了：
+
+```groovy
+android {
+    ...
+    packagingOptions {
+        exclude 'META-INF/INDEX.LIST'
+        exclude 'log4j.xml'
+    }
+
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.release
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+    }
+}
+```
+
+以前曾经通过这样修改临时掩盖了问题，让编译能过：
+
+```groovy
+dependencies {
+    ...
+    implementation project(path: ':commonlib', configuration: 'default') // 临时方案
+    // implementation project(':commonlib')  // 原来的样子
+}
+```
+
+这样修改编译能通过，但是会有个问题，就是在 internal project 工程里调用 commonlib 的方法的地方，Ctrl + 鼠标左键，或者右键 Go To Declaration 时会跳到 ~/.gradle/caches/transforms-1/files-1.1/commonlib-release.aar 目录里的 .class 文件，而非 .java 源文件。
+
+回答在 [StackOverflow 的一个问题][2] 下。
+
 [1]: http://developer.android.com/tools/publishing/app-signing.html
+[2]: https://stackoverflow.com/questions/46949622/android-studio-3-0-unable-to-resolve-dependency-for-appdexoptions-compilecla#answer-47426050
