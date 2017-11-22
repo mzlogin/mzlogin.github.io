@@ -6,6 +6,8 @@ description: Android Studio 快捷键及使用技巧汇总
 keywords: Android, Android Studio
 ---
 
+本文主要记录 Android Studio 的使用技巧等，使用过程中遇到的问题详见我的另一篇博客 [Android Studio 遇到问题集锦](http://mazhuang.org/2015/05/06/android-studio/)。
+
 ## 快捷键
 
 C --> Ctrl
