@@ -79,6 +79,7 @@
 
 .card-text {
   font-size: 0.75em;
+  display: inline;
 }
 
 .card-text .meta-info {
