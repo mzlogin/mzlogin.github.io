@@ -122,6 +122,16 @@ Cmd --> Command
 
 2. 在界面上找到你想屏蔽的 Group，将 Popup 列改为 No popup，点 OK 保存即可。
 
+### 定制自动生成的 Getter、Setter
+
+默认行为下，如果一个类有成员变量 mUser，那么生成的 Getter/Setter 的名字会叫做 getmUser 和 setmUser，但我期望的是 getUser 和 setUser，这可以通过修改设置来实现：
+
+1. 在 Android Studio 里打开 File - Settings - Editor - Code Style - Java
+
+2. 在右侧找到 Code Generation 这个 tab，在 Naming 的 Prefer longer names 里，field 的 Name prefix 里填上 `m`，Static field 的 Name prefix 里填上 `s`。
+
+![code generation naming](/images/wiki/code-generation-naming.png)
+
 ## 其它信息
 
 ### Android Plugin 与 Gradle 版本对应
