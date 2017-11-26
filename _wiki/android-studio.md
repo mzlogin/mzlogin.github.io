@@ -97,6 +97,10 @@ Cmd --> Command
 
   Android Studio / IDEA plugin that helps to create styles
 
+* [GsonFormat](https://github.com/zzz40500/GsonFormat)
+
+  根据 Gson 库使用的要求，根据 Json 数据生成 Java 实体
+
 ## 打包
 
 * [Gradle编译打包小结](http://blog.csdn.net/byhook/article/details/51746825)
