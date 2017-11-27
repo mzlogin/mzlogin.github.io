@@ -4,6 +4,7 @@ title: Markdown
 categories: Markdown
 description: Markdown 常用语法示例。
 keywords: Markdown
+mermaid: true
 ---
 
 **目录**
@@ -140,5 +141,13 @@ print 'Hello, World!'
 ### Footnotes
 
 This is a text with footnote[^1].
+
+### mermaid
+
+<div class="mermaid">
+sequenceDiagram
+    Alice-->>John: Hello John, how are you?
+    John-->>Alice: Great!
+</div>
 
 [^1]: Here is the footnote 1 definition.
