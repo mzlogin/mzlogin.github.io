@@ -6,6 +6,7 @@ description: Markdown 常用语法示例。
 keywords: Markdown
 mermaid: true
 sequence: true
+flow: true
 ---
 
 **目录**
