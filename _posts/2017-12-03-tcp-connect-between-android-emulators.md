@@ -95,7 +95,7 @@ keywords: Android, Emulator, TCP
 
 在阅读 Android 官方文档里关于模拟器的章节时，意外地发现有一节 [Sending a voice call or SMS to another emulator instance][2]
 
-就是说可以给另外的模拟器打电话和发短信，电话号码就是端口号，比如 emulator-5554 的模拟器，电话号码就是 5554，这个号码也可以从模拟器的窗口标题栏上找到，比如 `Android Emulator - Nexus_5X_API_19:5554`，里面那个 5554 就是。
+就是说模拟器可以给另外的模拟器打电话和发短信，电话号码就是端口号，比如 emulator-5554 模拟器，电话号码就是 5554，这个号码也可以从模拟器的窗口标题栏上找到，比如 `Android Emulator - Nexus_5X_API_19:5554`，里面那个 5554 就是。
 
 ## 后话
 
