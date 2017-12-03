@@ -10,7 +10,7 @@ keywords: Android, Emulator, TCP
 
 出差在外，需要调试局域网内的两台 Android 设备之间通过 TCP 通信的情况，可手边又不是随时有多台可用的设备，于是想在笔记本上同时跑两台 Android 模拟器来构造调试环境，但是发现它俩的 IP 地址竟然都是 10.0.2.15，场面一度十分尴尬……
 
-![/images/posts/android/ip-address.png]
+![](/images/posts/android/ip-address.png)
 
 谷狗之后，众多相关的博客和问答贴将我引向了官方文档页面：
 
@@ -75,7 +75,7 @@ keywords: Android, Emulator, TCP
 
 它们之间的网络连接和通信示意图如下：
 
-![/images/posts/android/emulators-communication.png]
+![](/images/posts/android/emulators-communication.png)
 
 **注：** 
 
