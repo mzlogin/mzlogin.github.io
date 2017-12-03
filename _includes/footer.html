@@ -39,10 +39,12 @@
        // hljs.initHighlightingOnLoad();
       });
     </script>
+
     {% if page.mermaid %}
     <script src="{{ site.url }}/assets/js/mermaid.min.js"></script>
     <script>mermaid.initialize({startOnLoad:true});</script>
     {% endif %}
+
     {% if page.sequence %}
     <script src="{{ site.url }}/assets/js/webfont.js"></script>
     <script src="{{ site.url }}/assets/js/snap.svg-min.js"></script>
@@ -53,6 +55,13 @@
       $(".language-sequence").sequenceDiagram({theme: 'simple'});
     </script>
     {% endif %}
+
+    {% if page.flow %}
+    <script src="{{ site.url }}/assets/js/raphael.min.js"></script>
+    <script src="{{ site.url }}/assets/vendor/flowchart.js/dist/flowchart.min.js"></script>
+    <script src="{{ site.url }}/assets/js/flow.js"></script>
+    {% endif %}
+
     {% if site.google.analytics_id %}
     <div style="display:none">
       <script>
