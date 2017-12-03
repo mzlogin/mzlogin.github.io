@@ -5,6 +5,7 @@ categories: Markdown
 description: Markdown 常用语法示例。
 keywords: Markdown
 mermaid: true
+sequence: true
 ---
 
 **目录**
@@ -149,5 +150,14 @@ sequenceDiagram
     Alice-->>John: Hello John, how are you?
     John-->>Alice: Great!
 </div>
+
+### sequence
+
+```sequence
+Andrew->China: Says Hello
+Note right of China: China thinks\nabout it
+China-->Andrew: How are you?
+Andrew->>China: I am good thanks!
+```
 
 [^1]: Here is the footnote 1 definition.

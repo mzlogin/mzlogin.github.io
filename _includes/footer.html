@@ -43,6 +43,16 @@
     <script src="{{ site.url }}/assets/js/mermaid.min.js"></script>
     <script>mermaid.initialize({startOnLoad:true});</script>
     {% endif %}
+    {% if page.sequence %}
+    <script src="{{ site.url }}/assets/vendor/js-sequence-diagrams/dist/webfont.js"></script>
+    <script src="{{ site.url }}/assets/js/snap.svg-min.js"></script>
+    <script src="{{ site.url }}/assets/js/underscore-min.js"></script>
+    <script src="{{ site.url }}/assets/vendor/js-sequence-diagrams/dist/sequence-diagram-min.js"></script>
+    <link rel="stylesheet" href="{{ site.url }}/assets/vendor/js-sequence-diagrams/dist/sequence-diagram-min.css">
+    <script>
+      $(".language-sequence").sequenceDiagram({theme: 'simple'});
+    </script>
+    {% endif %}
     {% if site.google.analytics_id %}
     <div style="display:none">
       <script>
