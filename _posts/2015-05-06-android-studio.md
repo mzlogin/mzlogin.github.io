@@ -336,5 +336,27 @@ dependencies {
 
 回答在 [StackOverflow 的一个问题][2] 下。
 
+## 启动模拟器提示 Intel HAXM is required to run this AVD your CPU does not support VT-x
+
+我使用 Win10 系统，换主板之后遇到的，之前模拟器是能正常运行的。
+
+我遇到的原因是 Hyper-V 的影响，导致无法安装 HAXM，虽然在 msconfig 里查看我的 Hyper-V 服务都已经停止，我在 BIOS 里也已经 Enable 了 Virtualization Technology 相关的选项，仍然报相同的错误。
+
+解决步骤参考 <http://blog.csdn.net/WangZuoChuan/article/details/54620016>：
+
+1. 打开管理员权限的 CMD
+
+2. 运行 `bcdedit /copy {current} /d “Windows10 no Hyper-V`
+
+    这时会输出一个 UUID
+
+3. 执行 `bcdedit /set {XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX} hypervisorlaunchtype OFF`
+
+    将 XXX 部分换成步骤 2 里输出的 UUID
+
+4. 在 msconfig 的「引导」里将 `Windows 10 no Hyper-V` 设为默认
+
+5. 重启
+
 [1]: http://developer.android.com/tools/publishing/app-signing.html
 [2]: https://stackoverflow.com/questions/46949622/android-studio-3-0-unable-to-resolve-dependency-for-appdexoptions-compilecla#answer-47426050
