@@ -51,7 +51,7 @@ FileCopy oldfile, newfile
 base = ThisWorkBook.Path & "/文件夹/"
 pattern = base & "*.*"
 file = Dir(pattern, vbReadOnly)
-While str <> ""
+While file <> ""
     Kill base & file
     file = Dir
 Wend
@@ -61,6 +61,16 @@ Wend
 
 ```vbnet
 MkDir(directory)
+```
+
+### 判断文件夹是否存在
+
+以下为不存在即创建
+
+```vbnet
+If Dir(outputDir, 16) = Empty Then
+    MkDir (outputDir)
+End If
 ```
 
 ## 格式操作
