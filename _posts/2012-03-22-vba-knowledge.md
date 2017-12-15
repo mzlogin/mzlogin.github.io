@@ -73,6 +73,32 @@ If Dir(outputDir, 16) = Empty Then
 End If
 ```
 
+### 判断文件是否存在
+
+方法 1：
+
+```vbnet
+Dim fileSystemObject As Object
+
+Set fileSystemObject = CreateObject("Scripting.FileSystemObject")
+
+If fileSystemObject.FileExists(<filepath>) = True Then
+    MsgBox "文件存在"
+End If
+```
+
+方法 2：
+
+```vbnet
+Dim file As String
+
+file = Dir("E:\MyPictures\Pic\logo.gif")
+
+If file <> "" Then
+    MsgBox  "文件存在"
+Endif
+```
+
 ## 格式操作
 
 ### 设置边框与自动筛选
@@ -162,6 +188,17 @@ arr() = Split(ws.Cells(a, b).Value, "-")
 alen = UBound(arr) - LBound(arr) + 1
 ```
 
+### 退出
+
+主要使用 Exit 表达式。
+
+```
+Exit { Do | For | Function | Property | Select | Sub | Try | While }
+```
+
+参见 [Exit Statement (Visual Basic)](https://docs.microsoft.com/en-us/dotnet/visual-basic/language-reference/statements/exit-statement)
+
 ## 参考
 
-[VBA Converting Data Types](http://software-solutions-online.com/converting-data-types/)
+* [VBA Converting Data Types](http://software-solutions-online.com/converting-data-types/)
+* [excel vba判断文件是否存在](http://blog.sina.com.cn/s/blog_6d5dcf100101bkhz.html##1)
