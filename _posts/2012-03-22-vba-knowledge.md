@@ -131,6 +131,10 @@ Private Sub Workbook_SheetSelectionChange(ByVal Sh As Object, ByVal Target As Ra
 End Sub
 ```
 
+### 在单元格里回车 / 换行
+
+设置单元格 Value 里使用 `Chr(10)` 和 `Chr(13)`，分别表示回车、换行。
+
 ### 隐藏行
 
 ```vbnet
@@ -170,6 +174,46 @@ Range("1:1").Select '选中第一行
 MyWorkSheet.Application.Selection
 ```
 
+## 数据结构
+
+### Dictionary
+
+```vbnet
+Dim dict
+Set dict = CreateObject("Scripting.Dictionary")
+
+' 新增，各种类型都可以，包括 Dictionary
+dict.Add "hello", "world"
+
+' 数量
+dict.Count
+
+' 删除
+dict.Remove("hello")
+
+' 判断是否存在
+dict.exists("hello")
+
+' 取值，需要先判断存在再取
+dict.Item("hello")
+
+' 修改、新增
+dict.Item("hello") = "world"
+
+' 循环
+k = dict.Keys
+v = dict.Items
+For i = 0 to dict.count - 1
+    key = k(i)
+    value = v(i)
+Next
+
+' 清空
+dict.RemoveAll
+```
+
+参考：[Excel vba map/dictionary](http://www.cnblogs.com/zhjh256/p/6428333.html)
+
 ## 语言基础
 
 ### String to Integer、Double
@@ -187,6 +231,10 @@ Dim arr() As String
 arr() = Split(ws.Cells(a, b).Value, "-")
 alen = UBound(arr) - LBound(arr) + 1
 ```
+
+### 判断单元格是否为空
+
+判断单元格的 value 是否为 ""。
 
 ### 退出
 
