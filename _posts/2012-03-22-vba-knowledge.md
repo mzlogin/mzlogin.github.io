@@ -141,6 +141,12 @@ End Sub
 MyWorkSheet.Rows(i).Hidden = True
 ```
 
+### 单元格内容为纯文本
+
+```vbnet
+sheet.Cells(m, n).NumberFormatLocal = "@"
+```
+
 ## 选择
 
 ### 引用单元格 / 区域
