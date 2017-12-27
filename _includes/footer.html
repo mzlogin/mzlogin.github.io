@@ -62,6 +62,10 @@
     <script src="{{ site.url }}/assets/js/flow.js"></script>
     {% endif %}
 
+    {% if page.mathjax %}
+    <script src='{{ site.url }}/assets/js/MathJax.js?config=TeX-MML-AM_CHTML'></script>
+    {% endif %}
+
     {% if site.google.analytics_id %}
     <div style="display:none">
       <script>
