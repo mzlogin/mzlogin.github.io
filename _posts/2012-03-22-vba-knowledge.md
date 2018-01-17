@@ -8,6 +8,20 @@ keywords: VBA, Excel
 
 ## 文件操作
 
+### 引用打开的工作簿
+
+使用索引号（从 1 开始）
+
+```vbnet
+Workbooks(1)
+```
+
+使用工作簿名称
+
+```vbnet
+Workbooks("1.xlsx")
+```
+
 ### 创建一个 EXCEL 工作簿对象
 
 ```vbnet
@@ -35,6 +49,24 @@ wb = Workbooks.Open(ThisWorkbook.Path & "/test.xls")
 
 wb.Save
 wb.Close
+```
+
+关闭所有工作簿
+
+```vbnet
+Workbooks.close
+```
+
+另存为（自动打开新文件关闭源文件）
+
+```vbnet
+ThisWorkbook.SaveAs FileName:="D:\1.xls"
+```
+
+另存为（保留源文件不打开新文件）
+
+```vbnet
+ThisWorkbook.SaveCopyAs FileName:="D:\1.xls"
 ```
 
 ### 拷贝文件
