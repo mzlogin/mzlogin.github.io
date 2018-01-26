@@ -456,3 +456,13 @@ git log --oneline | wc -l
 ```
 
 参考：[Git代码行统计命令集](http://blog.csdn.net/Dwarven/article/details/46550117)
+
+### 修改文件名时的大小写问题
+
+修改文件名大小写时，默认会被忽略（在 Windows 下是这样），让 git 对大小写敏感的方法：
+
+```sh
+git config --global core.ignorecase false
+```
+
+或者使用 `git mv oldname newname` 也是可以的。
