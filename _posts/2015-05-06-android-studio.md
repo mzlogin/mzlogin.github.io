@@ -358,5 +358,17 @@ dependencies {
 
 5. 重启
 
+## Android Studio 里对所有 Activity 显示警告
+
+警告信息：
+
+```
+methods findViewById(int) from android.app.Activity and findViewById(int) from android.support.v7.app.AppCompatActivity are inherited with the same signature
+```
+
+解决方案：
+
+项目里有几个模块，有的 compileSdkVersion 和 targetSdkVersion 是 25，有的是 26，全部改成 26 并把 appcompat-v7 等 dependencies 也改成 26 对应版本后问题消失。（但诡异的是我后来改回 25 想复现一下，问题却不再出现了）
+
 [1]: http://developer.android.com/tools/publishing/app-signing.html
 [2]: https://stackoverflow.com/questions/46949622/android-studio-3-0-unable-to-resolve-dependency-for-appdexoptions-compilecla#answer-47426050
