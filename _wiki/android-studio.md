@@ -157,6 +157,22 @@ Cmd --> Command
 
 ![code generation naming](/images/wiki/code-generation-naming.png)
 
+### 设置 logcat 缓冲区条数
+
+logcat 默认缓冲区条数不大，在日志比较多的时候经常出现想要的信息被冲掉的情况，所以一般都将缓冲区条数设置大一些，方法：
+
+1. 关闭 Android Studio；
+
+2. 给 Android Studio 安装目录下的 bin/idea.properties 文件添加如下内容：
+
+   ```
+   idea.cycle.buffer.size=1024000
+   ```
+
+   这个数字可以根据需求修改。
+
+3. 启动 Android Studio。
+
 ## 其它信息
 
 ### Android Plugin 与 Gradle 版本对应
