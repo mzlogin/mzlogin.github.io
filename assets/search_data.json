@@ -17,7 +17,7 @@
       "url"      : "{{ site.url }}{{ doc.url }}"
       {% if site.search.full_text %}
       ,
-      "content"  : "{{ doc.content | strip_html | strip_newlines }}"
+      "content"  : {{ page.content | jsonify }}
       {% endif %}
     } {% unless forloop.last %},{% endunless %}
   {% endfor %}
