@@ -108,9 +108,9 @@ lazy_load_disqus : false
 # ---------------- #
 #      Search      #
 # ---------------- #
-search:
+simple_jekyll_search:
     # 是否支持全文搜索
-    full_text: true
+    fulltext: true
 
 # ---------------- #
 #    Analytics     #

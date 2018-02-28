@@ -14,11 +14,10 @@
     {
       "title"    : "{{ doc.title | escape }}",
       "category" : "{{ doc.categories[0] | xml_escape }}",
-      "url"      : "{{ site.url }}{{ doc.url }}"
-      {% if site.search.full_text %}
-      ,
-      "content"  : {{ page.content | jsonify }}
+      {% if site.simple_jekyll_search.fulltext %}
+      "content": {{ doc.content | markdownify | strip_html | jsonify | replace:'\n',' ' | replace:'   ',' ' | replace:'  ',' ' }},
       {% endif %}
+      "url"      : "{{ site.url }}{{ doc.url }}"
     } {% unless forloop.last %},{% endunless %}
   {% endfor %}
 ]
