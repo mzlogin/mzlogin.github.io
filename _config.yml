@@ -106,6 +106,13 @@ gitalk:
 lazy_load_disqus : false
 
 # ---------------- #
+#      Search      #
+# ---------------- #
+search:
+    # 是否支持全文搜索
+    full_text: true
+
+# ---------------- #
 #    Analytics     #
 # ---------------- #
 google:

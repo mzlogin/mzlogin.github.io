@@ -15,6 +15,10 @@
       "title"    : "{{ doc.title | escape }}",
       "category" : "{{ doc.categories[0] | xml_escape }}",
       "url"      : "{{ site.url }}{{ doc.url }}"
+      {% if site.search.full_text %}
+      ,
+      "content"  : "{{ doc.content | strip_html | strip_newlines }}"
+      {% endif %}
     } {% unless forloop.last %},{% endunless %}
   {% endfor %}
 ]
