@@ -370,5 +370,43 @@ methods findViewById(int) from android.app.Activity and findViewById(int) from a
 
 项目里有几个模块，有的 compileSdkVersion 和 targetSdkVersion 是 25，有的是 26，全部改成 26 并把 appcompat-v7 等 dependencies 也改成 26 对应版本后问题消失。（但诡异的是我后来改回 25 想复现一下，问题却不再出现了）
 
+## Plugin with id 'com.android.application' not found
+
+导入一个别人做的工程的时候遇到报错：
+
+```
+Error:(1, 0) Plugin with id 'com.android.application' not found
+```
+
+怀疑是使用比较老的版本的 Android Studio 创建，该工程只有一个 build.gradle 文件——我们平时创建的工程应该是有两个，一个 Project 级别的，一个 Module 级别的。
+
+它是只有一个 Project 级别的 gradle 文件，但是内容却是 Module 级别 gradle 文件的内容。
+
+后来在 StackOverflow 上找到 [解决方案](https://stackoverflow.com/questions/24795079/error1-0-plugin-with-id-com-android-application-not-found)：
+
+在 build.gradle 文件顶部添加如下代码（注意 Gradle 版本与 Gradle Plugin 的版本对应）：
+
+```groovy
+buildscript {
+    repositories {
+        jcenter()
+        google()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.0.0'
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+        google()
+    }
+}
+```
+
 [1]: http://developer.android.com/tools/publishing/app-signing.html
 [2]: https://stackoverflow.com/questions/46949622/android-studio-3-0-unable-to-resolve-dependency-for-appdexoptions-compilecla#answer-47426050
