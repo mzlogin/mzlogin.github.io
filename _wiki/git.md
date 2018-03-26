@@ -466,3 +466,53 @@ git config --global core.ignorecase false
 ```
 
 或者使用 `git mv oldname newname` 也是可以的。
+
+### 修复 gitk 在 macOS 下显示模糊的问题
+
+gitk 很方便，但是在 Mac 系统下默认显示很模糊，影响体验。
+
+根据网上搜索的结果，解决方法有两种，我采用第一种解决，第二种未尝试。
+
+方法一：
+
+1. 重新启动机器，按 command + R 等 Logo 和进度条出现，会进入 Recovery 模式，选择顶部的实用工具——终端，运行以下命令：
+
+    ```sh
+    csrutil disable
+    ```
+
+2. 重新启动机器。
+
+3. 编辑 Wish 程序的 plist，启动高分辨率屏支持。
+
+    ```
+    sudo gvim /System/Library/Frameworks/Tk.framework/Versions/Current/Resources/Wish.app/Contents/Info.plist
+    ```
+
+    在最后的 </dict> 前面加上以下代码
+
+    ```sh
+    <key>NSHighResolutionCapable</key>
+    <true/>
+    ```
+
+4. 更新 Wish.app。
+
+    ```sh
+    sudo touch Wish.app
+    ```
+
+5. 再次用 1 步骤的方法进入 Recovery 模式，执行 `csrutil enable` 启动对系统文件保护，再重启即可。
+
+参考：[Mac 中解决 gitk 模糊问题](http://roshanca.com/2017/make-gitk-retina-in-mac/)
+
+方法二：
+
+```sh
+brew cask install retinizer
+open /System/Library/Frameworks/Tk.framework/Versions/Current/Resources/
+```
+
+打开 retinizer，将 Wish.app 拖到 retinizer 的界面。
+
+参考：[起底Git-Git基础](http://yanhaijing.com/git/2017/02/09/deep-git-4/)
