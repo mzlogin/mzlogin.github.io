@@ -2,25 +2,25 @@
 #   Main Configs   #
 # ---------------- #
 baseurl:
-url: http://mazhuang.org
+url: https://3dincremnt@gmail.com
 date_format: "ordinal"
-title: 码志
-subtitle: "打码改变人生"
-description: "马壮的个人博客"
-keywords: 码志, Zhuang Ma, mzlogin, mazhuang
-timezone: Asia/Shanghai
+title: 3D increment
+subtitle: "3D 打印改变生活"
+description: "3D increment blog"
+keywords: 3D printing, increment, recuite
+#timezone: Asia/Shanghai
 encoding: "utf-8"
 side_bar_repo_limit: 5
 
 # ---------------- #
 #      Author      #
 # ---------------- #
-author: Zhuang Ma
-organization: zkh360.com
-organization_url: http://www.zkh360.com
+author: increment
+organization: 3D increment
+organization_url: https://3dincrement.github.io/
 github_username: mzlogin
-location: Wuhan, China
-email: chumpma@gmail.com
+location: Qingdao, China
+email: 3dincremnt@gmail.com
 
 # ---------------- #
 #    Navigation    #
@@ -77,7 +77,7 @@ collections:
         output: true
         permalink: /wiki/:path/
 
-repository: mzlogin/mzlogin.github.io
+repository: 3dincrement/3dincrement.github.io
 
 # ---------------- #
 #      Comments    #
@@ -91,17 +91,17 @@ disqus:
     username: 
 # https://imsun.net/posts/gitment-introduction/
 gitment:
-    owner: mzlogin
-    repo: blog-comments
+    owner: 3dincrement
+    repo: 3dincrement.github.io
     oauth:
-        client_id: d2e1cbbd298958076462
-        client_secret: b42a4178e5fd4a7cf63189ef4b1453b05c375709
+        client_id: 6aac903760c8b3b313e8
+        client_secret: 0696db07ba2897d037fcac78c3575d317ce990c6
 # https://github.com/gitalk/gitalk#install
 gitalk:
-    owner: mzlogin
-    repo: blog-comments
-    clientID: d2e1cbbd298958076462
-    clientSecret: b42a4178e5fd4a7cf63189ef4b1453b05c375709
+    owner:  3dincrement
+    repo: 3dincrement.github.io
+    clientID: 6aac903760c8b3b313e8
+    clientSecret: 0696db07ba2897d037fcac78c3575d317ce990c6
 # 在使用其它评论组件时可点击显示 Disqus
 lazy_load_disqus : false
 
