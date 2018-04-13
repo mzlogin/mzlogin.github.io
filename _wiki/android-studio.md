@@ -185,6 +185,67 @@ logcat 默认缓冲区条数不大，在日志比较多的时候经常出现想�
 
 *此方法同样适用于 IntelliJ Idea，修改 idea64.exe.vmoptions 即可。*
 
+### 修改新建 Activity 的默认布局
+
+现在新建 Activity 等，layout 文件里的默认布局为 ConstraintLayout，这个布局被吹得神乎其技，但我还没有用惯……所以希望新建 Activity 的默认布局改为 RelativeLayout。
+
+在 StackOverflow 上搜索到解决方案：
+
+链接：[How to switch from the default ConstraintLayout to RelativeLayout in Android Studio](https://stackoverflow.com/questions/42261712/how-to-switch-from-the-default-constraintlayout-to-relativelayout-in-android-stu#answer-49653745)
+
+简述：
+
+1. 找到 Android Studio 安装目录，打开子目录 plugins/android/lib/templates/activities/common/root/res/layout，在下面应该能看到 simple.xml.ftl 文件，这就是我们新建 Activity 时的 layout 模板了；
+
+2. 备份 simple.xml.ftl 文件；
+
+3. 打开 simple.xml.ftl 文件，可以看到如下内容：
+
+    ```xml
+    <?xml version="1.0" encoding="utf-8"?>
+    <android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+    <#if hasAppBar && appBarLayoutName??>
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:showIn="@layout/${appBarLayoutName}"
+    </#if>
+        tools:context="${packageName}.${activityClass}">
+
+    <#if isNewProject!false>
+        <TextView
+    <#if includeCppSupport!false>
+            android:id="@+id/sample_text"
+    </#if>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hello World!"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </#if>
+    </android.support.constraint.ConstraintLayout>
+    ```
+
+    将这些内容修改为：
+
+    ```xml
+    <?xml version="1.0" encoding="utf-8"
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+    </RelativeLayout>
+    ```
+
+4. 重启 Android Studio。
+
 ## 其它信息
 
 ### Android Plugin 与 Gradle 版本对应
