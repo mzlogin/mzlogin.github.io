@@ -412,5 +412,11 @@ allprojects {
 
 从 Android Studio 3.0.1 升级到 3.1 的时候，`Check for Updates...` 提示超时，于是挂了代理升级。但是升级完成之后，打开以前能顺利构建的工程，提示 `Cause: jcenter.bintray.com:443 failed to respond`，怀疑是代理的原因，于是在 Settings 里将 HTTP Proxy 选项改为以前的 `no proxy`，报错变成 `Connection refused: connect`，搜索了一番之后找到 [这个](https://stackoverflow.com/questions/36330895/gradle-sync-failed-connection-refused)，依提示打开 ~/.gradle/gradle.properties，发现里面果然还存在代理的设置信息，删除之后重启 Android Studio，问题解决。
 
+## Generate JavaDoc 提示“错误: 编码GBK的不可映射字符”
+
+所有相关文件的编码都是 UTF-8，在 Android Studio 里没有找到设置 JavaDoc 相关的编码设置项，于是在 `Generate JavaDoc` 时弹出的 `Specify Generate JavaDoc Scope` 对话框的 `Other command line arguments` 一项里填入 `-encoding utf-8 -charset utf-8`，问题解决。
+
+![android-studio-javadoc](/images/posts/android/android-studio-javadoc.png)
+
 [1]: http://developer.android.com/tools/publishing/app-signing.html
 [2]: https://stackoverflow.com/questions/46949622/android-studio-3-0-unable-to-resolve-dependency-for-appdexoptions-compilecla#answer-47426050
