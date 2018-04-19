@@ -418,5 +418,17 @@ allprojects {
 
 ![android-studio-javadoc](/images/posts/android/android-studio-javadoc.png)
 
+## 升级 Gradle Plugin 版本后报错
+
+```
+The SourceSet 'instrumentTest' is not recognized by the Android Gradle Plugin. Perhaps you misspelled something?
+```
+
+将 `android { sourceSets { } }` 里的 `instrumentTest.setRoot(...)` 改为 `androidTest.setRoot(...)` 后问题解决。
+
+## 编译报错 Error:Execution failed for task ':app:transformClassesWithDexForRelease'
+
+我这里的原因是一个 APP 依赖一个 Module，这两个使用了相同的包名，将 APP 的包名改了之后问题解决。
+
 [1]: http://developer.android.com/tools/publishing/app-signing.html
 [2]: https://stackoverflow.com/questions/46949622/android-studio-3-0-unable-to-resolve-dependency-for-appdexoptions-compilecla#answer-47426050
