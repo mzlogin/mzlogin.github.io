@@ -248,6 +248,24 @@ logcat 默认缓冲区条数不大，在日志比较多的时候经常出现想�
 
 同理，如果要修改新创建的 BlankFragment、ListFragment 等的默认布局，可以在 Android Studio 安装目录下的 plugins/android/lib/templates/other 下找到对应的模板内容并修改。
 
+这样修改之后，会导致一个问题，就是 Android Studio 升级会失败，提示：
+
+```
+Some conflicts were found in the installation area.
+
+Some on the conficts below do not have a solution, so the patch cannot be applied.
+
+Press Cancel to exit.
+```
+
+| File                                                                           | Action   | Problem  | Solution |
+|--------------------------------------------------------------------------------|----------|----------|----------|
+| plugins/android/lib/templates/activities/common/root/res/layout/simple.xml.ftl | Validate | Modified | NONE     |
+
+解决方案：
+
+将备份的文件贴回去，然后等 Android Studio 升级完成之后再改成我们想要的版本即可。
+
 ## 其它信息
 
 ### Android Plugin 与 Gradle 版本对应
