@@ -430,5 +430,24 @@ The SourceSet 'instrumentTest' is not recognized by the Android Gradle Plugin. P
 
 我这里的原因是一个 APP 依赖一个 Module，这两个使用了相同的包名，将 APP 的包名改了之后问题解决。
 
+## 升级到 3.1 后编辑 Gradle 文件卡顿
+
+不止是卡顿……基本上就是整个 Android Studio 卡住几十秒没办法动的那种。在网上搜索之后发现遇到这种问题的网友还挺多，果然是垃圾软件毁我青春 :-P。
+
+参考 <https://blog.csdn.net/wangluotianxi/article/details/79757558>，卡顿原因是编辑 Gradle 文件过程中一直在请求下面两个接口：
+
+```
+http://search.maven.org/solrsearch/select?q=g:%22com.google.android.support%22+AND+a:%22wearable%22&core=gav&rows=1&wt=json
+http://search.maven.org/solrsearch/select?q=g:%22com.google.android.gms%22+AND+a:%22play-services%22&core=gav&rows=1&wt=json
+```
+
+而且，结果返回之前会卡住界面，而我们的网络访问这俩网址基本只能等到超时返回了，所以，临时解决方案是在 hosts 文件里添加如下内容，让这俩请求快速失败返回：
+
+```
+127.0.0.1 search.maven.org
+```
+
+暂未发现对正常功能有影响。
+
 [1]: http://developer.android.com/tools/publishing/app-signing.html
 [2]: https://stackoverflow.com/questions/46949622/android-studio-3-0-unable-to-resolve-dependency-for-appdexoptions-compilecla#answer-47426050
