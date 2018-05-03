@@ -50,4 +50,4 @@ keywords: Android, 源码, rtfsc
 
 对我的文章感兴趣的朋友，可以关注我的微信公众号 isprogrammer，接收我的更新通知。
 
-<div align="center"><img width="192px" height="192px" src="http://mazhuang.org/assets/images/qrcode.jpg"/></div>
+<div align="center"><img width="192px" height="192px" src="https://mazhuang.org/assets/images/qrcode.jpg"/></div>

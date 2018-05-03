@@ -71,7 +71,7 @@ keywords: Kloudsec, GitHub Pages
 
 Sigh!
 
-想起五月份的时候我还欢天喜地地给博客 HTTPS 化了，并为此写了一篇博客 [为绑定域名的 GitHub Pages 启用 HTTPS](http://mazhuang.org/2016/05/21/enable-https-for-github-pages/)，还将它推荐到了 [掘金](http://gold.xitu.io/entry/574f7ea17db2a20055c3b818/detail)，收获了 64 次收藏，并在那篇文章下创下了我个人博客单篇评论数最多的记录。
+想起五月份的时候我还欢天喜地地给博客 HTTPS 化了，并为此写了一篇博客 [为绑定域名的 GitHub Pages 启用 HTTPS](https://mazhuang.org/2016/05/21/enable-https-for-github-pages/)，还将它推荐到了 [掘金](http://gold.xitu.io/entry/574f7ea17db2a20055c3b818/detail)，收获了 64 次收藏，并在那篇文章下创下了我个人博客单篇评论数最多的记录。
 
 没想到还没等到 Kloudsec 第一次为我的域名证书自动续期，它家的服务就要关停了。
 

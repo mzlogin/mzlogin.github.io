@@ -35,13 +35,13 @@ keywords: Android, 光谷社区
 
 部分界面截图：
 
-![](http://mazhuang.org/guanggoo-android/screenshots/topic-list.png)
+![](https://mazhuang.org/guanggoo-android/screenshots/topic-list.png)
 
-![](http://mazhuang.org/guanggoo-android/screenshots/topic-detail.png)
+![](https://mazhuang.org/guanggoo-android/screenshots/topic-detail.png)
 
-![](http://mazhuang.org/guanggoo-android/screenshots/nodes-list.png)
+![](https://mazhuang.org/guanggoo-android/screenshots/nodes-list.png)
 
-![](http://mazhuang.org/guanggoo-android/screenshots/drawer.png)
+![](https://mazhuang.org/guanggoo-android/screenshots/drawer.png)
 
 更多的功能开发、完善以及优化还在进行中，也希望看到的朋友们下载试用起来，多提建议多交流。
 
@@ -51,7 +51,7 @@ keywords: Android, 光谷社区
 
 （如果是在微信里看到这里，建议长按后复制链接到浏览器打开）
 
-<http://mazhuang.org/guanggoo-android/guanggoo-lastest.apk>
+<https://mazhuang.org/guanggoo-android/guanggoo-lastest.apk>
 
 百度网盘备用链接：
 
@@ -61,7 +61,7 @@ keywords: Android, 光谷社区
 
 （如果使用微信识别二维码不能开始下载，还是复制上方的链接到浏览器打开下载吧）
 
-<div align="center"><img width="192px" height="192px" src="http://mazhuang.org/guanggoo-android/qrcode.png"/></div>
+<div align="center"><img width="192px" height="192px" src="https://mazhuang.org/guanggoo-android/qrcode.png"/></div>
 
 ## 为什么会做这个
 
@@ -85,4 +85,4 @@ PS: 本文非软文，也没有收取光谷社区任何好处，请光谷社区�
 
 好了，最后照例安利一下我自己的微信公众号，近期专注 Java、Android 相关的技术分享，如果你感兴趣，可以关注一下接收最新动态。
 
-<div align="center"><img width="192px" height="192px" src="http://mazhuang.org/assets/images/qrcode.jpg"/></div>
+<div align="center"><img width="192px" height="192px" src="https://mazhuang.org/assets/images/qrcode.jpg"/></div>

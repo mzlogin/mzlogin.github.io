@@ -74,7 +74,7 @@ CSDN 账号过一段时间就会累积几十个下载过但是未评论打分的
 # File   : csdncommenter.py
 # Author : Zhuang Ma
 # E-mail : chumpma(at)gmail.com
-# Website: http://mazhuang.org
+# Website: https://mazhuang.org
 # Date   : 2016-07-26
 import requests
 from BeautifulSoup import BeautifulSoup

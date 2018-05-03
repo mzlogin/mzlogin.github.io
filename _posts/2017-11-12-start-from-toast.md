@@ -873,7 +873,7 @@ private static class TN extends ITransientNotification.Stub {
 
 最后，照例要安利一下我的微信公众号「闷骚的程序员」，扫码关注，接收 rtfsc-android 的最近更新。
 
-<div align="center"><img width="192px" height="192px" src="http://mazhuang.org/assets/images/qrcode.jpg"/></div>
+<div align="center"><img width="192px" height="192px" src="https://mazhuang.org/assets/images/qrcode.jpg"/></div>
 
 [1]: https://developer.android.com/reference/android/widget/Toast.html
 [2]: https://developer.android.com/guide/topics/ui/notifiers/toasts.html

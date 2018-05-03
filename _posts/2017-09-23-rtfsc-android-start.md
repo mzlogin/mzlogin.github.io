@@ -104,13 +104,13 @@ Toast
 目前的计划是按照我最近一段时间更新公众号的频率，大约十天更新一篇，阅读源码主要使用的工具和方式是：
 
 * GitHub 上的 [android/platform\_frameworks\_base](https://github.com/android/platform_frameworks_base) 等源码配合 Chrome 插件 insight.io
-* [自己电脑上搭建的 OpenGrok 浏览 Android 7.1.2 源码](http://mazhuang.org/2016/12/14/rtfsc-with-opengrok/)
+* [自己电脑上搭建的 OpenGrok 浏览 Android 7.1.2 源码](https://mazhuang.org/2016/12/14/rtfsc-with-opengrok/)
 * <http://androidxref.com/7.1.1_r6/>
 
 大致思路就是这样，实践一阵试试。不知道自顶向下的方法是否走得下去，要是实在不行，还是乖乖回去跟着老罗的脚步学习吧。
 
 开篇，就当先立个 Flag 在这里，万一坚持做下去了呢，牛皮都不敢吹还哪敢做成什么事啊，最次也「世上无难事，只要肯放弃」嘛。对此有兴趣的朋友，请关注我的微信公众号「闷骚的程序员」，一起 Read The F\*cking Android Source Code。
 
-<div align="center"><img width="192px" height="192px" src="http://mazhuang.org/assets/images/qrcode.jpg"/></div>
+<div align="center"><img width="192px" height="192px" src="https://mazhuang.org/assets/images/qrcode.jpg"/></div>
 
 后续相关的系列文章，会在 GitHub 仓库 [mzlogin/rtfsc-android](https://github.com/mzlogin/rtfsc-android) 汇总更新，欢迎关注，看我起高楼，或是啪啪打脸。
