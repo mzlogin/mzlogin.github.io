@@ -28,8 +28,8 @@ permalink: /archives/
     {% assign year = post.date | date: '%Y' %}
     {% assign nyear = post.next.date | date: '%Y' %}
     {% if year != nyear %}
-## {{ post.date | date: '%Y' }} ({{ counts[i] }})
+### {{ post.date | date: '%Y' }} ({{ counts[i] }})
         {% assign i = i | plus: 1 %}
     {% endif %}
-* {{ post.date | date: '%m-%d' }} &raquo; [{{ post.title }}]({{ site.url }}{{ post.url }} "{{ post.title }}")
+* <span class="posts-list-meta">{{ post.date | date:"%m-%d" }}</span><a class="posts-list-name" href="{{ site.url }}{{ post.url }}">{{ post.title }}</a>
 {% endfor %}
