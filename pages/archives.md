@@ -41,7 +41,10 @@ permalink: /archives/
         <ol class="posts-list">
         {% assign i = i | plus: 1 %}
     {% endif %}
-<li class="posts-list-item"> <span class="posts-list-meta">{{ post.date | date:"%m-%d" }}</span><a class="posts-list-name" href="{{ site.url }}{{ post.url }}">{{ post.title }}</a> </li>
+<li class="posts-list-item">
+<span class="posts-list-meta">{{ post.date | date:"%m-%d" }}</span>
+<a class="posts-list-name" href="{{ site.url }}{{ post.url }}">{{ post.title }}</a>
+</li>
 {% endfor %}
 </ol>
 </section>
