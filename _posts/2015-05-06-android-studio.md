@@ -449,5 +449,11 @@ http://search.maven.org/solrsearch/select?q=g:%22com.google.android.gms%22+AND+a
 
 暂未发现对正常功能有影响。
 
+## 编译报错 You should manually set the same version via DependencyResolution
+
+> Android dependency 'org.mazhuang:commonlib' has different version for the compile (0.0.4) and runtime (0.0.5) classpath. You should manually set the same version via DependencyResolution
+
+Project A 使用了 Module B，A 依赖 commonlib(0.0.4)，而 Module B 里引用了 commonlib(0.0.5)，将 A 也改为依赖 commonlib(0.0.5) 即可。
+
 [1]: http://developer.android.com/tools/publishing/app-signing.html
 [2]: https://stackoverflow.com/questions/46949622/android-studio-3-0-unable-to-resolve-dependency-for-appdexoptions-compilecla#answer-47426050
