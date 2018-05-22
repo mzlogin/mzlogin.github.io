@@ -698,3 +698,24 @@
 pre {
     border: 1px solid #ccc;
 }
+
+.tools-wrapper {
+  position: fixed;
+  right: 1em;
+  bottom: 3.4375em;
+  z-index: 9;
+  width: 2.5em;
+}
+
+.tools-wrapper {
+  color: #999;
+  width: 2.5em;
+  height: 2.5em;
+  border: 1px solid #ccc;
+  line-height: 2.5em;
+  text-align: center;
+  font-size: 1.375em;
+  margin-bottom: -1px;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 32);
+}
