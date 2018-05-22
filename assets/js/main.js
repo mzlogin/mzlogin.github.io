@@ -9,7 +9,7 @@ function toggleMenu() {
 
 jQuery(function() {
   // 回到顶部
-  toTop: function () {
+  function toTop () {
     var $toTop = $(".gotop");
 
     $(window).on("scroll", function () {
