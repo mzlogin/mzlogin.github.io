@@ -707,7 +707,7 @@ pre {
   width: 2.5em;
 }
 
-.tools-wrapper {
+.tools-wrapper a {
   color: #999;
   width: 2.5em;
   height: 2.5em;
@@ -718,4 +718,8 @@ pre {
   margin-bottom: -1px;
   cursor: pointer;
   background: rgba(255, 255, 255, 32);
+}
+
+.tools-wrapper .gotop {
+  display: none;
 }
