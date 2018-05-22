@@ -709,15 +709,13 @@ pre {
 
 .tools-wrapper a {
   color: #999;
-  width: 2.5em;
-  height: 2.5em;
-  border: 1px solid #ccc;
-  line-height: 2.5em;
   text-align: center;
-  font-size: 1.375em;
   margin-bottom: -1px;
-  cursor: pointer;
   background: rgba(255, 255, 255, 32);
+}
+
+.tools-wrapper span.oction {
+  font-size: 1.375em;
 }
 
 .tools-wrapper .gotop {
