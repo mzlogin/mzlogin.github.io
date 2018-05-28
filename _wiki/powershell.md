@@ -1,12 +1,12 @@
 ---
 layout: wiki
-title: 使用 PowerShell 打造 Windows 下顺手的终端
+title: PowerShell
 categories: Windows
 description: 使用 PowerShell 打造 Windows 下的顺手终端。
 keywords: Windows, PowerShell
 ---
 
-通过一些配置，解决了一些问题，弥补了一些差异，让不同平台的终端表现更一致，使用更顺手。
+使用 PowerShell 打造 Windows 下的顺手终端。
 
 ## 与 Cmder 配合使用
 
