@@ -122,6 +122,10 @@ Cmd --> Command
 
   根据 Gson 库使用的要求，根据 Json 数据生成 Java 实体
 
+* [intellij-javadocs](https://github.com/setial/intellij-javadocs)
+
+  自动生成/删除指定区域或文件的 javadoc。
+
 ## 打包
 
 * [Gradle编译打包小结](http://blog.csdn.net/byhook/article/details/51746825)
