@@ -455,5 +455,23 @@ http://search.maven.org/solrsearch/select?q=g:%22com.google.android.gms%22+AND+a
 
 Project A 使用了 Module B，A 依赖 commonlib(0.0.4)，而 Module B 里引用了 commonlib(0.0.5)，将 A 也改为依赖 commonlib(0.0.5) 即可。
 
+## 编译报错 Please use JDK 8 or newer
+
+Gradle Sync 的时候无法成功，报错
+
+```
+Gradle sync failed: Please use JDK 8 or newer
+```
+
+尝试 Rebuild 报错
+
+```
+Supplied javaHome is not a valid folder.
+```
+
+原因是我在 Project Settings 的 SDK Location 里手动指定了 JDK 的版本，但是后来升级了 JDK，所以原有路径失效了。
+
+解决方法是将 Project Settings 的 SDK Location 里 JDK 的路径改为正确路径，或者省事起见可以直接勾选 Use embedded JDK 即可。
+
 [1]: http://developer.android.com/tools/publishing/app-signing.html
 [2]: https://stackoverflow.com/questions/46949622/android-studio-3-0-unable-to-resolve-dependency-for-appdexoptions-compilecla#answer-47426050
