@@ -473,5 +473,26 @@ Supplied javaHome is not a valid folder.
 
 解决方法是将 Project Settings 的 SDK Location 里 JDK 的路径改为正确路径，或者省事起见可以直接勾选 Use embedded JDK 即可。
 
+## 编译报错 Caused by: java.io.IOException: Cannot run program
+
+提示找不到 NDK 工具链里的 `mips64el-linux-android-strip`，导致 `Caused by: java.io.IOException: error=2`。
+
+原因是 NDK r17 移除了对 ARMv5(armeabi)、MIPS 和 MIPS64 的支持，所以对应的工具链也没有了。
+
+解决办法有几种：
+
+1. 检查 Gradle Plugin 的版本，即 project 级别的 build.gralde 文件里
+
+    ```groovy
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.1.3'
+        ...
+    }
+    ```
+
+    `com.android.tools.build:gradle` 的版本改为 3.1  以上。
+
+2. 将 NDK 版本退回 16b，或将 16b 以下的对应 mips 工具链的文件夹拷贝到 r17 的对应目录下。
+
 [1]: http://developer.android.com/tools/publishing/app-signing.html
 [2]: https://stackoverflow.com/questions/46949622/android-studio-3-0-unable-to-resolve-dependency-for-appdexoptions-compilecla#answer-47426050
