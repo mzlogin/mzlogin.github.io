@@ -1,8 +1,8 @@
 ---
 layout: page
 title: About
-description: 打码改变世界
-keywords: Zhuang Ma, 马壮
+description: 全栈程序员/初级产品经理/初级设计师/极限运动玩家
+keywords: 神奇的鸭鸭
 comments: true
 menu: 关于
 permalink: /about/

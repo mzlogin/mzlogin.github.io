@@ -1,27 +1,11 @@
 - sitename: GitHub
-  name: mzlogin
-  url: https://github.com/mzlogin
+  name: SQDYY
+  url: https://github.com/SQDYY
 
 - sitename: 掘金
-  name: mzlogin
-  url: http://gold.xitu.io/user/570ddaeb2e958a005c63b2da
-
-- sitename: LinkedIn
-  name: mazhuang
-  url: https://www.linkedin.com/in/mazhuang
+  name: 神奇的鸭鸭
+  url: https://juejin.im/user/596b6d76f265da6c244313f6
 
 - sitename: 博客
-  name: 码志
-  url: http://mazhuang.org
-
-- sitename: 微博
-  name: mzlogin
-  url: http://weibo.com/mzlogin
-
-- sitename: 知乎
-  name: mzlogin
-  url: http://www.zhihu.com/people/mzlogin
-
-- sitename: 豆瓣
-  name: 壮哥不胖
-  url: http://www.douban.com/people/freedim
+  name: 神奇的鸭鸭の码农库
+  url: http://blog.sqdyy.cn

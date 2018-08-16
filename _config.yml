@@ -2,12 +2,12 @@
 #   Main Configs   #
 # ---------------- #
 baseurl:
-url: https://mazhuang.org
+url: https://blog.sqdyy.cn
 date_format: "ordinal"
-title: 码志
-subtitle: "打码改变人生"
-description: "马壮的个人博客"
-keywords: 码志, Zhuang Ma, mzlogin, mazhuang
+title: 神奇的鸭鸭の码农库
+subtitle: "全栈程序员/初级产品经理/初级设计师/极限运动玩家"
+description: "韦耿林的个人博客"
+keywords: 神奇的鸭鸭の码农库, 韦耿林
 timezone: Asia/Shanghai
 encoding: "utf-8"
 side_bar_repo_limit: 5
@@ -15,12 +15,12 @@ side_bar_repo_limit: 5
 # ---------------- #
 #      Author      #
 # ---------------- #
-author: Zhuang Ma
-organization: zkh360.com
-organization_url: http://www.zkh360.com
-github_username: mzlogin
-location: Wuhan, China
-email: chumpma@gmail.com
+author: Geng Lin Wei
+organization: 
+organization_url: 
+github_username: SQDYY
+location: ShenZheng, China
+email: 702038338@qq.com
 
 # ---------------- #
 #    Navigation    #
@@ -29,23 +29,15 @@ navs:
   -
     href: /
     label: 首页
-
   -
     href: /categories/
     label: 分类
-
-#   -
-#     href: /archives/
-#     label: 归档
-
   -
     href: /wiki/
     label: 维基
-
   -
     href: /links/
     label: 链接
-
   -
     href: /about/
     label: 关于
@@ -81,7 +73,7 @@ collections:
         output: true
         permalink: /wiki/:path/
 
-repository: mzlogin/mzlogin.github.io
+repository: SQDYY/SQDYY.github.io
 
 # ---------------- #
 #      Comments    #
@@ -95,17 +87,17 @@ disqus:
     username: 
 # https://imsun.net/posts/gitment-introduction/
 gitment:
-    owner: mzlogin
+    owner: SQDYY
     repo: blog-comments
     oauth:
-        client_id: d2e1cbbd298958076462
-        client_secret: b42a4178e5fd4a7cf63189ef4b1453b05c375709
+        client_id: 17f1cdc16ff445ac2d95
+        client_secret: 28b52f230c80a89468325df1aa6386497e4805ee
 # https://github.com/gitalk/gitalk#install
 gitalk:
-    owner: mzlogin
+    owner: SQDYY
     repo: blog-comments
-    clientID: d2e1cbbd298958076462
-    clientSecret: b42a4178e5fd4a7cf63189ef4b1453b05c375709
+    client_id: 17f1cdc16ff445ac2d95
+    client_secret: 28b52f230c80a89468325df1aa6386497e4805ee
 # 在使用其它评论组件时可点击显示 Disqus
 lazy_load_disqus : false
 
@@ -114,7 +106,7 @@ lazy_load_disqus : false
 # ---------------- #
 simple_jekyll_search:
     # 是否支持全文搜索
-    fulltext: false
+    fulltext: true
     # 最多显示多少条搜索结果
     limit: 10
 
