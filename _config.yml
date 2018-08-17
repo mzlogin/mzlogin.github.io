@@ -96,8 +96,8 @@ gitment:
 gitalk:
     owner: SQDYY
     repo: SQDYY
-    client_id: 17f1cdc16ff445ac2d95
-    client_secret: 28b52f230c80a89468325df1aa6386497e4805ee
+    clientID: 17f1cdc16ff445ac2d95
+    clientSecret: 28b52f230c80a89468325df1aa6386497e4805ee
 # 在使用其它评论组件时可点击显示 Disqus
 lazy_load_disqus : false
 
