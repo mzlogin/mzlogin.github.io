@@ -76,7 +76,7 @@
         <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
         <script>
         var gitment = new Gitment({
-            id: '{{ page.url | truncate: 50, '' }}',
+            id: '{{ page.url | truncate: 50}}',
             owner: '{{ site.gitment.owner }}',
             repo: '{{ site.gitment.repo }}',
             oauth: {
