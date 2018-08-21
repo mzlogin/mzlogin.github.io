@@ -118,6 +118,18 @@ Cmd --> Command
 
   Android Studio / IDEA plugin that helps to create styles
 
+* [Alibaba Java Coding Guidelines](https://github.com/alibaba/p3c/tree/master/idea-plugin)
+
+  阿里巴巴 Java 代码规范检测插件
+
+* Android Parcelable Code Generator
+
+  一键自动生成 Parcelable 代码
+
+* [Lombok Plugin](https://github.com/mplushnikov/lombok-intellij-plugin)
+
+  Lombok 注解支持
+
 * [GsonFormat](https://github.com/zzz40500/GsonFormat)
 
   根据 Gson 库使用的要求，根据 Json 数据生成 Java 实体
