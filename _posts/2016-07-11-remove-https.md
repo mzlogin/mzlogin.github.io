@@ -6,7 +6,7 @@ description: 收到 Kloudsec 将停止服务的消息，决定将 GitHub Pages �
 keywords: Kloudsec, GitHub Pages
 ---
 
-**Update 2018/05/01: GitHub 官方已经支持自定义域名启用 HTTPS 了，见 <https://blog.github.com/2018-05-01-github-pages-custom-domains-https/> **
+**Update 2018/05/01: GitHub 官方已经支持自定义域名启用 HTTPS 了，见 <https://blog.github.com/2018-05-01-github-pages-custom-domains-https/>**
 
 前天收到来自 Kloudsec 的邮件，说 Kloudsec 将于 2016/08/01 停止服务。Bad news，请容许我做一个悲伤的表情。
 
