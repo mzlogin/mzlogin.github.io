@@ -397,6 +397,23 @@ git config --global core.editor gvim
 * [How do I make Git use the editor of my choice for commits?](https://stackoverflow.com/questions/2596805/how-do-i-make-git-use-the-editor-of-my-choice-for-commits)
 * [转：git windows中文 乱码问题解决汇总](http://www.cnblogs.com/youxin/p/3227961.html)
 
+另外在升级 Vim 到 8.1 之后，由于 PATH 环境变量里加的还是 vim80 文件夹，导致 git commit 时提示：
+
+```
+error: cannot spawn gvim: No such file or directory
+error: unable to start editor 'gvim'
+Please supply the message using either -m or -F option.
+```
+
+使用 `which gvim` 查看：
+
+```
+$ which gvim
+/usr/bin/which: no gvim in xxxxxxx
+```
+
+将 PATH 里添加的 vim80 路径改为 vim81 后解决。
+
 ### git log 中文乱码
 
 只在 Windows 下遇到。
