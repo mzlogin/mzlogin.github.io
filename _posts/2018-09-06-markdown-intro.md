@@ -1,9 +1,9 @@
 ---
 layout: post
-title: template page
-categories: [cate1, cate2]
-description: some word here
-keywords: keyword1, keyword2
+title: 一份简明的 Markdown 笔记与教程
+categories: Markdown
+description: 一份简明的 Markdown 笔记与教程
+keywords: Markdown, VSCode
 ---
 
 为部门内知识分享准备的素材，记录了 Markdown 的优点、应用场景和编辑工具，介绍了标准语法与扩展语法，以及一些应用 Markdown 的奇技淫巧。个人使用 Markdown 的经验持续补充中，最新完整版请参见
@@ -11,8 +11,6 @@ keywords: keyword1, keyword2
 <https://github.com/mzlogin/markdown-intro>
 
 ---
-
-# ![Markdown Intro](https://raw.githubusercontent.com/mzlogin/markdown-intro/master/assets/title.png)
 
 自从 2014 年左右接触到 Markdown 以来，对它的使用就一发而不可收拾。从最开始使用它在 GitHub Pages 里写博客，到用它编辑项目的 README 文件，再到撰写开发文档，编辑微信公众号文章和邮件内容等等，这期间也见证了它在各类平台和网站上的普及和被原生支持，可以说，Markdown 如今已经渗透了我在技术和网络活动的方方面面，成为了我撰写文本文档的首选。
 
@@ -24,7 +22,7 @@ keywords: keyword1, keyword2
 
 接下来请随我一起深入了解这门并不神秘的实用标记语言。
 
-# ![Table of Contents](https://raw.githubusercontent.com/mzlogin/markdown-intro/master/assets/toc.png)
+**目录**
 
 * TOC
 {:toc}
