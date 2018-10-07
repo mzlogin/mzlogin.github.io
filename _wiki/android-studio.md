@@ -282,6 +282,10 @@ Press Cancel to exit.
 
 将备份的文件贴回去，然后等 Android Studio 升级完成之后再改成我们想要的版本即可。
 
+### 安装 Android Studio 后不显示 logcat 窗口
+
+新建或打开一个简单的 Android 工程，编译运行后，窗口就会自动出来了。
+
 ## 其它信息
 
 ### Android Plugin 与 Gradle 版本对应
