@@ -107,3 +107,4 @@ tagbar 默认并不支持 Markdown 文件，但配置一下就好了。
 
 * [majutsushi/tagbar#70](https://github.com/majutsushi/tagbar/issues/70)
 * [Support for additional filetypes](https://github.com/majutsushi/tagbar/wiki)
+* [Extending ctags with Regex parser (optlib) - Option files](http://docs.ctags.io/en/latest/optlib.html#option-files)
