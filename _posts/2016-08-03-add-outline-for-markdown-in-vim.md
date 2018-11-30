@@ -53,7 +53,7 @@ tagbar 正常工作依赖于 Vim 7.0+ 和 Exuberant ctags。
 
 tagbar 默认并不支持 Markdown 文件，但配置一下就好了。
 
-1. 给 ~/.ctags 文件（Windows 下是 `C:\Users\<username>\.ctags` 里增加如下内容，没有这个文件就新建一个：
+1. 创建 ~/.ctags.d/markdown.ctags 文件（Windows 下是 `C:\Users\<username>\.ctags.d/markdown.ctags`），将如下内容贴到文件里：
 
    ```viml
    --langdef=markdown
@@ -100,6 +100,8 @@ tagbar 默认并不支持 Markdown 文件，但配置一下就好了。
    ```
 
 至此，大功告成了！
+
+根据我的这个文章没有配置成功的同学，可以参考下我的配置 <https://github.com/mzlogin/config-files> 。
 
 ## 参考链接
 
