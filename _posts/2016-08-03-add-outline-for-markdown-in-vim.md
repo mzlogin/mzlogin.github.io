@@ -53,7 +53,7 @@ tagbar 正常工作依赖于 Vim 7.0+ 和 Exuberant ctags。
 
 tagbar 默认并不支持 Markdown 文件，但配置一下就好了。
 
-1. 创建 ~/.ctags.d/markdown.ctags 文件（Windows 下是 `C:\Users\<username>\.ctags.d/markdown.ctags`），将如下内容贴到文件里：
+1. 创建 ~/.ctags.d/markdown.ctags 文件（Windows 下是 `C:\Users\<username>\.ctags.d\markdown.ctags`），将如下内容贴到文件里：
 
    ```viml
    --langdef=markdown
