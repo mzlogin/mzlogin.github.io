@@ -169,6 +169,16 @@ git push origin :refs/tags/v0.0.9
 git push origin --delete tag [tagname]
 ```
 
+### 基于某次 commit 创建 tag
+
+```
+git tag <tag name> <commit id>
+```
+
+```
+git tag v1.0.0 ef0120
+```
+
 ### 清除未跟踪文件
 
 ```
