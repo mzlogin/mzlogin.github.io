@@ -92,7 +92,7 @@
         <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
         <script>
         var gitalk = new Gitalk({
-            id: '{{ page.url | truncate: 50, '' }}',
+            id: '{{ page.url | truncate: 50, "" }}',
             clientID: '{{ site.gitalk.clientID }}',
             clientSecret: '{{ site.gitalk.clientSecret }}',
             repo: '{{ site.gitalk.repo }}',
