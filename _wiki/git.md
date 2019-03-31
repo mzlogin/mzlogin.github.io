@@ -543,3 +543,9 @@ open /System/Library/Frameworks/Tk.framework/Versions/Current/Resources/
 打开 retinizer，将 Wish.app 拖到 retinizer 的界面。
 
 参考：[起底Git-Git基础](http://yanhaijing.com/git/2017/02/09/deep-git-4/)
+
+### clone 时指定 master 以外的分支
+
+```sh
+git clone -b <branch name> --single-branch <repo address>
+```
