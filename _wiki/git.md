@@ -142,6 +142,12 @@ git submodule update
 git submodule update --remote
 ```
 
+当在本地拉取了 submodule 的远程更新，但是想反悔时：
+
+```
+git submodule update --init
+```
+
 **删除 submodule**
 
 在 .gitmodules 中删除对应 submodule 的信息，然后使用如下命令删除子模块所有文件：
