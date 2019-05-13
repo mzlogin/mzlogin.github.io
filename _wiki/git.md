@@ -555,3 +555,9 @@ open /System/Library/Frameworks/Tk.framework/Versions/Current/Resources/
 ```sh
 git clone -b <branch name> --single-branch <repo address>
 ```
+
+### 获取当前分支名称
+
+```sh
+git symbolic-ref --short -q HEAD
+```
