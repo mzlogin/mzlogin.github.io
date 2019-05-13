@@ -75,6 +75,14 @@ function Git-Pull-Current-Branch {
 }
 
 Set-Alias gpull Git-Pull-Current-Branch
+
+## gpush=git push origin <current branch>
+function Git-Push-Current-Branch {
+    $currentBranch = git symbolic-ref --short -q HEAD
+    git push origin $currentBranch
+}
+
+Set-Alias gpush Git-Push-Current-Branch
 ```
 
 ### objdump
