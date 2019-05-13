@@ -85,6 +85,14 @@ function Git-Push-Current-Branch {
 Set-Alias gpush Git-Push-Current-Branch
 ```
 
+## g1=add、commit、push 一条龙
+function Git-Commit-And-Push {
+    git add .
+    git commit -m $args[0]
+    Git-Push-Current-Branch
+}
+
+Set-Alias g1 Git-Commit-And-Push
 ### objdump
 
 ```powershell
