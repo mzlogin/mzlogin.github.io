@@ -67,6 +67,14 @@ function Git-Gui {
 }
 
 Set-Alias gg Git-Gui
+
+## gpull=git pull origin <current branch>
+function Git-Pull-Current-Branch {
+    $currentBranch = git symbolic-ref --short -q HEAD
+    git pull origin $currentBranch
+}
+
+Set-Alias gpull Git-Pull-Current-Branch
 ```
 
 ### objdump
