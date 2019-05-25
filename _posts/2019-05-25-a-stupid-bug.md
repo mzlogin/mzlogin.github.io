@@ -38,7 +38,7 @@ keywords: Java, Bug
 
 * 在一条失败 case 之后，马上向 **服务 B** 手动再次推送相同的消息——能取到数据；
 
-![](/images/posts/java/this-unscientific.gif)
+![](/images/posts/java/this-unscientific.jpeg)
 
 直到我终于留意到一个现象：从日志来看，**服务 A** 插库与 **服务 B** 远程调用 **服务 A** 的方法的时间只相差 1 毫秒。会不会是一切发生得太快了，库里还查不到刚刚写入的数据？抑或者查询的时候插库还根本没有生效？
 
