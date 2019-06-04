@@ -16,8 +16,8 @@ side_bar_repo_limit: 5
 #      Author      #
 # ---------------- #
 author: RekiDunois
-organization: 
-organization_url: 
+organization:
+organization_url:
 github_username: RekiDunois
 location: Shenzhen, China
 email: RekiDunois+blog@gmail.com
@@ -81,7 +81,7 @@ collections:
         output: true
         permalink: /wiki/:path/
 
-repository: mzlogin/mzlogin.github.io
+repository: rekidunois/rekidunois.github.io
 
 # ---------------- #
 #      Comments    #
@@ -92,17 +92,17 @@ comments_provider: gitalk
 # !!!Important!!! Please modify infos below to yours
 # https://disqus.com
 disqus:
-    username: 
+    username:
 # https://imsun.net/posts/gitment-introduction/
 gitment:
-    owner: 
-    repo: 
+    owner:
+    repo:
     oauth:
-        client_id: 
-        client_secret: 
+        client_id:
+        client_secret:
 # https://github.com/gitalk/gitalk#install
 gitalk:
-    owner: mzlogin
+    owner: rekidunois
     repo: blog-comments
     clientID: a7e1b3efccd13213d252
     clientSecret: 23036d50003da9b8417bddb12e1779e9ad280014
@@ -122,4 +122,4 @@ simple_jekyll_search:
 #    Analytics     #
 # ---------------- #
 google:
-    analytics_id: 
+    analytics_id:

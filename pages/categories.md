@@ -1,7 +1,7 @@
 ---
 layout: categories
 title: Categories
-description: 哈哈，你找到了我的文章基因库
+description: 这个就是每次都忘记在文章里加的那个东西
 keywords: 分类
 comments: false
 menu: 分类

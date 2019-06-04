@@ -1,18 +1,18 @@
 ---
 layout: page
 title: About
-description: 打码改变世界
-keywords: Zhuang Ma, 马壮
+description: Me?
+keywords: RekiDunois
 comments: true
 menu: 关于
 permalink: /about/
 ---
 
-我是马壮，码而生，码而立。
+兜兜转转，最后还是回到静态页面做博客
 
-仰慕「优雅编码的艺术」。
+不过我还是希望自己实现一个博客系统。
 
-坚信熟能生巧，努力改变人生。
+事 Angular 和 .Net 程序员。
 
 ## 联系
 
