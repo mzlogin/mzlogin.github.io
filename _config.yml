@@ -104,8 +104,8 @@ gitment:
 gitalk:
     owner: rekidunois
     repo: reki-s-blog-comments
-    clientID: 7f03c7c561e4c8f78e98
-    clientSecret: 8922da0302b9a199685ce668f76b8e26b6e9d069
+    clientID: a7e1b3efccd13213d252
+    clientSecret: 23036d50003da9b8417bddb12e1779e9ad280014
 # 在使用其它评论组件时可点击显示 Disqus
 lazy_load_disqus : false
 
