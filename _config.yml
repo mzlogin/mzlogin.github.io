@@ -4,7 +4,7 @@
 baseurl:
 url: http://anaqq.xyz/blog
 date_format: "ordinal"
-title: Blog
+title: 不朽
 subtitle: "十年之后"
 description: "施念的个人博客"
 keywords: Blog, Nian Shi
@@ -95,17 +95,17 @@ disqus:
     username: 
 # https://imsun.net/posts/gitment-introduction/
 gitment:
-    owner: mzlogin
-    repo: blog-comments
+    owner: shinianzhihou
+    repo: blog
     oauth:
-        client_id: d2e1cbbd298958076462
-        client_secret: b42a4178e5fd4a7cf63189ef4b1453b05c375709
+        client_id: 237f48757c2c4f281e3e
+        client_secret: 330d7d35202546c3cd492dcd6b1e54ce7dafad81
 # https://github.com/gitalk/gitalk#install
-gitalk:
-    owner: mzlogin
-    repo: blog-comments
-    clientID: d2e1cbbd298958076462
-    clientSecret: b42a4178e5fd4a7cf63189ef4b1453b05c375709
+gitalk:true
+    owner: shinianzhihou
+    repo: blog
+    clientID: 237f48757c2c4f281e3e
+    clientSecret: 330d7d35202546c3cd492dcd6b1e54ce7dafad81
 # 在使用其它评论组件时可点击显示 Disqus
 lazy_load_disqus : false
 
