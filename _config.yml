@@ -101,7 +101,7 @@ gitment:
         client_id: 237f48757c2c4f281e3e
         client_secret: 330d7d35202546c3cd492dcd6b1e54ce7dafad81
 # https://github.com/gitalk/gitalk#install
-gitalk:true
+gitalk:
     owner: shinianzhihou
     repo: blog
     clientID: 237f48757c2c4f281e3e
