@@ -1,6 +1,6 @@
 ---
 layout: post
-title: test
+title: Test
 categories: [Blog, test]
 description: 我的第一篇博客
 keywords: Test
