@@ -1,27 +1,27 @@
 - sitename: GitHub
-  name: mzlogin
-  url: https://github.com/mzlogin
+  name: shinianzhihou
+  url: https://github.com/shinianzhihou
 
-- sitename: 掘金
-  name: mzlogin
-  url: http://gold.xitu.io/user/570ddaeb2e958a005c63b2da
+# - sitename: 掘金
+#   name: shinianzhihou
+#   url: http://gold.xitu.io/user/570ddaeb2e958a005c63b2da
 
-- sitename: LinkedIn
-  name: mazhuang
-  url: https://www.linkedin.com/in/mazhuang
+# - sitename: LinkedIn
+#   name: mazhuang
+#   url: https://www.linkedin.com/in/mazhuang
 
 - sitename: 博客
-  name: 码志
-  url: http://mazhuang.org
+  name: 不朽
+  url: http://anaqq.xyz/blog
 
-- sitename: 微博
-  name: mzlogin
-  url: http://weibo.com/mzlogin
+# - sitename: 微博
+#   name: shinianzhihou
+#   url: http://weibo.com/shinianzhihou
 
-- sitename: 知乎
-  name: mzlogin
-  url: http://www.zhihu.com/people/mzlogin
+# - sitename: 知乎
+#   name: shinianzhihou
+#   url: http://www.zhihu.com/people/shinianzhihou
 
-- sitename: 豆瓣
-  name: 壮哥不胖
-  url: http://www.douban.com/people/freedim
+# - sitename: 豆瓣
+#   name: 壮哥不胖
+#   url: http://www.douban.com/people/freedim

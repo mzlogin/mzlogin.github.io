@@ -1,19 +1,12 @@
-- name: Software Engineer Keywords
+- name: Computer
   keywords:
-      - Java
-      - C++
       - Python
-      - Design Patterns
+      - C
+      - Tensorflow
 
-- name: Mobile Developer Keywords
+- name: Software
   keywords:
-      - Android
-      - Reverse Engineering
+      - MATLAB
+      - Multisim
+      - Modelsim
 
-- name: Windows Developer Keywords
-  keywords:
-      - Win32 SDK
-      - DuiLib
-      - WTL
-      - COM
-      - WinDbg
