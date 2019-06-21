@@ -17,6 +17,14 @@ permalink: /wiki/
 {% endfor %}
 </ul>
 
+## 有用的链接
+<ul class="listing">
+{% for point in site.date.points %}
+{% if point.name != "test" %}
+<li class="listing-item"><a href="{{ point.url }}">{{ point.title }}</a></li>
+{% endif %}
+{% endfor %}
+</ul>
 
 ## 原博主的 Wiki  
 <ul class="listing">
