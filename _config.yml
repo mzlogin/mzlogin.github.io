@@ -58,10 +58,11 @@ subscribe_rss: /feed.xml
 # ---------------- #
 #      Jekyll      #
 # ---------------- #
-markdown: redcarpet
+markdown: kramdown
 kramdown:
     input: GFM
-
+redcarpet:
+    extensions: [ "hard_wrap","autolink", "tables", "strikethrough", "superscript", "with_toc_data", "highlight", "prettify","no_intra_emphasis"]
 highlighter: rouge
 paginate: 10
 lsi: false
