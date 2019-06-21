@@ -21,7 +21,7 @@ permalink: /wiki/
 <ul class="listing">
 {% for point in site.date.points %}
 {% if point.name != "test" %}
-<li class="listing-item"><a href="{{ point.url }}">{{ point.title }}</a></li>
+<li class="listing-item"><a href="{{ point.url }}">{{ point.name }}</a></li>
 {% endif %}
 {% endfor %}
 </ul>
