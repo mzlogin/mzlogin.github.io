@@ -14,7 +14,7 @@ permalink: /about/
 * {{ website.sitename }}：[@{{ website.name }}]({{ website.url }})
 {% endfor %}
 
-## Skill Keywords
+## 技能点
 
 {% for category in site.data.skills %}
 ### {{ category.name }}
@@ -26,4 +26,5 @@ permalink: /about/
 {% endfor %}
 
 ## 说明  
-博客模板取自这里[(～￣▽￣)～](https://github.com/mzlogin/mzlogin.github.io)
+- 博客模板取自这里[(～￣▽￣)～](https://github.com/mzlogin/mzlogin.github.io)  
+- Wiki页面里的内容来自[(✪ω✪)](https://github.com/mzlogin/mzlogin.github.io)和个人的补充。

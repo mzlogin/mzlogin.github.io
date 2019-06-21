@@ -8,6 +8,7 @@ menu: 维基
 permalink: /wiki/
 ---
 
+## [(✪ω✪)](https://github.com/mzlogin/mzlogin.github.io)的Wiki
 > 记多少命令和快捷键会让脑袋爆炸呢？
 
 <ul class="listing">
