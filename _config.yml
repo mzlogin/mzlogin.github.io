@@ -80,9 +80,6 @@ collections:
     wiki:
         output: true
         permalink: /wiki/:path/
-    mywiki:
-        output: true
-        permalink: /mywiki/:path/
 
 repository: shinianzhihou/blog
 
