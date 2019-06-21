@@ -1,8 +1,8 @@
 ---
 layout: page
 title: About
-description: 打码改变世界
-keywords: Zhuang Ma, 马壮
+description: 联系方式及博客说明
+keywords: 联系, 说明
 comments: true
 menu: 关于
 permalink: /about/
@@ -24,3 +24,6 @@ permalink: /about/
 {% endfor %}
 </div>
 {% endfor %}
+
+## 说明  
+博客模板取自这里[(～￣▽￣)～](https://github.com/mzlogin/mzlogin.github.io)
