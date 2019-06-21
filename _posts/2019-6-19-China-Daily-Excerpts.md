@@ -1,7 +1,7 @@
 ---
 layout: post
-title: China Daily Excerpts
-categories: [静静, Excerpts]
+title: China Daily Excerpts (一)
+categories: [ Excerpts ]
 description: 6.19日的摘抄
 keywords: Excerpts
 ---
