@@ -8,12 +8,12 @@ menu: 维基
 permalink: /wiki/
 ---
 
-## [(✪ω✪)](https://github.com/mzlogin/mzlogin.github.io)的Wiki
-> 记多少命令和快捷键会让脑袋爆炸呢？
+
+## [ 原博主的Wiki ](https://github.com/mzlogin/mzlogin.github.io)
 
 <ul class="listing">
 {% for wiki in site.wiki %}
-{% if wiki.title != "Wiki Template" %}
+{% if "shinian" not in wiki.categories %}
 <li class="listing-item"><a href="{{ site.url }}{{ wiki.url }}">{{ wiki.title }}</a></li>
 {% endif %}
 {% endfor %}
