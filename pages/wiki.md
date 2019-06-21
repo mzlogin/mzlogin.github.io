@@ -19,10 +19,8 @@ permalink: /wiki/
 
 ## 有用的链接
 <ul class="listing">
-{% for point in site.date.points %}
-
+{% for point in site.data.points %}
 <li class="listing-item"><a href="{{ point.url }}">{{ point.name }}</a></li>
-
 {% endfor %}
 </ul>
 
