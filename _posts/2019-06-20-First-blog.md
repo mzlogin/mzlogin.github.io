@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Test
-categories: [Blog, test]
+categories: [Blog, Test]
 description: 我的第一篇博客
 keywords: Test
 ---
