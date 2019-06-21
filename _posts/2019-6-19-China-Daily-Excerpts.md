@@ -7,17 +7,6 @@ keywords: Excerpts
 ---
 
 
-<!-- MarkdownTOC autolink="true" -->
-
-- [Opinion Line](#opinion-line)
-    - [In 5G market, China puts money where its mouth is](#in-5g-market-china-puts-money-where-its-mouth-is)
-    - [US drapes its paranoia with righteousness](#us-drapes-its-paranoia-with-righteousness)
-- [Forum Trend](#forum-trend)
-    - [What is your understanding of and expectations for 5G technology?](#what-is-your-understanding-of-and-expectations-for-5g-technology)
-
-<!-- /MarkdownTOC -->
-
-
 ## [Opinion Line](http://www.chinadaily.com.cn/opinion/opinionline)  
 ### [In 5G market, China puts money where its mouth is](http://www.chinadaily.com.cn/a/201906/19/WS5d0982aea3103dbf14328fed.html)  
 
