@@ -24,8 +24,7 @@ It is necessary to criminalize the doctors profiting from the unlawful practice 
 
 There is still a long way to go for the country to fully protect women's and children's rights, and root out the gender discrimination that has remained ingrained deeply in the social and cultural soil.
 
-### [Innovation should be cooperative, not isolated pursuit
-](http://www.chinadaily.com.cn/a/201906/20/WS5d0b8d97a3103dbf143295f7.html)   
+### [Innovation should be cooperative, not isolated pursuit](http://www.chinadaily.com.cn/a/201906/20/WS5d0b8d97a3103dbf143295f7.html)   
 
 **Date:2019/6/20**  
 **Upload:2019/6/21**  
