@@ -8,11 +8,11 @@ keywords: Linux
 
 > jekyll官方文档[:space_invader:](https://www.jekyll.com.cn/docs/)
 
-### jekyll的本地环境搭建
+## jekyll的本地环境搭建
 
 *本来我是打死不想弄本地环境的，因为配环境什么的太麻烦了，直接push到GitHub上然后刷新不就行了吗？简单的写好文章放到`_post`里面当然可以，可以要改网页格式什么的要实时看到效果，还是不得已搭建本地环境，真香。*
 
-#### 安装ruby
+### 安装ruby
 
 > 看到网上很多的东西都是把ruby和devkit分开装，但是官网两个现在好像可以一起下载安装。
 
@@ -22,7 +22,7 @@ keywords: Linux
 
 **注意：最后不要勾选`ridk install`选项**
 
-#### 安装MSYS2
+### 安装MSYS2
 
 *这个东西就是前面没有勾选的，不过为什么在这里下载我也不知道，但是这样做确实是可以的，不这样做可不可以我就不知道了*
 
@@ -32,7 +32,7 @@ cmd窗口输入下列命令，选项123选择3
 ridk install
 ```
 
-#### 安装bundler
+### 安装bundler
 
 同样是命令行输入
 
@@ -40,7 +40,7 @@ ridk install
 gem install bundler
 ```
 
-#### 安装jekyll
+### 安装jekyll
 
 ```bash
 gem install jekyll
@@ -48,7 +48,7 @@ gem install jekyll
 
 *环境部分安装结束啦~*
 
-#### 创建博客or调试博客
+### 创建博客or调试博客
 
 创建：
 
@@ -62,7 +62,7 @@ jekyll new yourblog
 bundle exec jekyll serve
 ```
 
-然后打开`http://localhost:4000`即可。
+然后打开`http://localhost:4000`[:mag:](http://localhost:4000)即可。
 
 *安装过程参考：*[:tophat:](https://foochane.cn/article/2019051905.html)
 
