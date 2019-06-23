@@ -6,9 +6,9 @@ description: 6.21日的摘抄
 keywords: Excerpts
 ---
 
+## [Opinion Line](http://www.chinadaily.com.cn/opinion/opinionline)
 
-## [Opinion Line](http://www.chinadaily.com.cn/opinion/opinionline)  
-### [Social reasons for baby boy bias must be eliminated](http://www.chinadaily.com.cn/a/201906/20/WS5d0ad175a3103dbf14329385.html)  
+### [Social reasons for baby boy bias must be eliminated](http://www.chinadaily.com.cn/a/201906/20/WS5d0ad175a3103dbf14329385.html)
 
 **Date:2019/6/20**  
 **Upload:2019/6/21**  
@@ -23,12 +23,12 @@ It is necessary to criminalize the doctors profiting from the unlawful practice 
 
 There is still a long way to go for the country to fully protect women's and children's rights, and root out the gender discrimination that has remained ingrained deeply in the social and cultural soil.
 
-### [Innovation should be cooperative, not isolated pursuit](http://www.chinadaily.com.cn/a/201906/20/WS5d0b8d97a3103dbf143295f7.html)   
+### [Innovation should be cooperative, not isolated pursuit](http://www.chinadaily.com.cn/a/201906/20/WS5d0b8d97a3103dbf143295f7.html)
 
 **Date:2019/6/20**  
 **Upload:2019/6/21**  
 
-  >我觉得这个文章hin好，可以点进链接看一下  
+> 我觉得这个文章hin好，可以点进链接看一下  
 
 Ren Zhengfei, founder of Huawei, recently met with two US scholars, George Gilder and Nicholas Negroponte, for talks over afternoon tea in Shenzhen, Guangdong province, in which he stressed how openness and cooperation, not isolation and confrontation, can promote human welfare and progress. 
 
@@ -40,8 +40,7 @@ Except maybe farmers, no one believes he can do everything by himself. I support
 
 Some people advocate the law of the jungle and excessively emphasize competition. However, the law of the jungle does not fully apply to human society, and in most cases and most of the time, the problem facing human beings is not "your death, my survival", but coexistence.
 
-
-### [Women's national soccer team gives men's a lesson in professionalism](http://www.chinadaily.com.cn/a/201906/21/WS5d0c22b6a3103dbf143296b2.html)    
+### [Women's national soccer team gives men's a lesson in professionalism](http://www.chinadaily.com.cn/a/201906/21/WS5d0c22b6a3103dbf143296b2.html)
 
 **Date:2019/6/21**  
 **Upload:2019/6/21**  
@@ -56,17 +55,18 @@ By contrast, women's soccer has largely inherited the training system dating bac
 
 Money talks.(有钱能使鬼推磨，ᕙ༼ ͝°益° ༽ᕗ)
 
-
 <!-- ### [Title](link) 
 <font face="sans-serif" size=3>
 **Date:**  
 **Upload:**  
 
 </font>   -->
-## [Forum Trend](http://www.chinadaily.com.cn/opinion/forumtrends)  
-### [How do you view the debate between Trish Regan and Liu Xin?](http://www.chinadaily.com.cn/a/201906/01/WS5cf1c12ca3104842260bef69.html)  
 
-  >我觉得这个文章也得看看
+## [Forum Trend](http://www.chinadaily.com.cn/opinion/forumtrends)
+
+### [How do you view the debate between Trish Regan and Liu Xin?](http://www.chinadaily.com.cn/a/201906/01/WS5cf1c12ca3104842260bef69.html)
+
+> 我觉得这个文章也得看看
 
 **Date:2019/6/1**  
 **Upload:2019/6/21**  
