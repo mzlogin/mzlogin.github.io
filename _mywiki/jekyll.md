@@ -6,8 +6,6 @@ description: 使用jekyll过程中的一些总结
 keywords: Linux
 ---
 
-
-
 > jekyll官方文档[:space_invader:](https://www.jekyll.com.cn/docs/)
 
 ### jekyll的本地环境搭建
@@ -92,7 +90,7 @@ bundle exec jekyll serve
 
 3. 补充方法
    
-           为什么会有这个补充方式呢？:slightly_smiling_face: ，因为之前用的第一个方法突然不能用了？时灵时不灵。所以第三种方法是新找到的，虽然我觉得三种方法几乎一毛一样，但还是放出来给自己做个笔记。希望不要给我找第四种方法的机会。
+   *为什么会有这个补充方式呢？:slightly_smiling_face: ，因为之前用的第一个方法突然不能用了？时灵时不灵。所以第三种方法是新找到的，虽然我觉得三种方法几乎一毛一样，但还是放出来给自己做个笔记。希望不要给我找第四种方法的机会。*
    
    在`header.html`中添加以下代码：
    
