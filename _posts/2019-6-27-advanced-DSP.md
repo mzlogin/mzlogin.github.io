@@ -79,7 +79,7 @@ graph LR;
 
 ### 范数
 
-$\|x\|_p=\left[\int_{-\infty}^{\infty}|x|^p\right]^{1/p}$
+$\|x\|_p=\left[\int_{-\infty}^{\infty}\\|x\\|^p\right]^{1/p}$
 
 *每一类范数定义了一个信号空间（$l_p$）*
 
@@ -115,3 +115,7 @@ C[非周期] --> D[连续];
 > 从量纲上来看，$X(j\Omega)$等于谐波幅度$X(k\Omega_0)$除以频率$\Omega_0$（乘以周期T），所以$X(j\Omega)$是频谱密度的概念。
 
 ### Parseval定理
+
+### 截短（加窗）对信号频谱的影响
+
+### 
