@@ -79,7 +79,7 @@ graph LR;
 
 ### 范数
 
-$\|x\|_p=\left[\int_{-\infty}^{\infty}|x|^p\right]^{1/p}\)
+$\|x\|_p=\left[\int_{-\infty}^{\infty}|x|^p\right]^{1/p}$
 
 *每一类范数定义了一个信号空间（$l_p$）*
 
