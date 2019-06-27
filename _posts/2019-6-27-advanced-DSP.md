@@ -79,7 +79,9 @@ graph LR;
 
 ### 范数
 
-$\|\|x\|\|_p=\left[\int_{-\infty}^{\infty}\|x\|^p\right]^{1/p}$
+
+
+<p>$||x||_p=\left[\int_{-\infty}^{\infty}|x|^p\right]^{1/p}$</p>
 
 *每一类范数定义了一个信号空间（$l_p$）*
 
@@ -137,5 +139,3 @@ C[非周期] --> D[连续];
 ### 抽样定理
 
 ![]({{site.url}}/images/posts/2019-6-27-advanced-DSP/2019-6-27-advanced-DSP0.png)
-
-
