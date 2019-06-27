@@ -3,7 +3,7 @@ layout: wiki
 title: jekyll
 categories: jekyll
 description: 使用jekyll过程中的一些总结
-keywords: Linux
+keywords: jekyll
 ---
 
 > jekyll官方文档[:space_invader:](https://www.jekyll.com.cn/docs/)

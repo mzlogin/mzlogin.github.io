@@ -1,7 +1,7 @@
 ---
 layout: wiki
 title: latex in jekyll
-categories: [jekyll, latex]
+categories: [jekyll, latex, bug]
 excerpt: 在jekyll使用latex遇到的问题
 keywords: latex, jekyll
 mathjax: true
