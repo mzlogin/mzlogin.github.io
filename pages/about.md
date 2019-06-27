@@ -29,6 +29,8 @@ permalink: /about/
 </div>
 {% endfor %}
 
+### Github  
+
 <img src="http://ghchart.rshah.org/shinianzhihou" alt="Github commit chart" />
 
 
