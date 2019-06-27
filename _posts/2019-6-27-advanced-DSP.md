@@ -51,13 +51,13 @@ keywords: 高级DSP, 复习
 <script src="mermaid.full.min.js"></script>
 
 ```mermaid
-graph LR
-A[信号]
-B[确定信号]
-C[随机信号]
+graph LR;
+A[信号];
+B[确定信号];
+C[随机信号];
 
-A --> B
-A --> C
+A --> B;
+A --> C;
 ```
 
 
