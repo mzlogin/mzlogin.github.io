@@ -6,6 +6,7 @@ description: 用来随手记录高级DSP复习
 excerpt: 用来随手记录高级DSP复习
 keywords: 高级DSP, 复习
 mermaid: true
+mathjax: true
 ---
 
 ## 第一章 基础知识
