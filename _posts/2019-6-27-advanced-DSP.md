@@ -79,7 +79,7 @@ graph LR;
 
 #### 范数
 
-$$||x||_p=\left[\int_{-\infty}^{\infty}|x|^p\right]^{1/p}$$
+$\|x\|_p=\left[\int_{-\infty}^{\infty}\\|x\\|^p\right]^{1/p}$
 
 *每一类范数定义了一个信号空间（$l_p$）*
 
@@ -93,8 +93,6 @@ $$||x||_p=\left[\int_{-\infty}^{\infty}|x|^p\right]^{1/p}$$
 > 
 > 希尔伯特空间：完备的内积空间
 
-
-
 ## 第三章 离散时间信号的傅里叶变换
 
 ### 傅里叶级数
@@ -103,8 +101,6 @@ $$||x||_p=\left[\int_{-\infty}^{\infty}|x|^p\right]^{1/p}$$
 
 <div class="mermaid">
 graph LR;
-周期 --> 离散;
-非周期 --> 连续;
+A[周期] --> B[离散];
+C[非周期] --> D[连续];
 </div>
-
-
