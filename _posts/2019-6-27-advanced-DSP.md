@@ -48,7 +48,7 @@ keywords: 高级DSP, 复习
 ### 信号的分类
 
 #### 确定信号、随机信号
-<script src="https://cdn.bootcss.com/mermaid/8.0.0-rc.8/mermaid.core.js"></script>
+<script src="assets/js/mermaid.min.js"></script>
 
 <div class="mermaid">
 graph LR;
