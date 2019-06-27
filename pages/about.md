@@ -29,6 +29,9 @@ permalink: /about/
 </div>
 {% endfor %}
 
+<img src="http://ghchart.rshah.org/shinianzhihou" alt="Github commit chart" />
+
+
 ## 说明
 
 - 博客模板取自这里[(～￣▽￣)～](https://github.com/mzlogin/mzlogin.github.io)  
