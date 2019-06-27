@@ -3,6 +3,7 @@ layout: post
 title: 软件推荐合集
 categories: [推荐]
 description: 我觉得很好用的电脑软件/手机应用/GitHub项目
+excerpt: 推荐一些我认为很好用的应用软件
 keywords: 推荐, 合集
 ---
 

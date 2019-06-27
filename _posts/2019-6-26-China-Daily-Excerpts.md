@@ -3,6 +3,7 @@ layout: post
 title: China Daily Excerpts (三)
 categories: [ Excerpts ]
 description: 6.26日的摘抄
+excerpt: 6.26日的摘抄
 keywords: Excerpts
 ---
 
