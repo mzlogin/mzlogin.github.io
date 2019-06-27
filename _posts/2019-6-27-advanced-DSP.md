@@ -54,9 +54,9 @@ mathjax: true
 <div class="mermaid">
 graph LR;
   A[信号] --> B[确定信号];
+  A --> C[随机信号];
   B --> H[周期信号];
   B --> I[非周期信号]
-  A --> C[随机信号];
   C --> D[非平稳]；
   C --> E[平稳];
   E --> F[各态遍历];
