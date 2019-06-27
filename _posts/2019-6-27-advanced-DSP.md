@@ -5,6 +5,7 @@ categories: [复习]
 description: 用来随手记录高级DSP复习
 excerpt: 用来随手记录高级DSP复习
 keywords: 高级DSP, 复习
+mermaid: true
 ---
 
 ## 第一章 基础知识
@@ -48,9 +49,8 @@ keywords: 高级DSP, 复习
 ### 信号的分类
 
 #### 确定信号、随机信号
-<script src="{{ site.url }}/assets/js/mermaid.min.js"></script>
 
-```mermaid
+<div class="mermaid">
 graph LR;
 A[信号];
 B[确定信号];
@@ -58,7 +58,7 @@ C[随机信号];
 
 A --> B;
 A --> C;
-```
+</div>
 
 
 
