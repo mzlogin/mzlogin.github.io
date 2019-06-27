@@ -52,7 +52,7 @@ mathjax: true
 #### 确定信号、随机信号
 
 <div class="mermaid">
-graph LR;
+graph TB;
 A[信号];
 B[确定信号];
 C[随机信号];
