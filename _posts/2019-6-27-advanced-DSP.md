@@ -50,7 +50,7 @@ keywords: 高级DSP, 复习
 #### 确定信号、随机信号
 <script src="mermaid.full.min.js"></script>
 
-```mermaid
+<div class="mermaid">
 graph LR;
 A[信号];
 B[确定信号];
@@ -58,7 +58,7 @@ C[随机信号];
 
 A --> B;
 A --> C;
-```
+</div>
 
 
 
