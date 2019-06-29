@@ -256,7 +256,7 @@ graph LR;
 
 #### 时域
 
-$h(k)=\begin{cases}1,k=0\\0,k=\pm 2, \pm 4  \end{cases}}$
+<p>$h(k)=\begin{cases}1,k=0\\0,k=\pm 2, \pm 4  \end{cases}}$</p>
 
 #### 频域
 
@@ -265,6 +265,14 @@ $H(e^{j\omega})=1-H(e^{j(\pi-\omega)})$
 $H(e^{j\pi/2})=0.5$
 
 ### CIC 滤波器
+
+#### 时域
+
+
+
+#### 频域
+
+
 
 ### 补充
 
