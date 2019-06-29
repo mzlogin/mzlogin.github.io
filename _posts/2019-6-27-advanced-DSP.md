@@ -256,7 +256,7 @@ graph LR;
 
 #### 时域
 
-<p>$h(k)=\begin{cases}1,k=0\\0,k=\pm 2, \pm 4  \end{cases}}$</p>
+<p>$h(k)=\begin{cases}1,k=0\\0,k=\pm 2, \pm 4  \end{cases}$</p>
 
 #### 频域
 
