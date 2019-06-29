@@ -22,9 +22,7 @@ keywords: GitHub, push
 在末尾加入：
 
 ```bash
-# GitHub
 151.101.***.*** github.global.ssl.fastly.net
-
 192.30.***.*** github.com
 ```
 
@@ -38,6 +36,6 @@ keywords: GitHub, push
 
 测试发现速度有所提升，但并没有上百。
 
-由原来的`10\~20K`增加为`50\~60K`。
+由原来的`10-20K`增加为`50-60K`。
 
 
