@@ -256,7 +256,9 @@ graph LR;
 
 #### 时域
 
-<p>$h(k)=\begin{cases}1,k=0\\0,k=\pm 2, \pm 4  \end{cases}$</p>
+<p>$h(k)=\begin{cases}1, k=0\\0, k=\pm 2, \pm 4  \end{cases}$</p>
+
+*偶数系数除了零点外均为 0 ，因此计算量减小一半*
 
 #### 频域
 
@@ -268,11 +270,13 @@ $H(e^{j\pi/2})=0.5$
 
 #### 时域
 
+<p>$h(n)=\begin{cases}1, 0\be n \be D-1\\0, others \end{cases}$</p>
 
+*计算时只有加法没有乘法，无需存储器存储滤波器系数，计算简便*
 
 #### 频域
 
-
+$H(z)=\frac{1-z^{-D}}{1-z^{-1}}$
 
 ### 补充
 
