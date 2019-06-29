@@ -270,7 +270,7 @@ $H(e^{j\pi/2})=0.5$
 
 #### 时域
 
-<p>$h(n)=\begin{cases}1, 0\be n \be D-1\\0, others \end{cases}$</p>
+<p>$h(n)=\begin{cases}1, 0\le n \le D-1\\0, others \end{cases}$</p>
 
 *计算时只有加法没有乘法，无需存储器存储滤波器系数，计算简便*
 
