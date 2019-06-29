@@ -189,7 +189,7 @@ $\Delta f=f_s/N$，DFT时频率轴上所能得到的最小频率间隔
 <div class="mermaid">
 graph LR;
   A[信号x] --> B[抗混叠滤波器];
-  B --> C[L倍下采样];
+  B --> C[M倍下采样];
   C --> D[输出y];
 </div>
 
@@ -207,7 +207,7 @@ graph LR;
 
 <div class="mermaid">
 graph LR;
-  A[信号x] --> C[M倍上采样];
+  A[信号x] --> C[L倍上采样];
   C --> B[抗镜像滤波器];
   B --> D[输出y];
 </div>
