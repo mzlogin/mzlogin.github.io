@@ -1,0 +1,20 @@
+---
+layout: default
+---
+
+{% for category in site.categories %}
+  {% assign c = category | first %}
+  {% assign posts = category | last %}
+
+<div id="category-{{ c | replace: ' ', '_' }}">{{ c }}</div>
+<ul>
+{% for post in posts %}
+  {% if post.categories contains c %}
+  <li>
+    <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+    <span class="date">{{ post.date | date: "%B %-d, %Y"  }}</span>
+  </li>
+  {% endif %}
+{% endfor %}
+</ul>
+{% endfor %}

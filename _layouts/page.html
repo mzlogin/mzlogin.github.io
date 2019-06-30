@@ -1,39 +1,14 @@
 ---
 layout: default
 ---
-<section class="collection-head small geopattern" data-pattern-id="{{ page.title | truncate: 15}}">
-    <div class="container">
-        <div class="collection-title">
-            <h1 class="collection-header">{{ page.title }}</h1>
-            {% if page.subtitle %}
-                <div class="collection-info">
-                    <span class="meta-info">
-                        {{ page.subtitle}}
-                    </span>
-                </div>
-            {% endif %}
-        </div>
-    </div>
-</section>
-<!-- / .banner -->
- <section class="container content">
-        <div class="columns">
-            <div class="column two-thirds" >
-                <article class="article-content markdown-body">
-                    {{ content }}
-                </article>
-                <div class="share">
-                    {% include sns-share.html %}
-                </div>
-                <div class="comment">
-                    {% include comments.html %}
-                </div>
-            </div>
-            <div class="column one-third">
-                {% include sidebar-search.html %}
-                {% include sidebar-qrcode.html %}
-                {% include sidebar-popular-repo.html %}
-            </div>
-        </div>
-    </section>
-    <!-- /section.content -->
+<article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">{{ page.title }}</h1>
+  </header>
+
+  <div class="post-content">
+    {{ content }}
+  </div>
+
+</article>

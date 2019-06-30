@@ -1,3 +1,29 @@
-{% include header.html %}
-    {{ content }}
-{% include footer.html %}
+<!DOCTYPE html>
+<html>
+
+  {% include head.html %}
+
+  <body>
+
+    {% include header.html %}
+
+    <div class="page-content">
+      <div class="wrapper">
+        {{ content }}
+      </div>
+    </div>
+
+    {% include footer.html %}
+
+    <script>
+      $(window).scroll(function() {
+        if ($('body').scrollTop() !== 0) {
+          $('header').addClass('sticky');
+        } else {
+          $('header').removeClass('sticky');
+        }
+      });
+    </script>
+  </body>
+
+</html>
