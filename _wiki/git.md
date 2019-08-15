@@ -561,3 +561,20 @@ git clone -b <branch name> --single-branch <repo address>
 ```sh
 git symbolic-ref --short -q HEAD
 ```
+
+### 解决 no man viewer handled the request
+
+运行命令 `git stash --help` 报错：
+
+```sh
+warning: failed to exec 'man': Invalid argument
+fatal: no man viewer handled the request
+```
+
+原因是 Windows 下没有 man 命令。
+
+可以修改 git 配置让命令的帮助文档通过浏览器打开。
+
+```
+git config --global help.format web
+```
