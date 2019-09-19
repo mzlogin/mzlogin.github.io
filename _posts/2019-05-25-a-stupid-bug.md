@@ -2,7 +2,7 @@
 layout: post
 title: 记一个折磨了我一天半的 Bug
 categories: Java
-description: Caused by: java.io.IOException: Mismatch in length of
+description: 一杯茶，一根烟，一个 Bug 一天根本改不完。
 keywords: Java, Bug
 ---
 
