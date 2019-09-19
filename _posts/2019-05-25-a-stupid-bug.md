@@ -2,7 +2,7 @@
 layout: post
 title: 记一个折磨了我一天半的 Bug
 categories: Java
-description: "Caused by: java.io.IOException: Mismatch in length of"
+description: Caused by\: java.io.IOException\: Mismatch in length of
 keywords: Java, Bug
 ---
 
