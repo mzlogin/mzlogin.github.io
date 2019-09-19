@@ -20,15 +20,15 @@ keywords: Gitee, webhook, Tapd
 
 示意图如下：
 
-![/images/posts/tools/webhook-gitee.png]
+![](/images/posts/tools/webhook-gitee.png)
 
 对比直接支持的 Gitlab 的示意：
 
-![/images/posts/tools/webhook-gitlab.png]
+![](/images/posts/tools/webhook-gitlab.png)
 
 所以前提条件是你有一个可以在公网访问到的 Nginx 服务器，且可以自己修改配置。
 
-网友介绍方案及原理的 GitHub 仓库：https://github.com/notzheng/Tapd-Git-Hooks
+网友介绍方案及原理的 GitHub 仓库：<https://github.com/notzheng/Tapd-Git-Hooks>
 
 具体操作步骤：
 
@@ -68,9 +68,7 @@ keywords: Gitee, webhook, Tapd
 
 把 test 请求在 postman 里构造出来，然后使用 hook.tapd.cn 的原链接，请求是成功的，加上 Nginx 新增的 Header，也没有问题，但换回自己域名的链接就报 502 了。在 Nginx 服务器上将错误日志打印出来：
 
-```
-2019/09/12 15:51:25 [crit] 24721#24721: *287854 SSL_do_handshake() failed (SSL: error:1411B041:SSL routines:SSL3_GET_NEW_SESSION_TICKET:malloc failure) while SSL handshaking to upstream, client: 28.39.21.123, server: tapdhooks.yourdomain.com, request: "POST /32198210/adcc961bc533c74a257ef96295812fa7 HTTP/1.1", upstream: "https://119.29.122.86:443/32198210/adcc961bc533c74a257ef96295812fa7", host: "tapdhooks.yourdomain.com"
-```
+> 2019/09/12 15:51:25 [crit] 24721#24721: *287854 SSL_do_handshake() failed (SSL: error:1411B041:SSL routines:SSL3_GET_NEW_SESSION_TICKET:malloc failure) while SSL handshaking to upstream, client: 28.39.21.123, server: tapdhooks.yourdomain.com, request: "POST /32198210/adcc961bc533c74a257ef96295812fa7 HTTP/1.1", upstream: "https://119.29.122.86:443/32198210/adcc961bc533c74a257ef96295812fa7", host: "tapdhooks.yourdomain.com"
 
 所以是 Nginx 向 https://hook.tapd.cn 链接发起请求时，SSL 握手错误了。
 
