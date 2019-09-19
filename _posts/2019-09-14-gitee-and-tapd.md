@@ -6,6 +6,8 @@ description: 让 Tapd 的源码关联功能支持 Gitee 平台
 keywords: Gitee, webhook, Tapd
 ---
 
+本文记录了让 Tapd 的源码关联功能支持 Gitee 平台的方法，及摸索过程中遇到的问题的解决步骤。
+
 ## 背景
 
 想要使用 Tapd + Gitee 的组合来管理业余项目，但 Tapd 目前官方支持的代码托管平台只有 Gitlab、GitHub 和腾讯工蜂，并不能直接支持 Gitee，直觉上 Gitee 是基于 Gitlab 开发的，所以尝试在 Tapd 里开启了 Gitlab 服务，然后直接将 webhook 地址配置到 Gitee 项目里，却并不能生效。
@@ -16,9 +18,9 @@ keywords: Gitee, webhook, Tapd
 
 ## 方案
 
-方案的原理简单来说就是 Gitee 在触发 webhook 时，向目标网址发起的请求很雷同，只是有个别 Header 的名字和 Gitlab 不一样，缺失特定的 Header 信息后无法正常触发 Tapd 的源码关联，可以通过 Nginx 反向代理来将缺失的 Header 补全，然后将请求转发给 Tapd 即可。
+方案的原理简单来说就是 Gitee 在触发 webhook 时，向目标网址发起的请求和 GitLab 很雷同，只是有个别 Header 的名字不一样，但缺失特定的 Header 信息后无法正常触发 Tapd 的源码关联，所以可以通过 Nginx 反向代理来将缺失的 Header 补全，然后将请求转发给 Tapd 即可。
 
-示意图如下：
+### 方案示意图
 
 ![](/images/posts/tools/webhook-gitee.png)
 
@@ -30,7 +32,7 @@ keywords: Gitee, webhook, Tapd
 
 网友介绍方案及原理的 GitHub 仓库：<https://github.com/notzheng/Tapd-Git-Hooks>
 
-具体操作步骤：
+### 操作步骤
 
 1. 在 Tapd 项目里开启 Gitlab 服务；
 
@@ -72,11 +74,19 @@ keywords: Gitee, webhook, Tapd
 
 所以是 Nginx 向 https://hook.tapd.cn 链接发起请求时，SSL 握手错误了。
 
-在网上搜了一些网友们的帖子后，得出的结论基本是因为客户端与服务端支持的 SSL protocol 版本不一致导致的，用工具查了一下 Tapd 服务器支持的 protocol 版本是 TLSv2，而我 Nginx 服务器的 OpenSSL 版本较低，可能不支持这个，于是先是升级了服务器上的 OpenSSL 的版本，参考 <https://blog.csdn.net/l1028386804/article/details/53165252>，然后通过重新编译升级了 Nginx 的 OpenSSL 版本，参考 <https://my.oschina.net/u/1449160/blog/220415>，之后问题解决。
+在网上搜了一些网友们的帖子后，得出的结论基本是因为客户端与服务端支持的 SSL protocol 版本不一致导致的，用工具查了一下 Tapd 服务器支持的 protocol 版本是 TLSv2，而我 Nginx 服务器的 OpenSSL 版本较低，可能不支持这个，于是先是升级了服务器上的 OpenSSL 的版本，然后通过重新编译升级了 Nginx 的 OpenSSL 版本，之后问题解决。这两步自己维护 Ngninx 服务器的同学应该不在话下，在此不再赘述，以下是我参考的链接：
+
+- 升级服务器 OpenSSL 版本： [CentOS之——升级openssl为最新版][]
+- 升级 Nginx 的 OpenSSL 版本：[nginx旧版本openssl升级][]
 
 ## 参考
 
-- [分享一个让源码关联支持Gogs/Gitee等平台的解决方案](https://www.tapd.cn/forum/view/67001)
-- [Tapd Git Hooks](https://github.com/notzheng/Tapd-Git-Hooks)
-- [nginx 旧版本openssl升级](https://my.oschina.net/u/1449160/blog/220415)
-- [CentOS之——升级openssl为最新版](https://blog.csdn.net/l1028386804/article/details/53165252)
+- [分享一个让源码关联支持Gogs/Gitee等平台的解决方案][]
+- [Tapd Git Hooks][]
+- [nginx旧版本openssl升级][]
+- [CentOS之——升级openssl为最新版][]
+
+[分享一个让源码关联支持Gogs/Gitee等平台的解决方案]: https://www.tapd.cn/forum/view/67001
+[Tapd Git Hooks]: https://github.com/notzheng/Tapd-Git-Hooks
+[nginx旧版本openssl升级]: https://my.oschina.net/u/1449160/blog/220415
+[CentOS之——升级openssl为最新版]: https://blog.csdn.net/l1028386804/article/details/53165252
