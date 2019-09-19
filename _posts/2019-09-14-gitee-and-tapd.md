@@ -6,7 +6,7 @@ description: 让 Tapd 的源码关联功能支持 Gitee 平台
 keywords: Gitee, webhook, Tapd
 ---
 
-本文记录了让 Tapd 的源码关联功能支持 Gitee 平台的方法，及摸索过程中遇到的问题的解决步骤。
+Tapd 是腾讯提供的越来越完善的项目管理工具，Gitee 是国内相对比较稳的代码托管平台。本文记录了让 Tapd 的源码关联功能支持 Gitee 平台的方法，及摸索过程中遇到的问题的解决步骤。
 
 ## 背景
 
