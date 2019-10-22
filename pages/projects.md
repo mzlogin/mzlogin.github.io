@@ -8,7 +8,7 @@ menu: 项目
 permalink: /projects/
 ---
 
-> 记多少命令和快捷键会让脑袋爆炸呢？
+> 看看我已经做过多少事？
 
 <ul class="listing">
 {% for projects in site.projects %}

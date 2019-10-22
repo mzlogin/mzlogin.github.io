@@ -1,6 +1,6 @@
 ---
 layout: wiki
-title: 悉BOARD
+title: xi_board
 categories: 前端
 description: 悉BOARD项目介绍
 keywords: 动态生成, Java Web, 卡片
