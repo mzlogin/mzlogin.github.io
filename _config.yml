@@ -81,6 +81,9 @@ gems:
     - jemoji
 #     - jekyll-mentions
 collections:
+    projects:
+        output: true
+        permalink: /projects/:path/
     wiki:
         output: true
         permalink: /wiki/:path/
