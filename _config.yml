@@ -4,23 +4,23 @@
 baseurl:
 url: https://fuhuacn.github.io
 date_format: "ordinal"
-title: 码志
-subtitle: "打码改变人生"
-description: "马壮的个人博客"
-keywords: 码志, Zhuang Ma, mzlogin, mazhuang
-timezone: Asia/Shanghai
+title: 付华的代码历程
+subtitle: "看看自己做过多少事"
+description: "付华的个人博客"
+keywords: 付华, FU Hua, coding, fuhua, fuhuacn
+timezone: Asia/Beijing
 encoding: "utf-8"
 side_bar_repo_limit: 5
 
 # ---------------- #
 #      Author      #
 # ---------------- #
-author: Zhuang Ma
+author: Fu Hua
 organization: 
 organization_url: 
-github_username: mzlogin
-location: Wuhan, China
-email: chumpma@gmail.com
+github_username: fuhuacn
+location: 北京
+email: fuhuacn@icloud.com
 
 # ---------------- #
 #    Navigation    #
@@ -42,9 +42,9 @@ navs:
     href: /wiki/
     label: 维基
 
-  -
-    href: /links/
-    label: 链接
+  # -
+  #   href: /links/
+  #   label: 链接
 
   -
     href: /about/
@@ -102,10 +102,10 @@ gitment:
         client_secret: b42a4178e5fd4a7cf63189ef4b1453b05c375709
 # https://github.com/gitalk/gitalk#install
 gitalk:
-    owner: mzlogin
-    repo: blog-comments
-    clientID: d2e1cbbd298958076462
-    clientSecret: b42a4178e5fd4a7cf63189ef4b1453b05c375709
+    owner: fuhuacn
+    repo: blogcomments
+    clientID: 19ec8d59b813952d0428
+    clientSecret: 9509edd1fe6d69d6004892576613d43a4e816e63
 # 在使用其它评论组件时可点击显示 Disqus
 lazy_load_disqus : false
 
@@ -122,4 +122,4 @@ simple_jekyll_search:
 #    Analytics     #
 # ---------------- #
 google:
-    analytics_id: UA-80669434-1
+    analytics_id: UA-150673330-1

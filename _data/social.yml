@@ -1,27 +1,11 @@
 - sitename: GitHub
-  name: mzlogin
-  url: https://github.com/mzlogin
-
-- sitename: 掘金
-  name: mzlogin
-  url: http://gold.xitu.io/user/570ddaeb2e958a005c63b2da
-
-- sitename: LinkedIn
-  name: mazhuang
-  url: https://www.linkedin.com/in/mazhuang
-
-- sitename: 博客
-  name: 码志
-  url: http://mazhuang.org
+  name: fuhuacn
+  url: https://github.com/fuhuacn
 
 - sitename: 微博
-  name: mzlogin
-  url: http://weibo.com/mzlogin
+  name: 北邮校长乔建永
+  url: https://www.weibo.com/u/2930989615/
 
 - sitename: 知乎
-  name: mzlogin
-  url: http://www.zhihu.com/people/mzlogin
-
-- sitename: 豆瓣
-  name: 壮哥不胖
-  url: http://www.douban.com/people/freedim
+  name: 北邮校长乔建永
+  url: https://www.zhihu.com/people/fu-hua-79-42/
