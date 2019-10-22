@@ -42,6 +42,10 @@ navs:
     href: /wiki/
     label: 维基
 
+  -
+    href: /projects/
+    label: 项目    
+
   # -
   #   href: /links/
   #   label: 链接
