@@ -2,7 +2,7 @@
 #   Main Configs   #
 # ---------------- #
 baseurl:
-url: https://mazhuang.org
+url: https://fuhuacn.github.io
 date_format: "ordinal"
 title: 码志
 subtitle: "打码改变人生"
@@ -81,7 +81,7 @@ collections:
         output: true
         permalink: /wiki/:path/
 
-repository: mzlogin/mzlogin.github.io
+repository: fuhuacn/fuhuacn.github.io
 
 # ---------------- #
 #      Comments    #
