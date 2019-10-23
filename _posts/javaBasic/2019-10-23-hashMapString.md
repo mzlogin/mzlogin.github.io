@@ -1,7 +1,7 @@
 ---
 layout: post
 title: HashMap中为什么不同地址的String当key时是相同的
-categories: JAVA基础
+categories: Java
 description: HashMap中为什么不同地址的String当key时是相同的
 keywords: JAVA,HashMap
 ---
