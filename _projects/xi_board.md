@@ -47,7 +47,7 @@ keywords: 动态生成, Java Web, 卡片
         - 数据库：MySQl
         - 后台 Struts2 + hibernate（由于项目启动较早比较老了）
         - 前端存储 localStorage
-        - 
+        - 前端 jQuery + Bootstrap
 
 4. 安装成果
 
