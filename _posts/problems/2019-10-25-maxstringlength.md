@@ -1,12 +1,14 @@
 ---
 layout: post
-title: 最长公共子字符串 JAVA
+title: 最长公共子问题 JAVA
 categories: Prolems
-description: 最长公共子字符串 JAVA
+description: 最长公共子问题 JAVA
 keywords: 最长公共子字符串,JAVA
 ---
 
-常用到求两个字符串的最长公共子字符串问题，在这里记录下两个解题方法。
+常用到求两个字符串的最长公共子问题，在这里记录下。
+
+## 最长公共子序列问题（不需要连续） ##
 
 1. 第一种解题方法是动态规划，dp[i][j]代表两个字符串从头分别到第i，j的位置有多少公共子字符串。之后用循环一直循环到头就可以了。
 
