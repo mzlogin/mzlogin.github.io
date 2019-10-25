@@ -44,3 +44,32 @@ public class Solution{
     }
 }
 ```
+
+## 最长公共子字符串 ##
+
+还是动态规划最方便，与子序列不同的是，dp[i][j]代表了到i，j位置的长度，如果不同了不在是找之前最大，而是长度归0，所以最后还要遍历dp，找最大
+
+``` java
+public class Solution{
+    public static void main(String[] args) {
+        System.out.println(maxLength("465465stfr", "str2"));
+    }
+    static int maxLength(String str, String str2){
+        int n1 = str.length();
+        int n2 = str2.length();
+        int[][] dp = new int[n1+1][n2+1];
+        int max = 0;
+        for(int i=1;i<=n1;i++){
+            for(int j=1;j<=n2;j++){
+                if(str.charAt(i-1)==str2.charAt(j-1)){ //此处应该减1.
+                    dp[i][j]=dp[i-1][j-1]+1;
+                    max = Math.max(dp[i][j],max);
+                }else{
+                    dp[i][j]=0;//这行可以不要，默认就是0
+                }
+            }
+        }
+        return max;
+    }
+}
+```
