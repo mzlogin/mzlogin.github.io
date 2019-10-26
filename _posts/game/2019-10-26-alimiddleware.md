@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 记录 第五届阿里中间件比赛 排名：33/4095
-categories: 比赛
+categories: Competitions
 description: 第五届阿里中间件比赛 33/4095
 keywords: 阿里，中间件，比赛
 ---
