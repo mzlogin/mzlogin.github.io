@@ -14,7 +14,7 @@ keywords: 阿里，中间件，比赛
 
 ## 赛题官方介绍
 
-[初赛官方链接](https://tianchi.aliyun.com/competition/entrance/231714/information)
+[赛题官方链接](https://tianchi.aliyun.com/competition/entrance/231714/information)
 
 ***虽然比赛已经结束一段时间了，但不妨记录一下这段中间件比赛的经历，感觉通过这个比赛还是收获到了不少的经验。***
 
@@ -285,7 +285,7 @@ keywords: 阿里，中间件，比赛
     + 加权随机法（这次尝试了）
     + 最小连接数法
 
-5. 代码 - https://code.aliyun.com/fuhuacn/adaptive-loadbalance?spm=a2111a.8458726.0.0.6c6c3531ejNZ2X
+5. [代码](https://code.aliyun.com/fuhuacn/adaptive-loadbalance?spm=a2111a.8458726.0.0.6c6c3531ejNZ2X)
 
 ## 复赛
 1. 复赛题目 - 实现一个进程内基于队列的消息持久化存储引擎
@@ -367,4 +367,4 @@ keywords: 阿里，中间件，比赛
 
     有的时候复杂的方法也不一定是短时间内最有效的。在比赛接近尾声的时候，我们还在考虑压缩的方法。而最终出结果后发现，最简单的尽可能填满内存的方法成绩反而更简单有效。这在以后的比赛中的最后关头，可以借鉴，思考是否有简单有效的暴力方案解决问题。
 
-7. 代码 - https://code.aliyun.com/747879583/mqrace2019?spm=a2111a.8458726.0.0.6c6c3531JT4wgt
+7. [代码](https://code.aliyun.com/747879583/mqrace2019?spm=a2111a.8458726.0.0.6c6c3531JT4wgt)
