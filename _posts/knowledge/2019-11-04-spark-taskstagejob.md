@@ -47,14 +47,14 @@ object WordCount {
 
 ## Stage
 
-在DAGScheduler中，会将每个job划分成多个stage，它会从触发action操作的那个RDD开始往前推，首先会为最后一个RDD创建一个stage，然后往前倒推的时候，如果发现对某个RDD是宽依赖，那么就会将宽依赖的那个RDD创建一个新的stage。（即在job中从后往前倒退，遇到宽依赖新建stage）
+在DAGScheduler中，会将每个job划分成多个stage，它会从触发action操作的那个RDD开始往前推，首先会为最后一个RDD创建一个stage，然后往前倒推的时候，如果发现对某个RDD是宽依赖（执行了shuffle操作），那么就会将宽依赖的那个RDD创建一个新的stage。（即在job中从后往前倒退，遇到宽依赖新建stage）
 
 ![Stage](/images/posts/knowledge/spark-taskstagejob/stage.png)
 
 >注：窄依赖:
 >
->+ 窄依赖：一般是transformation操作。父RDD和子RDD partition之间的关系是一对一的。不会有shuffle的产生。父RDD的一个分区去到子RDD的一个分区中。如：map，flatMap
->+ 宽依赖：一般是action操作。父RDD与子RDD partition之间的关系是一对多的。会有shuffle的产生。父RDD的一个分区去到子RDD的不同分区里面。如：reduceByKey
+>+ 窄依赖：一般是transformation操作。父RDD和子RDD partition之间的关系是一对一的。一个分区只会对应一个分区操作，不会有shuffle的产生。父RDD的一个分区去到子RDD的一个分区中。如：map，flatMap
+>+ 宽依赖：一般是action操作。父RDD与子RDD partition之间的关系是一对多的。一个分区可能会被之后的多个分区所用到，会有shuffle的产生。父RDD的一个分区去到子RDD的不同分区里面。如：reduceByKey
 > 注：join操作即可能是宽依赖也可能是窄依赖，当要对RDD进行join操作时，如果RDD进行过重分区则为窄依赖，否则为宽依赖。
 
 ## Task
@@ -96,7 +96,7 @@ task是stage下的一个任务执行单元，一般来说，一个rdd有多少�
 19/11/04 13:47:07 INFO Executor: Finished task 0.0 in stage 0.0 (TID 0). 1746 bytes result sent to driver
 19/11/04 13:47:07 INFO TaskSetManager: Finished task 1.0 in stage 0.0 (TID 1) in 117 ms on localhost (executor driver) (1/2)
 19/11/04 13:47:07 INFO TaskSetManager: Finished task 0.0 in stage 0.0 (TID 0) in 143 ms on localhost (executor driver) (2/2)
-19/11/04 13:47:07 INFO TaskSchedulerImpl: Removed TaskSet 0.0, whose tasks have all completed, from pool 
+19/11/04 13:47:07 INFO TaskSchedulerImpl: Removed TaskSet 0.0, whose tasks have all completed, from pool
 19/11/04 13:47:07 INFO DAGScheduler: ShuffleMapStage 0 (map at WordCount.scala:18) finished in 0.168 s
 19/11/04 13:47:07 INFO DAGScheduler: looking for newly runnable stages
 19/11/04 13:47:07 INFO DAGScheduler: running: Set()
