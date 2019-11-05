@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 一张图说明Iaas，PaaS和Saas的区别
-categories: Knowledge
+categories: Blogs
 description: 一张图说明Iaas，PaaS和Saas的区别
 keywords: IaaS,PaaS,SaaS
 ---
