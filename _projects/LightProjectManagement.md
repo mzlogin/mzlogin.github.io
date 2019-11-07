@@ -51,4 +51,4 @@ keywords: 任务规划, 项目管理，Java Web
 
     - [自邮之翼](http://www.free4inno.com) 官网
 
-5. [GitHub](https://github.com/fuhuacn/free_board)
+5. [GitHub](https://github.com/ShangfengDing/ProjectManagement)
