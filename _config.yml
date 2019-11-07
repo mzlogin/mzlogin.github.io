@@ -2,12 +2,12 @@
 #   Main Configs   #
 # ---------------- #
 baseurl:
-url: http://www.fuhuacn.top
-date_format: "ordinal"
-title: 付华的代码历程
-subtitle: "看看自己做过多少事"
-description: "付华的个人博客"
-keywords: 付华, FU Hua, coding, fuhua, fuhuacn
+url: https://shangfengding.github.io/
+date_format: "GreenHand程序猿"
+title: GreenHand程序猿
+subtitle: "GreenHand的成长之路"
+description: "丁上峰的个人博客"
+keywords: 丁上峰, Shangfeng Ding, coding, shangfengding, shangfengding
 timezone: Asia/Beijing
 encoding: "utf-8"
 side_bar_repo_limit: 5
@@ -15,12 +15,12 @@ side_bar_repo_limit: 5
 # ---------------- #
 #      Author      #
 # ---------------- #
-author: Fu Hua
+author: Shangfeng Ding
 organization: 
 organization_url: 
-github_username: fuhuacn
+github_username: ShangfengDing
 location: 北京
-email: fuhuacn@icloud.com
+email: shangfeng.ding@Outlook.com
 
 # ---------------- #
 #    Navigation    #
@@ -88,7 +88,7 @@ collections:
         output: true
         permalink: /wiki/:path/
 
-repository: fuhuacn/fuhuacn.github.io
+repository: ShangfengDing/ShangfengDing.github.io
 
 # ---------------- #
 #      Comments    #
