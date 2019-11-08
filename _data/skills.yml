@@ -1,5 +1,6 @@
 - name: 软件开发
   keywords:
       - Java
-      - Hadoop/Spark
+      - kvm
+      - flink
       - Java Web
