@@ -1,3 +1,11 @@
+---
+layout: wiki
+title: IaaS
+categories: 云计算
+description: IaaS介绍
+keywords: 云计算, 融合云，KVM
+---
+
 # IaaS
 
 一个完备的融合云平台，支持云主机，云硬盘的创建，并且可以个性化管理云镜像，并且通过提供开放的api接口，使第三方应用可以方便的使用云弹性计算服务。
