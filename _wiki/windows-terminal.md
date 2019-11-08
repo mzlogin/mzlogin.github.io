@@ -33,3 +33,14 @@ New-Item -ItemType SymbolicLink -Path ~/Documents/WindowsPowerShell/Microsoft.Po
 ```
 
 我的 PowerShell 配置见 <https://github.com/mzlogin/config-files/blob/master/powershell.ps1>
+
+## 自定义快捷键
+
+比如在 json 配置文件的 globals -- keybindings 里添加如下内容，可以将 Windows Terminal 的复制粘贴映射为 ctrl+c 和 ctrl+v（这里真的要吐槽下，为什么不给默认映射上呢？）：
+
+```json
+{ "command": "copy", "keys": ["ctrl+c"] },
+{ "command": "paste", "keys": ["ctrl+v"]}
+```
+
+参考：<https://github.com/microsoft/terminal/blob/master/doc/user-docs/UsingJsonSettings.md>
