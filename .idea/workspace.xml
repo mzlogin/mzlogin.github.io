@@ -2,10 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8f9fff00-0e83-4e44-996c-0b357bea2ffa" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/posts/problems/leetcode11/question_11.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/posts/problems/leetcode17/pro17.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/posts/problems/leetcode31/31_nums_graph.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/posts/problems/leetcode32/pro32.JPG" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/problems/2019-10-22-leetcode.md" afterPath="$PROJECT_DIR$/_posts/problems/2019-10-22-leetcode.md" />
     </list>
@@ -18,39 +14,15 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="2019-11-8-flink-base.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_posts/knowledge/2019-11-8-flink-base.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="3797">
-                <caret line="155" column="0" lean-forward="false" selection-start-line="155" selection-start-column="0" selection-end-line="155" selection-end-column="0" />
-                <folding />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="template.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_posts/template.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="81">
-                <caret line="3" column="16" lean-forward="false" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
-                <folding />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="2019-10-22-leetcode.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/_posts/problems/2019-10-22-leetcode.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="88">
-                <caret line="1144" column="13" lean-forward="true" selection-start-line="1144" selection-start-column="13" selection-end-line="1144" selection-end-column="13" />
-                <folding />
+              <first_editor relative-caret-position="-236">
+                <caret line="1815" column="51" lean-forward="false" selection-start-line="1815" selection-start-column="51" selection-end-line="1815" selection-end-column="51" />
+                <folding>
+                  <marker date="1573566751474" expanded="true" signature="37232:37791" ph="{...}" />
+                </folding>
               </first_editor>
               <second_editor />
             </state>
@@ -348,7 +320,7 @@
       <option name="presentableId" value="Default" />
       <updated>1573110385754</updated>
       <workItem from="1573110387210" duration="8051000" />
-      <workItem from="1573119106478" duration="36953000" />
+      <workItem from="1573119106478" duration="50603000" />
     </task>
     <task id="LOCAL-00001" summary="个人信息">
       <created>1573111101886</created>
@@ -403,7 +375,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45004000" />
+    <option name="totallyTimeSpent" value="58654000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -738,17 +710,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/template.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="81">
-            <caret line="3" column="16" lean-forward="false" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/_posts/problems/2019-10-25-maxstringlength.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -771,12 +732,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/template.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="81">
+            <caret line="3" column="16" lean-forward="false" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/_posts/problems/2019-10-22-leetcode.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="88">
-            <caret line="1144" column="13" lean-forward="true" selection-start-line="1144" selection-start-column="13" selection-end-line="1144" selection-end-column="13" />
-            <folding />
+          <first_editor relative-caret-position="-236">
+            <caret line="1815" column="51" lean-forward="false" selection-start-line="1815" selection-start-column="51" selection-end-line="1815" selection-end-column="51" />
+            <folding>
+              <marker date="1573566751474" expanded="true" signature="37232:37791" ph="{...}" />
+            </folding>
           </first_editor>
           <second_editor />
         </state>
