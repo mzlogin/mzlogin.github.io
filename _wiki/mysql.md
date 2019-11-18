@@ -52,18 +52,18 @@ select @a/@b;
 
 ```sql
 SELECT
- table_name,
-     TABLE_SCHEMA,
-     ( DATA_LENGTH + INDEX_LENGTH + DATA_FREE ) / 1024 / 1024 MB,
-     TABLE_ROWS
+table_name,
+    TABLE_SCHEMA,
+    ( DATA_LENGTH + INDEX_LENGTH + DATA_FREE ) / 1024 / 1024 MB,
+    TABLE_ROWS
     FROM
-     information_schema. TABLES
+    information_schema. TABLES
     WHERE
-     TABLE_SCHEMA NOT IN ('information_schema','mysql')
+    TABLE_SCHEMA NOT IN ('information_schema','mysql')
     ORDER BY
-     MB DESC
+    MB DESC
     LIMIT 0,
-     50
+    50
 ```
 
 查看表中数据、索引、已分配给表但没有使用空间：
