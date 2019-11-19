@@ -18,10 +18,10 @@
         <entry file="file://$PROJECT_DIR$/_posts/problems/2019-10-22-leetcode.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="459">
-                <caret line="2862" column="7" lean-forward="true" selection-start-line="2862" selection-start-column="7" selection-end-line="2862" selection-end-column="7" />
+              <first_editor relative-caret-position="-3158">
+                <caret line="2108" column="70" lean-forward="true" selection-start-line="2108" selection-start-column="70" selection-end-line="2108" selection-end-column="70" />
                 <folding>
-                  <marker date="1574130776190" expanded="true" signature="37232:37791" ph="{...}" />
+                  <marker date="1574131400255" expanded="true" signature="37232:37791" ph="{...}" />
                 </folding>
               </first_editor>
               <second_editor />
@@ -321,7 +321,7 @@
       <updated>1573110385754</updated>
       <workItem from="1573110387210" duration="8051000" />
       <workItem from="1573119106478" duration="70438000" />
-      <workItem from="1574067789965" duration="7219000" />
+      <workItem from="1574067789965" duration="7629000" />
     </task>
     <task id="LOCAL-00001" summary="个人信息">
       <created>1573111101886</created>
@@ -376,10 +376,11 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="85708000" />
+    <option name="totallyTimeSpent" value="86118000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -389,7 +390,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960895" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32960895" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32960895" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18550107" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -461,7 +462,7 @@
           <first_editor relative-caret-position="0">
             <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
             <folding>
-              <marker date="1574130776190" expanded="true" signature="37232:37791" ph="{...}" />
+              <marker date="1574131400255" expanded="true" signature="37232:37791" ph="{...}" />
             </folding>
           </first_editor>
           <second_editor />
@@ -714,10 +715,10 @@
     <entry file="file://$PROJECT_DIR$/_posts/problems/2019-10-22-leetcode.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="459">
-            <caret line="2862" column="7" lean-forward="true" selection-start-line="2862" selection-start-column="7" selection-end-line="2862" selection-end-column="7" />
+          <first_editor relative-caret-position="-3158">
+            <caret line="2108" column="70" lean-forward="true" selection-start-line="2108" selection-start-column="70" selection-end-line="2108" selection-end-column="70" />
             <folding>
-              <marker date="1574130776190" expanded="true" signature="37232:37791" ph="{...}" />
+              <marker date="1574131400255" expanded="true" signature="37232:37791" ph="{...}" />
             </folding>
           </first_editor>
           <second_editor />
