@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 让 Tapd 的源码关联功能支持 Gitee 平台
-categories: tools
+categories: Tools
 description: 让 Tapd 的源码关联功能支持 Gitee 平台
 keywords: Gitee, webhook, Tapd
 ---
