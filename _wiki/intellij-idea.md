@@ -64,6 +64,18 @@ File -> Project Structure -> Artifacts -> Click green plus sign -> Jav -> From m
 
 Build -> Build Artifacts
 
+### 去掉 UTF-8 文件的 BOM
+
+UTF-8 文件带 BOM 里会编译报错：
+
+```
+Error:(1, 1) error: illegalcharacter: '\ufeff'
+```
+
+解决方法：
+
+右键项目名称 -> Remove BOM
+
 ## 参考
 
 * [解决IntelliJ IDEA无法读取配置*.properties文件的问题](http://www.cnblogs.com/zqr99/p/7642712.html)
