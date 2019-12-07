@@ -19,33 +19,33 @@ keywords: Flink, Drools, Kafka, RETE算法
 
 ## 总体架构
 
-![架构图](/images/peojects/DecisionEngine/frame1.jpg)
-第一阶段
+![架构图](/images/peojects/DecisionEngine/frame1.jpg)  
+<center>第一阶段</center>
 
 在代码开始的第一阶段，主要为了验证技术路线的可行性，确认Flink连接Kafka，并在Flink内部集成drools的可行性，没有做任何的性能指标考量，只为了能快速产出一个可运行可展示的系统。或者说此阶段为技术路线验证阶段。架构如上，Flink读取Kafka的指定topic，获得流数据，为了满足规则的可编辑性，将规则放入MySQL数据库中，每条数据来的时候，查询数据库获得所有规则。使用Drools将读取的所有规则构建RETE规则网，数据在规则网内进行匹配，如果触发，执行数据库中定义的决策语句，决策动作完成之后，接收下一条数据。
 
-![架构图](/images/peojects/DecisionEngine/frame2.jpg)
+![架构图](/images/peojects/DecisionEngine/frame2.jpg)  
 第二阶段
 
 在第一阶段验证成功之后，开始思考此决策引擎需要满足的特性，首先是需要支持海量规则，在技术论证阶段将所有规则读入的方式必然是不合理的，因为并不是这个topic会用到所有的规则，因此在第二阶段我引入了rule set的概念，将topic和rule set进行对应（有可能是多对一的关系），将原来的所有规则划分成了多个rule set，在数据到达时，只需去数据库中加载和此topic相关的rule set并构建规则子网即可。使决策引擎对海量规则提供了一定的持支。总结：flink和kafka满足了实时的特性，avro满足了数据格式的统一性接入，drools满足RETE规则网匹配算法，数据库和rule set提供对海量规则和可编辑性的支持。
 
-![架构图](/images/peojects/DecisionEngine/frame3.jpg)
+![架构图](/images/peojects/DecisionEngine/frame3.jpg)  
 第三阶段
 
 在第二阶段满足了决策引擎的基本特性之后，开始逐步考虑决策引擎的优化问题。首先我第一个想到的是与数据库的交互问题，在原架构中，每一条数据都需要和db进行一次接连交互，在数据量吞吐量很大的时候，mysql的连接数将变得不可控，对数据库的压力较大，并且影响决策引擎的效率。考虑到业务规则更改的频率并不一定很高，每次去数据库取规则获得最新规则并不是必须的，因此，将规则内容获取模块抽离，此模块将定时获得最新规则，并将新的规则写入内存，这样当数据来的时候，只需使用内存中的规则即可。规则的刷新时间可根据业务需求进行动态配置。在我的项目中，我设置为1分钟读取一次新的数据并写入内存。
 
-![架构图](/images/peojects/DecisionEngine/frame4.jpg)
+![架构图](/images/peojects/DecisionEngine/frame4.jpg)  
 第四阶段
 
 在解决了数据库的
 
-![架构图](/images/peojects/DecisionEngine/frame5.jpg)
+![架构图](/images/peojects/DecisionEngine/frame5.png)  
 第五阶段
 
-![架构图](/images/peojects/DecisionEngine/frame6.jpg)
+![架构图](/images/peojects/DecisionEngine/frame6.png)  
 第六阶段
 
-![架构图](/images/peojects/DecisionEngine/frame7.jpg)
+![架构图](/images/peojects/DecisionEngine/frame7.png)  
 第七阶段
 
 
