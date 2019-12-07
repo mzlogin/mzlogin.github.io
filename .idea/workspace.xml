@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8f9fff00-0e83-4e44-996c-0b357bea2ffa" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/peojects/DecisionEngine/asynchronous.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/images/peojects/DecisionEngine/asynchronous.jpg" afterPath="$PROJECT_DIR$/images/peojects/DecisionEngine/asynchronous.jpg" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_projects/DecisionEngine.md" afterPath="$PROJECT_DIR$/_projects/DecisionEngine.md" />
     </list>
@@ -47,8 +47,8 @@
         <entry file="file://$PROJECT_DIR$/_projects/DecisionEngine.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="349">
-                <caret line="58" column="120" lean-forward="false" selection-start-line="58" selection-start-column="120" selection-end-line="58" selection-end-column="120" />
+              <first_editor relative-caret-position="281">
+                <caret line="22" column="23" lean-forward="false" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -372,7 +372,7 @@
       <workItem from="1574650842227" duration="14806000" />
       <workItem from="1574954307438" duration="1660000" />
       <workItem from="1575084018771" duration="26068000" />
-      <workItem from="1575365693605" duration="14623000" />
+      <workItem from="1575365693605" duration="15339000" />
     </task>
     <task id="LOCAL-00001" summary="个人信息">
       <created>1573111101886</created>
@@ -427,7 +427,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="152034000" />
+    <option name="totallyTimeSpent" value="152750000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -845,8 +845,8 @@
     <entry file="file://$PROJECT_DIR$/_projects/DecisionEngine.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="349">
-            <caret line="58" column="120" lean-forward="false" selection-start-line="58" selection-start-column="120" selection-end-line="58" selection-end-column="120" />
+          <first_editor relative-caret-position="281">
+            <caret line="22" column="23" lean-forward="false" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
             <folding />
           </first_editor>
           <second_editor />
