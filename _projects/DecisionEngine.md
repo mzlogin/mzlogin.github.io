@@ -24,9 +24,9 @@ keywords: Flink, Drools, Kafka, RETE算法
 <div style="text-align: center">
     <img src="/images/peojects/DecisionEngine/frame1.jpg"/>
 </div>
-<center>第一阶段<br></center>  
+<center>第一阶段<br><br /></center>  
 
-在代码开始的第一阶段，主要为了验证技术路线的可行性，确认Flink连接Kafka，并在Flink内部集成drools的可行性，没有做任何的性能指标考量，只为了能快速产出一个可运行可展示的系统。或者说此阶段为技术路线验证阶段。架构如上，Flink读取Kafka的指定topic，获得流数据，为了满足规则的可编辑性，将规则放入MySQL数据库中，每条数据来的时候，查询数据库获得所有规则。使用Drools将读取的所有规则构建RETE规则网，数据在规则网内进行匹配，如果触发，执行数据库中定义的决策语句，决策动作完成之后，接收下一条数据。
+  在代码开始的第一阶段，主要为了验证技术路线的可行性，确认Flink连接Kafka，并在Flink内部集成drools的可行性，没有做任何的性能指标考量，只为了能快速产出一个可运行可展示的系统。或者说此阶段为技术路线验证阶段。架构如上，Flink读取Kafka的指定topic，获得流数据，为了满足规则的可编辑性，将规则放入MySQL数据库中，每条数据来的时候，查询数据库获得所有规则。使用Drools将读取的所有规则构建RETE规则网，数据在规则网内进行匹配，如果触发，执行数据库中定义的决策语句，决策动作完成之后，接收下一条数据。
 
 <div style="text-align: center">
     <img src="/images/peojects/DecisionEngine/frame2.jpg"/>
