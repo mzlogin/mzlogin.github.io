@@ -198,6 +198,18 @@ keywords: Vim
 | 缩进当前行              | `>>`                           |
 | 反缩进当前行            | `<<`                           |
 
+### modeline
+
+写法：
+
+```
+ vim: set ft=markdown:
+ vim: ft=markdown
+
+// vim: noai:ts=4:sw=4
+/* vim: noai:ts=4:sw=4 */
+```
+
 ### 插件
 
 #### CtrlP
