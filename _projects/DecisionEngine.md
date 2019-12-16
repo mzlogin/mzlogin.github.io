@@ -33,7 +33,7 @@ keywords: Flink, Drools, Kafka, RETE算法
 </div>
 <center>第二阶段<br><br /></center>
 
-在第一阶段验证成功之后，开始思考此决策引擎需要满足的特性，首先是需要支持海量规则，在技术论证阶段将所有规则读入的方式必然是不合理的，因为并不是这个topic会用到所有的规则，因此在第二阶段我引入了rule set的概念，将topic和rule set进行对应（有可能是多对一的关系），将原来的所有规则划分成了多个rule set，在数据到达时，只需去数据库中加载和此topic相关的rule set并构建规则子网即可。使决策引擎对海量规则提供了一定的持支。总结：flink和kafka满足了实时的特性，avro满足了数据格式的统一性接入，drools满足RETE规则网匹配算法，数据库和rule set提供对海量规则和可编辑性的支持。  
+在第一阶段验证成功之后，开始思考此决策引擎需要满足的特性，首先是需要支持海量规则，在技术论证阶段将所有规则读入的方式必然是不合理的，因为并不是这个topic会用到所有的规则，因此在第二阶段我引入了rule set的概念，将topic和rule set进行对应（有可能是多对一的关系），将原来的所有规则划分成了多个rule set，在数据到达时，只需去数据库中加载和此topic相关的rule set并构建规则子网即可。使决策引擎对海量规则提供了一定的支持。总结：flink和kafka满足了实时的特性，avro满足了数据格式的统一性接入，drools满足RETE规则网匹配算法，数据库和rule set提供对海量规则和可编辑性的支持。  
 
 <div style="text-align: center">
     <img src="/images/peojects/DecisionEngine/frame3.jpg"/>
