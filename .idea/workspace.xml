@@ -2,9 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8f9fff00-0e83-4e44-996c-0b357bea2ffa" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/posts/problems/leetcode318/318.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/posts/problems/leetcode337/337.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/posts/problems/leetcode337/WX20191115-211021.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/posts/problems/leetcode437/WX20191120-184942.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/posts/problems/leetcode538/538.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/posts/problems/leetcode543/543.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/posts/problems/leetcode617/WX20191127-110641.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/problems/2019-10-22-leetcode.md" afterPath="$PROJECT_DIR$/_posts/problems/2019-10-22-leetcode.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_projects/DecisionEngine.md" afterPath="$PROJECT_DIR$/_projects/DecisionEngine.md" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -19,10 +25,10 @@
         <entry file="file://$PROJECT_DIR$/_posts/problems/2019-10-22-leetcode.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="-729">
-                <caret line="5010" column="39" lean-forward="true" selection-start-line="5010" selection-start-column="39" selection-end-line="5010" selection-end-column="39" />
+              <first_editor relative-caret-position="269">
+                <caret line="5244" column="38" lean-forward="true" selection-start-line="5244" selection-start-column="38" selection-end-line="5244" selection-end-column="38" />
                 <folding>
-                  <marker date="1576313016326" expanded="true" signature="37232:37791" ph="{...}" />
+                  <marker date="1576566297698" expanded="true" signature="37232:37791" ph="{...}" />
                 </folding>
               </first_editor>
               <second_editor />
@@ -89,8 +95,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="78" />
-    <option name="y" value="156" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
     <option name="width" value="1936" />
     <option name="height" value="1056" />
   </component>
@@ -178,13 +184,6 @@
               <item name="ShangfengDing.github.io" type="b2602c69:ProjectViewProjectNode" />
               <item name="ShangfengDing.github.io" type="462c0819:PsiDirectoryNode" />
               <item name="images" type="462c0819:PsiDirectoryNode" />
-              <item name="peojects" type="462c0819:PsiDirectoryNode" />
-              <item name="DecisionEngine" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ShangfengDing.github.io" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ShangfengDing.github.io" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
               <item name="posts" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -200,31 +199,7 @@
               <item name="images" type="462c0819:PsiDirectoryNode" />
               <item name="posts" type="462c0819:PsiDirectoryNode" />
               <item name="problems" type="462c0819:PsiDirectoryNode" />
-              <item name="leetcode11" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ShangfengDing.github.io" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ShangfengDing.github.io" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
-              <item name="posts" type="462c0819:PsiDirectoryNode" />
-              <item name="problems" type="462c0819:PsiDirectoryNode" />
-              <item name="leetcode17" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ShangfengDing.github.io" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ShangfengDing.github.io" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
-              <item name="posts" type="462c0819:PsiDirectoryNode" />
-              <item name="problems" type="462c0819:PsiDirectoryNode" />
-              <item name="leetcode31" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ShangfengDing.github.io" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ShangfengDing.github.io" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
-              <item name="posts" type="462c0819:PsiDirectoryNode" />
-              <item name="problems" type="462c0819:PsiDirectoryNode" />
-              <item name="leetcode32" type="462c0819:PsiDirectoryNode" />
+              <item name="leetcode337" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ShangfengDing.github.io" type="b2602c69:ProjectViewProjectNode" />
@@ -250,11 +225,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="H:\code\Intellij Idea\ShangfengDing.github.io\images\posts\problems" />
+      <recent name="H:\code\Intellij Idea\ShangfengDing.github.io\images\posts\problems\leetcode337" />
       <recent name="H:\code\Intellij Idea\ShangfengDing.github.io\images\peojects\DecisionEngine" />
       <recent name="H:\code\Intellij Idea\ShangfengDing.github.io\_projects" />
       <recent name="H:\code\Intellij Idea\ShangfengDing.github.io\images\posts\problems\leetcode32" />
-      <recent name="H:\code\Intellij Idea\ShangfengDing.github.io\images\posts\problems\leetcode31" />
-      <recent name="H:\code\Intellij Idea\ShangfengDing.github.io\images\posts\problems\leetcode17" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -373,7 +348,7 @@
       <workItem from="1574954307438" duration="1660000" />
       <workItem from="1575084018771" duration="26068000" />
       <workItem from="1575365693605" duration="18850000" />
-      <workItem from="1576205947591" duration="16509000" />
+      <workItem from="1576205947591" duration="18354000" />
     </task>
     <task id="LOCAL-00001" summary="个人信息">
       <created>1573111101886</created>
@@ -428,7 +403,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="172770000" />
+    <option name="totallyTimeSpent" value="174615000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -443,7 +418,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960895" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2793296" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27821228" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17857143" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -514,7 +489,7 @@
           <first_editor relative-caret-position="0">
             <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
             <folding>
-              <marker date="1576313016326" expanded="true" signature="37232:37791" ph="{...}" />
+              <marker date="1576566297698" expanded="true" signature="37232:37791" ph="{...}" />
             </folding>
           </first_editor>
           <second_editor />
@@ -549,7 +524,7 @@
           <first_editor relative-caret-position="0">
             <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
             <folding>
-              <marker date="1576313016326" expanded="true" signature="37232:37791" ph="{...}" />
+              <marker date="1576566297698" expanded="true" signature="37232:37791" ph="{...}" />
             </folding>
           </first_editor>
           <second_editor />
@@ -562,7 +537,7 @@
           <first_editor relative-caret-position="0">
             <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
             <folding>
-              <marker date="1576313016326" expanded="true" signature="37232:37791" ph="{...}" />
+              <marker date="1576566297698" expanded="true" signature="37232:37791" ph="{...}" />
             </folding>
           </first_editor>
           <second_editor />
@@ -575,7 +550,7 @@
           <first_editor relative-caret-position="0">
             <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
             <folding>
-              <marker date="1576313016326" expanded="true" signature="37232:37791" ph="{...}" />
+              <marker date="1576566297698" expanded="true" signature="37232:37791" ph="{...}" />
             </folding>
           </first_editor>
           <second_editor />
@@ -588,7 +563,7 @@
           <first_editor relative-caret-position="0">
             <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
             <folding>
-              <marker date="1576313016326" expanded="true" signature="37232:37791" ph="{...}" />
+              <marker date="1576566297698" expanded="true" signature="37232:37791" ph="{...}" />
             </folding>
           </first_editor>
           <second_editor />
@@ -601,7 +576,7 @@
           <first_editor relative-caret-position="0">
             <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
             <folding>
-              <marker date="1576313016326" expanded="true" signature="37232:37791" ph="{...}" />
+              <marker date="1576566297698" expanded="true" signature="37232:37791" ph="{...}" />
             </folding>
           </first_editor>
           <second_editor />
@@ -614,7 +589,7 @@
           <first_editor relative-caret-position="0">
             <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
             <folding>
-              <marker date="1576313016326" expanded="true" signature="37232:37791" ph="{...}" />
+              <marker date="1576566297698" expanded="true" signature="37232:37791" ph="{...}" />
             </folding>
           </first_editor>
           <second_editor />
@@ -879,10 +854,10 @@
     <entry file="file://$PROJECT_DIR$/_posts/problems/2019-10-22-leetcode.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="-729">
-            <caret line="5010" column="39" lean-forward="true" selection-start-line="5010" selection-start-column="39" selection-end-line="5010" selection-end-column="39" />
+          <first_editor relative-caret-position="269">
+            <caret line="5244" column="38" lean-forward="true" selection-start-line="5244" selection-start-column="38" selection-end-line="5244" selection-end-column="38" />
             <folding>
-              <marker date="1576313016326" expanded="true" signature="37232:37791" ph="{...}" />
+              <marker date="1576566297698" expanded="true" signature="37232:37791" ph="{...}" />
             </folding>
           </first_editor>
           <second_editor />
