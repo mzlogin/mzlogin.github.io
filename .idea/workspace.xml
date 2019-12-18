@@ -2,13 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8f9fff00-0e83-4e44-996c-0b357bea2ffa" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/posts/problems/leetcode318/318.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/posts/problems/leetcode337/337.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/posts/problems/leetcode337/WX20191115-211021.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/posts/problems/leetcode437/WX20191120-184942.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/posts/problems/leetcode538/538.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/posts/problems/leetcode543/543.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/posts/problems/leetcode617/WX20191127-110641.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/problems/2019-10-22-leetcode.md" afterPath="$PROJECT_DIR$/_posts/problems/2019-10-22-leetcode.md" />
     </list>
@@ -25,10 +18,10 @@
         <entry file="file://$PROJECT_DIR$/_posts/problems/2019-10-22-leetcode.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="269">
-                <caret line="5244" column="38" lean-forward="true" selection-start-line="5244" selection-start-column="38" selection-end-line="5244" selection-end-column="38" />
+              <first_editor relative-caret-position="107">
+                <caret line="5469" column="32" lean-forward="true" selection-start-line="5469" selection-start-column="32" selection-end-line="5469" selection-end-column="32" />
                 <folding>
-                  <marker date="1576566297698" expanded="true" signature="37232:37791" ph="{...}" />
+                  <marker date="1576682124357" expanded="true" signature="37232:37791" ph="{...}" />
                 </folding>
               </first_editor>
               <second_editor />
@@ -95,8 +88,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
+    <option name="x" value="1914" />
+    <option name="y" value="83" />
     <option name="width" value="1936" />
     <option name="height" value="1056" />
   </component>
@@ -348,7 +341,7 @@
       <workItem from="1574954307438" duration="1660000" />
       <workItem from="1575084018771" duration="26068000" />
       <workItem from="1575365693605" duration="18850000" />
-      <workItem from="1576205947591" duration="18354000" />
+      <workItem from="1576205947591" duration="33168000" />
     </task>
     <task id="LOCAL-00001" summary="个人信息">
       <created>1573111101886</created>
@@ -403,10 +396,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="174615000" />
+    <option name="totallyTimeSpent" value="189429000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -489,7 +482,7 @@
           <first_editor relative-caret-position="0">
             <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
             <folding>
-              <marker date="1576566297698" expanded="true" signature="37232:37791" ph="{...}" />
+              <marker date="1576682124357" expanded="true" signature="37232:37791" ph="{...}" />
             </folding>
           </first_editor>
           <second_editor />
@@ -524,7 +517,7 @@
           <first_editor relative-caret-position="0">
             <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
             <folding>
-              <marker date="1576566297698" expanded="true" signature="37232:37791" ph="{...}" />
+              <marker date="1576682124357" expanded="true" signature="37232:37791" ph="{...}" />
             </folding>
           </first_editor>
           <second_editor />
@@ -537,7 +530,7 @@
           <first_editor relative-caret-position="0">
             <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
             <folding>
-              <marker date="1576566297698" expanded="true" signature="37232:37791" ph="{...}" />
+              <marker date="1576682124357" expanded="true" signature="37232:37791" ph="{...}" />
             </folding>
           </first_editor>
           <second_editor />
@@ -550,7 +543,7 @@
           <first_editor relative-caret-position="0">
             <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
             <folding>
-              <marker date="1576566297698" expanded="true" signature="37232:37791" ph="{...}" />
+              <marker date="1576682124357" expanded="true" signature="37232:37791" ph="{...}" />
             </folding>
           </first_editor>
           <second_editor />
@@ -563,7 +556,7 @@
           <first_editor relative-caret-position="0">
             <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
             <folding>
-              <marker date="1576566297698" expanded="true" signature="37232:37791" ph="{...}" />
+              <marker date="1576682124357" expanded="true" signature="37232:37791" ph="{...}" />
             </folding>
           </first_editor>
           <second_editor />
@@ -576,7 +569,7 @@
           <first_editor relative-caret-position="0">
             <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
             <folding>
-              <marker date="1576566297698" expanded="true" signature="37232:37791" ph="{...}" />
+              <marker date="1576682124357" expanded="true" signature="37232:37791" ph="{...}" />
             </folding>
           </first_editor>
           <second_editor />
@@ -589,7 +582,7 @@
           <first_editor relative-caret-position="0">
             <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
             <folding>
-              <marker date="1576566297698" expanded="true" signature="37232:37791" ph="{...}" />
+              <marker date="1576682124357" expanded="true" signature="37232:37791" ph="{...}" />
             </folding>
           </first_editor>
           <second_editor />
@@ -854,10 +847,10 @@
     <entry file="file://$PROJECT_DIR$/_posts/problems/2019-10-22-leetcode.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="269">
-            <caret line="5244" column="38" lean-forward="true" selection-start-line="5244" selection-start-column="38" selection-end-line="5244" selection-end-column="38" />
+          <first_editor relative-caret-position="107">
+            <caret line="5469" column="32" lean-forward="true" selection-start-line="5469" selection-start-column="32" selection-end-line="5469" selection-end-column="32" />
             <folding>
-              <marker date="1576566297698" expanded="true" signature="37232:37791" ph="{...}" />
+              <marker date="1576682124357" expanded="true" signature="37232:37791" ph="{...}" />
             </folding>
           </first_editor>
           <second_editor />
