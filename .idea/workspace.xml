@@ -18,10 +18,10 @@
         <entry file="file://$PROJECT_DIR$/_posts/problems/2019-10-22-leetcode.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="351">
-                <caret line="6122" column="4" lean-forward="true" selection-start-line="6122" selection-start-column="4" selection-end-line="6122" selection-end-column="4" />
+              <first_editor relative-caret-position="151">
+                <caret line="3000" column="0" lean-forward="true" selection-start-line="3000" selection-start-column="0" selection-end-line="3000" selection-end-column="0" />
                 <folding>
-                  <marker date="1577690295091" expanded="true" signature="37232:37791" ph="{...}" />
+                  <marker date="1577693941854" expanded="true" signature="37232:37791" ph="{...}" />
                 </folding>
               </first_editor>
               <second_editor />
@@ -343,7 +343,7 @@
       <workItem from="1575365693605" duration="18850000" />
       <workItem from="1576205947591" duration="33295000" />
       <workItem from="1576738138897" duration="11996000" />
-      <workItem from="1577244150964" duration="14320000" />
+      <workItem from="1577244150964" duration="17507000" />
     </task>
     <task id="LOCAL-00001" summary="个人信息">
       <created>1573111101886</created>
@@ -398,10 +398,11 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="215872000" />
+    <option name="totallyTimeSpent" value="219059000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -412,7 +413,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960895" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27709496" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27709496" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18176973" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -483,7 +484,7 @@
           <first_editor relative-caret-position="0">
             <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
             <folding>
-              <marker date="1577690295091" expanded="true" signature="37232:37791" ph="{...}" />
+              <marker date="1577693941854" expanded="true" signature="37232:37791" ph="{...}" />
             </folding>
           </first_editor>
           <second_editor />
@@ -518,7 +519,7 @@
           <first_editor relative-caret-position="0">
             <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
             <folding>
-              <marker date="1577690295091" expanded="true" signature="37232:37791" ph="{...}" />
+              <marker date="1577693941854" expanded="true" signature="37232:37791" ph="{...}" />
             </folding>
           </first_editor>
           <second_editor />
@@ -553,7 +554,7 @@
           <first_editor relative-caret-position="0">
             <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
             <folding>
-              <marker date="1577690295091" expanded="true" signature="37232:37791" ph="{...}" />
+              <marker date="1577693941854" expanded="true" signature="37232:37791" ph="{...}" />
             </folding>
           </first_editor>
           <second_editor />
@@ -588,7 +589,7 @@
           <first_editor relative-caret-position="0">
             <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
             <folding>
-              <marker date="1577690295091" expanded="true" signature="37232:37791" ph="{...}" />
+              <marker date="1577693941854" expanded="true" signature="37232:37791" ph="{...}" />
             </folding>
           </first_editor>
           <second_editor />
@@ -601,7 +602,7 @@
           <first_editor relative-caret-position="0">
             <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
             <folding>
-              <marker date="1577690295091" expanded="true" signature="37232:37791" ph="{...}" />
+              <marker date="1577693941854" expanded="true" signature="37232:37791" ph="{...}" />
             </folding>
           </first_editor>
           <second_editor />
@@ -614,7 +615,7 @@
           <first_editor relative-caret-position="0">
             <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
             <folding>
-              <marker date="1577690295091" expanded="true" signature="37232:37791" ph="{...}" />
+              <marker date="1577693941854" expanded="true" signature="37232:37791" ph="{...}" />
             </folding>
           </first_editor>
           <second_editor />
@@ -627,7 +628,7 @@
           <first_editor relative-caret-position="0">
             <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
             <folding>
-              <marker date="1577690295091" expanded="true" signature="37232:37791" ph="{...}" />
+              <marker date="1577693941854" expanded="true" signature="37232:37791" ph="{...}" />
             </folding>
           </first_editor>
           <second_editor />
@@ -640,7 +641,7 @@
           <first_editor relative-caret-position="0">
             <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
             <folding>
-              <marker date="1577690295091" expanded="true" signature="37232:37791" ph="{...}" />
+              <marker date="1577693941854" expanded="true" signature="37232:37791" ph="{...}" />
             </folding>
           </first_editor>
           <second_editor />
@@ -653,7 +654,7 @@
           <first_editor relative-caret-position="0">
             <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
             <folding>
-              <marker date="1577690295091" expanded="true" signature="37232:37791" ph="{...}" />
+              <marker date="1577693941854" expanded="true" signature="37232:37791" ph="{...}" />
             </folding>
           </first_editor>
           <second_editor />
@@ -918,10 +919,10 @@
     <entry file="file://$PROJECT_DIR$/_posts/problems/2019-10-22-leetcode.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="351">
-            <caret line="6122" column="4" lean-forward="true" selection-start-line="6122" selection-start-column="4" selection-end-line="6122" selection-end-column="4" />
+          <first_editor relative-caret-position="151">
+            <caret line="3000" column="0" lean-forward="true" selection-start-line="3000" selection-start-column="0" selection-end-line="3000" selection-end-column="0" />
             <folding>
-              <marker date="1577690295091" expanded="true" signature="37232:37791" ph="{...}" />
+              <marker date="1577693941854" expanded="true" signature="37232:37791" ph="{...}" />
             </folding>
           </first_editor>
           <second_editor />
