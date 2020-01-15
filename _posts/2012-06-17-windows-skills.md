@@ -124,3 +124,18 @@ ComMonitor 算是比较好用的串口调试工具了，但是已经很久没有
 我使用的 ComMinotor v4.5 版本及 msrd3x43.dll 文件可以到百度网盘下载：
 
 <https://pan.baidu.com/s/1nuDa0JJ>
+
+### Win10 下 Chrome 最新版崩溃
+
+突然有一天就什么也打不开了，不断的报 XX 插件崩溃，反正是所有插件都崩溃，设置页面都进不去。
+
+解决方法：
+
+```
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome]
+"RendererCodeIntegrityEnabled"=dword:00000000
+```
+
+将以上内容保存为 chrome.reg 文件然后运行。
