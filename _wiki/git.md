@@ -214,6 +214,18 @@ git config --global core.filemode false
 
 参考：[How do I make Git ignore file mode (chmod) changes?](http://stackoverflow.com/questions/1580596/how-do-i-make-git-ignore-file-mode-chmod-changes)
 
+### 忽略除某后缀名以外的所有文件
+
+忽略除了 .c 后缀名以外的所有文件。
+
+```
+*
+!*.c
+!*/
+```
+
+gitignore 里，*、?、[] 可用作通配符。
+
 ### patch
 
 将未添加到暂存区的更改生成 patch 文件：
