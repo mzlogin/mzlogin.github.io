@@ -1,12 +1,12 @@
 ---
 layout: post
-title: 红黑树、AVL和B树
+title: 红黑树、AVL和B树B+树
 categories: Knowledge
 description: 重学TCP
 keywords: TCP
 ---
 
-TCP从本科起至少学习过两次，但本科课程都没太认真听，对TCP也只是有个大概的认识。之后的保研面试被问到过，但由于保研面试还是很水的，也没有太认真的复习。这两天趁着闲下来仔细的看了看TCP协议，毕竟是最重要的协议之一了，侧重点主要在三次握手四次挥手上。主要参考的博文是[这篇](https://blog.csdn.net/qq_38950316/article/details/81087809)，[还有这篇](https://blog.csdn.net/jtracydy/article/details/52366461)。
+复习基本数据结构树，不涉及到具体的代码实现，主要是每个树的特点和原理弄清楚。
 
 ## 红黑树
 
