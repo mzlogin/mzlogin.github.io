@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8f9fff00-0e83-4e44-996c-0b357bea2ffa" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/knowledge/2020-2-6-PaxosRaftZookeeper.md" afterPath="$PROJECT_DIR$/_posts/knowledge/2020-2-6-PaxosRaftZookeeper.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/posts/knowledge/tree/B+树.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/posts/knowledge/tree/B树.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/posts/knowledge/tree/redComAVL.PNG" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/_posts/knowledge/2020-2-07-RedBlackTreeAndAVLAndBTree.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/knowledge/2019-11-02-TCP.md" afterPath="$PROJECT_DIR$/_posts/knowledge/2019-11-02-TCP.md" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -110,25 +115,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="2020-2-6-PaxosRaftZookeeper.md" pinned="false" current-in-tab="true">
+      <file leaf-file-name="2020-2-6-PaxosRaftZookeeper.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/_posts/knowledge/2020-2-6-PaxosRaftZookeeper.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="264">
-                <caret line="53" column="91" lean-forward="false" selection-start-line="53" selection-start-column="91" selection-end-line="53" selection-end-column="91" />
-                <folding />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="2019-10-22-array2List.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_posts/javaBasic/2019-10-22-array2List.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
               <first_editor relative-caret-position="165">
-                <caret line="5" column="22" lean-forward="false" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
+                <caret line="50" column="32" lean-forward="true" selection-start-line="50" selection-start-column="32" selection-end-line="50" selection-end-column="32" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -136,12 +128,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DecisionEngine.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_projects/DecisionEngine.md">
+      <file leaf-file-name="2019-11-02-TCP.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/_posts/knowledge/2019-11-02-TCP.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="1320">
-                <caret line="40" column="31" lean-forward="false" selection-start-line="40" selection-start-column="31" selection-end-line="40" selection-end-column="31" />
+              <first_editor relative-caret-position="4983">
+                <caret line="151" column="28" lean-forward="false" selection-start-line="151" selection-start-column="28" selection-end-line="151" selection-end-column="28" />
+                <folding />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="2020-2-07-RedBlackTreeAndAVLAndBTree.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/_posts/knowledge/2020-2-07-RedBlackTreeAndAVLAndBTree.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="593">
+                <caret line="85" column="0" lean-forward="true" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -183,6 +188,8 @@
         <option value="$PROJECT_DIR$/_posts/javaBasic/2020-1-28-memoryModel.md" />
         <option value="$PROJECT_DIR$/_posts/javaBasic/2020-2-4-ThreadSafeAndLock.md" />
         <option value="$PROJECT_DIR$/_posts/knowledge/2020-2-6-PaxosRaftZookeeper.md" />
+        <option value="$PROJECT_DIR$/_posts/knowledge/2019-11-02-TCP.md" />
+        <option value="$PROJECT_DIR$/_posts/knowledge/2020-2-07-RedBlackTreeAndAVLAndBTree.md" />
       </list>
     </option>
   </component>
@@ -291,7 +298,7 @@
               <item name="images" type="462c0819:PsiDirectoryNode" />
               <item name="posts" type="462c0819:PsiDirectoryNode" />
               <item name="knowledge" type="462c0819:PsiDirectoryNode" />
-              <item name="zookeeper" type="462c0819:PsiDirectoryNode" />
+              <item name="tree" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ShangfengDing.github.io" type="b2602c69:ProjectViewProjectNode" />
@@ -318,11 +325,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\code\IDEA\ShangfengDing.github.io\images\posts\knowledge\zookeeper" />
+      <recent name="C:\code\IDEA\ShangfengDing.github.io\images\posts\knowledge\tree" />
       <recent name="C:\code\IDEA\ShangfengDing.github.io\_posts\knowledge" />
+      <recent name="C:\code\IDEA\ShangfengDing.github.io\images\posts\knowledge\zookeeper" />
       <recent name="C:\code\IDEA\ShangfengDing.github.io\_posts\javaBasic" />
       <recent name="C:\code\IDEA\ShangfengDing.github.io\images\posts\java" />
-      <recent name="H:\code\Intellij Idea\ShangfengDing.github.io\images\posts\problems" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -449,7 +456,7 @@
       <workItem from="1579436672929" duration="6361000" />
       <workItem from="1579760923293" duration="20152000" />
       <workItem from="1580735862740" duration="787000" />
-      <workItem from="1580781959496" duration="12629000" />
+      <workItem from="1580781959496" duration="19557000" />
     </task>
     <task id="LOCAL-00001" summary="个人信息">
       <created>1573111101886</created>
@@ -504,7 +511,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="264148000" />
+    <option name="totallyTimeSpent" value="271076000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
@@ -519,10 +526,10 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293556" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.349642" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.349642" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24028078" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26349893" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -584,31 +591,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/_projects/DecisionEngine.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="1080">
-            <caret line="40" column="31" lean-forward="false" selection-start-line="40" selection-start-column="31" selection-end-line="40" selection-end-column="31" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/problems/2019-10-22-leetcode.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="0">
-            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-            <folding>
-              <marker date="1579233383525" expanded="true" signature="166168:166704" ph="{...}" />
-              <marker date="1579233383525" expanded="true" signature="166800:167004" ph="{...}" />
-            </folding>
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/_projects/IaaS.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -1072,8 +1054,30 @@
     <entry file="file://$PROJECT_DIR$/_posts/knowledge/2020-2-6-PaxosRaftZookeeper.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="264">
-            <caret line="53" column="91" lean-forward="false" selection-start-line="53" selection-start-column="91" selection-end-line="53" selection-end-column="91" />
+          <first_editor relative-caret-position="165">
+            <caret line="50" column="32" lean-forward="true" selection-start-line="50" selection-start-column="32" selection-end-line="50" selection-end-column="32" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/knowledge/2019-11-02-TCP.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="4983">
+            <caret line="151" column="28" lean-forward="false" selection-start-line="151" selection-start-column="28" selection-end-line="151" selection-end-column="28" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/knowledge/2020-2-07-RedBlackTreeAndAVLAndBTree.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="593">
+            <caret line="85" column="0" lean-forward="true" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
             <folding />
           </first_editor>
           <second_editor />
