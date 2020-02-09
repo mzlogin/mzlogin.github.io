@@ -2,7 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8f9fff00-0e83-4e44-996c-0b357bea2ffa" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/knowledge/2019-11-05-database.md" afterPath="$PROJECT_DIR$/_posts/knowledge/2019-11-05-database.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/posts/knowledge/kafka/index-log.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/posts/knowledge/kafka/kafka架构.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/posts/knowledge/kafka/offset.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/posts/knowledge/kafka/发送2.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/posts/knowledge/kafka/发送架构.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/posts/knowledge/kafka/文件.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/posts/knowledge/kafka/消费.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/posts/knowledge/kafka/消费文件.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/posts/knowledge/kafka/选举leader.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/_posts/knowledge/2020-02-09-kafka.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -13,19 +23,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="2020-1-19-memory.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_posts/javaBasic/2020-1-19-memory.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="2013">
-                <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
-                <folding />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="2020-1-23-gabbage.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/_posts/javaBasic/2020-1-23-gabbage.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
@@ -133,12 +130,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="2019-11-05-database.md" pinned="false" current-in-tab="true">
+      <file leaf-file-name="2019-11-05-database.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/_posts/knowledge/2019-11-05-database.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="275">
-                <caret line="560" column="47" lean-forward="false" selection-start-line="560" selection-start-column="47" selection-end-line="560" selection-end-column="47" />
+              <first_editor relative-caret-position="1562">
+                <caret line="560" column="25" lean-forward="true" selection-start-line="560" selection-start-column="25" selection-end-line="560" selection-end-column="25" />
+                <folding />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="2020-02-09-kafka.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/_posts/knowledge/2020-02-09-kafka.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="231">
+                <caret line="7" column="157" lean-forward="false" selection-start-line="7" selection-start-column="157" selection-end-line="7" selection-end-column="157" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -183,6 +193,7 @@
         <option value="$PROJECT_DIR$/_posts/knowledge/2019-11-02-TCP.md" />
         <option value="$PROJECT_DIR$/_posts/knowledge/2020-2-07-RedBlackTreeAndAVLAndBTree.md" />
         <option value="$PROJECT_DIR$/_posts/knowledge/2019-11-05-database.md" />
+        <option value="$PROJECT_DIR$/_posts/knowledge/2020-02-09-kafka.md" />
       </list>
     </option>
   </component>
@@ -192,7 +203,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="46" />
     <option name="y" value="249" />
     <option name="width" value="1942" />
@@ -310,11 +321,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\code\IDEA\ShangfengDing.github.io\images\posts\knowledge\tree" />
+      <recent name="C:\code\IDEA\ShangfengDing.github.io\images\posts\knowledge" />
       <recent name="C:\code\IDEA\ShangfengDing.github.io\_posts\knowledge" />
+      <recent name="C:\code\IDEA\ShangfengDing.github.io\images\posts\knowledge\tree" />
       <recent name="C:\code\IDEA\ShangfengDing.github.io\images\posts\knowledge\zookeeper" />
       <recent name="C:\code\IDEA\ShangfengDing.github.io\_posts\javaBasic" />
-      <recent name="C:\code\IDEA\ShangfengDing.github.io\images\posts\java" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -441,7 +452,7 @@
       <workItem from="1579436672929" duration="6361000" />
       <workItem from="1579760923293" duration="20152000" />
       <workItem from="1580735862740" duration="787000" />
-      <workItem from="1580781959496" duration="21460000" />
+      <workItem from="1580781959496" duration="23039000" />
     </task>
     <task id="LOCAL-00001" summary="个人信息">
       <created>1573111101886</created>
@@ -496,10 +507,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="272979000" />
+    <option name="totallyTimeSpent" value="274558000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-11" y="-11" width="1942" height="1042" extended-state="7" />
+    <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -576,17 +587,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/_projects/DecisionEngine.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="1080">
-            <caret line="40" column="31" lean-forward="true" selection-start-line="40" selection-start-column="31" selection-end-line="40" selection-end-column="31" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/_posts/problems/2019-10-22-leetcode.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -1061,8 +1061,19 @@
     <entry file="file://$PROJECT_DIR$/_posts/knowledge/2019-11-05-database.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="275">
-            <caret line="560" column="47" lean-forward="false" selection-start-line="560" selection-start-column="47" selection-end-line="560" selection-end-column="47" />
+          <first_editor relative-caret-position="1562">
+            <caret line="560" column="25" lean-forward="true" selection-start-line="560" selection-start-column="25" selection-end-line="560" selection-end-column="25" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/knowledge/2020-02-09-kafka.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="231">
+            <caret line="7" column="157" lean-forward="false" selection-start-line="7" selection-start-column="157" selection-end-line="7" selection-end-column="157" />
             <folding />
           </first_editor>
           <second_editor />
