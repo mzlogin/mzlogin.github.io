@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8f9fff00-0e83-4e44-996c-0b357bea2ffa" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/posts/knowledge/RabbitMQ/RabbitMQ架构.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/posts/knowledge/RabbitMQ/direct.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/posts/knowledge/RabbitMQ/fanout.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/posts/knowledge/RabbitMQ/rabbitmq.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/posts/knowledge/RabbitMQ/topic.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/_posts/knowledge/2020-02-10-rabbitmq.md" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/_posts/knowledge/2020-2-07-RedBlackTreeAndAVLAndBTree.md" afterPath="$PROJECT_DIR$/_posts/knowledge/2020-02-07-RedBlackTreeAndAVLAndBTree.md" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/_posts/knowledge/2020-2-6-PaxosRaftZookeeper.md" afterPath="$PROJECT_DIR$/_posts/knowledge/2020-02-06-PaxosRaftZookeeper.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/knowledge/2020-02-10-rabbitmq.md" afterPath="$PROJECT_DIR$/_posts/knowledge/2020-02-10-rabbitmq.md" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -93,8 +86,8 @@
         <entry file="file://$PROJECT_DIR$/_posts/knowledge/2020-02-10-rabbitmq.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="380">
-                <caret line="142" column="19" lean-forward="false" selection-start-line="142" selection-start-column="19" selection-end-line="142" selection-end-column="19" />
+              <first_editor relative-caret-position="281">
+                <caret line="148" column="0" lean-forward="true" selection-start-line="148" selection-start-column="0" selection-end-line="148" selection-end-column="0" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -445,7 +438,7 @@
       <workItem from="1579436672929" duration="6361000" />
       <workItem from="1579760923293" duration="20152000" />
       <workItem from="1580735862740" duration="787000" />
-      <workItem from="1580781959496" duration="27880000" />
+      <workItem from="1580781959496" duration="28785000" />
     </task>
     <task id="LOCAL-00001" summary="个人信息">
       <created>1573111101886</created>
@@ -500,7 +493,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="279399000" />
+    <option name="totallyTimeSpent" value="280304000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
@@ -518,7 +511,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21479714" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2688985" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19870411" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1053,8 +1046,8 @@
     <entry file="file://$PROJECT_DIR$/_posts/knowledge/2020-02-10-rabbitmq.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="380">
-            <caret line="142" column="19" lean-forward="false" selection-start-line="142" selection-start-column="19" selection-end-line="142" selection-end-column="19" />
+          <first_editor relative-caret-position="281">
+            <caret line="148" column="0" lean-forward="true" selection-start-line="148" selection-start-column="0" selection-end-line="148" selection-end-column="0" />
             <folding />
           </first_editor>
           <second_editor />
