@@ -7,6 +7,18 @@ keywords: Spark
 ---
 Spark中的Job、Stage、Task关系之前一直不是很清晰，今天研究了一下，主要参考[文档](https://www.jlpyyf.com/article/22)
 
+## 概览
+
+![架构](/images/posts/knowledge/spark-taskstagejob/sparkFrame.jpg)
+
+1. spark应用提交后，经历了一系列的转换，最后成为task在每个节点上执行
+2. RDD的Action算子触发Job的提交，生成RDD DAG
+3. 由DAGScheduler将RDD DAG转化为Stage DAG，每个Stage中产生相应的Task集合
+4. TaskScheduler将任务分发到Executor执行
+5. 每个任务对应相应的一个数据块，只用用户定义的函数处理数据块
+
+![流程](/images/posts/knowledge/spark-taskstagejob/spark流程.jpg)
+
 这里拿一个简单的wordcount作为例子。代码如下：
 
 ``` scala
