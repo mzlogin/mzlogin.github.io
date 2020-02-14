@@ -38,4 +38,4 @@ Flink提供了三种持久化策略：
     * 非常大的状态，长窗口，大的KV状态
     * 需要HA的场景
 
-可参考博客，![链接](https://www.cnblogs.com/029zz010buct/p/9403283.html)
+可参考博客，[链接](https://www.cnblogs.com/029zz010buct/p/9403283.html)
