@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8f9fff00-0e83-4e44-996c-0b357bea2ffa" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/_posts/javaBasic/2020-2-15-memoryAndpage.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/javaBasic/2020-2-12-JavaIO.md" afterPath="$PROJECT_DIR$/_posts/javaBasic/2020-2-12-JavaIO.md" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -14,110 +14,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="2020-02-10-rabbitmq.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_posts/knowledge/2020-02-10-rabbitmq.md">
+      <file leaf-file-name="2020-2-15-memoryAndpage.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/_posts/javaBasic/2020-2-15-memoryAndpage.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="3417">
-                <caret line="153" column="0" lean-forward="false" selection-start-line="153" selection-start-column="0" selection-end-line="153" selection-end-column="0" />
-                <folding />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="2019-05-27-batchStream.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_posts/knowledge/2019-05-27-batchStream.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="2706">
-                <caret line="82" column="35" lean-forward="false" selection-start-line="82" selection-start-column="35" selection-end-line="82" selection-end-column="35" />
-                <folding />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="2020-2-12-JavaIO.md" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/_posts/javaBasic/2020-2-12-JavaIO.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="459">
-                <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
-                <folding />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="spark流程.jpg" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/images/posts/knowledge/spark-taskstagejob/spark流程.jpg">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="2019-11-04-spark-taskstagejob.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_posts/knowledge/2019-11-04-spark-taskstagejob.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="660">
-                <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-                <folding />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="2019-11-05-database.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_posts/knowledge/2019-11-05-database.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="18282">
-                <caret line="554" column="33" lean-forward="false" selection-start-line="554" selection-start-column="10" selection-end-line="554" selection-end-column="33" />
-                <folding />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="2020-02-12-sort.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_posts/knowledge/2020-02-12-sort.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="759">
-                <caret line="23" column="43" lean-forward="false" selection-start-line="23" selection-start-column="43" selection-end-line="23" selection-end-column="43" />
-                <folding />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="2019-10-22-spark-partition.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_posts/knowledge/2019-10-22-spark-partition.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="0">
-                <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-                <folding />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="2020-2-13-flink-state.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_posts/knowledge/2020-2-13-flink-state.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="647">
-                <caret line="25" column="28" lean-forward="false" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
+              <first_editor relative-caret-position="264">
+                <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -167,8 +69,9 @@
         <option value="$PROJECT_DIR$/_posts/knowledge/2019-05-27-batchStream.md" />
         <option value="$PROJECT_DIR$/_posts/knowledge/2019-11-05-database.md" />
         <option value="$PROJECT_DIR$/_posts/knowledge/2020-02-12-sort.md" />
-        <option value="$PROJECT_DIR$/_posts/knowledge/2020-2-13-flink-state.md" />
         <option value="$PROJECT_DIR$/_posts/javaBasic/2020-2-12-JavaIO.md" />
+        <option value="$PROJECT_DIR$/_posts/knowledge/2020-2-13-flink-state.md" />
+        <option value="$PROJECT_DIR$/_posts/javaBasic/2020-2-15-memortyAndpage.md" />
       </list>
     </option>
   </component>
@@ -178,9 +81,9 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="-10" />
-    <option name="y" value="2" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="48" />
+    <option name="y" value="-36" />
     <option name="width" value="1938" />
     <option name="height" value="1028" />
   </component>
@@ -200,8 +103,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="AndroidView" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -276,20 +177,14 @@
             <path>
               <item name="ShangfengDing.github.io" type="b2602c69:ProjectViewProjectNode" />
               <item name="ShangfengDing.github.io" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
-              <item name="posts" type="462c0819:PsiDirectoryNode" />
-              <item name="knowledge" type="462c0819:PsiDirectoryNode" />
-              <item name="RabbitMQ" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ShangfengDing.github.io" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ShangfengDing.github.io" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="AndroidView" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -304,9 +199,9 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\code\IDEA\ShangfengDing.github.io\_posts\javaBasic" />
       <recent name="C:\code\IDEA\ShangfengDing.github.io\_posts\knowledge" />
       <recent name="C:\code\IDEA\ShangfengDing.github.io\images\posts\knowledge\sort" />
-      <recent name="C:\code\IDEA\ShangfengDing.github.io\_posts\javaBasic" />
       <recent name="C:\code\IDEA\ShangfengDing.github.io\images\posts\knowledge\spark-taskstagejob" />
       <recent name="C:\code\IDEA\ShangfengDing.github.io\images\posts\knowledge\stream-batch" />
     </key>
@@ -439,7 +334,8 @@
       <workItem from="1581503083875" duration="23000" />
       <workItem from="1581514189547" duration="1034000" />
       <workItem from="1581561407581" duration="1436000" />
-      <workItem from="1581645682687" duration="710000" />
+      <workItem from="1581645682687" duration="1940000" />
+      <workItem from="1581751075523" duration="1627000" />
     </task>
     <task id="LOCAL-00001" summary="个人信息">
       <created>1573111101886</created>
@@ -494,10 +390,11 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="301422000" />
+    <option name="totallyTimeSpent" value="304279000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-10" y="2" width="1938" height="1028" extended-state="0" />
+    <frame x="-11" y="-11" width="1942" height="1042" extended-state="7" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -508,10 +405,10 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293556" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25606796" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25544795" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23809524" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24190065" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -573,13 +470,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/_data/social.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pages/projects.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -977,17 +867,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/knowledge/2020-2-13-flink-state.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="647">
-            <caret line="25" column="28" lean-forward="false" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/images/posts/knowledge/RabbitMQ/fanout.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -996,7 +875,7 @@
     <entry file="file://$PROJECT_DIR$/_posts/knowledge/2020-02-10-rabbitmq.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="3417">
+          <first_editor relative-caret-position="5049">
             <caret line="153" column="0" lean-forward="false" selection-start-line="153" selection-start-column="0" selection-end-line="153" selection-end-column="0" />
             <folding />
           </first_editor>
@@ -1007,8 +886,30 @@
     <entry file="file://$PROJECT_DIR$/_posts/javaBasic/2020-2-12-JavaIO.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="459">
+          <first_editor relative-caret-position="2013">
             <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/knowledge/2020-2-13-flink-state.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="492">
+            <caret line="40" column="32" lean-forward="false" selection-start-line="40" selection-start-column="32" selection-end-line="40" selection-end-column="32" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/javaBasic/2020-2-15-memoryAndpage.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="264">
+            <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
             <folding />
           </first_editor>
           <second_editor />
