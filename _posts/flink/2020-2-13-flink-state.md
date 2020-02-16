@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Flink之有状态计算
-categories: Knowledge
+categories: flink
 description: 有状态和无状态计算的区别，Flink状态存储
 keywords: Flink,有状态
 ---

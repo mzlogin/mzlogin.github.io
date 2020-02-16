@@ -1,7 +1,7 @@
 ---
 layout: post
 title: flink基础知识
-categories: Knowledge
+categories: flink
 description: 学习flink的原理
 keywords: flink
 ---

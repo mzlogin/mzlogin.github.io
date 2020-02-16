@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8f9fff00-0e83-4e44-996c-0b357bea2ffa" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/_posts/flink/2020-2-16-flink-exactlyonce.md" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_posts/knowledge/2019-11-8-flink-base.md" afterPath="$PROJECT_DIR$/_posts/flink/2019-11-8-flink-base.md" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_posts/knowledge/2020-2-13-flink-state.md" afterPath="$PROJECT_DIR$/_posts/flink/2020-2-13-flink-state.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -30,8 +33,8 @@
         <entry file="file://$PROJECT_DIR$/_posts/javaBasic/2020-2-15-hashMap.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="231">
-                <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+              <first_editor relative-caret-position="225">
+                <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -39,12 +42,38 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="2019-08-21-proxy.md" pinned="false" current-in-tab="true">
+      <file leaf-file-name="2019-11-8-flink-base.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/_posts/flink/2019-11-8-flink-base.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="99">
+                <caret line="3" column="17" lean-forward="false" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
+                <folding />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="2019-10-26-alimiddleware.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/_posts/game/2019-10-26-alimiddleware.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="0">
+                <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                <folding />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="2019-08-21-proxy.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/_posts/knowledge/2019-08-21-proxy.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="1650">
-                <caret line="50" column="2" lean-forward="true" selection-start-line="50" selection-start-column="2" selection-end-line="50" selection-end-column="2" />
+              <first_editor relative-caret-position="99">
+                <caret line="3" column="21" lean-forward="false" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -57,7 +86,7 @@
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
               <first_editor relative-caret-position="99">
-                <caret line="3" column="12" lean-forward="true" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="16" />
+                <caret line="3" column="12" lean-forward="false" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="16" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -69,7 +98,7 @@
         <entry file="file://$PROJECT_DIR$/_posts/knowledge/2020-02-12-sort.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="238">
+              <first_editor relative-caret-position="297">
                 <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="45" />
                 <folding />
               </first_editor>
@@ -79,11 +108,24 @@
         </entry>
       </file>
       <file leaf-file-name="2020-2-13-flink-state.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_posts/knowledge/2020-2-13-flink-state.md">
+        <entry file="file://$PROJECT_DIR$/_posts/flink/2020-2-13-flink-state.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
               <first_editor relative-caret-position="99">
-                <caret line="3" column="12" lean-forward="true" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="21" />
+                <caret line="3" column="17" lean-forward="true" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
+                <folding />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="2020-2-16-flink-exactlyonce.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/_posts/flink/2020-2-16-flink-exactlyonce.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="214">
+                <caret line="72" column="29" lean-forward="false" selection-start-line="72" selection-start-column="29" selection-end-line="72" selection-end-column="29" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -138,9 +180,12 @@
         <option value="$PROJECT_DIR$/_posts/javaBasic/2020-2-15-memortyAndpage.md" />
         <option value="$PROJECT_DIR$/_posts/javaBasic/2020-2-15-memoryAndpage.md" />
         <option value="$PROJECT_DIR$/_posts/javaBasic/2020-2-14-memoryAndpage.md" />
-        <option value="$PROJECT_DIR$/_posts/javaBasic/2020-2-15-hashMap.md" />
         <option value="$PROJECT_DIR$/_posts/knowledge/2020-2-14-memoryAndpage.md" />
         <option value="$PROJECT_DIR$/_posts/knowledge/2019-08-21-proxy.md" />
+        <option value="$PROJECT_DIR$/_posts/javaBasic/2020-2-15-hashMap.md" />
+        <option value="$PROJECT_DIR$/_posts/flink/2019-11-8-flink-base.md" />
+        <option value="$PROJECT_DIR$/_posts/flink/2020-2-13-flink-state.md" />
+        <option value="$PROJECT_DIR$/_posts/flink/2020-2-16-flink-exactlyonce.md" />
       </list>
     </option>
   </component>
@@ -150,7 +195,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="48" />
     <option name="y" value="-36" />
     <option name="width" value="1938" />
@@ -171,7 +216,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -189,6 +235,12 @@
               <item name="ShangfengDing.github.io" type="462c0819:PsiDirectoryNode" />
               <item name="_posts" type="462c0819:PsiDirectoryNode" />
               <item name="blog" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ShangfengDing.github.io" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ShangfengDing.github.io" type="462c0819:PsiDirectoryNode" />
+              <item name="_posts" type="462c0819:PsiDirectoryNode" />
+              <item name="flink" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ShangfengDing.github.io" type="b2602c69:ProjectViewProjectNode" />
@@ -239,22 +291,14 @@
             <path>
               <item name="ShangfengDing.github.io" type="b2602c69:ProjectViewProjectNode" />
               <item name="ShangfengDing.github.io" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
-              <item name="posts" type="462c0819:PsiDirectoryNode" />
-              <item name="knowledge" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ShangfengDing.github.io" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ShangfengDing.github.io" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="AndroidView" />
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -267,16 +311,17 @@
     <property name="aspect.path.notification.shown" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\code\IDEA\ShangfengDing.github.io\_posts\javaBasic" />
-      <recent name="C:\code\IDEA\ShangfengDing.github.io\_posts\knowledge" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\code\IDEA\ShangfengDing.github.io\_posts\flink" />
       <recent name="C:\code\IDEA\ShangfengDing.github.io\images\posts\knowledge\proxy" />
       <recent name="C:\code\IDEA\ShangfengDing.github.io\_posts\knowledge" />
       <recent name="C:\code\IDEA\ShangfengDing.github.io\images\posts\knowledge\memoryAndpage" />
       <recent name="C:\code\IDEA\ShangfengDing.github.io\_posts\javaBasic" />
-      <recent name="C:\code\IDEA\ShangfengDing.github.io\images\posts\knowledge\sort" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\code\IDEA\ShangfengDing.github.io\_posts\flink" />
+      <recent name="C:\code\IDEA\ShangfengDing.github.io\_posts\javaBasic" />
+      <recent name="C:\code\IDEA\ShangfengDing.github.io\_posts\knowledge" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -408,7 +453,8 @@
       <workItem from="1581514189547" duration="1034000" />
       <workItem from="1581561407581" duration="1436000" />
       <workItem from="1581645682687" duration="1940000" />
-      <workItem from="1581751075523" duration="7039000" />
+      <workItem from="1581751075523" duration="7175000" />
+      <workItem from="1581821093666" duration="2010000" />
     </task>
     <task id="LOCAL-00001" summary="个人信息">
       <created>1573111101886</created>
@@ -463,10 +509,11 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="309691000" />
+    <option name="totallyTimeSpent" value="311837000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-11" y="-11" width="1942" height="1042" extended-state="7" />
+    <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -477,10 +524,10 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293556" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33770883" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33651552" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24190065" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2462203" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -542,7 +589,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/_projects/eryansuo.md" />
     <entry file="file://$PROJECT_DIR$/pages/404.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -663,16 +709,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/game/2019-10-26-alimiddleware.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="0">
-            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/_layouts/wiki.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -692,16 +728,6 @@
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="216">
             <caret line="8" column="25" lean-forward="true" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/knowledge/2019-11-8-flink-base.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="3797">
-            <caret line="155" column="0" lean-forward="false" selection-start-line="155" selection-start-column="0" selection-end-line="155" selection-end-column="0" />
           </first_editor>
           <second_editor />
         </state>
@@ -872,7 +898,6 @@
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="660">
             <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-            <folding />
           </first_editor>
           <second_editor />
         </state>
@@ -883,7 +908,6 @@
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="2706">
             <caret line="82" column="35" lean-forward="false" selection-start-line="82" selection-start-column="35" selection-end-line="82" selection-end-column="35" />
-            <folding />
           </first_editor>
           <second_editor />
         </state>
@@ -894,7 +918,6 @@
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="18282">
             <caret line="554" column="33" lean-forward="false" selection-start-line="554" selection-start-column="10" selection-end-line="554" selection-end-column="33" />
-            <folding />
           </first_editor>
           <second_editor />
         </state>
@@ -905,7 +928,6 @@
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="0">
             <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-            <folding />
           </first_editor>
           <second_editor />
         </state>
@@ -921,7 +943,6 @@
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="5049">
             <caret line="153" column="0" lean-forward="false" selection-start-line="153" selection-start-column="0" selection-end-line="153" selection-end-column="0" />
-            <folding />
           </first_editor>
           <second_editor />
         </state>
@@ -930,19 +951,8 @@
     <entry file="file://$PROJECT_DIR$/_posts/knowledge/2020-02-12-sort.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="238">
+          <first_editor relative-caret-position="297">
             <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="45" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/knowledge/2020-2-13-flink-state.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="99">
-            <caret line="3" column="12" lean-forward="true" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="21" />
             <folding />
           </first_editor>
           <second_editor />
@@ -953,7 +963,7 @@
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="99">
-            <caret line="3" column="12" lean-forward="true" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="16" />
+            <caret line="3" column="12" lean-forward="false" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="16" />
             <folding />
           </first_editor>
           <second_editor />
@@ -971,22 +981,66 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/javaBasic/2020-2-15-hashMap.md">
+    <entry file="file://$PROJECT_DIR$/_posts/knowledge/2019-08-21-proxy.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="231">
-            <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <first_editor relative-caret-position="99">
+            <caret line="3" column="21" lean-forward="false" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
             <folding />
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/knowledge/2019-08-21-proxy.md">
+    <entry file="file://$PROJECT_DIR$/_posts/javaBasic/2020-2-15-hashMap.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="1650">
-            <caret line="50" column="2" lean-forward="true" selection-start-line="50" selection-start-column="2" selection-end-line="50" selection-end-column="2" />
+          <first_editor relative-caret-position="225">
+            <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/game/2019-10-26-alimiddleware.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="0">
+            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/flink/2019-11-8-flink-base.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="99">
+            <caret line="3" column="17" lean-forward="false" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/flink/2020-2-13-flink-state.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="99">
+            <caret line="3" column="17" lean-forward="true" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/flink/2020-2-16-flink-exactlyonce.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="214">
+            <caret line="72" column="29" lean-forward="false" selection-start-line="72" selection-start-column="29" selection-end-line="72" selection-end-column="29" />
             <folding />
           </first_editor>
           <second_editor />
