@@ -76,6 +76,34 @@ Error:(1, 1) error: illegalcharacter: '\ufeff'
 
 右键项目名称 -> Remove BOM
 
+### FreeMarker 模板实时生效
+
+1. 在配置文件里关闭 FreeMarker 缓存，设置模板更新延迟时间为 0：
+
+    ```yml
+    spring:
+        freemarker:
+            cache: false
+            settings:
+                template_update_delay: 0
+    ```
+
+2. 修改 IDEA 设置，开启 Build project automatically
+
+    ![](/images/wiki/intellij-idea-auto-build.jpeg)
+
+3. 双击 shift，输入 registry，然后回车选中图中项：
+
+    ![](/images/wiki/intellij-idea-registry.png)
+
+4. 找到并勾选 compiler.automake.allow.when.app.running：
+
+    ![](/images/wiki/intellij-idea-auto-make.jpeg)
+
+5. 重新启动项目。
+
+    修改模板后可能会有几秒延时，刷新两遍就好了。
+
 ## 参考
 
 * [解决IntelliJ IDEA无法读取配置*.properties文件的问题](http://www.cnblogs.com/zqr99/p/7642712.html)
