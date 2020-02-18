@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8f9fff00-0e83-4e44-996c-0b357bea2ffa" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/javaBasic/2020-2-16-javaHeap.md" afterPath="$PROJECT_DIR$/_posts/javaBasic/2020-2-16-javaHeap.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/_posts/javaBasic/2020-02-18-design.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -19,19 +20,6 @@
             <state split_layout="SPLIT">
               <first_editor relative-caret-position="1320">
                 <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-                <folding />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="2019-11-8-flink-base.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_posts/flink/2019-11-8-flink-base.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="99">
-                <caret line="3" column="17" lean-forward="false" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -104,12 +92,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="2020-2-16-javaHeap.md" pinned="false" current-in-tab="true">
+      <file leaf-file-name="2020-2-16-javaHeap.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/_posts/javaBasic/2020-2-16-javaHeap.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="297">
-                <caret line="33" column="125" lean-forward="false" selection-start-line="33" selection-start-column="125" selection-end-line="33" selection-end-column="125" />
+              <first_editor relative-caret-position="99">
+                <caret line="96" column="298" lean-forward="false" selection-start-line="96" selection-start-column="298" selection-end-line="96" selection-end-column="298" />
+                <folding />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="2020-02-18-design.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/_posts/javaBasic/2020-02-18-design.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="231">
+                <caret line="7" column="28" lean-forward="false" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -197,6 +198,7 @@
         <option value="$PROJECT_DIR$/_posts/flink/2020-2-13-flink-state.md" />
         <option value="$PROJECT_DIR$/_posts/flink/2020-2-16-flink-exactlyonce.md" />
         <option value="$PROJECT_DIR$/_posts/javaBasic/2020-2-16-javaHeap.md" />
+        <option value="$PROJECT_DIR$/_posts/javaBasic/2020-02-18-design.md" />
       </list>
     </option>
   </component>
@@ -302,13 +304,6 @@
             <path>
               <item name="ShangfengDing.github.io" type="b2602c69:ProjectViewProjectNode" />
               <item name="ShangfengDing.github.io" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
-              <item name="posts" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ShangfengDing.github.io" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ShangfengDing.github.io" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -330,8 +325,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\code\IDEA\ShangfengDing.github.io\images\posts\java" />
       <recent name="C:\code\IDEA\ShangfengDing.github.io\_posts\javaBasic" />
+      <recent name="C:\code\IDEA\ShangfengDing.github.io\images\posts\java" />
       <recent name="C:\code\IDEA\ShangfengDing.github.io\_posts\flink" />
       <recent name="C:\code\IDEA\ShangfengDing.github.io\images\posts\knowledge\proxy" />
       <recent name="C:\code\IDEA\ShangfengDing.github.io\_posts\knowledge" />
@@ -472,7 +467,7 @@
       <workItem from="1581561407581" duration="1436000" />
       <workItem from="1581645682687" duration="1940000" />
       <workItem from="1581751075523" duration="7175000" />
-      <workItem from="1581821093666" duration="5088000" />
+      <workItem from="1581821093666" duration="7383000" />
     </task>
     <task id="LOCAL-00001" summary="个人信息">
       <created>1573111101886</created>
@@ -527,7 +522,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="314915000" />
+    <option name="totallyTimeSpent" value="317210000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
@@ -607,16 +602,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/pages/categories.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="0">
-            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pages/about.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -1062,8 +1047,19 @@
     <entry file="file://$PROJECT_DIR$/_posts/javaBasic/2020-2-16-javaHeap.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="297">
-            <caret line="33" column="125" lean-forward="false" selection-start-line="33" selection-start-column="125" selection-end-line="33" selection-end-column="125" />
+          <first_editor relative-caret-position="99">
+            <caret line="96" column="298" lean-forward="false" selection-start-line="96" selection-start-column="298" selection-end-line="96" selection-end-column="298" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/javaBasic/2020-02-18-design.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="231">
+            <caret line="7" column="28" lean-forward="false" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
             <folding />
           </first_editor>
           <second_editor />
