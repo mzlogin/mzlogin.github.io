@@ -274,6 +274,51 @@ brew linkapps mpv
 
 使用 Mac 自带的“数码测色计”。
 
+## 问题解决
+
+### No Xcode or CLT version detected
+
+报错信息：
+
+```
+~/github/hs-airdrop$ npm install
+
+> bcrypto@5.0.3 install /Users/username/github/hs-airdrop/node_modules/bcrypto
+> node-gyp rebuild
+
+No receipt for 'com.apple.pkg.CLTools_Executables' found at '/'.
+
+No receipt for 'com.apple.pkg.DeveloperToolsCLILeo' found at '/'.
+
+No receipt for 'com.apple.pkg.DeveloperToolsCLI' found at '/'.
+
+gyp: No Xcode or CLT version detected!
+gyp ERR! configure error
+gyp ERR! stack Error: `gyp` failed with exit code: 1
+gyp ERR! stack     at ChildProcess.onCpExit (/usr/local/lib/node_modules/npm/node_modules/node-gyp/lib/configure.js:351:16)
+gyp ERR! stack     at ChildProcess.emit (events.js:210:5)
+gyp ERR! stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:272:12)
+gyp ERR! System Darwin 19.3.0
+gyp ERR! command "/usr/local/Cellar/node/12.12.0/bin/node" "/usr/local/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js" "rebuild"
+gyp ERR! cwd /Users/username/github/hs-airdrop/node_modules/bcrypto
+gyp ERR! node -v v12.12.0
+gyp ERR! node-gyp -v v5.0.5
+gyp ERR! not ok
+npm ERR! code ELIFECYCLE
+npm ERR! errno 1
+npm ERR! bcrypto@5.0.3 install: `node-gyp rebuild`
+npm ERR! Exit status 1
+npm ERR!
+npm ERR! Failed at the bcrypto@5.0.3 install script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+```
+
+解决方法：
+
+```
+sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
+```
+
 ## 参考
 
 * [你可能不知道的 Mac 技巧 - 截图，Gif 制作及 App 推荐](https://zhuanlan.zhihu.com/p/25154768)
