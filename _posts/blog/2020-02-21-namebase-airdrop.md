@@ -71,6 +71,12 @@ Handshake Orgnization 可以提供 CA 的分布式替代方案，去中心化的
     ./bin/hs-airdrop ~/.ssh/id_rsa xxxxxxx 0.01
     ```
 
+    如果是用 GPG key 的，使用命令（不明白含义的可以 ./bin/hs-airdrop --help 查看命令帮助文档）：
+
+    ```sh
+    ./bin/hs-airdrop <导出的 .asc/.pgp/.gpg 文件> <gpg-id> <address> -f 0.01
+    ```
+
     **注：** 这一步会用到私钥，有很多人担忧这里存在安全隐患，文档上有说明说是用私钥只用于生成加密证明，不会被上传，证明里也不会包含私钥的任何信息，hs-airdrop 的源码是开源的，可以 review 它的代码，或者实在不放心的可以在操作完之后就把用于 GitHub 的密钥都换掉。
 
 6. 第五步，上一步执行成功后，会在最后展示一段 Base64，将它贴到网页里并提交：
