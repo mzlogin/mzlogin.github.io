@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8f9fff00-0e83-4e44-996c-0b357bea2ffa" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/_posts/problems/2020-2-18-offer.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/posts/problems/offer/offer16.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/problems/2020-2-18-offer.md" afterPath="$PROJECT_DIR$/_posts/problems/2020-2-18-offer.md" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -31,7 +32,7 @@
         <entry file="file://$PROJECT_DIR$/_posts/javaBasic/2019-10-22-array2List.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="-304">
+              <first_editor relative-caret-position="165">
                 <caret line="5" column="22" lean-forward="false" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
                 <folding />
               </first_editor>
@@ -44,7 +45,7 @@
         <entry file="file://$PROJECT_DIR$/_posts/javaBasic/2019-10-23-hashMapString.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="-1228">
+              <first_editor relative-caret-position="0">
                 <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
                 <folding />
               </first_editor>
@@ -57,7 +58,7 @@
         <entry file="file://$PROJECT_DIR$/_posts/javaBasic/2020-1-19-memory.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="2002">
+              <first_editor relative-caret-position="2013">
                 <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
                 <folding />
               </first_editor>
@@ -70,7 +71,7 @@
         <entry file="file://$PROJECT_DIR$/_posts/javaBasic/2020-2-16-javaHeap.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="99">
+              <first_editor relative-caret-position="3168">
                 <caret line="96" column="298" lean-forward="false" selection-start-line="96" selection-start-column="298" selection-end-line="96" selection-end-column="298" />
                 <folding />
               </first_editor>
@@ -83,7 +84,7 @@
         <entry file="file://$PROJECT_DIR$/_posts/javaBasic/2020-02-18-design.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="165">
+              <first_editor relative-caret-position="1650">
                 <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
                 <folding />
               </first_editor>
@@ -96,7 +97,7 @@
         <entry file="file://$PROJECT_DIR$/_posts/javaBasic/2020-02-17-reflect.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="99">
+              <first_editor relative-caret-position="1188">
                 <caret line="36" column="4" lean-forward="false" selection-start-line="36" selection-start-column="4" selection-end-line="36" selection-end-column="4" />
                 <folding />
               </first_editor>
@@ -109,8 +110,8 @@
         <entry file="file://$PROJECT_DIR$/_posts/problems/2019-10-22-leetcode.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="33">
-                <caret line="31" column="4" lean-forward="true" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="4" />
+              <first_editor relative-caret-position="1023">
+                <caret line="31" column="4" lean-forward="false" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="4" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -122,9 +123,46 @@
         <entry file="file://$PROJECT_DIR$/_posts/problems/2020-2-18-offer.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="280">
-                <caret line="40" column="0" lean-forward="true" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-                <folding />
+              <first_editor relative-caret-position="85">
+                <caret line="874" column="3" lean-forward="true" selection-start-line="874" selection-start-column="3" selection-end-line="874" selection-end-column="3" />
+                <folding>
+                  <marker date="1582364867918" expanded="true" signature="718:909" ph="{...}" />
+                  <marker date="1582364867918" expanded="true" signature="986:1346" ph="{...}" />
+                  <marker date="1582364867918" expanded="true" signature="2041:2452" ph="{...}" />
+                  <marker date="1582364867918" expanded="true" signature="2819:3297" ph="{...}" />
+                  <marker date="1582364867918" expanded="true" signature="3371:3431" ph="{...}" />
+                  <marker date="1582364867918" expanded="true" signature="3744:4139" ph="{...}" />
+                  <marker date="1582364867918" expanded="true" signature="4266:4434" ph="{...}" />
+                  <marker date="1582364867918" expanded="true" signature="4471:4579" ph="{...}" />
+                  <marker date="1582364867918" expanded="true" signature="4712:4878" ph="{...}" />
+                  <marker date="1582364867918" expanded="true" signature="4909:5002" ph="{...}" />
+                  <marker date="1582364867918" expanded="true" signature="5384:6183" ph="{...}" />
+                  <marker date="1582364867918" expanded="true" signature="6720:6791" ph="{...}" />
+                  <marker date="1582364867918" expanded="true" signature="6834:6845" ph=" { " />
+                  <marker date="1582364867918" expanded="true" signature="6864:6870" ph=" }" />
+                  <marker date="1582364867918" expanded="true" signature="6904:7187" ph="{...}" />
+                  <marker date="1582364867918" expanded="true" signature="7181:7187" ph="{...}" />
+                  <marker date="1582364867918" expanded="true" signature="7561:7830" ph="{...}" />
+                  <marker date="1582364867918" expanded="true" signature="8158:8430" ph="{...}" />
+                  <marker date="1582364867918" expanded="true" signature="9146:9534" ph="{...}" />
+                  <marker date="1582364867918" expanded="true" signature="10500:10817" ph="{...}" />
+                  <marker date="1582364867918" expanded="true" signature="10901:11596" ph="{...}" />
+                  <marker date="1582364867918" expanded="true" signature="11683:11942" ph="{...}" />
+                  <marker date="1582364867918" expanded="true" signature="12009:12472" ph="{...}" />
+                  <marker date="1582364867918" expanded="true" signature="13153:13269" ph="{...}" />
+                  <marker date="1582364867918" expanded="true" signature="13350:13789" ph="{...}" />
+                  <marker date="1582364867918" expanded="true" signature="13856:14149" ph="{...}" />
+                  <marker date="1582364867918" expanded="true" signature="14773:14976" ph="{...}" />
+                  <marker date="1582364867918" expanded="true" signature="15043:15345" ph="{...}" />
+                  <marker date="1582364867918" expanded="true" signature="15907:16056" ph="{...}" />
+                  <marker date="1582364867918" expanded="true" signature="16726:16858" ph="{...}" />
+                  <marker date="1582364867918" expanded="true" signature="16899:17229" ph="{...}" />
+                  <marker date="1582364867918" expanded="true" signature="16944:16996" ph="//..." />
+                  <marker date="1582364867918" expanded="true" signature="17303:17578" ph="{...}" />
+                  <marker date="1582364867918" expanded="true" signature="17884:18059" ph="{...}" />
+                  <marker date="1582364867918" expanded="true" signature="18439:18590" ph="/**...*/" />
+                  <marker date="1582364867918" expanded="true" signature="18663:18938" ph="{...}" />
+                </folding>
               </first_editor>
               <second_editor />
             </state>
@@ -135,7 +173,7 @@
         <entry file="file://$PROJECT_DIR$/_posts/javaBasic/2020-1-23-gabbage.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="156">
+              <first_editor relative-caret-position="5016">
                 <caret line="152" column="21" lean-forward="false" selection-start-line="152" selection-start-column="21" selection-end-line="152" selection-end-column="21" />
                 <folding />
               </first_editor>
@@ -210,9 +248,9 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="48" />
-    <option name="y" value="-36" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="-10" />
+    <option name="y" value="2" />
     <option name="width" value="1938" />
     <option name="height" value="1028" />
   </component>
@@ -231,8 +269,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -306,14 +344,21 @@
             <path>
               <item name="ShangfengDing.github.io" type="b2602c69:ProjectViewProjectNode" />
               <item name="ShangfengDing.github.io" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
+              <item name="posts" type="462c0819:PsiDirectoryNode" />
+              <item name="problems" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ShangfengDing.github.io" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ShangfengDing.github.io" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
       <pane id="Scope" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -326,17 +371,17 @@
     <property name="aspect.path.notification.shown" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\code\IDEA\ShangfengDing.github.io\images\posts\java" />
-      <recent name="C:\code\IDEA\ShangfengDing.github.io\_posts\javaBasic" />
-      <recent name="C:\code\IDEA\ShangfengDing.github.io\images\posts\knowledge" />
-      <recent name="C:\code\IDEA\ShangfengDing.github.io\_posts\flink" />
-      <recent name="C:\code\IDEA\ShangfengDing.github.io\images\posts\knowledge\proxy" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\code\IDEA\ShangfengDing.github.io\_posts\flink" />
       <recent name="C:\code\IDEA\ShangfengDing.github.io\_posts\javaBasic" />
       <recent name="C:\code\IDEA\ShangfengDing.github.io\_posts\knowledge" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\code\IDEA\ShangfengDing.github.io\images\posts\problems\offer" />
+      <recent name="C:\code\IDEA\ShangfengDing.github.io\images\posts\java" />
+      <recent name="C:\code\IDEA\ShangfengDing.github.io\_posts\javaBasic" />
+      <recent name="C:\code\IDEA\ShangfengDing.github.io\images\posts\knowledge" />
+      <recent name="C:\code\IDEA\ShangfengDing.github.io\_posts\flink" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -469,7 +514,9 @@
       <workItem from="1581561407581" duration="1436000" />
       <workItem from="1581645682687" duration="1940000" />
       <workItem from="1581751075523" duration="7175000" />
-      <workItem from="1581821093666" duration="10953000" />
+      <workItem from="1581821093666" duration="12779000" />
+      <workItem from="1582085847113" duration="1197000" />
+      <workItem from="1582197214257" duration="18888000" />
     </task>
     <task id="LOCAL-00001" summary="个人信息">
       <created>1573111101886</created>
@@ -524,10 +571,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="320780000" />
+    <option name="totallyTimeSpent" value="342691000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
+    <frame x="-11" y="-11" width="1942" height="1042" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -539,10 +586,10 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293556" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3341289" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3305489" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2462203" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22516198" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -860,7 +907,6 @@
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="297">
             <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="45" />
-            <folding />
           </first_editor>
           <second_editor />
         </state>
@@ -871,7 +917,6 @@
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="231">
             <caret line="7" column="130" lean-forward="false" selection-start-line="7" selection-start-column="130" selection-end-line="7" selection-end-column="130" />
-            <folding />
           </first_editor>
           <second_editor />
         </state>
@@ -882,7 +927,6 @@
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="99">
             <caret line="3" column="21" lean-forward="false" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
-            <folding />
           </first_editor>
           <second_editor />
         </state>
@@ -893,7 +937,6 @@
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="0">
             <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-            <folding />
           </first_editor>
           <second_editor />
         </state>
@@ -904,7 +947,6 @@
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="99">
             <caret line="3" column="17" lean-forward="false" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
-            <folding />
           </first_editor>
           <second_editor />
         </state>
@@ -915,7 +957,6 @@
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="99">
             <caret line="3" column="17" lean-forward="true" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
-            <folding />
           </first_editor>
           <second_editor />
         </state>
@@ -926,7 +967,6 @@
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="290">
             <caret line="82" column="9" lean-forward="false" selection-start-line="82" selection-start-column="9" selection-end-line="82" selection-end-column="9" />
-            <folding />
           </first_editor>
           <second_editor />
         </state>
@@ -937,7 +977,6 @@
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="1320">
             <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-            <folding />
           </first_editor>
           <second_editor />
         </state>
@@ -948,7 +987,6 @@
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="231">
             <caret line="7" column="16" lean-forward="false" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
-            <folding />
           </first_editor>
           <second_editor />
         </state>
@@ -968,7 +1006,7 @@
     <entry file="file://$PROJECT_DIR$/_posts/javaBasic/2019-10-22-array2List.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="-304">
+          <first_editor relative-caret-position="165">
             <caret line="5" column="22" lean-forward="false" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
             <folding />
           </first_editor>
@@ -979,7 +1017,7 @@
     <entry file="file://$PROJECT_DIR$/_posts/javaBasic/2019-10-23-hashMapString.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="-1228">
+          <first_editor relative-caret-position="0">
             <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
             <folding />
           </first_editor>
@@ -990,7 +1028,7 @@
     <entry file="file://$PROJECT_DIR$/_posts/javaBasic/2020-1-19-memory.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="2002">
+          <first_editor relative-caret-position="2013">
             <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
             <folding />
           </first_editor>
@@ -1001,7 +1039,7 @@
     <entry file="file://$PROJECT_DIR$/_posts/javaBasic/2020-2-16-javaHeap.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="99">
+          <first_editor relative-caret-position="3168">
             <caret line="96" column="298" lean-forward="false" selection-start-line="96" selection-start-column="298" selection-end-line="96" selection-end-column="298" />
             <folding />
           </first_editor>
@@ -1017,7 +1055,7 @@
     <entry file="file://$PROJECT_DIR$/_posts/javaBasic/2020-1-23-gabbage.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="156">
+          <first_editor relative-caret-position="5016">
             <caret line="152" column="21" lean-forward="false" selection-start-line="152" selection-start-column="21" selection-end-line="152" selection-end-column="21" />
             <folding />
           </first_editor>
@@ -1028,7 +1066,7 @@
     <entry file="file://$PROJECT_DIR$/_posts/javaBasic/2020-02-18-design.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="165">
+          <first_editor relative-caret-position="1650">
             <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
             <folding />
           </first_editor>
@@ -1039,7 +1077,7 @@
     <entry file="file://$PROJECT_DIR$/_posts/javaBasic/2020-02-17-reflect.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="99">
+          <first_editor relative-caret-position="1188">
             <caret line="36" column="4" lean-forward="false" selection-start-line="36" selection-start-column="4" selection-end-line="36" selection-end-column="4" />
             <folding />
           </first_editor>
@@ -1047,19 +1085,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/problems/2020-2-18-offer">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/problems/2020-2-18-offer" />
     <entry file="file://$PROJECT_DIR$/_posts/problems/2019-10-22-leetcode.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="33">
-            <caret line="31" column="4" lean-forward="true" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="4" />
+          <first_editor relative-caret-position="1023">
+            <caret line="31" column="4" lean-forward="false" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="4" />
             <folding />
           </first_editor>
           <second_editor />
@@ -1069,9 +1100,46 @@
     <entry file="file://$PROJECT_DIR$/_posts/problems/2020-2-18-offer.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="280">
-            <caret line="40" column="0" lean-forward="true" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-            <folding />
+          <first_editor relative-caret-position="85">
+            <caret line="874" column="3" lean-forward="true" selection-start-line="874" selection-start-column="3" selection-end-line="874" selection-end-column="3" />
+            <folding>
+              <marker date="1582364867918" expanded="true" signature="718:909" ph="{...}" />
+              <marker date="1582364867918" expanded="true" signature="986:1346" ph="{...}" />
+              <marker date="1582364867918" expanded="true" signature="2041:2452" ph="{...}" />
+              <marker date="1582364867918" expanded="true" signature="2819:3297" ph="{...}" />
+              <marker date="1582364867918" expanded="true" signature="3371:3431" ph="{...}" />
+              <marker date="1582364867918" expanded="true" signature="3744:4139" ph="{...}" />
+              <marker date="1582364867918" expanded="true" signature="4266:4434" ph="{...}" />
+              <marker date="1582364867918" expanded="true" signature="4471:4579" ph="{...}" />
+              <marker date="1582364867918" expanded="true" signature="4712:4878" ph="{...}" />
+              <marker date="1582364867918" expanded="true" signature="4909:5002" ph="{...}" />
+              <marker date="1582364867918" expanded="true" signature="5384:6183" ph="{...}" />
+              <marker date="1582364867918" expanded="true" signature="6720:6791" ph="{...}" />
+              <marker date="1582364867918" expanded="true" signature="6834:6845" ph=" { " />
+              <marker date="1582364867918" expanded="true" signature="6864:6870" ph=" }" />
+              <marker date="1582364867918" expanded="true" signature="6904:7187" ph="{...}" />
+              <marker date="1582364867918" expanded="true" signature="7181:7187" ph="{...}" />
+              <marker date="1582364867918" expanded="true" signature="7561:7830" ph="{...}" />
+              <marker date="1582364867918" expanded="true" signature="8158:8430" ph="{...}" />
+              <marker date="1582364867918" expanded="true" signature="9146:9534" ph="{...}" />
+              <marker date="1582364867918" expanded="true" signature="10500:10817" ph="{...}" />
+              <marker date="1582364867918" expanded="true" signature="10901:11596" ph="{...}" />
+              <marker date="1582364867918" expanded="true" signature="11683:11942" ph="{...}" />
+              <marker date="1582364867918" expanded="true" signature="12009:12472" ph="{...}" />
+              <marker date="1582364867918" expanded="true" signature="13153:13269" ph="{...}" />
+              <marker date="1582364867918" expanded="true" signature="13350:13789" ph="{...}" />
+              <marker date="1582364867918" expanded="true" signature="13856:14149" ph="{...}" />
+              <marker date="1582364867918" expanded="true" signature="14773:14976" ph="{...}" />
+              <marker date="1582364867918" expanded="true" signature="15043:15345" ph="{...}" />
+              <marker date="1582364867918" expanded="true" signature="15907:16056" ph="{...}" />
+              <marker date="1582364867918" expanded="true" signature="16726:16858" ph="{...}" />
+              <marker date="1582364867918" expanded="true" signature="16899:17229" ph="{...}" />
+              <marker date="1582364867918" expanded="true" signature="16944:16996" ph="//..." />
+              <marker date="1582364867918" expanded="true" signature="17303:17578" ph="{...}" />
+              <marker date="1582364867918" expanded="true" signature="17884:18059" ph="{...}" />
+              <marker date="1582364867918" expanded="true" signature="18439:18590" ph="/**...*/" />
+              <marker date="1582364867918" expanded="true" signature="18663:18938" ph="{...}" />
+            </folding>
           </first_editor>
           <second_editor />
         </state>
