@@ -58,7 +58,6 @@ Handshake Orgnization 可以提供 CA 的分布式替代方案，去中心化的
 
     ![](/images/blog/airdrop-address.jpg)
 
-
     然后执行：
 
     ```sh
@@ -77,6 +76,12 @@ Handshake Orgnization 可以提供 CA 的分布式替代方案，去中心化的
     ./bin/hs-airdrop <导出的 .asc/.pgp/.gpg 文件> <gpg-id> <address> -f 0.01
     ```
 
+    这里有几点可以加速命令执行的：
+
+    一、fee 可以设置高一点，比如 10，这会加快确认速度。
+
+    二、可以先把 https://github.com/handshake-org/hs-tree-data clone 到 ~/.hs-tree-data，这样在以上命令执行过程中需要下载的文件就在本地了。
+
     **注：** 这一步会用到私钥，有很多人担忧这里存在安全隐患，文档上有说明说是用私钥只用于生成加密证明，不会被上传，证明里也不会包含私钥的任何信息，hs-airdrop 的源码是开源的，可以 review 它的代码，或者实在不放心的可以在操作完之后就把用于 GitHub 的密钥都换掉。
 
 6. 第五步，上一步执行成功后，会在最后展示一段 Base64，将它贴到网页里并提交：
@@ -90,6 +95,8 @@ Handshake Orgnization 可以提供 CA 的分布式替代方案，去中心化的
 7. 正常这时候就能在 <https://www.namebase.io/dashboard> 看到有一笔交易在 Pending 中了：
 
     ![](/images/blog/airdrop-pending.jpeg)
+
+    **注：** 这一步正常应该是很快变成 Airdrop: waiting for more confirmations，但有的人可能遇到较长时间显示 Airdrop: almost mined... 的情况，有的等一段时间后可以好，有的则一直在这个状态。这种情况知乎网友 Kenkk 问过客服，回复是 Some airdrops were stuck. Please generate a base64 with a new address from these instructions and submit it again，也就是重新生成钱包地址，然后重新执行第五步的命令即可，注意 fee 可以设置大点，比如 10。
 
 ### Step 2. 身份验证
 
