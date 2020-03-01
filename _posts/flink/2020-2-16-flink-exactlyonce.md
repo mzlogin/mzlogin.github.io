@@ -109,7 +109,7 @@ Flink Kafka Sink执行两阶段提交的流程图大致如下：
 
 ![3](/images/posts/knowledge/flink-commit/3.png)
 
-3. 当Window这个Operator收到Barrier之后，对自己的状态进行保存，这里的状态是指聚合的结果(sum或count的结果)，然后将Barrier发送给Sink。Sink收到后也对自己的状态进行保存，之后会进行一次预提交。
+当Window这个Operator收到Barrier之后，对自己的状态进行保存，这里的状态是指聚合的结果(sum或count的结果)，然后将Barrier发送给Sink。Sink收到后也对自己的状态进行保存，之后会进行一次预提交。
 
 ![3](/images/posts/knowledge/flink-commit/3.png)
 
