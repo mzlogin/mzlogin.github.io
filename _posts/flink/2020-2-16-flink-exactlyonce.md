@@ -91,3 +91,37 @@ Flink的snapshot算法:
 1. C先将prepare请求写入本地日志，然后发送一个prepare的请求给P
 2. P收到prepare请求后，开始执行事务，如果执行成功返回一个Yes或OK状态给C，否则返回No，并将状态存到本地日志。
 3. C收到P返回的状态，如果每个P的状态都是Yes，则开始执行事务Commit操作，发Commit请求给每个P，P收到Commit请求后各自执行Commit事务操作。如果至少一个P的状态为No，则会执行Abort操作，发Abort请求给每个P，P收到Abort请求后各自执行Abort事务操作。注：C或P把发送或接收到的消息先写到日志里，主要是为了故障后恢复用
+
+## TwoPhaseCommitSinkFunction
+
+Flink在1.4.0版本引入了TwoPhaseCommitSinkFunction接口，封装了两阶段提交逻辑，并在Kafka Sink connector中实现了TwoPhaseCommitSinkFunction，依赖Kafka版本为0.11+
+
+Flink Kafka Sink执行两阶段提交的流程图大致如下：
+
+![1](/images/posts/knowledge/flink-commit/1.png)
+
+假设一种场景，从Kafka Source拉取数据，经过一次窗口聚合，最后将数据发送到Kafka Sink，如下图：
+
+![2](/images/posts/knowledge/flink-commit/2.png)
+
+1. JobManager向Source发送Barrier，开始进入pre-Commit阶段，当只有内部状态时，pre-commit阶段无需执行额外的操作，仅仅是写入一些已定义的状态变量即可。当chckpoint成功时Flink负责提交这些写入，否则就终止取消掉它们。
+2. 当Source收到Barrier后，将自身的状态进行保存，后端可以根据配置进行选择，这里的状态是指消费的每个分区对应的offset。然后将Barrier发送给下一个Operator。
+
+![3](/images/posts/knowledge/flink-commit/3.png)
+
+3. 当Window这个Operator收到Barrier之后，对自己的状态进行保存，这里的状态是指聚合的结果(sum或count的结果)，然后将Barrier发送给Sink。Sink收到后也对自己的状态进行保存，之后会进行一次预提交。
+
+![3](/images/posts/knowledge/flink-commit/3.png)
+
+预提交成功后，JobManager通知每个Operator，这一轮检查点已经完成，这个时候，Kafka Sink会向Kafka进行真正的事务Commit。
+
+![4](/images/posts/knowledge/flink-commit/4.png)
+
+以上便是两阶段的完整流程，提交过程中如果失败有以下两种情况
+
+1. Pre-commit失败，将恢复到最近一次CheckPoint位置
+2. 一旦pre-commit完成，必须要确保commit也要成功
+
+因此，所有opeartor必须对checkpoint最终结果达成共识：即所有operator都必须认定数据提交要么成功执行，要么被终止然后回滚。
+
+
