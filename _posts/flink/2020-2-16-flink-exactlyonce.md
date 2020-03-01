@@ -81,3 +81,13 @@ Flink的snapshot算法:
 因此,该process的上游channel的state都是空集.这就避免了去记录channel的state
 
 具体图解看参考博客
+
+## 两阶段提交协议
+
+两阶段提交指的是一种协议，经常用来实现分布式事务，可以简单理解为预提交+实际提交，一般分为协调器Coordinator(以下简称C)和若干事务参与者Participant(以下简称P)两种角色。
+
+![两阶段提交协议](/images/posts/knowledge/flink-base/twoPhase.jpg)
+
+1. C先将prepare请求写入本地日志，然后发送一个prepare的请求给P
+2. P收到prepare请求后，开始执行事务，如果执行成功返回一个Yes或OK状态给C，否则返回No，并将状态存到本地日志。
+3. C收到P返回的状态，如果每个P的状态都是Yes，则开始执行事务Commit操作，发Commit请求给每个P，P收到Commit请求后各自执行Commit事务操作。如果至少一个P的状态为No，则会执行Abort操作，发Abort请求给每个P，P收到Abort请求后各自执行Abort事务操作。注：C或P把发送或接收到的消息先写到日志里，主要是为了故障后恢复用
