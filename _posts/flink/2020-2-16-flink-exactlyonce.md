@@ -111,11 +111,11 @@ Flink Kafka Sink执行两阶段提交的流程图大致如下：
 
 当Window这个Operator收到Barrier之后，对自己的状态进行保存，这里的状态是指聚合的结果(sum或count的结果)，然后将Barrier发送给Sink。Sink收到后也对自己的状态进行保存，之后会进行一次预提交。
 
-![3](/images/posts/knowledge/flink-commit/3.png)
+![4](/images/posts/knowledge/flink-commit/4.png)
 
 预提交成功后，JobManager通知每个Operator，这一轮检查点已经完成，这个时候，Kafka Sink会向Kafka进行真正的事务Commit。
 
-![4](/images/posts/knowledge/flink-commit/4.png)
+![5](/images/posts/knowledge/flink-commit/5.png)
 
 以上便是两阶段的完整流程，提交过程中如果失败有以下两种情况
 
