@@ -53,3 +53,7 @@
 - name: HwiLu's 博客
   url: https://hwilu.github.io/
   src: www
+
+- name: 有次博客
+  url: http://you.ci/
+  src: www
