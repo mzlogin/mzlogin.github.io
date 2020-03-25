@@ -2,7 +2,7 @@
 #   Main Configs   #
 # ---------------- #
 baseurl:
-url: https://mazhuang.org
+url: https://aryapramudika.github.io
 date_format: "ordinal"
 title: 码志
 subtitle: "公众号：闷骚的程序员"
@@ -28,15 +28,15 @@ email: chumpma@gmail.com
 navs:
   -
     href: /
-    label: 首页
+    label: Home
 
   -
     href: /categories/
-    label: 分类
+    label: Kategori
 
 #   -
 #     href: /archives/
-#     label: 归档
+#     label: 
 
   -
     href: /wiki/
@@ -48,7 +48,7 @@ navs:
 
   -
     href: /about/
-    label: 关于
+    label: Tentang Saya
 
 # ---------------- #
 #       RSS        #
