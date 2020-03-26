@@ -57,3 +57,7 @@
 - name: 有次博客
   url: http://you.ci/
   src: www
+
+- name: 呓城之城
+  url: http://yicheng.zdyrs.com/
+  src: www
