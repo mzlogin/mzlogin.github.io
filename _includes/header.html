@@ -69,6 +69,10 @@
     <script src="{{ site.url }}/assets/vendor/jquery/dist/jquery.min.js"></script>
     <script src="{{ site.url }}/assets/js/jquery-ui.js"></script>
     <script src="{{ site.url }}/assets/js/main.js"></script>
+
+    {% if site.url contains 'mazhuang.org' %}
+    <script data-ad-client="ca-pub-7093222719567591" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    {% endif %}
 </head>
 <body class="{{ page.class }}" data-mz="{{ page.class }}">
     <header class="site-header">
