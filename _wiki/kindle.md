@@ -10,6 +10,7 @@ keywords: Kindle
 
 - [Kindle Paperwhite 1 代越狱教程](https://bookfere.com/post/512.html)
 - [Kindle 越狱资源及插件下载详细步骤](https://bookfere.com/post/311.html)
+- [用插件 BookFere Tools 清理无用 sdr 文件夹](https://bookfere.com/post/480.html)
 
 ## 问题解决
 
