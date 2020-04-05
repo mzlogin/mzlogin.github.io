@@ -119,7 +119,12 @@ simple_jekyll_search:
     limit: 10
 
 # ---------------- #
-#    Analytics     #
+#      Google      #
 # ---------------- #
 google:
     analytics_id: UA-80669434-1
+    adsense:
+        footer: true
+        sidebar: true
+        content_header: true
+        content_footer: false
