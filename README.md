@@ -78,7 +78,7 @@ Fork 本项目之后，还需要做一些事情才能让你的页面「正确」
 
 如果对本博客模板或者内容有任何建议，可以通过 [Issues](https://github.com/mzlogin/mzlogin.github.io/issues) 或者微信公众号「闷骚的程序员」与我取得联系。
 
-![微信公众号：闷骚的程序员](./assets/images/qrcode.jpg)
+<div align="center"><img width="192px" height="192px" src="https://mazhuang.org/assets/images/qrcode.jpg"/></div>
 
 ## 致谢
 
@@ -86,7 +86,7 @@ Fork 本项目之后，还需要做一些事情才能让你的页面「正确」
 
 Thanks for JetBrains' support.
 
-![JetBrains Open Source license](./assets/images/jetbrains.svg)
+<div align="center"><a href="https://www.jetbrains.com/?from=mzlogin.github.io"><img src="./assets/images/jetbrains.svg"/></a></div>
 
 [1]: https://github.com/mzlogin/chinese-copywriting-guidelines
 [2]: https://help.github.com/articles/setting-up-your-pages-site-locally-with-jekyll/
