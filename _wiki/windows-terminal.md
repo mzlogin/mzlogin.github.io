@@ -40,7 +40,19 @@ New-Item -ItemType SymbolicLink -Path ~/Documents/WindowsPowerShell/Microsoft.Po
 
 ```json
 { "command": "copy", "keys": ["ctrl+c"] },
-{ "command": "paste", "keys": ["ctrl+v"]}
+{ "command": "paste", "keys": ["ctrl+v"] }
+```
+
+split pane 和 move focus within panes：
+
+```json
+{ "command" : "splitHorizontal", "keys": [ "alt+-" ] },
+{ "command" : "splitVertical", "keys": [ "alt+\\" ] },
+{ "command" : "closePane", "keys": [ "alt+w" ] },
+{ "command" : "moveFocusLeft", "keys": [ "alt+left" ] },
+{ "command" : "moveFocusRight", "keys": [ "alt+right" ] },
+{ "command" : "moveFocusUp", "keys": [ "alt+up" ] },
+{ "command" : "moveFocusDown", "keys": [ "alt+down" ] }
 ```
 
 参考：<https://github.com/microsoft/terminal/blob/master/doc/user-docs/UsingJsonSettings.md>

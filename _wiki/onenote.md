@@ -52,6 +52,8 @@ Cmd --> Command
 | 插入时间      | M-S-t   |          |
 | 插入日期+时间 | M-S-f   | Cmd-S-d  |
 
+注：在 Windows 下插入的日期格式取决于系统的「日期、时间和区域格式设置」里的设置。
+
 ### 表格
 
 | 功能                   | Windows             | Mac OS X            |
