@@ -4,6 +4,7 @@ title: GitHub 用户专属福利，实际到账 3K+，Namebase Airdrop
 categories: [GitHub]
 description: 使用 GitHub 一年以上的用户可以关注一下。
 keywords: GitHub, Namebase, Airdrop
+topmost: true
 ---
 
 我经常提醒自己的防骗第一准则：**天上不会掉馅饼**。
