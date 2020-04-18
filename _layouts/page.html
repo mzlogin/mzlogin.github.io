@@ -3,16 +3,23 @@ layout: default
 ---
 <section class="collection-head small geopattern" data-pattern-id="{{ page.title | truncate: 15}}">
     <div class="container">
-        <div class="collection-title">
+      <div class="columns">
+        <div class="column two-thirds">
+          <div class="collection-title">
             <h1 class="collection-header">{{ page.title }}</h1>
             {% if page.subtitle %}
-                <div class="collection-info">
-                    <span class="meta-info">
-                        {{ page.subtitle}}
-                    </span>
-                </div>
+            <div class="collection-info">
+              <span class="meta-info">
+                {{ page.subtitle}}
+              </span>
+            </div>
             {% endif %}
+          </div>
         </div>
+        <div class="column one-third mobile-hidden">
+          {% include sidebar-qrcode.html %}
+        </div>
+      </div>
     </div>
 </section>
 <!-- / .banner -->
@@ -31,7 +38,6 @@ layout: default
             </div>
             <div class="column one-third">
                 {% include sidebar-search.html %}
-                {% include sidebar-qrcode.html %}
                 {% include sidebar-categories-cloud.html %}
                 {% include sidebar-ad.html %}
                 {% include sidebar-popular-repo.html %}
