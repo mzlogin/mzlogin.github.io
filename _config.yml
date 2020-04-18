@@ -38,6 +38,10 @@ navs:
 #     href: /archives/
 #     label: 归档
 
+#   -
+#     href: /open-source/
+#     label: 开源
+
   -
     href: /wiki/
     label: 维基
@@ -125,6 +129,6 @@ google:
     analytics_id: UA-80669434-1
     adsense:
         footer: true
-        sidebar: true
+        sidebar: false
         content_header: true
         content_footer: false
