@@ -14,7 +14,9 @@ keywords: Windows, PowerShell
 
 ## 配置文件位置
 
-默认配置文件 `~/Documents/WindowsPowerShell/Microsoft.PowerShell_profile.ps1`。
+PowerShell 6 默认配置文件 `~/Documents/WindowsPowerShell/Microsoft.PowerShell_profile.ps1`。
+
+PowerShell 7 默认配置文件 `<我的文档>/PowerShell/Microsoft.PowerShell_profile.ps1`
 
 Cmder 的 PowerShell 配置文件 `<cmd_install_path>/config/user-profile.ps1`。
 
@@ -113,3 +115,27 @@ Set-Alias objdump Obj-Dump
 Import-Module PSReadLine
 Set-PSReadLineOption -EditMode Emacs
 ```
+
+## 常用命令
+
+### 查看 PATH 环境变量
+
+```
+type env:path
+```
+
+或者将它们每个一行显示：
+
+```
+(type env:path) -split ';'
+```
+
+还可以过滤：
+
+```
+(type env:path) -split ';' | sls bin
+```
+
+## 参考
+
+- [用 PowerShell 快速查看 PATH 环境变量](http://blog.vichamp.com/2014/08/05/quick-examine-path-env-variable-with-powershell/)
