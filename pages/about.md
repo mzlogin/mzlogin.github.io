@@ -31,10 +31,10 @@ permalink: /about/
 
 ## Skill Keywords
 
-{% for category in site.data.skills %}
-### {{ category.name }}
+{% for skill in site.data.skills %}
+### {{ skill.name }}
 <div class="btn-inline">
-{% for keyword in category.keywords %}
+{% for keyword in skill.keywords %}
 <button class="btn btn-outline" type="button">{{ keyword }}</button>
 {% endfor %}
 </div>

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <title>{% if page.title %}{{ page.title }} &mdash; {% endif %}{{ site.title }}</title>
     {% if site.cdn.jsdelivr.enabled %}
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/gh/{{ site.repository }}/assets/vendor/primer-css/css/primer.min.css,gh/{{ site.repository }}/assets/vendor/primer-markdown/dist/user-content.min.css,gh/{{ site.repository }}/assets/css/components/collection-cdn.min.css,gh/{{ site.repository }}/assets/css/components/repo-card.min.css,gh/{{ site.repository }}/assets/css/sections/repo-list.min.css,gh/{{ site.repository }}/assets/css/components/boxed-group.min.css,gh/{{ site.repository }}/assets/css/components/boxed-group.min.css,gh/{{ site.repository }}/assets/css/globals/common.min.css,gh/{{ site.repository }}/assets/css/globals/responsive.min.css,gh/{{ site.repository }}/assets/css/posts/index.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/gh/{{ site.repository }}/assets/vendor/primer-css/css/primer.min.css,gh/{{ site.repository }}/assets/vendor/primer-markdown/dist/user-content.min.css,gh/{{ site.repository }}@V1.1.0/assets/css/components/collection-cdn.min.css,gh/{{ site.repository }}/assets/css/components/repo-card.min.css,gh/{{ site.repository }}/assets/css/sections/repo-list.min.css,gh/{{ site.repository }}/assets/css/components/boxed-group.min.css,gh/{{ site.repository }}/assets/css/components/boxed-group.min.css,gh/{{ site.repository }}/assets/css/globals/common.min.css,gh/{{ site.repository }}/assets/css/globals/responsive.min.css,gh/{{ site.repository }}/assets/css/posts/index.min.css">
     {% else %}
     <link rel="stylesheet" href="{{ site.url }}/assets/vendor/primer-css/css/primer.css">
     <link rel="stylesheet" href="{{ site.url }}/assets/vendor/primer-markdown/dist/user-content.min.css">
@@ -77,7 +77,7 @@
     {% endif %}
 
     {% if site.cdn.jsdelivr.enabled %}
-    <script src="https://cdn.jsdelivr.net/combine/gh/{{ site.repository }}/assets/vendor/jquery/dist/jquery.min.js,gh/{{ site.repository }}/assets/js/jquery-ui.min.js,gh/{{ site.repository }}/assets/js/main.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/combine/gh/{{ site.repository }}/assets/vendor/jquery/dist/jquery.min.js,gh/{{ site.repository }}/assets/js/jquery-ui.min.js,gh/{{ site.repository }}@V1.1.0/assets/js/main.min.js"></script>
     {% else %}
     <script src="{{ site.url }}/assets/vendor/jquery/dist/jquery.min.js"></script>
     <script src="{{ site.url }}/assets/js/jquery-ui.js"></script>

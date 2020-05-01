@@ -1,3 +1,7 @@
 {% if site.url contains 'mazhuang.org' %}
+{% if site.cdn.jsdelivr.enabled %}
+<img style="height:72px;width:72px" src="https://cdn.jsdelivr.net/gh/{{ site.repository }}@V1.1.0/assets/images/qrcode.jpg" alt="闷骚的程序员" />
+{% else %}
 <img style="height:72px;width:72px" src="{{ site.url }}/assets/images/qrcode.jpg" alt="闷骚的程序员" />
+{% endif %}
 {% endif %}
