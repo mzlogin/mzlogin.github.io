@@ -89,6 +89,7 @@ jsDelivr 对 GitHub 的支持是作为重要特性来宣传的，官网的介绍
 
 - 可以通过 `https://cdn.jsdelivr.net/combine/gh/mzlogin/mzlogin.github.io[@<版本号>]/[<文件夹>/]` 这样的路径浏览缓存文件列表；
 - 可以访问 `https://purge.jsdelivr.net/gh/mzlogin/mzlogin.github.io@1.2.0/assets/js/main.js` 来清除指定文件的缓存；（将引用的 CDN 链接里的 `cdn` 改成 `purge` 就是了）
+- 可以访问 `https://data.jsdelivr.com/v1/package/gh/mzlogin/mzlogin.github.io` 来查看 CDN 上的 tags 和 versions 列表，更多数据接口参数参见 <https://github.com/jsdelivr/data.jsdelivr.com>。
 
 ## 改造步骤
 
@@ -132,6 +133,8 @@ jsDelivr 对 GitHub 的支持是作为重要特性来宣传的，官网的介绍
 - 如果项目曾经打过 tag，那么新增/修改静态资源后，需要刷新 CDN 缓存的话，需要打个新 tag；
 
     一般发生在修改了博客模板的 js/css 以后。我也还在摸索如何省去这一步的方法。
+
+    **Update:** 我后来采用的解决方法是删除了所有的 tag，这样以前的 release 就变成了 Draft，对外是不可见的，因为我这个仓库不需要对外可见的 release，所以这个问题也就解决了，不需要再操心刷新 CDN 的问题了。
 
 ## 参考链接
 
