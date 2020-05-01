@@ -6,8 +6,13 @@
 
 <ul id="search_results"></ul>
 
+{% if site.cdn.jsdelivr.enabled %}
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/{{ site.repository }}/assets/css/modules/sidebar-search.css">
+<script src="https://cdn.jsdelivr.net/gh/{{ site.repository }}/assets/js/simple-jekyll-search.min.js"></script>
+{% else %}
 <link rel="stylesheet" type="text/css" href="{{ site.url }}/assets/css/modules/sidebar-search.css">
 <script src="{{ site.url }}/assets/js/simple-jekyll-search.min.js"></script>
+{% endif %}
 
 <script type="text/javascript">
 SimpleJekyllSearch({

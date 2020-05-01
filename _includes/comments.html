@@ -72,8 +72,13 @@
       {% endif %}
     {% when 'gitment' %}
         <div id="container"></div>
+        {% if site.cdn.jsdelivr.enabled %}
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/imsun.github.io/gitment/style/default.css">
+        <script src="https://cdn.jsdelivr.net/gh/imsun.github.io/gitment/dist/gitment.browser.js"></script>
+        {% else %}
         <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
         <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+        {% endif %}
         <script>
         var gitment = new Gitment({
             id: '{{ page.url | truncate: 50, '' }}',
