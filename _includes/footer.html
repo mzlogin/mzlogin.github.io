@@ -33,13 +33,9 @@
     </div>
     <!-- / footer -->
     {% if site.components.share.enabled %}
-    <script src="{{ site.url }}/assets/vendor/share.js/dist/js/share.min.js"></script>
+    <script src="{{ assets_base_url }}/assets/vendor/share.js/dist/js/share.min.js"></script>
     {% endif %}
-    {% if site.cdn.jsdelivr.enabled %}
-    <script src="https://cdn.jsdelivr.net/gh/{{ site.repository }}/assets/js/geopattern.js"></script>
-    {% else %}
-    <script src="{{ site.url }}/assets/js/geopattern.js"></script>
-    {% endif %}
+    <script src="{{ assets_base_url }}/assets/js/geopattern.js"></script>
     <script>
       jQuery(document).ready(function($) {
         // geopattern
@@ -51,45 +47,31 @@
     </script>
 
     {% if page.mermaid %}
-    {% if site.cdn.jsdelivr.enabled %}
-    <script src="https://cdn.jsdelivr.net/gh/{{ site.repository }}/assets/js/mermaid.min.js"></script>
-    {% else %}
-    <script src="{{ site.url }}/assets/js/mermaid.min.js"></script>
-    {% endif %}
+    <script src="{{ assets_base_url }}/assets/js/mermaid.min.js"></script>
     <script>mermaid.initialize({startOnLoad:true});</script>
     {% endif %}
 
     {% if page.sequence %}
-    {% if site.cdn.jsdelivr.enabled %}
-    <script src="https://cdn.jsdelivr.net/combine/gh/{{ site.repository }}/assets/js/webfont.min.js,gh/{{ site.repository }}/assets/js/snap.svg-min.js,gh/{{ site.repository }}/assets/js/underscore-min.js,gh/{{ site.repository }}/assets/vendor/js-sequence-diagrams/dist/sequence-diagram-min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/{{ site.repository }}/assets/vendor/js-sequence-diagrams/dist/sequence-diagram-min.css">
-    {% else %}
-    <script src="{{ site.url }}/assets/js/webfont.js"></script>
-    <script src="{{ site.url }}/assets/js/snap.svg-min.js"></script>
-    <script src="{{ site.url }}/assets/js/underscore-min.js"></script>
-    <script src="{{ site.url }}/assets/vendor/js-sequence-diagrams/dist/sequence-diagram-min.js"></script>
+    <script src="{{ assets_base_url }}/assets/js/webfont.js"></script>
+    <script src="{{ assets_base_url }}/assets/js/snap.svg-min.js"></script>
+    <script src="{{ assets_base_url }}/assets/js/underscore-min.js"></script>
+    <script src="{{ assets_base_url }}/assets/vendor/js-sequence-diagrams/dist/sequence-diagram-min.js"></script>
     <link rel="stylesheet" href="{{ site.url }}/assets/vendor/js-sequence-diagrams/dist/sequence-diagram-min.css">
-    {% endif %}
     <script>
       $(".language-sequence").sequenceDiagram({theme: 'simple'});
     </script>
     {% endif %}
 
     {% if page.flow %}
-    {% if site.cdn.jsdelivr.enabled %}
-    <script src="https://cdn.jsdelivr.net/combine/gh/{{ site.repository }}/assets/js/raphael.min.js,gh/{{ site.repository }}/assets/vendor/flowchart.js/dist/flowchart.min.js,/assets/js/flow.js"></script>
-    {% else %}
-    <script src="{{ site.url }}/assets/js/raphael.min.js"></script>
-    <script src="{{ site.url }}/assets/vendor/flowchart.js/dist/flowchart.min.js"></script>
-    <script src="{{ site.url }}/assets/js/flow.js"></script>
-    {% endif %}
+    <script src="{{ assets_base_url }}/assets/js/raphael.min.js"></script>
+    <script src="{{ assets_base_url }}/assets/vendor/flowchart.js/dist/flowchart.min.js"></script>
+    <script src="{{ assets_base_url }}/assets/js/flow.js"></script>
     {% endif %}
 
     {% if page.mathjax %}
-    {% if site.cdn.jsdelivr.enabled %}
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/basis-learning.github.io/MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    {% else %}
-    {% endif %}
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
     {% endif %}
 
     {% if site.google.analytics_id %}

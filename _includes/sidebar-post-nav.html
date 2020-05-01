@@ -8,8 +8,4 @@
   </section>
 </div>
 
-{% if site.cdn.jsdelivr.enabled %}
-<script src="https://cdn.jsdelivr.net/gh/{{ site.repository }}/assets/js/jquery.toc.js"></script>
-{% else %}
-<script src="{{ site.url }}/assets/js/jquery.toc.js"></script>
-{% endif %}
+<script src="{{ assets_base_url }}/assets/js/jquery.toc.js"></script>
