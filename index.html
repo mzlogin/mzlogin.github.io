@@ -5,6 +5,10 @@ css: ['pages/index.css']
 comments: false
 ---
 
+{% assign assets_base_url = site.url %}
+{% if site.cdn.jsdelivr.enabled %}
+{% assign assets_base_url = "https://cdn.jsdelivr.net/gh/" | append: site.repository %}
+{% endif %}
 <section class="banner">
     <div class="collection-head">
       <div class="container">
