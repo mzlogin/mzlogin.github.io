@@ -1,6 +1,6 @@
 <h3>My Popular Repositories</h3>
-{% if site.github.public_repositories != null %}
-{% assign repos = site.github.public_repositories | sort: "stargazers_count" | reverse%}
+{% if site.github.public_repositories != null and site.github.public_repositories != false %}
+{% assign repos = site.github.public_repositories | sort: "stargazers_count" | reverse %}
 {% for repo in repos | limit: site.side_bar_repo_limit %}
 <a href="{{ repo.html_url }}" target="_blank" class="card text-center">
     <div class="thumbnail">
