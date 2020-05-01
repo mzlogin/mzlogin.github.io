@@ -105,19 +105,23 @@ jsDelivr 对 GitHub 的支持是作为重要特性来宣传的，官网的介绍
 
 2. 修改 _layouts 里的文件，给名为 `assets_base_url` 的变量赋值，用它来代表加载静态资源的根路径：
 
+    {% raw %}
     ```liquid
     {% assign assets_base_url = site.url %}
     {% if site.cdn.jsdelivr.enabled %}
         {% assign assets_base_url = "https://cdn.jsdelivr.net/gh/" | append: site.repository %}
     {% endif %}
     ```
+    {% endraw %}
 
-3. 修改以前直接用 `{{ site.url }}` 拼接的静态资源引用链接，替换为 `{{ assets_base_url }}`，比如 _includes/header.html 里：
+3. 修改以前直接用 {% raw %}`{{ site.url }}`{% endraw %} 拼接的静态资源引用链接，替换为 {% raw %}`{{ assets_base_url }}`{% endraw %}，比如 _includes/header.html 里：
 
+    {% raw %}
     ```diff
     - <link rel="stylesheet" href="{{ site.url }}/assets/css/posts/index.css">
     + <link rel="stylesheet" href="{{ assets_base_url }}/assets/css/posts/index.css">
     ```
+    {% endraw %}
 
 这样万一哪天 CDN 出了点什么状况，我们也可以很方便地通过一个开关就切回自已的资源链接恢复服务。
 
