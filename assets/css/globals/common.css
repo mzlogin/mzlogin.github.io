@@ -81,7 +81,7 @@
     vertical-align: top
 }
 
-.context-loader,.markdown-body dl dt,.markdown-body table th,.pl-mb,.pl-mdr,.pl-mh,.pl-mh .pl-en,.pl-ms,.pl-sr .pl-cce,.site-header h1 strong {
+.markdown-body dl dt,.markdown-body table th,.pl-mb,.pl-mdr,.pl-mh,.pl-mh .pl-en,.pl-ms,.pl-sr .pl-cce,.site-header h1 strong {
     font-weight: 700
 }
 
@@ -122,29 +122,6 @@
 
 .site-header-actions .select-menu-modal-holder {
     top: 100%
-}
-
-.context-loader {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    z-index: 20;
-    width: 154px;
-    padding: 10px 10px 10px 30px;
-    margin-left: -75px;
-    font-size: 12px;
-    color: #666;
-    background: url(../images/min/octocat-spinner-16px.gif) 10px 50% no-repeat #eee;
-    border: 1px solid #ddd;
-    border-top: 1px solid #fff;
-    border-radius: 0 0 5px 5px
-}
-
-@media screen and (-webkit-min-device-pixel-ratio:2),screen and (max--moz-device-pixel-ratio:2) {
-    .context-loader {
-        background: url(../images/min/octocat-spinner-32-EAF2F5.gif) 10px 50% no-repeat #eee;
-        background-size: 16px auto
-    }
 }
 
 .site-header-nav {
