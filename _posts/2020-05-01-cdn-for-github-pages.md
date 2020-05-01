@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 使用 CDN 加速 GitHub Pages 博客的静态资源
+title: 使用 jsDelivr 加速 GitHub Pages 博客的静态资源
 categories: GitHub
 description: 使用 jsdelivr CDN 加速 GitHub Pages 博客的静态资源。
 keywords: GitHub, CDN, jsdelivr
@@ -61,7 +61,7 @@ jsDelivr 对 GitHub 的支持是作为重要特性来宣传的，官网的介绍
 
 另外还支持一些高级用法，比如：
 
-1. 指定版本，对应该仓库的名称为 `1.2.0` 或 `v1.2.0` 的 release 版本资源：
+1. 指定 release 版本号/提交 sha1/分支名称，例如指定获取该仓库的名称为 `1.2.0` 或 `v1.2.0` 的 release 版本资源：
 
     ```
     https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@1.2.0/assets/js/main.js
@@ -126,6 +126,12 @@ jsDelivr 对 GitHub 的支持是作为重要特性来宣传的，官网的介绍
 这样万一哪天 CDN 出了点什么状况，我们也可以很方便地通过一个开关就切回自已的资源链接恢复服务。
 
 主要就是这类修改，当然涉及的地方有多处，以上只是举一处例子记录示意，改造过程和改造后的代码可以参考我的博客仓库 <https://github.com/mzlogin/mzlogin.github.io>。
+
+## 现存问题
+
+- 如果项目曾经打过 tag，那么新增/修改静态资源后，需要刷新 CDN 缓存的话，需要打个新 tag；
+
+    一般发生在修改了博客模板的 js/css 以后。我也还在摸索如何省去这一步的方法。
 
 ## 参考链接
 
