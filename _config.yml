@@ -24,8 +24,6 @@ components:
 compress_html:
   clippings: all
   comments: ["<!--", "-->"]
-  endings: all
-  startings: [html, head, body]
 
 # ---------------- #
 #      Author      #
