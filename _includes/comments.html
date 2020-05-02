@@ -83,8 +83,8 @@
                 client_id: '{{ site.gitment.oauth.client_id }}',
                 client_secret: '{{ site.gitment.oauth.client_secret }}',
             },
-        })
-        gitment.render('container')
+        });
+        gitment.render('container');
         </script>
     {% when 'gitalk' %}
         <div id="gitalk-container"></div>
@@ -100,8 +100,8 @@
             admin: ['{{ site.gitalk.owner }}'],
             labels: ['gitment'],
             perPage: 50,
-        })
-        gitalk.render('gitalk-container')
+        });
+        gitalk.render('gitalk-container');
         </script>
   {% endcase %}
 {% endif %}
