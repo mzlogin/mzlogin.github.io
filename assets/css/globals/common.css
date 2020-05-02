@@ -702,3 +702,35 @@ pre {
 .top-most-flag {
   color: red;
 }
+
+a.footnote:hover {
+    border-bottom: none
+}
+
+a.footnote::before {
+    content: "[";
+    padding: 0 2px
+}
+
+a.footnote::after {
+    content: "]";
+    padding: 0 2px
+}
+
+div.footnotes>ol {
+    padding-left: 1.5rem;
+    font-size: 0.9rem
+}
+
+div.footnotes>ol p {
+    margin-bottom: 0.5rem
+}
+
+div.footnotes::before {
+    content: "";
+    display: block;
+    margin: 1.5rem 0;
+    border: 0;
+    border-top: 1px solid #ccc;
+    width: 20%
+}
