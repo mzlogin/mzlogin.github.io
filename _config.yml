@@ -20,6 +20,12 @@ cdn:
 components:
     share:
         enabled: false
+# 压缩页面内容
+compress_html:
+  clippings: all
+  comments: ["<!--", "-->"]
+  endings: all
+  startings: [html, head, body]
 
 # ---------------- #
 #      Author      #

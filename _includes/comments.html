@@ -11,7 +11,7 @@
     };
     var disqus_loaded = false;
     $(function() {
-        $('.show_disqus_comment').on('click', function() { // DON'T EDIT BELOW THIS LINE
+        $('.show_disqus_comment').on('click', function() { /* DON'T EDIT BELOW THIS LINE */
             $(this).html('加载中...');
             var that = this;
             if (!disqus_loaded) {
@@ -54,7 +54,7 @@
               this.page.identifier = '{{ page.url }}';
               this.page.title = '{{ page.title }}';
             };
-            (function() { // DON'T EDIT BELOW THIS LINE
+            (function() { /* DON'T EDIT BELOW THIS LINE */
               var d = document, s = d.createElement('script');
 
               s.type = 'text/javascript';
