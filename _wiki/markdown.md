@@ -140,6 +140,30 @@ print 'Hello, World!'
 
 * [目录](#目录)
 
+### Inline Attribute
+
+Span Inline Attribute 详情参考 <https://kramdown.gettalong.org/syntax.html#span-ials>
+
+Block Inline Attribute 详情参考 <https://kramdown.gettalong.org/syntax.html#block-ials>
+
+给块/元素添加 class、id、内嵌样式等：
+
+```
+![本站favicon](/favicon.ico){:.center}
+
+Hello, *world*{:#world} 
+
+Hello, *world*{: style="color:red"} 
+```
+
+![本站favicon](/favicon.ico){:.center}
+
+Hello, *world*{:#world} 
+
+Hello, *world*{: style="color:red"} 
+
+结合自定义的样式，有些场景比较有用。
+
 ### Emoji
 
 :camel:
