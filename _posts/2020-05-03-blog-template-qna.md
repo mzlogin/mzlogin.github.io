@@ -27,7 +27,7 @@ Did you mean?  tap
 ``undefined method `map` for false:FalseClass`` 这条报错之前总是伴随着 `Failed to open TCP connection to api.github.com:443` 一起出现，是在获取 GitHub Metadata 出错后，导致这一句报错：
 
 {% raw %}
-```
+```liquid
 {% assign repos = site.github.public_repositories | sort: "stargazers_count" | reverse %}
 ```
 {% endraw %}
@@ -37,7 +37,7 @@ Did you mean?  tap
 模板里主要是 _includes/sidebar-popular-repo.html 和 _pages/open-source.md 两个文件里用到了 Metadata，将以上这一句前的判断条件做一下修改后问题解决，将
 
 {% raw %}
-```
+```liquid
 {% if site.github.public_repositories != null %}
 ```
 {% endraw %}
@@ -45,8 +45,8 @@ Did you mean?  tap
 改为
 
 {% raw %}
-```
-{% if site.github.public_repositories != null and site.github.public_repositories != false %}
+```liquid
+{% if site.github.public_repositories != false %}
 ```
 {% endraw %}
 
@@ -56,7 +56,7 @@ Did you mean?  tap
 
 支持。因为相关的引入文件比较大可能影响加载速度，没有默认对所有文件开启，需要在要想开启的文件的 Front Matter 里加上声明：
 
-```
+```yaml
 ---
 flow: true
 sequence: true
