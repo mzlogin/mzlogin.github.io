@@ -59,7 +59,10 @@ let g:mdip_imgdir = '.'
 1. `g:mdip_imgdir` 对应图片保存路径前缀。我设置为了 `.`，然后总是输入相对当前文件的路径；
 2. `g:mdip_imgname` 对应图片保存时的缺省文件名前缀，即粘贴图片时，如果不输入文件名直接回车，将保存为 `<前缀>_日期-时间.png` 名称的文件。
 
+我的完整 Vim 配置文件托管在 GitHub[^3]，供参考。
+
 It's done, enjoy it.
 
 [^1]: <https://github.com/ferrine/md-img-paste.vim>
 [^2]: <https://github.com/VundleVim/Vundle.vim>
+[^3]: <https://github.com/mzlogin/config-files/blob/master/_vimrc>
