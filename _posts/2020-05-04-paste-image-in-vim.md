@@ -18,7 +18,7 @@ keywords: Vim, Markdown, md-image-paste.vim
 
 第 2 步和第 3 步是比较痛苦的，尤其是文件路径比较深的时候，可能要点选好几次。
 
-最近偶然发现的一个插件 md-img-paste.vim[^1] 能比较好地解决这个问题。现在的操作流程：
+最近偶然发现的一个外国小伙写的插件 md-img-paste.vim[^1]，能比较好地解决这个问题。现在的操作流程：
 
 1. 复制图片/截图；
 2. 在 Vim 里输入图片相对路径，自动保存图片并插入引用图片的表达式。
@@ -61,5 +61,5 @@ let g:mdip_imgdir = '.'
 
 It's done, enjoy it.
 
-[^1]: https://github.com/ferrine/md-img-paste.vim
-[^2]: https://github.com/VundleVim/Vundle.vim
+[^1]: <https://github.com/ferrine/md-img-paste.vim>
+[^2]: <https://github.com/VundleVim/Vundle.vim>
