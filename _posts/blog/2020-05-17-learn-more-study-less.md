@@ -252,14 +252,14 @@ Part 4 知识扩展
 
 ## 参考
 
-- https://book.douban.com/subject/25783654/
-- https://book.douban.com/subject/11603298/
-- https://www.zhihu.com/question/20571226
-- https://www.scotthyoung.com/blog/myprojects/mit-challenge-2/#6
-- https://www.scotthyoung.com/
-- https://www.zhihu.com/question/23043048
-- https://www.zhihu.com/pub/book/119554615
-- https://www.scotthyoung.com/blog/2008/02/06/20-tips-for-batching-to-save-time-and-cut-stress/
+- <https://book.douban.com/subject/25783654/>
+- <https://book.douban.com/subject/11603298/>
+- <https://www.zhihu.com/question/20571226>
+- <https://www.scotthyoung.com/blog/myprojects/mit-challenge-2/#6>
+- <https://www.scotthyoung.com/>
+- <https://www.zhihu.com/question/23043048>
+- <https://www.zhihu.com/pub/book/119554615>
+- <https://www.scotthyoung.com/blog/2008/02/06/20-tips-for-batching-to-save-time-and-cut-stress/>
 
 [MIT Challenge]: https://www.scotthyoung.com/blog/myprojects/mit-challenge-2/
 [Scott H. Young]: https://www.scotthyoung.com/
