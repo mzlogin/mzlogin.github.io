@@ -590,3 +590,29 @@ fatal: no man viewer handled the request
 ```
 git config --global help.format web
 ```
+
+### 比较两个分支的差异
+
+显示出所有差异详情：
+
+```sh
+git diff <branch_name_1> <branch_name_2>
+```
+
+显示有差异的文件列表：
+
+```sh
+git diff <branch_name_1> <branch_name_2> --stat
+```
+
+显示指定文件的差异详情：
+
+```sh
+git diff <branch_name_1> <branch_name_2> <filename>
+```
+
+查看 A 分支有，B 分支没有的提交：
+
+```sh
+git log <branch_name_A> ^<branch_name_B>
+```
