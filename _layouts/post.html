@@ -24,6 +24,12 @@ layout: default
             <a href="{{ site.url }}/categories/#{{ cat }}" title="{{ cat }}">{{ cat }}</a>
           </span>
           {% endfor %}
+          {% if site.word_count.enabled %}
+          <span class="meta-info">
+            <span class="octicon octicon-clock"></span>
+            共 {{ page.content | strip_html | strip_newlines | remove: " " | size }} 字，约 {{ page.content | strip_html | strip_newlines | remove: " " | size | divided_by: 350 | plus: 1 }} 分钟
+          </span>
+          {% endif %}
         </div>
       </div>
     </div>

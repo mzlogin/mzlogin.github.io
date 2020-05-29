@@ -29,6 +29,9 @@ components:
 compress_html:
   clippings: all
   comments: ["<!--", "-->"]
+# 文章字数统计
+word_count:
+    enabled: true
 
 # ---------------- #
 #      Author      #
