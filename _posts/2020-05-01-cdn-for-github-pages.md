@@ -110,7 +110,7 @@ jsDelivr 对 GitHub 的支持是作为重要特性来宣传的，官网的介绍
     ```liquid
     {% assign assets_base_url = site.url %}
     {% if site.cdn.jsdelivr.enabled %}
-        {% assign assets_base_url = "https://cdn.jsdelivr.net/gh/" | append: site.repository %}
+        {% assign assets_base_url = "https://cdn.jsdelivr.net/gh/" | append: site.repository | append: '@master' %}
     {% endif %}
     ```
     {% endraw %}
