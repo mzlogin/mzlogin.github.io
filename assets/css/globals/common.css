@@ -734,3 +734,7 @@ div.footnotes::before {
     border-top: 1px solid #ccc;
     width: 20%
 }
+
+img + em {
+  color: grey;
+}
