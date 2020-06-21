@@ -509,7 +509,7 @@
     margin: 0;
     font-size: 85%;
     background-color: rgba(0,0,0,.04);
-    border-radius: 3px
+    /* border-radius: 3px */
 }
 
 .markdown-body code:after,.markdown-body code:before,.markdown-body tt:after,.markdown-body tt:before {
@@ -544,8 +544,8 @@
     overflow: auto;
     font-size: 85%;
     line-height: 1.45;
-    background-color: #f7f7f7;
-    border-radius: 3px
+    /* background-color: #f7f7f7; */
+    /* border-radius: 3px */
 }
 
 .markdown-body .highlight pre {
@@ -583,7 +583,7 @@
     background-color: #fcfcfc;
     border: 1px solid #ccc;
     border-bottom-color: #bbb;
-    border-radius: 3px;
+    /* border-radius: 3px; */
     -webkit-box-shadow: inset 0 -1px 0 #bbb;
     box-shadow: inset 0 -1px 0 #bbb
 }

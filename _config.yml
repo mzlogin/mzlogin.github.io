@@ -32,6 +32,8 @@ compress_html:
 # 文章字数统计
 word_count:
     enabled: true
+# 代码高亮风格，支持的 theme 列表见 https://github.com/mzlogin/rouge-themes
+highlight_theme: github
 
 # ---------------- #
 #      Author      #

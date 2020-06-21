@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <title>{% if page.title %}{{ page.title }} &mdash; {% endif %}{{ site.title }}</title>
     <link rel="stylesheet" href="{{ assets_base_url }}/assets/vendor/primer-css/css/primer.css">
-    <link rel="stylesheet" href="{{ assets_base_url }}/assets/vendor/primer-markdown/dist/user-content.min.css">
     <link rel="stylesheet" href="{{ assets_base_url }}/assets/css/components/collection.css">
     <link rel="stylesheet" href="{{ assets_base_url }}/assets/css/components/repo-card.css">
     <link rel="stylesheet" href="{{ assets_base_url }}/assets/css/sections/repo-list.css">
@@ -15,6 +14,11 @@
     <link rel="stylesheet" href="{{ assets_base_url }}/assets/css/globals/responsive.css">
     <link rel="stylesheet" href="{{ assets_base_url }}/assets/css/posts/index.css">
     <link rel="stylesheet" href="{{ assets_base_url }}/assets/vendor/octicons/octicons/octicons.css">
+    {% assign highlight_base_url = 'https://mazhuang.org/rouge-themes/dist' %}
+    {% if site.cdn.jsdelivr.enabled %}
+    {% assign highlight_base_url = 'https://cdn.jsdelivr.net/gh/mzlogin/rouge-themes@master/dist' %}
+    {% endif %}
+    <link rel="stylesheet" href="{{ highlight_base_url }}/{{ site.highlight_theme}}.css">
     {% if site.components.share.enabled %}
     <link rel="stylesheet" href="{{ assets_base_url }}/assets/vendor/share.js/dist/css/share.min.css">
     {% endif %}
