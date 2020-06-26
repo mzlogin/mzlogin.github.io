@@ -53,3 +53,7 @@
 - name: 呓城之城
   url: http://yicheng.zdyrs.com/
   src: www
+
+- name: 秦大圣的博客
+  url: https://qinjisheng.top/
+  src: www
