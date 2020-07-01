@@ -73,6 +73,29 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/mathjax/MathJax@2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     {% endif %}
 
+    {% if page.mindmap %}
+    <script type="text/javascript" src="https://qsli.github.io/js/kity.min.js?v=0.0.0"></script>
+    <script type="text/javascript" src="https://qsli.github.io/js/kityminder.core.js?v=0.0.0"></script>
+    <script>
+    setTimeout(function() {
+      var minder = new kityminder.Minder({
+        renderTo: '.language-mindmap'
+      });
+      var markdownText = $('.language-mindmap').text().trim();
+      /*
+      $('.mindmap p').each(function(index, element) {
+        element.style.display = 'none';
+      });
+      */
+      minder.importData('markdown', markdownText);
+      minder.disable();
+      minder.execCommand('hand');
+    },
+      3000
+    )
+    </script>
+    {% endif %}
+
     {% if site.google.analytics_id %}
     <div style="display:none">
       <script>

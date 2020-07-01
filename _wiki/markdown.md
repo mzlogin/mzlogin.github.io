@@ -8,6 +8,7 @@ mermaid: true
 sequence: true
 flow: true
 mathjax: true
+mindmap: true
 ---
 
 **目录**
@@ -212,5 +213,22 @@ cond(no)->sub1(right)->op1
 When $$(a \ne 0)$$, there are two solutions to $$(ax^2 + bx + c = 0)$$ and they are
 
 $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
+
+### mindmap
+
+```mindmap
+# topic
+## topic2
+### topic2.1
+### topic2.2
+## topic3
+<!--Note-->
+这是一个备注
+<!--/Note-->
+### topic3.1
+### topic3.2
+#### topic3.2.1
+#### topic3.2.2
+```
 
 [^1]: Here is the footnote 1 definition.
