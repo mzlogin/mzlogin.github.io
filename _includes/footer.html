@@ -74,8 +74,8 @@
     {% endif %}
 
     {% if page.mindmap %}
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/qsli/qsli.github.com/js/kity.min.js?v=0.0.0"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/qsli/qsli.github.com/js/kityminder.core.js?v=0.0.0"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/fex-team/kity@dev/dist/kity.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/fex-team/kityminder-core@dev/dist/kityminder.core.min.js"></script>
     <script>
 $(document).ready(function(){
   $('.language-mindmap').each(function(index, element) {
@@ -93,9 +93,7 @@ $(document).ready(function(){
     minder.execCommand('hand');
     element.parentNode.style.display = 'none';
   });
-},
-  3000
-)
+});
     </script>
     {% endif %}
 
