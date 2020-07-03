@@ -74,25 +74,28 @@
     {% endif %}
 
     {% if page.mindmap %}
-    <script type="text/javascript" src="https://qsli.github.io/js/kity.min.js?v=0.0.0"></script>
-    <script type="text/javascript" src="https://qsli.github.io/js/kityminder.core.js?v=0.0.0"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/qsli/qsli.github.com/js/kity.min.js?v=0.0.0"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/qsli/qsli.github.com/js/kityminder.core.js?v=0.0.0"></script>
     <script>
-    setTimeout(function() {
-      var minder = new kityminder.Minder({
-        renderTo: '.language-mindmap'
-      });
-      var markdownText = $('.language-mindmap').text().trim();
-      /*
-      $('.mindmap p').each(function(index, element) {
-        element.style.display = 'none';
-      });
-      */
-      minder.importData('markdown', markdownText);
-      minder.disable();
-      minder.execCommand('hand');
-    },
-      3000
-    )
+$(document).ready(function(){
+  $('.language-mindmap').each(function(index, element) {
+    var markdownText = element.textContent.trim();
+    var parentNode = element.parentNode.parentNode;
+    var nodeName = '.language-mindmap-' + index;
+    var node = document.createElement("div");
+    node.className = 'language-mindmap-' + index;
+    parentNode.insertBefore(node, element.parentNode);
+    var minder = new kityminder.Minder({
+      renderTo: nodeName
+    });
+    minder.importData('markdown', markdownText);
+    minder.disable();
+    minder.execCommand('hand');
+    element.parentNode.style.display = 'none';
+  });
+},
+  3000
+)
     </script>
     {% endif %}
 

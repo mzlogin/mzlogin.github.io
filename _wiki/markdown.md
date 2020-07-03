@@ -229,6 +229,12 @@ $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
 ### topic3.2
 #### topic3.2.1
 #### topic3.2.2
+#### topic3.2.3
+#### topic3.2.4
+#### topic3.2.5
+### topic3.4
+### topic3.5
+### topic3.6
 ```
 
 [^1]: Here is the footnote 1 definition.
