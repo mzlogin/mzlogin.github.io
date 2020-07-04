@@ -57,7 +57,7 @@
     <script src="{{ assets_base_url }}/assets/js/snap.svg-min.js"></script>
     <script src="{{ assets_base_url }}/assets/js/underscore-min.js"></script>
     <script src="{{ assets_base_url }}/assets/vendor/js-sequence-diagrams/dist/sequence-diagram-min.js"></script>
-    <link rel="stylesheet" href="{{ site.url }}/assets/vendor/js-sequence-diagrams/dist/sequence-diagram-min.css">
+    <link rel="stylesheet" href="{{ assets_base_url }}/assets/vendor/js-sequence-diagrams/dist/sequence-diagram-min.css">
     <script>
       $(".language-sequence").sequenceDiagram({theme: 'simple'});
     </script>
@@ -74,8 +74,14 @@
     {% endif %}
 
     {% if page.mindmap %}
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/fex-team/kity@dev/dist/kity.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/fex-team/kityminder-core@dev/dist/kityminder.core.min.js"></script>
+    <style>
+.km-view {
+  height: 500px;
+}
+    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mzlogin/kityminder-core@dev/dist/kityminder.core.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/mzlogin/kity@dev/dist/kity.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/mzlogin/kityminder-core@dev/dist/kityminder.core.min.js"></script>
     <script>
 $(document).ready(function(){
   $('.language-mindmap').each(function(index, element) {
@@ -89,9 +95,16 @@ $(document).ready(function(){
       renderTo: nodeName
     });
     minder.importData('markdown', markdownText);
-    minder.disable();
+    /* minder.disable(); */
     minder.execCommand('hand');
     element.parentNode.style.display = 'none';
+
+    {% if page.mindmap-template %}
+    setTimeout(function() {
+      minder.setTemplate('{{ page.mindmap-template }}');
+      minder.refresh();
+    }, 100);
+    {% endif %}
   });
 });
     </script>
