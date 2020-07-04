@@ -18,7 +18,7 @@ permalink: /wiki/
 {% endfor %}
 {% for wiki in site.wiki %}
 {% if wiki.title != "Wiki Template" and wiki.topmost != true %}
-<li class="listing-item"><a href="{{ site.url }}{{ wiki.url }}">{{ wiki.title }}</a></li>
+<li class="listing-item"><a href="{{ site.url }}{{ wiki.url }}">{{ wiki.title }}<span style="font-size:12px;color:red;font-style:italic;">{%if wiki.layout == 'mindmap' %}  mindmap{% endif %}</span></a></li>
 {% endif %}
 {% endfor %}
 </ul>

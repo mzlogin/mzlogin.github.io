@@ -1,0 +1,63 @@
+---
+layout: default
+---
+
+<style>
+.site-header {
+    margin-bottom: 0;
+}
+.site-footer {
+    margin-top: 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.site-footer .octicon-mark-github {
+    top: 18px;
+}
+</style>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mzlogin/kityminder-core@dev/dist/kityminder.core.css">
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/mzlogin/kity@dev/dist/kity.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/mzlogin/kityminder-core@dev/dist/kityminder.core.min.js"></script>
+
+<div id="mindmap-container"></div>
+
+<article class="article-content markdown-body" style="display:none;">
+{{ content }}
+</article>
+
+<script>
+function getUrlParam(name) {
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+    var r = window.location.search.substr(1).match(reg);
+    if (r != null) return r[2]; return null;
+}
+
+function renderMarkdownToMindMap(markdownText) {
+    var headerHeight = $('header.site-header')[0].offsetHeight;
+    var footerHeight = $('footer.container')[0].offsetHeight;
+    var mindmapHeight = $(window).height() - headerHeight - footerHeight;
+    $('#mindmap-container').height('' + mindmapHeight + "px");
+
+    var minder = new kityminder.Minder({
+      renderTo: '#mindmap-container'
+    });
+    minder.importData('markdown', markdownText);
+    /* minder.disable(); */
+    minder.execCommand('hand');
+}
+
+$(document).ready(function() {
+  var markdownText = '';
+  if ($('.language-mindmap').size() == 1) {
+    var node = $('.language-mindmap')[0];
+    var markdownText = node.textContent.trim();
+  } else {
+    var markdownText = getUrlParam('data');
+    if (markdownText) {
+      markdownText = decodeURIComponent(markdownText);
+    }
+  }
+  renderMarkdownToMindMap(markdownText);
+});
+</script>
