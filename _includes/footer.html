@@ -74,11 +74,6 @@
     {% endif %}
 
     {% if page.mindmap %}
-    <style>
-.km-view {
-  height: 500px;
-}
-    </style>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mzlogin/kityminder-core@dev/dist/kityminder.core.css">
     <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/mzlogin/kity@dev/dist/kity.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/mzlogin/kityminder-core@dev/dist/kityminder.core.min.js"></script>
@@ -90,6 +85,7 @@ $(document).ready(function(){
     var nodeName = '.language-mindmap-' + index;
     var node = document.createElement("div");
     node.className = 'language-mindmap-' + index;
+    node.style.height = '' + $(element).height() + 'px';
     parentNode.insertBefore(node, element.parentNode);
     var minder = new kityminder.Minder({
       renderTo: nodeName
