@@ -97,6 +97,14 @@ $(document).ready(function(){
     minder.importData('markdown', markdownText);
     /* minder.disable(); */
     minder.execCommand('hand');
+
+    var viewerTipNode = document.createElement("a");
+    viewerTipNode.setAttribute('href', '{{ site.url }}/mindmap-viewer/?data=' + encodeURIComponent(markdownText));
+    viewerTipNode.setAttribute('target', '_blank');
+    viewerTipNode.setAttribute('style', 'font-size:0.8rem;font-style:italic;font-color:grey;');
+    viewerTipNode.innerText = '全屏查看';
+    parentNode.insertBefore(viewerTipNode, element.parentNode);
+
     element.parentNode.style.display = 'none';
 
     {% if page.mindmap-template %}
