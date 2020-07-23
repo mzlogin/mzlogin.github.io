@@ -656,3 +656,24 @@ rm ~/.ssh/known_hosts
 ```
 
 然后重新操作即可。
+
+### 删除不存在对应远程分支的本地分支
+
+（本小节有效性存疑，有时候并不好使。）
+
+```sh
+$ git remote show origin
+develop                             tracked
+master                              tracked
+feature/new-ui                      tracked
+refs/remotes/origin/feature/test    stale (use 'git remote prune' to remove)
+...
+```
+
+其中 feature/test 就是不存在远程分支的本地分支。
+
+```sh
+$ git remote prune origin
+```
+
+清除完成。
