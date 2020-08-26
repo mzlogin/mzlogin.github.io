@@ -251,3 +251,13 @@ keywords: Vim
 | 删除列         | `Leader-tdc` |
 | 删除行         | `Leader-tdd` |
 | 重新格式化表格 | `Leader-tr`  |
+
+### 命令行
+
+打开 Vim 时跳转到指定行：
+
+```
+vim +[num] filename
+```
+
+num 表示行号，不填则跳转到文件末尾。
