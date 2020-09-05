@@ -1,6 +1,6 @@
 ---
 layout: mindmap
-title: 技能树
+title: Skill Tree
 categories: mindmap
 description: 个人技能树思维导图
 keywords: 技能树, 思维导图, mindmap, 脑图
