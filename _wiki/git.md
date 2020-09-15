@@ -171,13 +171,6 @@ git submodule update --init --recursive
 ### 删除远程 tag
 
 ```
-git tag -d v0.0.9
-git push origin :refs/tags/v0.0.9
-```
-
-或
-
-```
 git push origin --delete tag [tagname]
 ```
 
