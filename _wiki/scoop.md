@@ -63,3 +63,17 @@ scoop bucket known
 ```
 scoop bucket add <bucketname>
 ```
+
+## 查看软件信息
+
+列出已安装软件：
+
+```
+scoop list
+```
+
+查看某软件信息：
+
+```
+scoop info <appname>
+```
