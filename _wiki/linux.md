@@ -10,6 +10,20 @@ keywords: Linux
 
 ## 实用命令
 
+### chown
+
+更改文件所有者和组。
+
+比如某文件夹当前所有者是 root，需要更改为 admin：
+
+```sh
+chown -R admin:admin test
+```
+
+### chmod
+
+修改文件权限。
+
 ### fuser
 
 查看文件被谁占用。
