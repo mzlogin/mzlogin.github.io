@@ -13,6 +13,11 @@ jobs:
         with: 
           persist-credentials: false
 
+      - name: Set Ruby 2.7
+        uses: actions/set-ruby@v1
+        with:
+          version: 2.7.x
+
       - name: Install and Build
         run: |
           gem install bundler
