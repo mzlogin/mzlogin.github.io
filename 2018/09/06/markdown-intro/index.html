@@ -1,0 +1,553 @@
+<!DOCTYPE html><html lang="zh-cmn-Hans" prefix="og: http://ogp.me/ns#" class="han-init"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /><title>一份简明的 Markdown 笔记与教程 &mdash; 码志</title><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/vendor/primer-css/css/primer.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/css/components/collection.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/css/components/repo-card.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/css/sections/repo-list.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/css/components/boxed-group.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/css/globals/common.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/css/globals/responsive.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/css/posts/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/vendor/octicons/octicons/octicons.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mzlogin/rouge-themes@master/dist/github.css"><link rel="canonical" href="https://mazhuang.org/2018/09/06/markdown-intro/"><link rel="alternate" type="application/atom+xml" title="码志" href="https://mazhuang.org/feed.xml"><link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/favicon.ico"><meta property="og:title" content="一份简明的 Markdown 笔记与教程"><meta name="keywords" content="Markdown, VSCode"><meta name="og:keywords" content="Markdown, VSCode"><meta name="description" content="为部门内知识分享准备的素材，记录了 Markdown 的优点、应用场景和编辑工具，介绍了标准语法与扩展语法，以及一些应用 Markdown 的奇技淫巧。个人使用 Markdown 的经验持续补充中，最新完整版请参见"><meta name="og:description" content="为部门内知识分享准备的素材，记录了 Markdown 的优点、应用场景和编辑工具，介绍了标准语法与扩展语法，以及一些应用 Markdown 的奇技淫巧。个人使用 Markdown 的经验持续补充中，最新完整版请参见"><meta property="og:url" content="https://mazhuang.org/2018/09/06/markdown-intro/"><meta property="og:site_name" content="码志"><meta property="og:type" content="article"><meta property="og:locale" content="zh_CN" /><meta property="article:published_time" content="2018-09-06"> <script src="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/vendor/jquery/dist/jquery.min.js"></script> <script src="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/js/jquery-ui.js"></script> <script src="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/js/main.js"></script> <script data-ad-client="ca-pub-7093222719567591" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script></head><body class="" data-mz=""><header class="site-header"><div class="container">
+<h1><a href="https://mazhuang.org/" title="码志"><span class="octicon octicon-mark-github"></span> 码志</a></h1>
+<button class="collapsed mobile-visible" type="button" onclick="toggleMenu();"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button><nav class="site-header-nav" role="navigation"> <a href="https://mazhuang.org/" class=" site-header-nav-item" target="" title="首页">首页</a> <a href="https://mazhuang.org/categories/" class=" site-header-nav-item" target="" title="分类">分类</a> <a href="https://mazhuang.org/wiki/" class=" site-header-nav-item" target="" title="维基">维基</a> <a href="https://mazhuang.org/links/" class=" site-header-nav-item" target="" title="链接">链接</a> <a href="https://mazhuang.org/about/" class=" site-header-nav-item" target="" title="关于">关于</a></nav>
+</div></header><section class="collection-head small geopattern" data-pattern-id="一份简明的 Markdown "><div class="container"><div class="columns">
+<div class="column three-fourths"><div class="collection-title">
+<h1 class="collection-header">一份简明的 Markdown 笔记与教程</h1>
+<div class="collection-info"> <span class="meta-info"> <span class="octicon octicon-calendar"></span> 2018/09/06 </span> <span class="meta-info"> <span class="octicon octicon-file-directory"></span> <a href="https://mazhuang.org/categories/#Markdown" title="Markdown">Markdown</a> </span> <span class="meta-info"> <span class="octicon octicon-clock"></span> 共 7292 字，约 21 分钟 </span>
+</div>
+</div></div>
+<div class="column one-fourths mobile-hidden"><div class="collection-title"> <img style="height:72px;width:72px" src="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/images/qrcode.jpg" alt="闷骚的程序员">
+</div></div>
+</div></div></section><section class="container content"><div class="columns">
+<div class="column three-fourths"> <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7093222719567591" data-ad-slot="1650902835" data-ad-format="auto" data-full-width-responsive="true"></ins> <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script> <br><article class="article-content markdown-body"><p>为部门内知识分享准备的素材，记录了 Markdown 的优点、应用场景和编辑工具，介绍了标准语法与扩展语法，以及一些应用 Markdown 的奇技淫巧。个人使用 Markdown 的经验持续补充中，最新完整版请参见</p>
+<p><a href="https://github.com/mzlogin/markdown-intro">https://github.com/mzlogin/markdown-intro</a></p>
+<hr>
+<p>自从 2014 年左右接触到 Markdown 以来，对它的使用就一发而不可收拾。从最开始使用它在 GitHub Pages 里写博客，到用它编辑项目的 README 文件，再到撰写开发文档，编辑微信公众号文章和邮件内容等等，这期间也见证了它在各类平台和网站上的普及和被原生支持，可以说，Markdown 如今已经渗透了我在技术和网络活动的方方面面，成为了我撰写文本文档的首选。</p>
+<p>那么首先我们一起来看一下它的「定义」：</p>
+<blockquote><p>Markdown 是一种轻量级标记语言，创始人为 John Gruber。它允许人们「使用易读易写的纯文本格式编写文档，然后转换成有效的 XHTML（或者 HTML）文档」。——维基百科</p></blockquote>
+<p>本文档的目的不在于面面俱到地介绍 Markdown，只是作为我对其理解的笔记整理，希望能同时帮助一些对 Markdown 感兴趣的人快速上手，或是作为一个工具，供对其已经有所了解的人在需要时参考。</p>
+<p>接下来请随我一起深入了解这门并不神秘的实用标记语言。</p>
+<p><strong>目录</strong></p>
+<ul>
+<li>
+<a href="#%E8%83%8C%E6%99%AF">背景</a><ul>
+<li><a href="#%E4%BC%98%E7%82%B9">优点</a></li>
+<li><a href="#%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF">使用场景</a></li>
+<li><a href="#%E7%BC%96%E8%BE%91%E5%B7%A5%E5%85%B7">编辑工具</a></li>
+</ul>
+</li>
+<li>
+<a href="#%E8%AF%AD%E6%B3%95">语法</a><ul>
+<li><a href="#%E6%A0%87%E9%A2%98">标题</a></li>
+<li><a href="#%E6%AE%B5%E8%90%BD">段落</a></li>
+<li><a href="#%E8%A1%8C%E5%86%85%E6%A0%BC%E5%BC%8F">行内格式</a></li>
+<li><a href="#%E5%BC%95%E7%94%A8%E5%9D%97">引用块</a></li>
+<li><a href="#%E8%B6%85%E9%93%BE%E6%8E%A5">超链接</a></li>
+<li><a href="#%E5%9B%BE%E7%89%87">图片</a></li>
+<li><a href="#%E5%88%97%E8%A1%A8">列表</a></li>
+<li><a href="#%E4%BB%A3%E7%A0%81%E5%9D%97">代码块</a></li>
+<li><a href="#%E6%B0%B4%E5%B9%B3%E5%88%86%E5%89%B2%E7%BA%BF">水平分割线</a></li>
+<li><a href="#%E5%B5%8C%E5%85%A5-html">嵌入 HTML</a></li>
+</ul>
+</li>
+<li>
+<a href="#%E6%89%A9%E5%B1%95%E8%AF%AD%E6%B3%95">扩展语法</a><ul>
+<li><a href="#%E8%A1%A8%E6%A0%BC">表格</a></li>
+<li><a href="#%E4%BB%BB%E5%8A%A1%E5%88%97%E8%A1%A8">任务列表</a></li>
+<li><a href="#%E5%88%A0%E9%99%A4%E7%BA%BF">删除线</a></li>
+<li><a href="#%E8%87%AA%E5%8A%A8%E9%93%BE%E6%8E%A5">自动链接</a></li>
+<li><a href="#emoji">emoji</a></li>
+</ul>
+</li>
+<li>
+<a href="#%E5%A5%87%E6%8A%80%E6%B7%AB%E5%B7%A7">奇技淫巧</a><ul>
+<li><a href="#%E7%94%BB%E6%B5%81%E7%A8%8B%E5%9B%BE%E5%92%8C%E6%97%B6%E5%BA%8F%E5%9B%BE">画流程图和时序图</a></li>
+<li><a href="#%E6%8F%92%E5%85%A5%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F">插入数学公式</a></li>
+<li><a href="#%E7%94%A8-markdown-%E5%81%9A-ppt">用 Markdown 做 PPT</a></li>
+<li><a href="#%E7%94%A8-markdown-%E5%86%99%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7">用 Markdown 写微信公众号</a></li>
+<li><a href="#%E6%9B%B4%E5%A4%9A">更多</a></li>
+</ul>
+</li>
+<li><a href="#%E5%8F%82%E8%80%83">参考</a></li>
+</ul>
+<h2 id="背景">背景</h2>
+<h3 id="优点">优点</h3>
+<ol>
+<li><p>专注于文字内容；</p></li>
+<li><p>纯文本，易读易写，可以方便地纳入版本控制；</p></li>
+<li><p>语法简单，没有什么学习成本，能轻松在码字的同时做出美观大方的排版。</p></li>
+</ol>
+<h3 id="使用场景">使用场景</h3>
+<ul>
+<li>
+<p>各类代码托管平台</p>
+<p>主流的代码托管平台，如 GitHub、GitLab、BitBucket、Coding、Gitee 等等，都支持 Markdown 语法，很多开源项目的 README、开发文档、帮助文档、Wiki 等都用 Markdown 写作。</p>
+</li>
+<li>
+<p>技术社区和写作平台</p>
+<p>StackOverflow、CSDN、掘金、简书、GitBook、有道云笔记</p>
+</li>
+<li>
+<p>论坛</p>
+<p>V2EX、光谷社区</p>
+</li>
+</ul>
+<p>个人感觉比较遗憾的一点是各平台可能采用不同语言实现的 Markdown 解析引擎，或采用同一解析引擎的不同版本，而且可能有不同程度的定制与扩展，这导致在不同平台上使用 Markdown 写作时体验并不完全一致。不过幸好对于大家公认的一些标准语法，各家都是支持的。</p>
+<h3 id="编辑工具">编辑工具</h3>
+<p>理论上任何一款文本编辑器都能用于编辑 Markdown 文档，它们分别提供了不同程度的语法高亮、预览等功能，以下只是列举其中一部分，选择自己称手的即可。</p>
+<ul>
+<li>
+<p>现代编辑器</p>
+<p>VSCode / Atom</p>
+</li>
+<li>
+<p>传统编辑器</p>
+<p>Vim / Emacs / Sublime Text / Notepad++</p>
+</li>
+<li>
+<p>IDE 自带编辑器</p>
+<p>IntelliJ IDEA / Android Studio / WebStorm</p>
+</li>
+<li>
+<p>专用编辑器</p>
+<p>Ulysses / Mou / Typora / Markpad</p>
+</li>
+<li>
+<p>在线编辑器</p>
+<p>各种支持 Markdown 的网站都提供了在线编辑器</p>
+</li>
+</ul>
+<h2 id="语法">语法</h2>
+<h3 id="标题">标题</h3>
+<p><strong>Markdown：</strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># atx-style 一级标题
+
+## 二级标题
+
+###### 六级标题
+
+Setext-style 一级标题
+===
+
+二级标题
+---
+</code></pre></div></div>
+<p><strong>预览效果：</strong></p>
+<blockquote>
+<h1 id="atx-style-一级标题">atx-style 一级标题</h1>
+<h2 id="二级标题">二级标题</h2>
+<h6 id="六级标题">六级标题</h6>
+<h1 id="setext-style-一级标题">Setext-style 一级标题</h1>
+<h2 id="二级标题-1">二级标题</h2>
+</blockquote>
+<p><strong>对应 HTML：</strong></p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;h1&gt;</span>atx-style 一级标题<span class="nt">&lt;/h1&gt;</span>
+
+<span class="nt">&lt;h2&gt;</span>二级标题<span class="nt">&lt;/h2&gt;</span>
+
+<span class="nt">&lt;h6&gt;</span>六级标题<span class="nt">&lt;/h6&gt;</span>
+
+<span class="nt">&lt;h1&gt;</span>Setext-style 一级标题<span class="nt">&lt;/h1&gt;</span>
+
+<span class="nt">&lt;h2&gt;</span>二级标题<span class="nt">&lt;/h2&gt;</span>
+</code></pre></div></div>
+<h3 id="段落">段落</h3>
+<p>中间没有空行的连续不断的几行文字被视为一个段落。</p>
+<p><strong>Markdown：</strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>白日依山尽，
+
+黄河入海流。
+（句号后面没空格）
+
+欲穷千里目，
+
+更上一层楼。  
+（句号后面有俩空格）
+</code></pre></div></div>
+<p><strong>预览效果：</strong></p>
+<p>白日依山尽，</p>
+<p>黄河入海流。 （句号后面没空格）</p>
+<p>欲穷千里目，</p>
+<p>更上一层楼。<br> （句号后面有俩空格）</p>
+<p><strong>对应 HTML：</strong></p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;p&gt;</span>白日依山尽，<span class="nt">&lt;/p&gt;</span>
+
+<span class="nt">&lt;p&gt;</span>黄河入海流。
+（句号后面没有空格）<span class="nt">&lt;/p&gt;</span>
+
+<span class="nt">&lt;p&gt;</span>欲穷千里目，<span class="nt">&lt;/p&gt;</span>
+
+<span class="nt">&lt;p&gt;</span>
+  更上一层楼。
+  <span class="nt">&lt;br&gt;</span>
+  （句号后面有俩空格）
+<span class="nt">&lt;/p&gt;</span>
+</code></pre></div></div>
+<h3 id="行内格式">行内格式</h3>
+<p>对段落或者部分文本的强调效果。</p>
+<p><strong>Markdown：</strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>后面俩字**加黑**
+
+后面俩字*斜体*
+</code></pre></div></div>
+<p><strong>预览效果：</strong></p>
+<p>后面俩字<strong>加黑</strong></p>
+<p>后面俩字<em>斜体</em></p>
+<p><strong>对应 HTML：</strong></p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;p&gt;</span>
+  后面俩字
+  <span class="nt">&lt;strong&gt;</span>加黑<span class="nt">&lt;/strong&gt;</span>
+<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p&gt;</span>
+  后面俩字
+  <span class="nt">&lt;em&gt;</span>斜体<span class="nt">&lt;/em&gt;</span>
+<span class="nt">&lt;/p&gt;</span>
+</code></pre></div></div>
+<h3 id="引用块">引用块</h3>
+<p><strong>Markdown：</strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; 引用块段落一。
+&gt;
+&gt; 引用块段落二。
+&gt;&gt; 内嵌引用块段落一。
+&gt;
+&gt; ### 引用块内的标题
+</code></pre></div></div>
+<p><strong>预览效果：</strong></p>
+<blockquote>
+<p>引用块段落一。</p>
+<p>引用块段落二。</p>
+<blockquote><p>内嵌引用块段落一。</p></blockquote>
+<h3 id="引用块内的标题">引用块内的标题</h3>
+</blockquote>
+<p><strong>对应 HTML：</strong></p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;blockquote&gt;</span>
+  <span class="nt">&lt;p&gt;</span>引用块段落一。<span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;p&gt;</span>引用块段落二。<span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;blockquote&gt;</span>
+    <span class="nt">&lt;p&gt;</span>内嵌引用块段落一。<span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;/blockquote&gt;</span>
+  <span class="nt">&lt;h3</span> <span class="na">id=</span><span class="s">"引用块内的标题"</span><span class="nt">&gt;</span>引用块内的标题<span class="nt">&lt;/h3&gt;</span>
+<span class="nt">&lt;/blockquote&gt;</span>
+</code></pre></div></div>
+<h3 id="超链接">超链接</h3>
+<p>Markdown 支持行内式链接和引用式链接。</p>
+<p><strong>Markdown：</strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>行内式 [博客](https://mazhuang.org "我的个人博客") 链接，带 title。
+
+行内式 [GitHub](https://github.com/mzlogin) 链接。
+
+引用式 [博客][1] 链接。
+
+引用式 [GitHub][2] 链接，带 title。
+
+[1]: https://mazhuang.org
+[2]: https://github.com/mzlogin "我的 GitHub 主页"
+</code></pre></div></div>
+<p><strong>预览效果：</strong></p>
+<p>行内式 <a href="https://mazhuang.org" title="我的个人博客">博客</a> 链接，带 title。</p>
+<p>行内式 <a href="https://github.com/mzlogin">GitHub</a> 链接。</p>
+<p>引用式 <a href="https://mazhuang.org">博客</a> 链接。</p>
+<p>引用式 <a href="https://github.com/mzlogin" title="我的 GitHub 主页">GitHub</a> 链接，带 title。</p>
+<p><strong>对应 HTML：</strong></p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;p&gt;</span>行内式 <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"https://mazhuang.org"</span> <span class="na">title=</span><span class="s">"我的个人博客"</span><span class="nt">&gt;</span>博客<span class="nt">&lt;/a&gt;</span> 链接，带 title。<span class="nt">&lt;/p&gt;</span>
+
+<span class="nt">&lt;p&gt;</span>行内式 <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"https://github.com/mzlogin"</span><span class="nt">&gt;</span>GitHub<span class="nt">&lt;/a&gt;</span> 链接。<span class="nt">&lt;/p&gt;</span>
+
+<span class="nt">&lt;p&gt;</span>引用式 <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"https://mazhuang.org"</span><span class="nt">&gt;</span>博客<span class="nt">&lt;/a&gt;</span> 链接。<span class="nt">&lt;/p&gt;</span>
+
+<span class="nt">&lt;p&gt;</span>引用式 <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"https://github.com/mzlogin"</span> <span class="na">title=</span><span class="s">"我的 GitHub 主页"</span><span class="nt">&gt;</span>GitHub<span class="nt">&lt;/a&gt;</span> 链接，带 title。<span class="nt">&lt;/p&gt;</span>
+</code></pre></div></div>
+<h3 id="图片">图片</h3>
+<p>在超链接的写法前加一个 <code class="language-plaintext highlighter-rouge">!</code>，就是引用图片的方法。</p>
+<p><strong>Markdown：</strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>![Alt text](https://mazhuang.org/favicon.ico "favicon")
+</code></pre></div></div>
+<p><strong>预览效果：</strong></p>
+<p><img src="https://mazhuang.org/favicon.ico" alt="Alt text" title="favicon"></p>
+<p><strong>对应 HTML：</strong></p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"https://mazhuang.org/favicon.ico"</span> <span class="na">alt=</span><span class="s">"Alt text"</span> <span class="na">title=</span><span class="s">"favicon"</span><span class="nt">&gt;</span>
+</code></pre></div></div>
+<h3 id="列表">列表</h3>
+<p>包括有序列表和无序列表。</p>
+<p><strong>Markdown：</strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- 苹果
+- 葡萄
+- 榴莲
+
+1. 苹果
+2. 葡萄
+3. 榴莲
+</code></pre></div></div>
+<p><strong>预览效果：</strong></p>
+<ul>
+<li>苹果</li>
+<li>葡萄</li>
+<li>榴莲</li>
+</ul>
+<ol>
+<li>苹果</li>
+<li>葡萄</li>
+<li>榴莲</li>
+</ol>
+<p><strong>对应 HTML：</strong></p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;ul&gt;</span>
+  <span class="nt">&lt;li&gt;</span>苹果<span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>葡萄<span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>榴莲<span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span>
+<span class="nt">&lt;ol&gt;</span>
+  <span class="nt">&lt;li&gt;</span>苹果<span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>葡萄<span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>榴莲<span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ol&gt;</span>
+</code></pre></div></div>
+<p>其中无序列表的标记可以使用 <code class="language-plaintext highlighter-rouge">+</code>、<code class="language-plaintext highlighter-rouge">-</code> 或 <code class="language-plaintext highlighter-rouge">*</code>，有序列表前的数字可以是乱序的。</p>
+<h3 id="代码块">代码块</h3>
+<p>支持行内代码和代码块。</p>
+<p><strong>Markdown：</strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Android 里使用 `TextUtils` 类的 `isEmpty` 方法来判断字符串是否为空。
+
+```java
+if (TextUtils.isEmpty(text)) {
+    return null;
+}
+```
+</code></pre></div></div>
+<p><strong>预览效果：</strong></p>
+<p>Android 里使用 <code class="language-plaintext highlighter-rouge">TextUtils</code> 类的 <code class="language-plaintext highlighter-rouge">isEmpty</code> 方法来判断字符串是否为空。</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="o">(</span><span class="nc">TextUtils</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">(</span><span class="n">text</span><span class="o">))</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p><strong>对应 HTML：</strong></p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;p&gt;</span>Android 里使用 <span class="nt">&lt;code&gt;</span>TextUtils<span class="nt">&lt;/code&gt;</span> 类的 <span class="nt">&lt;code&gt;</span>isEmpty<span class="nt">&lt;/code&gt;</span> 方法来判断字符串是否为空。<span class="nt">&lt;/p&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"highlight highlight-source-java"</span><span class="nt">&gt;&lt;pre&gt;&lt;span</span> <span class="na">class=</span><span class="s">"pl-k"</span><span class="nt">&gt;</span>if<span class="nt">&lt;/span&gt;</span> (<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"pl-smi"</span><span class="nt">&gt;</span>TextUtils<span class="nt">&lt;/span&gt;&lt;span</span> <span class="na">class=</span><span class="s">"pl-k"</span><span class="nt">&gt;</span>.<span class="nt">&lt;/span&gt;</span>isEmpty(text)) {
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"pl-k"</span><span class="nt">&gt;</span>return<span class="nt">&lt;/span&gt;</span> <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"pl-c1"</span><span class="nt">&gt;</span>null<span class="nt">&lt;/span&gt;</span>;
+}<span class="nt">&lt;/pre&gt;&lt;/div&gt;</span>
+</code></pre></div></div>
+<p>上例中的语言标记 <code class="language-plaintext highlighter-rouge">java</code> 可选填，可用于在编辑器和渲染后的效果里添加语法高亮。</p>
+<p>块式代码也可以对整个代码段缩进四个空格，或一个 Tab 来实现。</p>
+<h3 id="水平分割线">水平分割线</h3>
+<p>使用一个单独行里的三个或以上 <code class="language-plaintext highlighter-rouge">*</code>、<code class="language-plaintext highlighter-rouge">-</code> 来生产一条水平分割线，它们之间可以有空格。</p>
+<p><strong>Markdown：</strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>***
+
+-----
+
+- - -
+</code></pre></div></div>
+<p><strong>预览效果：</strong></p>
+<hr>
+<hr>
+<hr>
+<p><strong>对应 HTML：</strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;hr /&gt;
+
+&lt;hr /&gt;
+
+&lt;hr /&gt;
+</code></pre></div></div>
+<h3 id="嵌入-html">嵌入 HTML</h3>
+<p>Markdown 标记语言的目的不是替代 HTML，也不是发明一种更便捷的插入 HTML 标签的方式。它对应的只是 HTML 标签的一个很小的子集。</p>
+<p>对于那些没有办法用 Markdown 语法来对应的 HTML 标签，直接使用 HTML 来写就好了。</p>
+<h2 id="扩展语法">扩展语法</h2>
+<p>本节的内容是介绍一些受到广泛支持的 Markdown 扩展语法。</p>
+<h3 id="表格">表格</h3>
+<p><strong>Markdown：</strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>| 编号  | 姓名（左） | 年龄（右） | 性别（中） |
+| ----- | :--------  | ---------: | :------:   |
+| 0     | 张三       | 28         | 男         |
+| 1     | 李四       | 29         | 男         |
+</code></pre></div></div>
+<p><strong>预览效果：</strong></p>
+<table>
+<thead><tr>
+<th>编号</th>
+<th style="text-align: left">姓名（左）</th>
+<th style="text-align: right">年龄（右）</th>
+<th style="text-align: center">性别（中）</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>0</td>
+<td style="text-align: left">张三</td>
+<td style="text-align: right">28</td>
+<td style="text-align: center">男</td>
+</tr>
+<tr>
+<td>1</td>
+<td style="text-align: left">李四</td>
+<td style="text-align: right">29</td>
+<td style="text-align: center">男</td>
+</tr>
+</tbody>
+</table>
+<p><strong>对应 HTML：</strong></p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;table&gt;</span>
+  <span class="nt">&lt;thead&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+      <span class="nt">&lt;th&gt;</span>编号<span class="nt">&lt;/th&gt;</span>
+      <span class="nt">&lt;th</span> <span class="na">align=</span><span class="s">"left"</span><span class="nt">&gt;</span>姓名（左）<span class="nt">&lt;/th&gt;</span>
+      <span class="nt">&lt;th</span> <span class="na">align=</span><span class="s">"right"</span><span class="nt">&gt;</span>年龄（右）<span class="nt">&lt;/th&gt;</span>
+      <span class="nt">&lt;th</span> <span class="na">align=</span><span class="s">"center"</span><span class="nt">&gt;</span>性别（中）<span class="nt">&lt;/th&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+  <span class="nt">&lt;/thead&gt;</span>
+  <span class="nt">&lt;tbody&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+      <span class="nt">&lt;td&gt;</span>0<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;td</span> <span class="na">align=</span><span class="s">"left"</span><span class="nt">&gt;</span>张三<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;td</span> <span class="na">align=</span><span class="s">"right"</span><span class="nt">&gt;</span>28<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;td</span> <span class="na">align=</span><span class="s">"center"</span><span class="nt">&gt;</span>男<span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+      <span class="nt">&lt;td&gt;</span>1<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;td</span> <span class="na">align=</span><span class="s">"left"</span><span class="nt">&gt;</span>李四<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;td</span> <span class="na">align=</span><span class="s">"right"</span><span class="nt">&gt;</span>29<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;td</span> <span class="na">align=</span><span class="s">"center"</span><span class="nt">&gt;</span>男<span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+  <span class="nt">&lt;/tbody&gt;</span>
+<span class="nt">&lt;/table&gt;</span>
+</code></pre></div></div>
+<h3 id="任务列表">任务列表</h3>
+<p>在 GitHub / GitLab 里有较好的支持。</p>
+<p><strong>Markdown：</strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- [x] 洗碗
+- [ ] 清洗油烟机
+- [ ] 拖地
+</code></pre></div></div>
+<p><strong>预览效果：</strong></p>
+<ul class="task-list">
+<li class="task-list-item">
+<input type="checkbox" class="task-list-item-checkbox" disabled checked>洗碗</li>
+<li class="task-list-item">
+<input type="checkbox" class="task-list-item-checkbox" disabled>清洗油烟机</li>
+<li class="task-list-item">
+<input type="checkbox" class="task-list-item-checkbox" disabled>拖地</li>
+</ul>
+<p><strong>对应 HTML：</strong></p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"contains-task-list"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"task-list-item"</span><span class="nt">&gt;&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">id=</span><span class="s">""</span> <span class="na">disabled=</span><span class="s">""</span> <span class="na">class=</span><span class="s">"task-list-item-checkbox"</span> <span class="na">checked=</span><span class="s">""</span><span class="nt">&gt;</span> 洗碗<span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"task-list-item"</span><span class="nt">&gt;&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">id=</span><span class="s">""</span> <span class="na">disabled=</span><span class="s">""</span> <span class="na">class=</span><span class="s">"task-list-item-checkbox"</span><span class="nt">&gt;</span> 清洗油烟机<span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"task-list-item"</span><span class="nt">&gt;&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">id=</span><span class="s">""</span> <span class="na">disabled=</span><span class="s">""</span> <span class="na">class=</span><span class="s">"task-list-item-checkbox"</span><span class="nt">&gt;</span> 拖地<span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span>
+</code></pre></div></div>
+<p>如果是在 GitHub / GitLab 的 Issue 里，会附赠任务完成比例提示效果：</p>
+<p><img src="https://raw.githubusercontent.com/mzlogin/markdown-intro/master/assets/task-list-1.png" alt="task list 1"></p>
+<p>还可以直接在网页上拖动调整顺序，勾选和取消勾选。</p>
+<p><img src="https://raw.githubusercontent.com/mzlogin/markdown-intro/master/assets/task-list-2.png" alt="task list 2"></p>
+<h3 id="删除线">删除线</h3>
+<p><strong>Markdown：</strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>后面三个字打上~~删除线~~。
+</code></pre></div></div>
+<p><strong>预览效果：</strong></p>
+<p>后面三个字打上<del>删除线</del>。</p>
+<p><strong>对应 HTML：</strong></p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;p&gt;</span>后面三个字打上<span class="nt">&lt;del&gt;</span>删除线<span class="nt">&lt;/del&gt;</span>。<span class="nt">&lt;/p&gt;</span>
+</code></pre></div></div>
+<h3 id="自动链接">自动链接</h3>
+<p>自动链接扩展，即：当识别到 URL，或用 <code class="language-plaintext highlighter-rouge">&lt;</code>、<code class="language-plaintext highlighter-rouge">&gt;</code> 包括的 URL 时，会自动为其生成 <code class="language-plaintext highlighter-rouge">a</code> 标签。</p>
+<p><strong>Markdown：</strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://github.com
+
+&lt;example@gmail.com&gt;
+</code></pre></div></div>
+<p><strong>预览效果：</strong></p>
+<p>https://github.com</p>
+<p><a href="mailto:example@gmail.com">example@gmail.com</a></p>
+<p><strong>对应 HTML：</strong></p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;p&gt;&lt;a</span> <span class="na">href=</span><span class="s">"https://github.com"</span><span class="nt">&gt;</span>https://github.com<span class="nt">&lt;/a&gt;&lt;/p&gt;</span>
+
+<span class="nt">&lt;p&gt;&lt;a</span> <span class="na">href=</span><span class="s">"mailto:example@gmail.com"</span><span class="nt">&gt;</span>example@gmail.com<span class="nt">&lt;/a&gt;&lt;/p&gt;</span>
+</code></pre></div></div>
+<h3 id="emoji">emoji</h3>
+<p>以 GitHub Pages 为例。</p>
+<p><strong>Markdown：</strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>:camel: :blush: :smile:
+</code></pre></div></div>
+<p><strong>预览效果：</strong></p>
+<p><img class="emoji" title=":camel:" alt=":camel:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f42b.png" height="20" width="20"> <img class="emoji" title=":blush:" alt=":blush:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f60a.png" height="20" width="20"> <img class="emoji" title=":smile:" alt=":smile:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f604.png" height="20" width="20"></p>
+<p><strong>对应 HTML：</strong></p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;p&gt;</span>
+  <span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">"emoji"</span> <span class="na">title=</span><span class="s">":camel:"</span> <span class="na">alt=</span><span class="s">":camel:"</span> <span class="na">src=</span><span class="s">"https://assets-cdn.github.com/images/icons/emoji/unicode/1f42b.png"</span> <span class="na">height=</span><span class="s">"20"</span> <span class="na">width=</span><span class="s">"20"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">"emoji"</span> <span class="na">title=</span><span class="s">":blush:"</span> <span class="na">alt=</span><span class="s">":blush:"</span> <span class="na">src=</span><span class="s">"https://assets-cdn.github.com/images/icons/emoji/unicode/1f60a.png"</span> <span class="na">height=</span><span class="s">"20"</span> <span class="na">width=</span><span class="s">"20"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">"emoji"</span> <span class="na">title=</span><span class="s">":smile:"</span> <span class="na">alt=</span><span class="s">":smile:"</span> <span class="na">src=</span><span class="s">"https://assets-cdn.github.com/images/icons/emoji/unicode/1f604.png"</span> <span class="na">height=</span><span class="s">"20"</span> <span class="na">width=</span><span class="s">"20"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/p&gt;</span>
+</code></pre></div></div>
+<h2 id="奇技淫巧">奇技淫巧</h2>
+<p>脑洞清奇的工程师们还发掘了很多使用 Markdown 的方法，大部分都是引入第三方 JavaScript 插件来实现。对这部分我只做简述，对其中的部分功能比如作图等，还是推荐用专门的可视化工具去做。</p>
+<h3 id="画流程图和时序图">画流程图和时序图</h3>
+<p>有部分网站和编辑器实现了对 Markdown 里流程图和时序图的支持，比如我们使用的项目管理工具 TAPD 的在线编辑器，还有 VSCode + 插件 Markdown Preview Enhanced 等。</p>
+<p>以我们使用的项目管理工具 TAPD 的在线编辑器为例：</p>
+<p><img src="https://raw.githubusercontent.com/mzlogin/markdown-intro/master/assets/tapd-markdown-flowchart.png" alt="流程图"></p>
+<p><img src="https://raw.githubusercontent.com/mzlogin/markdown-intro/master/assets/tapd-markdown-seq.png" alt="时序图"></p>
+<h3 id="插入数学公式">插入数学公式</h3>
+<p>仍然以 TAPD 为例：</p>
+<p><img src="https://raw.githubusercontent.com/mzlogin/markdown-intro/master/assets/tapd-markdown-math.png" alt="数学公式"></p>
+<p>应该是利用 JavaScript 支持了 LaTeX 公式语法。</p>
+<h3 id="用-markdown-做-ppt">用 Markdown 做 PPT</h3>
+<p>有专门的工具 <a href="https://github.com/yhatt/marp">Marp</a>，另外使用 VSCode + 插件 Markdown Preview Enhanced 也可以实现。</p>
+<h3 id="用-markdown-写微信公众号">用 Markdown 写微信公众号</h3>
+<p>可以将公众号素材用 Markdown 编辑好后，贴到在线排版工具以后，复制到公众号编辑器里即可。有多种页面主题和代码主题可选择。</p>
+<p>我维护的工具地址：<a href="https://md.mazhuang.org">https://md.mazhuang.org</a></p>
+<p><img src="https://raw.githubusercontent.com/mzlogin/markdown-intro/master/assets/wechat-markdown.png" alt="微信公众号"></p>
+<h3 id="更多">更多</h3>
+<p>想象力丰富的工程师们还扩展了很多基于 Markdown 的玩法，包括但不限于：</p>
+<ul>
+<li>自动生成 / 更新 Table of Contents</li>
+<li>流程图 / 时序图</li>
+<li>制作幻灯片</li>
+<li>集成 PlantUML / GraphViz 的能力</li>
+<li>导出 HTML / PDF / 电子书</li>
+<li>…</li>
+</ul>
+<p>以上功能基本都可以用 VSCode + 插件 Markdown Preview Enhanced 实现。</p>
+<p>另外可以参考我以前的一篇博客 <a href="https://mazhuang.org/2017/09/01/markdown-odd-skills/">关于 Markdown 的一些奇技淫巧</a>。</p>
+<h2 id="参考">参考</h2>
+<ul>
+<li><a href="https://daringfireball.net/projects/markdown/syntax">Markdown: Syntax - DARING FIREBALL</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/Markdown">Markdown - 维基百科</a></li>
+<li><a href="https://github.github.com/gfm/">GitHub Flavored Markdown Spec</a></li>
+<li><a href="https://mazhuang.org/2017/09/01/markdown-odd-skills/">关于 Markdown 的一些奇技淫巧</a></li>
+</ul>
+<hr>
+<p>欢迎关注我的微信公众号，接收 markdown-intro 最新动态。</p>
+<div align="center"><img width="192px" height="192px" src="https://mazhuang.org/assets/images/qrcode.jpg"></div>
+<div style="margin-top:2em;padding:0 1.5em;border:1px solid #d3d3d3;background-color:#deebf7">
+<h3>文档信息</h3>
+<ul>
+<li>本文作者：<a href="https://mazhuang.org" target="_blank">Zhuang Ma</a>
+</li>
+<li>本文链接：<a href="https://mazhuang.org/2018/09/06/markdown-intro/" target="_blank">https://mazhuang.org/2018/09/06/markdown-intro/</a>
+</li>
+<li>版权声明：自由转载-非商用-非衍生-保持署名（<a href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh" target="_blank">创意共享3.0许可证</a>）</li>
+</ul>
+</div></article><div class="share"></div>
+<div class="comment">
+<div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/vendor/gitalk/gitalk.css"> <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script> <script> var gitalk = new Gitalk({ id: '/2018/09/06/markdown-intro/', clientID: 'd2e1cbbd298958076462', clientSecret: 'b42a4178e5fd4a7cf63189ef4b1453b05c375709', repo: 'blog-comments', owner: 'mzlogin', admin: ['mzlogin'], labels: ['gitment'], perPage: 50, }); gitalk.render('gitalk-container'); </script>
+</div>
+</div>
+<div class="column one-fourth">
+<h3>Search</h3>
+<div id="site_search"> <input style="width:96%" type="text" id="search_box" placeholder="Search">
+</div>
+<ul id="search_results" style="font-size:14px;list-style-type:none;padding-top:10px;padding-left:10px;"></ul>
+<script src="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/js/simple-jekyll-search.min.js"></script> <script type="text/javascript"> SimpleJekyllSearch({ searchInput: document.getElementById('search_box'), resultsContainer: document.getElementById('search_results'), json: 'https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@built/assets/search_data.json', searchResultTemplate: '<li><a href="{url}" title="{title}">{title}</a></li>', noResultsText: 'No results found', limit: 10, fuzzy: false, exclude: ['Welcome'] }) </script><h3 class="post-directory-title mobile-hidden">Table of Contents</h3>
+<div id="post-directory-module" class="mobile-hidden"><section class="post-directory"><dl></dl></section></div>
+<script src="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/js/jquery.toc.js"></script>
+</div>
+</div></section><footer class="container"> <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7093222719567591" data-ad-slot="5263168187" data-ad-format="auto" data-full-width-responsive="true"></ins> <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script><div class="site-footer" role="contentinfo">
+<div class="copyright left mobile-block"> © 2015 <span title="Zhuang Ma">Zhuang Ma</span> <a href="javascript:window.scrollTo(0,0)" class="right mobile-visible">TOP</a>
+</div>
+<ul class="site-footer-links right mobile-hidden"><li> <a href="javascript:window.scrollTo(0,0)">TOP</a>
+</li></ul>
+<a href="https://github.com/mzlogin/mzlogin.github.io" target="_blank" aria-label="view source code"> <span class="mega-octicon octicon-mark-github" title="GitHub"></span> </a><ul class="site-footer-links mobile-hidden">
+<li> <a href="https://mazhuang.org/" title="首页" target="">首页</a>
+</li>
+<li> <a href="https://mazhuang.org/categories/" title="分类" target="">分类</a>
+</li>
+<li> <a href="https://mazhuang.org/wiki/" title="维基" target="">维基</a>
+</li>
+<li> <a href="https://mazhuang.org/links/" title="链接" target="">链接</a>
+</li>
+<li> <a href="https://mazhuang.org/about/" title="关于" target="">关于</a>
+</li>
+<li><a href="https://mazhuang.org/feed.xml"><span class="octicon octicon-rss" style="color:orange;"></span></a></li>
+</ul>
+<script async src="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/vendor/busuanzi/2.3/busuanzi.pure.mini.js"></script><div class="mobile-hidden" style="margin-top:8px"> <span id="busuanzi_container_site_pv" style="display:none"> 本站访问量<span id="busuanzi_value_site_pv"></span>次 </span> <span id="busuanzi_container_site_uv" style="display:none"> / 本站访客数<span id="busuanzi_value_site_uv"></span>人 </span> <span id="busuanzi_container_page_pv" style="display:none"> / 本页访问量<span id="busuanzi_value_page_pv"></span>次 / 统计始于2020-05-03 </span>
+</div>
+</div></footer><div class="tools-wrapper"> <a class="gotop" href="#" title="回到顶部"><span class="octicon octicon-arrow-up"></span></a>
+</div><script src="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/js/geopattern.js"></script> <script> jQuery(document).ready(function($) { $('.geopattern').each(function(){ $(this).geopattern($(this).data('pattern-id')); }); /* hljs.initHighlightingOnLoad(); */ }); </script><div style="display:none"> <script> (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) })(window,document,'script','https://www.google-analytics.com/analytics.js','ga'); ga('create', 'UA-80669434-1', 'auto'); ga('send', 'pageview'); </script>
+</div></body></html>

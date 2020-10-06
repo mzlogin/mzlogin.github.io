@@ -1,0 +1,142 @@
+.container {
+  width: auto;
+  max-width: 1020px;
+  padding-left: 20px;
+  padding-right: 20px
+}
+
+.mobile-visible {
+  display: none
+}
+
+@media (max-width:60em) {
+  .collection-card {
+    width: 45%;
+    height: 225px
+  }
+}
+
+@media (max-width:35em) {
+  .collection-card {
+    width: 100%;
+    max-width: 350px;
+    margin: 10px auto
+  }
+}
+
+@media (max-width:50em) {
+  .mobile-block {
+    display: block;
+    float: none
+  }
+  .mobile-hidden {
+    display: none
+  }
+  .mobile-visible {
+    display: inline-block
+  }
+  .mobile-md-section {
+    padding: 10px 0
+  }
+  .column,
+  .one-third-column {
+    width: 100%!important;
+    float: none;
+  }
+  .home .banner .collection-head {
+    padding: 1rem 1rem 1rem 0;
+  }
+  .home .collection-head .collection-title {
+    padding: 0;
+  }
+  .collection-head .collection-header {
+    line-height: 1;
+  }
+  .collection-head.small .collection-title h1.collection-header {
+    font-size: 1.25em;
+  }
+  .collection-head .collection-info .meta-info,
+  .collection-head .collection-info .meta-info .octicon {
+    font-size: 0.75em;
+  }
+  .site-header {
+    padding-bottom: 0;
+    padding-top: 5px;
+  }
+  .site-header h1, .site-header h1 .octicon {
+    font-size: 1em;
+  }
+  .site-header .site-header-nav {
+    float: right;
+    display: none;
+    margin-bottom: 0;
+  }
+  .site-header .site-header-nav .site-header-nav-item {
+    padding: 0 .5rem;
+    margin-left: 0;
+    font-size: 1rem;
+    display: block;
+    text-align: right;
+  }
+  .collapsed {
+    float: right;
+    display: block;
+    width: 22px;
+    height: 2em;
+    background-color: transparent;
+    background-image: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    outline: none;
+  }
+  .collapsed:active {
+    border: 1px solid transparent;
+  }
+
+  .collapsed .icon-bar {
+    display: block;
+    width: 22px;
+    height: 2px;
+    border-radius: 1px;
+    background-color: #563d7c;
+  }
+
+  .collapsed .icon-bar + .icon-bar {
+    margin-top: 4px;
+  }
+
+  .mini-repo-list-item .owner.css-truncate-target,
+  .mini-repo-list-item .repo-and-owner.css-truncate-target {
+    max-width: 300px
+  }
+  .markdown-body h1 {
+    font-size: 2rem
+  }
+  .markdown-body h2 {
+    font-size: 1.4rem
+  }
+  .markdown-body h3 {
+    font-size: 1.2rem
+  }
+  .markdown-body h4 {
+    font-size: 1.1em
+  }
+  .markdown-body h5 {
+    font-size: 1em
+  }
+
+  .tools-wrapper {
+    bottom: 1em;
+  }
+}
+
+@media (max-width:20em) {
+  .site-header-nav .site-header-nav-item {
+    min-width: 20%
+  }
+  .collection-head .collection-info .meta-info {
+    display: block;
+    margin-top: 15px
+  }
+}

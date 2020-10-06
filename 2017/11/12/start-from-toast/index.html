@@ -1,0 +1,502 @@
+<!DOCTYPE html><html lang="zh-cmn-Hans" prefix="og: http://ogp.me/ns#" class="han-init"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /><title>Android 源码分析 —— 从 Toast 出发 &mdash; 码志</title><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/vendor/primer-css/css/primer.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/css/components/collection.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/css/components/repo-card.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/css/sections/repo-list.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/css/components/boxed-group.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/css/globals/common.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/css/globals/responsive.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/css/posts/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/vendor/octicons/octicons/octicons.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mzlogin/rouge-themes@master/dist/github.css"><link rel="canonical" href="https://mazhuang.org/2017/11/12/start-from-toast/"><link rel="alternate" type="application/atom+xml" title="码志" href="https://mazhuang.org/feed.xml"><link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/favicon.ico"><meta property="og:title" content="Android 源码分析 —— 从 Toast 出发"><meta name="keywords" content="RTFSC, Android, Toast"><meta name="og:keywords" content="RTFSC, Android, Toast"><meta name="description" content="本系列文章在 https://github.com/mzlogin/rtfsc-android 持续更新中，欢迎有兴趣的童鞋们关注。"><meta name="og:description" content="本系列文章在 https://github.com/mzlogin/rtfsc-android 持续更新中，欢迎有兴趣的童鞋们关注。"><meta property="og:url" content="https://mazhuang.org/2017/11/12/start-from-toast/"><meta property="og:site_name" content="码志"><meta property="og:type" content="article"><meta property="og:locale" content="zh_CN" /><meta property="article:published_time" content="2017-11-12"> <script src="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/vendor/jquery/dist/jquery.min.js"></script> <script src="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/js/jquery-ui.js"></script> <script src="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/js/main.js"></script> <script data-ad-client="ca-pub-7093222719567591" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script></head><body class="" data-mz=""><header class="site-header"><div class="container"><h1><a href="https://mazhuang.org/" title="码志"><span class="octicon octicon-mark-github"></span> 码志</a></h1><button class="collapsed mobile-visible" type="button" onclick="toggleMenu();"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button><nav class="site-header-nav" role="navigation"> <a href="https://mazhuang.org/" class=" site-header-nav-item" target="" title="首页">首页</a> <a href="https://mazhuang.org/categories/" class=" site-header-nav-item" target="" title="分类">分类</a> <a href="https://mazhuang.org/wiki/" class=" site-header-nav-item" target="" title="维基">维基</a> <a href="https://mazhuang.org/links/" class=" site-header-nav-item" target="" title="链接">链接</a> <a href="https://mazhuang.org/about/" class=" site-header-nav-item" target="" title="关于">关于</a></nav></div></header><section class="collection-head small geopattern" data-pattern-id="Android 源码分析 ——"><div class="container"><div class="columns"><div class="column three-fourths"><div class="collection-title"><h1 class="collection-header">Android 源码分析 —— 从 Toast 出发</h1><div class="collection-info"> <span class="meta-info"> <span class="octicon octicon-calendar"></span> 2017/11/12 </span> <span class="meta-info"> <span class="octicon octicon-file-directory"></span> <a href="https://mazhuang.org/categories/#Android" title="Android">Android</a> </span> <span class="meta-info"> <span class="octicon octicon-clock"></span> 共 18984 字，约 55 分钟 </span></div></div></div><div class="column one-fourths mobile-hidden"><div class="collection-title"> <img style="height:72px;width:72px" src="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/images/qrcode.jpg" alt="闷骚的程序员" /></div></div></div></div></section><section class="container content"><div class="columns"><div class="column three-fourths" > <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7093222719567591" data-ad-slot="1650902835" data-ad-format="auto" data-full-width-responsive="true"></ins> <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script> <br /><article class="article-content markdown-body"><p>本系列文章在 <a href="https://github.com/mzlogin/rtfsc-android">https://github.com/mzlogin/rtfsc-android</a> 持续更新中，欢迎有兴趣的童鞋们关注。</p><p><img src="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/images/posts/android/toast.png" alt="" /></p><p>（图 from Android Developers）</p><p>Toast 是 Android 开发里较常用的一个类了，有时候用它给用户弹提示信息和界面反馈，有时候用它来作为辅助调试的手段。用得多了，自然想对其表层之下的运行机制有所了解，所以在此将它选为我的第一个 RTFSC Roots。</p><p>本篇采用的记录方式是先对它有个整体的了解，然后提出一些问题，再通过阅读源码，对问题进行一一解读而后得出答案。</p><p>本文使用的工具与源码为：Chrome、插件 insight.io、GitHub 项目 <a href="https://github.com/aosp-mirror/platform_frameworks_base">aosp-mirror/platform_frameworks_base</a></p><p><strong>目录</strong></p><ul><li><a href="#toast-印象">Toast 印象</a></li><li><a href="#提出问题">提出问题</a></li><li><a href="#解答问题">解答问题</a><ul><li><a href="#toast-的超时时间">Toast 的超时时间</a></li><li><a href="#能不能弹一个时间超长的-toast">能不能弹一个时间超长的 Toast？</a></li><li><a href="#toast-能不能在非-ui-线程调用">Toast 能不能在非 UI 线程调用？</a></li><li><a href="#应用在后台时能不能-toast">应用在后台时能不能 Toast？</a></li><li><a href="#toast-数量有没有限制">Toast 数量有没有限制？</a></li><li><a href="#toastmaketextshow-具体都做了些什么"><code class="language-plaintext highlighter-rouge">Toast.makeText(…).show()</code> 具体都做了些什么？</a></li></ul></li><li><a href="#总结">总结</a><ul><li><a href="#补充后的-toast-知识点列表">补充后的 Toast 知识点列表</a></li><li><a href="#遗留知识点">遗留知识点</a></li><li><a href="#本篇用到的源码分析方法">本篇用到的源码分析方法</a></li></ul></li><li><a href="#后话">后话</a></li></ul><h2 id="toast-印象">Toast 印象</h2><p>首先我们从 Toast 类的 <a href="1">官方文档</a> 和 <a href="2">API 指南</a> 中可以得出它具备如下特性：</p><ol><li><p>Toast 不是 View，它用于帮助创建并展示包含一条小消息的 View；</p></li><li><p>它的设计理念是尽量不惹眼，但又能展示想让用户看到的信息；</p></li><li><p>被展示时，浮在应用界面之上；</p></li><li><p>永远不会获取到焦点；</p></li><li><p>大小取决于消息的长度；</p></li><li><p>超时后会自动消失；</p></li><li><p>可以自定义显示在屏幕上的位置（默认左右居中显示在靠近屏幕底部的位置）；</p></li><li><p>可以使用自定义布局，也只有在自定义布局的时候才需要直接调用 Toast 的构造方法，其它时候都是使用 makeText 方法来创建 Toast；</p></li><li><p>Toast 弹出后当前 Activity 会保持可见性和可交互性；</p></li><li><p>使用 <code class="language-plaintext highlighter-rouge">cancel</code> 方法可以立即将已显示的 Toast 关闭，让未显示的 Toast 不再显示；</p></li><li><p>Toast 也算是一个「通知」，如果弹出状态消息后期望得到用户响应，应该使用 Notification。</p></li></ol><p>不知道你看到这个列表，是否学到了新知识或者明确了以前不确定的东西，反正我在整理列表的时候是有的。</p><h2 id="提出问题">提出问题</h2><p>根据以上特性，再结合平时对 Toast 的使用，提出如下问题来继续本次源码分析之旅（大致由易到难排列，后文用 小 demo 或者源码分析来解答）：</p><ol><li><p>Toast 的超时时间具体是多少？</p></li><li><p>能不能弹一个时间超长的 Toast？</p></li><li><p>Toast 能不能在非 UI 线程调用？</p></li><li><p>应用在后台时能不能 Toast？</p></li><li><p>Toast 数量有没有限制？</p></li><li><p><code class="language-plaintext highlighter-rouge">Toast.makeText(…).show()</code> 具体都做了些什么？</p></li></ol><h2 id="解答问题">解答问题</h2><h3 id="toast-的超时时间">Toast 的超时时间</h3><p>用这样的一个问题开始「Android 源码分析」，真的好怕被打死……大部分人都会嗤之以鼻：Are you kidding me? So easy. 各位大佬们稍安勿躁，阅读大型源码不是个容易的活，让我们从最简单的开始，一点一点建立自信，将这项伟大的事业进行下去。</p><p>面对这个问题，我的第一反应是去查 <code class="language-plaintext highlighter-rouge">Toast.LENGTH_LONG</code> 和 <code class="language-plaintext highlighter-rouge">Toast.LENGTH_SHORT</code> 的值，毕竟平时都是用这两个值来控制显示长/短 Toast 的。</p><p>文件 <a href="https://github.com/aosp-mirror/platform_frameworks_base/blob/master/core/java/android/widget/Toast.java">platform_frameworks_base/core/java/android/widget/Toast.java</a> 中能看到它们俩的定义是这样的：</p><div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Show the view or text notification for a short period of time.  This time
+ * could be user-definable.  This is the default.
+ * @see #setDuration
+ */</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="no">LENGTH_SHORT</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+<span class="cm">/**
+ * Show the view or text notification for a long period of time.  This time
+ * could be user-definable.
+ * @see #setDuration
+ */</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="no">LENGTH_LONG</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+</code></pre></div></div><p>啊哦~原来它们只是两个 flag，并非确切的时间值。</p><p>既然是 flag，那自然就会有根据不同的 flag 来设置不同的具体值的地方，于是使用 insight.io 点击 <code class="language-plaintext highlighter-rouge">LENGTH_SHORT</code> 的定义搜索一波 <code class="language-plaintext highlighter-rouge">Toast.LENGTH_SHORT</code> 的引用，在 <a href="https://github.com/aosp-mirror/platform_frameworks_base">aosp-mirror/platform_frameworks_base</a> 里一共有 50 处引用，但都是调用 <code class="language-plaintext highlighter-rouge">Toast.makeText(...)</code> 时出现的。</p><p>继续搜索 <code class="language-plaintext highlighter-rouge">Toast.LENGTH_LONG</code> 的引用，在 <a href="https://github.com/aosp-mirror/platform_frameworks_base">aosp-mirror/platform_frameworks_base</a> 中共出现 42 次，其中有两处长得像是我们想找的：</p><p>第一处，文件 <a href="https://github.com/aosp-mirror/platform_frameworks_base/blob/master/core/java/android/widget/Toast.java">platform_frameworks_base/core/java/android/widget/Toast.java</a></p><div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">private</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">TN</span> <span class="kd">extends</span> <span class="nc">ITransientNotification</span><span class="o">.</span><span class="na">Stub</span> <span class="o">{</span>
+    <span class="o">...</span>
+    <span class="kd">static</span> <span class="kd">final</span> <span class="kt">long</span> <span class="no">SHORT_DURATION_TIMEOUT</span> <span class="o">=</span> <span class="mi">4000</span><span class="o">;</span>
+    <span class="kd">static</span> <span class="kd">final</span> <span class="kt">long</span> <span class="no">LONG_DURATION_TIMEOUT</span> <span class="o">=</span> <span class="mi">7000</span><span class="o">;</span> 
+    <span class="o">...</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">handleShow</span><span class="o">(</span><span class="nc">IBinder</span> <span class="n">windowToken</span><span class="o">)</span> <span class="o">{</span>
+        <span class="o">...</span>
+        <span class="n">mParams</span><span class="o">.</span><span class="na">hideTimeoutMilliseconds</span> <span class="o">=</span> <span class="n">mDuration</span> <span class="o">==</span>
+            <span class="nc">Toast</span><span class="o">.</span><span class="na">LENGTH_LONG</span> <span class="o">?</span> <span class="no">LONG_DURATION_TIMEOUT</span> <span class="o">:</span> <span class="no">SHORT_DURATION_TIMEOUT</span><span class="o">;</span>
+        <span class="o">...</span>
+    <span class="o">}</span>
+    <span class="o">...</span>
+<span class="o">}</span>
+</code></pre></div></div><p>这个 hideTimeoutMilliseconds 是干嘛的呢？</p><p>文件 <a href="https://github.com/aosp-mirror/platform_frameworks_base/blob/master/core/java/android/view/WindowManager.java">platform_frameworks_base/core/java/android/view/WindowManager.java</a> 里能看到这个</p><div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * ...
+ * ...                                        . Therefore, we do hide
+ * such windows to prevent them from overlaying other apps.
+ *
+ * @hide
+ */</span>
+<span class="kd">public</span> <span class="kt">long</span> <span class="n">hideTimeoutMilliseconds</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+</code></pre></div></div><p>在 GitHub 用 blame 查看到改动这一行的最近一次提交 <a href="https://github.com/aosp-mirror/platform_frameworks_base/commit/aa07653d2eea38a7a5bda5944c8a353586916ae9">aa07653d</a>，它的 commit message 能表明它的用途：</p><div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Prevent apps to overlay other apps via toast windows
+
+It was possible for apps to put toast type windows
+that overlay other apps which toast winodws aren't
+removed after a timeout.
+
+Now for apps targeting SDK greater than N MR1 to add a
+toast window one needs to have a special token. The token
+is added by the notificatoion manager service only for
+the lifetime of the shown toast and is then removed
+including all windows associated with this token. This
+prevents apps to add arbitrary toast windows.
+
+Since legacy apps may rely on the ability to directly
+add toasts we mitigate by allowing these apps to still
+add such windows for unlimited duration if this app is
+the currently focused one, i.e. the user interacts with
+it then it can overlay itself, otherwise we make sure
+these toast windows are removed after a timeout like
+a toast would be.
+
+We don't allow more that one toast window per UID being
+added at a time which prevents 1) legacy apps to put the
+same toast after a timeout to go around our new policy
+of hiding toasts after a while; 2) modern apps to reuse
+the passed token to add more than one window; Note that
+the notification manager shows toasts one at a time.
+</code></pre></div></div><p>它并不是用来控制 Toast 的显示时间的，只是为了防止有些应用的 toast 类型的窗口长期覆盖在别的应用上面，而超时自动隐藏这些窗口的时间，可以看作是一种防护措施。</p><p>第二处，文件 <a href="https://github.com/aosp-mirror/platform_frameworks_base/blob/master/services/core/java/com/android/server/notification/NotificationManagerService.java">platform_frameworks_base/services/core/java/com/android/server/notification/NotificationManagerService.java</a> 里</p><div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">long</span> <span class="n">delay</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="na">duration</span> <span class="o">==</span> <span class="nc">Toast</span><span class="o">.</span><span class="na">LENGTH_LONG</span> <span class="o">?</span> <span class="no">LONG_DELAY</span> <span class="o">:</span> <span class="no">SHORT_DELAY</span><span class="o">;</span>
+</code></pre></div></div><p>在同一文件里能找到 <code class="language-plaintext highlighter-rouge">LONG_DELAY</code> 与 <code class="language-plaintext highlighter-rouge">SHORT_DELAY</code> 的定义：</p><div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="no">LONG_DELAY</span> <span class="o">=</span> <span class="nc">PhoneWindowManager</span><span class="o">.</span><span class="na">TOAST_WINDOW_TIMEOUT</span><span class="o">;</span>
+<span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="no">SHORT_DELAY</span> <span class="o">=</span> <span class="mi">2000</span><span class="o">;</span> <span class="c1">// 2 seconds</span>
+</code></pre></div></div><p>点击查看 <code class="language-plaintext highlighter-rouge">PhoneWindowManager.TOAST_WINDOW_TIMEOUT</code> 的定义：</p><p>文件 <a href="https://github.com/aosp-mirror/platform_frameworks_base/blob/master/services/core/java/com/android/server/policy/PhoneWindowManager.java">platform_frameworks_base/services/core/java/com/android/server/policy/PhoneWindowManager.java</a></p><div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/** Amount of time (in milliseconds) a toast window can be shown. */</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="no">TOAST_WINDOW_TIMEOUT</span> <span class="o">=</span> <span class="mi">3500</span><span class="o">;</span> <span class="c1">// 3.5 seconds</span>
+</code></pre></div></div><p>至此，我们可以得出 <strong>结论：Toast 的长/短超时时间分别为 3.5 秒和 2 秒。</strong></p><p><em>Tips: 也可以通过分析代码里的逻辑，一层一层追踪用到 <code class="language-plaintext highlighter-rouge">LENGTH_SHORT</code> 和 <code class="language-plaintext highlighter-rouge">LENGTH_LONG</code> 的地方，最终得出结论，而这里是根据一些合理推断来简化追踪过程，更快达到目标，这在一些场景下是可取和必要的。</em></p><h3 id="能不能弹一个时间超长的-toast">能不能弹一个时间超长的 Toast？</h3><p>注：这里探讨的是能否直接通过 Toast 提供的公开 API 做到，网络上能搜索到的使用 Timer、反射、自定义等方式达到弹出一个超长时间 Toast 目的的方法不在讨论范围内。</p><p>我们在 Toast 类的源码里看一下跟设置时长相关的代码：</p><p>文件 <a href="https://github.com/aosp-mirror/platform_frameworks_base/blob/master/core/java/android/widget/Toast.java">platform_frameworks_base/core/java/android/widget/Toast.java</a></p><div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">...</span>
+
+    <span class="cm">/** @hide */</span>
+    <span class="nd">@IntDef</span><span class="o">({</span><span class="no">LENGTH_SHORT</span><span class="o">,</span> <span class="no">LENGTH_LONG</span><span class="o">})</span>
+    <span class="nd">@Retention</span><span class="o">(</span><span class="nc">RetentionPolicy</span><span class="o">.</span><span class="na">SOURCE</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="nd">@interface</span> <span class="nc">Duration</span> <span class="o">{}</span>
+
+<span class="o">...</span>
+
+    <span class="cm">/**
+     * Set how long to show the view for.
+     * @see #LENGTH_SHORT
+     * @see #LENGTH_LONG
+     */</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setDuration</span><span class="o">(</span><span class="nd">@Duration</span> <span class="kt">int</span> <span class="n">duration</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">mDuration</span> <span class="o">=</span> <span class="n">duration</span><span class="o">;</span>
+        <span class="n">mTN</span><span class="o">.</span><span class="na">mDuration</span> <span class="o">=</span> <span class="n">duration</span><span class="o">;</span>
+    <span class="o">}</span>
+
+<span class="o">...</span>
+
+    <span class="cm">/**
+     * Make a standard toast that just contains a text view.
+     *
+     * @param context  The context to use.  Usually your {@link android.app.Application}
+     *                 or {@link android.app.Activity} object.
+     * @param text     The text to show.  Can be formatted text.
+     * @param duration How long to display the message.  Either {@link #LENGTH_SHORT} or
+     *                 {@link #LENGTH_LONG}
+     *
+     */</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">Toast</span> <span class="nf">makeText</span><span class="o">(</span><span class="nc">Context</span> <span class="n">context</span><span class="o">,</span> <span class="nc">CharSequence</span> <span class="n">text</span><span class="o">,</span> <span class="nd">@Duration</span> <span class="kt">int</span> <span class="n">duration</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="nf">makeText</span><span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="kc">null</span><span class="o">,</span> <span class="n">text</span><span class="o">,</span> <span class="n">duration</span><span class="o">);</span>
+    <span class="o">}</span>
+
+<span class="o">...</span>
+</code></pre></div></div><p>其实从上面 <code class="language-plaintext highlighter-rouge">setDuration</code> 和 <code class="language-plaintext highlighter-rouge">makeText</code> 的注释已经可以看出，duration 只能取值 <code class="language-plaintext highlighter-rouge">LENGTH_SHORT</code> 和 <code class="language-plaintext highlighter-rouge">LENGTH_LONG</code>，除了注释之外，还使用了 <code class="language-plaintext highlighter-rouge">@Duration</code> 注解来保证此事。<code class="language-plaintext highlighter-rouge">Duration</code> 自身使用了 <code class="language-plaintext highlighter-rouge">@IntDef</code> 注解，它用于限制可以取的值。</p><p>文件 <a href="https://github.com/aosp-mirror/platform_frameworks_base/blob/master/core/java/android/annotation/IntDef.java">platform_frameworks_base/core/java/android/annotation/IntDef.java</a></p><div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Denotes that the annotated element of integer type, represents
+ * a logical type and that its value should be one of the explicitly
+ * named constants. If the {@link #flag()} attribute is set to true,
+ * multiple constants can be combined.
+ * ...
+ */</span>
+</code></pre></div></div><p>不信邪的我们可以快速在一个 demo Android 工程里写一句这样的代码试试：</p><div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Toast</span><span class="o">.</span><span class="na">makeText</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="s">"Hello"</span><span class="o">,</span> <span class="mi">2</span><span class="o">);</span>
+</code></pre></div></div><p>Android Studio 首先就不会同意，警告你 <code class="language-plaintext highlighter-rouge">Must be one of: Toast.LENGTH_SHORT, Toast.LENGTH_LONG</code>，但实际这段代码是可以通过编译的，因为 <code class="language-plaintext highlighter-rouge">Duration</code> 注解的 <code class="language-plaintext highlighter-rouge">Retention</code> 为 <code class="language-plaintext highlighter-rouge">RetentionPolicy.SOURCE</code>，我的理解是该注解主要能用于 IDE 的智能提示警告，编译期就被丢掉了。</p><p>但即使 duration 能传入 <code class="language-plaintext highlighter-rouge">LENGTH_SHORT</code> 和 <code class="language-plaintext highlighter-rouge">LENGTH_LONG</code> 以外的值，也并没有什么卵用，别忘了这里设置的只是一个 flag，真正计算的时候是 <code class="language-plaintext highlighter-rouge">long delay = r.duration == Toast.LENGTH_LONG ? LONG_DELAY : SHORT_DELAY;</code>，即 duration 为 <code class="language-plaintext highlighter-rouge">LENGTH_LONG</code> 时时长为 3.5 秒，其它情况都是 2 秒。</p><p>所以我们可以得出 <strong>结论：无法通过 Toast 提供的公开 API 直接弹出超长时间的 Toast。</strong>（如节首所述，可以通过一些其它方式实现类似的效果）</p><h3 id="toast-能不能在非-ui-线程调用">Toast 能不能在非 UI 线程调用？</h3><p>这个问题适合用一个 demo 来解答。</p><p>我们创建一个最简单的 App 工程，然后在启动 Activity 的 onCreate 方法里添加这样一段代码：</p><div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">new</span> <span class="nc">Thread</span><span class="o">(</span><span class="k">new</span> <span class="nc">Runnable</span><span class="o">()</span> <span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">Toast</span><span class="o">.</span><span class="na">makeText</span><span class="o">(</span><span class="nc">MainActivity</span><span class="o">.</span><span class="na">this</span><span class="o">,</span> <span class="s">"Call toast on non-UI thread"</span><span class="o">,</span> <span class="nc">Toast</span><span class="o">.</span><span class="na">LENGTH_SHORT</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">show</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}).</span><span class="na">start</span><span class="o">();</span>
+</code></pre></div></div><p>啊哦~很遗憾程序直接挂掉了。</p><div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>11-07 13:35:33.980 2020-2035/org.mazhuang.androiduidemos E/AndroidRuntime: FATAL EXCEPTION: Thread-77
+    java.lang.RuntimeException: Can't create handler inside thread that has not called Looper.prepare()
+        at android.widget.Toast$TN.&lt;init&gt;(Toast.java:390)
+        at android.widget.Toast.&lt;init&gt;(Toast.java:114)
+        at android.widget.Toast.makeText(Toast.java:277)
+        at android.widget.Toast.makeText(Toast.java:267)
+        at org.mazhuang.androiduidemos.MainActivity$1.run(MainActivity.java:27)
+        at java.lang.Thread.run(Thread.java:856)
+</code></pre></div></div><p>顺着堆栈里显示的方法调用从下往上一路看过去，</p><p>文件 <a href="https://github.com/aosp-mirror/platform_frameworks_base/blob/master/core/java/android/widget/Toast.java">platform_frameworks_base/core/java/android/widget/Toast.java</a></p><p>首先是两级 makeText 方法：</p><div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 我们的代码里调用的 makeText 方法</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="nc">Toast</span> <span class="nf">makeText</span><span class="o">(</span><span class="nc">Context</span> <span class="n">context</span><span class="o">,</span> <span class="nc">CharSequence</span> <span class="n">text</span><span class="o">,</span> <span class="nd">@Duration</span> <span class="kt">int</span> <span class="n">duration</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="nf">makeText</span><span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="kc">null</span><span class="o">,</span> <span class="n">text</span><span class="o">,</span> <span class="n">duration</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="c1">// 隐藏的 makeText 方法，不能手动调用</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="nc">Toast</span> <span class="nf">makeText</span><span class="o">(</span><span class="nd">@NonNull</span> <span class="nc">Context</span> <span class="n">context</span><span class="o">,</span> <span class="nd">@Nullable</span> <span class="nc">Looper</span> <span class="n">looper</span><span class="o">,</span>
+        <span class="nd">@NonNull</span> <span class="nc">CharSequence</span> <span class="n">text</span><span class="o">,</span> <span class="nd">@Duration</span> <span class="kt">int</span> <span class="n">duration</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">Toast</span> <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Toast</span><span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="n">looper</span><span class="o">);</span> <span class="c1">// 这里的 looper 为 null</span>
+    <span class="o">...</span>
+</code></pre></div></div><p>然后到了 Toast 的构造方法：</p><div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="nf">Toast</span><span class="o">(</span><span class="nd">@NonNull</span> <span class="nc">Context</span> <span class="n">context</span><span class="o">,</span> <span class="nd">@Nullable</span> <span class="nc">Looper</span> <span class="n">looper</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">mContext</span> <span class="o">=</span> <span class="n">context</span><span class="o">;</span>
+    <span class="n">mTN</span> <span class="o">=</span> <span class="k">new</span> <span class="no">TN</span><span class="o">(</span><span class="n">context</span><span class="o">.</span><span class="na">getPackageName</span><span class="o">(),</span> <span class="n">looper</span><span class="o">);</span> <span class="c1">// looper 为 null</span>
+    <span class="o">...</span>
+<span class="o">}</span>
+</code></pre></div></div><p>到 Toast$TN 的构造方法：</p><div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// looper = null</span>
+<span class="no">TN</span><span class="o">(</span><span class="nc">String</span> <span class="n">packageName</span><span class="o">,</span> <span class="nd">@Nullable</span> <span class="nc">Looper</span> <span class="n">looper</span><span class="o">)</span> <span class="o">{</span>
+    <span class="o">...</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">looper</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Use Looper.myLooper() if looper is not specified.</span>
+        <span class="n">looper</span> <span class="o">=</span> <span class="nc">Looper</span><span class="o">.</span><span class="na">myLooper</span><span class="o">();</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">looper</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="nf">RuntimeException</span><span class="o">(</span>
+                    <span class="s">"Can't toast on a thread that has not called Looper.prepare()"</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+    <span class="o">...</span>
+<span class="o">}</span>
+</code></pre></div></div><p>至此，我们已经追踪到了我们的崩溃的 RuntimeException，即要避免进入抛出异常的逻辑，要么调用的时候传递一个 Looper 进来（无法直接实现，能传递 Looper 参数的构造方法与 makeText 方法是 hide 的），要么 <code class="language-plaintext highlighter-rouge">Looper.myLooper()</code> 返回不为 null，提示信息 <code class="language-plaintext highlighter-rouge">Can't create handler inside thread that has not called Looper.prepare()</code> 里给出了方法，那我们在 toast 前面加一句 <code class="language-plaintext highlighter-rouge">Looper.prepare()</code> 试试？这次不崩溃了，但依然不弹出 Toast，毕竟，这个线程在调用完 <code class="language-plaintext highlighter-rouge">show()</code> 方法后就直接结束了，没有调用 <code class="language-plaintext highlighter-rouge">Looper.loop()</code>，至于为什么调用 Toast 的线程结束与否会对 Toast 的显示隐藏等起影响，在本文的后面的章节里会进行分析。</p><p>从崩溃提示来看，Android 并没有限制在非 UI 线程里使用 Toast，只是线程得是一个有 Looper 的线程。于是我们尝试构造如下代码，发现可以成功从非 UI 线程弹出 toast 了：</p><div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">new</span> <span class="nc">Thread</span><span class="o">(</span><span class="k">new</span> <span class="nc">Runnable</span><span class="o">()</span> <span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
+        <span class="kd">final</span> <span class="kt">int</span> <span class="no">MSG_TOAST</span> <span class="o">=</span> <span class="mi">101</span><span class="o">;</span>
+        <span class="kd">final</span> <span class="kt">int</span> <span class="no">MSG_QUIT</span> <span class="o">=</span> <span class="mi">102</span><span class="o">;</span>
+
+        <span class="nc">Looper</span><span class="o">.</span><span class="na">prepare</span><span class="o">();</span>
+
+        <span class="kd">final</span> <span class="nc">Handler</span> <span class="n">handler</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Handler</span><span class="o">()</span> <span class="o">{</span>
+            <span class="nd">@Override</span>
+            <span class="kd">public</span> <span class="kt">void</span> <span class="nf">handleMessage</span><span class="o">(</span><span class="nc">Message</span> <span class="n">msg</span><span class="o">)</span> <span class="o">{</span>
+
+                <span class="k">switch</span> <span class="o">(</span><span class="n">msg</span><span class="o">.</span><span class="na">what</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="k">case</span> <span class="nl">MSG_TOAST:</span>
+                        <span class="nc">Toast</span><span class="o">.</span><span class="na">makeText</span><span class="o">(</span><span class="nc">MainActivity</span><span class="o">.</span><span class="na">this</span><span class="o">,</span> <span class="s">"Call toast on non-UI thread"</span><span class="o">,</span> <span class="nc">Toast</span><span class="o">.</span><span class="na">LENGTH_SHORT</span><span class="o">)</span>
+                                <span class="o">.</span><span class="na">show</span><span class="o">();</span>
+                        <span class="n">sendEmptyMessageDelayed</span><span class="o">(</span><span class="no">MSG_QUIT</span><span class="o">,</span> <span class="mi">4000</span><span class="o">);</span>
+                        <span class="k">return</span><span class="o">;</span>
+
+                    <span class="k">case</span> <span class="nl">MSG_QUIT:</span>
+                        <span class="nc">Looper</span><span class="o">.</span><span class="na">myLooper</span><span class="o">().</span><span class="na">quit</span><span class="o">();</span>
+                        <span class="k">return</span><span class="o">;</span>
+                <span class="o">}</span>
+
+                <span class="kd">super</span><span class="o">.</span><span class="na">handleMessage</span><span class="o">(</span><span class="n">msg</span><span class="o">);</span>
+            <span class="o">}</span>
+        <span class="o">};</span>
+
+        <span class="n">handler</span><span class="o">.</span><span class="na">sendEmptyMessage</span><span class="o">(</span><span class="no">MSG_TOAST</span><span class="o">);</span>
+
+        <span class="nc">Looper</span><span class="o">.</span><span class="na">loop</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}).</span><span class="na">start</span><span class="o">();</span>
+</code></pre></div></div><p>至于为什么 <code class="language-plaintext highlighter-rouge">sendEmptyMesageDelayed(MSG_QUIT, 4000)</code> 里的 delayMillis 我设成了 4000，这里卖个关子，感兴趣的同学可以把这个值调成 0、1000 等等看一下效果，会有一些意想不到的情况发生。</p><p>到此，我们可以得出 <strong>结论：可以在非 UI 线程里调用 Toast，但是得是一个有 Looper 的线程。</strong></p><p>ps. 上面这一段演示代码让人感觉为了弹出一个 Toast 好麻烦，也可以采用 Activity.runOnUiThread、View.post 等方法从非 UI 线程将逻辑切换到 UI 线程里执行，直接从 UI 线程里弹出，UI 线程是有 Looper 的。</p><p><em>知识点：这里如果对 Looper、Handler 和 MessageQueue 有所了解，就容易理解多了，预计下一篇对这三剑客进行讲解。</em></p><h3 id="应用在后台时能不能-toast">应用在后台时能不能 Toast？</h3><p>这个问题也比较适合用一个简单的 demo 来尝试回答。</p><p>在 MainActivity 的 onCreate 里加上这样一段代码：</p><div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">view</span><span class="o">.</span><span class="na">postDelayed</span><span class="o">(</span><span class="k">new</span> <span class="nc">Runnable</span><span class="o">()</span> <span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">Toast</span><span class="o">.</span><span class="na">makeText</span><span class="o">(</span><span class="nc">MainActivity</span><span class="o">.</span><span class="na">this</span><span class="o">,</span> <span class="s">"background toast"</span><span class="o">,</span> <span class="nc">Toast</span><span class="o">.</span><span class="na">LENGTH_SHORT</span><span class="o">).</span><span class="na">show</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">},</span> <span class="mi">5000</span><span class="o">);</span>
+</code></pre></div></div><p>然后待应用启动后按 HOME 键，等几秒看是否能弹出该 Toast 即可。</p><p><strong>结论是：应用在后台时可以弹出 Toast。</strong></p><h3 id="toast-数量有没有限制">Toast 数量有没有限制？</h3><p>这个问题将在下一节中一并解答。</p><h3 id="toastmaketextshow-具体都做了些什么"><code class="language-plaintext highlighter-rouge">Toast.makeText(…).show()</code> 具体都做了些什么？</h3><p>首先看一下 makeText 方法。</p><p>文件 <a href="https://github.com/aosp-mirror/platform_frameworks_base/blob/master/core/java/android/widget/Toast.java">platform_frameworks_base/core/java/android/widget/Toast.java</a></p><div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Make a standard toast to display using the specified looper.
+ * If looper is null, Looper.myLooper() is used.
+ * @hide
+ */</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="nc">Toast</span> <span class="nf">makeText</span><span class="o">(</span><span class="nd">@NonNull</span> <span class="nc">Context</span> <span class="n">context</span><span class="o">,</span> <span class="nd">@Nullable</span> <span class="nc">Looper</span> <span class="n">looper</span><span class="o">,</span>
+        <span class="nd">@NonNull</span> <span class="nc">CharSequence</span> <span class="n">text</span><span class="o">,</span> <span class="nd">@Duration</span> <span class="kt">int</span> <span class="n">duration</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">Toast</span> <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Toast</span><span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="n">looper</span><span class="o">);</span>
+
+    <span class="nc">LayoutInflater</span> <span class="n">inflate</span> <span class="o">=</span> <span class="o">(</span><span class="nc">LayoutInflater</span><span class="o">)</span>
+            <span class="n">context</span><span class="o">.</span><span class="na">getSystemService</span><span class="o">(</span><span class="nc">Context</span><span class="o">.</span><span class="na">LAYOUT_INFLATER_SERVICE</span><span class="o">);</span>
+    <span class="nc">View</span> <span class="n">v</span> <span class="o">=</span> <span class="n">inflate</span><span class="o">.</span><span class="na">inflate</span><span class="o">(</span><span class="n">com</span><span class="o">.</span><span class="na">android</span><span class="o">.</span><span class="na">internal</span><span class="o">.</span><span class="na">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">transient_notification</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+    <span class="nc">TextView</span> <span class="n">tv</span> <span class="o">=</span> <span class="o">(</span><span class="nc">TextView</span><span class="o">)</span><span class="n">v</span><span class="o">.</span><span class="na">findViewById</span><span class="o">(</span><span class="n">com</span><span class="o">.</span><span class="na">android</span><span class="o">.</span><span class="na">internal</span><span class="o">.</span><span class="na">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">message</span><span class="o">);</span>
+    <span class="n">tv</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="n">text</span><span class="o">);</span>
+
+    <span class="n">result</span><span class="o">.</span><span class="na">mNextView</span> <span class="o">=</span> <span class="n">v</span><span class="o">;</span>
+    <span class="n">result</span><span class="o">.</span><span class="na">mDuration</span> <span class="o">=</span> <span class="n">duration</span><span class="o">;</span>
+
+    <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div></div><p>这个方法里就是构造了一个 Toast 对象，将需要展示的 View 准备好，设置好超时时长标记，我们可以看一下 <code class="language-plaintext highlighter-rouge">com.android.internal.R.layout.transient_notification</code> 这个布局的内容：</p><p>文件 <a href="https://github.com/aosp-mirror/platform_frameworks_base/blob/master/core/res/res/layout/transient_notification.xml">platform_frameworks_base/core/res/res/layout/transient_notification.xml</a></p><div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="nt">&lt;LinearLayout</span> <span class="na">xmlns:android=</span><span class="s">"http://schemas.android.com/apk/res/android"</span>
+    <span class="na">android:layout_width=</span><span class="s">"match_parent"</span>
+    <span class="na">android:layout_height=</span><span class="s">"match_parent"</span>
+    <span class="na">android:orientation=</span><span class="s">"vertical"</span>
+    <span class="na">android:background=</span><span class="s">"?android:attr/toastFrameBackground"</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;TextView</span>
+        <span class="na">android:id=</span><span class="s">"@android:id/message"</span>
+        <span class="na">android:layout_width=</span><span class="s">"wrap_content"</span>
+        <span class="na">android:layout_height=</span><span class="s">"wrap_content"</span>
+        <span class="na">android:layout_weight=</span><span class="s">"1"</span>
+        <span class="na">android:layout_marginHorizontal=</span><span class="s">"24dp"</span>
+        <span class="na">android:layout_marginVertical=</span><span class="s">"15dp"</span>
+        <span class="na">android:layout_gravity=</span><span class="s">"center_horizontal"</span>
+        <span class="na">android:textAppearance=</span><span class="s">"@style/TextAppearance.Toast"</span>
+        <span class="na">android:textColor=</span><span class="s">"@color/primary_text_default_material_light"</span>
+        <span class="nt">/&gt;</span>
+
+<span class="nt">&lt;/LinearLayout&gt;</span>
+</code></pre></div></div><p>我们最常见的 Toast 就是从这个布局文件渲染出来的了。</p><p>我们继续看一下 makeText 里调用的 Toast 的构造方法里做了哪些事情：</p><div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Constructs an empty Toast object.  If looper is null, Looper.myLooper() is used.
+ * @hide
+ */</span>
+<span class="kd">public</span> <span class="nf">Toast</span><span class="o">(</span><span class="nd">@NonNull</span> <span class="nc">Context</span> <span class="n">context</span><span class="o">,</span> <span class="nd">@Nullable</span> <span class="nc">Looper</span> <span class="n">looper</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">mContext</span> <span class="o">=</span> <span class="n">context</span><span class="o">;</span>
+    <span class="n">mTN</span> <span class="o">=</span> <span class="k">new</span> <span class="no">TN</span><span class="o">(</span><span class="n">context</span><span class="o">.</span><span class="na">getPackageName</span><span class="o">(),</span> <span class="n">looper</span><span class="o">);</span>
+    <span class="n">mTN</span><span class="o">.</span><span class="na">mY</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="na">getResources</span><span class="o">().</span><span class="na">getDimensionPixelSize</span><span class="o">(</span>
+            <span class="n">com</span><span class="o">.</span><span class="na">android</span><span class="o">.</span><span class="na">internal</span><span class="o">.</span><span class="na">R</span><span class="o">.</span><span class="na">dimen</span><span class="o">.</span><span class="na">toast_y_offset</span><span class="o">);</span>
+    <span class="n">mTN</span><span class="o">.</span><span class="na">mGravity</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="na">getResources</span><span class="o">().</span><span class="na">getInteger</span><span class="o">(</span>
+            <span class="n">com</span><span class="o">.</span><span class="na">android</span><span class="o">.</span><span class="na">internal</span><span class="o">.</span><span class="na">R</span><span class="o">.</span><span class="na">integer</span><span class="o">.</span><span class="na">config_toastDefaultGravity</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div><p>主要就是构造了一个 TN 对象，计算了位置。</p><p>TN 的构造方法：</p><div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">TN</span><span class="o">(</span><span class="nc">String</span> <span class="n">packageName</span><span class="o">,</span> <span class="nd">@Nullable</span> <span class="nc">Looper</span> <span class="n">looper</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// XXX This should be changed to use a Dialog, with a Theme.Toast</span>
+    <span class="c1">// defined that sets up the layout params appropriately.</span>
+    <span class="kd">final</span> <span class="nc">WindowManager</span><span class="o">.</span><span class="na">LayoutParams</span> <span class="n">params</span> <span class="o">=</span> <span class="n">mParams</span><span class="o">;</span>
+    <span class="n">params</span><span class="o">.</span><span class="na">height</span> <span class="o">=</span> <span class="nc">WindowManager</span><span class="o">.</span><span class="na">LayoutParams</span><span class="o">.</span><span class="na">WRAP_CONTENT</span><span class="o">;</span>
+    <span class="n">params</span><span class="o">.</span><span class="na">width</span> <span class="o">=</span> <span class="nc">WindowManager</span><span class="o">.</span><span class="na">LayoutParams</span><span class="o">.</span><span class="na">WRAP_CONTENT</span><span class="o">;</span>
+    <span class="n">params</span><span class="o">.</span><span class="na">format</span> <span class="o">=</span> <span class="nc">PixelFormat</span><span class="o">.</span><span class="na">TRANSLUCENT</span><span class="o">;</span>
+    <span class="n">params</span><span class="o">.</span><span class="na">windowAnimations</span> <span class="o">=</span> <span class="n">com</span><span class="o">.</span><span class="na">android</span><span class="o">.</span><span class="na">internal</span><span class="o">.</span><span class="na">R</span><span class="o">.</span><span class="na">style</span><span class="o">.</span><span class="na">Animation_Toast</span><span class="o">;</span>
+    <span class="n">params</span><span class="o">.</span><span class="na">type</span> <span class="o">=</span> <span class="nc">WindowManager</span><span class="o">.</span><span class="na">LayoutParams</span><span class="o">.</span><span class="na">TYPE_TOAST</span><span class="o">;</span>
+    <span class="n">params</span><span class="o">.</span><span class="na">setTitle</span><span class="o">(</span><span class="s">"Toast"</span><span class="o">);</span>
+    <span class="n">params</span><span class="o">.</span><span class="na">flags</span> <span class="o">=</span> <span class="nc">WindowManager</span><span class="o">.</span><span class="na">LayoutParams</span><span class="o">.</span><span class="na">FLAG_KEEP_SCREEN_ON</span>
+            <span class="o">|</span> <span class="nc">WindowManager</span><span class="o">.</span><span class="na">LayoutParams</span><span class="o">.</span><span class="na">FLAG_NOT_FOCUSABLE</span>
+            <span class="o">|</span> <span class="nc">WindowManager</span><span class="o">.</span><span class="na">LayoutParams</span><span class="o">.</span><span class="na">FLAG_NOT_TOUCHABLE</span><span class="o">;</span>
+
+    <span class="n">mPackageName</span> <span class="o">=</span> <span class="n">packageName</span><span class="o">;</span>
+
+    <span class="k">if</span> <span class="o">(</span><span class="n">looper</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Use Looper.myLooper() if looper is not specified.</span>
+        <span class="n">looper</span> <span class="o">=</span> <span class="nc">Looper</span><span class="o">.</span><span class="na">myLooper</span><span class="o">();</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">looper</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="nf">RuntimeException</span><span class="o">(</span>
+                    <span class="s">"Can't toast on a thread that has not called Looper.prepare()"</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+    <span class="n">mHandler</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Handler</span><span class="o">(</span><span class="n">looper</span><span class="o">,</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+        <span class="o">...</span>
+    <span class="o">};</span>
+<span class="o">}</span>
+</code></pre></div></div><p>设置了 LayoutParams 的初始值，在后面 show 的时候会用到，设置了包名和 Looper、Handler。</p><p>TN 是 App 中用于与 Notification Service 交互的对象，这里涉及到 Binder 和跨进程通信的知识，这块会在后面开新篇来讲解，这里可以简单地理解一下：Notification Service 是系统为了管理各种 App 的 Notification（包括 Toast）的服务，比如 Toast，由这个服务来统一维护一个待展示 Toast 队列，各 App 需要弹 Toast 的时候就将相关信息发送给这个服务，服务会将其加入队列，然后根据队列的情况，依次通知各 App 展示和隐藏 Toast。</p><p>接下来看看 show 方法：</p><div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Show the view for the specified duration.
+ */</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">show</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">mNextView</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">throw</span> <span class="k">new</span> <span class="nf">RuntimeException</span><span class="o">(</span><span class="s">"setView must have been called"</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nc">INotificationManager</span> <span class="n">service</span> <span class="o">=</span> <span class="n">getService</span><span class="o">();</span>
+    <span class="nc">String</span> <span class="n">pkg</span> <span class="o">=</span> <span class="n">mContext</span><span class="o">.</span><span class="na">getOpPackageName</span><span class="o">();</span>
+    <span class="no">TN</span> <span class="n">tn</span> <span class="o">=</span> <span class="n">mTN</span><span class="o">;</span>
+    <span class="n">tn</span><span class="o">.</span><span class="na">mNextView</span> <span class="o">=</span> <span class="n">mNextView</span><span class="o">;</span>
+
+    <span class="k">try</span> <span class="o">{</span>
+        <span class="n">service</span><span class="o">.</span><span class="na">enqueueToast</span><span class="o">(</span><span class="n">pkg</span><span class="o">,</span> <span class="n">tn</span><span class="o">,</span> <span class="n">mDuration</span><span class="o">);</span>
+    <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">RemoteException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Empty</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div><p>调用了 INotificationManager 的 enqueueToast 方法，INotificationManager 是一个接口，其实现类在 NotificationManagerService 里，我们来看 enqueueToast 方法的实现：</p><p>文件 <a href="https://github.com/aosp-mirror/platform_frameworks_base/blob/master/services/core/java/com/android/server/notification/NotificationManagerService.java">platform_frameworks_base/services/core/java/com/android/server/notification/NotificationManagerService.java</a></p><div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Override</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">enqueueToast</span><span class="o">(</span><span class="nc">String</span> <span class="n">pkg</span><span class="o">,</span> <span class="nc">ITransientNotification</span> <span class="n">callback</span><span class="o">,</span> <span class="kt">int</span> <span class="n">duration</span><span class="o">)</span>
+<span class="o">{</span>
+    <span class="o">...</span>
+
+    <span class="kd">synchronized</span> <span class="o">(</span><span class="n">mToastQueue</span><span class="o">)</span> <span class="o">{</span>
+        <span class="o">...</span>
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="nc">ToastRecord</span> <span class="n">record</span><span class="o">;</span>
+            <span class="kt">int</span> <span class="n">index</span> <span class="o">=</span> <span class="n">indexOfToastLocked</span><span class="o">(</span><span class="n">pkg</span><span class="o">,</span> <span class="n">callback</span><span class="o">);</span>
+            <span class="c1">// If it's already in the queue, we update it in place, we don't</span>
+            <span class="c1">// move it to the end of the queue.</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">index</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">record</span> <span class="o">=</span> <span class="n">mToastQueue</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">index</span><span class="o">);</span>
+                <span class="n">record</span><span class="o">.</span><span class="na">update</span><span class="o">(</span><span class="n">duration</span><span class="o">);</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                <span class="c1">// Limit the number of toasts that any given package except the android</span>
+                <span class="c1">// package can enqueue.  Prevents DOS attacks and deals with leaks.</span>
+                <span class="k">if</span> <span class="o">(!</span><span class="n">isSystemToast</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+                    <span class="kd">final</span> <span class="kt">int</span> <span class="no">N</span> <span class="o">=</span> <span class="n">mToastQueue</span><span class="o">.</span><span class="na">size</span><span class="o">();</span>
+                    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="no">N</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+                         <span class="kd">final</span> <span class="nc">ToastRecord</span> <span class="n">r</span> <span class="o">=</span> <span class="n">mToastQueue</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+                         <span class="k">if</span> <span class="o">(</span><span class="n">r</span><span class="o">.</span><span class="na">pkg</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">pkg</span><span class="o">))</span> <span class="o">{</span>
+                             <span class="n">count</span><span class="o">++;</span>
+                             <span class="k">if</span> <span class="o">(</span><span class="n">count</span> <span class="o">&gt;=</span> <span class="no">MAX_PACKAGE_NOTIFICATIONS</span><span class="o">)</span> <span class="o">{</span>
+                                 <span class="nc">Slog</span><span class="o">.</span><span class="na">e</span><span class="o">(</span><span class="no">TAG</span><span class="o">,</span> <span class="s">"Package has already posted "</span> <span class="o">+</span> <span class="n">count</span>
+                                        <span class="o">+</span> <span class="s">" toasts. Not showing more. Package="</span> <span class="o">+</span> <span class="n">pkg</span><span class="o">);</span>
+                                 <span class="k">return</span><span class="o">;</span>
+                             <span class="o">}</span>
+                         <span class="o">}</span>
+                    <span class="o">}</span>
+                <span class="o">}</span>
+
+                <span class="nc">Binder</span> <span class="n">token</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Binder</span><span class="o">();</span>
+                <span class="n">mWindowManagerInternal</span><span class="o">.</span><span class="na">addWindowToken</span><span class="o">(</span><span class="n">token</span><span class="o">,</span> <span class="no">TYPE_TOAST</span><span class="o">,</span> <span class="no">DEFAULT_DISPLAY</span><span class="o">);</span>
+                <span class="n">record</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ToastRecord</span><span class="o">(</span><span class="n">callingPid</span><span class="o">,</span> <span class="n">pkg</span><span class="o">,</span> <span class="n">callback</span><span class="o">,</span> <span class="n">duration</span><span class="o">,</span> <span class="n">token</span><span class="o">);</span>
+                <span class="n">mToastQueue</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">record</span><span class="o">);</span>
+                <span class="n">index</span> <span class="o">=</span> <span class="n">mToastQueue</span><span class="o">.</span><span class="na">size</span><span class="o">()</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span>
+                <span class="n">keepProcessAliveIfNeededLocked</span><span class="o">(</span><span class="n">callingPid</span><span class="o">);</span>
+            <span class="o">}</span>
+            <span class="c1">// If it's at index 0, it's the current toast.  It doesn't matter if it's</span>
+            <span class="c1">// new or just been updated.  Call back and tell it to show itself.</span>
+            <span class="c1">// If the callback fails, this will remove it from the list, so don't</span>
+            <span class="c1">// assume that it's valid after this.</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">index</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">showNextToastLocked</span><span class="o">();</span>
+            <span class="o">}</span>
+        <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+            <span class="nc">Binder</span><span class="o">.</span><span class="na">restoreCallingIdentity</span><span class="o">(</span><span class="n">callingId</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div><p>主要就是使用调用方传来的包名、callback 和 duration 构造一个 ToastRecord，然后添加到 mToastQueue 中。如果在 mToastQueue 中已经存在该包名和 callback 的 Toast，则只更新其 duration。</p><p>这段代码里有一段可以回答我们的上一个问题 <code class="language-plaintext highlighter-rouge">Toast 数量有没有限制</code> 了：</p><div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Limit the number of toasts that any given package except the android</span>
+<span class="c1">// package can enqueue.  Prevents DOS attacks and deals with leaks.</span>
+<span class="k">if</span> <span class="o">(!</span><span class="n">isSystemToast</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+    <span class="kd">final</span> <span class="kt">int</span> <span class="no">N</span> <span class="o">=</span> <span class="n">mToastQueue</span><span class="o">.</span><span class="na">size</span><span class="o">();</span>
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="no">N</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+         <span class="kd">final</span> <span class="nc">ToastRecord</span> <span class="n">r</span> <span class="o">=</span> <span class="n">mToastQueue</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+         <span class="k">if</span> <span class="o">(</span><span class="n">r</span><span class="o">.</span><span class="na">pkg</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">pkg</span><span class="o">))</span> <span class="o">{</span>
+             <span class="n">count</span><span class="o">++;</span>
+             <span class="k">if</span> <span class="o">(</span><span class="n">count</span> <span class="o">&gt;=</span> <span class="no">MAX_PACKAGE_NOTIFICATIONS</span><span class="o">)</span> <span class="o">{</span>
+                 <span class="nc">Slog</span><span class="o">.</span><span class="na">e</span><span class="o">(</span><span class="no">TAG</span><span class="o">,</span> <span class="s">"Package has already posted "</span> <span class="o">+</span> <span class="n">count</span>
+                        <span class="o">+</span> <span class="s">" toasts. Not showing more. Package="</span> <span class="o">+</span> <span class="n">pkg</span><span class="o">);</span>
+                 <span class="k">return</span><span class="o">;</span>
+             <span class="o">}</span>
+         <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div><p>即会计算 mToastQueue 里该包名的 Toast 数量，如果超过 50，则将当前申请加入队列的 Toast 抛弃掉。所以上一个问题的 <strong>结论是：Toast 队列里允许每个应用存在不超过 50 个 Toast。</strong></p><p>那么构造 ToastRecord 并加入 mToastQueue 之后是如何调度，控制显示和隐藏的呢？enqueueToast 方法里有个逻辑是如果当前列表里只有一个 ToastRecord，则调用 <code class="language-plaintext highlighter-rouge">showNextToastLocked</code>，看一下与该方法相关的代码：</p><div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@GuardedBy</span><span class="o">(</span><span class="s">"mToastQueue"</span><span class="o">)</span>
+<span class="kt">void</span> <span class="nf">showNextToastLocked</span><span class="o">()</span> <span class="o">{</span>
+    <span class="nc">ToastRecord</span> <span class="n">record</span> <span class="o">=</span> <span class="n">mToastQueue</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+    <span class="k">while</span> <span class="o">(</span><span class="n">record</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+        <span class="o">...</span>
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="n">record</span><span class="o">.</span><span class="na">callback</span><span class="o">.</span><span class="na">show</span><span class="o">(</span><span class="n">record</span><span class="o">.</span><span class="na">token</span><span class="o">);</span>
+            <span class="n">scheduleTimeoutLocked</span><span class="o">(</span><span class="n">record</span><span class="o">);</span>
+            <span class="k">return</span><span class="o">;</span>
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">RemoteException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+            <span class="o">...</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">index</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">mToastQueue</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="n">index</span><span class="o">);</span>
+            <span class="o">}</span>
+            <span class="o">...</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="o">...</span>
+
+<span class="nd">@GuardedBy</span><span class="o">(</span><span class="s">"mToastQueue"</span><span class="o">)</span>
+<span class="kd">private</span> <span class="kt">void</span> <span class="nf">scheduleTimeoutLocked</span><span class="o">(</span><span class="nc">ToastRecord</span> <span class="n">r</span><span class="o">)</span>
+<span class="o">{</span>
+    <span class="n">mHandler</span><span class="o">.</span><span class="na">removeCallbacksAndMessages</span><span class="o">(</span><span class="n">r</span><span class="o">);</span>
+    <span class="nc">Message</span> <span class="n">m</span> <span class="o">=</span> <span class="nc">Message</span><span class="o">.</span><span class="na">obtain</span><span class="o">(</span><span class="n">mHandler</span><span class="o">,</span> <span class="no">MESSAGE_TIMEOUT</span><span class="o">,</span> <span class="n">r</span><span class="o">);</span>
+    <span class="kt">long</span> <span class="n">delay</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="na">duration</span> <span class="o">==</span> <span class="nc">Toast</span><span class="o">.</span><span class="na">LENGTH_LONG</span> <span class="o">?</span> <span class="no">LONG_DELAY</span> <span class="o">:</span> <span class="no">SHORT_DELAY</span><span class="o">;</span>
+    <span class="n">mHandler</span><span class="o">.</span><span class="na">sendMessageDelayed</span><span class="o">(</span><span class="n">m</span><span class="o">,</span> <span class="n">delay</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="kd">private</span> <span class="kt">void</span> <span class="nf">handleTimeout</span><span class="o">(</span><span class="nc">ToastRecord</span> <span class="n">record</span><span class="o">)</span>
+<span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="no">DBG</span><span class="o">)</span> <span class="nc">Slog</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="no">TAG</span><span class="o">,</span> <span class="s">"Timeout pkg="</span> <span class="o">+</span> <span class="n">record</span><span class="o">.</span><span class="na">pkg</span> <span class="o">+</span> <span class="s">" callback="</span> <span class="o">+</span> <span class="n">record</span><span class="o">.</span><span class="na">callback</span><span class="o">);</span>
+    <span class="kd">synchronized</span> <span class="o">(</span><span class="n">mToastQueue</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">index</span> <span class="o">=</span> <span class="n">indexOfToastLocked</span><span class="o">(</span><span class="n">record</span><span class="o">.</span><span class="na">pkg</span><span class="o">,</span> <span class="n">record</span><span class="o">.</span><span class="na">callback</span><span class="o">);</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">index</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">cancelToastLocked</span><span class="o">(</span><span class="n">index</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="o">...</span>
+
+<span class="nd">@GuardedBy</span><span class="o">(</span><span class="s">"mToastQueue"</span><span class="o">)</span>
+<span class="kt">void</span> <span class="nf">cancelToastLocked</span><span class="o">(</span><span class="kt">int</span> <span class="n">index</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">ToastRecord</span> <span class="n">record</span> <span class="o">=</span> <span class="n">mToastQueue</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">index</span><span class="o">);</span>
+    <span class="k">try</span> <span class="o">{</span>
+        <span class="n">record</span><span class="o">.</span><span class="na">callback</span><span class="o">.</span><span class="na">hide</span><span class="o">();</span>
+    <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">RemoteException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+        <span class="o">...</span>
+    <span class="o">}</span>
+
+    <span class="nc">ToastRecord</span> <span class="n">lastToast</span> <span class="o">=</span> <span class="n">mToastQueue</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="n">index</span><span class="o">);</span>
+    <span class="n">mWindowManagerInternal</span><span class="o">.</span><span class="na">removeWindowToken</span><span class="o">(</span><span class="n">lastToast</span><span class="o">.</span><span class="na">token</span><span class="o">,</span> <span class="kc">true</span><span class="o">,</span> <span class="no">DEFAULT_DISPLAY</span><span class="o">);</span>
+
+    <span class="n">keepProcessAliveIfNeededLocked</span><span class="o">(</span><span class="n">record</span><span class="o">.</span><span class="na">pid</span><span class="o">);</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">mToastQueue</span><span class="o">.</span><span class="na">size</span><span class="o">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Show the next one. If the callback fails, this will remove</span>
+        <span class="c1">// it from the list, so don't assume that the list hasn't changed</span>
+        <span class="c1">// after this point.</span>
+        <span class="n">showNextToastLocked</span><span class="o">();</span> <span class="c1">// 继续显示队列里的下一个 Toast</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="o">...</span>
+
+<span class="kd">private</span> <span class="kd">final</span> <span class="kd">class</span> <span class="nc">WorkerHandler</span> <span class="kd">extends</span> <span class="nc">Handler</span>
+<span class="o">{</span>
+    <span class="o">...</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">handleMessage</span><span class="o">(</span><span class="nc">Message</span> <span class="n">msg</span><span class="o">)</span>
+    <span class="o">{</span>
+        <span class="k">switch</span> <span class="o">(</span><span class="n">msg</span><span class="o">.</span><span class="na">what</span><span class="o">)</span>
+        <span class="o">{</span>
+            <span class="k">case</span> <span class="nl">MESSAGE_TIMEOUT:</span>
+                <span class="n">handleTimeout</span><span class="o">((</span><span class="nc">ToastRecord</span><span class="o">)</span><span class="n">msg</span><span class="o">.</span><span class="na">obj</span><span class="o">);</span>
+                <span class="k">break</span><span class="o">;</span>
+            <span class="o">...</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div><p>即首先调用 <code class="language-plaintext highlighter-rouge">record.callback.show(record.token)</code>，通知 App 展示该 Toast，然后根据 duration，延时发送一条超时消息 <code class="language-plaintext highlighter-rouge">MESSAGE_TIMEOUT</code>，WorkHandler 收到该消息后，调用 <code class="language-plaintext highlighter-rouge">cancelToastLocked</code> 通知应用隐藏该 Toast，并继续调用 <code class="language-plaintext highlighter-rouge">showNextToastLocked</code> 显示队列里的下一个 Toast。这样一个机制就保证了只要队列里有 ToastRecord，就能依次显示出来。</p><p>机制弄清楚了，再详细看一下应用接到通知 show 和 hide 一个 Toast 后是怎么做的：</p><p>文件 <a href="https://github.com/aosp-mirror/platform_frameworks_base/blob/master/core/java/android/widget/Toast.java">platform_frameworks_base/core/java/android/widget/Toast.java</a></p><div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">private</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">TN</span> <span class="kd">extends</span> <span class="nc">ITransientNotification</span><span class="o">.</span><span class="na">Stub</span> <span class="o">{</span>
+    <span class="o">...</span>
+    <span class="no">TN</span><span class="o">(</span><span class="nc">String</span> <span class="n">packageName</span><span class="o">,</span> <span class="nd">@Nullable</span> <span class="nc">Looper</span> <span class="n">looper</span><span class="o">)</span> <span class="o">{</span>
+        <span class="o">...</span>
+        <span class="n">mHandler</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Handler</span><span class="o">(</span><span class="n">looper</span><span class="o">,</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="nd">@Override</span>
+            <span class="kd">public</span> <span class="kt">void</span> <span class="nf">handleMessage</span><span class="o">(</span><span class="nc">Message</span> <span class="n">msg</span><span class="o">)</span> <span class="o">{</span>
+                <span class="k">switch</span> <span class="o">(</span><span class="n">msg</span><span class="o">.</span><span class="na">what</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="k">case</span> <span class="nl">SHOW:</span> <span class="o">{</span>
+                        <span class="nc">IBinder</span> <span class="n">token</span> <span class="o">=</span> <span class="o">(</span><span class="nc">IBinder</span><span class="o">)</span> <span class="n">msg</span><span class="o">.</span><span class="na">obj</span><span class="o">;</span>
+                        <span class="n">handleShow</span><span class="o">(</span><span class="n">token</span><span class="o">);</span>
+                        <span class="k">break</span><span class="o">;</span>
+                    <span class="o">}</span>
+                    <span class="k">case</span> <span class="nl">HIDE:</span> <span class="o">{</span>
+                        <span class="n">handleHide</span><span class="o">();</span>
+                        <span class="o">...</span>
+                        <span class="k">break</span><span class="o">;</span>
+                    <span class="o">}</span>
+                    <span class="o">...</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">};</span>
+    <span class="o">}</span>
+
+    <span class="cm">/**
+     * schedule handleShow into the right thread
+     */</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">show</span><span class="o">(</span><span class="nc">IBinder</span> <span class="n">windowToken</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">localLOGV</span><span class="o">)</span> <span class="nc">Log</span><span class="o">.</span><span class="na">v</span><span class="o">(</span><span class="no">TAG</span><span class="o">,</span> <span class="s">"SHOW: "</span> <span class="o">+</span> <span class="k">this</span><span class="o">);</span>
+        <span class="n">mHandler</span><span class="o">.</span><span class="na">obtainMessage</span><span class="o">(</span><span class="no">SHOW</span><span class="o">,</span> <span class="n">windowToken</span><span class="o">).</span><span class="na">sendToTarget</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="cm">/**
+     * schedule handleHide into the right thread
+     */</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">hide</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">localLOGV</span><span class="o">)</span> <span class="nc">Log</span><span class="o">.</span><span class="na">v</span><span class="o">(</span><span class="no">TAG</span><span class="o">,</span> <span class="s">"HIDE: "</span> <span class="o">+</span> <span class="k">this</span><span class="o">);</span>
+        <span class="n">mHandler</span><span class="o">.</span><span class="na">obtainMessage</span><span class="o">(</span><span class="no">HIDE</span><span class="o">).</span><span class="na">sendToTarget</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="o">...</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">handleShow</span><span class="o">(</span><span class="nc">IBinder</span> <span class="n">windowToken</span><span class="o">)</span> <span class="o">{</span>
+        <span class="o">...</span>
+                <span class="n">mWM</span><span class="o">.</span><span class="na">addView</span><span class="o">(</span><span class="n">mView</span><span class="o">,</span> <span class="n">mParams</span><span class="o">);</span>
+        <span class="o">...</span>
+    <span class="o">}</span>
+
+    <span class="o">...</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">handleHide</span><span class="o">()</span> <span class="o">{</span>
+        <span class="o">...</span>
+                <span class="n">mWM</span><span class="o">.</span><span class="na">removeViewImmediate</span><span class="o">(</span><span class="n">mView</span><span class="o">);</span>
+        <span class="o">...</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div><p>显示过程：show 方法被远程调用后，先是发送了一个 SHOW 消息，接收到该消息后调用了 handleShow 方法，然后 <code class="language-plaintext highlighter-rouge">mWM.addView</code> 将该 View 添加到窗口。</p><p>隐藏过程：hide 方法被远程调用后，先是发送了一个 HIDE 消息，接收到该消息后调用了 handleHide 方法，然后 <code class="language-plaintext highlighter-rouge">mWM.removeViewImmediate</code> 将该 View 从窗口移除。</p><p><em>这里插播一条结论，就是前文留下的为什么调用 Toast 的线程线束之后没弹出的 Toast 就无法弹出了的问题，因为 Notification Service 通知应用进程显示或隐藏 Toast 时，使用的是 <code class="language-plaintext highlighter-rouge">mHandler.obtainMessage(SHOW).sendToTarget()</code> 与 <code class="language-plaintext highlighter-rouge">mHandler.obtainMessage(HIDE).sendToTarget()</code>，这个消息发出去后，Handler 对应线程没有在 <code class="language-plaintext highlighter-rouge">Looper.loop()</code> 过程里的话，就没有办法进入到 Handler 的 handleMessage 方法里去，自然也就无法调用显示和隐藏 View 的流程了。<code class="language-plaintext highlighter-rouge">Looper.loop()</code> 相关的知识点将在下篇讲解。</em></p><h2 id="总结">总结</h2><h3 id="补充后的-toast-知识点列表">补充后的 Toast 知识点列表</h3><ol><li><p>Toast 不是 View，它用于帮助创建并展示包含一条小消息的 View；</p></li><li><p>它的设计理念是尽量不惹眼，但又能展示想让用户看到的信息；</p></li><li><p>被展示时，浮在应用界面之上；</p></li><li><p>永远不会获取到焦点；</p></li><li><p>大小取决于消息的长度；</p></li><li><p>超时后会自动消失；</p></li><li><p>可以自定义显示在屏幕上的位置（默认左右居中显示在靠近屏幕底部的位置）；</p></li><li><p>可以使用自定义布局，也只有在自定义布局的时候才需要直接调用 Toast 的构造方法，其它时候都是使用 makeText 方法来创建 Toast；</p></li><li><p>Toast 弹出后当前 Activity 会保持可见性和可交互性；</p></li><li><p>使用 <code class="language-plaintext highlighter-rouge">cancel</code> 方法可以立即将已显示的 Toast 关闭，让未显示的 Toast 不再显示；</p></li><li><p>Toast 也算是一个「通知」，如果弹出状态消息后期望得到用户响应，应该使用 Notification；</p></li><li><p>Toast 的超时时间为 LENGTH_SHORT 对应 2 秒，LENGTH_LONG 对应 3.5 秒；</p></li><li><p>不能通过 Toast 类的公开方法直接弹一个时间超长的 Toast；</p></li><li><p>应用在后台时可以调用 Toast 并正常弹出；</p></li><li><p>Toast 队列里允许单个应用往里添加 50 个 Toast，超出的将被丢弃。</p></li></ol><h3 id="遗留知识点">遗留知识点</h3><p>本篇涉及到了一些需要进一步了解的知识点，在后续的篇章中会依次解读：</p><ol><li><p>Handler、Looper 和 MessageQueue</p></li><li><p>WindowManager</p></li><li><p>Binder 与跨进程通信</p></li></ol><h3 id="本篇用到的源码分析方法">本篇用到的源码分析方法</h3><ol><li><p>查找关键变量被引用的地方；</p></li><li><p>按方法调用堆栈一层层逻辑跟踪与分析；</p></li><li><p>使用 git blame 查看关键代码行的变更日志；</p></li></ol><h2 id="后话">后话</h2><p>到此，上面提到的几个问题都已经解答完毕，对 Toast 源码的分析也告一段落。</p><p>写这篇文章花费的时间比较长，所以并不能按照预计的节奏更新，这里表示抱歉。另外，各位如果有耐心读到这里，觉得本文的思路是否清晰，是否能跟随文章的节奏理解一些东西？因为我也在摸索写这类文章的组织形式，所以也希望能收到反馈和建议，以作改进，先行谢过。</p><hr /><p>最后，照例要安利一下我的微信公众号「闷骚的程序员」，扫码关注，接收 rtfsc-android 的最近更新。</p><div align="center"><img width="192px" height="192px" src="https://mazhuang.org/assets/images/qrcode.jpg" /></div><div style="margin-top:2em;padding:0 1.5em;border:1px solid #d3d3d3;background-color:#deebf7"><h3>文档信息</h3><ul><li>本文作者：<a href="https://mazhuang.org" target="_blank">Zhuang Ma</a></li><li>本文链接：<a href="https://mazhuang.org/2017/11/12/start-from-toast/" target="_blank">https://mazhuang.org/2017/11/12/start-from-toast/</a></li><li>版权声明：自由转载-非商用-非衍生-保持署名（<a href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh" target="_blank">创意共享3.0许可证</a>）</li></ul></div></article><div class="share"></div><div class="comment"><div id="gitalk-container"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/vendor/gitalk/gitalk.css"> <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script> <script> var gitalk = new Gitalk({ id: '/2017/11/12/start-from-toast/', clientID: 'd2e1cbbd298958076462', clientSecret: 'b42a4178e5fd4a7cf63189ef4b1453b05c375709', repo: 'blog-comments', owner: 'mzlogin', admin: ['mzlogin'], labels: ['gitment'], perPage: 50, }); gitalk.render('gitalk-container'); </script></div></div><div class="column one-fourth"><h3>Search</h3><div id="site_search"> <input style="width:96%" type="text" id="search_box" placeholder="Search"></div><ul id="search_results" style="font-size:14px;list-style-type:none;padding-top:10px;padding-left:10px;"></ul><script src="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/js/simple-jekyll-search.min.js"></script> <script type="text/javascript"> SimpleJekyllSearch({ searchInput: document.getElementById('search_box'), resultsContainer: document.getElementById('search_results'), json: 'https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@built/assets/search_data.json', searchResultTemplate: '<li><a href="{url}" title="{title}">{title}</a></li>', noResultsText: 'No results found', limit: 10, fuzzy: false, exclude: ['Welcome'] }) </script><h3 class="post-directory-title mobile-hidden">Table of Contents</h3><div id="post-directory-module" class="mobile-hidden"><section class="post-directory"><dl></dl></section></div><script src="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/js/jquery.toc.js"></script></div></div></section><footer class="container"> <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7093222719567591" data-ad-slot="5263168187" data-ad-format="auto" data-full-width-responsive="true"></ins> <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script><div class="site-footer" role="contentinfo"><div class="copyright left mobile-block"> © 2015 <span title="Zhuang Ma">Zhuang Ma</span> <a href="javascript:window.scrollTo(0,0)" class="right mobile-visible">TOP</a></div><ul class="site-footer-links right mobile-hidden"><li> <a href="javascript:window.scrollTo(0,0)" >TOP</a></li></ul><a href="https://github.com/mzlogin/mzlogin.github.io" target="_blank" aria-label="view source code"> <span class="mega-octicon octicon-mark-github" title="GitHub"></span> </a><ul class="site-footer-links mobile-hidden"><li> <a href="https://mazhuang.org/" title="首页" target="">首页</a></li><li> <a href="https://mazhuang.org/categories/" title="分类" target="">分类</a></li><li> <a href="https://mazhuang.org/wiki/" title="维基" target="">维基</a></li><li> <a href="https://mazhuang.org/links/" title="链接" target="">链接</a></li><li> <a href="https://mazhuang.org/about/" title="关于" target="">关于</a></li><li><a href="https://mazhuang.org/feed.xml"><span class="octicon octicon-rss" style="color:orange;"></span></a></li></ul><script async src="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/vendor/busuanzi/2.3/busuanzi.pure.mini.js"></script><div class="mobile-hidden" style="margin-top:8px"> <span id="busuanzi_container_site_pv" style="display:none"> 本站访问量<span id="busuanzi_value_site_pv"></span>次 </span> <span id="busuanzi_container_site_uv" style="display:none"> / 本站访客数<span id="busuanzi_value_site_uv"></span>人 </span> <span id="busuanzi_container_page_pv" style="display:none"> / 本页访问量<span id="busuanzi_value_page_pv"></span>次 / 统计始于2020-05-03 </span></div></div></footer><div class="tools-wrapper"> <a class="gotop" href="#" title="回到顶部"><span class="octicon octicon-arrow-up"></span></a></div><script src="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/js/geopattern.js"></script> <script> jQuery(document).ready(function($) { $('.geopattern').each(function(){ $(this).geopattern($(this).data('pattern-id')); }); /* hljs.initHighlightingOnLoad(); */ }); </script><div style="display:none"> <script> (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) })(window,document,'script','https://www.google-analytics.com/analytics.js','ga'); ga('create', 'UA-80669434-1', 'auto'); ga('send', 'pageview'); </script></div></body></html>

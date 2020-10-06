@@ -1,0 +1,567 @@
+<!DOCTYPE html><html lang="zh-cmn-Hans" prefix="og: http://ogp.me/ns#" class="han-init"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /><title>Android 系统缓存扫描与清理方法分析 &mdash; 码志</title><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/vendor/primer-css/css/primer.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/css/components/collection.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/css/components/repo-card.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/css/sections/repo-list.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/css/components/boxed-group.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/css/globals/common.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/css/globals/responsive.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/css/posts/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/vendor/octicons/octicons/octicons.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mzlogin/rouge-themes@master/dist/github.css"><link rel="canonical" href="https://mazhuang.org/2016/01/14/android-system-cache/"><link rel="alternate" type="application/atom+xml" title="码志" href="https://mazhuang.org/feed.xml"><link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/favicon.ico"><meta property="og:title" content="Android 系统缓存扫描与清理方法分析"><meta name="keywords" content="Android, Cache, Cleaner, System Cache"><meta name="og:keywords" content="Android, Cache, Cleaner, System Cache"><meta name="description" content="本文记录的是我对 Android 的「系统缓存」及其扫描和清理方法的探索与理解。"><meta name="og:description" content="本文记录的是我对 Android 的「系统缓存」及其扫描和清理方法的探索与理解。"><meta property="og:url" content="https://mazhuang.org/2016/01/14/android-system-cache/"><meta property="og:site_name" content="码志"><meta property="og:type" content="article"><meta property="og:locale" content="zh_CN" /><meta property="article:published_time" content="2016-01-14"> <script src="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/vendor/jquery/dist/jquery.min.js"></script> <script src="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/js/jquery-ui.js"></script> <script src="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/js/main.js"></script> <script data-ad-client="ca-pub-7093222719567591" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script></head><body class="" data-mz=""><header class="site-header"><div class="container"><h1><a href="https://mazhuang.org/" title="码志"><span class="octicon octicon-mark-github"></span> 码志</a></h1><button class="collapsed mobile-visible" type="button" onclick="toggleMenu();"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button><nav class="site-header-nav" role="navigation"> <a href="https://mazhuang.org/" class=" site-header-nav-item" target="" title="首页">首页</a> <a href="https://mazhuang.org/categories/" class=" site-header-nav-item" target="" title="分类">分类</a> <a href="https://mazhuang.org/wiki/" class=" site-header-nav-item" target="" title="维基">维基</a> <a href="https://mazhuang.org/links/" class=" site-header-nav-item" target="" title="链接">链接</a> <a href="https://mazhuang.org/about/" class=" site-header-nav-item" target="" title="关于">关于</a></nav></div></header><section class="collection-head small geopattern" data-pattern-id="Android 系统缓存扫描与"><div class="container"><div class="columns"><div class="column three-fourths"><div class="collection-title"><h1 class="collection-header">Android 系统缓存扫描与清理方法分析</h1><div class="collection-info"> <span class="meta-info"> <span class="octicon octicon-calendar"></span> 2016/01/14 </span> <span class="meta-info"> <span class="octicon octicon-file-directory"></span> <a href="https://mazhuang.org/categories/#Android" title="Android">Android</a> </span> <span class="meta-info"> <span class="octicon octicon-clock"></span> 共 20604 字，约 59 分钟 </span></div></div></div><div class="column one-fourths mobile-hidden"><div class="collection-title"> <img style="height:72px;width:72px" src="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/images/qrcode.jpg" alt="闷骚的程序员" /></div></div></div></div></section><section class="container content"><div class="columns"><div class="column three-fourths" > <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7093222719567591" data-ad-slot="1650902835" data-ad-format="auto" data-full-width-responsive="true"></ins> <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script> <br /><article class="article-content markdown-body"><p>本文记录的是我对 Android 的「系统缓存」及其扫描和清理方法的探索与理解。</p><p>本文讲述内容的完整代码实例见 <a href="https://github.com/mzlogin/CleanExpert">https://github.com/mzlogin/CleanExpert</a>。</p><h2 id="系统缓存的定义">系统缓存的定义</h2><p>如下是我捏造的非官方定义：</p><p><strong>系统缓存：</strong> Android APP 在运行过程中保存在手机内置和外置存储上的缓存文件总和。</p><h2 id="系统缓存的组成">系统缓存的组成</h2><p>先说结论：</p><p><strong>「系统缓存」由所有已安装应用的 /data/data/packagename/cache 文件夹和 /sdcard/Android/data/packagename/cache 文件夹组成。</strong></p><p>如下是原理分析，不感兴趣的可以直接跳到<a href="#系统缓存大小的计算">下一节</a>。</p><p>我们先来看一个熟悉的界面：</p><p><img src="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/images/posts/android/installed-app-details.png" alt="" /></p><p>这是手机的「设置」——「应用」里的已安装应用的详情页，这里面会显示缓存的大小，而且提供了清理缓存的功能，这就是我们做「系统缓存」清理想做的事情。</p><p>这里显示的大小是如何计算出来的，它实际上的文件组成是怎么样的呢？可以从 Android 系统自带的 Settings APP 的源码中找到答案。</p><p><em>注：下面的分析基于我手边的 Android 4.1 源码，比较古老了，但并不妨碍理解。</em></p><h3 id="探索外部缓存">探索「外部缓存」</h3><p>按惯例先说结论：</p><p><strong>「外部缓存」由所有已安装应用的 /sdcard/Android/data/packagename/cache 文件夹组成。</strong></p><p>Settings APP 的源码在 Android 源码树的 packages/apps/Settings 目录里，在它里面能找到 InstalledAppDetails.java 文件，从名字上看它应该就是对应我们上图中的「应用详情页」，它是一个 Fragment，在它的 <code class="language-plaintext highlighter-rouge">onResume</code> 方法中调用了 <code class="language-plaintext highlighter-rouge">refreshUi</code> 方法，它里面又调用了 <code class="language-plaintext highlighter-rouge">refreshSizeInfo</code> 方法：</p><div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">private</span> <span class="kt">void</span> <span class="nf">refreshSizeInfo</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">mAppEntry</span><span class="o">.</span><span class="na">size</span> <span class="o">==</span> <span class="nc">ApplicationsState</span><span class="o">.</span><span class="na">SIZE_INVALID</span>
+            <span class="o">||</span> <span class="n">mAppEntry</span><span class="o">.</span><span class="na">size</span> <span class="o">==</span> <span class="nc">ApplicationsState</span><span class="o">.</span><span class="na">SIZE_UNKNOWN</span><span class="o">)</span> <span class="o">{</span>
+        <span class="o">......</span>
+    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+        <span class="o">......</span>
+        <span class="kt">long</span> <span class="n">cacheSize</span> <span class="o">=</span> <span class="n">mAppEntry</span><span class="o">.</span><span class="na">cacheSize</span> <span class="o">+</span> <span class="n">mAppEntry</span><span class="o">.</span><span class="na">externalCacheSize</span><span class="o">;</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">mLastCacheSize</span> <span class="o">!=</span> <span class="n">cacheSize</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">mLastCacheSize</span> <span class="o">=</span> <span class="n">cacheSize</span><span class="o">;</span>
+            <span class="n">mCacheSize</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="n">getSizeStr</span><span class="o">(</span><span class="n">cacheSize</span><span class="o">));</span>
+        <span class="o">}</span>
+        <span class="o">......</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div><p>这个方法定义在文件 packages/apps/Settings/src/com/android/settings/applications/InstalledAppDetails.java 中。</p><p>很显然这里的 <code class="language-plaintext highlighter-rouge">cacheSize</code> 就是对应上图里的缓存大小，从这几行代码的字面意义里可以看出缓存是由「内部缓存」加「外部缓存」组成，甚至可以初步推测出本节的结论，当然我是一个严谨的人，继续深究一下其中的原理。</p><p>找到给 <code class="language-plaintext highlighter-rouge">mAppEntry</code> 赋值的地方：</p><div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">private</span> <span class="kt">boolean</span> <span class="nf">refreshUi</span><span class="o">()</span> <span class="o">{</span>
+    <span class="o">......</span>
+    <span class="n">mAppEntry</span> <span class="o">=</span> <span class="n">mState</span><span class="o">.</span><span class="na">getEntry</span><span class="o">(</span><span class="n">packageName</span><span class="o">);</span>
+    <span class="o">......</span>
+<span class="o">}</span>
+</code></pre></div></div><p>这个方法定义在文件 packages/apps/Settings/src/com/android/settings/applications/InstalledAppDetails.java 中。</p><p>继续看 <code class="language-plaintext highlighter-rouge">getEntry</code> 里做了什么：</p><div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">AppEntry</span> <span class="nf">getEntry</span><span class="o">(</span><span class="nc">String</span> <span class="n">packageName</span><span class="o">)</span> <span class="o">{</span>
+    <span class="o">......</span>
+            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">mApplications</span><span class="o">.</span><span class="na">size</span><span class="o">();</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+                <span class="nc">ApplicationInfo</span> <span class="n">info</span> <span class="o">=</span> <span class="n">mApplications</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">packageName</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">info</span><span class="o">.</span><span class="na">packageName</span><span class="o">))</span> <span class="o">{</span>
+                    <span class="n">entry</span> <span class="o">=</span> <span class="n">getEntryLocked</span><span class="o">(</span><span class="n">info</span><span class="o">);</span>
+                    <span class="k">break</span><span class="o">;</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+    <span class="o">.......</span>
+<span class="o">}</span>
+</code></pre></div></div><p>这个方法定义在文件 packages/apps/Settings/src/com/android/settings/applications/ApplicationsState.java 中。</p><p>找到给 <code class="language-plaintext highlighter-rouge">mApplications</code> 添加数据的地方：</p><div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">addPackage</span><span class="o">(</span><span class="nc">String</span> <span class="n">pkgName</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">try</span> <span class="o">{</span>
+        <span class="kd">synchronized</span> <span class="o">(</span><span class="n">mEntriesMap</span><span class="o">)</span> <span class="o">{</span>
+            <span class="o">......</span>
+            <span class="nc">ApplicationInfo</span> <span class="n">info</span> <span class="o">=</span> <span class="n">mPm</span><span class="o">.</span><span class="na">getApplicationInfo</span><span class="o">(</span><span class="n">pkgName</span><span class="o">,</span>
+                    <span class="nc">PackageManager</span><span class="o">.</span><span class="na">GET_UNINSTALLED_PACKAGES</span> <span class="o">|</span>
+                    <span class="nc">PackageManager</span><span class="o">.</span><span class="na">GET_DISABLED_COMPONENTS</span><span class="o">);</span>
+            <span class="n">mApplications</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">info</span><span class="o">);</span>
+            <span class="k">if</span> <span class="o">(!</span><span class="n">mBackgroundHandler</span><span class="o">.</span><span class="na">hasMessages</span><span class="o">(</span><span class="nc">BackgroundHandler</span><span class="o">.</span><span class="na">MSG_LOAD_ENTRIES</span><span class="o">))</span> <span class="o">{</span>
+                <span class="n">mBackgroundHandler</span><span class="o">.</span><span class="na">sendEmptyMessage</span><span class="o">(</span><span class="nc">BackgroundHandler</span><span class="o">.</span><span class="na">MSG_LOAD_ENTRIES</span><span class="o">);</span>
+            <span class="o">}</span>
+            <span class="o">......</span>
+        <span class="o">}</span>
+    <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">NameNotFoundException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div><p>这个方法定义在文件 packages/apps/Settings/src/com/android/settings/applications/ApplicationsState.java 中。</p><p>它在 <code class="language-plaintext highlighter-rouge">mApplications.add(info);</code> 后顺便发了个消息，经过 <code class="language-plaintext highlighter-rouge">MSG_LOAD_ENTRIES</code> 到 <code class="language-plaintext highlighter-rouge">MSG_LOAD_ICONS</code> 到 <code class="language-plaintext highlighter-rouge">MSG_LOAD_SIZES</code> 的消息链，我们看到一个从名字上就看出来很重要的关键方法调用 <code class="language-plaintext highlighter-rouge">getPackageSizeInfo</code>：</p><div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">BackgroundHandler</span> <span class="kd">extends</span> <span class="nc">Handler</span> <span class="o">{</span>
+    <span class="o">......</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">handleMessage</span><span class="o">(</span><span class="nc">Message</span> <span class="n">msg</span><span class="o">)</span> <span class="o">{</span>
+        <span class="o">......</span>
+        <span class="k">switch</span> <span class="o">(</span><span class="n">msg</span><span class="o">.</span><span class="na">what</span><span class="o">)</span> <span class="o">{</span>
+            <span class="o">......</span>
+            <span class="k">case</span> <span class="nl">MSG_LOAD_ENTRIES:</span> <span class="o">{</span>
+                <span class="o">......</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">numDone</span> <span class="o">&gt;=</span> <span class="mi">6</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="o">......</span>
+                <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                    <span class="n">sendEmptyMessage</span><span class="o">(</span><span class="no">MSG_LOAD_ICONS</span><span class="o">);</span>
+                <span class="o">}</span>
+            <span class="o">}</span> <span class="k">break</span><span class="o">;</span>
+            <span class="k">case</span> <span class="nl">MSG_LOAD_ICONS:</span> <span class="o">{</span>
+                <span class="o">......</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">numDone</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="o">......</span>
+                <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                    <span class="n">sendEmptyMessage</span><span class="o">(</span><span class="no">MSG_LOAD_SIZES</span><span class="o">);</span>
+                <span class="o">}</span>
+            <span class="o">}</span> <span class="k">break</span><span class="o">;</span>
+            <span class="k">case</span> <span class="nl">MSG_LOAD_SIZES:</span> <span class="o">{</span>
+                <span class="kd">synchronized</span> <span class="o">(</span><span class="n">mEntriesMap</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="o">......</span>
+                                <span class="n">mPm</span><span class="o">.</span><span class="na">getPackageSizeInfo</span><span class="o">(</span><span class="n">mCurComputingSizePkg</span><span class="o">,</span> <span class="n">mStatsObserver</span><span class="o">);</span>
+                    <span class="o">......</span>
+                <span class="o">}</span>
+            <span class="o">}</span> <span class="k">break</span><span class="o">;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+    <span class="o">......</span>
+<span class="o">}</span>
+</code></pre></div></div><p>这个类定义在文件 packages/apps/Settings/src/com/android/settings/applications/ApplicationsState.java 中。</p><p><code class="language-plaintext highlighter-rouge">mPm</code> 是 <code class="language-plaintext highlighter-rouge">PackageManager</code> 类型的，这是一个抽象类型，它的实现类为 <code class="language-plaintext highlighter-rouge">ApplicationPackageManager</code>，<code class="language-plaintext highlighter-rouge">ApplicationPackageManager.getPackageSizeInfo</code> 里调用了 <code class="language-plaintext highlighter-rouge">IPackageManager.getPackageSizeInfo</code>，<code class="language-plaintext highlighter-rouge">IPackageManager</code> 的实例在 <code class="language-plaintext highlighter-rouge">ContexImpl.getPackageManager</code> 方法里通过 <code class="language-plaintext highlighter-rouge">ActivityThread.getPackageManager()</code> 获得，它的方法调用最终是反映到通过 Binder 机制返回的 <code class="language-plaintext highlighter-rouge">PackageManagerService</code> 实例上，我们找到 <code class="language-plaintext highlighter-rouge">getPackageSizeInfo</code> 的最终实现：</p><div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">PackageManagerService</span> <span class="kd">extends</span> <span class="nc">IPackageManager</span><span class="o">.</span><span class="na">Stub</span> <span class="o">{</span>
+    <span class="o">......</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">getPackageSizeInfo</span><span class="o">(</span><span class="kd">final</span> <span class="nc">String</span> <span class="n">packageName</span><span class="o">,</span>
+            <span class="kd">final</span> <span class="nc">IPackageStatsObserver</span> <span class="n">observer</span><span class="o">)</span> <span class="o">{</span>
+        <span class="o">......</span>
+        <span class="nc">Message</span> <span class="n">msg</span> <span class="o">=</span> <span class="n">mHandler</span><span class="o">.</span><span class="na">obtainMessage</span><span class="o">(</span><span class="no">INIT_COPY</span><span class="o">);</span>
+        <span class="n">msg</span><span class="o">.</span><span class="na">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">MeasureParams</span><span class="o">(</span><span class="n">stats</span><span class="o">,</span> <span class="n">observer</span><span class="o">);</span>
+        <span class="n">mHandler</span><span class="o">.</span><span class="na">sendMessage</span><span class="o">(</span><span class="n">msg</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="o">......</span>
+<span class="o">}</span>
+</code></pre></div></div><p>这个方法定义在文件 frameworks/base/services/java/com/android/server/pm/PackageManagerService.java 中。</p><p>这里我们注意 <code class="language-plaintext highlighter-rouge">msg.obj</code> 的类型为 <code class="language-plaintext highlighter-rouge">MeasureParams</code>，<code class="language-plaintext highlighter-rouge">INIT_COPY</code> 消息对应的处理：</p><div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">PackageHandler</span> <span class="kd">extends</span> <span class="nc">Handler</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kt">boolean</span> <span class="n">mBound</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+    <span class="o">......</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">handleMessage</span><span class="o">(</span><span class="nc">Message</span> <span class="n">msg</span><span class="o">)</span> <span class="o">{</span>
+        <span class="o">......</span>
+            <span class="n">doHandleMessage</span><span class="o">(</span><span class="n">msg</span><span class="o">);</span>
+        <span class="o">......</span>
+    <span class="o">}</span>
+
+    <span class="kt">void</span> <span class="nf">doHandleMessage</span><span class="o">(</span><span class="nc">Message</span> <span class="n">msg</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">switch</span> <span class="o">(</span><span class="n">msg</span><span class="o">.</span><span class="na">what</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">case</span> <span class="nl">INIT_COPY:</span> <span class="o">{</span>
+                <span class="o">......</span>
+                <span class="k">if</span> <span class="o">(!</span><span class="n">mBound</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="k">if</span> <span class="o">(!</span><span class="n">connectToService</span><span class="o">())</span> <span class="o">{</span>
+                        <span class="o">......</span>
+                    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                        <span class="o">......</span>
+                    <span class="o">}</span>
+                <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                    <span class="o">......</span>
+                <span class="o">}</span>
+                <span class="k">break</span><span class="o">;</span>
+            <span class="o">}</span>
+            <span class="k">case</span> <span class="nl">MCS_BOUND:</span> <span class="o">{</span>
+                <span class="o">......</span>
+                        <span class="k">if</span> <span class="o">(</span><span class="n">params</span><span class="o">.</span><span class="na">startCopy</span><span class="o">())</span> <span class="o">{</span>
+                            <span class="o">......</span>
+                        <span class="o">}</span>
+                <span class="o">......</span>
+                <span class="k">break</span><span class="o">;</span>
+            <span class="o">}</span>
+            <span class="o">......</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+    <span class="o">......</span>
+<span class="o">}</span>
+</code></pre></div></div><p>这个类定义在文件 frameworks/base/services/java/com/android/server/pm/PackageManagerService.java 中。</p><p><code class="language-plaintext highlighter-rouge">mBound</code> 默认值为 false，所以会进 <code class="language-plaintext highlighter-rouge">connectToService</code> 方法，里面会触发 <code class="language-plaintext highlighter-rouge">DefaultContainerConnection.onServiceConnected</code> 回调，发送了 <code class="language-plaintext highlighter-rouge">MCS_BOUND</code> 的消息，通过 <code class="language-plaintext highlighter-rouge">params.startCopy()</code> 来到 <code class="language-plaintext highlighter-rouge">MeasureParams</code> 的 <code class="language-plaintext highlighter-rouge">handleStartCopy</code> 方法里，可以直接看到 <code class="language-plaintext highlighter-rouge">externalCacheSize</code> 的计算方法：</p><div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">handleStartCopy</span><span class="o">()</span> <span class="kd">throws</span> <span class="nc">RemoteException</span> <span class="o">{</span>
+    <span class="kd">synchronized</span> <span class="o">(</span><span class="n">mInstallLock</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">mSuccess</span> <span class="o">=</span> <span class="n">getPackageSizeInfoLI</span><span class="o">(</span><span class="n">mStats</span><span class="o">.</span><span class="na">packageName</span><span class="o">,</span> <span class="n">mStats</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="o">......</span>
+
+    <span class="k">if</span> <span class="o">(</span><span class="n">mounted</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">final</span> <span class="nc">File</span> <span class="n">externalCacheDir</span> <span class="o">=</span> <span class="nc">Environment</span>
+                <span class="o">.</span><span class="na">getExternalStorageAppCacheDirectory</span><span class="o">(</span><span class="n">mStats</span><span class="o">.</span><span class="na">packageName</span><span class="o">);</span>
+        <span class="kd">final</span> <span class="kt">long</span> <span class="n">externalCacheSize</span> <span class="o">=</span> <span class="n">mContainerService</span>
+                <span class="o">.</span><span class="na">calculateDirectorySize</span><span class="o">(</span><span class="n">externalCacheDir</span><span class="o">.</span><span class="na">getPath</span><span class="o">());</span>
+        <span class="n">mStats</span><span class="o">.</span><span class="na">externalCacheSize</span> <span class="o">=</span> <span class="n">externalCacheSize</span><span class="o">;</span>
+
+        <span class="o">......</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div><p>这个方法定义在文件 frameworks/base/services/java/com/android/server/pm/PackageManagerService.java 中。</p><p><code class="language-plaintext highlighter-rouge">externalCacheSize</code> 实际即是 <code class="language-plaintext highlighter-rouge">Environment.getExternalStorageAppCacheDirectory</code> 返回的文件夹的大小，来看一下它返回的文件夹是什么：</p><div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Environment</span> <span class="o">{</span>
+    <span class="o">......</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="nc">File</span> <span class="no">EXTERNAL_STORAGE_ANDROID_DATA_DIRECTORY</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">File</span><span class="o">(</span><span class="k">new</span> <span class="nc">File</span><span class="o">(</span>
+            <span class="n">getDirectory</span><span class="o">(</span><span class="s">"EXTERNAL_STORAGE"</span><span class="o">,</span> <span class="s">"/storage/sdcard0"</span><span class="o">),</span> <span class="s">"Android"</span><span class="o">),</span> <span class="s">"data"</span><span class="o">);</span>
+    <span class="o">......</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">File</span> <span class="nf">getExternalStorageAppCacheDirectory</span><span class="o">(</span><span class="nc">String</span> <span class="n">packageName</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nf">File</span><span class="o">(</span><span class="k">new</span> <span class="nc">File</span><span class="o">(</span><span class="no">EXTERNAL_STORAGE_ANDROID_DATA_DIRECTORY</span><span class="o">,</span>
+                <span class="n">packageName</span><span class="o">),</span> <span class="s">"cache"</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="o">......</span>
+<span class="o">}</span>
+</code></pre></div></div><p>这个类定义在文件 frameworks/base/core/java/android/os/Environment.java 中。</p><p>一般来讲 /storage/sdcard0 都是挂载到 /sdcard，可见 <code class="language-plaintext highlighter-rouge">Environment.getExternalStorageAppCacheDirectory</code> 返回的就是 /sdcard/Android/data/packagename/cache。</p><p>即有小结论一：</p><p><strong>「外部缓存」由所有已安装应用的 /sdcard/Android/data/packagename/cache 文件夹组成。</strong></p><h3 id="探索内部缓存">探索「内部缓存」</h3><p>先说结论：</p><p><strong>「内部缓存」由所有已安装应用的 /data/data/packagename/cache 文件夹组成。</strong></p><p>从上面的 <code class="language-plaintext highlighter-rouge">handleStartCopy</code> 方法中可知 Internal 的 <code class="language-plaintext highlighter-rouge">cacheSize</code> 部分在 <code class="language-plaintext highlighter-rouge">getPackageSizeInfoLI</code> 方法里，</p><div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">private</span> <span class="kt">boolean</span> <span class="nf">getPackageSizeInfoLI</span><span class="o">(</span><span class="nc">String</span> <span class="n">packageName</span><span class="o">,</span> <span class="nc">PackageStats</span> <span class="n">pStats</span><span class="o">)</span> <span class="o">{</span>
+    <span class="o">......</span>
+        <span class="kt">int</span> <span class="n">res</span> <span class="o">=</span> <span class="n">mInstaller</span><span class="o">.</span><span class="na">getSizeInfo</span><span class="o">(</span><span class="n">packageName</span><span class="o">,</span> <span class="n">p</span><span class="o">.</span><span class="na">mPath</span><span class="o">,</span> <span class="n">publicSrcDir</span><span class="o">,</span>
+                <span class="n">asecPath</span><span class="o">,</span> <span class="n">pStats</span><span class="o">);</span>
+    <span class="o">......</span>
+<span class="o">}</span>
+</code></pre></div></div><p>这个方法定义在文件 frameworks/base/services/java/com/android/server/pm/PackageManagerService.java 中。</p><div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Installer</span> <span class="o">{</span>
+    <span class="o">......</span>
+    <span class="kd">private</span> <span class="kt">boolean</span> <span class="nf">connect</span><span class="o">()</span> <span class="o">{</span>
+            <span class="o">......</span>
+            <span class="nc">LocalSocketAddress</span> <span class="n">address</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">LocalSocketAddress</span><span class="o">(</span><span class="s">"installd"</span><span class="o">,</span>
+                    <span class="nc">LocalSocketAddress</span><span class="o">.</span><span class="na">Namespace</span><span class="o">.</span><span class="na">RESERVED</span><span class="o">);</span>
+
+            <span class="n">mSocket</span><span class="o">.</span><span class="na">connect</span><span class="o">(</span><span class="n">address</span><span class="o">);</span>
+            <span class="o">......</span>
+    <span class="o">}</span>
+    <span class="o">......</span>
+    <span class="kd">private</span> <span class="kd">synchronized</span> <span class="nc">String</span> <span class="nf">transaction</span><span class="o">(</span><span class="nc">String</span> <span class="n">cmd</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(!</span><span class="n">connect</span><span class="o">())</span> <span class="o">{</span>
+            <span class="o">......</span>
+        <span class="o">}</span>
+
+        <span class="k">if</span> <span class="o">(!</span><span class="n">writeCommand</span><span class="o">(</span><span class="n">cmd</span><span class="o">))</span> <span class="o">{</span>
+            <span class="o">......</span>
+        <span class="o">}</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">readReply</span><span class="o">())</span> <span class="o">{</span>
+            <span class="o">......</span>
+            <span class="k">return</span> <span class="n">s</span><span class="o">;</span>
+        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+            <span class="o">......</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getSizeInfo</span><span class="o">(</span><span class="nc">String</span> <span class="n">pkgName</span><span class="o">,</span> <span class="nc">String</span> <span class="n">apkPath</span><span class="o">,</span> <span class="nc">String</span> <span class="n">fwdLockApkPath</span><span class="o">,</span>
+            <span class="nc">String</span> <span class="n">asecPath</span><span class="o">,</span> <span class="nc">PackageStats</span> <span class="n">pStats</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">StringBuilder</span> <span class="n">builder</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringBuilder</span><span class="o">(</span><span class="s">"getsize"</span><span class="o">);</span>
+        <span class="n">builder</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="sc">' '</span><span class="o">);</span>
+        <span class="n">builder</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">pkgName</span><span class="o">);</span>
+        <span class="n">builder</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="sc">' '</span><span class="o">);</span>
+        <span class="n">builder</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">apkPath</span><span class="o">);</span>
+        <span class="o">......</span>
+
+        <span class="nc">String</span> <span class="n">s</span> <span class="o">=</span> <span class="n">transaction</span><span class="o">(</span><span class="n">builder</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+        <span class="nc">String</span> <span class="n">res</span><span class="o">[]</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="na">split</span><span class="o">(</span><span class="s">" "</span><span class="o">);</span>
+
+        <span class="o">......</span>
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="o">......</span>
+            <span class="n">pStats</span><span class="o">.</span><span class="na">cacheSize</span> <span class="o">=</span> <span class="nc">Long</span><span class="o">.</span><span class="na">parseLong</span><span class="o">(</span><span class="n">res</span><span class="o">[</span><span class="mi">3</span><span class="o">]);</span>
+            <span class="o">......</span>
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">NumberFormatException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+    <span class="o">......</span>
+<span class="o">}</span>
+</code></pre></div></div><p>这个方法定义在文件 frameworks/base/services/java/com/android/server/pm/Installer.java 中。</p><p><code class="language-plaintext highlighter-rouge">getSizeInfo</code> 方法最终是通过给 /dev/socket/installd 发送 <code class="language-plaintext highlighter-rouge">getsize packagename apkpath ...</code> 获取的输出中解析出来。</p><p>/dev/socket/installd 的源码在 frameworks/base/cmds/installd，<code class="language-plaintext highlighter-rouge">getsize</code> 命令最后在 <code class="language-plaintext highlighter-rouge">get_size</code> 函数中处理，</p><div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">get_size</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">pkgname</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">apkpath</span><span class="p">,</span>
+             <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">fwdlock_apkpath</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">asecpath</span><span class="p">,</span>
+             <span class="kt">int64_t</span> <span class="o">*</span><span class="n">_codesize</span><span class="p">,</span> <span class="kt">int64_t</span> <span class="o">*</span><span class="n">_datasize</span><span class="p">,</span> <span class="kt">int64_t</span> <span class="o">*</span><span class="n">_cachesize</span><span class="p">,</span>
+             <span class="kt">int64_t</span><span class="o">*</span> <span class="n">_asecsize</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="p">......</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">create_pkg_path</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">pkgname</span><span class="p">,</span> <span class="n">PKG_DIR_POSTFIX</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span> <span class="p">{</span>
+        <span class="k">goto</span> <span class="n">done</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">d</span> <span class="o">=</span> <span class="n">opendir</span><span class="p">(</span><span class="n">path</span><span class="p">);</span>
+    <span class="p">......</span>
+    <span class="n">dfd</span> <span class="o">=</span> <span class="n">dirfd</span><span class="p">(</span><span class="n">d</span><span class="p">);</span>
+    <span class="p">......</span>
+    <span class="k">while</span> <span class="p">((</span><span class="n">de</span> <span class="o">=</span> <span class="n">readdir</span><span class="p">(</span><span class="n">d</span><span class="p">)))</span> <span class="p">{</span>
+        <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">name</span> <span class="o">=</span> <span class="n">de</span><span class="o">-&gt;</span><span class="n">d_name</span><span class="p">;</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">de</span><span class="o">-&gt;</span><span class="n">d_type</span> <span class="o">==</span> <span class="n">DT_DIR</span><span class="p">)</span> <span class="p">{</span>
+            <span class="p">......</span>
+            <span class="n">subfd</span> <span class="o">=</span> <span class="n">openat</span><span class="p">(</span><span class="n">dfd</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">O_RDONLY</span> <span class="o">|</span> <span class="n">O_DIRECTORY</span><span class="p">);</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">subfd</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+                <span class="kt">int64_t</span> <span class="n">size</span> <span class="o">=</span> <span class="n">calculate_dir_size</span><span class="p">(</span><span class="n">subfd</span><span class="p">);</span>
+                <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">strcmp</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="s">"lib"</span><span class="p">))</span> <span class="p">{</span>
+                    <span class="n">codesize</span> <span class="o">+=</span> <span class="n">size</span><span class="p">;</span>
+                <span class="p">}</span> <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">strcmp</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="s">"cache"</span><span class="p">))</span> <span class="p">{</span>
+                    <span class="n">cachesize</span> <span class="o">+=</span> <span class="n">size</span><span class="p">;</span>
+                <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                    <span class="n">datasize</span> <span class="o">+=</span> <span class="n">size</span><span class="p">;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="p">......</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="p">......</span>
+<span class="p">}</span>
+</code></pre></div></div><p>这个函数定义在文件 frameworks/base/cmds/installd/Commands.c 中。</p><p>我们来看一下 <code class="language-plaintext highlighter-rouge">path</code> 是什么值：</p><div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">create_pkg_path</span><span class="p">(</span><span class="kt">char</span> <span class="n">path</span><span class="p">[</span><span class="n">PKG_PATH_MAX</span><span class="p">],</span>
+                    <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">pkgname</span><span class="p">,</span>
+                    <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">postfix</span><span class="p">,</span>
+                    <span class="n">uid_t</span> <span class="n">persona</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">size_t</span> <span class="n">uid_len</span><span class="p">;</span>
+    <span class="kt">char</span><span class="o">*</span> <span class="n">persona_prefix</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">persona</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">persona_prefix</span> <span class="o">=</span> <span class="n">PRIMARY_USER_PREFIX</span><span class="p">;</span>
+        <span class="n">uid_len</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="p">......</span>
+    <span class="p">}</span>
+
+    <span class="k">const</span> <span class="kt">size_t</span> <span class="n">prefix_len</span> <span class="o">=</span> <span class="n">android_data_dir</span><span class="p">.</span><span class="n">len</span> <span class="o">+</span> <span class="n">strlen</span><span class="p">(</span><span class="n">persona_prefix</span><span class="p">)</span> <span class="o">+</span> <span class="n">uid_len</span> <span class="o">+</span> <span class="mi">1</span> <span class="cm">/*slash*/</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="n">prefix</span><span class="p">[</span><span class="n">prefix_len</span> <span class="o">+</span> <span class="mi">1</span><span class="p">];</span>
+
+    <span class="kt">char</span> <span class="o">*</span><span class="n">dst</span> <span class="o">=</span> <span class="n">prefix</span><span class="p">;</span>
+    <span class="kt">size_t</span> <span class="n">dst_size</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">prefix</span><span class="p">);</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">append_and_increment</span><span class="p">(</span><span class="o">&amp;</span><span class="n">dst</span><span class="p">,</span> <span class="n">android_data_dir</span><span class="p">.</span><span class="n">path</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">dst_size</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span>
+            <span class="o">||</span> <span class="n">append_and_increment</span><span class="p">(</span><span class="o">&amp;</span><span class="n">dst</span><span class="p">,</span> <span class="n">persona_prefix</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">dst_size</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">ALOGE</span><span class="p">(</span><span class="s">"Error building prefix for APK path"</span><span class="p">);</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="p">......</span>
+
+    <span class="n">dir_rec_t</span> <span class="n">dir</span><span class="p">;</span>
+    <span class="n">dir</span><span class="p">.</span><span class="n">path</span> <span class="o">=</span> <span class="n">prefix</span><span class="p">;</span>
+    <span class="n">dir</span><span class="p">.</span><span class="n">len</span> <span class="o">=</span> <span class="n">prefix_len</span><span class="p">;</span>
+
+    <span class="k">return</span> <span class="n">create_pkg_path_in_dir</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">dir</span><span class="p">,</span> <span class="n">pkgname</span><span class="p">,</span> <span class="n">postfix</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div><p>这个函数定义在文件 frameworks/base/cmds/installd/utils.c 中。</p><p>可见 <code class="language-plaintext highlighter-rouge">path</code> 就是由 <code class="language-plaintext highlighter-rouge">android_data_dir.path</code>，<code class="language-plaintext highlighter-rouge">PRIMARY_USER_PREFIX</code>，<code class="language-plaintext highlighter-rouge">pkgname</code> 和 <code class="language-plaintext highlighter-rouge">PKG_DIR_POSTFIX</code> 四段拼接起来的，<code class="language-plaintext highlighter-rouge">pkgname</code> 就是包名，其它几个值分别是什么呢？</p><div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">......</span>
+<span class="cp">#define PRIMARY_USER_PREFIX    "data/"
+</span><span class="p">......</span>
+<span class="cp">#define PKG_DIR_POSTFIX        ""
+</span><span class="p">......</span>
+</code></pre></div></div><p>这些宏定义在 frameworks/base/cmds/installd/installd.h 中</p><div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">initialize_globals</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// Get the android data directory.</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">get_path_from_env</span><span class="p">(</span><span class="o">&amp;</span><span class="n">android_data_dir</span><span class="p">,</span> <span class="s">"ANDROID_DATA"</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="p">......</span>
+<span class="p">}</span>
+</code></pre></div></div><p>这个函数定义在文件 frameworks/base/cmds/installd/installd.c 中。</p><p><code class="language-plaintext highlighter-rouge">android_data_dir</code> 其实是获取的系统的 <code class="language-plaintext highlighter-rouge">ANDROID_DATA</code> 环境变量值，就是 <code class="language-plaintext highlighter-rouge">/data</code>：</p><div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>shell@aries:/ $ echo $ANDROID_DATA
+/data
+</code></pre></div></div><p>所以 <code class="language-plaintext highlighter-rouge">path</code> 的值即为 <code class="language-plaintext highlighter-rouge">/data/data/pkgname</code>，而 <code class="language-plaintext highlighter-rouge">cacheSize</code> 即为它下面的 <code class="language-plaintext highlighter-rouge">cache</code> 文件夹的大小。</p><p>即有小结论二：</p><p><strong>「内部缓存」由所有已安装应用的 /data/data/packagename/cache 文件夹组成。</strong></p><p>以上，我们的结论得证。</p><h2 id="系统缓存大小的计算">系统缓存大小的计算</h2><p>通过上一节我们已经知道了「系统缓存」的文件构成，在想要计算系统缓存大小的时候下意识的想法就是，用代码计算一下这两个文件夹的大小不就行了？</p><p>事实证明这个想法只是 too young, sometimes naive.</p><p>/data/data/packagename/cache 文件夹每个应用访问属于自己的无压力，但其它应用是没有权限读取的，如果是做本应用内的缓存清理，那事情就简单了，直接算一算就好了。</p><p>如果是要做针对所有应用的缓存清理功能，那就得另想办法了。</p><p>这里分了两种情况：能获取 root 权限和不能获取 root 权限。我们这里先讨论非 root 权限的系统缓存计算和清理，root 权限的情况在后文会有说明。</p><p>既然直接计算文件夹大小的方法行不通了，那就仍然重复上面的故事，参考 Settings APP 的做法吧。</p><h3 id="settings-计算缓存大小的方法">Settings 计算缓存大小的方法</h3><p>Settings APP 使用了 <code class="language-plaintext highlighter-rouge">PackageManager.getPackageSizeInfo</code> 方法来做此事，难道 so easy？屁颠屁颠去查了一下 Android API，发现 <code class="language-plaintext highlighter-rouge">PacakgeManager</code> 的文档中压根就没有出现 <code class="language-plaintext highlighter-rouge">getPackageSizeInfo</code> 的身影，好吧这是一个不对外公开的 API。</p><p>但是区区困难怎么拦得住一颗改变世界的心？对付隐藏 API 我们还有反射大法。</p><p>我们回顾一下 Settings APP 里的做法：</p><div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">BackgroundHandler</span> <span class="kd">extends</span> <span class="nc">Handler</span> <span class="o">{</span>
+    <span class="o">......</span>
+    <span class="kd">final</span> <span class="nc">IPackageStatsObserver</span><span class="o">.</span><span class="na">Stub</span> <span class="n">mStatsObserver</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">IPackageStatsObserver</span><span class="o">.</span><span class="na">Stub</span><span class="o">()</span> <span class="o">{</span>
+                <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onGetStatsCompleted</span><span class="o">(</span><span class="nc">PackageStats</span> <span class="n">stats</span><span class="o">,</span> <span class="kt">boolean</span> <span class="n">succeeded</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="o">......</span>
+                                    <span class="n">entry</span><span class="o">.</span><span class="na">cacheSize</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="na">cacheSize</span><span class="o">;</span>
+                                    <span class="o">......</span>
+                                    <span class="n">entry</span><span class="o">.</span><span class="na">externalCacheSize</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="na">externalCacheSize</span><span class="o">;</span>
+                    <span class="o">......</span>
+                <span class="o">}</span>
+            <span class="o">};</span>
+    <span class="o">......</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">handleMessage</span><span class="o">(</span><span class="nc">Message</span> <span class="n">msg</span><span class="o">)</span> <span class="o">{</span>
+        <span class="o">......</span>
+        <span class="k">switch</span> <span class="o">(</span><span class="n">msg</span><span class="o">.</span><span class="na">what</span><span class="o">)</span> <span class="o">{</span>
+            <span class="o">......</span>
+            <span class="k">case</span> <span class="nl">MSG_LOAD_SIZES:</span> <span class="o">{</span>
+                <span class="kd">synchronized</span> <span class="o">(</span><span class="n">mEntriesMap</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="o">......</span>
+                                <span class="n">mPm</span><span class="o">.</span><span class="na">getPackageSizeInfo</span><span class="o">(</span><span class="n">mCurComputingSizePkg</span><span class="o">,</span> <span class="n">mStatsObserver</span><span class="o">);</span>
+                    <span class="o">......</span>
+                <span class="o">}</span>
+            <span class="o">}</span> <span class="k">break</span><span class="o">;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+    <span class="o">......</span>
+<span class="o">}</span>
+</code></pre></div></div><p>这个类定义在文件 packages/apps/Settings/src/com/android/settings/applications/ApplicationsState.java 中。</p><p>这里有两个问题需要解决：</p><ol><li><p><code class="language-plaintext highlighter-rouge">getPackageSizeInfo</code> 方法是一个 <code class="language-plaintext highlighter-rouge">@hide</code> 方法，需要通过反射来调用。</p><p>从 PackageManager.java 文件的 <code class="language-plaintext highlighter-rouge">getPackageSizeInfo</code> 方法定义处可知，它需要 <code class="language-plaintext highlighter-rouge">GET_PACKAGE_SIZE</code> 权限，幸运的是，从 frameworks/base/core/res/AndroidManifex.xml 文件里可知，该权限的 Protection level 为 normal，是可以正常声明的。</p><div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!-- Allows an application to find out the space used by any package. --&gt;</span>
+<span class="nt">&lt;permission</span> <span class="na">android:name=</span><span class="s">"android.permission.GET_PACKAGE_SIZE"</span>
+    <span class="na">android:permissionGroup=</span><span class="s">"android.permission-group.SYSTEM_TOOLS"</span>
+    <span class="na">android:protectionLevel=</span><span class="s">"normal"</span>
+    <span class="na">android:label=</span><span class="s">"@string/permlab_getPackageSize"</span>
+    <span class="na">android:description=</span><span class="s">"@string/permdesc_getPackageSize"</span> <span class="nt">/&gt;</span>
+</code></pre></div></div><p>这段代码定义在文件 frameworks/base/core/res/AndroidManifex.xml 中。</p></li><li><p>传给 <code class="language-plaintext highlighter-rouge">getPackageSizeInfo</code> 方法的第二个参数类型 <code class="language-plaintext highlighter-rouge">IPackageStatsObserver</code> 是在 android.content.pm 包下，需要自已通过 aidl 方式定义。</p></li></ol><h3 id="计算缓存大小的实现">计算缓存大小的实现</h3><p>解决步骤：</p><ol><li><p>在自己的工程的 src/main 目录下创建包目录结构 aidl/android/content/pm。</p><p><em>注：这是使用 Android Studio 的默认做法，使用 Eclipse 默认在 src 目录下创建包目录结构 android/content/pm。</em></p></li><li><p>将 Android 源码 frameworks/base/core/java/android/content/pm 目录下的 IPackageStatsObserver.aidl 与其依赖的 PackageStats.aidl 拷贝到上面一步创建的目录里。</p></li><li><p>根据 frameworks/base/core/java/android/content/pm/PackageManager.java 的 <code class="language-plaintext highlighter-rouge">getPackageSizeInfo</code> 接口上面的注释可知，需要在 AndroidManifest.xml 里声明需要 <code class="language-plaintext highlighter-rouge">GET_PACKAGE_SIZE</code> 权限。</p><div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;uses-permission</span> <span class="na">android:name=</span><span class="s">"android.permission.GET_PACKAGE_SIZE"</span><span class="nt">&gt;&lt;/uses-permission&gt;</span>
+</code></pre></div></div></li><li><p>获取 QQ 的系统缓存大小的示例代码：</p><div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kt">void</span> <span class="nf">someFunc</span><span class="o">()</span> <span class="o">{</span>
+    <span class="nc">IPackageStatsObserver</span><span class="o">.</span><span class="na">Stub</span> <span class="n">observer</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">PackageSizeObserver</span><span class="o">();</span>
+    <span class="n">getPackageInfo</span><span class="o">(</span><span class="s">"com.tencent.mobileqq"</span><span class="o">,</span> <span class="n">observer</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">getPackageInfo</span><span class="o">(</span><span class="nc">String</span> <span class="n">packageName</span><span class="o">,</span> <span class="nc">IPackageStatsObserver</span><span class="o">.</span><span class="na">Stub</span> <span class="n">observer</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">try</span> <span class="o">{</span>
+        <span class="nc">PackageManager</span> <span class="n">pm</span> <span class="o">=</span> <span class="nc">ContextUtil</span><span class="o">.</span><span class="na">applicationContext</span><span class="o">.</span><span class="na">getPackageManager</span><span class="o">();</span>
+        <span class="nc">Method</span> <span class="n">getPackageSizeInfo</span> <span class="o">=</span> <span class="n">pm</span><span class="o">.</span><span class="na">getClass</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">getMethod</span><span class="o">(</span><span class="s">"getPackageSizeInfo"</span><span class="o">,</span> <span class="nc">String</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="nc">IPackageStatsObserver</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+
+        <span class="n">getPackageSizeInfo</span><span class="o">.</span><span class="na">invoke</span><span class="o">(</span><span class="n">pm</span><span class="o">,</span> <span class="n">packageName</span><span class="o">,</span> <span class="n">observer</span><span class="o">);</span>
+    <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">NoSuchMethodException</span> <span class="n">e</span> <span class="o">)</span> <span class="o">{</span>
+        <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+    <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">IllegalAccessException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+    <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">InvocationTargetException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">private</span> <span class="kd">class</span> <span class="nc">PackageSizeObserver</span> <span class="kd">extends</span> <span class="nc">IPackageStatsObserver</span><span class="o">.</span><span class="na">Stub</span> <span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onGetStatsCompleted</span><span class="o">(</span><span class="nc">PackageStats</span> <span class="n">packageStats</span><span class="o">,</span> <span class="kt">boolean</span> <span class="n">succeeded</span><span class="o">)</span>
+            <span class="kd">throws</span> <span class="nc">RemoteException</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">packageStats</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="o">!</span><span class="n">succeeded</span><span class="o">)</span> <span class="o">{</span>
+        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+            <span class="nc">AppEntry</span> <span class="n">entry</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">AppEntry</span><span class="o">();</span>
+            <span class="n">entry</span><span class="o">.</span><span class="na">packageName</span> <span class="o">=</span> <span class="n">packageStats</span><span class="o">.</span><span class="na">packagename</span><span class="o">;</span>
+            <span class="n">entry</span><span class="o">.</span><span class="na">cacheSize</span> <span class="o">=</span> <span class="n">packageStats</span><span class="o">.</span><span class="na">cacheSize</span> <span class="o">+</span> <span class="n">packageStats</span><span class="o">.</span><span class="na">externalCacheSize</span><span class="o">;</span>
+            <span class="c1">// do something else，比如把 entry 通过消息发送给需要的地方，或者添加到你的列表里</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div></li><li><p>获取一个应用的缓存的问题解决了，获取所有应用的系统缓存也就是遍历系统已安装应用，然后挨个调用 <code class="language-plaintext highlighter-rouge">getPackageInfo</code> 的事儿了。</p></li></ol><p>完整的实例见 <a href="https://github.com/mzlogin/CleanExpert">https://github.com/mzlogin/CleanExpert</a>。</p><h2 id="系统缓存的清理">系统缓存的清理</h2><p>既然借鉴 Settings APP 的做法如此好使，在做缓存清理时我们当然故伎重施。我们先来看看它是怎样清理某一个应用的缓存的。</p><h3 id="settings-清理缓存的方法">Settings 清理缓存的方法</h3><p>在 InstalledAppDetails.java 里能根据名称找到对应「清除缓存」按钮相关的代码：</p><div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">InstalledAppDetails</span> <span class="kd">extends</span> <span class="nc">Fragment</span>
+        <span class="kd">implements</span> <span class="nc">View</span><span class="o">.</span><span class="na">OnClickListener</span><span class="o">,</span> <span class="nc">CompoundButton</span><span class="o">.</span><span class="na">OnCheckedChangeListener</span><span class="o">,</span>
+        <span class="nc">ApplicationsState</span><span class="o">.</span><span class="na">Callbacks</span> <span class="o">{</span>
+    <span class="o">......</span>
+    <span class="kd">private</span> <span class="nc">Button</span> <span class="n">mClearCacheButton</span><span class="o">;</span>
+    <span class="o">......</span>
+    <span class="kd">class</span> <span class="nc">ClearCacheObserver</span> <span class="kd">extends</span> <span class="nc">IPackageDataObserver</span><span class="o">.</span><span class="na">Stub</span> <span class="o">{</span>
+        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onRemoveCompleted</span><span class="o">(</span><span class="kd">final</span> <span class="nc">String</span> <span class="n">packageName</span><span class="o">,</span> <span class="kd">final</span> <span class="kt">boolean</span> <span class="n">succeeded</span><span class="o">)</span> <span class="o">{</span>
+            <span class="kd">final</span> <span class="nc">Message</span> <span class="n">msg</span> <span class="o">=</span> <span class="n">mHandler</span><span class="o">.</span><span class="na">obtainMessage</span><span class="o">(</span><span class="no">CLEAR_CACHE</span><span class="o">);</span>
+            <span class="n">msg</span><span class="o">.</span><span class="na">arg1</span> <span class="o">=</span> <span class="n">succeeded</span> <span class="o">?</span> <span class="nl">OP_SUCCESSFUL:</span><span class="no">OP_FAILED</span><span class="o">;</span>
+            <span class="n">mHandler</span><span class="o">.</span><span class="na">sendMessage</span><span class="o">(</span><span class="n">msg</span><span class="o">);</span>
+         <span class="o">}</span>
+     <span class="o">}</span>
+    <span class="o">......</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="nc">View</span> <span class="nf">onCreateView</span><span class="o">(</span><span class="nc">LayoutInflater</span> <span class="n">inflater</span><span class="o">,</span> <span class="nc">ViewGroup</span> <span class="n">container</span><span class="o">,</span> <span class="nc">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
+        <span class="o">......</span>
+        <span class="n">mClearCacheButton</span> <span class="o">=</span> <span class="o">(</span><span class="nc">Button</span><span class="o">)</span> <span class="n">view</span><span class="o">.</span><span class="na">findViewById</span><span class="o">(</span><span class="no">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">clear_cache_button</span><span class="o">);</span>
+        <span class="o">......</span>
+    <span class="o">}</span>
+    <span class="o">......</span>
+    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">refreshSizeInfo</span><span class="o">()</span> <span class="o">{</span>
+        <span class="o">......</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">cacheSize</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">mClearCacheButton</span><span class="o">.</span><span class="na">setEnabled</span><span class="o">(</span><span class="kc">false</span><span class="o">);</span>
+        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+            <span class="n">mClearCacheButton</span><span class="o">.</span><span class="na">setEnabled</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+            <span class="n">mClearCacheButton</span><span class="o">.</span><span class="na">setOnClickListener</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+    <span class="o">......</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onClick</span><span class="o">(</span><span class="nc">View</span> <span class="n">v</span><span class="o">)</span> <span class="o">{</span>
+        <span class="o">......</span>
+        <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">v</span> <span class="o">==</span> <span class="n">mClearCacheButton</span><span class="o">)</span> <span class="o">{</span>
+            <span class="c1">// Lazy initialization of observer</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">mClearCacheObserver</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">mClearCacheObserver</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ClearCacheObserver</span><span class="o">();</span>
+            <span class="o">}</span>
+            <span class="n">mPm</span><span class="o">.</span><span class="na">deleteApplicationCacheFiles</span><span class="o">(</span><span class="n">packageName</span><span class="o">,</span> <span class="n">mClearCacheObserver</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="o">......</span>
+    <span class="o">}</span>
+</code></pre></div></div><p>这个类定义在文件 packages/apps/Settings/src/com/android/settings/applications/InstalledAppDetails.java 中。</p><p>是不是很熟悉？是不是很激动？是不是觉得顶多再次祭出反射大法就能继续拯救世界了？先冷静一下，看看 frameworks/base/core/java/android/content/pm/PackageManager.java 文件里 <code class="language-plaintext highlighter-rouge">deleteApplicationCacheFiles</code> 方法上面的注释。</p><div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Attempts to delete the cache files associated with an application.
+ * Since this may take a little while, the result will
+ * be posted back to the given observer.  A deletion will fail if the calling context
+ * lacks the {@link android.Manifest.permission#DELETE_CACHE_FILES} permission, if the
+ * named package cannot be found, or if the named package is a "system package".
+ *
+ * ......
+ *
+ * @hide
+ */</span>
+</code></pre></div></div><p>没错它又是一个 <code class="language-plaintext highlighter-rouge">@hide</code> 方法，关键是它需要 <code class="language-plaintext highlighter-rouge">DELETE_CACHE_FILES</code> 权限，而该权限的相关声明如下：</p><div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!-- Allows an application to delete cache files. --&gt;</span>
+<span class="nt">&lt;permission</span> <span class="na">android:name=</span><span class="s">"android.permission.DELETE_CACHE_FILES"</span>
+    <span class="na">android:label=</span><span class="s">"@string/permlab_deleteCacheFiles"</span>
+    <span class="na">android:description=</span><span class="s">"@string/permdesc_deleteCacheFiles"</span>
+    <span class="na">android:protectionLevel=</span><span class="s">"signature|system"</span> <span class="nt">/&gt;</span>
+</code></pre></div></div><p>这段声明定义在 frameworks/base/core/res/AndroidManifest.xml 中。</p><p>它的 protectionLevel 为 <code class="language-plaintext highlighter-rouge">signature|system</code>，系统应用或者与系统采用相同签名的应用才能获得此权限。</p><p>此路不通。</p><h3 id="新的发现">新的发现</h3><p>那就继续想其它办法了。frameworks/base/core/java/android/content/pm/PackageManager.java 里提供了很多实用的功能，比如上面的系统缓存的大小计算以及清理都是它里面声明的方法，仔细看一下它里面声明的其它方法还真是有发现：</p><div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Free storage by deleting LRU sorted list of cache files across
+ * all applications. If the currently available free storage
+ * on the device is greater than or equal to the requested
+ * free storage, no cache files are cleared. If the currently
+ * available storage on the device is less than the requested
+ * free storage, some or all of the cache files across
+ * all applications are deleted (based on last accessed time)
+ * to increase the free storage space on the device to
+ * the requested value. There is no guarantee that clearing all
+ * the cache files from all applications will clear up
+ * enough storage to achieve the desired value.
+ * @param freeStorageSize The number of bytes of storage to be
+ * freed by the system. Say if freeStorageSize is XX,
+ * and the current free storage is YY,
+ * if XX is less than YY, just return. if not free XX-YY number
+ * of bytes if possible.
+ * @param observer call back used to notify when
+ * the operation is completed
+ *
+ * @hide
+ */</span>
+<span class="kd">public</span> <span class="kd">abstract</span> <span class="kt">void</span> <span class="nf">freeStorageAndNotify</span><span class="o">(</span><span class="kt">long</span> <span class="n">freeStorageSize</span><span class="o">,</span> <span class="nc">IPackageDataObserver</span> <span class="n">observer</span><span class="o">);</span>
+</code></pre></div></div><p>从解释来看它是用来在必要时释放所有应用的缓存所占空间的，在 Android 源码里搜索一下它被调用的地方，有一处是在 frameworks/base/services/java/com/android/server/DeviceStorageMonitorService.java 中，大致的逻辑是在系统空间不够的时候，提示用户清理系统缓存。</p><p>我们来看看这个方法实际做了什么事情：</p><div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">PackageManagerService</span> <span class="kd">extends</span> <span class="nc">IPackageManager</span><span class="o">.</span><span class="na">Stub</span> <span class="o">{</span>
+    <span class="o">......</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">freeStorageAndNotify</span><span class="o">(</span><span class="kd">final</span> <span class="kt">long</span> <span class="n">freeStorageSize</span><span class="o">,</span> <span class="kd">final</span> <span class="nc">IPackageDataObserver</span> <span class="n">observer</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">mContext</span><span class="o">.</span><span class="na">enforceCallingOrSelfPermission</span><span class="o">(</span>
+                <span class="n">android</span><span class="o">.</span><span class="na">Manifest</span><span class="o">.</span><span class="na">permission</span><span class="o">.</span><span class="na">CLEAR_APP_CACHE</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+        <span class="c1">// Queue up an async operation since clearing cache may take a little while.</span>
+        <span class="n">mHandler</span><span class="o">.</span><span class="na">post</span><span class="o">(</span><span class="k">new</span> <span class="nc">Runnable</span><span class="o">()</span> <span class="o">{</span>
+            <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
+                <span class="n">mHandler</span><span class="o">.</span><span class="na">removeCallbacks</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+                <span class="kt">int</span> <span class="n">retCode</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+                <span class="n">retCode</span> <span class="o">=</span> <span class="n">mInstaller</span><span class="o">.</span><span class="na">freeCache</span><span class="o">(</span><span class="n">freeStorageSize</span><span class="o">);</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">retCode</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="nc">Slog</span><span class="o">.</span><span class="na">w</span><span class="o">(</span><span class="no">TAG</span><span class="o">,</span> <span class="s">"Couldn't clear application caches"</span><span class="o">);</span>
+                <span class="o">}</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">observer</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="k">try</span> <span class="o">{</span>
+                        <span class="n">observer</span><span class="o">.</span><span class="na">onRemoveCompleted</span><span class="o">(</span><span class="kc">null</span><span class="o">,</span> <span class="o">(</span><span class="n">retCode</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="o">));</span>
+                    <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">RemoteException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+                        <span class="nc">Slog</span><span class="o">.</span><span class="na">w</span><span class="o">(</span><span class="no">TAG</span><span class="o">,</span> <span class="s">"RemoveException when invoking call back"</span><span class="o">);</span>
+                    <span class="o">}</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">});</span>
+    <span class="o">}</span>
+    <span class="o">......</span>
+<span class="o">}</span>
+</code></pre></div></div><p>这个类定义在文件 frameworks/base/services/java/com/android/server/pm/PackageManagerService.java 中。</p><p>也就是说，这个方法的注释里没有提及它需要申请什么权限，但事实上它是需要 <code class="language-plaintext highlighter-rouge">CLEAR_APP_CACHE</code> 权限的。</p><p>该权限的相关声明：</p><div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!-- Allows an application to clear the caches of all installed
+     applications on the device.  --&gt;</span>
+<span class="nt">&lt;permission</span> <span class="na">android:name=</span><span class="s">"android.permission.CLEAR_APP_CACHE"</span>
+    <span class="na">android:permissionGroup=</span><span class="s">"android.permission-group.SYSTEM_TOOLS"</span>
+    <span class="na">android:protectionLevel=</span><span class="s">"dangerous"</span>
+    <span class="na">android:label=</span><span class="s">"@string/permlab_clearAppCache"</span>
+    <span class="na">android:description=</span><span class="s">"@string/permdesc_clearAppCache"</span> <span class="nt">/&gt;</span>
+</code></pre></div></div><p>这段声明定义在 frameworks/base/core/res/AndroidManifest.xml 中。</p><p>虽然它的 protectionLevel 是 <code class="language-plaintext highlighter-rouge">dangerous</code>，但是好歹还是能用的。</p><p>另外，跟踪实际执行清理过程的 <code class="language-plaintext highlighter-rouge">retCode = mInstaller.freeCache(freeStorageSize);</code> 这一行实际是通过给 /dev/socket/installd 发送 <code class="language-plaintext highlighter-rouge">freecache freeStorageSize</code> 来完成清理过程，最终调用到如下函数：</p><div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">free_cache</span><span class="p">(</span><span class="kt">int64_t</span> <span class="n">free_size</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="p">......</span>
+    <span class="kt">char</span> <span class="n">datadir</span><span class="p">[</span><span class="n">PKG_PATH_MAX</span><span class="p">];</span>
+    <span class="n">avail</span> <span class="o">=</span> <span class="n">disk_free</span><span class="p">();</span>
+    <span class="p">......</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">avail</span> <span class="o">&gt;=</span> <span class="n">free_size</span><span class="p">)</span> <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">create_persona_path</span><span class="p">(</span><span class="n">datadir</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span> <span class="p">{</span> <span class="c1">// /data/data</span>
+        <span class="p">......</span>
+    <span class="p">}</span>
+
+    <span class="n">d</span> <span class="o">=</span> <span class="n">opendir</span><span class="p">(</span><span class="n">datadir</span><span class="p">);</span>
+    <span class="p">......</span>
+    <span class="n">dfd</span> <span class="o">=</span> <span class="n">dirfd</span><span class="p">(</span><span class="n">d</span><span class="p">);</span>
+
+    <span class="k">while</span> <span class="p">((</span><span class="n">de</span> <span class="o">=</span> <span class="n">readdir</span><span class="p">(</span><span class="n">d</span><span class="p">)))</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">de</span><span class="o">-&gt;</span><span class="n">d_type</span> <span class="o">!=</span> <span class="n">DT_DIR</span><span class="p">)</span> <span class="k">continue</span><span class="p">;</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">de</span><span class="o">-&gt;</span><span class="n">d_name</span><span class="p">;</span>
+        <span class="p">......</span>
+        <span class="n">subfd</span> <span class="o">=</span> <span class="n">openat</span><span class="p">(</span><span class="n">dfd</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">O_RDONLY</span> <span class="o">|</span> <span class="n">O_DIRECTORY</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">subfd</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="k">continue</span><span class="p">;</span>
+
+        <span class="n">delete_dir_contents_fd</span><span class="p">(</span><span class="n">subfd</span><span class="p">,</span> <span class="s">"cache"</span><span class="p">);</span>
+        <span class="n">close</span><span class="p">(</span><span class="n">subfd</span><span class="p">);</span>
+
+        <span class="n">avail</span> <span class="o">=</span> <span class="n">disk_free</span><span class="p">();</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">avail</span> <span class="o">&gt;=</span> <span class="n">free_size</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">closedir</span><span class="p">(</span><span class="n">d</span><span class="p">);</span>
+            <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="p">......</span>
+<span class="p">}</span>
+</code></pre></div></div><p>这个函数定义在文件 frameworks/base/cmds/installd/Commands.c 中。</p><p>实际就是遍历 /data/data 下的所有文件夹，依次删除它们下面的 cache 子目录，直到磁盘的可用空间大于需要的空间为止。</p><p><strong>也就是说，<code class="language-plaintext highlighter-rouge">freeStorageAndNotify</code> 只是删除了「内部缓存」，扩展存储上的「外部缓存」需要我们另外处理。</strong></p><h3 id="清理缓存的实现">清理缓存的实现</h3><p>参考 frameworks/base/services/java/com/android/server/DeviceStorageMonitorService.java 中对 <code class="language-plaintext highlighter-rouge">freeStorageAndNotify</code> 的相关调用，最后我们的实现步骤如下：</p><ol><li><p>在自己的工程的 src/main 目录下创建包目录结构 aidl/android/content/pm。</p><p><em>注：这是使用 Android Studio 的默认做法，使用 Eclipse 默认在 src 目录下创建包目录结构 android/content/pm。</em></p></li><li><p>将 Android 源码 frameworks/base/core/java/android/content/pm 目录下的 IPackageDataObserver.aidl 拷贝到上面一步创建的目录里。</p></li><li><p>在 AndroidManifest.xml 里声明 <code class="language-plaintext highlighter-rouge">CLEAR_APP_CACHE</code> 权限。</p><div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;uses-permission</span> <span class="na">android:name=</span><span class="s">"android.permission.CLEAR_APP_CACHE"</span><span class="nt">&gt;&lt;/uses-permission&gt;</span>
+</code></pre></div></div></li><li><p>通过反射调用 <code class="language-plaintext highlighter-rouge">freeStorageAndNotify</code> 方法，第一个参数给它一个足够大的值，它就会帮我们清理掉所有应用的缓存了。</p><div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">freeAllAppsCache</span><span class="o">(</span><span class="kd">final</span> <span class="nc">Handler</span> <span class="n">handler</span><span class="o">)</span> <span class="o">{</span>
+
+    <span class="nc">Context</span> <span class="n">context</span> <span class="o">=</span> <span class="nc">ContextUtil</span><span class="o">.</span><span class="na">applicationContext</span><span class="o">;</span>
+
+    <span class="nc">File</span> <span class="n">externalDir</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="na">getExternalCacheDir</span><span class="o">();</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">externalDir</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nc">PackageManager</span> <span class="n">pm</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="na">getPackageManager</span><span class="o">();</span>
+    <span class="nc">List</span><span class="o">&lt;</span><span class="nc">ApplicationInfo</span><span class="o">&gt;</span> <span class="n">installedPackages</span> <span class="o">=</span> <span class="n">pm</span><span class="o">.</span><span class="na">getInstalledApplications</span><span class="o">(</span><span class="nc">PackageManager</span><span class="o">.</span><span class="na">GET_GIDS</span><span class="o">);</span>
+    <span class="k">for</span> <span class="o">(</span><span class="nc">ApplicationInfo</span> <span class="n">info</span> <span class="o">:</span> <span class="n">installedPackages</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">String</span> <span class="n">externalCacheDir</span> <span class="o">=</span> <span class="n">externalDir</span><span class="o">.</span><span class="na">getAbsolutePath</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">replace</span><span class="o">(</span><span class="n">context</span><span class="o">.</span><span class="na">getPackageName</span><span class="o">(),</span> <span class="n">info</span><span class="o">.</span><span class="na">packageName</span><span class="o">);</span>
+        <span class="nc">File</span> <span class="n">externalCache</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">File</span><span class="o">(</span><span class="n">externalCacheDir</span><span class="o">);</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">externalCache</span><span class="o">.</span><span class="na">exists</span><span class="o">()</span> <span class="o">&amp;&amp;</span> <span class="n">externalCache</span><span class="o">.</span><span class="na">isDirectory</span><span class="o">())</span> <span class="o">{</span>
+            <span class="n">deleteFile</span><span class="o">(</span><span class="n">externalCache</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="k">try</span> <span class="o">{</span>
+        <span class="nc">Method</span> <span class="n">freeStorageAndNotify</span> <span class="o">=</span> <span class="n">pm</span><span class="o">.</span><span class="na">getClass</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">getMethod</span><span class="o">(</span><span class="s">"freeStorageAndNotify"</span><span class="o">,</span> <span class="kt">long</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="nc">IPackageDataObserver</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+        <span class="kt">long</span> <span class="n">freeStorageSize</span> <span class="o">=</span> <span class="nc">Long</span><span class="o">.</span><span class="na">MAX_VALUE</span><span class="o">;</span>
+
+        <span class="n">freeStorageAndNotify</span><span class="o">.</span><span class="na">invoke</span><span class="o">(</span><span class="n">pm</span><span class="o">,</span> <span class="n">freeStorageSize</span><span class="o">,</span> <span class="k">new</span> <span class="nc">IPackageDataObserver</span><span class="o">.</span><span class="na">Stub</span><span class="o">()</span> <span class="o">{</span>
+            <span class="nd">@Override</span>
+            <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onRemoveCompleted</span><span class="o">(</span><span class="nc">String</span> <span class="n">packageName</span><span class="o">,</span> <span class="kt">boolean</span> <span class="n">succeeded</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">RemoteException</span> <span class="o">{</span>
+                <span class="nc">Message</span> <span class="n">msg</span> <span class="o">=</span> <span class="n">handler</span><span class="o">.</span><span class="na">obtainMessage</span><span class="o">(</span><span class="nc">JunkCleanActivity</span><span class="o">.</span><span class="na">MSG_SYS_CACHE_CLEAN_FINISH</span><span class="o">);</span>
+                <span class="n">msg</span><span class="o">.</span><span class="na">sendToTarget</span><span class="o">();</span>
+            <span class="o">}</span>
+        <span class="o">});</span>
+    <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">NoSuchMethodException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+    <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">IllegalAccessException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+    <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">InvocationTargetException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">deleteFile</span><span class="o">(</span><span class="nc">File</span> <span class="n">file</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">file</span><span class="o">.</span><span class="na">isDirectory</span><span class="o">())</span> <span class="o">{</span>
+        <span class="nc">String</span><span class="o">[]</span> <span class="n">children</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="na">list</span><span class="o">();</span>
+        <span class="k">for</span> <span class="o">(</span><span class="nc">String</span> <span class="n">name</span> <span class="o">:</span> <span class="n">children</span><span class="o">)</span> <span class="o">{</span>
+            <span class="kt">boolean</span> <span class="n">suc</span> <span class="o">=</span> <span class="n">deleteFile</span><span class="o">(</span><span class="k">new</span> <span class="nc">File</span><span class="o">(</span><span class="n">file</span><span class="o">,</span> <span class="n">name</span><span class="o">));</span>
+            <span class="k">if</span> <span class="o">(!</span><span class="n">suc</span><span class="o">)</span> <span class="o">{</span>
+                <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+    <span class="k">return</span> <span class="n">file</span><span class="o">.</span><span class="na">delete</span><span class="o">();</span>
+<span class="o">}</span>
+</code></pre></div></div></li></ol><p>完整的实例见 <a href="https://github.com/mzlogin/CleanExpert">https://github.com/mzlogin/CleanExpert</a>。</p><p><strong>备注：</strong>经测试该方法在 Android 6.0 版本和部分 5.0+ 版本上已经失效，Android 源码里已经给 <code class="language-plaintext highlighter-rouge">freeStorageAndNotify</code> 方法声明添加了 <code class="language-plaintext highlighter-rouge">@SystemApi</code> 注释（开始添加了 <code class="language-plaintext highlighter-rouge">@PrivateApi</code>，后修改为 <code class="language-plaintext highlighter-rouge">@SystemApi</code>），见「<a href="https://github.com/android/platform_frameworks_base/commit/8b0cfb7dbde6f19a5dd5879fef3d16576f2eeba4#diff-a5f0b5ebe6a871aca1c5841bc0497538R3225">添加</a>」和「<a href="https://github.com/android/platform_frameworks_base/commit/d5a5b5a547462f3e7c6315a501909bce2418ba86#diff-a5f0b5ebe6a871aca1c5841bc0497538R3233">修改</a>」两次提交，而且 <code class="language-plaintext highlighter-rouge">CLEAR_APP_CACHE</code> 方法的权限已经由 <code class="language-plaintext highlighter-rouge">dangerous</code> 改成了 <code class="language-plaintext highlighter-rouge">system|signature</code>，已经无法通过反射来正常调用，会产生 <code class="language-plaintext highlighter-rouge">java.lang.reflect.InvocationTargetException</code>，所以在这些版本上需要另想办法了，StackOverflow 上的一个相关讨论链接：<a href="http://stackoverflow.com/questions/26752656/whats-the-meaning-of-new-systemapi-annotation-any-difference-from-hide/27321030#27321030">What’s the meaning of new @SystemApi annotation, any difference from @hide?</a>。</p><h2 id="有-root-权限的系统缓存计算与清理">有 root 权限的系统缓存计算与清理</h2><p>如果能获取到 root 权限，/data/data 目录的访问限制也就不再是问题，计算缓存大小和清理缓存也就不用再受上面说的方法与权限的限制了，而且能做一些没有 root 权限的情况下做不到的事情，比如：</p><ol><li><p>清理单个应用的缓存。</p></li><li><p>列出应用的缓存文件列表供用户选择性清理。</p></li></ol><p>实现思路很简单粗暴（如下思路未写实例验证）：</p><p><strong>思路一</strong> 通过 <code class="language-plaintext highlighter-rouge">su</code> 命令获取一个有 root 权限的 shell，然后通过与它交互来获取缓存文件夹的大小或清理缓存，比如让它执行命令 <code class="language-plaintext highlighter-rouge">du -h /data/data/com.trello/cache</code> 就能获取到 trello 的「内部缓存」大小，让它执行 <code class="language-plaintext highlighter-rouge">rm -rf /data/data/com.trello/cache</code> 就能删除 trello 的「内部缓存」。</p><p><em>注：<code class="language-plaintext highlighter-rouge">du</code> 命令行与参数在不同 ROM 下的不一致，所以并不推荐此做法。</em></p><p><strong>思路二</strong> 或者，也可以做一个原生程序专门来负责缓存计算与清理，通过 <code class="language-plaintext highlighter-rouge">su</code> 命令获取有 root 权限的 shell，再用 shell 创建该原生程序进程，它继承 shell 的 root 权限，然后它就可以计算缓存大小与清理缓存，再将结果上报给 APP 进程。</p><div style="margin-top:2em;padding:0 1.5em;border:1px solid #d3d3d3;background-color:#deebf7"><h3>文档信息</h3><ul><li>本文作者：<a href="https://mazhuang.org" target="_blank">Zhuang Ma</a></li><li>本文链接：<a href="https://mazhuang.org/2016/01/14/android-system-cache/" target="_blank">https://mazhuang.org/2016/01/14/android-system-cache/</a></li><li>版权声明：自由转载-非商用-非衍生-保持署名（<a href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh" target="_blank">创意共享3.0许可证</a>）</li></ul></div></article><div class="share"></div><div class="comment"><div id="gitalk-container"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/vendor/gitalk/gitalk.css"> <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script> <script> var gitalk = new Gitalk({ id: '/2016/01/14/android-system-cache/', clientID: 'd2e1cbbd298958076462', clientSecret: 'b42a4178e5fd4a7cf63189ef4b1453b05c375709', repo: 'blog-comments', owner: 'mzlogin', admin: ['mzlogin'], labels: ['gitment'], perPage: 50, }); gitalk.render('gitalk-container'); </script></div></div><div class="column one-fourth"><h3>Search</h3><div id="site_search"> <input style="width:96%" type="text" id="search_box" placeholder="Search"></div><ul id="search_results" style="font-size:14px;list-style-type:none;padding-top:10px;padding-left:10px;"></ul><script src="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/js/simple-jekyll-search.min.js"></script> <script type="text/javascript"> SimpleJekyllSearch({ searchInput: document.getElementById('search_box'), resultsContainer: document.getElementById('search_results'), json: 'https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@built/assets/search_data.json', searchResultTemplate: '<li><a href="{url}" title="{title}">{title}</a></li>', noResultsText: 'No results found', limit: 10, fuzzy: false, exclude: ['Welcome'] }) </script><h3 class="post-directory-title mobile-hidden">Table of Contents</h3><div id="post-directory-module" class="mobile-hidden"><section class="post-directory"><dl></dl></section></div><script src="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/js/jquery.toc.js"></script></div></div></section><footer class="container"> <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7093222719567591" data-ad-slot="5263168187" data-ad-format="auto" data-full-width-responsive="true"></ins> <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script><div class="site-footer" role="contentinfo"><div class="copyright left mobile-block"> © 2015 <span title="Zhuang Ma">Zhuang Ma</span> <a href="javascript:window.scrollTo(0,0)" class="right mobile-visible">TOP</a></div><ul class="site-footer-links right mobile-hidden"><li> <a href="javascript:window.scrollTo(0,0)" >TOP</a></li></ul><a href="https://github.com/mzlogin/mzlogin.github.io" target="_blank" aria-label="view source code"> <span class="mega-octicon octicon-mark-github" title="GitHub"></span> </a><ul class="site-footer-links mobile-hidden"><li> <a href="https://mazhuang.org/" title="首页" target="">首页</a></li><li> <a href="https://mazhuang.org/categories/" title="分类" target="">分类</a></li><li> <a href="https://mazhuang.org/wiki/" title="维基" target="">维基</a></li><li> <a href="https://mazhuang.org/links/" title="链接" target="">链接</a></li><li> <a href="https://mazhuang.org/about/" title="关于" target="">关于</a></li><li><a href="https://mazhuang.org/feed.xml"><span class="octicon octicon-rss" style="color:orange;"></span></a></li></ul><script async src="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/vendor/busuanzi/2.3/busuanzi.pure.mini.js"></script><div class="mobile-hidden" style="margin-top:8px"> <span id="busuanzi_container_site_pv" style="display:none"> 本站访问量<span id="busuanzi_value_site_pv"></span>次 </span> <span id="busuanzi_container_site_uv" style="display:none"> / 本站访客数<span id="busuanzi_value_site_uv"></span>人 </span> <span id="busuanzi_container_page_pv" style="display:none"> / 本页访问量<span id="busuanzi_value_page_pv"></span>次 / 统计始于2020-05-03 </span></div></div></footer><div class="tools-wrapper"> <a class="gotop" href="#" title="回到顶部"><span class="octicon octicon-arrow-up"></span></a></div><script src="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/js/geopattern.js"></script> <script> jQuery(document).ready(function($) { $('.geopattern').each(function(){ $(this).geopattern($(this).data('pattern-id')); }); /* hljs.initHighlightingOnLoad(); */ }); </script><div style="display:none"> <script> (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) })(window,document,'script','https://www.google-analytics.com/analytics.js','ga'); ga('create', 'UA-80669434-1', 'auto'); ga('send', 'pageview'); </script></div></body></html>

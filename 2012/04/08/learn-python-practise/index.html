@@ -1,0 +1,145 @@
+<!DOCTYPE html><html lang="zh-cmn-Hans" prefix="og: http://ogp.me/ns#" class="han-init"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /><title>Python 核心编程中文第二版课后练习 3.8 答案 &mdash; 码志</title><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/vendor/primer-css/css/primer.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/css/components/collection.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/css/components/repo-card.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/css/sections/repo-list.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/css/components/boxed-group.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/css/globals/common.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/css/globals/responsive.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/css/posts/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/vendor/octicons/octicons/octicons.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mzlogin/rouge-themes@master/dist/github.css"><link rel="canonical" href="https://mazhuang.org/2012/04/08/learn-python-practise/"><link rel="alternate" type="application/atom+xml" title="码志" href="https://mazhuang.org/feed.xml"><link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/favicon.ico"><meta property="og:title" content="Python 核心编程中文第二版课后练习 3.8 答案"><meta name="keywords" content="Python"><meta name="og:keywords" content="Python"><meta name="description" content="3-1 变量在第一次被赋值时自动声明。在赋值时解释器会根据语法和右侧的操作数来决定新对象的类型。"><meta name="og:description" content="3-1 变量在第一次被赋值时自动声明。在赋值时解释器会根据语法和右侧的操作数来决定新对象的类型。"><meta property="og:url" content="https://mazhuang.org/2012/04/08/learn-python-practise/"><meta property="og:site_name" content="码志"><meta property="og:type" content="article"><meta property="og:locale" content="zh_CN" /><meta property="article:published_time" content="2012-04-08"> <script src="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/vendor/jquery/dist/jquery.min.js"></script> <script src="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/js/jquery-ui.js"></script> <script src="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/js/main.js"></script> <script data-ad-client="ca-pub-7093222719567591" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script></head><body class="" data-mz=""><header class="site-header"><div class="container"><h1><a href="https://mazhuang.org/" title="码志"><span class="octicon octicon-mark-github"></span> 码志</a></h1><button class="collapsed mobile-visible" type="button" onclick="toggleMenu();"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button><nav class="site-header-nav" role="navigation"> <a href="https://mazhuang.org/" class=" site-header-nav-item" target="" title="首页">首页</a> <a href="https://mazhuang.org/categories/" class=" site-header-nav-item" target="" title="分类">分类</a> <a href="https://mazhuang.org/wiki/" class=" site-header-nav-item" target="" title="维基">维基</a> <a href="https://mazhuang.org/links/" class=" site-header-nav-item" target="" title="链接">链接</a> <a href="https://mazhuang.org/about/" class=" site-header-nav-item" target="" title="关于">关于</a></nav></div></header><section class="collection-head small geopattern" data-pattern-id="Python 核心编程中文第二"><div class="container"><div class="columns"><div class="column three-fourths"><div class="collection-title"><h1 class="collection-header">Python 核心编程中文第二版课后练习 3.8 答案</h1><div class="collection-info"> <span class="meta-info"> <span class="octicon octicon-calendar"></span> 2012/04/08 </span> <span class="meta-info"> <span class="octicon octicon-file-directory"></span> <a href="https://mazhuang.org/categories/#Python" title="Python">Python</a> </span> <span class="meta-info"> <span class="octicon octicon-clock"></span> 共 2522 字，约 8 分钟 </span></div></div></div><div class="column one-fourths mobile-hidden"><div class="collection-title"> <img style="height:72px;width:72px" src="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/images/qrcode.jpg" alt="闷骚的程序员" /></div></div></div></div></section><section class="container content"><div class="columns"><div class="column three-fourths" > <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7093222719567591" data-ad-slot="1650902835" data-ad-format="auto" data-full-width-responsive="true"></ins> <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script> <br /><article class="article-content markdown-body"><p>3-1 变量在第一次被赋值时自动声明。在赋值时解释器会根据语法和右侧的操作数来决定新对象的类型。</p><p>3-2 函数总是返回一个值，显式 return 的值或者 None。返回的值的类型也是动态确定。</p><p>3-3 因为变量名 <strong>xxx</strong> 对 Python 来说有特殊含义，对于普通的变量应当避免这种命名风格。</p><p>3-4 可以，使用 “;”</p><p>3-5 可以，使用 “" 或者括号</p><p>3-6</p><p>(a)x = 1, y = 2, z = 3</p><p>(b)z = 2, x = 3, y = 1</p><p>3-7 40XL, $aving$, 0x40L, thisIsn’tAVar, big-daddy, 2hot2touch, counter-1 不合法。不是以字母或者下划线开头，或者有非字母下划线数字的字符。print, if 是关键字。</p><p>3-10</p><p>用异常处理取代对 os.path.exists() 的调用：</p><div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">ls</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">linesep</span>
+
+<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="n">fname</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">'input a filename:'</span><span class="p">)</span>
+<span class="c1">#    if os.path.exists(fname):
+#        print "Error: '%s' already exists" % fname
+#    else:
+#        break
+</span>    <span class="k">try</span><span class="p">:</span>
+        <span class="n">fobj</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="s">'r'</span><span class="p">)</span>
+    <span class="k">except</span> <span class="nb">IOError</span><span class="p">,</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">print</span> <span class="s">"Error: '%s' already exists"</span> <span class="o">%</span> <span class="n">fname</span>
+        <span class="n">fobj</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="nb">all</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">print</span> <span class="s">"</span><span class="se">\n</span><span class="s">Enter lines ('.' by itself to quit).</span><span class="se">\n</span><span class="s">"</span>
+
+<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="n">entry</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">'&gt;'</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">entry</span> <span class="o">==</span> <span class="s">'.'</span><span class="p">:</span>
+        <span class="k">break</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">all</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
+
+<span class="n">fobj</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="s">'w'</span><span class="p">)</span>
+<span class="n">fobj</span><span class="p">.</span><span class="n">writelines</span><span class="p">([</span><span class="s">'%s%s'</span> <span class="o">%</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">ls</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">all</span><span class="p">])</span>
+<span class="n">fobj</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+<span class="k">print</span> <span class="s">'Done!'</span>
+</code></pre></div></div><p>用 os.path.exists() 取代异常处理方法：</p><div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">fname</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">'Enter filename:'</span><span class="p">)</span>
+<span class="k">print</span>
+
+<span class="c1">#try:
+#    fobj = open(fname, 'r')
+#except IOError, e:
+#    print '*** file open error:', e
+#else:
+#    for eachLine in fobj:
+#        print eachLine,
+#    fobj.close()
+</span><span class="k">if</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">exists</span><span class="p">(</span><span class="n">fname</span><span class="p">):</span>
+    <span class="n">fobj</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="s">'r'</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">eachLine</span> <span class="ow">in</span> <span class="n">fobj</span><span class="p">:</span>
+        <span class="k">print</span> <span class="n">eachLine</span><span class="p">,</span>
+    <span class="n">fobj</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">'this file not exists'</span>
+</code></pre></div></div><p>3-11</p><div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">fname</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">'Enter filename:'</span><span class="p">)</span>
+<span class="k">print</span>
+
+<span class="c1">#try:
+#    fobj = open(fname, 'r')
+#except IOError, e:
+#    print '*** file open error:', e
+#else:
+#    for eachLine in fobj:
+#        print eachLine,
+#    fobj.close()
+</span><span class="k">if</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">exists</span><span class="p">(</span><span class="n">fname</span><span class="p">):</span>
+    <span class="n">fobj</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="s">'r'</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">eachLine</span> <span class="ow">in</span> <span class="n">fobj</span><span class="p">:</span>
+        <span class="k">print</span> <span class="n">eachLine</span><span class="p">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="n">fobj</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">'this file not exists'</span>
+</code></pre></div></div><p>3-12</p><div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">"""to read or make a file"""</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="k">def</span> <span class="nf">makeTextFile</span><span class="p">():</span>
+    <span class="s">'''make a file'''</span>
+    <span class="n">ls</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">linesep</span>
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="n">fname</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">'input a filename:'</span><span class="p">)</span>
+    <span class="c1">#    if os.path.exists(fname):
+</span>    <span class="c1">#        print "Error: '%s' already exists" % fname
+</span>    <span class="c1">#    else:
+</span>    <span class="c1">#        break
+</span>        <span class="k">try</span><span class="p">:</span>
+            <span class="n">fobj</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="s">'r'</span><span class="p">)</span>
+        <span class="k">except</span> <span class="nb">IOError</span><span class="p">,</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">print</span> <span class="s">"Error: '%s' already exists"</span> <span class="o">%</span> <span class="n">fname</span>
+            <span class="n">fobj</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+
+    <span class="nb">all</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">print</span> <span class="s">"</span><span class="se">\n</span><span class="s">Enter lines ('.' by itself to quit).</span><span class="se">\n</span><span class="s">"</span>
+
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="n">entry</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">'&gt;'</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">entry</span> <span class="o">==</span> <span class="s">'.'</span><span class="p">:</span>
+            <span class="k">break</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">all</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
+
+    <span class="n">fobj</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="s">'w'</span><span class="p">)</span>
+    <span class="n">fobj</span><span class="p">.</span><span class="n">writelines</span><span class="p">([</span><span class="s">'%s%s'</span> <span class="o">%</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">ls</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">all</span><span class="p">])</span>
+    <span class="n">fobj</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="k">print</span> <span class="s">'Done!'</span>
+
+<span class="k">def</span> <span class="nf">readTextFile</span><span class="p">():</span>
+    <span class="s">'''read a file'''</span>
+    <span class="n">fname</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">'Enter filename:'</span><span class="p">)</span>
+    <span class="k">print</span>
+
+    <span class="c1">#try:
+</span>    <span class="c1">#    fobj = open(fname, 'r')
+</span>    <span class="c1">#except IOError, e:
+</span>    <span class="c1">#    print '*** file open error:', e
+</span>    <span class="c1">#else:
+</span>    <span class="c1">#    for eachLine in fobj:
+</span>    <span class="c1">#        print eachLine,
+</span>    <span class="c1">#    fobj.close()
+</span>    <span class="k">if</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">exists</span><span class="p">(</span><span class="n">fname</span><span class="p">):</span>
+        <span class="n">fobj</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="s">'r'</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">eachLine</span> <span class="ow">in</span> <span class="n">fobj</span><span class="p">:</span>
+            <span class="k">print</span> <span class="n">eachLine</span><span class="p">.</span><span class="n">strip</span><span class="p">()</span>
+        <span class="n">fobj</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">print</span> <span class="s">'this file not exists'</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="s">'''main menu'''</span>
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="k">print</span> <span class="s">'1.Read a file'</span>
+        <span class="k">print</span> <span class="s">'2.Make a file'</span>
+        <span class="k">print</span> <span class="s">'x.exit'</span>
+        <span class="n">myStr</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">'input your choice:'</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">myStr</span> <span class="o">==</span> <span class="s">'1'</span><span class="p">:</span>
+            <span class="n">readTextFile</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">myStr</span> <span class="o">==</span> <span class="s">'2'</span><span class="p">:</span>
+            <span class="n">makeTextFile</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">myStr</span> <span class="o">==</span> <span class="s">'x'</span><span class="p">:</span>
+            <span class="k">break</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</code></pre></div></div><p>3-13</p><p>Windows 下 curses 模块貌似无法正常使用……</p><p>迂回的实现思路是将文件内容按行读取到一个列表里，</p><p>然后让用户修改每一行，</p><p>最后让用户选择是否保存，</p><p>保存则重写文件，</p><p>不保存则退出。</p><div style="margin-top:2em;padding:0 1.5em;border:1px solid #d3d3d3;background-color:#deebf7"><h3>文档信息</h3><ul><li>本文作者：<a href="https://mazhuang.org" target="_blank">Zhuang Ma</a></li><li>本文链接：<a href="https://mazhuang.org/2012/04/08/learn-python-practise/" target="_blank">https://mazhuang.org/2012/04/08/learn-python-practise/</a></li><li>版权声明：自由转载-非商用-非衍生-保持署名（<a href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh" target="_blank">创意共享3.0许可证</a>）</li></ul></div></article><div class="share"></div><div class="comment"><div id="gitalk-container"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/vendor/gitalk/gitalk.css"> <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script> <script> var gitalk = new Gitalk({ id: '/2012/04/08/learn-python-practise/', clientID: 'd2e1cbbd298958076462', clientSecret: 'b42a4178e5fd4a7cf63189ef4b1453b05c375709', repo: 'blog-comments', owner: 'mzlogin', admin: ['mzlogin'], labels: ['gitment'], perPage: 50, }); gitalk.render('gitalk-container'); </script></div></div><div class="column one-fourth"><h3>Search</h3><div id="site_search"> <input style="width:96%" type="text" id="search_box" placeholder="Search"></div><ul id="search_results" style="font-size:14px;list-style-type:none;padding-top:10px;padding-left:10px;"></ul><script src="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/js/simple-jekyll-search.min.js"></script> <script type="text/javascript"> SimpleJekyllSearch({ searchInput: document.getElementById('search_box'), resultsContainer: document.getElementById('search_results'), json: 'https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@built/assets/search_data.json', searchResultTemplate: '<li><a href="{url}" title="{title}">{title}</a></li>', noResultsText: 'No results found', limit: 10, fuzzy: false, exclude: ['Welcome'] }) </script><h3 class="post-directory-title mobile-hidden">Table of Contents</h3><div id="post-directory-module" class="mobile-hidden"><section class="post-directory"><dl></dl></section></div><script src="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/js/jquery.toc.js"></script></div></div></section><footer class="container"> <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7093222719567591" data-ad-slot="5263168187" data-ad-format="auto" data-full-width-responsive="true"></ins> <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script><div class="site-footer" role="contentinfo"><div class="copyright left mobile-block"> © 2015 <span title="Zhuang Ma">Zhuang Ma</span> <a href="javascript:window.scrollTo(0,0)" class="right mobile-visible">TOP</a></div><ul class="site-footer-links right mobile-hidden"><li> <a href="javascript:window.scrollTo(0,0)" >TOP</a></li></ul><a href="https://github.com/mzlogin/mzlogin.github.io" target="_blank" aria-label="view source code"> <span class="mega-octicon octicon-mark-github" title="GitHub"></span> </a><ul class="site-footer-links mobile-hidden"><li> <a href="https://mazhuang.org/" title="首页" target="">首页</a></li><li> <a href="https://mazhuang.org/categories/" title="分类" target="">分类</a></li><li> <a href="https://mazhuang.org/wiki/" title="维基" target="">维基</a></li><li> <a href="https://mazhuang.org/links/" title="链接" target="">链接</a></li><li> <a href="https://mazhuang.org/about/" title="关于" target="">关于</a></li><li><a href="https://mazhuang.org/feed.xml"><span class="octicon octicon-rss" style="color:orange;"></span></a></li></ul><script async src="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/vendor/busuanzi/2.3/busuanzi.pure.mini.js"></script><div class="mobile-hidden" style="margin-top:8px"> <span id="busuanzi_container_site_pv" style="display:none"> 本站访问量<span id="busuanzi_value_site_pv"></span>次 </span> <span id="busuanzi_container_site_uv" style="display:none"> / 本站访客数<span id="busuanzi_value_site_uv"></span>人 </span> <span id="busuanzi_container_page_pv" style="display:none"> / 本页访问量<span id="busuanzi_value_page_pv"></span>次 / 统计始于2020-05-03 </span></div></div></footer><div class="tools-wrapper"> <a class="gotop" href="#" title="回到顶部"><span class="octicon octicon-arrow-up"></span></a></div><script src="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/js/geopattern.js"></script> <script> jQuery(document).ready(function($) { $('.geopattern').each(function(){ $(this).geopattern($(this).data('pattern-id')); }); /* hljs.initHighlightingOnLoad(); */ }); </script><div style="display:none"> <script> (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) })(window,document,'script','https://www.google-analytics.com/analytics.js','ga'); ga('create', 'UA-80669434-1', 'auto'); ga('send', 'pageview'); </script></div></body></html>

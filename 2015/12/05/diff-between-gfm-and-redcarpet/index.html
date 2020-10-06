@@ -1,0 +1,378 @@
+<!DOCTYPE html><html lang="zh-cmn-Hans" prefix="og: http://ogp.me/ns#" class="han-init"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /><title>GFM 与 Redcarpet 的不同点 &mdash; 码志</title><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/vendor/primer-css/css/primer.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/css/components/collection.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/css/components/repo-card.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/css/sections/repo-list.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/css/components/boxed-group.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/css/globals/common.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/css/globals/responsive.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/css/posts/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/vendor/octicons/octicons/octicons.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mzlogin/rouge-themes@master/dist/github.css"><link rel="canonical" href="https://mazhuang.org/2015/12/05/diff-between-gfm-and-redcarpet/"><link rel="alternate" type="application/atom+xml" title="码志" href="https://mazhuang.org/feed.xml"><link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/favicon.ico"><meta property="og:title" content="GFM 与 Redcarpet 的不同点"><meta name="keywords" content="markdown, GFM, Redcarpet"><meta name="og:keywords" content="markdown, GFM, Redcarpet"><meta name="description" content="GFM 即 GitHub Flavored Markdown，是 GitHub 用在 Respository、Issues、Comments 和 Pull requests 里的一种 Markdown 引擎，它与标准 Markdown 有所区别，增加了一些 GitHub 自己扩展的功能。"><meta name="og:description" content="GFM 即 GitHub Flavored Markdown，是 GitHub 用在 Respository、Issues、Comments 和 Pull requests 里的一种 Markdown 引擎，它与标准 Markdown 有所区别，增加了一些 GitHub 自己扩展的功能。"><meta property="og:url" content="https://mazhuang.org/2015/12/05/diff-between-gfm-and-redcarpet/"><meta property="og:site_name" content="码志"><meta property="og:type" content="article"><meta property="og:locale" content="zh_CN" /><meta property="article:published_time" content="2015-12-05"> <script src="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/vendor/jquery/dist/jquery.min.js"></script> <script src="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/js/jquery-ui.js"></script> <script src="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/js/main.js"></script> <script data-ad-client="ca-pub-7093222719567591" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script></head><body class="" data-mz=""><header class="site-header"><div class="container">
+<h1><a href="https://mazhuang.org/" title="码志"><span class="octicon octicon-mark-github"></span> 码志</a></h1>
+<button class="collapsed mobile-visible" type="button" onclick="toggleMenu();"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button><nav class="site-header-nav" role="navigation"> <a href="https://mazhuang.org/" class=" site-header-nav-item" target="" title="首页">首页</a> <a href="https://mazhuang.org/categories/" class=" site-header-nav-item" target="" title="分类">分类</a> <a href="https://mazhuang.org/wiki/" class=" site-header-nav-item" target="" title="维基">维基</a> <a href="https://mazhuang.org/links/" class=" site-header-nav-item" target="" title="链接">链接</a> <a href="https://mazhuang.org/about/" class=" site-header-nav-item" target="" title="关于">关于</a></nav>
+</div></header><section class="collection-head small geopattern" data-pattern-id="GFM 与 Redcarpet"><div class="container"><div class="columns">
+<div class="column three-fourths"><div class="collection-title">
+<h1 class="collection-header">GFM 与 Redcarpet 的不同点</h1>
+<div class="collection-info"> <span class="meta-info"> <span class="octicon octicon-calendar"></span> 2015/12/05 </span> <span class="meta-info"> <span class="octicon octicon-file-directory"></span> <a href="https://mazhuang.org/categories/#Markdown" title="Markdown">Markdown</a> </span> <span class="meta-info"> <span class="octicon octicon-clock"></span> 共 2590 字，约 8 分钟 </span>
+</div>
+</div></div>
+<div class="column one-fourths mobile-hidden"><div class="collection-title"> <img style="height:72px;width:72px" src="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/images/qrcode.jpg" alt="闷骚的程序员">
+</div></div>
+</div></div></section><section class="container content"><div class="columns">
+<div class="column three-fourths"> <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7093222719567591" data-ad-slot="1650902835" data-ad-format="auto" data-full-width-responsive="true"></ins> <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script> <br><article class="article-content markdown-body"><p>GFM 即 <a href="https://help.github.com/articles/github-flavored-markdown/">GitHub Flavored Markdown</a>，是 GitHub 用在 Respository、Issues、Comments 和 Pull requests 里的一种 Markdown 引擎，它与标准 Markdown 有所区别，增加了一些 GitHub 自己扩展的功能。</p>
+<p><a href="https://github.com/vmg/redcarpet">Redcarpet</a> 是另一种 Markdown 引擎，我的基于 GitHub Pages 的<a href="http://mzlog.com">博客</a>采用它来解析 md 文件，_config.yml 文件里的配置如下：</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>markdown: redcarpet
+redcarpet:
+    extensions: 
+        - no_intra_emphasis
+        - fenced_code_blocks
+        - autolink
+        - tables
+        - with_toc_data
+        - strikethrough
+</code></pre></div></div>
+<p>在 <a href="https://github.com/vmg/redcarpet/issues/379">vmg/redcarpet#379</a> 的讨论中可以得知 GFM 其实是基于 Redcarpet 的一个非开源子集开发的，Redcarpet 也支持众多自定义的扩展，本文记录的是当前 GFM 与使用如上配置的 Redcarpet 的一些差异，以备在 GitHub 不同的地方写作时参考。</p>
+<p><strong>目录</strong></p>
+<ul id="markdown-toc">
+<li><a href="#%E6%8D%A2%E8%A1%8C" id="markdown-toc-换行">换行</a></li>
+<li><a href="#%E9%94%9A%E7%82%B9%E9%93%BE%E6%8E%A5" id="markdown-toc-锚点链接">锚点链接</a></li>
+<li><a href="#%E5%88%97%E8%A1%A8%E4%B8%8B%E5%B5%8C%E5%A5%97%E5%86%85%E5%AE%B9" id="markdown-toc-列表下嵌套内容">列表下嵌套内容</a></li>
+<li><a href="#yml-%E8%A7%A3%E6%9E%90" id="markdown-toc-yml-解析">YML 解析</a></li>
+<li>
+<a href="#gfm-%E7%8B%AC%E6%9C%89%E7%89%B9%E6%80%A7" id="markdown-toc-gfm-独有特性">GFM 独有特性</a><ul>
+<li><a href="#task-lists" id="markdown-toc-task-lists">Task Lists</a></li>
+<li><a href="#%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E5%BC%95%E7%94%A8%E9%93%BE%E6%8E%A5" id="markdown-toc-自动生成引用链接">自动生成引用链接</a></li>
+<li><a href="#emoji" id="markdown-toc-emoji">Emoji</a></li>
+</ul>
+</li>
+<li><a href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5" id="markdown-toc-参考链接">参考链接</a></li>
+</ul>
+<h3 id="换行">换行</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>第一行（后面没有空格）
+第二行
+</code></pre></div></div>
+<p>在 GFM 里会显示成跟上面一样。</p>
+<p>而在 Redcarpet 里会显示成</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>第一行（后面没有空格）第二行
+</code></pre></div></div>
+<p>在 Redcarpet 里如果需要换行，要么在行尾加两个空格，要么在下面空一行新开一个段落。</p>
+<h3 id="锚点链接">锚点链接</h3>
+<p>GFM 与 Redcarpet 支持对 <code class="language-plaintext highlighter-rouge">#</code>、<code class="language-plaintext highlighter-rouge">##</code> 和 <code class="language-plaintext highlighter-rouge">###</code> 这样的标题自动生成锚点链接，只不过在生成的链接 url 上会有少许差异。</p>
+<p><strong>当然，强烈建议在标题中不要使用奇怪的符号。</strong></p>
+<blockquote><p>在这里做个小广告：如果你使用 Vim 编辑 Markdown，那可以试试我写的能自动生成 GFM 和 Redcarpet 这两种风格 TOC 的 Vim 插件 <a href="https://github.com/mzlogin/vim-markdown-toc">vim-markdown-toc</a>。</p></blockquote>
+<p><em>共同点：</em></p>
+<ol>
+<li><p>反引号（即 1 左边那个符号）会直接忽略掉。</p></li>
+<li><p>字母要全小写。</p></li>
+<li><p>空格会转换成 <code class="language-plaintext highlighter-rouge">-</code>。</p></li>
+</ol>
+<p><em>不同点：</em></p>
+<p>下面的表格列举了一些我曾经遇到过的案例，并不全，完整的实现逻辑在表格下方有说明。</p>
+<table>
+<thead><tr>
+<th>字符</th>
+<th>GFM</th>
+<th>Redcarpet</th>
+</tr></thead>
+<tbody>
+<tr>
+<td><code class="language-plaintext highlighter-rouge">"</code></td>
+<td>忽略</td>
+<td>替换成 <code class="language-plaintext highlighter-rouge">quot</code>，如果前后有字符，用 <code class="language-plaintext highlighter-rouge">-</code> 连接</td>
+</tr>
+<tr>
+<td><code class="language-plaintext highlighter-rouge">'</code></td>
+<td>忽略</td>
+<td>替换成 <code class="language-plaintext highlighter-rouge">39</code>，如果前后有字符，用 <code class="language-plaintext highlighter-rouge">-</code> 连接</td>
+</tr>
+<tr>
+<td><code class="language-plaintext highlighter-rouge">&amp;</code></td>
+<td>忽略</td>
+<td>替换成 <code class="language-plaintext highlighter-rouge">amp</code>，如果前后有字符，用 <code class="language-plaintext highlighter-rouge">-</code> 连接</td>
+</tr>
+<tr>
+<td><code class="language-plaintext highlighter-rouge">/</code></td>
+<td>忽略</td>
+<td>首尾的忽略，中间的替换成 <code class="language-plaintext highlighter-rouge">-</code>
+</td>
+</tr>
+<tr>
+<td><code class="language-plaintext highlighter-rouge">@</code></td>
+<td>忽略</td>
+<td>首尾的忽略，中间的替换成 <code class="language-plaintext highlighter-rouge">-</code>
+</td>
+</tr>
+<tr>
+<td><code class="language-plaintext highlighter-rouge">#</code></td>
+<td>忽略</td>
+<td>首尾的忽略，中间的替换成 <code class="language-plaintext highlighter-rouge">-</code>
+</td>
+</tr>
+<tr>
+<td><code class="language-plaintext highlighter-rouge">$</code></td>
+<td>忽略</td>
+<td>首尾的忽略，中间的替换成 <code class="language-plaintext highlighter-rouge">-</code>
+</td>
+</tr>
+<tr>
+<td><code class="language-plaintext highlighter-rouge">%</code></td>
+<td>忽略</td>
+<td>首尾的忽略，中间的替换成 <code class="language-plaintext highlighter-rouge">-</code>
+</td>
+</tr>
+<tr>
+<td><code class="language-plaintext highlighter-rouge">^</code></td>
+<td>忽略</td>
+<td>首尾的忽略，中间的替换成 <code class="language-plaintext highlighter-rouge">-</code>
+</td>
+</tr>
+<tr>
+<td><code class="language-plaintext highlighter-rouge">+</code></td>
+<td>忽略</td>
+<td> </td>
+</tr>
+<tr>
+<td><code class="language-plaintext highlighter-rouge">\*</code></td>
+<td>忽略</td>
+<td>首尾的忽略，中间的替换成 <code class="language-plaintext highlighter-rouge">-</code>
+</td>
+</tr>
+<tr>
+<td><code class="language-plaintext highlighter-rouge">~</code></td>
+<td>忽略</td>
+<td>首尾的忽略，中间的替换成 <code class="language-plaintext highlighter-rouge">-</code>
+</td>
+</tr>
+<tr>
+<td><code class="language-plaintext highlighter-rouge">;</code></td>
+<td>忽略</td>
+<td>首尾的忽略，中间的替换成 <code class="language-plaintext highlighter-rouge">-</code>
+</td>
+</tr>
+<tr>
+<td><code class="language-plaintext highlighter-rouge">.</code></td>
+<td>忽略</td>
+<td>首尾的忽略，中间的替换成 <code class="language-plaintext highlighter-rouge">-</code>
+</td>
+</tr>
+<tr>
+<td><code class="language-plaintext highlighter-rouge">,</code></td>
+<td>忽略</td>
+<td>首尾的忽略，中间的替换成 <code class="language-plaintext highlighter-rouge">-</code>
+</td>
+</tr>
+<tr>
+<td><code class="language-plaintext highlighter-rouge">?</code></td>
+<td>忽略</td>
+<td>首尾的忽略，中间的替换成 <code class="language-plaintext highlighter-rouge">-</code>
+</td>
+</tr>
+<tr>
+<td><code class="language-plaintext highlighter-rouge">:</code></td>
+<td>忽略</td>
+<td>首尾的忽略，中间的替换成 <code class="language-plaintext highlighter-rouge">-</code>
+</td>
+</tr>
+<tr>
+<td>竖线</td>
+<td>忽略</td>
+<td>首尾的忽略，中间的替换成 <code class="language-plaintext highlighter-rouge">-</code>
+</td>
+</tr>
+<tr>
+<td><code class="language-plaintext highlighter-rouge">!</code></td>
+<td>忽略</td>
+<td>首尾的忽略，中间的替换成 <code class="language-plaintext highlighter-rouge">-</code>
+</td>
+</tr>
+<tr>
+<td><code class="language-plaintext highlighter-rouge">()</code></td>
+<td>忽略</td>
+<td>替换成 <code class="language-plaintext highlighter-rouge">-</code>
+</td>
+</tr>
+<tr>
+<td><code class="language-plaintext highlighter-rouge">(</code></td>
+<td>忽略</td>
+<td>忽略</td>
+</tr>
+<tr>
+<td><code class="language-plaintext highlighter-rouge">)</code></td>
+<td>忽略</td>
+<td>忽略</td>
+</tr>
+<tr>
+<td><code class="language-plaintext highlighter-rouge">？</code></td>
+<td>忽略</td>
+<td>保留</td>
+</tr>
+<tr>
+<td><code class="language-plaintext highlighter-rouge">，</code></td>
+<td>忽略</td>
+<td>保留</td>
+</tr>
+<tr>
+<td><code class="language-plaintext highlighter-rouge">。</code></td>
+<td>忽略</td>
+<td>保留</td>
+</tr>
+<tr>
+<td><code class="language-plaintext highlighter-rouge">、</code></td>
+<td>忽略</td>
+<td>保留</td>
+</tr>
+<tr>
+<td><code class="language-plaintext highlighter-rouge">！</code></td>
+<td>忽略</td>
+<td>保留</td>
+</tr>
+<tr>
+<td><code class="language-plaintext highlighter-rouge">：</code></td>
+<td>忽略</td>
+<td>保留</td>
+</tr>
+<tr>
+<td><code class="language-plaintext highlighter-rouge">；</code></td>
+<td>忽略</td>
+<td>保留</td>
+</tr>
+<tr>
+<td><code class="language-plaintext highlighter-rouge">“</code></td>
+<td>忽略</td>
+<td>保留</td>
+</tr>
+<tr>
+<td><code class="language-plaintext highlighter-rouge">”</code></td>
+<td>忽略</td>
+<td>保留</td>
+</tr>
+<tr>
+<td><code class="language-plaintext highlighter-rouge">《</code></td>
+<td>忽略</td>
+<td>保留</td>
+</tr>
+<tr>
+<td><code class="language-plaintext highlighter-rouge">》</code></td>
+<td>忽略</td>
+<td>保留</td>
+</tr>
+<tr>
+<td><code class="language-plaintext highlighter-rouge">「</code></td>
+<td>忽略</td>
+<td>保留</td>
+</tr>
+<tr>
+<td><code class="language-plaintext highlighter-rouge">」</code></td>
+<td>忽略</td>
+<td>保留</td>
+</tr>
+<tr>
+<td><code class="language-plaintext highlighter-rouge">『</code></td>
+<td>忽略</td>
+<td>保留</td>
+</tr>
+<tr>
+<td><code class="language-plaintext highlighter-rouge">』</code></td>
+<td>忽略</td>
+<td>保留</td>
+</tr>
+<tr>
+<td><code class="language-plaintext highlighter-rouge">——</code></td>
+<td>忽略</td>
+<td>保留</td>
+</tr>
+</tbody>
+</table>
+<p>总的来说就是 GFM 遇到奇怪的字符就忽略，而 Redcarpet 应用了几种不同的规则来处理。</p>
+<p>当然这只是表面上看起来的现象，这里简单说一下它们的实现逻辑：</p>
+<p><strong>GFM 的 TOC 链接处理实现</strong></p>
+<p><a href="https://github.com/jch/html-pipeline/blob/master/lib/html/pipeline/toc_filter.rb">参考链接（by Ruby）</a></p>
+<ol>
+<li>使用 Ruby 的正则表达式 <code class="language-plaintext highlighter-rouge">/[^\p{Word}\- ]/u</code> 过滤掉所有中英文标点符号、特殊符号等。</li>
+<li>将空格替换为 <code class="language-plaintext highlighter-rouge">-</code>。</li>
+<li>如果相同的链接 id 已经存在了，那在链接 id 后面添加 <code class="language-plaintext highlighter-rouge">-{num}</code>，比如标题 <code class="language-plaintext highlighter-rouge">hello,world</code> 生成链接 <code class="language-plaintext highlighter-rouge">#helloworld</code>，而标题 <code class="language-plaintext highlighter-rouge">hello!world</code> 生成链接 <code class="language-plaintext highlighter-rouge">#helloworld-1</code>。</li>
+</ol>
+<p><strong>Redcarpet 的 TOC 链接处理实现</strong></p>
+<p><a href="https://github.com/vmg/redcarpet/blob/master/ext/redcarpet/html.c#L274">参考链接（by C）</a></p>
+<ol>
+<li>将 HTML 标签，即成对的 <code class="language-plaintext highlighter-rouge">&lt;</code> 与 <code class="language-plaintext highlighter-rouge">&gt;</code> 及它们之间的内容删除。</li>
+<li>进行 HTML Encode，即将 <code class="language-plaintext highlighter-rouge">&amp;</code>、<code class="language-plaintext highlighter-rouge">"</code> 和 <code class="language-plaintext highlighter-rouge">'</code> 等转换为相应 HTML 实体。</li>
+<li>将字符 <code class="language-plaintext highlighter-rouge">-&amp;+$,/:;=?@"#{}|^~[]`\*()%.!</code> 和空格替换为 <code class="language-plaintext highlighter-rouge">-</code>，有两个及以上 <code class="language-plaintext highlighter-rouge">-</code> 的地方修复成一个，将链接串首尾的 <code class="language-plaintext highlighter-rouge">-_</code> 删除。</li>
+</ol>
+<h3 id="列表下嵌套内容">列表下嵌套内容</h3>
+<p>在 Redcarpet 中有如下规则：</p>
+<ul>
+<li>如果嵌套非列表，需要缩进并且空行。</li>
+<li>如果嵌套列表，需要缩进，但不空行。</li>
+</ul>
+<p>而 GFM 则没有。</p>
+<h3 id="yml-解析">YML 解析</h3>
+<p>在 Redcarpet 中，解析头部 YML 里的内容有些需要转义：</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---
+keywords: C\+\+
+---
+</code></pre></div></div>
+<p>而 GFM 则不需要。</p>
+<h3 id="gfm-独有特性">GFM 独有特性</h3>
+<p>GFM 自己添加的一些特性我甚是喜欢，可惜在 GitHub Pages 里使用 Redcarpet 享受不到了。</p>
+<h4 id="task-lists">Task Lists</h4>
+<p>这货真是个好东西，用 <code class="language-plaintext highlighter-rouge">- [ ]</code> 和 <code class="language-plaintext highlighter-rouge">- [ x ]</code> 就能做出清单列表项的显示效果来，而且如果你有编辑权限的话点选后文本能自动更新。</p>
+<p><img src="https://camo.githubusercontent.com/09cbc14d7458e0e2c52f1a66fb8890152da978c9/68747470733a2f2f662e636c6f75642e6769746875622e636f6d2f6173736574732f3138322f35343631302f66326530656131382d356139612d313165322d383236642d6635663562663033663032652e676966" alt=""></p>
+<p>用法参见 <a href="https://github.com/blog/1375%0A-task-lists-in-gfm-issues-pulls-comments">Task Lists in GFM: Issues/Pulls, Comments</a></p>
+<h4 id="自动生成引用链接">自动生成引用链接</h4>
+<p><em>Update 2015-12-06 参见 <a href="https://help.github.com/articles/mentions-on-github-pages">@Mentions on GitHub Pages</a>，GitHub Pages 现在也支持使用 <code class="language-plaintext highlighter-rouge">@username</code> 来 at 一个 GitHub 用户了，只是用户不会收到通知。我对此功能并无需求，而且貌似会对其它使用 <code class="language-plaintext highlighter-rouge">@</code> 号的地方产生非预期的解析，所以本博客当前并未启用。</em></p>
+<p>对于如下格式的文本，GFM 会自动创建到对应用户对应仓库的对应链接。</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>* SHA: a5c3785ed8d6a35868bc169f07e40e889087fd2e
+* User@SHA: jlord@a5c3785ed8d6a35868bc169f07e40e889087fd2e
+* User/Repository@SHA: jlord/sheetsee.js@a5c3785ed8d6a35868bc169f07e40e889087fd2e
+* #Num: #26
+* GH-Num: GH-26
+* User#Num: jlord#26
+* User/Repository#Num: jlord/sheetsee.js#26
+</code></pre></div></div>
+<h4 id="emoji">Emoji</h4>
+<p><em>Update 2015-12-06 参见 <a href="https://help.github.com/articles/emoji-on-github-pages">Emoji on GitHub Pages</a>, GitHub Pages 现在也支持使用 Emoji 表情啦！<img class="emoji" title=":+1:" alt=":+1:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f44d.png" height="20" width="20"><img class="emoji" title=":+1:" alt=":+1:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f44d.png" height="20" width="20"><img class="emoji" title=":+1:" alt=":+1:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f44d.png" height="20" width="20"></em></p>
+<p>GitHub Pages 如果能使用这个，文章一定生动不少。</p>
+<h3 id="参考链接">参考链接</h3>
+<ul>
+<li><a href="https://help.github.com/articles/github-flavored-markdown/">GitHub Flavored Markdown</a></li>
+<li><a href="https://help.github.com/articles/writing-on-github/">Writing on GitHub</a></li>
+</ul>
+<div style="margin-top:2em;padding:0 1.5em;border:1px solid #d3d3d3;background-color:#deebf7">
+<h3>文档信息</h3>
+<ul>
+<li>本文作者：<a href="https://mazhuang.org" target="_blank">Zhuang Ma</a>
+</li>
+<li>本文链接：<a href="https://mazhuang.org/2015/12/05/diff-between-gfm-and-redcarpet/" target="_blank">https://mazhuang.org/2015/12/05/diff-between-gfm-and-redcarpet/</a>
+</li>
+<li>版权声明：自由转载-非商用-非衍生-保持署名（<a href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh" target="_blank">创意共享3.0许可证</a>）</li>
+</ul>
+</div></article><div class="share"></div>
+<div class="comment">
+<div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/vendor/gitalk/gitalk.css"> <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script> <script> var gitalk = new Gitalk({ id: '/2015/12/05/diff-between-gfm-and-redcarpet/', clientID: 'd2e1cbbd298958076462', clientSecret: 'b42a4178e5fd4a7cf63189ef4b1453b05c375709', repo: 'blog-comments', owner: 'mzlogin', admin: ['mzlogin'], labels: ['gitment'], perPage: 50, }); gitalk.render('gitalk-container'); </script>
+</div>
+</div>
+<div class="column one-fourth">
+<h3>Search</h3>
+<div id="site_search"> <input style="width:96%" type="text" id="search_box" placeholder="Search">
+</div>
+<ul id="search_results" style="font-size:14px;list-style-type:none;padding-top:10px;padding-left:10px;"></ul>
+<script src="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/js/simple-jekyll-search.min.js"></script> <script type="text/javascript"> SimpleJekyllSearch({ searchInput: document.getElementById('search_box'), resultsContainer: document.getElementById('search_results'), json: 'https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@built/assets/search_data.json', searchResultTemplate: '<li><a href="{url}" title="{title}">{title}</a></li>', noResultsText: 'No results found', limit: 10, fuzzy: false, exclude: ['Welcome'] }) </script><h3 class="post-directory-title mobile-hidden">Table of Contents</h3>
+<div id="post-directory-module" class="mobile-hidden"><section class="post-directory"><dl></dl></section></div>
+<script src="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/js/jquery.toc.js"></script>
+</div>
+</div></section><footer class="container"> <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7093222719567591" data-ad-slot="5263168187" data-ad-format="auto" data-full-width-responsive="true"></ins> <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script><div class="site-footer" role="contentinfo">
+<div class="copyright left mobile-block"> © 2015 <span title="Zhuang Ma">Zhuang Ma</span> <a href="javascript:window.scrollTo(0,0)" class="right mobile-visible">TOP</a>
+</div>
+<ul class="site-footer-links right mobile-hidden"><li> <a href="javascript:window.scrollTo(0,0)">TOP</a>
+</li></ul>
+<a href="https://github.com/mzlogin/mzlogin.github.io" target="_blank" aria-label="view source code"> <span class="mega-octicon octicon-mark-github" title="GitHub"></span> </a><ul class="site-footer-links mobile-hidden">
+<li> <a href="https://mazhuang.org/" title="首页" target="">首页</a>
+</li>
+<li> <a href="https://mazhuang.org/categories/" title="分类" target="">分类</a>
+</li>
+<li> <a href="https://mazhuang.org/wiki/" title="维基" target="">维基</a>
+</li>
+<li> <a href="https://mazhuang.org/links/" title="链接" target="">链接</a>
+</li>
+<li> <a href="https://mazhuang.org/about/" title="关于" target="">关于</a>
+</li>
+<li><a href="https://mazhuang.org/feed.xml"><span class="octicon octicon-rss" style="color:orange;"></span></a></li>
+</ul>
+<script async src="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/vendor/busuanzi/2.3/busuanzi.pure.mini.js"></script><div class="mobile-hidden" style="margin-top:8px"> <span id="busuanzi_container_site_pv" style="display:none"> 本站访问量<span id="busuanzi_value_site_pv"></span>次 </span> <span id="busuanzi_container_site_uv" style="display:none"> / 本站访客数<span id="busuanzi_value_site_uv"></span>人 </span> <span id="busuanzi_container_page_pv" style="display:none"> / 本页访问量<span id="busuanzi_value_page_pv"></span>次 / 统计始于2020-05-03 </span>
+</div>
+</div></footer><div class="tools-wrapper"> <a class="gotop" href="#" title="回到顶部"><span class="octicon octicon-arrow-up"></span></a>
+</div><script src="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/assets/js/geopattern.js"></script> <script> jQuery(document).ready(function($) { $('.geopattern').each(function(){ $(this).geopattern($(this).data('pattern-id')); }); /* hljs.initHighlightingOnLoad(); */ }); </script><div style="display:none"> <script> (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) })(window,document,'script','https://www.google-analytics.com/analytics.js','ga'); ga('create', 'UA-80669434-1', 'auto'); ga('send', 'pageview'); </script>
+</div></body></html>
