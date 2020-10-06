@@ -14,9 +14,9 @@ jobs:
           persist-credentials: false
 
       - name: Set Ruby 2.7
-        uses: actions/set-ruby@v1
+        uses: actions/setup-ruby@v1
         with:
-          version: 2.7.x
+          ruby-version: 2.7
 
       - name: Install and Build
         run: |
@@ -28,6 +28,6 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@3.6.2
         with:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          BRANCH: gh-pages
+          BRANCH: built
           FOLDER: _site
           CLEAN: true
