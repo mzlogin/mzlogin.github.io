@@ -141,3 +141,7 @@ jsDelivr 对 GitHub 的支持是作为重要特性来宣传的，官网的介绍
 - [GitHub 图床的正确用法，通过 jsDelivr CDN 全球加速](https://hacpai.com/article/1583894928771)
 - [jsDelivr 为开发者提供免费公共 CDN 加速服务](https://blog.csdn.net/larpland/article/details/101349605)
 - [Features - jsDelivr](https://www.jsdelivr.com/features)
+
+## 相关文章
+
+- [使用 jsDelivr 免费加速 GitHub Pages 博客的静态资源（二）](https://mazhuang.org/2020/10/07/cdn-for-github-pages-2/)
