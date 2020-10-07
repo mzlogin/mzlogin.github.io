@@ -1039,6 +1039,14 @@
     } ,
   
     {
+      "title"    : "使用 jsDelivr 免费加速 GitHub Pages 博客的静态资源（二）",
+      "category" : "GitHub",
+      
+      "url"      : "https://mazhuang.org/2020/10/07/cdn-for-github-pages-2/",
+      "keywords" : "GitHub, CDN, jsdelivr"
+    } ,
+  
+    {
       "title"    : "Android Studio",
       "category" : "Android",
       
