@@ -29,3 +29,18 @@ Cmd --> Command
 | 插件              | C-S-x   |          |
 | Markdown 侧边预览 | C-k v   |          |
 | Markdown 预览     | C-S-v   |          |
+
+## 使用 VSCode 作为 mergetool
+
+编辑 ~/.gitconfig 文件，添加如下内容：
+
+```
+[merge]
+    tool = vscode
+[mergetool "vscode"]
+    cmd = code --wait $MERGED
+```
+
+需要的时候执行 git mergetool 就会调起了。
+
+参考：<https://blog.kulman.sk/using-vscode-as-git-merge-tool/>
