@@ -1,4 +1,71 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://mazhuang.org/feed.xml" rel="self" type="application/atom+xml" /><link href="https://mazhuang.org/" rel="alternate" type="text/html" /><updated>2020-10-28T13:14:41+08:00</updated><id>https://mazhuang.org/feed.xml</id><title type="html">码志</title><subtitle>马壮的个人博客，公众号：闷骚的程序员</subtitle><author><name>Zhuang Ma</name></author><entry><title type="html">使用 jsDelivr 免费加速 GitHub Pages 博客的静态资源（二）</title><link href="https://mazhuang.org/2020/10/07/cdn-for-github-pages-2/" rel="alternate" type="text/html" title="使用 jsDelivr 免费加速 GitHub Pages 博客的静态资源（二）" /><published>2020-10-07T00:00:00+08:00</published><updated>2020-10-07T00:00:00+08:00</updated><id>https://mazhuang.org/2020/10/07/cdn-for-github-pages-2</id><content type="html" xml:base="https://mazhuang.org/2020/10/07/cdn-for-github-pages-2/">&lt;p&gt;之前写过一篇 &lt;a href=&quot;https://mazhuang.org/2020/05/01/cdn-for-github-pages/&quot;&gt;使用 jsDelivr 免费加速 GitHub Pages 博客的静态资源&lt;/a&gt;，在那之后，又陆续想到并实施了几点利用 jsDelivr 进一步加速静态资源加载的措施，新起一篇作为记录和分享。&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://mazhuang.org/feed.xml" rel="self" type="application/atom+xml" /><link href="https://mazhuang.org/" rel="alternate" type="text/html" /><updated>2020-10-29T13:28:35+08:00</updated><id>https://mazhuang.org/feed.xml</id><title type="html">码志</title><subtitle>马壮的个人博客，公众号：闷骚的程序员</subtitle><author><name>Zhuang Ma</name></author><entry><title type="html">给 Mac 添加右键菜单「使用 VSCode 打开」</title><link href="https://mazhuang.org/2020/10/28/add-vscode-to-right-click/" rel="alternate" type="text/html" title="给 Mac 添加右键菜单「使用 VSCode 打开」" /><published>2020-10-28T00:00:00+08:00</published><updated>2020-10-28T00:00:00+08:00</updated><id>https://mazhuang.org/2020/10/28/add-vscode-to-right-click</id><content type="html" xml:base="https://mazhuang.org/2020/10/28/add-vscode-to-right-click/">&lt;p&gt;最终的实现效果是在文件 / 文件夹上右击时，会出现菜单项「用 VSCode 打开」，点击后会启动 Visual Studio Code 打开对应的文件 / 文件夹。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/mac/open-with-vscode.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;实现步骤&quot;&gt;实现步骤&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;打开「自动操作.app」，就是小机器人图标那个；&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/images/posts/mac/auto-operate.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;kbd&gt;command + n&lt;/kbd&gt; 新建文稿，在「选取文稿类型」里选择「快速操作」；&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/images/posts/mac/quick-operate.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;按以下步骤操作：&lt;/p&gt;
+
+    &lt;p&gt;第五步贴入代码&lt;/p&gt;
+
+    &lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;f &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$@&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+ &lt;span class=&quot;k&quot;&gt;do
+     &lt;/span&gt;open &lt;span class=&quot;nt&quot;&gt;-a&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Visual Studio Code&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$f&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+ &lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/images/posts/mac/open-with-vscode-steps.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+    &lt;p&gt;以上代码片段的大概意思是对于传入的一个或多个参数，都使用 Visual Studio Code 这个 APP 打开（将以下步骤配置完成后，可以分别选中一个、多个文件 / 文件夹，然后右键用 VSCode 打开看看效果）。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;kbd&gt;command + s&lt;/kbd&gt; 保存为 「用 VSCode 打开」：&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/images/posts/mac/open-with-vscode-rename.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;好了，现在试试在 Finder 里右键一个文件，就可以直接看到「用 VSCode 打开」菜单，右键一个文件夹，就可以看到「服务」-「用 VSCode 打开」菜单了。&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/images/posts/mac/open-with-vscode-file.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;愉快地使用 Visual Studio Code 和各种文件、文件夹玩耍吧。&lt;/p&gt;
+
+&lt;h2 id=&quot;编辑&quot;&gt;编辑&lt;/h2&gt;
+
+&lt;p&gt;以后如果想修改上面这个快速操作，有两种方法：&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;可以打开「自动操作.app」，然后「文件」-「打开最近使用」 -「用 VSCode 打开.workflow」；&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;如果找不到这个操作，可以「文件」-「打开」-个人目录 / 资源库 / Services / 用 VSCode 打开.workflow&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/images/posts/mac/open-with-vscode-open.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+    &lt;p&gt;如果个人目录下不显示「资源库」，按 &lt;kbd&gt;Command + Shift + .&lt;/kbd&gt;。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;参考&quot;&gt;参考&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://blog.csdn.net/u013069892/article/details/83147239&quot;&gt;https://blog.csdn.net/u013069892/article/details/83147239&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Zhuang Ma</name></author><category term="VSCode" /><summary type="html">最终的实现效果是在文件 / 文件夹上右击时，会出现菜单项「用 VSCode 打开」，点击后会启动 Visual Studio Code 打开对应的文件 / 文件夹。</summary></entry><entry><title type="html">使用 jsDelivr 免费加速 GitHub Pages 博客的静态资源（二）</title><link href="https://mazhuang.org/2020/10/07/cdn-for-github-pages-2/" rel="alternate" type="text/html" title="使用 jsDelivr 免费加速 GitHub Pages 博客的静态资源（二）" /><published>2020-10-07T00:00:00+08:00</published><updated>2020-10-07T00:00:00+08:00</updated><id>https://mazhuang.org/2020/10/07/cdn-for-github-pages-2</id><content type="html" xml:base="https://mazhuang.org/2020/10/07/cdn-for-github-pages-2/">&lt;p&gt;之前写过一篇 &lt;a href=&quot;https://mazhuang.org/2020/05/01/cdn-for-github-pages/&quot;&gt;使用 jsDelivr 免费加速 GitHub Pages 博客的静态资源&lt;/a&gt;，在那之后，又陆续想到并实施了几点利用 jsDelivr 进一步加速静态资源加载的措施，新起一篇作为记录和分享。&lt;/p&gt;
 
 &lt;p&gt;继上一轮改造过后，比较拖页面加载速度的主要有三点：&lt;/p&gt;
 
@@ -1267,94 +1334,4 @@ SXQgdGFrZXMgYSBzdHJvbmcgbWFuIHRvIHNhdmUgaGltc2VsZiwgYW5kIGEgZ3JlYXQgbWFuIHRvIHNh
   &lt;li&gt;
     &lt;p&gt;&lt;a href=&quot;https://shidenggui.com/articles/namebase-airdrop&quot;&gt;https://shidenggui.com/articles/namebase-airdrop&lt;/a&gt;&lt;/p&gt;
   &lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Zhuang Ma</name></author><category term="GitHub" /><summary type="html">我经常提醒自己的防骗第一准则：天上不会掉馅饼。</summary></entry><entry><title type="html">让 Tapd 的源码关联功能支持 Gitee 平台</title><link href="https://mazhuang.org/2019/09/14/gitee-and-tapd/" rel="alternate" type="text/html" title="让 Tapd 的源码关联功能支持 Gitee 平台" /><published>2019-09-14T00:00:00+08:00</published><updated>2019-09-14T00:00:00+08:00</updated><id>https://mazhuang.org/2019/09/14/gitee-and-tapd</id><content type="html" xml:base="https://mazhuang.org/2019/09/14/gitee-and-tapd/">&lt;p&gt;Tapd 是腾讯提供的越来越完善的项目管理工具，Gitee 是国内相对比较稳的代码托管平台。本文记录了让 Tapd 的源码关联功能支持 Gitee 平台的方法，及摸索过程中遇到的问题的解决步骤。&lt;/p&gt;
-
-&lt;h2 id=&quot;背景&quot;&gt;背景&lt;/h2&gt;
-
-&lt;p&gt;想要使用 Tapd + Gitee 的组合来管理业余项目，但 Tapd 目前官方支持的代码托管平台只有 Gitlab、GitHub 和腾讯工蜂，并不能直接支持 Gitee，直觉上 Gitee 是基于 Gitlab 开发的，所以尝试在 Tapd 里开启了 Gitlab 服务，然后直接将 webhook 地址配置到 Gitee 项目里，却并不能生效。&lt;/p&gt;
-
-&lt;h2 id=&quot;求索&quot;&gt;求索&lt;/h2&gt;
-
-&lt;p&gt;这种问题我应该肯定不是第一个遇到，于是在 Tapd 的论坛里搜索 Gitee 关键字，果然在帖子 &lt;a href=&quot;https://www.tapd.cn/forum/view/67001&quot;&gt;https://www.tapd.cn/forum/view/67001&lt;/a&gt; 里找到了方案。&lt;/p&gt;
-
-&lt;h2 id=&quot;方案&quot;&gt;方案&lt;/h2&gt;
-
-&lt;p&gt;方案的原理简单来说就是 Gitee 在触发 webhook 时，向目标网址发起的请求和 GitLab 很雷同，只是有个别 Header 的名字不一样，但缺失特定的 Header 信息后无法正常触发 Tapd 的源码关联，所以可以通过 Nginx 反向代理来将缺失的 Header 补全，然后将请求转发给 Tapd 即可。&lt;/p&gt;
-
-&lt;h3 id=&quot;方案示意图&quot;&gt;方案示意图&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/tools/webhook-gitee.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;对比直接支持的 Gitlab 的示意：&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/tools/webhook-gitlab.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;所以前提条件是你有一个可以在公网访问到的 Nginx 服务器，且可以自己修改配置。&lt;/p&gt;
-
-&lt;p&gt;网友介绍方案及原理的 GitHub 仓库：&lt;a href=&quot;https://github.com/notzheng/Tapd-Git-Hooks&quot;&gt;https://github.com/notzheng/Tapd-Git-Hooks&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;操作步骤&quot;&gt;操作步骤&lt;/h3&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;在 Tapd 项目里开启 Gitlab 服务；&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;在你可用的公网 Nginx 服务器的配置文件里添加一段配置：&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; server {
-   listen 80;
-   server_name tapdhooks.yourdomain.com;
-   location ~ ^/(\d+)/([a-z0-9]+) {
-     proxy_set_header X-Gitlab-Event $http_X_Gitee_Event ;
-     proxy_set_header X-Gitlab-Token $http_X_Gitee_Token ;
-     proxy_pass https://hook.tapd.cn ;
-   }
- }
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;将 tapdhooks.yourdomain.com 解析到该 Nginx 服务器 IP；&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;将替换过域名的 webhook 链接配置到 Gitee 项目里；&lt;/p&gt;
-
-    &lt;p&gt;比如原 webhook 链接：https://hook.tapd.cn/32198210/adcc961bc533c74a257ef96295812fa7&lt;/p&gt;
-
-    &lt;p&gt;将 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;https://hook.tapd.cn&lt;/code&gt; 替换成 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;http://tapdhook.yourdomain.com&lt;/code&gt; 得到新的链接&lt;/p&gt;
-
-    &lt;p&gt;http://tapdhooks.yourdomain.com/32198210/adcc961bc533c74a257ef96295812fa7&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;搞定！&lt;/p&gt;
-
-&lt;h3 id=&quot;小插曲&quot;&gt;小插曲&lt;/h3&gt;
-
-&lt;p&gt;事情就是这么简单，但往往实操的时候不会这么顺利，会有些小插曲，比如我就遇到了。&lt;/p&gt;
-
-&lt;p&gt;如上配置之后，我向 Gitee push 代码却发现并没有在 Tapd 看到源码关联，在 Gitee 配置 webhook 的地方 test 了一下，报 502 bad gateway。&lt;/p&gt;
-
-&lt;p&gt;把 test 请求在 postman 里构造出来，然后使用 hook.tapd.cn 的原链接，请求是成功的，加上 Nginx 新增的 Header，也没有问题，但换回自己域名的链接就报 502 了。在 Nginx 服务器上将错误日志打印出来：&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;2019/09/12 15:51:25 [crit] 24721#24721: *287854 SSL_do_handshake() failed (SSL: error:1411B041:SSL routines:SSL3_GET_NEW_SESSION_TICKET:malloc failure) while SSL handshaking to upstream, client: 28.39.21.123, server: tapdhooks.yourdomain.com, request: “POST /32198210/adcc961bc533c74a257ef96295812fa7 HTTP/1.1”, upstream: “https://119.29.122.86:443/32198210/adcc961bc533c74a257ef96295812fa7”, host: “tapdhooks.yourdomain.com”&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;所以是 Nginx 向 https://hook.tapd.cn 链接发起请求时，SSL 握手错误了。&lt;/p&gt;
-
-&lt;p&gt;在网上搜了一些网友们的帖子后，得出的结论基本是因为客户端与服务端支持的 SSL protocol 版本不一致导致的，用工具查了一下 Tapd 服务器支持的 protocol 版本是 TLSv2，而我 Nginx 服务器的 OpenSSL 版本较低，可能不支持这个，于是先是升级了服务器上的 OpenSSL 的版本，然后通过重新编译升级了 Nginx 的 OpenSSL 版本，之后问题解决。这两步自己维护 Ngninx 服务器的同学应该不在话下，在此不再赘述，以下是我参考的链接：&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;升级服务器 OpenSSL 版本： &lt;a href=&quot;https://blog.csdn.net/l1028386804/article/details/53165252&quot;&gt;CentOS之——升级openssl为最新版&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;升级 Nginx 的 OpenSSL 版本：&lt;a href=&quot;https://my.oschina.net/u/1449160/blog/220415&quot;&gt;nginx旧版本openssl升级&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;参考&quot;&gt;参考&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.tapd.cn/forum/view/67001&quot;&gt;分享一个让源码关联支持Gogs/Gitee等平台的解决方案&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/notzheng/Tapd-Git-Hooks&quot;&gt;Tapd Git Hooks&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://my.oschina.net/u/1449160/blog/220415&quot;&gt;nginx旧版本openssl升级&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://blog.csdn.net/l1028386804/article/details/53165252&quot;&gt;CentOS之——升级openssl为最新版&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Zhuang Ma</name></author><category term="Tools" /><summary type="html">Tapd 是腾讯提供的越来越完善的项目管理工具，Gitee 是国内相对比较稳的代码托管平台。本文记录了让 Tapd 的源码关联功能支持 Gitee 平台的方法，及摸索过程中遇到的问题的解决步骤。</summary></entry></feed>
+&lt;/ul&gt;</content><author><name>Zhuang Ma</name></author><category term="GitHub" /><summary type="html">我经常提醒自己的防骗第一准则：天上不会掉馅饼。</summary></entry></feed>

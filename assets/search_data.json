@@ -1047,6 +1047,14 @@
     } ,
   
     {
+      "title"    : "给 Mac 添加右键菜单「使用 VSCode 打开」",
+      "category" : "VSCode",
+      
+      "url"      : "https://mazhuang.org/2020/10/28/add-vscode-to-right-click/",
+      "keywords" : "VSCode, macOS"
+    } ,
+  
+    {
       "title"    : "Android Studio",
       "category" : "Android",
       
