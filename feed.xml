@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://mazhuang.org/feed.xml" rel="self" type="application/atom+xml" /><link href="https://mazhuang.org/" rel="alternate" type="text/html" /><updated>2020-10-29T13:28:35+08:00</updated><id>https://mazhuang.org/feed.xml</id><title type="html">码志</title><subtitle>马壮的个人博客，公众号：闷骚的程序员</subtitle><author><name>Zhuang Ma</name></author><entry><title type="html">给 Mac 添加右键菜单「使用 VSCode 打开」</title><link href="https://mazhuang.org/2020/10/28/add-vscode-to-right-click/" rel="alternate" type="text/html" title="给 Mac 添加右键菜单「使用 VSCode 打开」" /><published>2020-10-28T00:00:00+08:00</published><updated>2020-10-28T00:00:00+08:00</updated><id>https://mazhuang.org/2020/10/28/add-vscode-to-right-click</id><content type="html" xml:base="https://mazhuang.org/2020/10/28/add-vscode-to-right-click/">&lt;p&gt;最终的实现效果是在文件 / 文件夹上右击时，会出现菜单项「用 VSCode 打开」，点击后会启动 Visual Studio Code 打开对应的文件 / 文件夹。&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://mazhuang.org/feed.xml" rel="self" type="application/atom+xml" /><link href="https://mazhuang.org/" rel="alternate" type="text/html" /><updated>2020-10-30T09:51:13+08:00</updated><id>https://mazhuang.org/feed.xml</id><title type="html">码志</title><subtitle>马壮的个人博客，公众号：闷骚的程序员</subtitle><author><name>Zhuang Ma</name></author><entry><title type="html">给 Mac 添加右键菜单「使用 VSCode 打开」</title><link href="https://mazhuang.org/2020/10/28/add-vscode-to-right-click/" rel="alternate" type="text/html" title="给 Mac 添加右键菜单「使用 VSCode 打开」" /><published>2020-10-28T00:00:00+08:00</published><updated>2020-10-28T00:00:00+08:00</updated><id>https://mazhuang.org/2020/10/28/add-vscode-to-right-click</id><content type="html" xml:base="https://mazhuang.org/2020/10/28/add-vscode-to-right-click/">&lt;p&gt;最终的实现效果是在文件 / 文件夹上右击时，会出现菜单项「用 VSCode 打开」，点击后会启动 Visual Studio Code 打开对应的文件 / 文件夹。&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/images/posts/mac/open-with-vscode.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
@@ -6,7 +6,7 @@
 
 &lt;ol&gt;
   &lt;li&gt;
-    &lt;p&gt;打开「自动操作.app」，就是小机器人图标那个；&lt;/p&gt;
+    &lt;p&gt;打开「自动操作.app」，就是小机器人图标那个；&lt;/p&gt;
 
     &lt;p&gt;&lt;img src=&quot;/images/posts/mac/auto-operate.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
   &lt;/li&gt;
