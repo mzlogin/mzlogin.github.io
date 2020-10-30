@@ -12,7 +12,7 @@ keywords: VSCode, macOS
 
 ## 实现步骤
 
-1. 打开「自动操作.app」，就是小机器人图标那个；
+1. 打开「自动操作.app」，就是小机器人图标那个；
 
     ![](/images/posts/mac/auto-operate.png)
 
