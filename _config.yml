@@ -2,7 +2,7 @@
 #   Main Configs   #
 # ---------------- #
 baseurl:
-url: https://molincya.github.io/justcn.github.io
+url: https://justcn.cn
 date_format: "ordinal"
 title: 木易灵兮
 subtitle: "工业品海外推广"
@@ -43,7 +43,7 @@ organization:
 organization_url: 
 github_username: molincy
 location: Wuhan, China
-email: chumpma@gmail.com
+email: 648122762@qq.com
 
 # ---------------- #
 #    Navigation    #
