@@ -8,19 +8,10 @@
 
 <script src="{{ assets_base_url }}/assets/js/simple-jekyll-search.min.js"></script>
 
-<script type="text/javascript">
-SimpleJekyllSearch({
-    searchInput: document.getElementById('search_box'),
-    resultsContainer: document.getElementById('search_results'),
-  {% if site.url contains 'justcn' %}
-    json: '{{ site.url }}/assets/search_data01.json',
-  {% else %}
-    json: '{{ site.url }}/assets/search_data.json',
-  {% endif %}
-    searchResultTemplate: '<li><a href="{url}" title="{title}">{title}</a></li>',
-    noResultsText: 'No results found',
-    limit: {{ site.simple_jekyll_search.limit }},
-    fuzzy: false,
-    exclude: ['Welcome']
+<script type="text/javascript"> 
+  var sjs = SimpleJekyllSearch({
+  searchInput: document.getElementById('search-input'),
+  resultsContainer: document.getElementById('results-container'),
+  json: '{{ site.url }}/search.json',
 })
 </script>
