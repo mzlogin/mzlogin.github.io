@@ -1,0 +1,33 @@
+---
+layout: page
+title: "Forum"
+description: "问题，建议，拍砖，挑刺......"
+header-img: "img/post-bg-rwd.jpg"
+---
+<div class="zh post-container">
+
+    <!--copied from markdown -->
+    <blockquote>
+
+    <p>世界有两个网络，分割交融，学无止境&</p>    
+    <p>有什么好的建议，发现什么问题，或是单纯的支持或批评，都请在下面的评论区里直接发表吧 ~~~ </p>
+    <p></p>
+     
+</div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+    <script type="text/javascript">
+const gitalk = new Gitalk({
+  clientID: '80d46390338c4218a674',
+  clientSecret: '370e415bb5dc9d1da8875df1be01cce71f5a1e7e',
+  repo: 'blog-comments',      // The repository of store comments,
+  owner: 'molincya',
+  admin: ['molincya'],
+  id: location.pathname,      // Ensure uniqueness and length less than 50
+  distractionFreeMode: false  // Facebook-like distraction free mode
+})
+
+gitalk.render('gitalk-container')
+</script>
