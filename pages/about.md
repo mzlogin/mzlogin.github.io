@@ -1,20 +1,41 @@
 ---
 layout: page
-title: My Life
-description: My Life
-keywords: 木易灵兮, Loongs Works
+title: About
+description: 打码改变世界
+keywords: Zhuang Ma, 马壮
 comments: true
 menu: 关于
 permalink: /about/
 ---
 
-<blockquote><p>顺势而为，逆境而行！</p></blockquote>
-<p>活到40岁的时候，公司亏损，孩子尚小，4位父母年迈。常常寻机妄想偷闲，却只能感叹人生不易，几近失去了活的意义。几番思量，才恍然——这就是我的人生。</p>
-<p>好也一天，坏也一天；清风拂岗，又见繁星闪烁。圣贤也要OOXX，匹夫也在意天下兴亡。意外发现了几本残缺的日记本，写了10年，断了10年，有老婆孩子后都忘了自己。生命走到了一半，是时候歇一歇重新规划下我剩下的几十年。</p>
-<h3>木易灵兮</h3>
-<p>灵兮是QQ时代的产物，一直懒得去改。直到遇到老婆，她改变了我的生活，我改加了网名木易。山之有灵，翘首以待；水若有情，巧目盼兮。我在等一位随波随缘的可人出现，看下眼神就知道遇到对的人。</p>
-<h3>十年磨一剑</h3>
-<p>从一个跟班做到SteelTailor总经理，概约十年。做管理的这两年，是我最焦虑的两年，知不可为而为之。感谢苗总的信任和栽培。等大约知道如何管理的时候，却也是我该离开的时候。悔然已悟，却已不是当初。痛定思痛，唯有珍惜现在的机会和时光。</p>
-<p>爱因斯坦说时间是记忆的假象。人生命的长短，应该用宽度来衡量而不是长度。剑已出鞘，就该期待锋芒毕露的时候。也许我已经等待多时，却只因繁世浮尘遮眼。</p>
-<h3>Loong‘s Works</h3>
-<p>这其实是为一个产品系列的统称。外贸十年，中国产品鲜有自己的品牌，只是廉价、代工、山寨的代名词。我期待着为中国制造正名而出一份绵薄之力。所以从Loong这个单词开始。中国龙不是dragon，我们应该有自己的写法。</p>
+我是马壮，码而生，码而立。
+
+仰慕「优雅编码的艺术」。
+
+坚信熟能生巧，努力改变人生。
+
+## 联系
+
+<ul>
+{% for website in site.data.social %}
+<li>{{website.sitename }}：<a href="{{ website.url }}" target="_blank">@{{ website.name }}</a></li>
+{% endfor %}
+{% if site.url contains 'mazhuang.org' %}
+<li>
+微信公众号：<br />
+<img style="height:192px;width:192px;border:1px solid lightgrey;" src="{{ assets_base_url }}/assets/images/qrcode.jpg" alt="闷骚的程序员" />
+</li>
+{% endif %}
+</ul>
+
+
+## Skill Keywords
+
+{% for skill in site.data.skills %}
+### {{ skill.name }}
+<div class="btn-inline">
+{% for keyword in skill.keywords %}
+<button class="btn btn-outline" type="button">{{ keyword }}</button>
+{% endfor %}
+</div>
+{% endfor %}
