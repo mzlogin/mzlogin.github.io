@@ -1,6 +1,6 @@
 ---
 layout: page
-title: My Life
+title: My Life-灵兮40年
 description: "木易·灵兮"
 keywords: 木易灵兮
 comments: true
@@ -18,3 +18,5 @@ permalink: /about/
 <p>爱因斯坦说时间是记忆的假象。人生命的长短，应该用宽度来衡量而不是长度。剑已出鞘，就该期待锋芒毕露的时候。也许我已经等待多时，却只因繁世浮尘遮眼。</p>
 <h3>Loong‘s Works</h3>
 <p>这其实是为一个产品系列的统称。外贸十年，中国产品鲜有自己的品牌，只是廉价、代工、山寨的代名词。我期待着为中国制造正名而出一份绵薄之力。所以从Loong这个单词开始。中国龙不是dragon，我们应该有自己的写法。</p>
+<hr>
+Email: 648122762@qq.com
