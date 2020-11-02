@@ -1,13 +1,13 @@
-# ---------------- #
+﻿# ---------------- #
 #   Main Configs   #
 # ---------------- #
-baseurl:
+baseurl:https://justcn.cn
 url: https://justcn.cn
 date_format: "ordinal"
-title: 木易灵兮
+title: 木易灵兮-Loong's Works
 subtitle: "工业品海外推广"
 description: "顺势而为，逆行而上"
-keywords: 工业品推广, 外贸运营, 海外推广, 产品定义
+keywords: 工业品推广, 外贸运营, 海外推广, 商业逻辑
 timezone: Asia/Shanghai
 encoding: "utf-8"
 side_bar_repo_limit: 5
@@ -42,7 +42,7 @@ author: 木易灵兮
 organization: 
 organization_url: 
 github_username: molincy
-location: Wuhan, China
+location: Jiaxing, China
 email: 648122762@qq.com
 
 # ---------------- #
@@ -74,7 +74,7 @@ navs:
     label: 链接
 
   -
-    href: /about/
+    href: /my-life.html
     label: 关于
 
 # ---------------- #
