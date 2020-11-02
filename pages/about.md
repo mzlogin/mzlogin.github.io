@@ -5,7 +5,7 @@ description: My Life
 keywords: 木易灵兮, Loongs Works
 comments: true
 menu: 关于
-permalink: /my-life.html
+permalink: /about/
 ---
 
 <blockquote><p>顺势而为，逆境而行！</p></blockquote>
