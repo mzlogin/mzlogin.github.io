@@ -24,7 +24,7 @@ components:
     # 不蒜子访问统计
     busuanzi:
         enabled: true
-        start_date: 2020-05-03
+        start_date: 2004-12-25
 # 压缩页面内容
 compress_html:
   clippings: all
@@ -120,17 +120,17 @@ disqus:
     username: 
 # https://imsun.net/posts/gitment-introduction/
 gitment:
-    owner: mzlogin
+    owner: 木易灵兮
     repo: blog-comments
     oauth:
-        client_id: d2e1cbbd298958076462
-        client_secret: b42a4178e5fd4a7cf63189ef4b1453b05c375709
+        client_id: 80d46390338c4218a674
+        client_secret: 370e415bb5dc9d1da8875df1be01cce71f5a1e7e
 # https://github.com/gitalk/gitalk#install
 gitalk:
-    owner: mzlogin
+    owner: molincya
     repo: blog-comments
-    clientID: d2e1cbbd298958076462
-    clientSecret: b42a4178e5fd4a7cf63189ef4b1453b05c375709
+    clientID: 80d46390338c4218a674
+    clientSecret: 370e415bb5dc9d1da8875df1be01cce71f5a1e7e
 # 在使用其它评论组件时可点击显示 Disqus
 lazy_load_disqus : false
 
