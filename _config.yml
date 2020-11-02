@@ -131,6 +131,7 @@ gitalk:
     repo: blog-comments
     clientID: 80d46390338c4218a674
     clientSecret: 370e415bb5dc9d1da8875df1be01cce71f5a1e7e
+    adminUser: molincya
 # 在使用其它评论组件时可点击显示 Disqus
 lazy_load_disqus : false
 
