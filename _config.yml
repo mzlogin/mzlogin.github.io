@@ -1,7 +1,7 @@
 ﻿# ---------------- #
 #   Main Configs   #
 # ---------------- #
-baseurl:https://justcn.cn
+baseurl: # 本地调试使用
 url: https://justcn.cn
 date_format: "ordinal"
 title: 木易灵兮-Loong's Works
