@@ -45,11 +45,12 @@ layout: default
 		{% endfor %}
 	  </span>
 <!-- Leo标签 -->
-	  <span class="meta-info">
-		{% for tag in page.tags %}
-		<a href="/tag/#{{ tag[0] }}" title="{{ tag[0] }}" rel="{{ tag[1].size }}">{{ tag[0] }}</a>
-		{% endfor %}
-	  </span>
+          <span class="meta-info">[
+                {% for tag in page.tags %}
+                {% capture tag_name %}{{ tag }}{% endcapture %}
+                <a href="/tag/#{{ tag_name }}"><code class="highligher-rouge"><nobr>{{ tag_name }}</nobr></code>&nbsp;</a>
+                {% endfor %}
+                ]</span>
 		
 		
         </div>
