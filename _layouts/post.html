@@ -30,19 +30,12 @@ layout: default
             共 {{ page.content | strip_html | strip_newlines | remove: " " | size }} 字，约 {{ page.content | strip_html | strip_newlines | remove: " " | size | divided_by: 350 | plus: 1 }} 分钟
           </span>
           {% endif %}
-		
+															 
 <!-- Leo标签 -->
           <span class="meta-info">[
                 {% for tag in page.tags %}
                 {% capture tag_name %}{{ tag }}{% endcapture %}
-                <a href="/tag/#{{ tag_name }}">{{ tag_name }} &nbsp;</a>
-                {% endfor %}
-                ]</span>													 
-<!-- Leo标签 -->
-          <span class="meta-info">[
-                {% for tag in page.tags %}
-                {% capture tag_name %}{{ tag }}{% endcapture %}
-		<a href="/tag/#{{ tag_name }}" title="{{ tag[0] }}" title="{{ tag_name }}">{{ tag_name }}</a>
+		<a href="/tag/#{{ tag_name }}" title="{{ tag[0] }}" >{{ tag_name }}</a>
                 {% endfor %}
                 ]</span>
 		
