@@ -41,7 +41,13 @@ layout: default
 <!-- Leo标签 -->
 	  <span class="meta-info">
 		{% for tag in page.tags %}
-		<a href="#{{ tag[0] }}" title="{{ tag[0] }}" rel="{{ tag[1].size }}">{{ tag[0] }}</a>
+		<a href="/#{{ tag[0] }}" title="{{ tag[0] }}" rel="{{ tag[1].size }}">{{ tag[0] }}</a>
+		{% endfor %}
+	  </span>
+<!-- Leo标签 -->
+	  <span class="meta-info">
+		{% for tag in page.tags %}
+		<a href="/tag/#{{ tag[0] }}" title="{{ tag[0] }}" rel="{{ tag[1].size }}">{{ tag[0] }}</a>
 		{% endfor %}
 	  </span>
 		
