@@ -2,14 +2,6 @@
 layout: default
 ---
 
-<!-- page标签云 -->
-			<div id='tag_cloud' class="tags">
-				{% for tag in page.tags %}
-				<a href="#{{ tag[0] }}" title="{{ tag[0] }}" rel="{{ tag[1].size }}">{{ tag[0] }}</a>
-				{% endfor %}
-			</div>
-
-
 <span>[
   {% for tag in page.tags %}
       {% capture tag_name %}{{ tag }}{% endcapture %}
@@ -45,6 +37,15 @@ layout: default
             共 {{ page.content | strip_html | strip_newlines | remove: " " | size }} 字，约 {{ page.content | strip_html | strip_newlines | remove: " " | size | divided_by: 350 | plus: 1 }} 分钟
           </span>
           {% endif %}
+		
+<!-- Leo标签 -->
+	  <span class="meta-info">
+		{% for tag in page.tags %}
+		<a href="#{{ tag[0] }}" title="{{ tag[0] }}" rel="{{ tag[1].size }}">{{ tag[0] }}</a>
+		{% endfor %}
+	  </span>
+		
+		
         </div>
       </div>
     </div>
