@@ -32,12 +32,6 @@ layout: default
           {% endif %}
 		
 <!-- Leo标签 -->
-	  <span class="meta-info">
-		{% for tag in page.tags %}
-		<a href="{{ site.url }}/tag/#{{ tag[0] }}" " title="{{ tag[0] }}" rel="{{ tag[1].size }}">{{ tag[0] }}</a>
-		{% endfor %}
-	  </span>
-<!-- Leo标签 -->
           <span class="meta-info">[
                 {% for tag in page.tags %}
                 {% capture tag_name %}{{ tag }}{% endcapture %}
@@ -48,7 +42,7 @@ layout: default
           <span class="meta-info">[
                 {% for tag in page.tags %}
                 {% capture tag_name %}{{ tag }}{% endcapture %}
-                <a href="/tag/#{{ tag_name }}" title="{{ tag[0] }}"><code><nobr>{{ tag_name }}</nobr></code>&nbsp;</a>
+		<a href="/tag/#{{ tag_name }}" title="{{ tag[0] }}" title="{{ tag_name }}">{{ tag_name }}</a>
                 {% endfor %}
                 ]</span>
 		
