@@ -2,9 +2,15 @@
 layout: default
 ---
 
-<!-- 标签云 -->
+<!-- page标签云 -->
 			<div id='tag_cloud' class="tags">
-				{% for tag in site.tags %}
+				{% for tag in page.tags %}
+				<a href="#{{ tag[0] }}" title="{{ tag[0] }}" rel="{{ tag[1].size }}">{{ tag[0] }}</a>
+				{% endfor %}
+			</div>
+<!-- post标签云 -->
+			<div id='tag_cloud' class="tags">
+				{% for tag in post.tags %}
 				<a href="#{{ tag[0] }}" title="{{ tag[0] }}" rel="{{ tag[1].size }}">{{ tag[0] }}</a>
 				{% endfor %}
 			</div>
