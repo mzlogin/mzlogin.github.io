@@ -2,13 +2,6 @@
 layout: default
 ---
 
-<span>[
-  {% for tag in page.tags %}
-      {% capture tag_name %}{{ tag }}{% endcapture %}
-          <a href="/tag/#{{ tag_name }}"><code class="highligher-rouge"><nobr>{{ tag_name }}</nobr></code>&nbsp;</a>
-            {% endfor %}
-            ]</span>
-
 {% assign assets_base_url = site.url %}
 {% if site.cdn.jsdelivr.enabled %}
 {% assign assets_base_url = "https://cdn.jsdelivr.net/gh/" | append: site.repository | append: '@master' %}
@@ -48,7 +41,14 @@ layout: default
           <span class="meta-info">[
                 {% for tag in page.tags %}
                 {% capture tag_name %}{{ tag }}{% endcapture %}
-                <a href="/tag/#{{ tag_name }}"><code class="highligher-rouge"><nobr>{{ tag_name }}</nobr></code>&nbsp;</a>
+                <a href="/tag/#{{ tag_name }}">{{ tag_name }} &nbsp;</a>
+                {% endfor %}
+                ]</span>													 
+<!-- Leo标签 -->
+          <span class="meta-info">[
+                {% for tag in page.tags %}
+                {% capture tag_name %}{{ tag }}{% endcapture %}
+                <a href="/tag/#{{ tag_name }}" title="{{ tag[0] }}"><code><nobr>{{ tag_name }}</nobr></code>&nbsp;</a>
                 {% endfor %}
                 ]</span>
 		
