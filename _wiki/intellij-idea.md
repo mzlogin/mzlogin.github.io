@@ -10,6 +10,10 @@ keywords: IDEA, Java
 
 ## Q&A
 
+### 如何让代码自动换行显示？
+
+Preferences -> Editor -> General，勾选 Soft-wrap these files，后面的文件名匹配改为 `*`，表示所有文件都启用自动换行。
+
 ### 解决导入 Eclipse Maven 工程后无法读取 .xml 文件的问题
 
 IDEA 与 Eclipse 配置文件目录的方式不同，可以将文件夹标记为 Sources、Resources 和 tests 等，而 src/main/java 默认被标记为 Sources，src/main/resources 才默认被标记为 Resources，编译时自动复制。
