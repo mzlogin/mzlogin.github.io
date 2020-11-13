@@ -11,19 +11,15 @@ keywords: jekyll，github pages
 完全是我不会的js或者git安装。只能不断的fork。
 
 ### 显示tags标签代码，fork再看源码吧
-Blockquotes
-<!-- Leo标签的完整引用代码 -->
-          <span class="meta-info">[
-                {% for tag in page.tags %}
-                {% capture tag_name %}{{ tag }}{% endcapture %}
-		<a href="/tag/#{{ tag_name }}" title="{{ tag[0] }}" >{{ tag_name }}</a>
-                {% endfor %}
-                ]</span>
-
-Blockquotes
+><!-- Leo标签的完整引用代码 -->
+>          <span class="meta-info">[
+>                {% for tag in page.tags %}
+>                {% capture tag_name %}{{ tag }}{% endcapture %}
+>		<a href="/tag/#{{ tag_name }}" title="{{ tag[0] }}" >{{ tag_name }}</a>
+>                {% endfor %}
+>                ]</span>
 
 ### Markdown的表格
-
 | 功能              | Windows | Mac OS X |
 |:------------------|:--------|:---------|
 | 打开文件          | C-o     |          |
@@ -31,4 +27,11 @@ Blockquotes
 | 关闭文件夹        | C-k f   |          |
 | 命令面板          | C-S-p   |          |
 
+看代码
+>| 功能              | Windows | Mac OS X |
+>|:------------------|:--------|:---------|
+>| 打开文件          | C-o     |          |
+>| 打开文件夹        | C-k C-o |          |
+>| 关闭文件夹        | C-k f   |          |
+>| 命令面板          | C-S-p   |          |
 
