@@ -23,6 +23,12 @@ keywords: jekyll，github pages
 ```
 
 ### Markdown的表格
+| 功能     | Windows | Mac OS X |
+|:---------|:--------|:---------|
+| 左对齐   | C-M-l   |          |
+| 左右居中 | C-M-c   |          |
+| 右对齐   | C-M-r   |          |
+
 ```
 | 功能     | Windows | Mac OS X |
 |:---------|:--------|:---------|
@@ -30,9 +36,4 @@ keywords: jekyll，github pages
 | 左右居中 | C-M-c   |          |
 | 右对齐   | C-M-r   |          |
 ```
-看效果<br>
-| 功能     | Windows | Mac OS X |
-|:---------|:--------|:---------|
-| 左对齐   | C-M-l   |          |
-| 左右居中 | C-M-c   |          |
-| 右对齐   | C-M-r   |          |
+
