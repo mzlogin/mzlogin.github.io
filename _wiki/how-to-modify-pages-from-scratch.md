@@ -11,7 +11,7 @@ keywords: jekyll，github pages
 完全是我不会的js或者git安装。只能不断的fork。
 
 ### 显示tags标签代码，fork再看源码吧
-```
+Blockquotes
 <!-- Leo标签的完整引用代码 -->
           <span class="meta-info">[
                 {% for tag in page.tags %}
@@ -20,7 +20,7 @@ keywords: jekyll，github pages
                 {% endfor %}
                 ]</span>
 
-```
+Blockquotes
 
 ### Markdown的表格
 
