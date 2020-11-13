@@ -1,4 +1,4 @@
-﻿---
+---
 layout: wiki
 title: 从零开始学习修改Github Pages
 categories: tools
