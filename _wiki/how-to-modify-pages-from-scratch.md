@@ -1,4 +1,4 @@
----
+﻿---
 layout: wiki
 title: 从零开始学习修改Github Pages
 categories: tools
@@ -20,7 +20,6 @@ keywords: jekyll，github pages
 >                ]</span>
 
 ### Markdown的表格
-## 常用命令
 
 | 功能                      | 命令                                  |
 |:--------------------------|:--------------------------------------|
