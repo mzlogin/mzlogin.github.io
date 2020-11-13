@@ -20,6 +20,7 @@ keywords: jekyll，github pages
 >                ]</span>
 
 ### Markdown的表格
+## 常用命令
 
 | 功能                      | 命令                                  |
 |:--------------------------|:--------------------------------------|
@@ -44,4 +45,3 @@ keywords: jekyll，github pages
 | 远程空分支（等同于删除）  | git push origin :[branchName]         |
 | 查看所有分支历史          | gitk --all                            |
 | 按日期排序显示历史        | gitk --date-order                     |
-
