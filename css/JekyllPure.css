@@ -1,4 +1,4 @@
-* {
+﻿* {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -186,14 +186,7 @@ h3 {
 
 
 @media (min-width: 48em) {
-    .content {
-        padding: 0em 3em 0;
-        margin-left: 25%;
-    }
-
-
-
-    .sidebar {
+       .sidebar {
         position: fixed;
         top: 0;
         bottom: 0;
