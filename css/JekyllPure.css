@@ -186,13 +186,6 @@ h3 {
 
 
 @media (min-width: 48em) {
-    .content {
-        padding: 0em 3em 0;
-        margin-left: 25%;
-    }
-
-
-
     .sidebar {
         position: fixed;
         top: 0;
