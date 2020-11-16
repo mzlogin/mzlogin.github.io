@@ -1,0 +1,367 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+::selection {
+    color: #fff;
+    background-color: #E46868;
+}
+a {
+    text-decoration: none;
+    color: rgb(61, 146, 201);
+
+}
+a:hover,
+a:focus {
+    text-decoration: underline;
+}
+body{
+    background-color: #ffffff;
+    line-height:1.6;
+//background-color: #f6f7f9;
+}
+html, button, input, select, textarea,
+.pure-g [class *= "pure-u"],
+.pure-g-r [class *= "pure-u"] {
+    font-family: "Helvetica Neue", Helvetica Neue, Helvetica, Hiragino Sans GB, Microsoft Yahei, Arial;
+}
+h3 {
+    font-weight: 100;
+}
+
+/* LAYOUT CSS */
+.pure-img-responsive {
+    max-width: 100%;
+    height: auto;
+}
+
+#layout {
+    padding: 0;
+}
+
+.header {
+    text-align: center;
+    top: auto;
+    margin: 3em auto;
+}
+
+.sidebar {
+   // background: #2d3339;
+    //background: rgb(61, 79, 93);
+
+    color: #fff;
+}
+
+.brand-title,
+.brand-tagline {
+    margin: 0;
+}
+.brand-title {
+    text-transform: uppercase;
+}
+.brand-tagline {
+    font-weight: 300;
+    color: rgb(176, 202, 219);
+}
+
+.nav-list {
+    margin: 0;
+    padding:0 20px;
+    list-style: none;
+}
+.nav-item {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+}
+.nav-item a {
+    background: transparent;
+    border: 2px solid rgb(176, 202, 219);
+    color: #fff;
+    margin-top: 1em;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-size: 85%;
+}
+.nav-item a:hover,
+.nav-item a:focus {
+    border: 2px solid rgb(61, 146, 201);
+    text-decoration: none;
+}
+
+.content-subhead {
+    text-transform: uppercase;
+    color: #aaa;
+    border-bottom: 1px solid #eee;
+    padding: 0.4em 0;
+    font-size: 80%;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+}
+
+.content {
+    padding: 0em 1em 0;
+}
+.content img,
+.content #video{
+    max-width: 100%;
+    height: auto;
+}
+.post {
+    padding-bottom: 2em;
+}
+.post-title {
+    font-size: 2em;
+    color: #222;
+    margin-bottom: 0.2em;
+}
+.post-avatar {
+    border-radius: 50px;
+    float: right;
+    margin-left: 1em;
+}
+.post-description {
+    color: #444;
+    line-height: 1.8em;
+}
+.post-meta {
+    color: #999;
+    font-size: 90%;
+    margin: 0;
+}
+
+.post-category {
+    margin: 0 0.1em;
+    padding: 0.3em 1em;
+    color: #fff;
+    background: #999;
+    font-size: 80%;
+}
+.post-categorybut{
+    margin: 0 0.1em;
+    padding: 0.3em 1em;
+    color: #fff;
+    background: #999;
+    font-size: 80%;
+    background: #4d85d1;
+}
+.post-category-0 {
+    background: #5aba59;
+}
+.post-category-1 {
+    background: #4d85d1;
+}
+.post-category-2 {
+    background: #8156a7;
+}
+.post-category-3 {
+    background: #df2d4f;
+}
+.post-category-4 {
+    background: #1c5461;
+}
+
+
+
+.post-images {
+    margin: 1em 0;
+}
+.post-image-meta {
+    margin-top: -3.5em;
+    margin-left: 1em;
+    color: #fff;
+    text-shadow: 0 1px 1px #333;
+}
+
+.footer {
+    text-align: center;
+    padding: 1em 0;
+}
+.footer a {
+    color: #ccc;
+    font-size: 80%;
+    margin: 0 5px;
+}
+
+
+@media (min-width: 48em) {
+    .content {
+        padding: 0em 3em 0;
+        margin-left: 25%;
+    }
+
+
+
+    .sidebar {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+    }
+}
+/* Make clicks pass-through */
+#nprogress {
+    pointer-events: none;
+}
+
+#nprogress .bar {
+    background: #29d;
+
+    position: fixed;
+    z-index: 1031;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 2px;
+}
+
+/* Fancy blur effect */
+#nprogress .peg {
+    display: block;
+    position: absolute;
+    right: 0px;
+    width: 100px;
+    height: 100%;
+    box-shadow: 0 0 10px #29d, 0 0 5px #29d;
+    opacity: 1.0;
+
+    -webkit-transform: rotate(3deg) translate(0px, -4px);
+    -ms-transform: rotate(3deg) translate(0px, -4px);
+    transform: rotate(3deg) translate(0px, -4px);
+}
+
+/* Remove these to get rid of the spinner */
+#nprogress .spinner {
+    display: block;
+    position: fixed;
+    z-index: 1031;
+    top: 15px;
+    right: 15px;
+}
+
+#nprogress .spinner-icon {
+    width: 18px;
+    height: 18px;
+    box-sizing: border-box;
+
+    border: solid 2px transparent;
+    border-top-color: #29d;
+    border-left-color: #29d;
+    border-radius: 50%;
+
+    -webkit-animation: nprogress-spinner 400ms linear infinite;
+    animation: nprogress-spinner 400ms linear infinite;
+}
+
+.nprogress-custom-parent {
+    overflow: hidden;
+    position: relative;
+}
+
+.nprogress-custom-parent #nprogress .spinner,
+.nprogress-custom-parent #nprogress .bar {
+    position: absolute;
+}
+
+@-webkit-keyframes nprogress-spinner {
+    0%   { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+@keyframes nprogress-spinner {
+    0%   { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/*自行添加*/
+blockquote{
+    border-left: 5px solid rgba(102, 128, 153, 0.075);
+    background: rgba(102, 128, 153, 0.05);
+    margin:1em 0.3em;
+}
+blockquote ul li{
+    list-style-type:decimal;
+}
+.headerpic img{
+    max-width: 100%;
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+}
+.pagination{
+    margin: 15px 0;
+}
+.pagination-item {
+    border: 1px solid #eee;
+    text-align:center;
+    color: #ccc;
+}
+a.pagination-item:hover {
+    background-color: #6a9fb5;
+    color: #ffffff;
+    text-decoration:none;
+}
+/* top */
+.topfade {
+    position: fixed;
+    _position: absolute;
+    bottom: 20px;
+    right: 50px;
+    display: none;
+}
+
+.topfade a, .topfade a:link {
+    width: 50px;
+    height: 65px;
+    display: inline-block;
+    background: url(/images/back_to_top.png) no-repeat;     //weiyi.theme.modify 修改小火箭图片的路径
+    outline: none;
+}
+
+.topfade a:hover {
+    outline: none;
+}
+.search form INPUT[type="text"] {
+   // background: #2d3339;
+    background: rgb(61, 79, 93);
+    border: 0;
+    margin: 20px 0;
+    padding: 5px 0 10px 0px;
+    width: 90px;
+    color: #ffffff;
+}
+.header a{
+    color: #fff;
+    -webkit-transition: color 0.3s;
+    -moz-transition: color 0.3s;
+    -o-transition: color 0.3s;
+    transition: color 0.3s;
+}
+.article img,
+.article #video{
+    max-width: 100%;
+    height: auto;
+    border-radius: 2px;
+}
+table{
+    background: rgba(102, 128, 153, 0.05);
+    font-size: 1em;
+    border-spacing: 0;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+table td,
+table th{
+    padding: 6px 10px;
+    border: solid 0px rgba(102, 128, 153, 0.075);
+    margin: 0;
+}
+table tr:nth-of-type(2n) {
+    background: #ffffff;
+}
+.nav-link {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    margin: 10px 10px;
+}
