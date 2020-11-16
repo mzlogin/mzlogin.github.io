@@ -1,0 +1,104 @@
+/* timeline */
+
+
+#content article .entry-content p a{
+    color: #2080df;
+}
+.point-time {
+    content: "";
+    position: absolute;
+    width: 13px;
+    height: 13px;
+    top: 9px;
+    left: 20%;
+    background: #1c87bf;
+    margin-left: -4px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 5px #fff;
+}
+
+.point1 {
+    background-color: #f6393f;
+}
+
+.point2 {
+    background-color: #1c87bf;
+}
+
+.point3 {
+    background-color: #95c91e;
+}
+
+.point4 {
+    background-color: #ffb902;
+}
+
+.point5 {
+    background-color: #d32d93;
+}
+
+.archive {
+
+}
+
+.archive a {
+    font-size: 18px;
+}
+
+.archive span {
+    font-size: 10px;
+}
+
+.archive article {
+    position: relative;
+}
+
+.archive article > h3 {
+    width: 15%;
+    height: 20px;
+    line-height: 20px;
+    text-align: right;
+    font-size: 1.4em;
+    color: #1d1d1d;
+    padding: 10px 0 20px;
+}
+
+.archive article section {
+
+    position: relative;
+}
+
+.archive article section:before {
+    content: "";
+    width: 5px;
+    top: 17px;
+    bottom: -35px;
+    left: 20%;
+    background: #e6e6e6;
+    position: absolute;
+}
+
+.archive article section:last-child:before {
+    display: none;
+}
+
+.archive article section time {
+    width: 15%;
+    display: block;
+    position: absolute;
+}
+
+.archive article section time > span {
+    display: block;
+    text-align: right;
+}
+
+.archive article section aside {
+    color: #3a3a38;
+    margin-left: 25%;
+
+}
+
+.archive article section .brief {
+    color: #9f9f9f;
+}
