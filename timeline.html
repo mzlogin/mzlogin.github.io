@@ -1,0 +1,100 @@
+﻿---
+layout: blog
+title : 时间轴
+permalink: /timeline/
+---
+
+<link rel="stylesheet" href="/css/min/pointtime.css" type="text/css" media="screen" />
+<script language="javascript">
+    $(function(){
+        var tags_a = $(".point-time");
+        tags_a.each(function(){
+            var x = 5;
+            var y = 0;
+            var rand = parseInt(Math.random() * (x - y + 1) + y);
+            $(this).addClass("point"+rand);
+        });
+    });
+</script>
+
+<!-- weiyi.theme.modify 按月分类文章
+之前每篇文章都占用一个pointtime样式，很占空间，是由下面这段代码完成：
+<div class="archive" >
+    {% for post in site.posts reverse %}
+    {% if post.layout == 'post' %}
+    <article>
+        <h3 class="year">{{ post.date | date: "%Y" }}</h3>
+        <section>
+        <span class="point-time "></span>
+        <time datetime="{{ post.date | date: "%m" }}-{{ post.date | date: "%d" }}">
+        <span>{{ post.date | date: "%m" }}月{{ post.date | date: "%d" }}日</span>
+        <span></span>
+        </time>
+        <aside>
+            <p class="things"><a href="{{ post.url }}">{{post.title}}</a></p>
+        </aside>
+    </section>
+    {% endif %}
+    {% endfor %}
+    </article>
+</div>
+参考下述链接，修改为按月显示：
+http://stackoverflow.com/questions/19086284/jekyll-liquid-templating-how-to-group-blog-posts-by-year
+-->
+
+<div class="archive" >
+<article>
+{% for post in site.posts  %}
+    {% if post.layout == 'post' %}
+        {% capture this_year %}{{ post.date | date: "%Y" }}{% endcapture %}
+        {% capture this_month %}{{ post.date | date: "%m" }}{% endcapture %}
+        {% capture next_year %}{{ post.previous.date | date: "%Y" }}{% endcapture %}
+        {% capture next_month %}{{ post.previous.date | date: "%m" }}{% endcapture %}
+
+
+        {% if forloop.first %}
+            <h3 id="{{ this_year }}-ref">{{this_year}}</h3>
+            <section>
+                <span class="point-time "></span>
+                <time datetime="{{ post.date | date: "%m" }}">
+                    <span>
+                        <h3 id="{{ this_year }}-{{ this_month }}-ref">{{ this_month }}</h3>
+                    </span>
+                </time>
+        {% endif %}
+
+        <aside>
+            <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+            <span><font color="gray">{{ post.date | date: "%Y" }}-{{ post.date | date: "%m" }}-{{ post.date | date: "%d" }}</font></span>
+        </aside>
+        </section>        
+
+        {% if forloop.last %}
+        {% else %}
+            {% if this_year != next_year %}
+                <h3 id="{{ next_year }}-ref">{{next_year}}</h3>
+                <section>
+                    <span class="point-time "></span>
+                    <time datetime="{{ post.date | date: "%m" }}">
+                        <span>
+                            <h3 id="{{ next_year }}-{{ next_month }}-ref">{{ next_month }}</h3>
+                        </span>
+                    </time>
+            {% else %}    
+                {% if this_month != next_month %}
+                    <section>
+                        <span class="point-time "></span>
+                        <time datetime="{{ post.date | date: "%m" }}">
+                            <span>
+                                <h3 id="{{ this_year }}-{{ next_month }}-ref">{{ next_month }}</h3>
+                            </span>
+                        </time>
+                {% else %}    
+                    <section>
+                {% endif %}
+            {% endif %}
+        {% endif %}
+    {% endif %}
+{% endfor %}
+</article>
+</div>
