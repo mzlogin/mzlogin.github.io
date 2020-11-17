@@ -186,7 +186,11 @@ h3 {
 
 
 @media (min-width: 48em) {
+<<<<<<< HEAD
        .sidebar {
+=======
+    .sidebar {
+>>>>>>> 43262e5272b4ff33cb39f8199c7ff563eac6a41f
         position: fixed;
         top: 0;
         bottom: 0;
