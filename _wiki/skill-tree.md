@@ -1,4 +1,4 @@
-﻿---
+---
 layout: mindmap
 title: Skill Tree
 categories: mindmap
