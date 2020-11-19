@@ -11,6 +11,11 @@ layout: default
       <div class="columns">
         <div class="column two-thirds">
           <div class="collection-title">
+            <div class="column one-third">
+                {% include sidebar-search.html %}
+                {% include sidebar-categories-cloud.html %}
+
+            </div>
             <h1 class="collection-header">{{ page.title }}</h1>
             {% if page.subtitle %}
             <div class="collection-info">
@@ -41,11 +46,8 @@ layout: default
                     {% include comments.html %}
                 </div>
             </div>
-            <div class="column one-third">
-                {% include sidebar-search.html %}
-                {% include sidebar-categories-cloud.html %}
 
-            </div>
+            
         </div>
     </section>
     <!-- /section.content -->
