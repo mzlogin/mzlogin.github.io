@@ -30,9 +30,7 @@ layout: wide-page
  <section class="container content">
         <div class="columns">
             <div class="column two-thirds" >
-                <div class="column one-third">
-                {% include sidebar-search.html %}
-                </div>
+
                 <article class="article-content markdown-body">
                     {{ content }}
                 </article>
@@ -44,6 +42,9 @@ layout: wide-page
                 </div>
             </div>
           <div >
+                <div class="column one-third">
+                {% include sidebar-search.html %}
+                </div>
             </div>
         </div>
     </section>
