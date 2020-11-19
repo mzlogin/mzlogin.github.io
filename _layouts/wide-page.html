@@ -1,9 +1,6 @@
 ---
 layout: wide-page
 ---
-            <div class="column one-third">
-                {% include sidebar-search.html %}
-            </div>
 {% assign assets_base_url = site.url %}
 {% if site.cdn.jsdelivr.enabled %}
 {% assign assets_base_url = "https://cdn.jsdelivr.net/gh/" | append: site.repository | append: '@master' %}
@@ -31,9 +28,11 @@ layout: wide-page
 </section>
 <!-- / .banner -->
  <section class="container content">
+        <div class="column one-third">
+                {% include sidebar-search.html %}
+        </div>
         <div class="columns">
             <div class="column two-thirds" >
-                 {% include sidebar-search.html %}
                 <article class="article-content markdown-body">
                     {{ content }}
                 </article>
