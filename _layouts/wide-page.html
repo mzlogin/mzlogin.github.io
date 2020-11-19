@@ -1,6 +1,7 @@
 ---
-layout: wide-page
+layout: default
 ---
+
 {% assign assets_base_url = site.url %}
 {% if site.cdn.jsdelivr.enabled %}
 {% assign assets_base_url = "https://cdn.jsdelivr.net/gh/" | append: site.repository | append: '@master' %}
@@ -30,7 +31,6 @@ layout: wide-page
  <section class="container content">
         <div class="columns">
             <div class="column two-thirds" >
-
                 <article class="article-content markdown-body">
                     {{ content }}
                 </article>
@@ -41,10 +41,10 @@ layout: wide-page
                     {% include comments.html %}
                 </div>
             </div>
-          <div >
-                <div class="column one-third">
+            <div class="column one-third">
                 {% include sidebar-search.html %}
-                </div>
+                {% include sidebar-categories-cloud.html %}
+
             </div>
         </div>
     </section>
