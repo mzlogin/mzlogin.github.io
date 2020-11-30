@@ -8,7 +8,7 @@ keywords: jekyll，github pages
 
 ## 静态网站加功能真难
 
-完全是我不会的js或者git安装。只能不断的fork。
+完全是我不会的js或者git安装。只能不断的fork。其他MarkDown语法参考：[MarkDown语法](https://justcn.cn/wiki/how-to-make-a-blog-in-github/ "MarkDown语法参考")
 
 ### 显示tags标签代码，fork再看源码吧
 ><!-- Leo标签的完整引用代码 -->
@@ -20,8 +20,7 @@ keywords: jekyll，github pages
 >                ]</span>
 
 ## 超链接
-
-> [普通链接带标题](https://www.justn.cn/ "普通链接带标题")
+`[普通链接带标题](https://www.justcn.cn/ "普通链接带标题")`
  
 ### Markdown的表格
 
