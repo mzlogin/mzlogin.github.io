@@ -328,6 +328,10 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
 ```
 
+### 通过扩展坞连接的键盘鼠标卡顿断电
+
+参考 <https://support.apple.com/zh-cn/HT201295>，我在 MacBook Pro 2019 16 寸上的问题貌似解决了。
+
 ## 参考
 
 * [你可能不知道的 Mac 技巧 - 截图，Gif 制作及 App 推荐](https://zhuanlan.zhihu.com/p/25154768)
