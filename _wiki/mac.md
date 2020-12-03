@@ -330,7 +330,9 @@ sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
 
 ### 通过扩展坞连接的键盘鼠标卡顿断电
 
-参考 <https://support.apple.com/zh-cn/HT201295>，我在 MacBook Pro 2019 16 寸上的问题貌似解决了。
+我用 MacBook Pro 16 寸 2019 款，通过 biaze 五口扩展坞连接键盘、鼠标、显示器、网线，一直好好的，突然有一天键盘鼠标开始经常卡顿、断电。参考 <https://support.apple.com/zh-cn/HT201295>，重置 SMC 问题也没有解决。
+
+尝试过插别的接口、换扩展坞、只接以上几种设备之一和之二等，都没解决。最后用了个别的鼠标试了下，好了。欲哭无泪。
 
 ## 参考
 
