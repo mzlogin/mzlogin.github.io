@@ -18,7 +18,7 @@ keywords: Excel, Office
 
 比如有以下表格：
 
-![](./../images/wiki/excel-gather.png)
+![](/images/wiki/excel-gather.png)
 
 当前 B5 单元格的公式为 `=SUM(B2:B4)`，但是在汇总行上面插入一行新的记录后，汇总数据不会自动更新。
 
