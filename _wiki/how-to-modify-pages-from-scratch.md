@@ -19,9 +19,36 @@ keywords: jekyll，github pages
 >                {% endfor %}
 >                ]</span>
 
-## 超链接
+### 超链接
 `[普通链接带标题](https://www.justcn.cn/ "普通链接带标题")`
- 
+
+### 字符效果和横线等
+----
+
+~~删除线~~ <s>删除线（开启识别HTML标签时）</s>
+
+*斜体字*      _斜体字_
+
+**粗体**  __粗体__
+
+***粗斜体*** ___粗斜体___ 
+
+### 引用 Blockquotes
+> 引用文本 Blockquotes
+
+#### 缩进风格
+即缩进四个空格，也做为实现类似 `<pre>` 预格式化文本 ( Preformatted Text ) 的功能。
+    <?php
+        echo "Hello world!";
+    ?>
+
+#### JS代码
+```javascript
+function test() {
+	console.log("Hello world!");
+}
+```
+
 ### Markdown的表格
 
 | 功能                      | 命令                                  |
@@ -47,3 +74,48 @@ keywords: jekyll，github pages
 | 远程空分支（等同于删除）  | git push origin :[branchName]         |
 | 查看所有分支历史          | gitk --all                            |
 | 按日期排序显示历史        | gitk --date-order                     |
+
+### 列表 Lists
+
+#### 无序列表（减号）Unordered Lists (-)
+
+- 列表一
+- 列表二
+- 列表三
+
+#### 无序列表（星号）Unordered Lists (*)
+
+* 列表一
+* 列表二
+* 列表三
+
+#### 无序列表（加号和嵌套）Unordered Lists (+)
++ 列表一
++ 列表二
+    + 列表二-1
+    + 列表二-2
+    + 列表二-3
++ 列表三
+    * 列表一
+    * 列表二
+    * 列表三
+
+#### 有序列表 Ordered Lists (-)
+
+1. 第一行
+2. 第二行
+3. 第三行
+
+#### GFM task list
+
+- [x] GFM task list 1
+- [x] GFM task list 2
+- [ ] GFM task list 3
+    - [ ] GFM task list 3-1
+    - [ ] GFM task list 3-2
+    - [ ] GFM task list 3-3
+- [ ] GFM task list 4
+    - [ ] GFM task list 4-1
+    - [ ] GFM task list 4-2
+
+----
