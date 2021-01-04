@@ -9,7 +9,7 @@ keywords: css
 
 ### CSS图片自适应大小
 代码如下：
-
+```html
 <html>
   <head></head>
   <body>
@@ -18,11 +18,12 @@ keywords: css
     </div>
   </body>
 </html>
-
-
+```
+```html
 html,body,.main-container{
   width:100%;
 }
 .main-container img{
   max-width:100%;
 }
+```
