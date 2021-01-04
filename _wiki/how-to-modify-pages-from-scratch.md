@@ -83,12 +83,6 @@ function test() {
 - 列表二
 - 列表三
 
-#### 无序列表（星号）Unordered Lists (*)
-
-* 列表一
-* 列表二
-* 列表三
-
 #### 无序列表（加号和嵌套）Unordered Lists (+)
 + 列表一
 + 列表二
