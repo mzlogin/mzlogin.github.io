@@ -22,6 +22,10 @@ keywords: jekyll，github pages
 ### 超链接
 `[普通链接带标题](https://www.justcn.cn/ "普通链接带标题")`
 
+### 插入图片
+![头条名片](https://justcn.cn/wp-content/uploads/2021/头条名片.jpg "头条名片")
+
+
 ### 字符效果和横线等
 ----
 
