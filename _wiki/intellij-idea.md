@@ -108,6 +108,26 @@ Error:(1, 1) error: illegalcharacter: '\ufeff'
 
     修改模板后可能会有几秒延时，刷新两遍就好了。
 
+### 编辑器面包屑配置
+
+1. 面包屑的显示/隐藏，两种方法：
+
+    - 菜单 View - Active Editor - Show Breadcrumbs
+    - 右键行号区域 - Breadcrumbs - Top / Bottom / Don't Show
+
+2. 面包屑的位置：
+
+    右键行号区域 - Breadcrumbs - Top / Bottom
+
+### 提示 Invalid classes root
+
+几种可能的解决步骤，可以逐一尝试：
+
+1. 右键工程 - Run Maven - install -U，右键工程 - Run Maven - Reimport
+2. File - Project Structure - Libraries - 全选删除，Reimport
+3. 重启 IDEA
+4. 关闭 IDEA，将 .idea 目录删除，重新打开项目
+
 ## 参考
 
 * [解决IntelliJ IDEA无法读取配置*.properties文件的问题](http://www.cnblogs.com/zqr99/p/7642712.html)
