@@ -128,6 +128,22 @@ Error:(1, 1) error: illegalcharacter: '\ufeff'
 3. 重启 IDEA
 4. 关闭 IDEA，将 .idea 目录删除，重新打开项目
 
+### 自动生成 serialVersionUID
+
+当一个类实现 Serializable 接口后，在 IDEA 里默认不会提示生成 serialVersionUID。
+
+做如下配置之后可以实现提示：
+
+1. Preferences - Editor - Inspections
+2. 搜索 Serializable class without 'serialVersionUID'
+3. 勾选该项并确定
+
+![](/images/wiki/idea-serializable-settings.png)
+
+提示效果：
+
+![](/images/wiki/idea-serializable-inspection.png)
+
 ## 参考
 
 * [解决IntelliJ IDEA无法读取配置*.properties文件的问题](http://www.cnblogs.com/zqr99/p/7642712.html)
