@@ -30,37 +30,25 @@ Alias /phpmyadmin  /usr/share/phpmyadmin
 2. Alias后面的phpmyadmin  改成你需要的名字，比如改成了/justcn-mysql，然后在面板里重启apache服务器就可以了。下次访问就可以通过http://ip/justcn-mysql来访问。
 3. 上面只是修改了phpmyadmin 的链接地址，而不能直接从VestaCP后台直接访问，会出错。现在来修复下后台模版文件的链接。共有5处修改：
 4. 
-    * 1、/usr/local/vesta/web/templates/admin/list_db.html找到这行
-if ($data[$key]['TYPE'] == 'mysql') $db_admin_link = "http://".$http_host."/phpmyadmin/";
-修改为:
-```
-if ($data[$key]['TYPE'] == 'mysql') $db_admin_link = "http://".$http_host."/justcn-mysql/";  
-```
-  
+    1. /usr/local/vesta/web/templates/admin/list_db.html找到这行
+    if ($data[$key]['TYPE'] == 'mysql') $db_admin_link = "http://".$http_host."/phpmyadmin/";
+    修改为:
+    if ($data[$key]['TYPE'] == 'mysql') $db_admin_link = "http://".$http_host."/justcn-mysql/";  <br>
+    $db_myadmin_link = "http://".$http_host."phpmyadmin/";
+    修改为
+    $db_myadmin_link = "http://".$http_host."justcn-mysql/";
 
-$db_myadmin_link = "http://".$http_host."phpmyadmin/";
-修改为
-```
-$db_myadmin_link = "http://".$http_host."justcn-mysql/";
-```
+    2. /usr/local/vesta/web/templates/user/list_db.html
+    if ($data[$key]['TYPE'] == 'mysql') $db_admin_link = "http://".$http_host."/phpmyadmin/";
+    修改为:
+    if ($data[$key]['TYPE'] == 'mysql') $db_admin_link = "http://".$http_host."/justcn-mysql/";<br>
+    $db_myadmin_link = "http://".$http_host."phpmyadmin/";
+    修改为
+    $db_myadmin_link = "http://".$http_host."justcn-mysql/";
 
-* 2、/usr/local/vesta/web/templates/user/list_db.htmlif ($data[$key]['TYPE'] == 'mysql') $db_admin_link = "http://".$http_host."/phpmyadmin/";
-修改为:
-```
-if ($data[$key]['TYPE'] == 'mysql') $db_admin_link = "http://".$http_host."/justcn-mysql/";
-```
-
-$db_myadmin_link = "http://".$http_host."phpmyadmin/";
-修改为
-```
-$db_myadmin_link = "http://".$http_host."justcn-mysql/";
-```
-
-* 3、/usr/local/vesta/web/add/db/index.php同理修改下面位置，phpmyadmin替换为justcn-mysql
-```
-if ($_POST[‘v_type’] == ‘mysql’) $db_admin_link = “http://”.$http_host.”/phpmyadmin/”
-```
-收工，VestaCp可以直接跳转到数据库了。
+    3. /usr/local/vesta/web/add/db/index.php同理修改下面位置，phpmyadmin替换为justcn-mysql
+    if ($_POST[‘v_type’] == ‘mysql’) $db_admin_link = “http://”.$http_host.”/phpmyadmin/”
+    <br>收工，VestaCp可以直接跳转到数据库了。
 
 
 ### 忘记或修改mysql默认密码
