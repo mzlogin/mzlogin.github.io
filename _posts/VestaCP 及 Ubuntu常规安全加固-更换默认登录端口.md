@@ -1,8 +1,10 @@
 ---
 layout: post
 title: VestaCP 及 Ubuntu常规安全加固-更换默认登录端口
+date: 2021-01-22
 description: Vestacp常规加固。
 keywords: Vestacp, Ubuntu, 安全
+permalink: '/VestaCP 及 Ubuntu常规安全加固-更换默认登录端口/'
 categories: 
 - 服务器及建站
 
