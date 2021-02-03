@@ -1,8 +1,4 @@
-﻿- name: 码志
-  url: http://mazhuang.org
-  src: life
-
-- name: SteelTailor CNC Cutting Machines
+﻿- name: SteelTailor CNC Cutting Machines
   url: https://www.steeltailor.com
   src: work
 
@@ -14,3 +10,35 @@
   url: https://www.opetrol.com/
   src: work
 
+- name: Html转换为MarkDown工具，需要自己处理空格
+  url: https://www.bejson.com/convert/html2markdown/
+  src: tool
+
+- name: Html转换为MarkDown工具
+  url: http://www.atoolbox.net/Tool.php?Id=715
+  src: tool
+
+- name: 域名whois查询
+  url: https://lookup.icann.org/lookup
+  src: tool
+
+- name: 字体识别identify fonts and free fonts
+  url: 字体识别identify fonts and free fonts
+  src: tool
+
+- name: 免费英文字体
+  url: https://www.1001freefonts.com/headline-fonts.php
+  src: tool
+
+- name: 免费制作英文logo（可以用于寻找合适的英文字体）
+  url: https://www.bejson.com/convert/html2markdown/
+  src: tool
+
+
+- name: 傻瓜都会用的Github Desktop
+  url: https://www.jianshu.com/p/06a960d991aa
+  src: tour
+
+- name: centos部署bbr加速,速度提升1000%~1500%
+  url: https://blog.csdn.net/u012739198/article/details/90108131?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.channel_param&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.channel_param
+  src: tour
