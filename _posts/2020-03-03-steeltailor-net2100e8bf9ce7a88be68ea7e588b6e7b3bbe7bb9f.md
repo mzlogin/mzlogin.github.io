@@ -8,7 +8,7 @@ layout: post
 guid: https://www.justcn.cn/?p=322
 permalink: '/steeltailor-net2100%e8%bf%9c%e7%a8%8b%e6%8e%a7%e5%88%b6%e7%b3%bb%e7%bb%9f/'
 categories:
-  - 数控切割机
+  - 合作推广
 tags:
   - SteelTailor
   - 数控切割机
