@@ -2,7 +2,7 @@
 #   Main Configs   #
 # ---------------- #
 baseurl:
-url: https://zwtdyhm.github.io/blog/
+url: https://zwtdyhm.github.io/blog
 date_format: "ordinal"
 title: 码志
 subtitle: "信息唯有分享才重要！"
@@ -15,7 +15,7 @@ repository: zwtdyhm/zwtdyhm.github.io
 # 对 css 和 js 资源的 cdn 加速配置
 cdn:
     jsdelivr:
-        enabled: true
+        enabled: false
 # 组件配置
 components:
     # 分享
