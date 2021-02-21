@@ -1,8 +1,8 @@
 # ---------------- #
 #   Main Configs   #
 # ---------------- #
-baseurl:
-url: https://zwtdyhm.github.io/blog
+baseurl:/blog
+url: https://zwtdyhm.github.io
 date_format: "ordinal"
 title: 码志
 subtitle: "信息唯有分享才重要！"
