@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://mazhuang.org/feed.xml" rel="self" type="application/atom+xml" /><link href="https://mazhuang.org/" rel="alternate" type="text/html" /><updated>2021-01-12T16:50:35+08:00</updated><id>https://mazhuang.org/feed.xml</id><title type="html">码志</title><subtitle>马壮的个人博客，公众号：闷骚的程序员</subtitle><author><name>Zhuang Ma</name></author><entry><title type="html">给 Mac 添加右键菜单「使用 VSCode 打开」</title><link href="https://mazhuang.org/2020/10/28/add-vscode-to-right-click/" rel="alternate" type="text/html" title="给 Mac 添加右键菜单「使用 VSCode 打开」" /><published>2020-10-28T00:00:00+08:00</published><updated>2020-10-28T00:00:00+08:00</updated><id>https://mazhuang.org/2020/10/28/add-vscode-to-right-click</id><content type="html" xml:base="https://mazhuang.org/2020/10/28/add-vscode-to-right-click/">&lt;p&gt;最终的实现效果是在文件 / 文件夹上右击时，会出现菜单项「用 VSCode 打开」，点击后会启动 Visual Studio Code 打开对应的文件 / 文件夹。&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://mazhuang.org/feed.xml" rel="self" type="application/atom+xml" /><link href="https://mazhuang.org/" rel="alternate" type="text/html" /><updated>2021-03-13T06:32:23+08:00</updated><id>https://mazhuang.org/feed.xml</id><title type="html">码志</title><subtitle>马壮的个人博客，公众号：闷骚的程序员</subtitle><author><name>Zhuang Ma</name></author><entry><title type="html">给 Mac 添加右键菜单「使用 VSCode 打开」</title><link href="https://mazhuang.org/2020/10/28/add-vscode-to-right-click/" rel="alternate" type="text/html" title="给 Mac 添加右键菜单「使用 VSCode 打开」" /><published>2020-10-28T00:00:00+08:00</published><updated>2020-10-28T00:00:00+08:00</updated><id>https://mazhuang.org/2020/10/28/add-vscode-to-right-click</id><content type="html" xml:base="https://mazhuang.org/2020/10/28/add-vscode-to-right-click/">&lt;p&gt;最终的实现效果是在文件 / 文件夹上右击时，会出现菜单项「用 VSCode 打开」，点击后会启动 Visual Studio Code 打开对应的文件 / 文件夹。&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/images/posts/mac/open-with-vscode.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
@@ -723,7 +723,20 @@ Did you mean?  tap
   &lt;li&gt;&lt;a href=&quot;https://github.com/mzlogin/rouge-themes&quot;&gt;https://github.com/mzlogin/rouge-themes&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;在项目主页可以看到每种风格的预览效果。&lt;/p&gt;</content><author><name>Zhuang Ma</name></author><category term="GitHub" /><summary type="html">使用这个博客模板的朋友们时不时会提出一些问题，我将它们以及对应的解决方案逐渐整理归纳，汇总到这一篇帖子里。</summary></entry><entry><title type="html">使用 jsDelivr 免费加速 GitHub Pages 博客的静态资源</title><link href="https://mazhuang.org/2020/05/01/cdn-for-github-pages/" rel="alternate" type="text/html" title="使用 jsDelivr 免费加速 GitHub Pages 博客的静态资源" /><published>2020-05-01T00:00:00+08:00</published><updated>2020-05-01T00:00:00+08:00</updated><id>https://mazhuang.org/2020/05/01/cdn-for-github-pages</id><content type="html" xml:base="https://mazhuang.org/2020/05/01/cdn-for-github-pages/">&lt;p&gt;挺久以前就有网友给我的 GitHub Pages 博客模板提 &lt;a href=&quot;https://github.com/mzlogin/mzlogin.github.io/issues/65&quot;&gt;Issue&lt;/a&gt;，说希望能增加 CDN 用于加速静态资源的加载，由于懒，一直没有动。&lt;/p&gt;
+&lt;p&gt;在项目主页可以看到每种风格的预览效果。&lt;/p&gt;
+
+&lt;h2 id=&quot;gitalk-授权登录后提示-403-错误&quot;&gt;Gitalk 授权登录后提示 403 错误&lt;/h2&gt;
+
+&lt;p&gt;具体看到的错误信息为 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Error: Requrest failed with status code 403&lt;/code&gt;。&lt;/p&gt;
+
+&lt;p&gt;详细的讨论可以参考 https://github.com/gitalk/gitalk/issues/429，这个 Issue 里也提到了问题原因和解决方案：更新 Gitalk 到 1.7.2 版本，或者自行搭建 CORS proxy service 并增加配置 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;proxy: '&amp;lt;你的 proxy 地址'&lt;/code&gt;。&lt;/p&gt;
+
+&lt;p&gt;如果是使用本模板最新代码，那不用做什么，会自动引用最新版本。如果一再刷新后还是不行的话，那需要刷新一下你本地的缓存，方法是依次访问以下 2 个链接：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;https://purge.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js&lt;/li&gt;
+  &lt;li&gt;https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js?v=1.7.2&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Zhuang Ma</name></author><category term="GitHub" /><summary type="html">使用这个博客模板的朋友们时不时会提出一些问题，我将它们以及对应的解决方案逐渐整理归纳，汇总到这一篇帖子里。</summary></entry><entry><title type="html">使用 jsDelivr 免费加速 GitHub Pages 博客的静态资源</title><link href="https://mazhuang.org/2020/05/01/cdn-for-github-pages/" rel="alternate" type="text/html" title="使用 jsDelivr 免费加速 GitHub Pages 博客的静态资源" /><published>2020-05-01T00:00:00+08:00</published><updated>2020-05-01T00:00:00+08:00</updated><id>https://mazhuang.org/2020/05/01/cdn-for-github-pages</id><content type="html" xml:base="https://mazhuang.org/2020/05/01/cdn-for-github-pages/">&lt;p&gt;挺久以前就有网友给我的 GitHub Pages 博客模板提 &lt;a href=&quot;https://github.com/mzlogin/mzlogin.github.io/issues/65&quot;&gt;Issue&lt;/a&gt;，说希望能增加 CDN 用于加速静态资源的加载，由于懒，一直没有动。&lt;/p&gt;
 
 &lt;p&gt;最近偶尔要打开自己博客看下 Wiki 的时候，要等挺久，比较痛苦，碰巧昨天晚上看到这样一篇帖子：&lt;a href=&quot;https://hacpai.com/article/1583894928771&quot;&gt;GitHub 图床的正确用法，通过 jsDelivr CDN 全球加速&lt;/a&gt;，感觉很适合我的需求场景，于是决定趁这几天休假将这个改造一下。&lt;/p&gt;
 
