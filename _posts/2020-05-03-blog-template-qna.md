@@ -79,9 +79,9 @@ mathjax: true
 
 具体看到的错误信息为 `Error: Requrest failed with status code 403`。
 
-详细的讨论可以参考 https://github.com/gitalk/gitalk/issues/429，这个 Issue 里也提到了问题原因和解决方案：更新 Gitalk 到 1.7.2 版本，或者自行搭建 CORS proxy service 并增加配置 `proxy: '<你的 proxy 地址'`。
+详细的讨论可以参考 <https://github.com/gitalk/gitalk/issues/429>，这个 Issue 里也提到了问题原因和解决方案：更新 Gitalk 到 1.7.2 版本，或者自行搭建 CORS proxy service 并增加配置 `proxy: '<你的 proxy 地址>'`。
 
 如果是使用本模板最新代码，那不用做什么，会自动引用最新版本。如果一再刷新后还是不行的话，那需要刷新一下你本地的缓存，方法是依次访问以下 2 个链接：
 
-- https://purge.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js
-- https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js?v=1.7.2
+- <https://purge.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js>
+- <https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js?v=1.7.2>
