@@ -1,4 +1,167 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://mazhuang.org/feed.xml" rel="self" type="application/atom+xml" /><link href="https://mazhuang.org/" rel="alternate" type="text/html" /><updated>2021-03-13T06:38:18+08:00</updated><id>https://mazhuang.org/feed.xml</id><title type="html">码志</title><subtitle>马壮的个人博客，公众号：闷骚的程序员</subtitle><author><name>Zhuang Ma</name></author><entry><title type="html">给 Mac 添加右键菜单「使用 VSCode 打开」</title><link href="https://mazhuang.org/2020/10/28/add-vscode-to-right-click/" rel="alternate" type="text/html" title="给 Mac 添加右键菜单「使用 VSCode 打开」" /><published>2020-10-28T00:00:00+08:00</published><updated>2020-10-28T00:00:00+08:00</updated><id>https://mazhuang.org/2020/10/28/add-vscode-to-right-click</id><content type="html" xml:base="https://mazhuang.org/2020/10/28/add-vscode-to-right-click/">&lt;p&gt;最终的实现效果是在文件 / 文件夹上右击时，会出现菜单项「用 VSCode 打开」，点击后会启动 Visual Studio Code 打开对应的文件 / 文件夹。&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://mazhuang.org/feed.xml" rel="self" type="application/atom+xml" /><link href="https://mazhuang.org/" rel="alternate" type="text/html" /><updated>2021-03-13T10:45:02+08:00</updated><id>https://mazhuang.org/feed.xml</id><title type="html">码志</title><subtitle>马壮的个人博客，公众号：闷骚的程序员</subtitle><author><name>Zhuang Ma</name></author><entry><title type="html">代码审查：从 ArrayList 说线程安全</title><link href="https://mazhuang.org/2021/03/13/talk-about-threadsafe-with-arraylist/" rel="alternate" type="text/html" title="代码审查：从 ArrayList 说线程安全" /><published>2021-03-13T00:00:00+08:00</published><updated>2021-03-13T00:00:00+08:00</updated><id>https://mazhuang.org/2021/03/13/talk-about-threadsafe-with-arraylist</id><content type="html" xml:base="https://mazhuang.org/2021/03/13/talk-about-threadsafe-with-arraylist/">&lt;p&gt;本文从一个实际的代码审查过程中，发现的一个 ArrayList 相关的「线程安全」问题，来剖析和理解线程安全。&lt;/p&gt;
+
+&lt;h2 id=&quot;案例分析&quot;&gt;案例分析&lt;/h2&gt;
+
+&lt;p&gt;前两天在代码 Review 的过程中，看到有小伙伴用了类似以下的写法：&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nc&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;resultList&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ArrayList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;gt;();&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;paramList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;parallelStream&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;forEach&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;doSomething&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;resultList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;});&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;印象中 ArrayList 是线程不安全的，而这里会多线程改写同一个 ArrayList 对象，感觉这样的写法会有问题，于是看了下 ArrayList 的实现来确认问题，同时复习下相关知识。&lt;/p&gt;
+
+&lt;p&gt;先贴个概念：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;线程安全&lt;/strong&gt; 是程式设计中的术语，指某个函数、函数库在多线程环境中被调用时，能够正确地处理多个线程之间的共享变量，使程序功能正确完成。 ——维基百科&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;我们来看下 ArrayList 源码与里与本话题相关的关键信息：&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ArrayList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;E&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;AbstractList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;E&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;kd&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;E&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;RandomAccess&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Cloneable&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;java&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;io&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;Serializable&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// ...&lt;/span&gt;
+    
+    &lt;span class=&quot;cm&quot;&gt;/**
+     * The array buffer into which the elements of the ArrayList are stored.
+     * The capacity of the ArrayList is the length of this array buffer... 
+     */&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;transient&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Object&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;elementData&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// non-private to simplify nested class access&lt;/span&gt;
+
+    &lt;span class=&quot;cm&quot;&gt;/**
+     * The size of the ArrayList (the number of elements it contains).
+     */&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;// ...&lt;/span&gt;
+
+    &lt;span class=&quot;cm&quot;&gt;/**
+     * Appends the specified element to the end of this list...
+     */&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;boolean&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;E&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;ensureCapacityInternal&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;size&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// Increments modCount!!&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;elementData&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;// ...&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;从中我们可以关注到关于 ArrayList 的几点信息：&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;使用数组存储数据，即 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;elementData&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;使用 int 成员变量 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;size&lt;/code&gt; 记录实际元素个数&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;add&lt;/code&gt; 方法逻辑与执行顺序：
+    &lt;ul&gt;
+      &lt;li&gt;执行 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ensureCapacityInternal(size + 1)&lt;/code&gt;：确认 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;elementData&lt;/code&gt; 的容量是否够用，不够用的话扩容一半（申请一个新的大数组，将 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;elementData&lt;/code&gt; 里的原有内容 copy 过去，然后将新的大数组赋值给 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;elementData&lt;/code&gt;）&lt;/li&gt;
+      &lt;li&gt;执行 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;elementData[size] = e;&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;执行 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;size++&lt;/code&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;为了方便理解这里讨论的「线程安全问题」，我们选一个最简单的执行路径来分析，假设有 A 和 B 两个线程同时调用 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ArrayList.add&lt;/code&gt; 方法，而此时 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;elementData&lt;/code&gt; 容量为 8，&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;size&lt;/code&gt; 为 7，足以容纳一个新增的元素，那么可能发生什么现象呢？&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/java/thread-safety-arraylist-add.png&quot; alt=&quot;Thread Safety ArrayList Add&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;一种可能的执行顺序是：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;线程 A 和 B 同时执行了 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ensureCapacityInternal(size + 1)&lt;/code&gt;，因 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;7 + 1&lt;/code&gt; 并没超过 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;elementData&lt;/code&gt; 的容量 8，所以并未扩容&lt;/li&gt;
+  &lt;li&gt;线程 A 先执行 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;elementData[size++] = e;&lt;/code&gt;，此时 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;size&lt;/code&gt; 变为 8&lt;/li&gt;
+  &lt;li&gt;线程 B 执行 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;elementData[size++] = e;&lt;/code&gt;，因为 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;elementData&lt;/code&gt; 数组长度为 8，却访问 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;elementData[8]&lt;/code&gt;，数组下标越界&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;程序会抛出异常，无法正常执行完，根据前文提到的线程安全的定义，很显然这已经是属于线程不安全的情况了。&lt;/p&gt;
+
+&lt;h2 id=&quot;构造示例代码验证&quot;&gt;构造示例代码验证&lt;/h2&gt;
+
+&lt;p&gt;有了以上的理解之后，我们来写一段简单的示例代码，验证以上问题确实可能发生：&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nc&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Integer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;resultList&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ArrayList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;gt;();&lt;/span&gt;
+&lt;span class=&quot;nc&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Integer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;paramList&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ArrayList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;gt;();&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;length&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10000&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;paramList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;paramList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;parallelStream&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;forEach&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;resultList:&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;执行以上代码有可能表现正常，但更可能是遇到以下异常：&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Exception in thread &quot;main&quot; java.lang.ArrayIndexOutOfBoundsException
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at java.util.concurrent.ForkJoinTask.getThrowableException(ForkJoinTask.java:598)
+	at java.util.concurrent.ForkJoinTask.reportException(ForkJoinTask.java:677)
+	at java.util.concurrent.ForkJoinTask.invoke(ForkJoinTask.java:735)
+	at java.util.stream.ForEachOps$ForEachOp.evaluateParallel(ForEachOps.java:160)
+	at java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateParallel(ForEachOps.java:174)
+	at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:233)
+	at java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:418)
+	at java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:583)
+	at concurrent.ConcurrentTest.main(ConcurrentTest.java:18)
+Caused by: java.lang.ArrayIndexOutOfBoundsException: 1234
+	at java.util.ArrayList.add(ArrayList.java:465)
+	at java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+	at java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1384)
+	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:482)
+	at java.util.stream.ForEachOps$ForEachTask.compute(ForEachOps.java:291)
+	at java.util.concurrent.CountedCompleter.exec(CountedCompleter.java:731)
+	at java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:289)
+	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1067)
+	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1703)
+	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:172)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;从我这里试验的情况来看，&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;length&lt;/code&gt; 值小的时候，因为达到容量边缘需要扩容的次数少，不易重现，将 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;length&lt;/code&gt; 值调到比较大时，异常抛出率就很高了。&lt;/p&gt;
+
+&lt;h2 id=&quot;解决方案&quot;&gt;解决方案&lt;/h2&gt;
+
+&lt;p&gt;对这类问题常见的有效解决思路就是对共享的资源访问加锁。&lt;/p&gt;
+
+&lt;p&gt;我提出代码审查的修改意见后，小伙伴将文首代码里的&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nc&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;resultList&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ArrayList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;gt;();&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;修改为了&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nc&quot;&gt;Collections&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;synchronizedList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ArrayList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;gt;());&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;这样实际最终会使用 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SynchronizedRandomAccessList&lt;/code&gt;，看它的实现类，其实里面也是加锁，它内部持有一个 List，用 synchronized 关键字控制对 List 的读写访问，这是一种思路——使用线程安全的集合类，对应的还可以使用 Vector 等其它类似的类来解决问题。&lt;/p&gt;
+
+&lt;p&gt;另外一种方思路是手动对关键代码段加锁，比如我们也可以将&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;resultList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;修改为&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;synchronized&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mutex&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;resultList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;小结&quot;&gt;小结&lt;/h2&gt;
+
+&lt;p&gt;Java 8 的并行流提供了很方便的并行处理，提升程序执行效率的写法，我们在编码的过程中，对用到多线程的地方要保持警惕，有意识地预防此类问题。&lt;/p&gt;
+
+&lt;h2 id=&quot;参考&quot;&gt;参考&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://zh.wikipedia.org/zh-hans/%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8&quot;&gt;线程安全——维基百科&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Zhuang Ma</name></author><category term="Java" /><summary type="html">本文从一个实际的代码审查过程中，发现的一个 ArrayList 相关的「线程安全」问题，来剖析和理解线程安全。</summary></entry><entry><title type="html">给 Mac 添加右键菜单「使用 VSCode 打开」</title><link href="https://mazhuang.org/2020/10/28/add-vscode-to-right-click/" rel="alternate" type="text/html" title="给 Mac 添加右键菜单「使用 VSCode 打开」" /><published>2020-10-28T00:00:00+08:00</published><updated>2020-10-28T00:00:00+08:00</updated><id>https://mazhuang.org/2020/10/28/add-vscode-to-right-click</id><content type="html" xml:base="https://mazhuang.org/2020/10/28/add-vscode-to-right-click/">&lt;p&gt;最终的实现效果是在文件 / 文件夹上右击时，会出现菜单项「用 VSCode 打开」，点击后会启动 Visual Studio Code 打开对应的文件 / 文件夹。&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/images/posts/mac/open-with-vscode.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
@@ -1200,151 +1363,4 @@ SXQgdGFrZXMgYSBzdHJvbmcgbWFuIHRvIHNhdmUgaGltc2VsZiwgYW5kIGEgZ3JlYXQgbWFuIHRvIHNh
 
 &lt;p&gt;经过以上的分析，真相已经大白了，就是两个编码器的实现不一样，我们在开发过程中注意使用匹配的编码解码器就 OK 了，就是用哪个 Java 包下面的编码器编码，就用相同包下的对应解码器解码。&lt;/p&gt;
 
-&lt;p&gt;至于为啥会出现不一样的实现，它们之间有过什么来龙去脉、恩怨情仇，Base64 的详细原理等等，就厚着老脸，邀请大家且听下回分解吧！:-P&lt;/p&gt;</content><author><name>Zhuang Ma</name></author><category term="Java" /><summary type="html">本文原计划写两部分内容，第一是记录最近遇到的与 Base64 有关的 Bug，第二是 Base64 编码的原理详解。结果写了一半发现，诶？不复杂的一个事儿怎么也要讲这么长？不利于阅读和理解啊（其实是今天有点懒想去休闲娱乐会儿），所以 Base64 编码的原理详解的部分将在下一篇带来，敬请关注。</summary></entry><entry><title type="html">GitHub 用户专属福利，实际到账 3K+，Namebase Airdrop</title><link href="https://mazhuang.org/2020/02/21/namebase-airdrop/" rel="alternate" type="text/html" title="GitHub 用户专属福利，实际到账 3K+，Namebase Airdrop" /><published>2020-02-21T00:00:00+08:00</published><updated>2020-02-21T00:00:00+08:00</updated><id>https://mazhuang.org/2020/02/21/namebase-airdrop</id><content type="html" xml:base="https://mazhuang.org/2020/02/21/namebase-airdrop/">&lt;p&gt;我经常提醒自己的防骗第一准则：&lt;strong&gt;天上不会掉馅饼&lt;/strong&gt;。&lt;/p&gt;
-
-&lt;p&gt;冒着被人当骗子的风险，写这样一篇文章，是因为这次是真的领到了馅饼。不过这个馅饼不是随机掉落，是限定了条件定向投放的，满足条件的可以一试，不满足的就不用浪费时间了，可以推荐给身边的 GitHub 用户来碰碰运气。&lt;/p&gt;
-
-&lt;p&gt;我的馅饼到账图：&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/blog/airdrop-income.jpeg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;从开始操作到入账历时约一天，花了一两个小时在了解和操作上面。&lt;/p&gt;
-
-&lt;h2 id=&quot;条件&quot;&gt;条件&lt;/h2&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;在 2019-02-04 那一周，你的 GitHub 账号有 15 个以上 followers；&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;保留有当时的 SSH / PGP 私钥；&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&quot;背景简介&quot;&gt;背景简介&lt;/h2&gt;
-
-&lt;p&gt;详情可查看 &lt;a href=&quot;https://www.namebase.io/airdrop&quot;&gt;https://www.namebase.io/airdrop&lt;/a&gt;，大意就是说 Handshake Orgnization 从 A16Z 和红杉融资以后，向 GNU、Mozilla 和其它互联网基金会捐赠了 10.2 亿美元，现在他们向 GitHub 上符合条件的开发者赠送约 4662 Handshake 币。&lt;/p&gt;
-
-&lt;p&gt;而这些币可以提取到 Namebase 账户，并可以兑换成比特币或美元，最终换成人民币提现。&lt;/p&gt;
-
-&lt;p&gt;Handshake Orgnization 可以提供 CA 的分布式替代方案，去中心化的 DNS 以提升互联网安全性，详见 &lt;a href=&quot;https://www.namebase.io/blog/meet-handshake-decentralizing-dns-to-improve-the-security-of-the-internet&quot;&gt;https://www.namebase.io/blog/meet-handshake-decentralizing-dns-to-improve-the-security-of-the-internet&lt;/a&gt;。建议有兴趣的人除了收馅饼，也关注一下项目，项目方放 Airdrop 是希望更多人能参与并支持他们的项目建设。&lt;/p&gt;
-
-&lt;h2 id=&quot;取馅饼步骤&quot;&gt;取馅饼步骤&lt;/h2&gt;
-
-&lt;p&gt;好了闲话少述，我知道大家最关心的还是怎么领到钱，步骤可以根据 &lt;a href=&quot;https://www.namebase.io/airdrop&quot;&gt;https://www.namebase.io/airdrop&lt;/a&gt; 讲的来，以下我也简单做个描述，供懒得看英文的朋友参考：&lt;/p&gt;
-
-&lt;h3 id=&quot;step-1-验证并领取-hns&quot;&gt;Step 1. 验证并领取 HNS&lt;/h3&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;打开 &lt;a href=&quot;https://www.namebase.io&quot;&gt;https://www.namebase.io&lt;/a&gt;，点击右上角 Log In，使用 GitHub 账号登录；&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;打开 &lt;a href=&quot;https://www.namebase.io/airdrop&quot;&gt;https://www.namebase.io/airdrop&lt;/a&gt;，按它的步骤来，第一步，下载 hs-airdrop 工具：&lt;/p&gt;
-
-    &lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; git clone https://github.com/handshake-org/hs-airdrop.git
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;第二步，安装 hs-airdrop 工具：&lt;/p&gt;
-
-    &lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;hs-airdrop &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; npm &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;我在 npm install 时遇到过两个问题，一个是 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Your PYTHONPATH points to a site-packages dir ...&lt;/code&gt;，解决方案参考 &lt;a href=&quot;https://mazhuang.org/wiki/python/#your-pythonpath-points-to-a-site-packages-dir&quot;&gt;https://mazhuang.org/wiki/python/#your-pythonpath-points-to-a-site-packages-dir&lt;/a&gt;，另一个是 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;No Xcode or CLT version detected&lt;/code&gt;，解决方案参考 &lt;a href=&quot;https://mazhuang.org/wiki/mac/#no-xcode-or-clt-version-detected&quot;&gt;https://mazhuang.org/wiki/mac/#no-xcode-or-clt-version-detected&lt;/a&gt;。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;第三步，找到你认为有资格的 SSH / PGP 私钥，一般是放在 ~/.ssh 目录下，比如我的是 ~/.ssh/id_rsa；&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;第四步，点击网页上的 Step 4 的 Click To Show Your Handshake Wallet Address，得到你的 HNS 币钱包 address：&lt;/p&gt;
-
-    &lt;p&gt;&lt;img src=&quot;/images/blog/airdrop-address.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-    &lt;p&gt;然后执行：&lt;/p&gt;
-
-    &lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; ./bin/hs-airdrop &amp;lt;path to key&amp;gt; &amp;lt;address&amp;gt; &amp;lt;fee&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;比如我执行的是&lt;/p&gt;
-
-    &lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; ./bin/hs-airdrop ~/.ssh/id_rsa xxxxxxx 0.01
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;如果是用 GPG key 的，使用命令（不明白含义的可以 ./bin/hs-airdrop –help 查看命令帮助文档）：&lt;/p&gt;
-
-    &lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; ./bin/hs-airdrop &amp;lt;导出的 .asc/.pgp/.gpg 文件&amp;gt; &amp;lt;gpg-id&amp;gt; &amp;lt;address&amp;gt; &lt;span class=&quot;nt&quot;&gt;-f&lt;/span&gt; 0.01
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;这里有几点可以加速命令执行的：&lt;/p&gt;
-
-    &lt;p&gt;一、fee 可以设置高一点，比如 10，这会加快确认速度。&lt;/p&gt;
-
-    &lt;p&gt;二、可以先把 https://github.com/handshake-org/hs-tree-data clone 到 ~/.hs-tree-data，这样在以上命令执行过程中需要下载的文件就在本地了。&lt;/p&gt;
-
-    &lt;p&gt;&lt;strong&gt;注：&lt;/strong&gt; 这一步会用到私钥，有很多人担忧这里存在安全隐患，文档上有说明说是用私钥只用于生成加密证明，不会被上传，证明里也不会包含私钥的任何信息，hs-airdrop 的源码是开源的，可以 review 它的代码，或者实在不放心的可以在操作完之后就把用于 GitHub 的密钥都换掉。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;第五步，上一步执行成功后，会在最后展示一段 Base64，将它贴到网页里并提交：&lt;/p&gt;
-
-    &lt;p&gt;&lt;img src=&quot;/images/blog/airdrop-base64.jpeg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-    &lt;p&gt;&lt;img src=&quot;/images/blog/airdrop-submit.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-    &lt;p&gt;如果没有得到 Base64，而是其它提示，有可能是没有资格，也有可能是出错了，可以参考下文末 V2EX 链接里的讨论内容。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;正常这时候就能在 &lt;a href=&quot;https://www.namebase.io/dashboard&quot;&gt;https://www.namebase.io/dashboard&lt;/a&gt; 看到有一笔交易在 Pending 中了：&lt;/p&gt;
-
-    &lt;p&gt;&lt;img src=&quot;/images/blog/airdrop-pending.jpeg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-    &lt;p&gt;&lt;strong&gt;注：&lt;/strong&gt; 这一步正常应该是很快变成 Airdrop: waiting for more confirmations，但有的人可能遇到较长时间显示 Airdrop: almost mined… 的情况，有的等一段时间后可以好，有的则一直在这个状态。这种情况知乎网友 Kenkk 问过客服，回复是 Some airdrops were stuck. Please generate a base64 with a new address from these instructions and submit it again，也就是重新生成钱包地址，然后重新执行第五步的命令即可，注意 fee 可以设置大点，比如 10。&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&quot;step-2-身份验证&quot;&gt;Step 2. 身份验证&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/blog/airdrop-verify.jpeg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;点 namebase 网页如图上所示位置的“验证了”开始验证身份，会要填名字、问是否居住在美国、上传证件照片，可以上传护照、驾驶证、身份证，我用的驾驶证。&lt;/p&gt;
-
-&lt;p&gt;网友们说这里校验并不严格，不放心的用网上找的图也可以。&lt;/p&gt;
-
-&lt;h3 id=&quot;step-3-等待-hns-入账&quot;&gt;Step 3. 等待 HNS 入账&lt;/h3&gt;
-
-&lt;p&gt;要等待的时间不等，我等了十几个小时。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/blog/airdrop-hns.jpeg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;step-4-提取到-btc-钱包&quot;&gt;Step 4. 提取到 BTC 钱包&lt;/h3&gt;
-
-&lt;p&gt;点击 namebase 网站菜单的 Buy &amp;amp; Sell – Sell HNS，完成提现到 BTC 钱包：&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/blog/airdrop-cashout.jpeg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;像我就是以前不接触币圈，没有 BTC 钱包，现去 OKEX 注册了一个，注册链接：&lt;a href=&quot;https://www.okex.me/join/1876977&quot;&gt;https://www.okex.me/join/1876977&lt;/a&gt;，（链接上包含我的推荐 ID，如果不喜欢，可以去掉）。注册以后在“我的资产”-“充币”里可以获取 BTC 钱包地址。&lt;/p&gt;
-
-&lt;p&gt;然后就又要等待一会儿了，约一二十分钟，BTC 到账了。&lt;/p&gt;
-
-&lt;h3 id=&quot;step-5-提现到银行卡&quot;&gt;Step 5. 提现到银行卡&lt;/h3&gt;
-
-&lt;p&gt;在 OKEX “我的资产”-“资产划转”里将 BTC 划转到法币账户，然后就可以去“交易”-“法币交易”里按提示操作就行了，需要绑定一张银行卡用作收款，我挂出去不到十秒就被买走了，然后两分钟内银行卡里到账，我确认出币后交易完成。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/blog/airdrop-done.jpeg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;至此大功告成，按网友们的反馈，按 HNS 换 BTC 行情，实际到手 500 到 1400 刀不等。&lt;/p&gt;
-
-&lt;h3 id=&quot;step-6-收尾&quot;&gt;Step 6. 收尾&lt;/h3&gt;
-
-&lt;p&gt;如果担心信息泄漏的，可以更换 GitHub 密钥、删除 OKEX 上绑定的信息等。&lt;/p&gt;
-
-&lt;h2 id=&quot;相关讨论和记录&quot;&gt;相关讨论和记录&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;https://v2ex.com/t/645480&quot;&gt;https://v2ex.com/t/645480&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;https://shidenggui.com/articles/namebase-airdrop&quot;&gt;https://shidenggui.com/articles/namebase-airdrop&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Zhuang Ma</name></author><category term="GitHub" /><summary type="html">我经常提醒自己的防骗第一准则：天上不会掉馅饼。</summary></entry></feed>
+&lt;p&gt;至于为啥会出现不一样的实现，它们之间有过什么来龙去脉、恩怨情仇，Base64 的详细原理等等，就厚着老脸，邀请大家且听下回分解吧！:-P&lt;/p&gt;</content><author><name>Zhuang Ma</name></author><category term="Java" /><summary type="html">本文原计划写两部分内容，第一是记录最近遇到的与 Base64 有关的 Bug，第二是 Base64 编码的原理详解。结果写了一半发现，诶？不复杂的一个事儿怎么也要讲这么长？不利于阅读和理解啊（其实是今天有点懒想去休闲娱乐会儿），所以 Base64 编码的原理详解的部分将在下一篇带来，敬请关注。</summary></entry></feed>

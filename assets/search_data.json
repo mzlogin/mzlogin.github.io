@@ -1055,6 +1055,14 @@
     } ,
   
     {
+      "title"    : "代码审查：从 ArrayList 说线程安全",
+      "category" : "Java",
+      
+      "url"      : "https://mazhuang.org/2021/03/13/talk-about-threadsafe-with-arraylist/",
+      "keywords" : "线程安全"
+    } ,
+  
+    {
       "title"    : "Android Studio",
       "category" : "Android",
       
