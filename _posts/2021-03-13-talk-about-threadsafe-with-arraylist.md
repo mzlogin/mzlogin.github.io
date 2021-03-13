@@ -141,7 +141,7 @@ List<String> resultList = new ArrayList<>();
 修改为了
 
 ```java
-Collections.synchronizedList(new ArrayList<>());
+List<String> resultList = Collections.synchronizedList(new ArrayList<>());
 ```
 
 这样实际最终会使用 `SynchronizedRandomAccessList`，看它的实现类，其实里面也是加锁，它内部持有一个 List，用 synchronized 关键字控制对 List 的读写访问，这是一种思路——使用线程安全的集合类，对应的还可以使用 Vector 等其它类似的类来解决问题。
