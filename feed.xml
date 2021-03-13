@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://mazhuang.org/feed.xml" rel="self" type="application/atom+xml" /><link href="https://mazhuang.org/" rel="alternate" type="text/html" /><updated>2021-03-13T10:47:52+08:00</updated><id>https://mazhuang.org/feed.xml</id><title type="html">码志</title><subtitle>马壮的个人博客，公众号：闷骚的程序员</subtitle><author><name>Zhuang Ma</name></author><entry><title type="html">代码审查：从 ArrayList 说线程安全</title><link href="https://mazhuang.org/2021/03/13/talk-about-threadsafe-with-arraylist/" rel="alternate" type="text/html" title="代码审查：从 ArrayList 说线程安全" /><published>2021-03-13T00:00:00+08:00</published><updated>2021-03-13T00:00:00+08:00</updated><id>https://mazhuang.org/2021/03/13/talk-about-threadsafe-with-arraylist</id><content type="html" xml:base="https://mazhuang.org/2021/03/13/talk-about-threadsafe-with-arraylist/">&lt;p&gt;本文从一个实际的代码审查过程中，发现的一个 ArrayList 相关的「线程安全」问题，来剖析和理解线程安全。&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://mazhuang.org/feed.xml" rel="self" type="application/atom+xml" /><link href="https://mazhuang.org/" rel="alternate" type="text/html" /><updated>2021-03-13T11:54:20+08:00</updated><id>https://mazhuang.org/feed.xml</id><title type="html">码志</title><subtitle>马壮的个人博客，公众号：闷骚的程序员</subtitle><author><name>Zhuang Ma</name></author><entry><title type="html">代码审查：从 ArrayList 说线程安全</title><link href="https://mazhuang.org/2021/03/13/talk-about-threadsafe-with-arraylist/" rel="alternate" type="text/html" title="代码审查：从 ArrayList 说线程安全" /><published>2021-03-13T00:00:00+08:00</published><updated>2021-03-13T00:00:00+08:00</updated><id>https://mazhuang.org/2021/03/13/talk-about-threadsafe-with-arraylist</id><content type="html" xml:base="https://mazhuang.org/2021/03/13/talk-about-threadsafe-with-arraylist/">&lt;p&gt;本文从一个实际的代码审查过程中，发现的一个 ArrayList 相关的「线程安全」问题，来剖析和理解线程安全。&lt;/p&gt;
 
 &lt;h2 id=&quot;案例分析&quot;&gt;案例分析&lt;/h2&gt;
 
@@ -125,6 +125,8 @@ Caused by: java.lang.ArrayIndexOutOfBoundsException: 1234
 
 &lt;p&gt;从我这里试验的情况来看，&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;length&lt;/code&gt; 值小的时候，因为达到容量边缘需要扩容的次数少，不易重现，将 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;length&lt;/code&gt; 值调到比较大时，异常抛出率就很高了。&lt;/p&gt;
 
+&lt;p&gt;实际上除了抛出这种异常外，以上场景还可能造成数据覆盖/丢失、ArrayList 里实际存放的元素个数与 size 值不符等其它问题，感兴趣的同学可以继续挖掘一下。&lt;/p&gt;
+
 &lt;h2 id=&quot;解决方案&quot;&gt;解决方案&lt;/h2&gt;
 
 &lt;p&gt;对这类问题常见的有效解决思路就是对共享的资源访问加锁。&lt;/p&gt;
@@ -156,6 +158,8 @@ Caused by: java.lang.ArrayIndexOutOfBoundsException: 1234
 &lt;h2 id=&quot;小结&quot;&gt;小结&lt;/h2&gt;
 
 &lt;p&gt;Java 8 的并行流提供了很方便的并行处理，提升程序执行效率的写法，我们在编码的过程中，对用到多线程的地方要保持警惕，有意识地预防此类问题。&lt;/p&gt;
+
+&lt;p&gt;对应的，我们在做代码审查的过程中，也要对涉及到多线程使用的场景时刻绷着一根弦，在代码合入前把好关，将隐患拒之门外。&lt;/p&gt;
 
 &lt;h2 id=&quot;参考&quot;&gt;参考&lt;/h2&gt;
 
