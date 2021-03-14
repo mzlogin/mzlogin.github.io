@@ -6,6 +6,12 @@ description: 从一个代码 Review 中发现的 ArrayList 线程不安全的真
 keywords: 线程安全
 ---
 
+**更新：** 此文发到 [V2EX](https://v2ex.com/t/761286) 后，有网友指出文中的案例代码改写为 `List<String> result = paramList.parallelStream().map(this::doSomething).collect(toList());` 就能很好的解决，确实如此，当时代码审查时意识到这里有线程安全问题，然后我就有点思维定势，只想着用解决线程安全问题的方式去处理，没有换个角度想到这种更好的写法。以下仍然保留原文，阅读重点可以放「线程安全」的分析理解上，`parallelStream` 权当为了举例而简写的一种多线程写法。实际遇上它时可以优先用 `parallelStream.map().collect()` 和 `parallelStream.flatMap().collect()` 这类方案。
+
+以下为原正文。
+
+---
+
 本文从代码审查过程中发现的一个 ArrayList 相关的「线程安全」问题出发，来剖析和理解线程安全。
 
 ## 案例分析
