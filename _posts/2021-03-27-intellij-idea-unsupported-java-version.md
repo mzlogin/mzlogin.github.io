@@ -45,4 +45,4 @@ Your JRE: 1.8.0_271-b09 x86_64 (Oracle Corporation)
 
 当遇到问题时，最应该关注的是错误提示里的信息，很可能解决方案或线索就在里面。
 
-如果以上解决不了问题，在官方文档/网站等渠道寻找解决方案会比盲目全网搜索更精准。
+如果以上解决不了问题，在官方文档/网站等渠道寻找解决方案会比盲目全网搜索更精准。如 [Configuration directory](https://www.jetbrains.com/help/idea/tuning-the-ide.html#config-directory) 这个链接里就清楚地描述了 IntelliJ IDEA 配置文件的存放位置。
