@@ -1,4 +1,50 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://mazhuang.org/feed.xml" rel="self" type="application/atom+xml" /><link href="https://mazhuang.org/" rel="alternate" type="text/html" /><updated>2021-03-14T16:46:58+08:00</updated><id>https://mazhuang.org/feed.xml</id><title type="html">码志</title><subtitle>马壮的个人博客，公众号：闷骚的程序员</subtitle><author><name>Zhuang Ma</name></author><entry><title type="html">代码审查：从 ArrayList 说线程安全</title><link href="https://mazhuang.org/2021/03/13/talk-about-threadsafe-with-arraylist/" rel="alternate" type="text/html" title="代码审查：从 ArrayList 说线程安全" /><published>2021-03-13T00:00:00+08:00</published><updated>2021-03-13T00:00:00+08:00</updated><id>https://mazhuang.org/2021/03/13/talk-about-threadsafe-with-arraylist</id><content type="html" xml:base="https://mazhuang.org/2021/03/13/talk-about-threadsafe-with-arraylist/">&lt;p&gt;&lt;strong&gt;更新：&lt;/strong&gt; 此文发到 &lt;a href=&quot;https://v2ex.com/t/761286&quot;&gt;V2EX&lt;/a&gt; 后，有网友指出文中的案例代码改写为 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;List&amp;lt;String&amp;gt; result = paramList.parallelStream().map(this::doSomething).collect(toList());&lt;/code&gt; 就能很好的解决，确实如此，当时代码审查时意识到这里有线程安全问题，然后我就有点思维定势，只想着用解决线程安全问题的方式去处理，没有换个角度想到这种更好的写法。以下仍然保留原文，阅读重点可以放「线程安全」的分析理解上，&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;parallelStream&lt;/code&gt; 权当为了举例而简写的一种多线程写法。实际遇上它时可以优先用 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;parallelStream.map().collect()&lt;/code&gt; 和 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;parallelStream.flatMap().collect()&lt;/code&gt; 这类方案。&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://mazhuang.org/feed.xml" rel="self" type="application/atom+xml" /><link href="https://mazhuang.org/" rel="alternate" type="text/html" /><updated>2021-03-27T22:00:56+08:00</updated><id>https://mazhuang.org/feed.xml</id><title type="html">码志</title><subtitle>马壮的个人博客，公众号：闷骚的程序员</subtitle><author><name>Zhuang Ma</name></author><entry><title type="html">解决 IntelliJ IDEA 启动报 Unsupported Java Version 的问题</title><link href="https://mazhuang.org/2021/03/27/intellij-idea-unsupported-java-version/" rel="alternate" type="text/html" title="解决 IntelliJ IDEA 启动报 Unsupported Java Version 的问题" /><published>2021-03-27T00:00:00+08:00</published><updated>2021-03-27T00:00:00+08:00</updated><id>https://mazhuang.org/2021/03/27/intellij-idea-unsupported-java-version</id><content type="html" xml:base="https://mazhuang.org/2021/03/27/intellij-idea-unsupported-java-version/">&lt;p&gt;今天用我老掉牙的 MacBook Pro 2015 跑 IDEA 时，感觉略卡，于是在网上找了一些教程来优化它的启动和运行速度。&lt;/p&gt;
+
+&lt;h2 id=&quot;遇到问题&quot;&gt;遇到问题&lt;/h2&gt;
+
+&lt;p&gt;有不少网友提到的一个措施是修改 IDEA 自身运行的 Runtime，即 JDK 版本。也决定试一下看看效果，于是安装了 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Choose Runtime&lt;/code&gt; 插件，然后将默认的 JetBrains Runtime 由 IDEA 自带 JDK 11 换成了我自己安装的 JDK1.8.0_271，然后……IDEA 就再也起不来了，启动就报如下这个错误：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/java/idea-unsupported-java-version.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Unsupported Java Version
+
+Java 11 or newer is required to run the IDE.
+Please contact support at https://jb.gg/ide/critical-startup-errors
+
+Your JRE: 1.8.0_271-b09 x86_64 (Oracle Corporation)
+/Library/Java/JavaVirtualMachines/jdk1.8.0_271.jdk/Contents/Home/jre
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;解决方法&quot;&gt;解决方法&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;想办法进设置 Runtime 的地方，将配置再改回来。&lt;/p&gt;
+
+    &lt;p&gt;但并没有找到办法进设置。失败&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;想办法找到存储这个配置项的配置文件，手动修改回来。&lt;/p&gt;
+
+    &lt;p&gt;在网上搜、按经验找了 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;~&lt;/code&gt;、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;~/Library/Preferences&lt;/code&gt; 等文件夹，均未找到正在使用的 2020.3 版本的配置文件。失败&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;此时留意到以上错误提醒里有个链接，打开链接寻找线索。&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;打开 &lt;a href=&quot;https://jb.gg/ide/critical-startup-errors&quot;&gt;https://jb.gg/ide/critical-startup-errors&lt;/a&gt;，在该页面并未直接找到答案，但在侧边栏发现了线索链接。&lt;/li&gt;
+      &lt;li&gt;跳转到 &lt;a href=&quot;https://intellij-support.jetbrains.com/hc/en-us/articles/206544879-Selecting-the-JDK-version-the-IDE-will-run-under&quot;&gt;Selecting the JDK version the IDE will run under&lt;/a&gt;，在正文的 macOS 部分，提到了如果配置过 IDE JDK Version，会保存在配置文件目录下的 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;product&amp;gt;.jdk&lt;/code&gt; 文件里，并提供了配置文件目录相关的链接。&lt;/li&gt;
+      &lt;li&gt;跳转到 &lt;a href=&quot;https://intellij-support.jetbrains.com/hc/en-us/articles/206544519&quot;&gt;Directories used by the IDE to store settings, caches, plugins and logs&lt;/a&gt;，可以找到 macOS 下 IDEA 2020.3 的配置文件路径 idea.config.path 为 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;~/Library/Application Support/JetBrains/IntelliJIdea2020.3&lt;/code&gt;，打开该目录，果然发现了 idea.jdk 文件。&lt;/li&gt;
+      &lt;li&gt;将 idea.jdk 文件删除，重新打开 IDEA，问题解决。&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;小结&quot;&gt;小结&lt;/h2&gt;
+
+&lt;p&gt;当遇到问题时，最应该关注的是错误提示里的信息，很可能解决方案或线索就在里面。&lt;/p&gt;
+
+&lt;p&gt;如果以上解决不了问题，在官方文档/网站等渠道寻找解决方案会比盲目全网搜索更精准。&lt;/p&gt;</content><author><name>Zhuang Ma</name></author><category term="Java" /><summary type="html">今天用我老掉牙的 MacBook Pro 2015 跑 IDEA 时，感觉略卡，于是在网上找了一些教程来优化它的启动和运行速度。</summary></entry><entry><title type="html">代码审查：从 ArrayList 说线程安全</title><link href="https://mazhuang.org/2021/03/13/talk-about-threadsafe-with-arraylist/" rel="alternate" type="text/html" title="代码审查：从 ArrayList 说线程安全" /><published>2021-03-13T00:00:00+08:00</published><updated>2021-03-13T00:00:00+08:00</updated><id>https://mazhuang.org/2021/03/13/talk-about-threadsafe-with-arraylist</id><content type="html" xml:base="https://mazhuang.org/2021/03/13/talk-about-threadsafe-with-arraylist/">&lt;p&gt;&lt;strong&gt;更新：&lt;/strong&gt; 此文发到 &lt;a href=&quot;https://v2ex.com/t/761286&quot;&gt;V2EX&lt;/a&gt; 后，有网友指出文中的案例代码改写为 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;List&amp;lt;String&amp;gt; result = paramList.parallelStream().map(this::doSomething).collect(toList());&lt;/code&gt; 就能很好的解决，确实如此，当时代码审查时意识到这里有线程安全问题，然后我就有点思维定势，只想着用解决线程安全问题的方式去处理，没有换个角度想到这种更好的写法。以下仍然保留原文，阅读重点可以放「线程安全」的分析理解上，&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;parallelStream&lt;/code&gt; 权当为了举例而简写的一种多线程写法。实际遇上它时可以优先用 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;parallelStream.map().collect()&lt;/code&gt; 和 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;parallelStream.flatMap().collect()&lt;/code&gt; 这类方案。&lt;/p&gt;
 
 &lt;p&gt;以下为原正文。&lt;/p&gt;
 
@@ -1210,167 +1256,4 @@ Did you mean?  tap
   &lt;li&gt;&lt;a href=&quot;https://www.liaoxuefeng.com/wiki/897692888725344/949441536192576&quot;&gt;https://www.liaoxuefeng.com/wiki/897692888725344/949441536192576&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;我的博客即将同步至腾讯云+社区，邀请大家一同入驻：https://cloud.tencent.com/developer/support-plan?invite_code=guk42yjsce8s&lt;/p&gt;</content><author><name>Zhuang Ma</name></author><category term="Java" /><summary type="html">书接上回，在 记一个 Base64 有关的 Bug 一文里，我们说到了 Base64 的编解码器有不同实现，交叉使用它们可能引发的问题等等。</summary></entry><entry><title type="html">记一个 Base64 有关的 Bug</title><link href="https://mazhuang.org/2020/03/01/base64-bug/" rel="alternate" type="text/html" title="记一个 Base64 有关的 Bug" /><published>2020-03-01T00:00:00+08:00</published><updated>2020-03-01T00:00:00+08:00</updated><id>https://mazhuang.org/2020/03/01/base64-bug</id><content type="html" xml:base="https://mazhuang.org/2020/03/01/base64-bug/">&lt;p&gt;本文原计划写两部分内容，第一是记录最近遇到的与 Base64 有关的 Bug，第二是 Base64 编码的原理详解。结果写了一半发现，诶？不复杂的一个事儿怎么也要讲这么长？不利于阅读和理解啊（其实是今天有点懒想去休闲娱乐会儿），所以 Base64 编码的原理详解的部分将在下一篇带来，敬请关注。&lt;/p&gt;
-
-&lt;h2 id=&quot;0x01-遇到的现象&quot;&gt;0x01 遇到的现象&lt;/h2&gt;
-
-&lt;p&gt;A 向 B 提供了一个接口，约定接口参数 Base64 编码后传递。&lt;/p&gt;
-
-&lt;p&gt;但 A 对 B 传递的参数进行 Base64 解码时报错了：&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Illegal base64 character a
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;0x02-原因分析&quot;&gt;0x02 原因分析&lt;/h2&gt;
-
-&lt;p&gt;搜索后发现这是一个好多网友们都踩过的坑，简而言之就一句话：Base64 编/解码器有不同实现，有的不相互兼容。&lt;/p&gt;
-
-&lt;p&gt;比如我上面遇到的现象，可以使用下面这段代码完整模拟复现：&lt;/p&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.mazhuang.base64test&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.springframework.boot.CommandLineRunner&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.springframework.boot.SpringApplication&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.springframework.boot.autoconfigure.SpringBootApplication&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.springframework.util.Base64Utils&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;sun.misc.BASE64Encoder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;nd&quot;&gt;@SpringBootApplication&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Base64testApplication&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;CommandLineRunner&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;...&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Exception&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;kt&quot;&gt;byte&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;content&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;It takes a strong man to save himself, and a great man to save another.&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getBytes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-        &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;encrypted&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;BASE64Encoder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;encode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-        &lt;span class=&quot;kt&quot;&gt;byte&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;decrypted&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Base64Utils&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;decodeFromString&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;encrypted&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-        &lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;decrypted&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;nc&quot;&gt;SpringApplication&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Base64testApplication&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;以上代码执行会报异常：&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Caused by: java.lang.IllegalArgumentException: Illegal base64 character a
-	at java.util.Base64$Decoder.decode0(Base64.java:714) ~[na:1.8.0_202-release]
-	at java.util.Base64$Decoder.decode(Base64.java:526) ~[na:1.8.0_202-release]
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;em&gt;&lt;strong&gt;注：&lt;/strong&gt; 测试代码里的那个字符串如果很短，比如「Hello, World」这种，可以正常解码。&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;也就是说，用 sun.misc.BASE64Encoder 编码，用 org.springframework.util.Base64Utils 进行解码，是有问题的，我们可以用它俩分别对以上符串进行编码，然后输出看看差异。测试代码：&lt;/p&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kt&quot;&gt;byte&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;content&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;It takes a strong man to save himself, and a great man to save another.&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getBytes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-
-&lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;BASE64Encoder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;encode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
-&lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;--- 华丽的分隔线 ---&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Base64Utils&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;encodeToString&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;输出：&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;SXQgdGFrZXMgYSBzdHJvbmcgbWFuIHRvIHNhdmUgaGltc2VsZiwgYW5kIGEgZ3JlYXQgbWFuIHRv
-IHNhdmUgYW5vdGhlci4=
---- 华丽的分隔线 ---
-SXQgdGFrZXMgYSBzdHJvbmcgbWFuIHRvIHNhdmUgaGltc2VsZiwgYW5kIGEgZ3JlYXQgbWFuIHRvIHNhdmUgYW5vdGhlci4=
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;可以看到 sun.misc.BASE64Encoder 编码后的内容换行了，而换行符的 ASCII 编码正好是 0x0a，如此貌似解释得通了。让我们进一步跟踪一下，找一下出现这种差异的源头。&lt;/p&gt;
-
-&lt;h2 id=&quot;0x03-更进一步&quot;&gt;0x03 更进一步&lt;/h2&gt;
-
-&lt;p&gt;在 IDEA 里按住 CTRL 或 COMMAND 键点击方法名，可以跳转到它们的实现。&lt;/p&gt;
-
-&lt;h3 id=&quot;31-sunmiscbase64encoderencode&quot;&gt;3.1 sun.misc.BASE64Encoder.encode&lt;/h3&gt;
-
-&lt;p&gt;这种写法主要涉及到两个类，sun.misc 包下的 BASE64Encoder 和 CharacterEncoder，其中后者是前者的父类。&lt;/p&gt;
-
-&lt;p&gt;它实际工作的 encode 方法是在 CharacterEncoder 文件里，带注释版如下：&lt;/p&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;encode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;InputStream&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;inStream&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;OutputStream&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;outStream&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;IOException&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;     &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;     &lt;span class=&quot;n&quot;&gt;numBytes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;// bytesPerLine 在 BASE64Encoder 里实现，返回 57&lt;/span&gt;
-    &lt;span class=&quot;kt&quot;&gt;byte&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;tmpbuffer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;byte&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bytesPerLine&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()];&lt;/span&gt;
-
-    &lt;span class=&quot;c1&quot;&gt;// 用 outStream 构造一个 PrintStream&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;encodeBufferPrefix&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;outStream&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-
-    &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;c1&quot;&gt;// 读取最多 57 个 bytes&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;numBytes&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;readFully&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;inStream&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tmpbuffer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;numBytes&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-        &lt;span class=&quot;c1&quot;&gt;// 啥也没干&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;encodeLinePrefix&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;outStream&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;numBytes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-        &lt;span class=&quot;c1&quot;&gt;// 每次处理 3 bytes，编码成 4 bytes，不足位的补 0 位和 '='&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;numBytes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bytesPerAtom&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;())&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;c1&quot;&gt;// ...&lt;/span&gt;
-        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;numBytes&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bytesPerLine&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;())&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;c1&quot;&gt;// 换行&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;encodeLineSuffix&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;outStream&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;// 啥也没干&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;encodeBufferSuffix&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;outStream&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;然后在 CharacterEncoder 类的注释里我们可以看到编码后的格式：&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[Buffer Prefix]
-[Line Prefix][encoded data atoms][Line Suffix]
-[Buffer Suffix]
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;而结合 BASE64Encoder 这个实现类来看，Buffer Prefix、Buffer Suffix 和 Line Prefix 都为空，Line Suffix 为 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;\n&lt;/code&gt;。&lt;/p&gt;
-
-&lt;p&gt;至此，我们已经找到实现中换行的部分——这个编码器实现里，读取 57 个 byte 作为一行进行编码（编码完成后是 76 个 byte）。&lt;/p&gt;
-
-&lt;h3 id=&quot;32-orgspringframeworkutilbase64utilsencodetostring&quot;&gt;3.2 org.springframework.util.Base64Utils.encodeToString&lt;/h3&gt;
-
-&lt;p&gt;这种写法主要涉及到 org.springframework.util.Base64Utils 和 java.util.Base64 两个类，可以看到前者主要是后者的封装。&lt;/p&gt;
-
-&lt;p&gt;Base64Utils.encodeToString 这种写法最终用到的是 Base64.Encoder.RFC4648 这种编码器：&lt;/p&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// isURL = false，newline = null，linemax = -1，doPadding = true&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Encoder&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;RFC4648&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Encoder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;留意 newline 和 linemax 的值。&lt;/p&gt;
-
-&lt;p&gt;然后看实际的编码实现所在的 Base64.encode0 方法：&lt;/p&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;encode0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;byte&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;off&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;end&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;byte&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dst&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;// ...&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sp&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;c1&quot;&gt;// ...&lt;/span&gt;
-
-        &lt;span class=&quot;c1&quot;&gt;// 这个条件不会满足，不会加换行&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dlen&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;linemax&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sp&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;end&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;byte&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;newline&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;){&lt;/span&gt;
-                &lt;span class=&quot;n&quot;&gt;dst&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-            &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;// ...&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;所以……这个实现里没有换行。&lt;/p&gt;
-
-&lt;h2 id=&quot;0x04-小结&quot;&gt;0x04 小结&lt;/h2&gt;
-
-&lt;p&gt;经过以上的分析，真相已经大白了，就是两个编码器的实现不一样，我们在开发过程中注意使用匹配的编码解码器就 OK 了，就是用哪个 Java 包下面的编码器编码，就用相同包下的对应解码器解码。&lt;/p&gt;
-
-&lt;p&gt;至于为啥会出现不一样的实现，它们之间有过什么来龙去脉、恩怨情仇，Base64 的详细原理等等，就厚着老脸，邀请大家且听下回分解吧！:-P&lt;/p&gt;</content><author><name>Zhuang Ma</name></author><category term="Java" /><summary type="html">本文原计划写两部分内容，第一是记录最近遇到的与 Base64 有关的 Bug，第二是 Base64 编码的原理详解。结果写了一半发现，诶？不复杂的一个事儿怎么也要讲这么长？不利于阅读和理解啊（其实是今天有点懒想去休闲娱乐会儿），所以 Base64 编码的原理详解的部分将在下一篇带来，敬请关注。</summary></entry></feed>
+&lt;p&gt;我的博客即将同步至腾讯云+社区，邀请大家一同入驻：https://cloud.tencent.com/developer/support-plan?invite_code=guk42yjsce8s&lt;/p&gt;</content><author><name>Zhuang Ma</name></author><category term="Java" /><summary type="html">书接上回，在 记一个 Base64 有关的 Bug 一文里，我们说到了 Base64 的编解码器有不同实现，交叉使用它们可能引发的问题等等。</summary></entry></feed>

@@ -100,6 +100,8 @@
   
   
   
+  
+  
 
   
     {
@@ -1060,6 +1062,14 @@
       
       "url"      : "https://mazhuang.org/2021/03/13/talk-about-threadsafe-with-arraylist/",
       "keywords" : "线程安全"
+    } ,
+  
+    {
+      "title"    : "解决 IntelliJ IDEA 启动报 Unsupported Java Version 的问题",
+      "category" : "Java",
+      
+      "url"      : "https://mazhuang.org/2021/03/27/intellij-idea-unsupported-java-version/",
+      "keywords" : "IntelliJ IDEA, Unsupported Java Version"
     } ,
   
     {
