@@ -54,6 +54,10 @@ navs:
     label: 首页
 
   -
+    href: /archives/
+    label: 归档
+
+  -
     href: /categories/
     label: 分类
 
