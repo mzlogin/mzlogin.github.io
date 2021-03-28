@@ -4,9 +4,9 @@
 baseurl:
 url: https://zwtdzh.github.io
 date_format: "ordinal"
-title: BLOG
-subtitle: "bilibili：zwtdzh"
-description: "Zhang Wentao's BLOG"
+title: Zhang Wentao's Blog
+subtitle: "Zhang Wentao's Blog"
+description: "Zhang Wentao's Blog"
 keywords: wentao, Zhang, zwtdzh, 张文涛, blog
 timezone: Asia/Shanghai
 encoding: "utf-8"
