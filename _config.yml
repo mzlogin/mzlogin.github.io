@@ -5,9 +5,9 @@ baseurl:
 url: https://zwtdzh.github.io
 date_format: "ordinal"
 title: Zhang Wentao's Blog
-subtitle: "happy day！"
+subtitle: "Blog"
 description: "Zhang Wentao's Blog"
-keywords: wentao, Zhang, zwtdzh, 张文涛, blog
+keywords: wentao, Zhang, zwtdzh, 张文涛, blog, Zhang Wentao
 timezone: Asia/Shanghai
 encoding: "utf-8"
 side_bar_repo_limit: 5
