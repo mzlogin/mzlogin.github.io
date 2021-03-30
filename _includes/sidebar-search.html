@@ -13,9 +13,9 @@ SimpleJekyllSearch({
     searchInput: document.getElementById('search_box'),
     resultsContainer: document.getElementById('search_results'),
   {% if site.cdn.jsdelivr.enabled and site.url contains 'mazhuang.org' %}
-    json: 'https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@built/assets/search_data.json',
+    json: 'https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@built/assets/search_data.json?v={{ "now" | date: "%s"}}',
   {% else %}
-    json: '{{ site.url }}/assets/search_data.json',
+    json: '{{ site.url }}/assets/search_data.json?v={{ "now" | date: "%s"}}',
   {% endif %}
     searchResultTemplate: '<li><a href="{url}" title="{title}">{title}</a></li>',
     noResultsText: 'No results found',
