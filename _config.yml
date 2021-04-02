@@ -16,7 +16,7 @@ repository: mzlogin/mzlogin.github.io
 cdn:
     jsdelivr:
         enabled: true
-# 组件配置
+# 可选组件配置
 components:
     # 分享
     share:
@@ -25,13 +25,17 @@ components:
     busuanzi:
         enabled: true
         start_date: 2020-05-03
+    # My Popular Repositories
+    side_bar_repo:
+        enabled: true
+        limit: 5
+    # 文章字数统计
+    word_count:
+        enabled: true
 # 压缩页面内容
 compress_html:
   clippings: all
   comments: ["<!--", "-->"]
-# 文章字数统计
-word_count:
-    enabled: true
 # 代码高亮风格，支持的 theme 列表见 https://github.com/mzlogin/rouge-themes
 highlight_theme: github
 

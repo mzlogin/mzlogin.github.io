@@ -1,7 +1,7 @@
+{% if site.components.side_bar_repo.enabled and site.github.public_repositories != false %}
 <h3>My Popular Repositories</h3>
-{% if site.github.public_repositories != false %}
 {% assign repos = site.github.public_repositories | sort: "stargazers_count" | reverse %}
-{% for repo in repos | limit: site.side_bar_repo_limit %}
+{% for repo in repos | limit: site.components.side_bar_repo.limit %}
 <a href="{{ repo.html_url }}" target="_blank" class="card text-center">
     <div class="thumbnail">
         <div class="card-image geopattern" data-pattern-id="{{ repo.name }}">
