@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://mazhuang.org/feed.xml" rel="self" type="application/atom+xml" /><link href="https://mazhuang.org/" rel="alternate" type="text/html" /><updated>2021-03-31T16:11:54+08:00</updated><id>https://mazhuang.org/feed.xml</id><title type="html">码志</title><subtitle>马壮的个人博客，公众号：闷骚的程序员</subtitle><author><name>Zhuang Ma</name></author><entry><title type="html">解决 IntelliJ IDEA 启动报 Unsupported Java Version 的问题</title><link href="https://mazhuang.org/2021/03/27/intellij-idea-unsupported-java-version/" rel="alternate" type="text/html" title="解决 IntelliJ IDEA 启动报 Unsupported Java Version 的问题" /><published>2021-03-27T00:00:00+08:00</published><updated>2021-03-27T00:00:00+08:00</updated><id>https://mazhuang.org/2021/03/27/intellij-idea-unsupported-java-version</id><content type="html" xml:base="https://mazhuang.org/2021/03/27/intellij-idea-unsupported-java-version/">&lt;p&gt;今天用我老掉牙的 MacBook Pro 2015 跑 IDEA 时，感觉略卡，于是在网上找了一些教程来优化它的启动和运行速度。&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://mazhuang.org/feed.xml" rel="self" type="application/atom+xml" /><link href="https://mazhuang.org/" rel="alternate" type="text/html" /><updated>2021-04-02T13:30:40+08:00</updated><id>https://mazhuang.org/feed.xml</id><title type="html">码志</title><subtitle>马壮的个人博客，公众号：闷骚的程序员</subtitle><author><name>Zhuang Ma</name></author><entry><title type="html">解决 IntelliJ IDEA 启动报 Unsupported Java Version 的问题</title><link href="https://mazhuang.org/2021/03/27/intellij-idea-unsupported-java-version/" rel="alternate" type="text/html" title="解决 IntelliJ IDEA 启动报 Unsupported Java Version 的问题" /><published>2021-03-27T00:00:00+08:00</published><updated>2021-03-27T00:00:00+08:00</updated><id>https://mazhuang.org/2021/03/27/intellij-idea-unsupported-java-version</id><content type="html" xml:base="https://mazhuang.org/2021/03/27/intellij-idea-unsupported-java-version/">&lt;p&gt;今天用我老掉牙的 MacBook Pro 2015 跑 IDEA 时，感觉略卡，于是在网上找了一些教程来优化它的启动和运行速度。&lt;/p&gt;
 
 &lt;h2 id=&quot;遇到问题&quot;&gt;遇到问题&lt;/h2&gt;
 
@@ -823,7 +823,7 @@ Caused by: java.lang.ArrayIndexOutOfBoundsException: 1234
 
 &lt;p&gt;第 2 步和第 3 步是比较痛苦的，尤其是文件路径比较深的时候，可能要点选好几次。&lt;/p&gt;
 
-&lt;p&gt;最近偶然发现的一个外国小伙写的插件 md-img-paste.vim&lt;sup id=&quot;fnref:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;，能比较好地解决这个问题。现在的操作流程：&lt;/p&gt;
+&lt;p&gt;最近偶然发现的一个外国小伙写的插件 md-img-paste.vim&lt;sup id=&quot;fnref:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;，能比较好地解决这个问题。现在的操作流程：&lt;/p&gt;
 
 &lt;ol&gt;
   &lt;li&gt;复制图片/截图；&lt;/li&gt;
@@ -844,7 +844,7 @@ Caused by: java.lang.ArrayIndexOutOfBoundsException: 1234
 
 &lt;p&gt;这个插件没有其它依赖，使用自己习惯的插件管理方式安装就好。&lt;/p&gt;
 
-&lt;p&gt;比如我使用 Vundle&lt;sup id=&quot;fnref:2&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;，在 vimrc 里添加如下内容，然后 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;:so $MYVIMRC&lt;/code&gt; 再 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;:PluginInstall&lt;/code&gt; 就好了。&lt;/p&gt;
+&lt;p&gt;比如我使用 Vundle&lt;sup id=&quot;fnref:2&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;，在 vimrc 里添加如下内容，然后 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;:so $MYVIMRC&lt;/code&gt; 再 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;:PluginInstall&lt;/code&gt; 就好了。&lt;/p&gt;
 
 &lt;div class=&quot;language-viml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Plugin &lt;span class=&quot;s1&quot;&gt;'ferrine/md-img-paste.vim'&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -867,7 +867,7 @@ Caused by: java.lang.ArrayIndexOutOfBoundsException: 1234
   &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;g:mdip_imgname&lt;/code&gt; 对应图片保存时的缺省文件名前缀，即粘贴图片时，如果不输入文件名直接回车，将保存为 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;前缀&amp;gt;_日期-时间.png&lt;/code&gt; 名称的文件。&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;我的完整 Vim 配置文件托管在 GitHub&lt;sup id=&quot;fnref:3&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;，供参考。&lt;/p&gt;
+&lt;p&gt;我的完整 Vim 配置文件托管在 GitHub&lt;sup id=&quot;fnref:3&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;，供参考。&lt;/p&gt;
 
 &lt;p&gt;It’s done, enjoy it.&lt;/p&gt;
 
