@@ -144,6 +144,14 @@ Error:(1, 1) error: illegalcharacter: '\ufeff'
 
 ![](/images/wiki/idea-serializable-inspection.png)
 
+### 配置打开/新建工程的默认 JDK 版本
+
+打开/新建工程默认会使用比较新的 JDK，比如 JDK 11 或者 14。而在我的实际场景里一般还是需要用 JDK 8，这样每次都要手动设置很不方便。
+
+设置默认 JDK 的方法：
+
+File > New Projects Settings > Structure For New Projects
+
 ## 参考
 
 * [解决IntelliJ IDEA无法读取配置*.properties文件的问题](http://www.cnblogs.com/zqr99/p/7642712.html)
