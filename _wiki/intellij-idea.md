@@ -152,6 +152,14 @@ Error:(1, 1) error: illegalcharacter: '\ufeff'
 
 File > New Projects Settings > Structure For New Projects
 
+### 忽略文件
+
+Java 项目里有一些文件是不需要关注的，但它们默认会展示在 Project 视图，甚至会出现在你的搜索结果里，形成干扰。比如 dependency-reduced-pom.xml 和 target 文件夹等。
+
+如何忽略掉它们呢？
+
+Preferences > Editor > File Types > Ignore Files and Folders，将文件/文件夹名称加进去，英文分号分隔。
+
 ## 参考
 
 * [解决IntelliJ IDEA无法读取配置*.properties文件的问题](http://www.cnblogs.com/zqr99/p/7642712.html)
