@@ -38,7 +38,7 @@ components:
     # 修改图片请替换 assets/images/qrcode.jpg
     qrcode:
         enabled: true
-        image_alt: 闷骚的程序员
+        image_alt: 
 # 压缩页面内容
 compress_html:
   clippings: all
@@ -54,7 +54,7 @@ organization:
 organization_url: 
 github_username: Chem2080
 location: Shanghai, China
-email: 
+email: 1882005cg@gmail.com
 
 # ---------------- #
 #    Navigation    #
