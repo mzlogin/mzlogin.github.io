@@ -134,10 +134,9 @@ disqus:
 # https://github.com/gitalk/gitalk#install
 gitalk:
     owner: Chem2080
-    repo: chem2080.github.io
+    repo: c2blogcomment
     clientID: fc56a903598fe97b30fb
     clientSecret: 4f32280593416d281cf14e785aae91d353dcec99
-    labels:blog-comment
 # 在使用其它评论组件时可点击显示 Disqus
 lazy_load_disqus : false
 
