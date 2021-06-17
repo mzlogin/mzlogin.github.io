@@ -160,8 +160,16 @@ Java 项目里有一些文件是不需要关注的，但它们默认会展示在
 
 Preferences > Editor > File Types > Ignore Files and Folders，将文件/文件夹名称加进去，英文分号分隔。
 
+### 修改查找的显示数量
+
+默认显示 100 个查找结果，"100+ matches in X files"，而且无法翻页，所以想将 100 这个限制调大。
+
+版本 >= 2021.2 的：Settings > Advanced Settings > Maximum number of results to show in Find In Path/Show Usages preview
+
+老版本：Help > Find Action...Registry > ide.usages.page.size，改成更大的值，比如 10000。
+
 ## 参考
 
-* [解决IntelliJ IDEA无法读取配置*.properties文件的问题](http://www.cnblogs.com/zqr99/p/7642712.html)
-* [How to build jars from IntelliJ properly?](https://stackoverflow.com/questions/1082580/how-to-build-jars-from-intellij-properly)
-
+- [解决IntelliJ IDEA无法读取配置*.properties文件的问题](http://www.cnblogs.com/zqr99/p/7642712.html)
+- [How to build jars from IntelliJ properly?](https://stackoverflow.com/questions/1082580/how-to-build-jars-from-intellij-properly)
+- [Can I adjust the “100+ matches in X files” from Intellijs “find in path”](https://stackoverflow.com/questions/44803519/can-i-adjust-the-100-matches-in-x-files-from-intellijs-find-in-path)
