@@ -160,13 +160,25 @@ Java 项目里有一些文件是不需要关注的，但它们默认会展示在
 
 Preferences > Editor > File Types > Ignore Files and Folders，将文件/文件夹名称加进去，英文分号分隔。
 
-### 修改查找的显示数量
+### 修改查找的结果显示数量
 
 默认显示 100 个查找结果，"100+ matches in X files"，而且无法翻页，所以想将 100 这个限制调大。
 
 版本 >= 2021.2 的：Settings > Advanced Settings > Maximum number of results to show in Find In Path/Show Usages preview
 
 老版本：Help > Find Action...Registry > ide.usages.page.size，改成更大的值，比如 10000。
+
+### 设置程序/测试用例运行的默认 VM Options
+
+经常需要通过 VM Options 指定一些环境和配置相关的参数，每次有新的程序或者测试用例要执行时都要手动配置非常麻烦。
+
+设置默认的 VM Options 方法：
+
+Run > Edit Configurations > Templates
+
+点选你经常用到的 Template，比如 Spring Boot、JUnit、Tomcat Server > Local，然后在 VM Options 里填上默认参数后保存。
+
+![](/images/wiki/idea-default-vm-options.png)
 
 ## 参考
 
