@@ -69,7 +69,7 @@ public void execute() {
         return;
     }
 
-    shardTotal = min(shardTotal, executeNodeNum);
+    shardTotal = executeNodeNum;
 
     // 分片查询数据并处理
     process(shardIndex, shardTotal);
