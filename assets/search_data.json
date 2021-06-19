@@ -1073,6 +1073,14 @@
     } ,
   
     {
+      "title"    : "利用 XXL-JOB 实现灵活控制的分片处理",
+      "category" : "Java",
+      
+      "url"      : "https://mazhuang.org/2021/06/19/xxl-job-sharding/",
+      "keywords" : "XXL-JOB, Java, 分片广播"
+    } ,
+  
+    {
       "title"    : "Android Studio",
       "category" : "Android",
       
