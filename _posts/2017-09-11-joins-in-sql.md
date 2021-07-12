@@ -46,7 +46,7 @@ INNER JOIN 一般被译作内连接。内连接查询能将左表（表 A）和�
 
 **文氏图：**
 
-![INNER JOIN](https://raw.githubusercontent.com/mzlogin/mzlogin.github.io/master/images/posts/database/inner-join.png)
+![INNER JOIN](/images/posts/database/inner-join.png)
 
 **示例查询：**
 
@@ -77,7 +77,7 @@ LEFT JOIN 一般被译作左连接，也写作 LEFT OUTER JOIN。左连接查询
 
 **文氏图：**
 
-![LEFT JOIN](https://raw.githubusercontent.com/mzlogin/mzlogin.github.io/master/images/posts/database/left-join.png)
+![LEFT JOIN](/images/posts/database/left-join.png)
 
 **示例查询：**
 
@@ -107,7 +107,7 @@ RIGHT JOIN 一般被译作右连接，也写作 RIGHT OUTER JOIN。右连接查�
 
 **文氏图：**
 
-![RIGHT JOIN](https://raw.githubusercontent.com/mzlogin/mzlogin.github.io/master/images/posts/database/right-join.png)
+![RIGHT JOIN](/images/posts/database/right-join.png)
 
 **示例查询：**
 
@@ -137,7 +137,7 @@ FULL OUTER JOIN 一般被译作外连接、全连接，实际查询语句中可�
 
 **文氏图：**
 
-![FULL OUTER JOIN](https://raw.githubusercontent.com/mzlogin/mzlogin.github.io/master/images/posts/database/full-outer-join.png)
+![FULL OUTER JOIN](/images/posts/database/full-outer-join.png)
 
 **示例查询：**
 
@@ -185,7 +185,7 @@ mysql> SELECT *
 
 以上四种，就是 SQL 里常见 JOIN 的种类和概念了，看一下它们的合影：
 
-![](https://raw.githubusercontent.com/mzlogin/mzlogin.github.io/master/images/posts/database/general-joins.png)
+![](/images/posts/database/general-joins.png)
 
 有没有感觉少了些什么，学数学集合时完全不止这几种情况？确实如此，继续看。
 
@@ -197,7 +197,7 @@ mysql> SELECT *
 
 **文氏图：**
 
-![LEFT JOIN EXCLUDING INNER JOIN](https://raw.githubusercontent.com/mzlogin/mzlogin.github.io/master/images/posts/database/left-join-excluding-inner-join.png)
+![LEFT JOIN EXCLUDING INNER JOIN](/images/posts/database/left-join-excluding-inner-join.png)
 
 **示例查询：**
 
@@ -227,7 +227,7 @@ WHERE B.PK IS NULL;
 
 **文氏图：**
 
-![RIGHT JOIN EXCLUDING INNER JOIN](https://raw.githubusercontent.com/mzlogin/mzlogin.github.io/master/images/posts/database/right-join-excluding-inner-join.png)
+![RIGHT JOIN EXCLUDING INNER JOIN](/images/posts/database/right-join-excluding-inner-join.png)
 
 **示例查询：**
 
@@ -257,7 +257,7 @@ WHERE A.PK IS NULL;
 
 **文氏图：**
 
-![FULL OUTER JOIN EXCLUDING INNER JOIN](https://raw.githubusercontent.com/mzlogin/mzlogin.github.io/master/images/posts/database/full-outer-join-excluding-inner-join.png)
+![FULL OUTER JOIN EXCLUDING INNER JOIN](/images/posts/database/full-outer-join-excluding-inner-join.png)
 
 **示例查询：**
 
@@ -307,13 +307,13 @@ mysql> SELECT *
 
 以上七种用法基本上可以覆盖各种 JOIN 查询了。七种用法的全家福：
 
-![SQL JOINS](https://raw.githubusercontent.com/mzlogin/mzlogin.github.io/master/images/posts/database/sql-joins.png)
+![SQL JOINS](/images/posts/database/sql-joins.png)
 
 看着它们，我仿佛回到了当年学数学，求交集并集的时代……
 
 顺带张贴一下 [C.L. Moffatt][1] 带 SQL 语句的图片，配合学习，风味更佳：
 
-![SQL JOINS](https://raw.githubusercontent.com/mzlogin/mzlogin.github.io/master/images/posts/database/Visual_SQL_JOINS_orig.jpg)
+![SQL JOINS](/images/posts/database/Visual_SQL_JOINS_orig.jpg)
 
 ## 更新：更多的 JOIN
 
@@ -325,7 +325,7 @@ mysql> SELECT *
 
 **图示：**
 
-![CORSS JOIN](https://raw.githubusercontent.com/mzlogin/mzlogin.github.io/master/images/posts/database/cross-join.png)
+![CORSS JOIN](/images/posts/database/cross-join.png)
 
 **示例查询：**
 
