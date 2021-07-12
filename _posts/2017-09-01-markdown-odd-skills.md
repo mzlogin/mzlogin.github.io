@@ -78,7 +78,7 @@ N 与图片高度有关。
 ```
 **图片默认显示效果：**
 
-![](https://raw.githubusercontent.com/mzlogin/mzlogin.github.io/master/images/posts/markdown/demo.png)
+![](/images/posts/markdown/demo.png)
 
 **加以控制后的效果：**
 
@@ -89,7 +89,7 @@ N 与图片高度有关。
 
 **图片默认显示效果：**
 
-![](https://raw.githubusercontent.com/mzlogin/mzlogin.github.io/master/images/posts/markdown/demo.png)
+![](/images/posts/markdown/demo.png)
 
 **加以控制后的效果：**
 
@@ -163,7 +163,7 @@ N 与图片高度有关。
 
 2. 在网页下部拷贝 URL Encoded 的内容，比如以上公式生成的是 `https://latex.codecogs.com/png.latex?%24%24x%3D%5Cfrac%7B-b%5Cpm%5Csqrt%7Bb%5E2-4ac%7D%7D%7B2a%7D%24%24`；
 
-   ![](https://raw.githubusercontent.com/mzlogin/mzlogin.github.io/master/images/posts/markdown/latex-img.png)
+   ![](/images/posts/markdown/latex-img.png)
 
 3. 在文档需要的地方使用以上 URL 贴图，比如
 
