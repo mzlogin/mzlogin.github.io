@@ -8,13 +8,17 @@ keywords: 羽毛球
 
 ## 视频
 
-* [李在福《Play To Win》完整版](http://v.youku.com/v_show/id_XNDExNDM2NzA0.html)
+李在福系列：
 
-* [李在福《追球》全集](http://v.youku.com/v_show/id_XMjczOTAyODI4.html?f=15463121)
-
-## 图文
-
-* [超全羽毛球技术图解](http://q.115.com/t-137397-1619804.html)
+1. [追球（基础系列）](https://www.bilibili.com/video/BV1Yx411W7nJ)
+2. [双打](https://www.bilibili.com/video/BV1Yx411W7sS)
+3. [混双](https://www.bilibili.com/video/BV1Zx411W7AH)
+4. [杀球技巧](https://www.bilibili.com/video/BV1Zx411W7FC)
+5. [网前扑球](https://www.bilibili.com/video/BV1hx411V7we)
+6. [反手后场高球](https://www.bilibili.com/video/BV1hx411V7cZ)
+7. [步伐](https://www.bilibili.com/video/BV1hx411V7cK)
+8. [步伐训练](https://www.bilibili.com/video/BV1hx411V7cL)
+9. [论球](https://www.bilibili.com/video/BV1hx411V7uY)
 
 ## 公众号
 
@@ -22,6 +26,9 @@ keywords: 羽毛球
 
   微信号：caiyunliaoyumaoqiu
 
-* 羽毛球
+## 动作要领笔记
 
-  微信号：yu-mao-qiu
+### 双打反手发网前球
+
+1. 持球手大拇指和食指捏住羽毛，其余三指自然伸直；
+2. 主要是手腕发力，大小臂都保持稳定；
