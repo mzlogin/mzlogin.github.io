@@ -1,4 +1,28 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://mazhuang.org/feed.xml" rel="self" type="application/atom+xml" /><link href="https://mazhuang.org/" rel="alternate" type="text/html" /><updated>2021-10-01T10:52:44+08:00</updated><id>https://mazhuang.org/feed.xml</id><title type="html">码志</title><subtitle>马壮的个人博客，公众号：闷骚的程序员</subtitle><author><name>Zhuang Ma</name></author><entry><title type="html">利用 XXL-JOB 实现灵活控制的分片处理</title><link href="https://mazhuang.org/2021/06/19/xxl-job-sharding/" rel="alternate" type="text/html" title="利用 XXL-JOB 实现灵活控制的分片处理" /><published>2021-06-19T00:00:00+08:00</published><updated>2021-06-19T00:00:00+08:00</updated><id>https://mazhuang.org/2021/06/19/xxl-job-sharding</id><content type="html" xml:base="https://mazhuang.org/2021/06/19/xxl-job-sharding/">&lt;p&gt;本文讲述了一种利用 XXL-JOB 来进行分片任务处理的方法，另外加入对执行节点数的灵活控制。&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://mazhuang.org/feed.xml" rel="self" type="application/atom+xml" /><link href="https://mazhuang.org/" rel="alternate" type="text/html" /><updated>2021-10-25T09:09:15+08:00</updated><id>https://mazhuang.org/feed.xml</id><title type="html">码志</title><subtitle>马壮的个人博客，公众号：闷骚的程序员</subtitle><author><name>Zhuang Ma</name></author><entry><title type="html">读叔本华《人生的智慧》</title><link href="https://mazhuang.org/2021/10/25/the-wisdom-of-life/" rel="alternate" type="text/html" title="读叔本华《人生的智慧》" /><published>2021-10-25T00:00:00+08:00</published><updated>2021-10-25T00:00:00+08:00</updated><id>https://mazhuang.org/2021/10/25/the-wisdom-of-life</id><content type="html" xml:base="https://mazhuang.org/2021/10/25/the-wisdom-of-life/">&lt;p&gt;最近读完了这本小书，想写点什么，但又似乎暂时表示不出，先挖个读书笔记的坑在这里，后面有所感了也许会填上。&lt;/p&gt;
+
+&lt;p&gt;读此书的过程中，感觉后半部分都是在大讲所谓骑士荣誉，看得很烦。&lt;/p&gt;
+
+&lt;h2 id=&quot;摘录&quot;&gt;摘录&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;美貌是一封公开的推荐信。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;只要对生活稍作考察，我们就会发现，人类幸福的两大宿敌是痛苦和无聊。我再补充一下，当我们足够幸运逃离了其中一端时，我们就接近了另外一端，也就是说，免得了痛苦却免不了无聊，反之亦然。实际上，生活就像是钟摆一般，在这两端之间或激烈或温和地来回摇摆——要么痛苦，要么无聊，反正总有一项逃不掉。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;麻木迟钝是一种摆在脸上、印在心底的空虚状态——人们对外部发生的一些琐碎的事情表现出不停的、强烈的关注，同样也暴露了他们内在的空虚。这就是无聊的真正根源——内心空虚的人为了寻求刺激，不断用各种无谓的东西充塞大脑和心灵，单调又乏味。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;根据亚里士多德的学说，幸福在于能够施展才能；斯托拜乌在他对逍遥派（即亚里士多德学派）哲学的阐述中也说了，「幸福意味着充满活力地做你擅长的事并获得预期的结果」。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;我们乐于受人尊敬，并不是热爱「尊敬」本身，我们爱是只是受人尊敬带来的好处。&lt;/p&gt;
+&lt;/blockquote&gt;</content><author><name>Zhuang Ma</name></author><category term="Blog" /><summary type="html">最近读完了这本小书，想写点什么，但又似乎暂时表示不出，先挖个读书笔记的坑在这里，后面有所感了也许会填上。</summary></entry><entry><title type="html">利用 XXL-JOB 实现灵活控制的分片处理</title><link href="https://mazhuang.org/2021/06/19/xxl-job-sharding/" rel="alternate" type="text/html" title="利用 XXL-JOB 实现灵活控制的分片处理" /><published>2021-06-19T00:00:00+08:00</published><updated>2021-06-19T00:00:00+08:00</updated><id>https://mazhuang.org/2021/06/19/xxl-job-sharding</id><content type="html" xml:base="https://mazhuang.org/2021/06/19/xxl-job-sharding/">&lt;p&gt;本文讲述了一种利用 XXL-JOB 来进行分片任务处理的方法，另外加入对执行节点数的灵活控制。&lt;/p&gt;
 
 &lt;h2 id=&quot;场景&quot;&gt;场景&lt;/h2&gt;
 
@@ -1066,160 +1090,4 @@ Did you mean?  tap
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://purge.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js&quot;&gt;https://purge.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js?v=1.7.2&quot;&gt;https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js?v=1.7.2&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Zhuang Ma</name></author><category term="GitHub" /><summary type="html">使用这个博客模板的朋友们时不时会提出一些问题，我将它们以及对应的解决方案逐渐整理归纳，汇总到这一篇帖子里。</summary></entry><entry><title type="html">使用 jsDelivr 免费加速 GitHub Pages 博客的静态资源</title><link href="https://mazhuang.org/2020/05/01/cdn-for-github-pages/" rel="alternate" type="text/html" title="使用 jsDelivr 免费加速 GitHub Pages 博客的静态资源" /><published>2020-05-01T00:00:00+08:00</published><updated>2020-05-01T00:00:00+08:00</updated><id>https://mazhuang.org/2020/05/01/cdn-for-github-pages</id><content type="html" xml:base="https://mazhuang.org/2020/05/01/cdn-for-github-pages/">&lt;p&gt;挺久以前就有网友给我的 GitHub Pages 博客模板提 &lt;a href=&quot;https://github.com/mzlogin/mzlogin.github.io/issues/65&quot;&gt;Issue&lt;/a&gt;，说希望能增加 CDN 用于加速静态资源的加载，由于懒，一直没有动。&lt;/p&gt;
-
-&lt;p&gt;最近偶尔要打开自己博客看下 Wiki 的时候，要等挺久，比较痛苦，碰巧昨天晚上看到这样一篇帖子：&lt;a href=&quot;https://hacpai.com/article/1583894928771&quot;&gt;GitHub 图床的正确用法，通过 jsDelivr CDN 全球加速&lt;/a&gt;，感觉很适合我的需求场景，于是决定趁这几天休假将这个改造一下。&lt;/p&gt;
-
-&lt;h2 id=&quot;先看效果&quot;&gt;先看效果&lt;/h2&gt;
-
-&lt;p&gt;以下改造前后的加载情况都是在 Edge 浏览器禁用缓存后录制的，录制时间段很接近，从本地访问两个 GitHub Pages 服务的原始响应速度应该类似。&lt;/p&gt;
-
-&lt;h3 id=&quot;改造前加载&quot;&gt;改造前加载&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/github/cdn-before.png&quot; alt=&quot;before use cdn&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;注：由于改造前没有保留加载图，所以这是截的一个使用相同模板的朋友的首页加载情况。&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;可以看到耗时最长的两个请求时间达到了 12 秒左右，而且很多资源的加载时间在 1 秒以上，页面完成加载时间长达 15 秒多……估计一般的访客是没这个耐心等待的。&lt;/p&gt;
-
-&lt;h3 id=&quot;改造后加载&quot;&gt;改造后加载&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/github/cdn-after.png&quot; alt=&quot;after use cdn&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;这样一对比效果还是很明显的。改造过后耗时最长的是两个没办法走 CDN 的请求，而走 CDN 的那些资源加载时间基本都没超过 60 毫秒，页面完成加载时间缩短到了 3 秒以内。&lt;/p&gt;
-
-&lt;p&gt;当然，因为页面自身还是在 GitHub Pages 托管，有时候首个请求还是会挺久才返回。&lt;/p&gt;
-
-&lt;p&gt;改造后的效果可以打开 &lt;a href=&quot;https://mazhuang.org&quot;&gt;https://mazhuang.org&lt;/a&gt; 体验。&lt;/p&gt;
-
-&lt;h2 id=&quot;方案考虑&quot;&gt;方案考虑&lt;/h2&gt;
-
-&lt;p&gt;优化独立博客的加载速度有一些不同的思路，对应不同的方案：&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;优化博客代码，精简需要加载的资源；&lt;/li&gt;
-  &lt;li&gt;将博客部署到国内访问快的服务器上；&lt;/li&gt;
-  &lt;li&gt;部署到国内的代码托管平台，比如 Gitee 和 Coding 等；&lt;/li&gt;
-  &lt;li&gt;采用 CDN 加速；&lt;/li&gt;
-  &lt;li&gt;等等。&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;其中 2 和 3 我不想考虑，还是期望只在 GitHub 上管理博客，所以 1 和 4 是优化方向，本文对应的就是 4 的部分。&lt;/p&gt;
-
-&lt;p&gt;而采用 CDN 加速的方案，可以考虑&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;将公共库改为直接引用公共 CDN 链接；&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;自己编写和修改的静态资源自己去托管在一个 CDN 服务上。&lt;/p&gt;
-
-    &lt;p&gt;有一些 CDN 服务商提供一定的免费额度，可以按喜好选用，或者选择付费服务。这里我没有纠结，看完文首提到的那篇文章，去看了下 jsDelivr 的介绍后觉得靠谱：它原生支持使用 GitHub 项目里的资源，什么都不用配置，更重要的是免费，在国内有节点，而且速度还不错（官网上也把 works in China 作为一个卖点的），遂决定直接用它。&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;jsdelivr-支持的-github-资源的方式&quot;&gt;jsDelivr 支持的 GitHub 资源的方式&lt;/h2&gt;
-
-&lt;p&gt;jsDelivr 对 GitHub 的支持是作为重要特性来宣传的，官网的介绍链接：&lt;a href=&quot;https://www.jsdelivr.com/features#gh&quot;&gt;https://www.jsdelivr.com/features#gh&lt;/a&gt;，以下是一些认为需要了解的知识的小结：&lt;/p&gt;
-
-&lt;p&gt;这里以我托管博客的 GitHub 仓库为例，地址是 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;https://github.com/mzlogin/mzlogin.github.io&lt;/code&gt;，那它里面的资源可以直接以 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io/&lt;/code&gt; + &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;仓库里的文件路径&lt;/code&gt; 来访问。&lt;/p&gt;
-
-&lt;p&gt;比如仓库里有一个 js 文件 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;assets/js/main.js&lt;/code&gt;，那么它可以用 CDN 链接 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io/assets/js/main.js&lt;/code&gt; 来访问。&lt;/p&gt;
-
-&lt;p&gt;另外还支持一些高级用法，比如：&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;指定 release 版本号/提交 sha1/分支名称，例如指定获取该仓库的名称为 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1.2.0&lt;/code&gt; 或 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;v1.2.0&lt;/code&gt; 的 release 版本资源：&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@1.2.0/assets/js/main.js
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;如果指定版本为 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1&lt;/code&gt; 或者 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1.2&lt;/code&gt;，那它会自动匹配到这个范围内的最新版本号。&lt;/p&gt;
-
-    &lt;p&gt;也可以不指定版本或者指定版本为 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;latest&lt;/code&gt;，这样总是使用最新版本的资源。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;压缩资源，在 js/css 文件后缀前面加上 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.min&lt;/code&gt;：&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@1.2.0/assets/js/main.min.js
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;合并多个文件，用 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;combine/file1,file2,file3&lt;/code&gt; 格式的链接：&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; https://cdn.jsdelivr.net/combine/gh/mzlogin/mzlogin.github.io@1.2.0/assets/js/main.min.js,gh/mzlogin/mzlogin.github.io@1.2.0/assets/js/simple-jekyll-search.min.js
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;压缩资源、合并文件的 CDN 链接在第一次有人访问时可能比较慢，后面再有人访问就快了。&lt;/p&gt;
-
-&lt;p&gt;其它知识点：&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;可以通过 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;https://cdn.jsdelivr.net/combine/gh/mzlogin/mzlogin.github.io[@&amp;lt;版本号&amp;gt;]/[&amp;lt;文件夹&amp;gt;/]&lt;/code&gt; 这样的路径浏览缓存文件列表；&lt;/li&gt;
-  &lt;li&gt;可以访问 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;https://purge.jsdelivr.net/gh/mzlogin/mzlogin.github.io@1.2.0/assets/js/main.js&lt;/code&gt; 来清除指定文件的缓存；（将引用的 CDN 链接里的 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cdn&lt;/code&gt; 改成 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;purge&lt;/code&gt; 就是了）&lt;/li&gt;
-  &lt;li&gt;可以访问 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;https://data.jsdelivr.com/v1/package/gh/mzlogin/mzlogin.github.io&lt;/code&gt; 来查看 CDN 上的 tags 和 versions 列表，更多数据接口参数参见 &lt;a href=&quot;https://github.com/jsdelivr/data.jsdelivr.com&quot;&gt;https://github.com/jsdelivr/data.jsdelivr.com&lt;/a&gt;。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;改造步骤&quot;&gt;改造步骤&lt;/h2&gt;
-
-&lt;p&gt;下面是记录具体改造博客模板的步骤：&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;在 _config.yml 文件中添加控制开关：&lt;/p&gt;
-
-    &lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;c1&quot;&gt;# 对 css 和 js 资源的 cdn 加速配置&lt;/span&gt;
- &lt;span class=&quot;na&quot;&gt;cdn&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-     &lt;span class=&quot;na&quot;&gt;jsdelivr&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-         &lt;span class=&quot;na&quot;&gt;enabled&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;true&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;修改 _layouts 里的文件，给名为 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;assets_base_url&lt;/code&gt; 的变量赋值，用它来代表加载静态资源的根路径：&lt;/p&gt;
-
-    &lt;div class=&quot;language-liquid highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;p&quot;&gt;{%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;assign&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;assets_base_url&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;site&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;%}&lt;/span&gt;
- &lt;span class=&quot;p&quot;&gt;{%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kr&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;site&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;cdn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;jsdelivr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;enabled&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;%}&lt;/span&gt;
-     &lt;span class=&quot;p&quot;&gt;{%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;assign&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;assets_base_url&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;https://cdn.jsdelivr.net/gh/&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;site&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;repository&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'@master'&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;%}&lt;/span&gt;
- &lt;span class=&quot;p&quot;&gt;{%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kr&quot;&gt;endif&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;%}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;修改以前直接用 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;{{ site.url }}&lt;/code&gt; 拼接的静态资源引用链接，替换为 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;{{ assets_base_url }}&lt;/code&gt;，比如 _includes/header.html 里：&lt;/p&gt;
-
-    &lt;div class=&quot;language-diff highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; - &amp;lt;link rel=&quot;stylesheet&quot; href=&quot;{{ site.url }}/assets/css/posts/index.css&quot;&amp;gt;
- + &amp;lt;link rel=&quot;stylesheet&quot; href=&quot;{{ assets_base_url }}/assets/css/posts/index.css&quot;&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;这样万一哪天 CDN 出了点什么状况，我们也可以很方便地通过一个开关就切回自已的资源链接恢复服务。&lt;/p&gt;
-
-&lt;p&gt;主要就是这类修改，当然涉及的地方有多处，以上只是举一处例子记录示意，改造过程和改造后的代码可以参考我的博客仓库 &lt;a href=&quot;https://github.com/mzlogin/mzlogin.github.io&quot;&gt;https://github.com/mzlogin/mzlogin.github.io&lt;/a&gt;。&lt;/p&gt;
-
-&lt;h2 id=&quot;现存问题&quot;&gt;现存问题&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;如果项目曾经打过 tag，那么新增/修改静态资源后，需要刷新 CDN 缓存的话，需要打个新 tag；&lt;/p&gt;
-
-    &lt;p&gt;一般发生在修改了博客模板的 js/css 以后。我也还在摸索如何省去这一步的方法。&lt;/p&gt;
-
-    &lt;p&gt;&lt;strong&gt;Update:&lt;/strong&gt; 我后来采用的解决方法是删除了所有的 tag，这样以前的 release 就变成了 Draft，对外是不可见的，因为我这个仓库不需要对外可见的 release，所以这个问题也就解决了，不需要再操心刷新 CDN 的问题了。&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;参考链接&quot;&gt;参考链接&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://hacpai.com/article/1583894928771&quot;&gt;GitHub 图床的正确用法，通过 jsDelivr CDN 全球加速&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://blog.csdn.net/larpland/article/details/101349605&quot;&gt;jsDelivr 为开发者提供免费公共 CDN 加速服务&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.jsdelivr.com/features&quot;&gt;Features - jsDelivr&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;相关文章&quot;&gt;相关文章&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://mazhuang.org/2020/10/07/cdn-for-github-pages-2/&quot;&gt;使用 jsDelivr 免费加速 GitHub Pages 博客的静态资源（二）&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Zhuang Ma</name></author><category term="GitHub" /><summary type="html">挺久以前就有网友给我的 GitHub Pages 博客模板提 Issue，说希望能增加 CDN 用于加速静态资源的加载，由于懒，一直没有动。</summary></entry></feed>
+&lt;/ul&gt;</content><author><name>Zhuang Ma</name></author><category term="GitHub" /><summary type="html">使用这个博客模板的朋友们时不时会提出一些问题，我将它们以及对应的解决方案逐渐整理归纳，汇总到这一篇帖子里。</summary></entry></feed>

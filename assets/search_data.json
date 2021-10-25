@@ -1081,6 +1081,14 @@
     } ,
   
     {
+      "title"    : "读叔本华《人生的智慧》",
+      "category" : "Blog",
+      
+      "url"      : "https://mazhuang.org/2021/10/25/the-wisdom-of-life/",
+      "keywords" : "叔本华, 人生的智慧"
+    } ,
+  
+    {
       "title"    : "Android Studio",
       "category" : "Android",
       
