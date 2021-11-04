@@ -34,6 +34,9 @@
   url: https://www.bejson.com/convert/html2markdown/
   src: tool
 
+- name: 365新闻——百度报黑客入侵
+  url: http://www.dsj365.cn/day.html
+  src: tool
 
 - name: 傻瓜都会用的Github Desktop
   url: https://www.jianshu.com/p/06a960d991aa
