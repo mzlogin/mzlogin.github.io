@@ -104,5 +104,14 @@
         });
         gitalk.render('gitalk-container');
         </script>
+  {% when 'utterances' %}
+        <script src="https://utteranc.es/client.js"
+                repo="{{ site.utterances.repo }}"
+                issue-term="title"
+                label="gitment"
+                theme="github-light"
+                crossorigin="anonymous"
+                async>
+        </script>
   {% endcase %}
 {% endif %}
