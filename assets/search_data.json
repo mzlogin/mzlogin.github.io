@@ -1090,7 +1090,7 @@
   
     {
       "title"    : "Android Studio",
-      "category" : "Android",
+      "category" : "",
       
       "url"      : "https://mazhuang.org/wiki/android-studio/",
       "keywords" : "Android, Android Studio"
@@ -1098,7 +1098,7 @@
   
     {
       "title"    : "Axure",
-      "category" : "tools",
+      "category" : "",
       
       "url"      : "https://mazhuang.org/wiki/axure/",
       "keywords" : "Axure RP"
@@ -1106,7 +1106,7 @@
   
     {
       "title"    : "Badminton",
-      "category" : "Hobbies",
+      "category" : "",
       
       "url"      : "https://mazhuang.org/wiki/badminton/",
       "keywords" : "羽毛球"
@@ -1114,7 +1114,7 @@
   
     {
       "title"    : "中文文案排版指北（简体中文版）",
-      "category" : "Copywriting",
+      "category" : "",
       
       "url"      : "https://mazhuang.org/wiki/chinese-copywriting-guidelines/",
       "keywords" : "中文文案排版指北"
@@ -1122,7 +1122,7 @@
   
     {
       "title"    : "Eclipse",
-      "category" : "Eclipse",
+      "category" : "",
       
       "url"      : "https://mazhuang.org/wiki/eclipse/",
       "keywords" : "Eclipse"
@@ -1130,7 +1130,7 @@
   
     {
       "title"    : "Emacs",
-      "category" : "Emacs",
+      "category" : "",
       
       "url"      : "https://mazhuang.org/wiki/emacs/",
       "keywords" : "Emacs, 快捷键"
@@ -1138,7 +1138,7 @@
   
     {
       "title"    : "Excel",
-      "category" : "Office",
+      "category" : "",
       
       "url"      : "https://mazhuang.org/wiki/excel/",
       "keywords" : "Excel, Office"
@@ -1154,7 +1154,7 @@
   
     {
       "title"    : "GitHub",
-      "category" : "GitHub",
+      "category" : "",
       
       "url"      : "https://mazhuang.org/wiki/github/",
       "keywords" : "GitHub"
@@ -1162,7 +1162,7 @@
   
     {
       "title"    : "善用佳软",
-      "category" : "Recommends",
+      "category" : "",
       
       "url"      : "https://mazhuang.org/wiki/good-soft/",
       "keywords" : "软件, 推荐"
@@ -1170,7 +1170,7 @@
   
     {
       "title"    : "IDA Pro",
-      "category" : "Debug",
+      "category" : "",
       
       "url"      : "https://mazhuang.org/wiki/ida-pro/",
       "keywords" : "debug, IDA Pro"
@@ -1178,7 +1178,7 @@
   
     {
       "title"    : "IntelliJ IDEA",
-      "category" : "Tools",
+      "category" : "",
       
       "url"      : "https://mazhuang.org/wiki/intellij-idea/",
       "keywords" : "IDEA, Java"
@@ -1186,7 +1186,7 @@
   
     {
       "title"    : "Kindle",
-      "category" : "Tools",
+      "category" : "",
       
       "url"      : "https://mazhuang.org/wiki/kindle/",
       "keywords" : "Kindle"
@@ -1194,7 +1194,7 @@
   
     {
       "title"    : "Linux/Unix",
-      "category" : "Linux",
+      "category" : "",
       
       "url"      : "https://mazhuang.org/wiki/linux/",
       "keywords" : "Linux"
@@ -1202,7 +1202,7 @@
   
     {
       "title"    : "Mac OS X",
-      "category" : "Mac",
+      "category" : "",
       
       "url"      : "https://mazhuang.org/wiki/mac/",
       "keywords" : "Mac"
@@ -1210,7 +1210,7 @@
   
     {
       "title"    : "Markdown",
-      "category" : "Markdown",
+      "category" : "",
       
       "url"      : "https://mazhuang.org/wiki/markdown/",
       "keywords" : "Markdown"
@@ -1218,7 +1218,7 @@
   
     {
       "title"    : "MPV",
-      "category" : "Tools",
+      "category" : "",
       
       "url"      : "https://mazhuang.org/wiki/mpv/",
       "keywords" : "mpv"
@@ -1226,7 +1226,7 @@
   
     {
       "title"    : "MySQL",
-      "category" : "MySQL",
+      "category" : "",
       
       "url"      : "https://mazhuang.org/wiki/mysql/",
       "keywords" : "MySQL"
@@ -1234,7 +1234,7 @@
   
     {
       "title"    : "OllyDbg",
-      "category" : "debug",
+      "category" : "",
       
       "url"      : "https://mazhuang.org/wiki/ollydbg/",
       "keywords" : "debug, ollydbg"
@@ -1242,7 +1242,7 @@
   
     {
       "title"    : "OneNote",
-      "category" : "Tools",
+      "category" : "",
       
       "url"      : "https://mazhuang.org/wiki/onenote/",
       "keywords" : "OneNote, GTD"
@@ -1250,7 +1250,7 @@
   
     {
       "title"    : "PHP",
-      "category" : "php",
+      "category" : "",
       
       "url"      : "https://mazhuang.org/wiki/php/",
       "keywords" : "php"
@@ -1258,7 +1258,7 @@
   
     {
       "title"    : "PowerShell",
-      "category" : "Windows",
+      "category" : "",
       
       "url"      : "https://mazhuang.org/wiki/powershell/",
       "keywords" : "Windows, PowerShell"
@@ -1266,7 +1266,7 @@
   
     {
       "title"    : "Python",
-      "category" : "Python",
+      "category" : "",
       
       "url"      : "https://mazhuang.org/wiki/python/",
       "keywords" : "Python"
@@ -1274,7 +1274,7 @@
   
     {
       "title"    : "Qt Creator",
-      "category" : "Qt",
+      "category" : "",
       
       "url"      : "https://mazhuang.org/wiki/qt-creator/",
       "keywords" : "Qt, Qt Creator"
@@ -1282,7 +1282,7 @@
   
     {
       "title"    : "Scoop",
-      "category" : "Windows",
+      "category" : "",
       
       "url"      : "https://mazhuang.org/wiki/scoop/",
       "keywords" : "scoop, windows"
@@ -1290,7 +1290,7 @@
   
     {
       "title"    : "Skill Tree",
-      "category" : "mindmap",
+      "category" : "",
       
       "url"      : "https://mazhuang.org/wiki/skill-tree/",
       "keywords" : "技能树, 思维导图, mindmap, 脑图"
@@ -1298,7 +1298,7 @@
   
     {
       "title"    : "Source Insight",
-      "category" : "Tools",
+      "category" : "",
       
       "url"      : "https://mazhuang.org/wiki/source-insight/",
       "keywords" : "Source Insight"
@@ -1306,7 +1306,7 @@
   
     {
       "title"    : "Swimming",
-      "category" : "Hobbies",
+      "category" : "",
       
       "url"      : "https://mazhuang.org/wiki/swimming/",
       "keywords" : "游泳, 蛙泳"
@@ -1314,7 +1314,7 @@
   
     {
       "title"    : "Wiki Template",
-      "category" : "cate1",
+      "category" : "",
       
       "url"      : "https://mazhuang.org/wiki/template/",
       "keywords" : "keyword1, keyword2"
@@ -1322,7 +1322,7 @@
   
     {
       "title"    : "Vim",
-      "category" : "Vim",
+      "category" : "",
       
       "url"      : "https://mazhuang.org/wiki/vim/",
       "keywords" : "Vim"
@@ -1330,7 +1330,7 @@
   
     {
       "title"    : "Visio",
-      "category" : "Tools",
+      "category" : "",
       
       "url"      : "https://mazhuang.org/wiki/visio/",
       "keywords" : "Visio"
@@ -1338,7 +1338,7 @@
   
     {
       "title"    : "Visual Studio Code",
-      "category" : "Tools",
+      "category" : "",
       
       "url"      : "https://mazhuang.org/wiki/visual-studio-code/",
       "keywords" : "Visual Studio Code"
@@ -1346,7 +1346,7 @@
   
     {
       "title"    : "Visual Studio",
-      "category" : "Tools",
+      "category" : "",
       
       "url"      : "https://mazhuang.org/wiki/visual-studio/",
       "keywords" : "Visual Studio"
@@ -1354,7 +1354,7 @@
   
     {
       "title"    : "Windows Terminal",
-      "category" : "Tools",
+      "category" : "",
       
       "url"      : "https://mazhuang.org/wiki/windows-terminal/",
       "keywords" : "Windows Terminal"
