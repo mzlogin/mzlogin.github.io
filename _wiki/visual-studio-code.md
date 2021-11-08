@@ -1,7 +1,8 @@
 ---
 layout: wiki
 title: Visual Studio Code
-categories: Tools
+cate1: Tools
+cate2: Editor
 description: Visual Studio Code 的快捷键与使用技巧
 keywords: Visual Studio Code
 ---

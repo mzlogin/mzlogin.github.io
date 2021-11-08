@@ -1,7 +1,8 @@
 ---
 layout: wiki
 title: 善用佳软
-categories: Recommends
+cate1: Tools
+cate2: 
 description: 用正确的工具做对的事情
 keywords: 软件, 推荐
 ---

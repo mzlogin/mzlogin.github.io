@@ -1,7 +1,8 @@
 ---
 layout: wiki
 title: Swimming
-categories: Hobbies
+cate1: Hobbies
+cate2:
 description: 游泳学习资料与要领整理。
 keywords: 游泳, 蛙泳
 ---

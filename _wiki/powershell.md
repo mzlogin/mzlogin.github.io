@@ -1,7 +1,8 @@
 ---
 layout: wiki
 title: PowerShell
-categories: Windows
+cate1: Tools
+cate2: 
 description: 使用 PowerShell 打造 Windows 下的顺手终端。
 keywords: Windows, PowerShell
 ---

@@ -1,7 +1,8 @@
 ---
 layout: wiki
 title: Axure
-categories: tools
+cate1: Product Design
+cate2: Tools
 description: Axure RP 快捷键和使用技巧
 keywords: Axure RP
 ---

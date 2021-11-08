@@ -1,7 +1,8 @@
 ---
 layout: wiki
 title: Visio
-categories: Tools
+cate1: Tools
+cate2:
 description: Windows 下最好用的流程图软件。
 keywords: Visio
 ---

@@ -1,7 +1,8 @@
 ---
 layout: wiki
 title: Eclipse
-categories: Eclipse
+cate1: Android
+cate2: Tools
 description: Eclipse 常用快捷键和操作总结
 keywords: Eclipse
 ---

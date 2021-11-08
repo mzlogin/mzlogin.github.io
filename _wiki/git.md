@@ -1,6 +1,8 @@
 ---
 layout: wiki
 title: Git
+cate1: Tools
+cate2: Version Control
 categories: Git
 description: Git 常用操作记录。
 keywords: Git, 版本控制

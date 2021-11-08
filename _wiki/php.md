@@ -1,7 +1,8 @@
 ---
 layout: wiki
 title: PHP
-categories: php
+cate1: Programming Language
+cate2: 
 description: 学习 php 过程中遇到的问题记录。
 keywords: php
 ---

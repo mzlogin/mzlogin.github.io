@@ -1,7 +1,8 @@
 ---
 layout: wiki
 title: Linux/Unix
-categories: Linux
+cate1: Basis
+cate2: OS
 description: 类 Unix 系统下的一些常用命令和用法。
 keywords: Linux
 ---

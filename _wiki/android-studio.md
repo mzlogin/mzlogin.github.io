@@ -1,7 +1,8 @@
 ---
 layout: wiki
 title: Android Studio
-categories: Android
+cate1: Android
+cate2: Tools
 description: Android Studio 快捷键及使用技巧汇总
 keywords: Android, Android Studio
 ---

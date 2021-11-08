@@ -1,7 +1,8 @@
 ---
 layout: wiki
 title: Source Insight
-categories: Tools
+cate1: Tools
+cate2: 
 description: Source Insight 工具的快捷键及使用日常。
 keywords: Source Insight
 ---

@@ -1,7 +1,8 @@
 ---
 layout: wiki
 title: GitHub
-categories: GitHub
+cate1: Tools
+cate2: Version Control
 description: GitHub 相关使用技巧
 keywords: GitHub
 ---

@@ -1,7 +1,8 @@
 ---
 layout: wiki
 title: OneNote
-categories: Tools
+cate1: Tools
+cate2: 
 description: 我最常用的跨平台笔记软件。
 keywords: OneNote, GTD
 ---

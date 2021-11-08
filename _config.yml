@@ -38,6 +38,9 @@ components:
     qrcode:
         enabled: true
         image_alt: 闷骚的程序员
+    # 维基索引页使用哪种视图，支持 列表（list）/分类（cate）
+    wiki:
+        view: cate
 # 压缩页面内容
 compress_html:
   clippings: all

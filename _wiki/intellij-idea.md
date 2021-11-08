@@ -1,7 +1,8 @@
 ---
 layout: wiki
 title: IntelliJ IDEA
-categories: Tools
+cate1: Java
+cate2: Tools
 description: 最好用的 Java IDE
 keywords: IDEA, Java
 ---

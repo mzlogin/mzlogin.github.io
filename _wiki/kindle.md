@@ -1,7 +1,8 @@
 ---
 layout: wiki
 title: Kindle
-categories: [Tools]
+cate1: Devices
+cate2: EBooks
 description: 我爱 Kindle
 keywords: Kindle
 ---

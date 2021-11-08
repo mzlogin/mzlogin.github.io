@@ -1,7 +1,8 @@
 ---
 layout: wiki
 title: Emacs
-categories: Emacs
+cate1: Tools
+cate2: Editor
 description: Emacs 快捷键汇总及日常使用记录。
 keywords: Emacs, 快捷键
 ---

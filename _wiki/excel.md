@@ -1,7 +1,8 @@
 ---
 layout: wiki
 title: Excel
-categories: Office
+cate1: Tools
+cate2: 
 description: Excel 使用技巧
 keywords: Excel, Office
 ---

@@ -1,7 +1,8 @@
 ---
 layout: wiki
 title: Mac OS X
-categories: Mac
+cate1: Basis
+cate2: OS
 description: 使用 Mac OS X 的一些快捷键和遇到的问题。
 keywords: Mac
 ---

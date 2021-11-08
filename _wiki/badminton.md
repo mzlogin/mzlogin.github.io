@@ -1,7 +1,8 @@
 ---
 layout: wiki
 title: Badminton
-categories: Hobbies
+cate1: Hobbies
+cate2: 
 description: 羽毛球学习资源整理。
 keywords: 羽毛球
 ---

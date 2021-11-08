@@ -1,7 +1,8 @@
 ---
 layout: wiki
 title: Python
-categories: Python
+cate1: Programming Language
+cate2: 
 description: Python 常用模块及资源记录。
 keywords: Python
 ---

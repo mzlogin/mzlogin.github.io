@@ -1,7 +1,8 @@
 ---
 layout: wiki
 title: Scoop
-categories: Windows
+cate1: Tools
+cate2: 
 description: Windows 下好用的包管理工具。
 keywords: scoop, windows
 ---
