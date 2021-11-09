@@ -39,8 +39,11 @@ permalink: /wiki/
 {% if name_len > 0 -%}
 {{ sub_group.name }}: 
 {%- endif -%}
+{%- assign item_count = sub_group.items | size -%}
+{%- assign item_index = 0 -%}
 {%- for item in sub_group.items -%}
-<a href="{{ site.url }}{{ item.url }}" style="display:inline-block;padding:0.5em">{{ item.title }}<span style="font-size:12px;color:red;font-style:italic;">{%if item.layout == 'mindmap' %}  mindmap{% endif %}</span></a><span> |</span>
+{%- assign item_index = item_index | plus: 1 -%}
+<a href="{{ site.url }}{{ item.url }}" style="display:inline-block;padding:0.5em">{{ item.title }}<span style="font-size:12px;color:red;font-style:italic;">{%if item.layout == 'mindmap' %}  mindmap{% endif %}</span></a>{%- if item_index < item_count -%}<span> |</span>{%- endif -%}
 {%- endfor -%}
 {% endfor %}
 {% endfor %}
