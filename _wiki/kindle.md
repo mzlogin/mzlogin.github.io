@@ -2,7 +2,7 @@
 layout: wiki
 title: Kindle
 cate1: Devices
-cate2: EBooks
+cate2: 
 description: 我爱 Kindle
 keywords: Kindle
 ---

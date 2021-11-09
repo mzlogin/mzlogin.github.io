@@ -1,9 +1,10 @@
 ---
-layout: page
+layout: wiki
 title: Wiki
 description: 人越学越觉得自己无知
 keywords: 维基, Wiki
 comments: false
+copyright: false
 menu: 维基
 permalink: /wiki/
 ---
@@ -31,13 +32,13 @@ permalink: /wiki/
 
 {% assign item_grouped = site.wiki | where_exp: 'item', 'item.title != "Wiki Template"' | group_by: 'cate1' | sort: 'name' %}
 {% for group in item_grouped %}
-<strong>{{ group.name }}</strong>
+###### {{ group.name }}
 {% assign cate_items = group.items | sort: 'title' %}
 {% assign item2_grouped = cate_items | group_by: 'cate2' | sort: 'name' %}
 {% for sub_group in item2_grouped %}
 {% assign name_len = sub_group.name | size %}
 {% if name_len > 0 -%}
-{{ sub_group.name }}: 
+<i>{{ sub_group.name }}: <sup>{{ sub_group.items | size }}</sup></i>
 {%- endif -%}
 {%- assign item_count = sub_group.items | size -%}
 {%- assign item_index = 0 -%}
