@@ -22,7 +22,7 @@ layout: default
           {% if page.cate1 %}
           <span class="meta-info">
             <span class="octicon octicon-file-directory"></span>
-            <a href="{{ site.url }}/wiki/#{{ page.cate1 }}" title="{{ page.cate1 }}">{{ page.cate1 }}</a>
+            <a href="{{ site.url }}/wiki/#{{ page.cate1 | downcase | replace: ' ', '-'}}" title="{{ page.cate1 }}">{{ page.cate1 }}</a>
           </span>
           {% endif %}
         </div>
