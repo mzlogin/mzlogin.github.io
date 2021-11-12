@@ -1089,11 +1089,315 @@
     } ,
   
     {
+      "title"    : "JSON",
+      "category" : "",
+      
+      "url"      : "https://mazhuang.org/wiki/android-3rd-json/",
+      "keywords" : "Android"
+    } ,
+  
+    {
+      "title"    : "网络请求",
+      "category" : "",
+      
+      "url"      : "https://mazhuang.org/wiki/android-3rd-network/",
+      "keywords" : "Android"
+    } ,
+  
+    {
+      "title"    : "ORM",
+      "category" : "",
+      
+      "url"      : "https://mazhuang.org/wiki/android-3rd-orm/",
+      "keywords" : "Android"
+    } ,
+  
+    {
+      "title"    : "动画",
+      "category" : "",
+      
+      "url"      : "https://mazhuang.org/wiki/android-animation/",
+      "keywords" : "Android"
+    } ,
+  
+    {
+      "title"    : "架构模式",
+      "category" : "",
+      
+      "url"      : "https://mazhuang.org/wiki/android-arch-mode/",
+      "keywords" : "Android"
+    } ,
+  
+    {
+      "title"    : "体系结构",
+      "category" : "",
+      
+      "url"      : "https://mazhuang.org/wiki/android-arch/",
+      "keywords" : "Android"
+    } ,
+  
+    {
+      "title"    : "ART 与 Dalvik 的区别",
+      "category" : "",
+      
+      "url"      : "https://mazhuang.org/wiki/android-art-and-dalvik/",
+      "keywords" : "Android"
+    } ,
+  
+    {
+      "title"    : "开机自启动",
+      "category" : "",
+      
+      "url"      : "https://mazhuang.org/wiki/android-auto-boot/",
+      "keywords" : "Android"
+    } ,
+  
+    {
+      "title"    : "Activity",
+      "category" : "",
+      
+      "url"      : "https://mazhuang.org/wiki/android-components-activity/",
+      "keywords" : "Android"
+    } ,
+  
+    {
+      "title"    : "BroadcastReceiver",
+      "category" : "",
+      
+      "url"      : "https://mazhuang.org/wiki/android-components-broadcastreceiver/",
+      "keywords" : "Android"
+    } ,
+  
+    {
+      "title"    : "Fragment",
+      "category" : "",
+      
+      "url"      : "https://mazhuang.org/wiki/android-components-fragment/",
+      "keywords" : "Android"
+    } ,
+  
+    {
+      "title"    : "Intent",
+      "category" : "",
+      
+      "url"      : "https://mazhuang.org/wiki/android-components-intent/",
+      "keywords" : "Android"
+    } ,
+  
+    {
+      "title"    : "Service",
+      "category" : "",
+      
+      "url"      : "https://mazhuang.org/wiki/android-components-service/",
+      "keywords" : "Android"
+    } ,
+  
+    {
+      "title"    : "Context",
+      "category" : "",
+      
+      "url"      : "https://mazhuang.org/wiki/android-context/",
+      "keywords" : "Android"
+    } ,
+  
+    {
+      "title"    : "事件分发机制",
+      "category" : "",
+      
+      "url"      : "https://mazhuang.org/wiki/android-event-dispatch/",
+      "keywords" : "Android"
+    } ,
+  
+    {
+      "title"    : "进程间通信",
+      "category" : "",
+      
+      "url"      : "https://mazhuang.org/wiki/android-ipc/",
+      "keywords" : "Android"
+    } ,
+  
+    {
+      "title"    : "消息机制",
+      "category" : "",
+      
+      "url"      : "https://mazhuang.org/wiki/android-messages/",
+      "keywords" : "Android"
+    } ,
+  
+    {
+      "title"    : "Android 开发技术概述",
+      "category" : "",
+      
+      "url"      : "https://mazhuang.org/wiki/android-overview/",
+      "keywords" : "Android"
+    } ,
+  
+    {
+      "title"    : "插件化",
+      "category" : "",
+      
+      "url"      : "https://mazhuang.org/wiki/android-plugin/",
+      "keywords" : "Android"
+    } ,
+  
+    {
+      "title"    : "坐标系",
+      "category" : "",
+      
+      "url"      : "https://mazhuang.org/wiki/android-position/",
+      "keywords" : "Android"
+    } ,
+  
+    {
+      "title"    : "屏幕适配",
+      "category" : "",
+      
+      "url"      : "https://mazhuang.org/wiki/android-screen-support/",
+      "keywords" : "Android"
+    } ,
+  
+    {
+      "title"    : "软键盘",
+      "category" : "",
+      
+      "url"      : "https://mazhuang.org/wiki/android-softinput/",
+      "keywords" : "Android"
+    } ,
+  
+    {
       "title"    : "Android Studio",
       "category" : "",
       
       "url"      : "https://mazhuang.org/wiki/android-studio/",
       "keywords" : "Android, Android Studio"
+    } ,
+  
+    {
+      "title"    : "构建",
+      "category" : "",
+      
+      "url"      : "https://mazhuang.org/wiki/android-tools-build/",
+      "keywords" : "Android"
+    } ,
+  
+    {
+      "title"    : "更新 UI",
+      "category" : "",
+      
+      "url"      : "https://mazhuang.org/wiki/android-update-ui/",
+      "keywords" : "Android"
+    } ,
+  
+    {
+      "title"    : "Button",
+      "category" : "",
+      
+      "url"      : "https://mazhuang.org/wiki/android-view-button/",
+      "keywords" : "Android"
+    } ,
+  
+    {
+      "title"    : "CheckBox",
+      "category" : "",
+      
+      "url"      : "https://mazhuang.org/wiki/android-view-checkbox/",
+      "keywords" : "Android"
+    } ,
+  
+    {
+      "title"    : "Dialog",
+      "category" : "",
+      
+      "url"      : "https://mazhuang.org/wiki/android-view-dialog/",
+      "keywords" : "Android"
+    } ,
+  
+    {
+      "title"    : "EditText",
+      "category" : "",
+      
+      "url"      : "https://mazhuang.org/wiki/android-view-edittext/",
+      "keywords" : "Android"
+    } ,
+  
+    {
+      "title"    : "ImageView",
+      "category" : "",
+      
+      "url"      : "https://mazhuang.org/wiki/android-view-imageview/",
+      "keywords" : "Android"
+    } ,
+  
+    {
+      "title"    : "LinearLayout",
+      "category" : "",
+      
+      "url"      : "https://mazhuang.org/wiki/android-view-linearlayout/",
+      "keywords" : "Android"
+    } ,
+  
+    {
+      "title"    : "ListView",
+      "category" : "",
+      
+      "url"      : "https://mazhuang.org/wiki/android-view-listview/",
+      "keywords" : "Android"
+    } ,
+  
+    {
+      "title"    : "RecyclerView",
+      "category" : "",
+      
+      "url"      : "https://mazhuang.org/wiki/android-view-recyclerview/",
+      "keywords" : "Android"
+    } ,
+  
+    {
+      "title"    : "TabLayout",
+      "category" : "",
+      
+      "url"      : "https://mazhuang.org/wiki/android-view-tablayout/",
+      "keywords" : "Android"
+    } ,
+  
+    {
+      "title"    : "TextView",
+      "category" : "",
+      
+      "url"      : "https://mazhuang.org/wiki/android-view-textview/",
+      "keywords" : "Android"
+    } ,
+  
+    {
+      "title"    : "Toolbar",
+      "category" : "",
+      
+      "url"      : "https://mazhuang.org/wiki/android-view-toolbar/",
+      "keywords" : "Android"
+    } ,
+  
+    {
+      "title"    : "ViewPager",
+      "category" : "",
+      
+      "url"      : "https://mazhuang.org/wiki/android-view-viewpager/",
+      "keywords" : "Android"
+    } ,
+  
+    {
+      "title"    : "WebView",
+      "category" : "",
+      
+      "url"      : "https://mazhuang.org/wiki/android-view-webview/",
+      "keywords" : "Android"
+    } ,
+  
+    {
+      "title"    : "View",
+      "category" : "",
+      
+      "url"      : "https://mazhuang.org/wiki/android-view/",
+      "keywords" : "Android"
     } ,
   
     {
@@ -1110,6 +1414,86 @@
       
       "url"      : "https://mazhuang.org/wiki/badminton/",
       "keywords" : "羽毛球"
+    } ,
+  
+    {
+      "title"    : "单例模式",
+      "category" : "",
+      
+      "url"      : "https://mazhuang.org/wiki/basis-dp-singleton/",
+      "keywords" : "Basis"
+    } ,
+  
+    {
+      "title"    : "模板方法模式",
+      "category" : "",
+      
+      "url"      : "https://mazhuang.org/wiki/basis-dp-template-method/",
+      "keywords" : "Basis"
+    } ,
+  
+    {
+      "title"    : "设计模式",
+      "category" : "",
+      
+      "url"      : "https://mazhuang.org/wiki/basis-dp/",
+      "keywords" : "Basis"
+    } ,
+  
+    {
+      "title"    : "串口通信",
+      "category" : "",
+      
+      "url"      : "https://mazhuang.org/wiki/basis-hardware-serial-port/",
+      "keywords" : "Basis"
+    } ,
+  
+    {
+      "title"    : "网络",
+      "category" : "",
+      
+      "url"      : "https://mazhuang.org/wiki/basis-network/",
+      "keywords" : "Basis"
+    } ,
+  
+    {
+      "title"    : "面向对象",
+      "category" : "",
+      
+      "url"      : "https://mazhuang.org/wiki/basis-oop/",
+      "keywords" : "Basis"
+    } ,
+  
+    {
+      "title"    : "I/O 模型",
+      "category" : "",
+      
+      "url"      : "https://mazhuang.org/wiki/basis-os-io/",
+      "keywords" : "Basis"
+    } ,
+  
+    {
+      "title"    : "进程",
+      "category" : "",
+      
+      "url"      : "https://mazhuang.org/wiki/basis-os-process/",
+      "keywords" : "Basis"
+    } ,
+  
+    {
+      "title"    : "线程安全与可重入",
+      "category" : "",
+      
+      "url"      : "https://mazhuang.org/wiki/basis-os-thread-safe-and-reentrant/",
+      "keywords" : "Basis"
+    } ,
+  
+    {
+      "title"    : "线程",
+      "category" : "",
+      
+      "url"      : "https://mazhuang.org/wiki/basis-os-thread/",
+      "keywords" : "Basis"
     } ,
   
     {
@@ -1182,6 +1566,38 @@
       
       "url"      : "https://mazhuang.org/wiki/intellij-idea/",
       "keywords" : "IDEA, Java"
+    } ,
+  
+    {
+      "title"    : "语言基础",
+      "category" : "",
+      
+      "url"      : "https://mazhuang.org/wiki/java-basis/",
+      "keywords" : "Android"
+    } ,
+  
+    {
+      "title"    : "内部类",
+      "category" : "",
+      
+      "url"      : "https://mazhuang.org/wiki/java-internal-class/",
+      "keywords" : "Android"
+    } ,
+  
+    {
+      "title"    : "JVM",
+      "category" : "",
+      
+      "url"      : "https://mazhuang.org/wiki/java-jvm/",
+      "keywords" : "Android"
+    } ,
+  
+    {
+      "title"    : "多线程",
+      "category" : "",
+      
+      "url"      : "https://mazhuang.org/wiki/java-threads/",
+      "keywords" : "Android"
     } ,
   
     {
