@@ -1593,6 +1593,14 @@
     } ,
   
     {
+      "title"    : "MyBatis-Plus",
+      "category" : "",
+      
+      "url"      : "https://mazhuang.org/wiki/java-mybatis-plus/",
+      "keywords" : "Java, MyBatis-Plus"
+    } ,
+  
+    {
       "title"    : "多线程",
       "category" : "",
       
