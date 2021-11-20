@@ -1,19 +1,21 @@
 ---
 layout: wiki
-title: 构建
+title: 构建和签名
 cate1: Android
 cate2:
 description: 构建
 keywords: Android
 ---
 
-## 65K 方法数限制
+## 构建相关问题
+
+### 65K 方法数限制
 
 简而言之：
 
 编译器生成 classes.dex 文件时会给一个 dex 文件里的所有方法分配一个唯一 ID，而这个 ID 限于 Dalvik bytecode 操作数 16 bits 的限制，范围为 [0, 0xffff]。
 
-## 在代码里区分 Debug 和 Release
+### 在代码里区分 Debug 和 Release
 
 使用 BuildConfig.DEBUG 并不总是准确，有几种方法来较为准确地区分当前是 Debug 版还是 Release 版，都是需要用 Gradle 脚本做一些配置。
 
@@ -54,6 +56,16 @@ buildTypes {
 ```
 
 然后在代码里使用 context.getString(R.string.build_config_type) 值是否为 debug 来判断。
+
+## 签名
+
+### 命令行给 apk 签名
+
+使用 jarsigner，具体的参数含义可以参考 `jarsigner` 命令的帮助提示。
+
+```shell
+jarsigner -verbose -keystore xxx.jks -signedjar signed.apk unsigned.apk [别名]
+```
 
 ## 参考
 
