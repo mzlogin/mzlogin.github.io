@@ -1273,7 +1273,7 @@
     } ,
   
     {
-      "title"    : "构建",
+      "title"    : "构建和签名",
       "category" : "",
       
       "url"      : "https://mazhuang.org/wiki/android-tools-build/",
