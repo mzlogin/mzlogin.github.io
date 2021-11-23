@@ -8,7 +8,7 @@ menu: 链接
 permalink: /links/
 ---
 
-> 好看的网页过眼如烟，持续有价值的网站百里挑一
+> 合作公司
 
 <ul>
 {% for link in site.data.links %}
