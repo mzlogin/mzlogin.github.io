@@ -8,7 +8,7 @@ menu: 链接
 permalink: /links/
 ---
 
-> 人生短短几个秋，相交十元
+> 好看的网页过眼如烟，持续有价值的网站百里挑一
 
 <ul>
 {% for link in site.data.links %}

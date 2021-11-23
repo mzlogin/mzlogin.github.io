@@ -1,4 +1,8 @@
-﻿- name: SteelTailor CNC Cutting Machines
+﻿- name: 纳狮PVD涂层
+  url: https://www.naxau.com
+  src: work
+
+- name: SteelTailor CNC Cutting Machines
   url: https://www.steeltailor.com
   src: work
 
