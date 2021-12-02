@@ -167,5 +167,6 @@ google:
     adsense:
         footer: true
         sidebar: true 
+        sidebar-search: true 
         content_header: false
         content_footer: false
