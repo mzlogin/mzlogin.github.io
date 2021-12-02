@@ -25,8 +25,13 @@ public class User {
 
 不使用 mapper.xml 文件，在 `@Mapper` 注解的继承自 `BaseMapper` 的接口里，通过 `@Select` 等注解也可以实现动态 SQL。
 
+这个属于 MyBatis 提供的功能。相关说明见官方文档：<https://mybatis.org/mybatis-3/zh/dynamic-sql.html>
+
 一、使用 `<script></script>` 包裹，mapper.xml 里能使用的 `<where>`、`<if>`、`<foreach>`、`<set>` 等标签都可以使用，用法看起来与在 xml 里一致；
 
 二、使用 `if (条件，为真操作，为假操作)` 可以实现类三目运算；
 
-参考：<https://www.jianshu.com/p/eee6832628ce>
+参考：
+
+- <<https://mybatis.org/mybatis-3/zh/dynamic-sql.html>
+- <https://www.jianshu.com/p/eee6832628ce>
