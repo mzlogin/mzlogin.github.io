@@ -20,3 +20,13 @@ public class User {
     private String name;
 }
 ```
+
+## 注解实现动态 SQL
+
+不使用 mapper.xml 文件，在 `@Mapper` 注解的继承自 `BaseMapper` 的接口里，通过 `@Select` 等注解也可以实现动态 SQL。
+
+一、使用 `<script></script>` 包裹，mapper.xml 里能使用的 `<where>`、`<if>`、`<foreach>`、`<set>` 等标签都可以使用，用法看起来与在 xml 里一致；
+
+二、使用 `if (条件，为真操作，为假操作)` 可以实现类三目运算；
+
+参考：<https://www.jianshu.com/p/eee6832628ce>
