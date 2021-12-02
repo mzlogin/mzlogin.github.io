@@ -33,5 +33,5 @@ public class User {
 
 参考：
 
-- <<https://mybatis.org/mybatis-3/zh/dynamic-sql.html>
+- <https://mybatis.org/mybatis-3/zh/dynamic-sql.html>
 - <https://www.jianshu.com/p/eee6832628ce>
