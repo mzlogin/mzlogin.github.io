@@ -57,6 +57,26 @@ buildTypes {
 
 然后在代码里使用 context.getString(R.string.build_config_type) 值是否为 debug 来判断。
 
+### 打包时分开生成 32 位和 64 位包
+
+通过 splits.abi 配置来实现。
+
+配置了 split.abi 后，defaultConfig.ndk.apiFilters 需要注释掉。
+
+```groovy
+android {
+    splits {
+        abi {
+            enable true
+            reset()
+            include 'armeabi-v7a', 'arm64-v8a'
+        }
+    }
+}
+```
+
+详细配置可参考官方文档：<https://developer.android.google.cn/studio/build/configure-apk-splits.html#configure-abi-split>
+
 ## 签名
 
 ### 命令行给 apk 签名
