@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://mazhuang.org/feed.xml" rel="self" type="application/atom+xml" /><link href="https://mazhuang.org/" rel="alternate" type="text/html" /><updated>2021-12-04T12:35:24+08:00</updated><id>https://mazhuang.org/feed.xml</id><title type="html">码志</title><subtitle>马壮的个人博客，公众号：闷骚的程序员</subtitle><author><name>Zhuang Ma</name></author><entry><title type="html">读叔本华《人生的智慧》</title><link href="https://mazhuang.org/2021/10/25/the-wisdom-of-life/" rel="alternate" type="text/html" title="读叔本华《人生的智慧》" /><published>2021-10-25T00:00:00+08:00</published><updated>2021-10-25T00:00:00+08:00</updated><id>https://mazhuang.org/2021/10/25/the-wisdom-of-life</id><content type="html" xml:base="https://mazhuang.org/2021/10/25/the-wisdom-of-life/">&lt;p&gt;最近读完了这本小书，想写点什么，但又似乎暂时表达不出，先挖个读书笔记的坑在这里，后面有所感了也许会填上。&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://mazhuang.org/feed.xml" rel="self" type="application/atom+xml" /><link href="https://mazhuang.org/" rel="alternate" type="text/html" /><updated>2021-12-19T15:14:40+08:00</updated><id>https://mazhuang.org/feed.xml</id><title type="html">码志</title><subtitle>马壮的个人博客，公众号：闷骚的程序员</subtitle><author><name>Zhuang Ma</name></author><entry><title type="html">读叔本华《人生的智慧》</title><link href="https://mazhuang.org/2021/10/25/the-wisdom-of-life/" rel="alternate" type="text/html" title="读叔本华《人生的智慧》" /><published>2021-10-25T00:00:00+08:00</published><updated>2021-10-25T00:00:00+08:00</updated><id>https://mazhuang.org/2021/10/25/the-wisdom-of-life</id><content type="html" xml:base="https://mazhuang.org/2021/10/25/the-wisdom-of-life/">&lt;p&gt;最近读完了这本小书，想写点什么，但又似乎暂时表达不出，先挖个读书笔记的坑在这里，后面有所感了也许会填上。&lt;/p&gt;
 
 &lt;p&gt;读此书的过程中，感觉前半部分比较有意思，后半部分都是在大讲所谓骑士荣誉，看得很烦。&lt;/p&gt;
 
@@ -1090,4 +1090,12 @@ Did you mean?  tap
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://purge.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js&quot;&gt;https://purge.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js?v=1.7.2&quot;&gt;https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js?v=1.7.2&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Zhuang Ma</name></author><category term="GitHub" /><summary type="html">使用这个博客模板的朋友们时不时会提出一些问题，我将它们以及对应的解决方案逐渐整理归纳，汇总到这一篇帖子里。</summary></entry></feed>
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;修改二维码图片&quot;&gt;修改二维码图片&lt;/h2&gt;
+
+&lt;p&gt;_config.yml 里的 components.qrcode 这一段用于控制二维码。&lt;/p&gt;
+
+&lt;p&gt;不显示二维码：将 components.qrcode.enabled 改为 false。&lt;/p&gt;
+
+&lt;p&gt;替换二维码图片：替换 assets/images/qrcode.jpg 文件。&lt;/p&gt;</content><author><name>Zhuang Ma</name></author><category term="GitHub" /><summary type="html">使用这个博客模板的朋友们时不时会提出一些问题，我将它们以及对应的解决方案逐渐整理归纳，汇总到这一篇帖子里。</summary></entry></feed>
