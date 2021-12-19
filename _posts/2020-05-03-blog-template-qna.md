@@ -85,3 +85,11 @@ mathjax: true
 
 - <https://purge.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js>
 - <https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js?v=1.7.2>
+
+## 修改二维码图片
+
+_config.yml 里的 components.qrcode 这一段用于控制二维码。
+
+不显示二维码：将 components.qrcode.enabled 改为 false。
+
+替换二维码图片：替换 assets/images/qrcode.jpg 文件。
