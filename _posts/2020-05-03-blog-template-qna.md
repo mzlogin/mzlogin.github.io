@@ -75,6 +75,10 @@ mathjax: true
 
 在项目主页可以看到每种风格的预览效果。
 
+## 代码高亮支持哪些语言
+
+语言列表见 <https://github.com/rouge-ruby/rouge/wiki/List-of-supported-languages-and-lexers>，也可以自己运行 `rougify list` 命令查看最新列表。
+
 ## Gitalk 授权登录后提示 403 错误
 
 具体看到的错误信息为 `Error: Requrest failed with status code 403`。
