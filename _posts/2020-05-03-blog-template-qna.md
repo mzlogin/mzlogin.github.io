@@ -90,6 +90,12 @@ mathjax: true
 - <https://purge.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js>
 - <https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js?v=1.7.2>
 
+## Gitalk 评论框部分提示 Error: Not Found
+
+页面上提示 `Error: Not Found.`，浏览器控制台可以看到报错信息 `GET https://api.github.com/repos/<用户名>/<repo>/issues?labels=gitment,xxx 404`。
+
+这种情况一般是 _config.yml 的 gitalk.repo 这个配置项填写的不对。这个配置项是要填写一个利用其 Issues 存储评论内容的代码仓库名称，请确保填写的名称对应的代码仓库存在，如果想省事点可以直接填写博客源码对应的仓库名称，比如 `<用户名>.github.io`。
+
 ## 修改二维码图片
 
 _config.yml 里的 components.qrcode 这一段用于控制二维码。
