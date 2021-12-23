@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://mazhuang.org/feed.xml" rel="self" type="application/atom+xml" /><link href="https://mazhuang.org/" rel="alternate" type="text/html" /><updated>2021-12-21T16:59:54+08:00</updated><id>https://mazhuang.org/feed.xml</id><title type="html">码志</title><subtitle>马壮的个人博客，公众号：闷骚的程序员</subtitle><author><name>Zhuang Ma</name></author><entry><title type="html">读叔本华《人生的智慧》</title><link href="https://mazhuang.org/2021/10/25/the-wisdom-of-life/" rel="alternate" type="text/html" title="读叔本华《人生的智慧》" /><published>2021-10-25T00:00:00+08:00</published><updated>2021-10-25T00:00:00+08:00</updated><id>https://mazhuang.org/2021/10/25/the-wisdom-of-life</id><content type="html" xml:base="https://mazhuang.org/2021/10/25/the-wisdom-of-life/">&lt;p&gt;最近读完了这本小书，想写点什么，但又似乎暂时表达不出，先挖个读书笔记的坑在这里，后面有所感了也许会填上。&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://mazhuang.org/feed.xml" rel="self" type="application/atom+xml" /><link href="https://mazhuang.org/" rel="alternate" type="text/html" /><updated>2021-12-23T09:45:48+08:00</updated><id>https://mazhuang.org/feed.xml</id><title type="html">码志</title><subtitle>马壮的个人博客，公众号：闷骚的程序员</subtitle><author><name>Zhuang Ma</name></author><entry><title type="html">读叔本华《人生的智慧》</title><link href="https://mazhuang.org/2021/10/25/the-wisdom-of-life/" rel="alternate" type="text/html" title="读叔本华《人生的智慧》" /><published>2021-10-25T00:00:00+08:00</published><updated>2021-10-25T00:00:00+08:00</updated><id>https://mazhuang.org/2021/10/25/the-wisdom-of-life</id><content type="html" xml:base="https://mazhuang.org/2021/10/25/the-wisdom-of-life/">&lt;p&gt;最近读完了这本小书，想写点什么，但又似乎暂时表达不出，先挖个读书笔记的坑在这里，后面有所感了也许会填上。&lt;/p&gt;
 
 &lt;p&gt;读此书的过程中，感觉前半部分比较有意思，后半部分都是在大讲所谓骑士荣誉，看得很烦。&lt;/p&gt;
 
@@ -1095,6 +1095,12 @@ Did you mean?  tap
   &lt;li&gt;&lt;a href=&quot;https://purge.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js&quot;&gt;https://purge.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js?v=1.7.2&quot;&gt;https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js?v=1.7.2&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;h2 id=&quot;gitalk-评论框部分提示-error-not-found&quot;&gt;Gitalk 评论框部分提示 Error: Not Found&lt;/h2&gt;
+
+&lt;p&gt;页面上提示 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Error: Not Found.&lt;/code&gt;，浏览器控制台可以看到报错信息 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GET https://api.github.com/repos/&amp;lt;用户名&amp;gt;/&amp;lt;repo&amp;gt;/issues?labels=gitment,xxx 404&lt;/code&gt;。&lt;/p&gt;
+
+&lt;p&gt;这种情况一般是 _config.yml 的 gitalk.repo 这个配置项填写的不对。这个配置项是要填写一个利用其 Issues 存储评论内容的代码仓库名称，请确保填写的名称对应的代码仓库存在，如果想省事点可以直接填写博客源码对应的仓库名称，比如 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;用户名&amp;gt;.github.io&lt;/code&gt;。&lt;/p&gt;
 
 &lt;h2 id=&quot;修改二维码图片&quot;&gt;修改二维码图片&lt;/h2&gt;
 
