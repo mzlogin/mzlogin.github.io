@@ -1,4 +1,172 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://mazhuang.org/feed.xml" rel="self" type="application/atom+xml" /><link href="https://mazhuang.org/" rel="alternate" type="text/html" /><updated>2021-12-26T22:01:57+08:00</updated><id>https://mazhuang.org/feed.xml</id><title type="html">码志</title><subtitle>马壮的个人博客，公众号：闷骚的程序员</subtitle><author><name>Zhuang Ma</name></author><entry><title type="html">读叔本华《人生的智慧》</title><link href="https://mazhuang.org/2021/10/25/the-wisdom-of-life/" rel="alternate" type="text/html" title="读叔本华《人生的智慧》" /><published>2021-10-25T00:00:00+08:00</published><updated>2021-10-25T00:00:00+08:00</updated><id>https://mazhuang.org/2021/10/25/the-wisdom-of-life</id><content type="html" xml:base="https://mazhuang.org/2021/10/25/the-wisdom-of-life/">&lt;p&gt;最近读完了这本小书，想写点什么，但又似乎暂时表达不出，先挖个读书笔记的坑在这里，后面有所感了也许会填上。&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://mazhuang.org/feed.xml" rel="self" type="application/atom+xml" /><link href="https://mazhuang.org/" rel="alternate" type="text/html" /><updated>2021-12-26T22:04:49+08:00</updated><id>https://mazhuang.org/feed.xml</id><title type="html">码志</title><subtitle>马壮的个人博客，公众号：闷骚的程序员</subtitle><author><name>Zhuang Ma</name></author><entry><title type="html">如何让 Spring Security 「少管闲事」</title><link href="https://mazhuang.org/2021/12/26/spring-security/" rel="alternate" type="text/html" title="如何让 Spring Security 「少管闲事」" /><published>2021-12-26T00:00:00+08:00</published><updated>2021-12-26T00:00:00+08:00</updated><id>https://mazhuang.org/2021/12/26/spring-security</id><content type="html" xml:base="https://mazhuang.org/2021/12/26/spring-security/">&lt;p&gt;记两种让 Spring Security「少干点活」的方法。&lt;/p&gt;
+
+&lt;h2 id=&quot;遇到问题&quot;&gt;遇到问题&lt;/h2&gt;
+
+&lt;p&gt;一个应用对外提供 Rest 接口，接口的访问认证通过 Spring Security OAuth2 控制，token 形式为 JWT。因为一些原因，某一特定路径前缀（假设为 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/custom/&lt;/code&gt;）的接口需要使用另外一种自定义的认证方式，token 是一串无规则的随机字符串。两种认证方式的 token 都是在 Headers 里传递，形式都是 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Authorization: bearer xxx&lt;/code&gt;。&lt;/p&gt;
+
+&lt;p&gt;所以当外部请求这个应用的接口时，情况示意如下：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/java/spring-security-traffic.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;这时，问题出现了。&lt;/p&gt;
+
+&lt;p&gt;我通过 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;WebSecurityConfigurerAdapter&lt;/code&gt; 配置 Spring Security 将 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/custom/&lt;/code&gt; 前缀的请求直接放行：&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;httpSecurity&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;authorizeRequests&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;regexMatchers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;^(?!/custom/).*$&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;permitAll&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;但请求 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/custom/&lt;/code&gt; 前缀的接口仍然被拦截，报了如下错误：&lt;/p&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;error&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;invalid_token&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;error_description&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Cannot convert access token to JSON&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;分析问题&quot;&gt;分析问题&lt;/h2&gt;
+
+&lt;p&gt;从错误提示首先可以通过检查排除掉 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CustomWebFilter&lt;/code&gt; 的嫌疑，自定义认证方式的 token 不是 JSON 格式，它里面自然也不然尝试去将其转换成 JSON。&lt;/p&gt;
+
+&lt;p&gt;那推测问题出在 Spring Security 「多管闲事」，拦截了不该拦截的请求上。&lt;/p&gt;
+
+&lt;p&gt;经过一番面向搜索编程和源码调试，找到抛出以上错误信息的位置是在 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;JwtAccessTokenConverter.decode&lt;/code&gt; 方法里：&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Object&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;decode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;token&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;try&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// 下面这行会抛出异常&lt;/span&gt;
+        &lt;span class=&quot;nc&quot;&gt;Jwt&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;jwt&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;JwtHelper&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;decodeAndVerify&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;token&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;verifier&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// ... some code here&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Exception&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;throw&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;InvalidTokenException&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Cannot convert access token to JSON&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;调用堆栈如下：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/java/spring-security-callstack.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;从调用的上下文可以看出（高亮那一行），执行逻辑在一个名为 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;OAuth2AuthenticationProcessingFilter&lt;/code&gt; 的 Filter 里，会尝试从请求中提取 Bearer Token，然后做一些处理（此处是 JWT 转换和校验等）。这个 Filter 是 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ResourceServerSecurityConfigurer.configure&lt;/code&gt; 中初始化的，我们的应用同时也是作为一个 Spring Security OAuth2 Resource Server，从类名可以看出是对此的配置。&lt;/p&gt;
+
+&lt;h2 id=&quot;解决问题&quot;&gt;解决问题&lt;/h2&gt;
+
+&lt;p&gt;找到了问题所在之后，经过自己的思考和同事间的讨论，得出了两种可行的解决方案。&lt;/p&gt;
+
+&lt;h3 id=&quot;方案一让特定的请求跳过-oauth2authenticationprocessingfilter&quot;&gt;方案一：让特定的请求跳过 OAuth2AuthenticationProcessingFilter&lt;/h3&gt;
+
+&lt;p&gt;这个方案的思路是通过 AOP，在 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;OAuth2AuthenticationProcessingFilter.doFilter&lt;/code&gt; 方法执行前做个判断&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;如果请求路径是以 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/custom/&lt;/code&gt; 开头，就跳过该 Filter 继续往后执行；&lt;/li&gt;
+  &lt;li&gt;如果请求路径非 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/custom/&lt;/code&gt; 开头，正常执行。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;关键代码示意：&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;@Aspect&lt;/span&gt;
+&lt;span class=&quot;nd&quot;&gt;@Component&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;AuthorizationHeaderAspect&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nd&quot;&gt;@Pointcut&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;execution(* org.springframework.security.oauth2.provider.authentication.OAuth2AuthenticationProcessingFilter.doFilter(..))&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;securityOauth2DoFilter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{}&lt;/span&gt;
+
+    &lt;span class=&quot;nd&quot;&gt;@Around&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;securityOauth2DoFilter()&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;skipNotCustom&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;ProceedingJoinPoint&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;joinPoint&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Throwable&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nc&quot;&gt;Object&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;joinPoint&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getArgs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;args&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;length&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;instanceof&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;HttpServletRequest&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;instanceof&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;javax&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;servlet&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;ServletResponse&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;instanceof&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;FilterChain&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;joinPoint&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;proceed&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;nc&quot;&gt;HttpServletRequest&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;HttpServletRequest&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;];&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getRequestURI&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;startsWith&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/custom/&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;joinPoint&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;proceed&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;o&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;FilterChain&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]).&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;doFilter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;ServletRequest&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;ServletResponse&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]);&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;方案二调整-filter-顺序&quot;&gt;方案二：调整 Filter 顺序&lt;/h3&gt;
+
+&lt;p&gt;如果能让请求先到达我们自定义的 Filter，请求路径以 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/custom/&lt;/code&gt; 开头的，处理完自定义 token 校验等逻辑，然后将 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Authorization&lt;/code&gt; Header 去掉（在 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;OAuth2AuthenticationProcessingFilter.doFilter&lt;/code&gt; 中，如果取不到 Bearer Token，不会抛异常），其它请求直接放行，也是一个可以达成目标的思路。&lt;/p&gt;
+
+&lt;p&gt;但现状是自定义的 Filter 默认是在 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;OAuth2AuthenticationProcessingFilter&lt;/code&gt; 后执行的，如何实现它们的执行顺序调整呢？&lt;/p&gt;
+
+&lt;p&gt;在我们前面找到的 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;OAuth2AuthenticationProcessingFilter&lt;/code&gt; 注册的地方，也就是 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ResourceServerSecurityConfigurer.configure&lt;/code&gt; 方法里，我们可以看到 Filter 是通过以下这种写法添加的：&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;configure&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;HttpSecurity&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Exception&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// ... some code here&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;authorizeRequests&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;expressionHandler&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;expressionHandler&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;and&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;addFilterBefore&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;resourcesServerFilter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;AbstractPreAuthenticatedProcessingFilter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;exceptionHandling&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
+            &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;accessDeniedHandler&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;accessDeniedHandler&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+            &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;authenticationEntryPoint&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;authenticationEntryPoint&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;核心方法是 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;HttpSecurity.addFilterBefore&lt;/code&gt;，说起 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;HttpSecurity&lt;/code&gt;，我们有印象啊……前面通过 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;WebSecurityConfigurerAdapter&lt;/code&gt; 来配置请求放行时入参是它，能否在那个时机将自定义 Filter 注册到 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;OAuth2AuthenticationProcessingFilter&lt;/code&gt; 之前呢？&lt;/p&gt;
+
+&lt;p&gt;我们将前面配置放行规则处的代码修改如下：&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// ...&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;httpSecurity&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;authorizeRequests&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;registry&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;regexMatchers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;^(?!/custom/).*$&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;permitAll&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;and&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;addFilterAfter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;CustomWebFilter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(),&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;X509AuthenticationFilter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// ...&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;注：&lt;/strong&gt; CustomWebFilter 改为直接 new 出来的，手动添加到 Security Filter Chain，不再自动注入到其它 Filter Chain。&lt;/p&gt;
+
+&lt;p&gt;为什么是将自定义 Filter 添加到 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;X509AuthenticationFilter.class&lt;/code&gt; 之后呢？可以参考 spring-security-config 包的 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;FilterComparator&lt;/code&gt; 里预置的 Filter 顺序来做决定，从前面的代码可知 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;OAuth2AuthenticationProcessingFilter&lt;/code&gt; 是添加到 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AbstractPreAuthenticatedProcessingFilter.class&lt;/code&gt; 之前的，而在 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;FilterComparator&lt;/code&gt; 预置的顺序里，&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;X509AuthenticationFilter.class&lt;/code&gt; 是在 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AbstractPreAuthenticatedProcessingFilter.class&lt;/code&gt; 之前的，我们这样添加就足以确保自定义 Filter 在 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;OAuth2AuthenticationProcessingFilter&lt;/code&gt; 之前。&lt;/p&gt;
+
+&lt;p&gt;做了以上修改，自定义 Filter 已经在我们预期的位置了，那么我们在这个 Filter 里面，对请求路径以 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/custom/&lt;/code&gt; 开头的做必要处理，然后清空 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Authorization&lt;/code&gt; Header 即可，关键代码示意如下：&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;doFilter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;ServletRequest&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;servletRequest&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ServletResponse&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;servletResponse&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;FilterChain&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;filterChain&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;IOException&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ServletException&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nc&quot;&gt;HttpServletRequest&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;HttpServletRequest&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;servletRequest&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getServletPath&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;startsWith&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/custom/&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// do something here&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// ...&lt;/span&gt;
+        &lt;span class=&quot;kd&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;authorizationHeader&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Authorization&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;nc&quot;&gt;HttpServletRequestWrapper&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;requestWrapper&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;HttpServletRequestWrapper&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;HttpServletRequest&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;servletRequest&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
+            &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getHeader&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;authorizationHeader&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;equalsIgnoreCase&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+                    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+                &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+                &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getHeader&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+            &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+            &lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
+            &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Enumeration&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getHeaders&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;authorizationHeader&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;equalsIgnoreCase&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+                    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Vector&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;elements&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+                &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+                &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getHeaders&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+            &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;};&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;filterChain&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;doFilter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;requestWrapper&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;servletResponse&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;filterChain&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;doFilter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;servletRequest&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;servletResponse&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;小结&quot;&gt;小结&lt;/h2&gt;
+
+&lt;p&gt;经过尝试，两种方案都能满足需求，项目里最终使用了方案一，相信也还有其它的思路可以解决问题。&lt;/p&gt;
+
+&lt;p&gt;经过这一过程，也暴露出了对 Spring Security 的理解不够的问题，后续需要抽空做一些更深入的学习。&lt;/p&gt;
+
+&lt;h2 id=&quot;参考&quot;&gt;参考&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.cnblogs.com/alalazy/p/13179608.html&quot;&gt;https://www.cnblogs.com/alalazy/p/13179608.html&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Zhuang Ma</name></author><category term="Java" /><summary type="html">记两种让 Spring Security「少干点活」的方法。</summary></entry><entry><title type="html">读叔本华《人生的智慧》</title><link href="https://mazhuang.org/2021/10/25/the-wisdom-of-life/" rel="alternate" type="text/html" title="读叔本华《人生的智慧》" /><published>2021-10-25T00:00:00+08:00</published><updated>2021-10-25T00:00:00+08:00</updated><id>https://mazhuang.org/2021/10/25/the-wisdom-of-life</id><content type="html" xml:base="https://mazhuang.org/2021/10/25/the-wisdom-of-life/">&lt;p&gt;最近读完了这本小书，想写点什么，但又似乎暂时表达不出，先挖个读书笔记的坑在这里，后面有所感了也许会填上。&lt;/p&gt;
 
 &lt;p&gt;读此书的过程中，感觉前半部分比较有意思，后半部分都是在大讲所谓骑士荣誉，看得很烦。&lt;/p&gt;
 
@@ -1018,94 +1186,4 @@ Caused by: java.lang.ArrayIndexOutOfBoundsException: 1234
       &lt;p&gt;&lt;a href=&quot;https://github.com/mzlogin/config-files/blob/master/_vimrc&quot;&gt;https://github.com/mzlogin/config-files/blob/master/_vimrc&lt;/a&gt; &lt;a href=&quot;#fnref:3&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
   &lt;/ol&gt;
-&lt;/div&gt;</content><author><name>Zhuang Ma</name></author><category term="Vim" /><summary type="html">我习惯使用 Vim 编辑 Markdown 文件，一直存在一个痛点就是粘贴图片很不方便。</summary></entry><entry><title type="html">本博客模板常见问题 Q &amp;amp; A</title><link href="https://mazhuang.org/2020/05/03/blog-template-qna/" rel="alternate" type="text/html" title="本博客模板常见问题 Q &amp;amp; A" /><published>2020-05-03T00:00:00+08:00</published><updated>2020-05-03T00:00:00+08:00</updated><id>https://mazhuang.org/2020/05/03/blog-template-qna</id><content type="html" xml:base="https://mazhuang.org/2020/05/03/blog-template-qna/">&lt;p&gt;使用这个博客模板的朋友们时不时会提出一些问题，我将它们以及对应的解决方案逐渐整理归纳，汇总到这一篇帖子里。&lt;/p&gt;
-
-&lt;h2 id=&quot;如何本地预览&quot;&gt;如何本地预览&lt;/h2&gt;
-
-&lt;p&gt;参考 GitHub 的官方说明：&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://help.github.com/articles/setting-up-your-pages-site-locally-with-jekyll/&quot;&gt;Setting up your Pages site locally with Jekyll&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;本地预览报错-undefined-method-map-for-false&quot;&gt;本地预览报错 undefined method map for false&lt;/h2&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;GitHub Metadata: Failed to open TCP connection to api.github.com:443 (Connection refused - connect(2) for &quot;api.github.com&quot; port 443)
-Liquid Exception: undefined method `map' for false:FalseClass Did you mean? tap in /_layouts/page.html
-jekyll 3.8.5 | Error:  undefined method `map' for false:FalseClass
-Did you mean?  tap
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;undefined method `map` for false:FalseClass&lt;/code&gt; 这条报错之前总是伴随着 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Failed to open TCP connection to api.github.com:443&lt;/code&gt; 一起出现，是在获取 GitHub Metadata 出错后，导致这一句报错：&lt;/p&gt;
-
-&lt;div class=&quot;language-liquid highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;assign&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;repos&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;site&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;github&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;public_repositories&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;sort&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;stargazers_count&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;reverse&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;%}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;解决方法：&lt;/p&gt;
-
-&lt;p&gt;模板里主要是 _includes/sidebar-popular-repo.html 和 _pages/open-source.md 两个文件里用到了 Metadata，将以上这一句前的判断条件做一下修改后问题解决，将&lt;/p&gt;
-
-&lt;div class=&quot;language-liquid highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kr&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;site&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;github&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;public_repositories&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;%}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;改为&lt;/p&gt;
-
-&lt;div class=&quot;language-liquid highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kr&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;site&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;github&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;public_repositories&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;%}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;模板最新代码已经做了修改。&lt;/p&gt;
-
-&lt;h2 id=&quot;是否支持画流程图时序图mermaid-和-mathjax&quot;&gt;是否支持画流程图、时序图、mermaid 和 MathJax&lt;/h2&gt;
-
-&lt;p&gt;支持。因为相关的引入文件比较大可能影响加载速度，没有默认对所有文件开启，需要在要想开启的文件的 Front Matter 里加上声明：&lt;/p&gt;
-
-&lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nn&quot;&gt;---&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;flow&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;true&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;sequence&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;true&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;mermaid&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;true&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;mathjax&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;true&lt;/span&gt;
-&lt;span class=&quot;nn&quot;&gt;---&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;以上四个开关分别对应 flowchart.js（流程图）、sequence-diagram.js（时序图）、mermaid 和 MathJax 的支持，按需开启即可，然后就可以在正文里正常画图了，展示效果可以参见 &lt;a href=&quot;https://mazhuang.org/wiki/markdown/&quot;&gt;https://mazhuang.org/wiki/markdown/&lt;/a&gt;，对应写法参考源文件 &lt;a href=&quot;https://github.com/mzlogin/mzlogin.github.io/blob/master/_wiki/markdown.md&quot;&gt;https://github.com/mzlogin/mzlogin.github.io/blob/master/_wiki/markdown.md&lt;/a&gt;。&lt;/p&gt;
-
-&lt;h2 id=&quot;如何修改代码高亮风格&quot;&gt;如何修改代码高亮风格&lt;/h2&gt;
-
-&lt;p&gt;可以通过 _config.yml 文件里的配置项 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;highlight_theme&lt;/code&gt; 来指定代码高亮风格，支持的风格名称列表参考我维护的另一个项目：&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/mzlogin/rouge-themes&quot;&gt;https://github.com/mzlogin/rouge-themes&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;在项目主页可以看到每种风格的预览效果。&lt;/p&gt;
-
-&lt;h2 id=&quot;代码高亮支持哪些语言&quot;&gt;代码高亮支持哪些语言&lt;/h2&gt;
-
-&lt;p&gt;语言列表见 &lt;a href=&quot;https://github.com/rouge-ruby/rouge/wiki/List-of-supported-languages-and-lexers&quot;&gt;https://github.com/rouge-ruby/rouge/wiki/List-of-supported-languages-and-lexers&lt;/a&gt;，也可以自己运行 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rougify list&lt;/code&gt; 命令查看最新列表。&lt;/p&gt;
-
-&lt;h2 id=&quot;gitalk-授权登录后提示-403-错误&quot;&gt;Gitalk 授权登录后提示 403 错误&lt;/h2&gt;
-
-&lt;p&gt;具体看到的错误信息为 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Error: Requrest failed with status code 403&lt;/code&gt;。&lt;/p&gt;
-
-&lt;p&gt;详细的讨论可以参考 &lt;a href=&quot;https://github.com/gitalk/gitalk/issues/429&quot;&gt;https://github.com/gitalk/gitalk/issues/429&lt;/a&gt;，这个 Issue 里也提到了问题原因和解决方案：更新 Gitalk 到 1.7.2 版本，或者自行搭建 CORS proxy service 并增加配置 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;proxy: '&amp;lt;你的 proxy 地址&amp;gt;'&lt;/code&gt;。&lt;/p&gt;
-
-&lt;p&gt;如果是使用本模板最新代码，那不用做什么，会自动引用最新版本。如果一再刷新后还是不行的话，那需要刷新一下你本地的缓存，方法是依次访问以下 2 个链接：&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://purge.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js&quot;&gt;https://purge.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js?v=1.7.2&quot;&gt;https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js?v=1.7.2&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;gitalk-评论框部分提示-error-not-found&quot;&gt;Gitalk 评论框部分提示 Error: Not Found&lt;/h2&gt;
-
-&lt;p&gt;页面上提示 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Error: Not Found.&lt;/code&gt;，浏览器控制台可以看到报错信息 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GET https://api.github.com/repos/&amp;lt;用户名&amp;gt;/&amp;lt;repo&amp;gt;/issues?labels=gitment,xxx 404&lt;/code&gt;。&lt;/p&gt;
-
-&lt;p&gt;这种情况一般是 _config.yml 的 gitalk.repo 这个配置项填写的不对。这个配置项是要填写一个利用其 Issues 存储评论内容的代码仓库名称，请确保填写的名称对应的代码仓库存在，如果想省事点可以直接填写博客源码对应的仓库名称，比如 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;用户名&amp;gt;.github.io&lt;/code&gt;。&lt;/p&gt;
-
-&lt;h2 id=&quot;修改二维码图片&quot;&gt;修改二维码图片&lt;/h2&gt;
-
-&lt;p&gt;_config.yml 里的 components.qrcode 这一段用于控制二维码。&lt;/p&gt;
-
-&lt;p&gt;不显示二维码：将 components.qrcode.enabled 改为 false。&lt;/p&gt;
-
-&lt;p&gt;替换二维码图片：替换 assets/images/qrcode.jpg 文件。&lt;/p&gt;</content><author><name>Zhuang Ma</name></author><category term="GitHub" /><summary type="html">使用这个博客模板的朋友们时不时会提出一些问题，我将它们以及对应的解决方案逐渐整理归纳，汇总到这一篇帖子里。</summary></entry></feed>
+&lt;/div&gt;</content><author><name>Zhuang Ma</name></author><category term="Vim" /><summary type="html">我习惯使用 Vim 编辑 Markdown 文件，一直存在一个痛点就是粘贴图片很不方便。</summary></entry></feed>

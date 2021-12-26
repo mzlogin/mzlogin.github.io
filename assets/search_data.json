@@ -1089,6 +1089,14 @@
     } ,
   
     {
+      "title"    : "如何让 Spring Security 「少管闲事」",
+      "category" : "Java",
+      
+      "url"      : "https://mazhuang.org/2021/12/26/spring-security/",
+      "keywords" : "Spring Security, Java, Spring"
+    } ,
+  
+    {
       "title"    : "JSON",
       "category" : "",
       
