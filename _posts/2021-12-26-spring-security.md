@@ -6,7 +6,7 @@ description: 记两种让 Spring Security「少干点活」的方法。
 keywords: Spring Security, Java, Spring
 ---
 
-记两种让 Spring Security「少干点活」的方法。
+记两种让 Spring Security「少管闲事」的方法。
 
 ## 遇到问题
 
