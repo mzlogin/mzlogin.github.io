@@ -46,6 +46,12 @@ Cmd --> Command
 
 参考：<https://blog.kulman.sk/using-vscode-as-git-merge-tool/>
 
+## 使用 VSCode 作为 git commit message 编辑器
+
+```
+git config --global core.editor "code -w"
+```
+
 ## VSCodeVim 支持按键重复
 
 在 macOS，默认情况 VSCodeVim 模式下是不支持按键重复的，比如你在 Normal 模式下长按 `L`，结果光标只向右移动了一次，而没有像你预期的那样一直移动。
