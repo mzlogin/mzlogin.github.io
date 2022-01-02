@@ -1,4 +1,108 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://mazhuang.org/feed.xml" rel="self" type="application/atom+xml" /><link href="https://mazhuang.org/" rel="alternate" type="text/html" /><updated>2021-12-29T11:34:53+08:00</updated><id>https://mazhuang.org/feed.xml</id><title type="html">码志</title><subtitle>马壮的个人博客，公众号：闷骚的程序员</subtitle><author><name>Zhuang Ma</name></author><entry><title type="html">如何让 Spring Security 「少管闲事」</title><link href="https://mazhuang.org/2021/12/26/spring-security/" rel="alternate" type="text/html" title="如何让 Spring Security 「少管闲事」" /><published>2021-12-26T00:00:00+08:00</published><updated>2021-12-26T00:00:00+08:00</updated><id>https://mazhuang.org/2021/12/26/spring-security</id><content type="html" xml:base="https://mazhuang.org/2021/12/26/spring-security/">&lt;p&gt;记两种让 Spring Security「少管闲事」的方法。&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://mazhuang.org/feed.xml" rel="self" type="application/atom+xml" /><link href="https://mazhuang.org/" rel="alternate" type="text/html" /><updated>2022-01-02T14:09:09+08:00</updated><id>https://mazhuang.org/feed.xml</id><title type="html">码志</title><subtitle>马壮的个人博客，公众号：闷骚的程序员</subtitle><author><name>Zhuang Ma</name></author><entry><title type="html">我的 2021 盘点</title><link href="https://mazhuang.org/2022/01/01/my-2021/" rel="alternate" type="text/html" title="我的 2021 盘点" /><published>2022-01-01T00:00:00+08:00</published><updated>2022-01-01T00:00:00+08:00</updated><id>https://mazhuang.org/2022/01/01/my-2021</id><content type="html" xml:base="https://mazhuang.org/2022/01/01/my-2021/">&lt;p&gt;对于 2021 年，如果仅从岁月流逝的角度，当然是期望时光时光慢些吧；如果从这一年外界的疯狂变幻来讲，又想对它说慢走不送。但终会无力地看清，时间的洪流上并无刻度，你喜欢或者不喜欢，它并不在意，兀自「逝者如斯夫，不舍昼夜」。&lt;/p&gt;
+
+&lt;p&gt;怀着这样微妙的情绪，伴着这几天微信群和朋友圈里大家抒发的美好祝愿来到了新的一年。&lt;/p&gt;
+
+&lt;p&gt;是时候略作盘点，挥别过往，纵情向前。&lt;/p&gt;
+
+&lt;h2 id=&quot;大事记&quot;&gt;大事记&lt;/h2&gt;
+
+&lt;p&gt;总体来讲，今年没什么大的变化，如果非要记一笔，那我会选因为疫情被隔离的经历。&lt;/p&gt;
+
+&lt;p&gt;虽然常居武汉，但之前疫情最严重的时候我在老家，并没有最切身的感受，这一次却是从头经历了从成为密接，到为了和小别能做上核酸检测打各种电话求助，到隔离期间继续熬夜做项目与「隔友们」一起苦中作乐，到为了各自复工的事愁肠百结，到生活终于回归平静，个人的情绪在忐忑绝望苦闷庆幸间横跳，家人们想必也饱受煎熬，还好大家最后都无恙通关。&lt;/p&gt;
+
+&lt;p&gt;疫情已经深刻地改变了我们的生活，时至今日，我还有亲友在西安与之斗争，愿大家都平安，愿能摘下口罩自由呼吸的那天早点到来。&lt;/p&gt;
+
+&lt;h2 id=&quot;分类记录&quot;&gt;分类记录&lt;/h2&gt;
+
+&lt;p&gt;按例简单分类作回顾。&lt;/p&gt;
+
+&lt;h3 id=&quot;运动与健康&quot;&gt;运动与健康&lt;/h3&gt;
+
+&lt;p&gt;这次调整了一下顺序，将这一项提到了分类的最前面，也是因为随着年龄的增长，越来越体会到健康的重要性。&lt;/p&gt;
+
+&lt;p&gt;关键词：伤病，牙齿，保险，癌症。&lt;/p&gt;
+
+&lt;p&gt;今年的运动量仍然以羽毛球为主，跑步基本没有，游泳完全没有。还是作为公司武汉办公室羽毛球活动的主要发起者，每周组织活动，另外周末参加了少量民间活动，技术上没有什么进步，出勤率还算可以。&lt;/p&gt;
+
+&lt;p&gt;去年体检时报出的脂肪肝趋势，今年消失了，血脂和尿酸偏高的情况也有所改善，但「伤病」有点多，运动时两次崴脚一次腰伤，自己推测原因可能是除了羽毛球没有什么其它运动量，肌肉退化了，后面得搭配一些有氧和力量训练。年末买了个椭圆机放家，小别同学用得更多一点，不知道啥时候会变成晾衣架。&lt;/p&gt;
+
+&lt;p&gt;另外值得一说的是终于去医院持续接受牙周治疗了，牙齿的健康状态应该得到一定的修复，躺在治疗椅上脑补医生作业的时候真的很恐怖。每个人都要认真保养牙齿。&lt;/p&gt;
+
+&lt;p&gt;最近一年多的时间里，给我和小别同学陆续把保险配置上了，有点迟，有一些除外承保的情况，好歹也算是能稍安心一点了。&lt;/p&gt;
+
+&lt;p&gt;肺癌，这可能是我周围听说的最普遍的癌症，就身边的亲人来讲就有几例，我们这一辈人也有因此而凋零的了，彼时内心百感交集，此时也憋不出什么话语，只想说世事无常，按期体检，珍惜亲友。&lt;/p&gt;
+
+&lt;h3 id=&quot;书影音&quot;&gt;书影音&lt;/h3&gt;
+
+&lt;p&gt;数据统计自豆瓣记录。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/blog/2021-douban.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;统计数字与直观感受略有不同。&lt;/p&gt;
+
+&lt;p&gt;疫情的这两年感觉窝在家看电影电视剧的时候比之前要多了，但实际上数量并无明显增长。当然也可能是有一些未标记。&lt;/p&gt;
+
+&lt;p&gt;今年看过的影视推荐：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;《旺达幻视》：剧情喜欢，奥妹很美。&lt;/li&gt;
+  &lt;li&gt;《肖申克的救赎》：希望至美。&lt;/li&gt;
+  &lt;li&gt;《让子弹飞》：可以细品。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;读书的形式还是以 Kindle 阅读为主，略有不同的是现在读过觉得好的书会再买一本实体书收藏。&lt;/p&gt;
+
+&lt;p&gt;今年看过的图书推荐，两本都是能带来一些不同的阅读体验的：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;《沉默的病人》：双故事线，有时间差，挺特别。&lt;/li&gt;
+  &lt;li&gt;《禅与摩托车维修艺术》：很独特的一本书，读起来有小学语文老师常说的「夹叙夹议」的感觉。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;github-与博客&quot;&gt;GitHub 与博客&lt;/h3&gt;
+
+&lt;p&gt;GitHub 上的记录：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/blog/2021-github.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;226 contributions，比 2020 年的 303 次进一步下降；&lt;/li&gt;
+  &lt;li&gt;最长连击记录 10 天，2021-11-08 到 2021-11-17；&lt;/li&gt;
+  &lt;li&gt;有 10 个自然周没有任何记录。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;这些指标能一定程度反映对技术的关注和参与度，需要继续提醒自己警惕，技术仍是立身之本。&lt;/p&gt;
+
+&lt;p&gt;博客上今年只发了廖廖 5 篇文章，平均每个季度一篇的节奏。&lt;/p&gt;
+
+&lt;p&gt;我可能陷入了一个误区，每次觉得有值得一写的话题，就会随手记到一个清单，想着后面花点时间回顾下，做到干货足够多，相关知识点都讲到，然后再发出去，殊不知后面可能再不会花时间去看了。日积月累，这个清单里已经攒了不下上百条，它们之中的大多数，大概率是不会转化成输出了。&lt;/p&gt;
+
+&lt;p&gt;往后可以尝试转变思路，「及时输出」，热乎的现场，热乎的记忆，转化成热乎的文章，有不完善的地方「迭代」即可。&lt;/p&gt;
+
+&lt;p&gt;偶尔「草率」一点，没什么大不了的。&lt;/p&gt;
+
+&lt;h3 id=&quot;工作&quot;&gt;工作&lt;/h3&gt;
+
+&lt;p&gt;不好不坏，工作内容上以技术类为主，相对能比较专心纯粹地做事，算是我比较喜欢的节奏，要是更不卷就更好了。dddd，不多言。&lt;/p&gt;
+
+&lt;h3 id=&quot;投资&quot;&gt;投资&lt;/h3&gt;
+
+&lt;p&gt;以指数基金投资为主，受中丐互怜的拖累，今年整体收益负几个点，不过心态还好，相信时间维度拉长结果不会差。&lt;/p&gt;
+
+&lt;h3 id=&quot;其它&quot;&gt;其它&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;看了下三年前的年度盘点，发现吉他那时候就买了，而今技术也没有什么进步，还没有放弃治疗，继续挣扎；&lt;/li&gt;
+  &lt;li&gt;今年的旅行记录为 0，没有到过武汉和家乡以外的地方，希望新的一年疫情消散，想去哪的时候就能出发。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;结语&quot;&gt;结语&lt;/h2&gt;
+
+&lt;p&gt;流水账记完了，犹豫该不该来点正能量 FLAG，就如那些「人间清醒」的反鸡汤所言，今天的我和昨天的我并没有什么两样，并不会因为年份加一就有什么焕然一新。&lt;/p&gt;
+
+&lt;p&gt;那就祝自己和大家新年快乐，健康平安吧。&lt;/p&gt;
+
+&lt;p&gt;慢慢的，把眼下的日子过下去，就好。&lt;/p&gt;</content><author><name>Zhuang Ma</name></author><category term="Blog" /><summary type="html">对于 2021 年，如果仅从岁月流逝的角度，当然是期望时光时光慢些吧；如果从这一年外界的疯狂变幻来讲，又想对它说慢走不送。但终会无力地看清，时间的洪流上并无刻度，你喜欢或者不喜欢，它并不在意，兀自「逝者如斯夫，不舍昼夜」。</summary></entry><entry><title type="html">如何让 Spring Security 「少管闲事」</title><link href="https://mazhuang.org/2021/12/26/spring-security/" rel="alternate" type="text/html" title="如何让 Spring Security 「少管闲事」" /><published>2021-12-26T00:00:00+08:00</published><updated>2021-12-26T00:00:00+08:00</updated><id>https://mazhuang.org/2021/12/26/spring-security</id><content type="html" xml:base="https://mazhuang.org/2021/12/26/spring-security/">&lt;p&gt;记两种让 Spring Security「少管闲事」的方法。&lt;/p&gt;
 
 &lt;h2 id=&quot;遇到问题&quot;&gt;遇到问题&lt;/h2&gt;
 
@@ -1112,78 +1216,4 @@ Caused by: java.lang.ArrayIndexOutOfBoundsException: 1234
   &lt;li&gt;&lt;a href=&quot;https://www.zhihu.com/question/23043048&quot;&gt;https://www.zhihu.com/question/23043048&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.zhihu.com/pub/book/119554615&quot;&gt;https://www.zhihu.com/pub/book/119554615&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.scotthyoung.com/blog/2008/02/06/20-tips-for-batching-to-save-time-and-cut-stress/&quot;&gt;https://www.scotthyoung.com/blog/2008/02/06/20-tips-for-batching-to-save-time-and-cut-stress/&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Zhuang Ma</name></author><category term="Blog" /><summary type="html">我们可能都听过一句话：</summary></entry><entry><title type="html">用 Vim 编辑 Markdown 时直接粘贴图片</title><link href="https://mazhuang.org/2020/05/04/paste-image-in-vim/" rel="alternate" type="text/html" title="用 Vim 编辑 Markdown 时直接粘贴图片" /><published>2020-05-04T00:00:00+08:00</published><updated>2020-05-04T00:00:00+08:00</updated><id>https://mazhuang.org/2020/05/04/paste-image-in-vim</id><content type="html" xml:base="https://mazhuang.org/2020/05/04/paste-image-in-vim/">&lt;p&gt;我习惯使用 Vim 编辑 Markdown 文件，一直存在一个痛点就是粘贴图片很不方便。&lt;/p&gt;
-
-&lt;h2 id=&quot;前后对比&quot;&gt;前后对比&lt;/h2&gt;
-
-&lt;p&gt;我以前常用的操作流程：&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;复制图片/截图；&lt;/li&gt;
-  &lt;li&gt;在保存图片对话框里一层层点选保存路径，输入文件名保存；&lt;/li&gt;
-  &lt;li&gt;回到 Vim 里，手动输入引用图片的表达式。&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;第 2 步和第 3 步是比较痛苦的，尤其是文件路径比较深的时候，可能要点选好几次。&lt;/p&gt;
-
-&lt;p&gt;最近偶然发现的一个外国小伙写的插件 md-img-paste.vim&lt;sup id=&quot;fnref:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;，能比较好地解决这个问题。现在的操作流程：&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;复制图片/截图；&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;在 Vim 里输入图片相对路径，自动保存图片并插入引用图片的表达式。&lt;/p&gt;
-
-    &lt;p&gt;&lt;em&gt;注：也可以直接回车，会按默认规则生成文件名。&lt;/em&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;效果演示：&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://cdn.jsdelivr.net/gh/mzlogin/blog-assets/md-img-paste-example.gif&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;使用方法&quot;&gt;使用方法&lt;/h2&gt;
-
-&lt;h3 id=&quot;安装&quot;&gt;安装&lt;/h3&gt;
-
-&lt;p&gt;这个插件没有其它依赖，使用自己习惯的插件管理方式安装就好。&lt;/p&gt;
-
-&lt;p&gt;比如我使用 Vundle&lt;sup id=&quot;fnref:2&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;，在 vimrc 里添加如下内容，然后 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;:so $MYVIMRC&lt;/code&gt; 再 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;:PluginInstall&lt;/code&gt; 就好了。&lt;/p&gt;
-
-&lt;div class=&quot;language-viml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Plugin &lt;span class=&quot;s1&quot;&gt;'ferrine/md-img-paste.vim'&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;配置&quot;&gt;配置&lt;/h3&gt;
-
-&lt;p&gt;插件没有给粘贴剪贴板里的图片的操作绑定默认快捷键，需要自己绑定一下，比如我是绑定到 &lt;kbd&gt;\&amp;lt;leader\&amp;gt;i&lt;/kbd&gt;：&lt;/p&gt;
-
-&lt;div class=&quot;language-viml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;autocmd &lt;span class=&quot;nb&quot;&gt;FileType&lt;/span&gt; markdown nmap &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;buffer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;silent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;leader&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;call&lt;/span&gt; mdip#MarkdownClipboardImage&lt;span class=&quot;p&quot;&gt;()&amp;lt;&lt;/span&gt;CR&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;另外还有两个可选配置项：&lt;/p&gt;
-
-&lt;div class=&quot;language-viml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;g:mdip_imgdir&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'.'&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;&quot; let g:mdip_imgname = 'image'&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;g:mdip_imgdir&lt;/code&gt; 对应图片保存路径前缀。我设置为了 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.&lt;/code&gt;，然后总是输入相对当前文件的路径；&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;g:mdip_imgname&lt;/code&gt; 对应图片保存时的缺省文件名前缀，即粘贴图片时，如果不输入文件名直接回车，将保存为 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;前缀&amp;gt;_日期-时间.png&lt;/code&gt; 名称的文件。&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;我的完整 Vim 配置文件托管在 GitHub&lt;sup id=&quot;fnref:3&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;，供参考。&lt;/p&gt;
-
-&lt;p&gt;It’s done, enjoy it.&lt;/p&gt;
-
-&lt;div class=&quot;footnotes&quot; role=&quot;doc-endnotes&quot;&gt;
-  &lt;ol&gt;
-    &lt;li id=&quot;fn:1&quot; role=&quot;doc-endnote&quot;&gt;
-      &lt;p&gt;&lt;a href=&quot;https://github.com/ferrine/md-img-paste.vim&quot;&gt;https://github.com/ferrine/md-img-paste.vim&lt;/a&gt; &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-    &lt;li id=&quot;fn:2&quot; role=&quot;doc-endnote&quot;&gt;
-      &lt;p&gt;&lt;a href=&quot;https://github.com/VundleVim/Vundle.vim&quot;&gt;https://github.com/VundleVim/Vundle.vim&lt;/a&gt; &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-    &lt;li id=&quot;fn:3&quot; role=&quot;doc-endnote&quot;&gt;
-      &lt;p&gt;&lt;a href=&quot;https://github.com/mzlogin/config-files/blob/master/_vimrc&quot;&gt;https://github.com/mzlogin/config-files/blob/master/_vimrc&lt;/a&gt; &lt;a href=&quot;#fnref:3&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-  &lt;/ol&gt;
-&lt;/div&gt;</content><author><name>Zhuang Ma</name></author><category term="Vim" /><summary type="html">我习惯使用 Vim 编辑 Markdown 文件，一直存在一个痛点就是粘贴图片很不方便。</summary></entry></feed>
+&lt;/ul&gt;</content><author><name>Zhuang Ma</name></author><category term="Blog" /><summary type="html">我们可能都听过一句话：</summary></entry></feed>
