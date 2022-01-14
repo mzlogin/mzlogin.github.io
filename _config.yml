@@ -2,15 +2,15 @@
 #   Main Configs   #
 # ---------------- #
 baseurl:
-url: https://mazhuang.org
+url: https://ja1zhou.github.io
 date_format: "ordinal"
-title: 码志
-subtitle: "公众号：闷骚的程序员"
-description: "马壮的个人博客，公众号：闷骚的程序员"
-keywords: 码志, Zhuang Ma, mzlogin, mazhuang, 闷骚的程序员
-timezone: Asia/Shanghai
+title: Simple Blog
+subtitle: Ja1Zhou
+description: my testing personal blog
+keywords: Ja1Zhou, Blog
+timezone: Asia/Beijing
 encoding: "utf-8"
-repository: mzlogin/mzlogin.github.io
+repository: Ja1Zhou/ja1zhou.github.io
 # 对 css 和 js 资源的 cdn 加速配置
 cdn:
     jsdelivr:
@@ -25,10 +25,10 @@ components:
     # 不蒜子访问统计
     busuanzi:
         enabled: false
-        start_date: 2020-05-03
+        start_date: 2022-1-14
     # My Popular Repositories
     side_bar_repo:
-        enabled: true
+        enabled: false
         limit: 5
     # 文章字数统计
     word_count:
@@ -36,8 +36,8 @@ components:
     # 页面右上角，以及「关于」页面的二维码
     # 修改图片请替换 assets/images/qrcode.jpg
     qrcode:
-        enabled: true
-        image_alt: 闷骚的程序员
+        enabled: false
+        image_alt: Ja1Zhou
     # 维基索引页使用哪种视图，支持 列表（list）/分类（cate）
     wiki:
         view: cate
@@ -51,12 +51,12 @@ highlight_theme: github
 # ---------------- #
 #      Author      #
 # ---------------- #
-author: Zhuang Ma
-organization: 
+author: Ja1Zhou
+organization: Peking University
 organization_url: 
-github_username: mzlogin
-location: Wuhan, China
-email: chumpma@gmail.com
+github_username: Ja1Zhou
+location: Beijing, China
+email: test@test.test
 
 # ---------------- #
 #    Navigation    #
@@ -64,11 +64,11 @@ email: chumpma@gmail.com
 navs:
   -
     href: /
-    label: 首页
+    label: Main Page
 
   -
     href: /categories/
-    label: 分类
+    label: categories
 
 #   -
 #     href: /archives/
@@ -80,15 +80,15 @@ navs:
 
   -
     href: /wiki/
-    label: 维基
+    label: wiki
 
   -
     href: /links/
-    label: 链接
+    label: links
 
   -
     href: /about/
-    label: 关于
+    label: about
 
 # ---------------- #
 #       RSS        #
@@ -140,7 +140,7 @@ gitment:
         client_secret: b42a4178e5fd4a7cf63189ef4b1453b05c375709
 # https://github.com/gitalk/gitalk#install
 gitalk:
-    owner: mzlogin
+    owner: Ja1Zhou
     repo: blog-comments
     clientID: d2e1cbbd298958076462
     clientSecret: b42a4178e5fd4a7cf63189ef4b1453b05c375709
