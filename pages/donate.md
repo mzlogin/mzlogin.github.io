@@ -14,8 +14,8 @@ permalink: /donate/
 
 ## 微信 / Wechat
 
-![]({{ assets_base_url }}/assets/images/receipt-wechat.jpeg)
+![]({{ assets_base_url }}/assets/images/receipt-code-wechat.jpeg)
 
 ## 支付宝 / Alipay
 
-![]({{ assets_base_url }}/assets/images/receipt-alipay.jpeg)
+![]({{ assets_base_url }}/assets/images/receipt-code-alipay.jpeg)
