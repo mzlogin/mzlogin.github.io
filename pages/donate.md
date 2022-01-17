@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Donate
+title: 捐助 / Donate
 description: 随缘
 keywords: Donate
 comments: true
@@ -14,8 +14,8 @@ permalink: /donate/
 
 ## 微信 / Wechat
 
-![]({{ assets_base_url }}/assets/images/receipt-code-wechat.jpeg)
+<img style="width:256px;border:1px solid lightgrey;" src="{{ assets_base_url }}/assets/images/receipt-code-wechat.jpeg" alt="wechat receipt code" />
 
 ## 支付宝 / Alipay
 
-![]({{ assets_base_url }}/assets/images/receipt-code-alipay.jpeg)
+<img style="width:256px;border:1px solid lightgrey;" src="{{ assets_base_url }}/assets/images/receipt-code-alipay.jpeg" alt="alipay receipt code" />
