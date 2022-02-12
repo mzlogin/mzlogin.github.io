@@ -1113,6 +1113,14 @@
     } ,
   
     {
+      "title"    : "给 zsh 自定义命令添加参数自动补全",
+      "category" : "Shell",
+      
+      "url"      : "https://mazhuang.org/2022/02/12/zsh-completion/",
+      "keywords" : "zsh, 自动补全"
+    } ,
+  
+    {
       "title"    : "JSON",
       "category" : "",
       

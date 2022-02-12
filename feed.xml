@@ -1,4 +1,64 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://mazhuang.org/feed.xml" rel="self" type="application/atom+xml" /><link href="https://mazhuang.org/" rel="alternate" type="text/html" /><updated>2022-01-18T09:46:02+08:00</updated><id>https://mazhuang.org/feed.xml</id><title type="html">码志</title><subtitle>马壮的个人博客，公众号：闷骚的程序员</subtitle><author><name>Zhuang Ma</name></author><entry><title type="html">我的 2021 盘点</title><link href="https://mazhuang.org/2022/01/01/my-2021/" rel="alternate" type="text/html" title="我的 2021 盘点" /><published>2022-01-01T00:00:00+08:00</published><updated>2022-01-01T00:00:00+08:00</updated><id>https://mazhuang.org/2022/01/01/my-2021</id><content type="html" xml:base="https://mazhuang.org/2022/01/01/my-2021/">&lt;p&gt;对于 2021 年，如果仅从岁月流逝的角度，当然是期望时光时光慢些吧；如果从这一年外界的疯狂变幻来讲，又想对它说慢走不送。但终会无力地看清，时间的洪流上并无刻度，你喜欢或者不喜欢，它并不在意，兀自「逝者如斯夫，不舍昼夜」。&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://mazhuang.org/feed.xml" rel="self" type="application/atom+xml" /><link href="https://mazhuang.org/" rel="alternate" type="text/html" /><updated>2022-02-12T19:00:33+08:00</updated><id>https://mazhuang.org/feed.xml</id><title type="html">码志</title><subtitle>马壮的个人博客，公众号：闷骚的程序员</subtitle><author><name>Zhuang Ma</name></author><entry><title type="html">给 zsh 自定义命令添加参数自动补全</title><link href="https://mazhuang.org/2022/02/12/zsh-completion/" rel="alternate" type="text/html" title="给 zsh 自定义命令添加参数自动补全" /><published>2022-02-12T00:00:00+08:00</published><updated>2022-02-12T00:00:00+08:00</updated><id>https://mazhuang.org/2022/02/12/zsh-completion</id><content type="html" xml:base="https://mazhuang.org/2022/02/12/zsh-completion/">&lt;p&gt;有时我会自定义一些 zsh 命令，以便提升某些高频操作的效率。本文记录我给一个自定义命令添加参数自动补全的方法。&lt;/p&gt;
+
+&lt;h2 id=&quot;场景&quot;&gt;场景&lt;/h2&gt;
+
+&lt;p&gt;我自定义了一个 zsh 命令 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gmt&lt;/code&gt;，执行 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gmt &amp;lt;b2&amp;gt;&lt;/code&gt;，可以将当前所在的 git 分支 merge 到 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;b2&amp;gt;&lt;/code&gt; 这个分支。&lt;/p&gt;
+
+&lt;p&gt;它具体完成以下工作：&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;切换到 git 分支 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;b2&amp;gt;&lt;/code&gt;；&lt;/li&gt;
+  &lt;li&gt;将 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;b2&amp;gt;&lt;/code&gt; 分支更新到最新；&lt;/li&gt;
+  &lt;li&gt;询问是否合并，输入 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;y&lt;/code&gt; 则进行分支合并。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;也就是用一条命令完成一个 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git checkout b2&lt;/code&gt;、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git pull origin b2&lt;/code&gt;、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git merge b1&lt;/code&gt; 这样一个组合操作。&lt;/p&gt;
+
+&lt;p&gt;用了一段时间，感觉可以省一些事，美中不足的一点就是有时候分支名称比较长，手动输入没有自动补全。&lt;/p&gt;
+
+&lt;h2 id=&quot;期望效果&quot;&gt;期望效果&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;输入 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gmt &lt;/code&gt;，然后按 &lt;kbd&gt;tab&lt;/kbd&gt;，自动提示本地的所有 git 分支名称；&lt;/li&gt;
+  &lt;li&gt;输入 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gmt fe&lt;/code&gt;，然后按 &lt;kbd&gt;tab&lt;/kbd&gt;，自动补全以 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fe&lt;/code&gt; 开头的 git 分支名称；&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;实现方法&quot;&gt;实现方法&lt;/h2&gt;
+
+&lt;p&gt;在 zshrc 文件中添加如下代码：&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;compdef _git_merge_to_comp git_merge_to
+
+_git_merge_to_comp&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;local&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-a&lt;/span&gt; git_branches
+    &lt;span class=&quot;nv&quot;&gt;git_branches&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(@f)&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;git branch &lt;span class=&quot;nt&quot;&gt;--format&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'%(refname:short)'&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    _describe &lt;span class=&quot;s1&quot;&gt;'command'&lt;/span&gt; git_branches
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;em&gt;注：&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git_merge_to&lt;/code&gt; 是一个自定义的函数，&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gmt&lt;/code&gt; 是这个函数的 alias。&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;这段代码的意思就是使用 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_git_merge_to_comp&lt;/code&gt; 这个函数来给 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git_merge_to&lt;/code&gt; 命令做自动补全，自动补全的候选列表是当前目录的所有本地 git 分支名称。&lt;/p&gt;
+
+&lt;p&gt;其中：&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;compdef&lt;/code&gt;、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_describe&lt;/code&gt; 等的用法，可以参考 zsh 的官方文档 &lt;a href=&quot;https://zsh.sourceforge.io/Doc/Release/Completion-System.html&quot;&gt;Completion System&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git_branches=(&quot;${(@f)$(git branch --format='%(refname:short)')}&quot;)&lt;/code&gt; 的意思是，将 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git branch --format='%(refname:short)'&lt;/code&gt; 命令的输出按行分割后形成一个字符串数组，赋值给 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git_branches&lt;/code&gt; 变量，这部分可以参考 &lt;a href=&quot;https://unix.stackexchange.com/questions/29724/how-to-properly-collect-an-array-of-lines-in-zsh&quot;&gt;How to properly collect an array of lines in zsh&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;我的 zsh 配置都上传到了 &lt;a href=&quot;https://github.com/mzlogin/config-files&quot;&gt;https://github.com/mzlogin/config-files&lt;/a&gt;，有需要可以参考下。&lt;/p&gt;
+
+&lt;h2 id=&quot;效果演示&quot;&gt;效果演示&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/shell/zsh-gmt-completion.gif&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;参考&quot;&gt;参考&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://zsh.sourceforge.io/Doc/Release/Completion-System.html&quot;&gt;Completion System&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://unix.stackexchange.com/questions/29724/how-to-properly-collect-an-array-of-lines-in-zsh&quot;&gt;How to properly collect an array of lines in zsh&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Zhuang Ma</name></author><category term="Shell" /><summary type="html">有时我会自定义一些 zsh 命令，以便提升某些高频操作的效率。本文记录我给一个自定义命令添加参数自动补全的方法。</summary></entry><entry><title type="html">我的 2021 盘点</title><link href="https://mazhuang.org/2022/01/01/my-2021/" rel="alternate" type="text/html" title="我的 2021 盘点" /><published>2022-01-01T00:00:00+08:00</published><updated>2022-01-01T00:00:00+08:00</updated><id>https://mazhuang.org/2022/01/01/my-2021</id><content type="html" xml:base="https://mazhuang.org/2022/01/01/my-2021/">&lt;p&gt;对于 2021 年，如果仅从岁月流逝的角度，当然是期望时光时光慢些吧；如果从这一年外界的疯狂变幻来讲，又想对它说慢走不送。但终会无力地看清，时间的洪流上并无刻度，你喜欢或者不喜欢，它并不在意，兀自「逝者如斯夫，不舍昼夜」。&lt;/p&gt;
 
 &lt;p&gt;怀着这样微妙的情绪，伴着这几天微信群和朋友圈里大家抒发的美好祝愿来到了新的一年。&lt;/p&gt;
 
@@ -899,321 +959,4 @@ Caused by: java.lang.ArrayIndexOutOfBoundsException: 1234
 
 &lt;p&gt;最后推荐一个我觉得不错的学习资源吧，作为野路子出身系统入门挺好：&lt;/p&gt;
 
-&lt;p&gt;李在福《追球》全集：&lt;a href=&quot;https://v.youku.com/v_show/id_XMjczOTAyODI4.html&quot;&gt;https://v.youku.com/v_show/id_XMjczOTAyODI4.html&lt;/a&gt;&lt;/p&gt;</content><author><name>Zhuang Ma</name></author><category term="Blog" /><summary type="html">昨天朋友圈和微博上有不少人在转发林丹从国家队退役的消息，有一点感慨的同时，我在想，以后新入坑的羽毛球迷们，可能渐渐就都不知道「超级丹」、「林李大战」，还有「四大天王」这些名词了吧。</summary></entry><entry><title type="html">更聪明地学习，而不是苦读——《如何高效学习》</title><link href="https://mazhuang.org/2020/05/17/learn-more-study-less/" rel="alternate" type="text/html" title="更聪明地学习，而不是苦读——《如何高效学习》" /><published>2020-05-17T00:00:00+08:00</published><updated>2020-05-17T00:00:00+08:00</updated><id>https://mazhuang.org/2020/05/17/learn-more-study-less</id><content type="html" xml:base="https://mazhuang.org/2020/05/17/learn-more-study-less/">&lt;p&gt;我们可能都听过一句话：&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;吾生也有涯，而知也无涯。以有涯随无涯，殆已！——《庄子. 内篇. 养生主第三》&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;所以，需要持续大量学习的童鞋，比方说我等程序员们，除了要从知识的海洋中精挑细选出我们想要的内容，挑完了还得高效学习，不然成长的速度可能远远赶不上脱发的速度，沦落到「他变秃了，也没变强」的尴尬境地。&lt;/p&gt;
-
-&lt;p&gt;更聪明地学习，而不是苦读——这是我打开 Kindle for Mac 后看到的第一句话，最近读的这本 &lt;a href=&quot;https://book.douban.com/subject/25783654/&quot;&gt;《如何高效学习》&lt;/a&gt; 正是一本关于此话题的书。&lt;/p&gt;
-
-&lt;h2 id=&quot;关于本书&quot;&gt;关于本书&lt;/h2&gt;
-
-&lt;p&gt;作者 Scott H. Young，这哥们是个神人，超级学霸，比较广为人知的事迹是他的 &lt;a href=&quot;https://www.scotthyoung.com/blog/myprojects/mit-challenge-2/&quot;&gt;MIT Challenge&lt;/a&gt;，用一年的时间自学完 MIT 计算机专业四年 33 门课程（当然，他不是 MIT 的学生，没有拿到学位）。有关他的更多信息可以访问 &lt;a href=&quot;https://www.scotthyoung.com/&quot;&gt;Scott H. Young&lt;/a&gt; 了解。&lt;/p&gt;
-
-&lt;p&gt;这本书里就是介绍他自己总结的学习方法，主要就是所谓「整体性学习」。&lt;/p&gt;
-
-&lt;p&gt;在开始读书笔记之前我忍不住要先来一段吐槽。&lt;/p&gt;
-
-&lt;h2 id=&quot;前置吐槽&quot;&gt;前置吐槽&lt;/h2&gt;
-
-&lt;p&gt;这本书的英文原书名为 &lt;a href=&quot;https://book.douban.com/subject/11603298/&quot;&gt;Learn More, Study Less&lt;/a&gt;，豆瓣评分 8.0，中文版叫 &lt;a href=&quot;https://book.douban.com/subject/25783654/&quot;&gt;《如何高效学习》&lt;/a&gt;，豆瓣评分 7.4，这中间差的 0.6 分，看了一些书评，我估计很多读者会认为是被译者吃了，豆瓣上有好些网友在 &lt;a href=&quot;https://book.douban.com/subject/25783654/comments/&quot;&gt;跪求译者不要再译书了&lt;/a&gt;。:cry:&lt;/p&gt;
-
-&lt;p&gt;我……也有点这种感觉。奈何我啃英文太慢了，所以还是先看了中文版，然后才找到原著对照理解了部分内容，英文阅读水平还行的同学建议直接读原著。&lt;/p&gt;
-
-&lt;p&gt;以下是我阅读中文版过程中想吐槽的一些点：&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;过多不必要的「译者注」，而且是放在正文里的；&lt;/p&gt;
-
-    &lt;p&gt;&lt;img src=&quot;/images/blog/learn-more-study-less-s.s.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-    &lt;p&gt;比如这里，整整一页的译者注，但实际注解得并不好，也无必要。&lt;/p&gt;
-
-    &lt;p&gt;适当的留白和思考空间留给读者自己可能更好。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;「导读」里花了几页来讲的「吃饭模型学习法」，可以看出是想应用书中大力推崇的比喻，但用得牵强附会了，并无助于理解，放在书的开头反而让人纳闷；&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;同一个场景下的同一名词，在书中有不同的翻译；&lt;/p&gt;
-
-    &lt;p&gt;比如整体学习的五个阶段里的第二阶段有时被翻译为「理解」，有时被翻译为「明白」。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;有翻译错误 / 不准确的情况；&lt;/p&gt;
-
-    &lt;p&gt;比如，整体学习的五个阶段，这是非常重要的信息，但是，原文：&lt;/p&gt;
-
-    &lt;blockquote&gt;
-      &lt;p&gt;Explore - The Explore Phase is really where holistic learning takes full force. Here you form the models, highways and broader connections needed for well defined constructs.&lt;/p&gt;
-    &lt;/blockquote&gt;
-
-    &lt;p&gt;译文：&lt;/p&gt;
-
-    &lt;blockquote&gt;
-      &lt;p&gt;拓展 - 拓展阶段是整体性学习中最花力气的地方，这一步将形成模型、高速公路和广泛和联系，从而获得良好的结构。&lt;/p&gt;
-    &lt;/blockquote&gt;
-
-    &lt;p&gt;我得说，这真不如机器翻译的：&lt;/p&gt;
-
-    &lt;p&gt;&lt;img src=&quot;/images/blog/learn-more-study-less-machine-translate.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;正文中有一些关于学习医学的例子，原著中并没有，是译者自行添加的。&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;好了吐槽完毕，记笔记记笔记。&lt;/p&gt;
-
-&lt;h2 id=&quot;读书笔记&quot;&gt;读书笔记&lt;/h2&gt;
-
-&lt;h3 id=&quot;摘录&quot;&gt;摘录&lt;/h3&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;所谓的聪明是指能学得更快、记得更多更牢，而且信息的组织非常适合完成自己的目标。——Scott H. Young 对聪明的定义&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;整体性学习的基础就是将知识关联起来以达到记忆和应用知识的目的，开始学习的最佳技术是比喻、内在化、基于流程的记事和画图表法，这些方法构成了整体性学习的基础。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;要想超出知识本身，光有热情还不够，你要寻找各种应用知识的途径（即使现在讨厌它），知识因“用”而获得新的意义。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;比喻就是在不熟悉的知识和熟悉的知识之间架起一座沟通的桥梁。&lt;/p&gt;
-
-  &lt;p&gt;莱考夫把隐喻定义为“以一种事物认知另一种事物”，而这恰恰就是学习的本质。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id=&quot;知识点&quot;&gt;知识点&lt;/h3&gt;
-
-&lt;p&gt;&lt;strong&gt;整体性学习相关的概念&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;机械记忆 VS 整体性学习——死记硬背 VS 将各种知识相互关联，建立信息的网络。&lt;/p&gt;
-
-&lt;p&gt;整体性学习基于三个主要思想：&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;结构：结构就是一系列紧密联系的知识；（城市）&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;模型：模型是结构的快照，更为简单和更易储存；（结构的抽象）&lt;/p&gt;
-
-    &lt;blockquote&gt;
-      &lt;p&gt;模型有很多种形式，但是目标总是同样的：那就是压缩信息。&lt;/p&gt;
-    &lt;/blockquote&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;高速公路：结构与结构之间的联系；（城市之间的高速公路）&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;整体性学习的阶段与顺序：&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/blog/holistic-learning-sequence.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;信息结构（分类）：&lt;/p&gt;
-
-&lt;p&gt;Scott 将信息作以下分类，学习新的知识时，首先判断信息主要属于哪一类，然后采取对应的处理方法。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/blog/information-structure.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;整体性学习的技术&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;作者在书中也多次提到，这些技术如果只是了解而不去练习和实践，是没有什么用的。书中提供了很多「智力挑战」，具体请参考原著。&lt;/p&gt;
-
-&lt;p&gt;Part 1 获取知识&lt;/p&gt;
-
-&lt;p&gt;一、快速阅读&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;指读法&lt;/p&gt;
-
-    &lt;p&gt;对就是你想的那个指读法。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;练习阅读法&lt;/p&gt;
-
-    &lt;p&gt;类似我们以前做阅读理解的练习，目的是训练自己以尽可能快的速度理解所读内容。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;积极阅读法&lt;/p&gt;
-
-    &lt;p&gt;强调深入地理解材料，类似于所谓「精读」，每读完一小部分都对应做一些笔记。&lt;/p&gt;
-
-    &lt;p&gt;积极阅读时带着三个问题：&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;
-        &lt;p&gt;这部分的主要知识点是什么？&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;怎样才能记住主要知识点？（联系、视觉化和比喻）&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;怎样将知识点应用到实际情境中？&lt;/p&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;二、笔记流&lt;/p&gt;
-
-&lt;p&gt;尽量简短地写下主要知识点（找重点），然后用箭头将它们联系起来，可以结合简易图像、表格。&lt;/p&gt;
-
-&lt;p&gt;Part 2 联系观点&lt;/p&gt;
-
-&lt;p&gt;主要处理困难信息（抽象信息、随意信息等）和关键信息（构成学习其它知识的基础）。&lt;/p&gt;
-
-&lt;p&gt;一、比喻&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;在不熟悉的知识和熟悉的知识之间架起一座沟通的桥梁。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;二、内在化&lt;/p&gt;
-
-&lt;p&gt;调用各种感知与知识联系在一起，比如视觉（脑海中出现图像）、听觉、触觉和情感等。&lt;/p&gt;
-
-&lt;p&gt;三、简图法&lt;/p&gt;
-
-&lt;p&gt;将多个信息压缩成一幅简图。主要可以借助流程图（步骤、脑图）、概念图（知识点及联系）和涂鸦。&lt;/p&gt;
-
-&lt;p&gt;Part 3 随意信息的处理&lt;/p&gt;
-
-&lt;p&gt;一、联想法&lt;/p&gt;
-
-&lt;p&gt;将一系列知识点串连在一起，就像链条，一旦进入链条中的一环，就可以轻易地到达链条中的其它环节。&lt;/p&gt;
-
-&lt;p&gt;二、挂钩法&lt;/p&gt;
-
-&lt;p&gt;建立你自己的基本数字字典，然后将要记忆的信息与这些数字联系在一起，再查字典用数字的含义编一个小故事。（这玩意作为一个记忆方法太绕了，是否真有人这样用我表示怀疑）&lt;/p&gt;
-
-&lt;p&gt;三、信息压缩技术&lt;/p&gt;
-
-&lt;p&gt;储存大量随意信息的方法，目标是精简信息，寻找逻辑关系。&lt;/p&gt;
-
-&lt;p&gt;三种方法：&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;记忆术——用一个短语或者单词来储存数个信息的方法。&lt;/p&gt;
-
-    &lt;p&gt;如用各单词的首字母拼成一个简单通用的短语或单词。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;图像联系——我感觉同上面提到的「简图法」。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;笔记压缩——将很多知识压缩到几页笔记里，试图快速掌握大量材料。&lt;/p&gt;
-
-    &lt;p&gt;用小字将主要知识点及与之相联系的重要内容写下来，结合简图。&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Part 4 知识扩展&lt;/p&gt;
-
-&lt;p&gt;一、实际应用&lt;/p&gt;
-
-&lt;p&gt;总是努力把知识应用于实际，会记得更牢。&lt;/p&gt;
-
-&lt;p&gt;比如：在一堆东西里快速找到想要的那个，可以考虑用二分法。&lt;/p&gt;
-
-&lt;p&gt;二、模型纠错&lt;/p&gt;
-
-&lt;p&gt;在练习和实践中发现问题、纠正问题。&lt;/p&gt;
-
-&lt;p&gt;三、基于项目的学习&lt;/p&gt;
-
-&lt;p&gt;设定一个合适大小的目标，做好计划，围绕着目标学习。&lt;/p&gt;
-
-&lt;p&gt;作者的几点建议：&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;目标不要太大，可以试试 1-3 个月的项目；&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;将工作进度和过程记录下来，看着已经完成的工作可以增强信息和继续下去的欲望；&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;目标要有意义。&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;strong&gt;费曼技巧&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;这部分貌似在英文原著里没有，但我觉得挺重要的。&lt;/p&gt;
-
-&lt;p&gt;简而言之，就是假设你要给一名小白讲解这个知识点，用尽量简洁的表述让他听懂，如果有不知道如何表述的地方，那就回过头把它搞懂。&lt;/p&gt;
-
-&lt;p&gt;让我想起不知道在哪看的一句话：「我讲的你听懂了，代表我掌握了，不是你」。&lt;/p&gt;
-
-&lt;p&gt;还想起是不是华罗庚也经常用这个法子……&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;超越整体性学习&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;一、高效秘籍&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/blog/efficient-cheats.png&quot; alt=&quot;高效秘籍&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;二、自我教育&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/blog/educate-yourself.png&quot; alt=&quot;自我教育&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;一些自我教育的网上资源：&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;MIT OpenCourseWare&lt;/li&gt;
-  &lt;li&gt;EHow.com&lt;/li&gt;
-  &lt;li&gt;FreeEd.net&lt;/li&gt;
-  &lt;li&gt;Portal to Free Online Courses&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;书籍和网站&quot;&gt;书籍和网站&lt;/h3&gt;
-
-&lt;p&gt;书中提到了很多书籍，在第三部分的最后一节里也列举了一些高效率相关的网址和书籍，收集如下：&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;书籍&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://book.douban.com/subject/2031439/&quot;&gt;Breakthrough Rapid Reading&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://book.douban.com/subject/26298597/&quot;&gt;我们赖以生存的隐喻&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://book.douban.com/subject/1316569/&quot;&gt;Getting Things Done&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://book.douban.com/subject/1884867/&quot;&gt;The Power of Full Engagement&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://book.douban.com/subject/3296364/&quot;&gt;Zen To Done&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://book.douban.com/subject/2516411/&quot;&gt;How to Become a Straight-A Student&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://book.douban.com/subject/2301314/&quot;&gt;How to Win at College&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;网址&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;ScottHYoung.com&lt;/li&gt;
-  &lt;li&gt;ZenHabits.net&lt;/li&gt;
-  &lt;li&gt;Lifehack.org&lt;/li&gt;
-  &lt;li&gt;PickTheBrain.com&lt;/li&gt;
-  &lt;li&gt;StudyHacks&lt;/li&gt;
-  &lt;li&gt;StevePavlina.com&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;参考&quot;&gt;参考&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://book.douban.com/subject/25783654/&quot;&gt;https://book.douban.com/subject/25783654/&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://book.douban.com/subject/11603298/&quot;&gt;https://book.douban.com/subject/11603298/&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.zhihu.com/question/20571226&quot;&gt;https://www.zhihu.com/question/20571226&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.scotthyoung.com/blog/myprojects/mit-challenge-2/#6&quot;&gt;https://www.scotthyoung.com/blog/myprojects/mit-challenge-2/#6&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.scotthyoung.com/&quot;&gt;https://www.scotthyoung.com/&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.zhihu.com/question/23043048&quot;&gt;https://www.zhihu.com/question/23043048&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.zhihu.com/pub/book/119554615&quot;&gt;https://www.zhihu.com/pub/book/119554615&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.scotthyoung.com/blog/2008/02/06/20-tips-for-batching-to-save-time-and-cut-stress/&quot;&gt;https://www.scotthyoung.com/blog/2008/02/06/20-tips-for-batching-to-save-time-and-cut-stress/&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Zhuang Ma</name></author><category term="Blog" /><summary type="html">我们可能都听过一句话：</summary></entry></feed>
+&lt;p&gt;李在福《追球》全集：&lt;a href=&quot;https://v.youku.com/v_show/id_XMjczOTAyODI4.html&quot;&gt;https://v.youku.com/v_show/id_XMjczOTAyODI4.html&lt;/a&gt;&lt;/p&gt;</content><author><name>Zhuang Ma</name></author><category term="Blog" /><summary type="html">昨天朋友圈和微博上有不少人在转发林丹从国家队退役的消息，有一点感慨的同时，我在想，以后新入坑的羽毛球迷们，可能渐渐就都不知道「超级丹」、「林李大战」，还有「四大天王」这些名词了吧。</summary></entry></feed>
