@@ -18,9 +18,9 @@ keywords: zsh, 自动补全
 2. 将 `<b2>` 分支更新到最新；
 3. 询问是否合并，输入 `y` 则进行分支合并。
 
-也就是用一条命令完成一个 `git checkout b2`、`git pull origin b2`、`git merge b1` 这样一个组合操作。
+也就是用一条命令完成一个 `git checkout b2`、`git pull origin b2`、`git merge b1` 这样的组合操作。
 
-用了一段时间，感觉可以省一些事，美中不足的一点就是有时候分支名称比较长，手动输入没有自动补全。
+用了一段时间，可以省一些事，美中不足的就是有时候分支名称比较长，只能手动输入，没有自动补全。
 
 ## 期望效果
 
@@ -29,7 +29,7 @@ keywords: zsh, 自动补全
 
 ## 实现方法
 
-在 zshrc 文件中添加如下代码：
+在 zsh 配置文件中添加如下代码：
 
 ```sh
 compdef _git_merge_to_comp git_merge_to
@@ -44,7 +44,7 @@ _git_merge_to_comp()
 
 *注：`git_merge_to` 是一个自定义的函数，`gmt` 是这个函数的 alias。*
 
-这段代码的意思就是使用 `_git_merge_to_comp` 这个函数来给 `git_merge_to` 命令做自动补全，自动补全的候选列表是当前目录的所有本地 git 分支名称。
+这段代码的意思就是使用 `_git_merge_to_comp` 这个函数来给 `git_merge_to` 命令做自动补全，自动补全的候选列表是当前项目的所有本地 git 分支名称。
 
 其中：
 
