@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://mazhuang.org/feed.xml" rel="self" type="application/atom+xml" /><link href="https://mazhuang.org/" rel="alternate" type="text/html" /><updated>2022-02-12T19:00:33+08:00</updated><id>https://mazhuang.org/feed.xml</id><title type="html">码志</title><subtitle>马壮的个人博客，公众号：闷骚的程序员</subtitle><author><name>Zhuang Ma</name></author><entry><title type="html">给 zsh 自定义命令添加参数自动补全</title><link href="https://mazhuang.org/2022/02/12/zsh-completion/" rel="alternate" type="text/html" title="给 zsh 自定义命令添加参数自动补全" /><published>2022-02-12T00:00:00+08:00</published><updated>2022-02-12T00:00:00+08:00</updated><id>https://mazhuang.org/2022/02/12/zsh-completion</id><content type="html" xml:base="https://mazhuang.org/2022/02/12/zsh-completion/">&lt;p&gt;有时我会自定义一些 zsh 命令，以便提升某些高频操作的效率。本文记录我给一个自定义命令添加参数自动补全的方法。&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://mazhuang.org/feed.xml" rel="self" type="application/atom+xml" /><link href="https://mazhuang.org/" rel="alternate" type="text/html" /><updated>2022-02-12T19:11:57+08:00</updated><id>https://mazhuang.org/feed.xml</id><title type="html">码志</title><subtitle>马壮的个人博客，公众号：闷骚的程序员</subtitle><author><name>Zhuang Ma</name></author><entry><title type="html">给 zsh 自定义命令添加参数自动补全</title><link href="https://mazhuang.org/2022/02/12/zsh-completion/" rel="alternate" type="text/html" title="给 zsh 自定义命令添加参数自动补全" /><published>2022-02-12T00:00:00+08:00</published><updated>2022-02-12T00:00:00+08:00</updated><id>https://mazhuang.org/2022/02/12/zsh-completion</id><content type="html" xml:base="https://mazhuang.org/2022/02/12/zsh-completion/">&lt;p&gt;有时我会自定义一些 zsh 命令，以便提升某些高频操作的效率。本文记录我给一个自定义命令添加参数自动补全的方法。&lt;/p&gt;
 
 &lt;h2 id=&quot;场景&quot;&gt;场景&lt;/h2&gt;
 
@@ -12,9 +12,9 @@
   &lt;li&gt;询问是否合并，输入 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;y&lt;/code&gt; 则进行分支合并。&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;也就是用一条命令完成一个 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git checkout b2&lt;/code&gt;、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git pull origin b2&lt;/code&gt;、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git merge b1&lt;/code&gt; 这样一个组合操作。&lt;/p&gt;
+&lt;p&gt;也就是用一条命令完成一个 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git checkout b2&lt;/code&gt;、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git pull origin b2&lt;/code&gt;、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git merge b1&lt;/code&gt; 这样的组合操作。&lt;/p&gt;
 
-&lt;p&gt;用了一段时间，感觉可以省一些事，美中不足的一点就是有时候分支名称比较长，手动输入没有自动补全。&lt;/p&gt;
+&lt;p&gt;用了一段时间，可以省一些事，美中不足的就是有时候分支名称比较长，只能手动输入，没有自动补全。&lt;/p&gt;
 
 &lt;h2 id=&quot;期望效果&quot;&gt;期望效果&lt;/h2&gt;
 
@@ -25,7 +25,7 @@
 
 &lt;h2 id=&quot;实现方法&quot;&gt;实现方法&lt;/h2&gt;
 
-&lt;p&gt;在 zshrc 文件中添加如下代码：&lt;/p&gt;
+&lt;p&gt;在 zsh 配置文件中添加如下代码：&lt;/p&gt;
 
 &lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;compdef _git_merge_to_comp git_merge_to
 
@@ -39,7 +39,7 @@ _git_merge_to_comp&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
 
 &lt;p&gt;&lt;em&gt;注：&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git_merge_to&lt;/code&gt; 是一个自定义的函数，&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gmt&lt;/code&gt; 是这个函数的 alias。&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;这段代码的意思就是使用 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_git_merge_to_comp&lt;/code&gt; 这个函数来给 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git_merge_to&lt;/code&gt; 命令做自动补全，自动补全的候选列表是当前目录的所有本地 git 分支名称。&lt;/p&gt;
+&lt;p&gt;这段代码的意思就是使用 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_git_merge_to_comp&lt;/code&gt; 这个函数来给 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git_merge_to&lt;/code&gt; 命令做自动补全，自动补全的候选列表是当前项目的所有本地 git 分支名称。&lt;/p&gt;
 
 &lt;p&gt;其中：&lt;/p&gt;
 
