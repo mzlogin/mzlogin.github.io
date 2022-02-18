@@ -17,6 +17,6 @@ keywords: GitHub
 
 2. Releases 里的文件
 
-    比如要下载 https://github.com/PowerShell/PowerShell/releases/download/v7.1.0-preview.6/PowerShell-7.1.0-preview.6-win-x64.zip，可以将 github.com 替换成 download.fastgit.org，最终地址 https://download.fastgit.org/PowerShell/PowerShell/releases/download/v7.1.0-preview.6/PowerShell-7.1.0-preview.6-win-x64.zip
+    比如要下载 https://github.com/PowerShell/PowerShell/releases/download/v7.1.0-preview.6/PowerShell-7.1.0-preview.6-win-x64.zip，可以将它填到 https://d.serctl.com/ 下载。
 
     参考 <https://toolwa.com/github/>
