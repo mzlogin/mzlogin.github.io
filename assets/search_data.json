@@ -1121,6 +1121,14 @@
     } ,
   
     {
+      "title"    : "在 Mac 下编译 chaosblade",
+      "category" : "混沌工程",
+      
+      "url"      : "https://mazhuang.org/2022/02/19/compile-chaosblade-on-mac/",
+      "keywords" : "混沌工程, chaosblade"
+    } ,
+  
+    {
       "title"    : "JSON",
       "category" : "",
       

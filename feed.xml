@@ -1,4 +1,264 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://mazhuang.org/feed.xml" rel="self" type="application/atom+xml" /><link href="https://mazhuang.org/" rel="alternate" type="text/html" /><updated>2022-02-18T11:08:17+08:00</updated><id>https://mazhuang.org/feed.xml</id><title type="html">码志</title><subtitle>马壮的个人博客，公众号：闷骚的程序员</subtitle><author><name>Zhuang Ma</name></author><entry><title type="html">给 zsh 自定义命令添加参数自动补全</title><link href="https://mazhuang.org/2022/02/12/zsh-completion/" rel="alternate" type="text/html" title="给 zsh 自定义命令添加参数自动补全" /><published>2022-02-12T00:00:00+08:00</published><updated>2022-02-12T00:00:00+08:00</updated><id>https://mazhuang.org/2022/02/12/zsh-completion</id><content type="html" xml:base="https://mazhuang.org/2022/02/12/zsh-completion/">&lt;p&gt;有时我会自定义一些 zsh 命令，以便提升某些高频操作的效率。本文记录我给一个自定义命令添加参数自动补全的方法。&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://mazhuang.org/feed.xml" rel="self" type="application/atom+xml" /><link href="https://mazhuang.org/" rel="alternate" type="text/html" /><updated>2022-02-19T14:55:29+08:00</updated><id>https://mazhuang.org/feed.xml</id><title type="html">码志</title><subtitle>马壮的个人博客，公众号：闷骚的程序员</subtitle><author><name>Zhuang Ma</name></author><entry><title type="html">在 Mac 下编译 chaosblade</title><link href="https://mazhuang.org/2022/02/19/compile-chaosblade-on-mac/" rel="alternate" type="text/html" title="在 Mac 下编译 chaosblade" /><published>2022-02-19T00:00:00+08:00</published><updated>2022-02-19T00:00:00+08:00</updated><id>https://mazhuang.org/2022/02/19/compile-chaosblade-on-mac</id><content type="html" xml:base="https://mazhuang.org/2022/02/19/compile-chaosblade-on-mac/">&lt;p&gt;首先声明，这不是一份指南，这是一份失败的操作流水记录。我得到的最终结果：编译成功，但是无法运行，放弃在 Mac 平台直接使用此工具，乖乖用 Linux 或者容器环境。&lt;/p&gt;
+
+&lt;p&gt;以下问题的遇到和解决记录，基本是按时间序。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/chaosblade-io/chaosblade#compile&quot;&gt;chaosblade 项目的 README 上自行编译部分&lt;/a&gt; 说明很简单，就是 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;make build_darwin&lt;/code&gt; 这么一条命令而已。&lt;/p&gt;
+
+&lt;h2 id=&quot;环境准备&quot;&gt;环境准备&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;安装 go，&lt;a href=&quot;https://go.dev/&quot;&gt;https://go.dev/&lt;/a&gt; 下载最新版安装，我安装的是 1.17.7 版本，然后将 /usr/local/go/bin 添加到 PATH。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;安装和配置 JAVA 环境。（我以前装过，本次先没动它，但实际后面也遇到问题与此相关。）&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;安装 Docker Desktop。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;下载源码开始编译&quot;&gt;下载源码，开始编译&lt;/h2&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git clone git@github.com:chaosblade-io/chaosblade.git
+&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;chaosblade
+make build_darwin
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;然后，兵来将挡，水来土掩的问题解决之旅开始了。&lt;/p&gt;
+
+&lt;h2 id=&quot;遇到问题解决问题&quot;&gt;遇到问题，解决问题&lt;/h2&gt;
+
+&lt;h3 id=&quot;0x01-网络问题&quot;&gt;0x01 网络问题&lt;/h3&gt;
+
+&lt;p&gt;编译过程中需要下载一些源码和二进制文件，首先遇到了网络问题。&lt;/p&gt;
+
+&lt;p&gt;如果遇到 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;timeout&lt;/code&gt; 或者 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fatal: 无法访问 'xxxx'：LibreSSL SSL_connect: Operation timed out in connection to xxx.com:443&lt;/code&gt; 之类的提示，一般是因为有一些资源偶尔需要科学上网才能访问。&lt;/p&gt;
+
+&lt;p&gt;解决方法：&lt;/p&gt;
+
+&lt;p&gt;终端挂代理：&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;http_proxy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;http://127.0.0.1:54107
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;https_proxy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;http://127.0.0.1:54107
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;no_proxy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;chaosblade.oss-cn-hangzhou.aliyuncs.com&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;其中代理自备，&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;no_proxy&lt;/code&gt; 那一行是指定从阿里域名下载不走代理。&lt;/p&gt;
+
+&lt;p&gt;如果遇到下载 &lt;a href=&quot;https://chaosblade.oss-cn-hangzhou.aliyuncs.com/agent/github/sandbox/sandbox-1.3.1-bin.zip&quot;&gt;https://chaosblade.oss-cn-hangzhou.aliyuncs.com/agent/github/sandbox/sandbox-1.3.1-bin.zip&lt;/a&gt; 特别慢，几 kb/s 的速度，但是用浏览器下载很快，那可以先停掉编译，直接用浏览器下载好该文件，放到 target/cache/chaosblade-exec-jvm/build-target/cache 下面，再重新开始编译。&lt;/p&gt;
+
+&lt;p&gt;同理：&lt;/p&gt;
+
+&lt;p&gt;如果遇到下载 &lt;a href=&quot;https://chaosblade.oss-cn-hangzhou.aliyuncs.com/agent/release/tools.jar&quot;&gt;https://chaosblade.oss-cn-hangzhou.aliyuncs.com/agent/release/tools.jar&lt;/a&gt; 特别慢，可以先停掉编译，直接用浏览器下载好该文件，放到 target/cache/chaosblade-exec-jvm/build-target/cache 下面，再重新开始编译。&lt;/p&gt;
+
+&lt;p&gt;例外是如果遇到下载 &lt;a href=&quot;https://chaosblade.oss-cn-hangzhou.aliyuncs.com/agent/github/1.5.0/chaosblade-1.5.0-linux-amd64.tar.gz&quot;&gt;https://chaosblade.oss-cn-hangzhou.aliyuncs.com/agent/github/1.5.0/chaosblade-1.5.0-linux-amd64.tar.gz&lt;/a&gt; 特别慢，手动下载，放到 target/cache/chaosblade-operator/build/cache 也不行，编译过程只认自己下载的。&lt;/p&gt;
+
+&lt;p&gt;由以上得出的小技巧：&lt;/p&gt;
+
+&lt;p&gt;如果从 GitHub release 界面下载 chaosblade 的 release 文件特别慢，比如 &lt;a href=&quot;https://github.com/chaosblade-io/chaosblade/releases/download/v1.3.0/chaosblade-1.3.0-darwin-amd64.tar.gz&quot;&gt;https://github.com/chaosblade-io/chaosblade/releases/download/v1.3.0/chaosblade-1.3.0-darwin-amd64.tar.gz&lt;/a&gt;，可以将链接替换为 &lt;a href=&quot;https://chaosblade.oss-cn-hangzhou.aliyuncs.com/agent/github/1.3.0/chaosblade-1.3.0-darwin-amd64.tar.gz&quot;&gt;https://chaosblade.oss-cn-hangzhou.aliyuncs.com/agent/github/1.3.0/chaosblade-1.3.0-darwin-amd64.tar.gz&lt;/a&gt; 加速下载。&lt;/p&gt;
+
+&lt;h3 id=&quot;0x02-go-依赖模块问题&quot;&gt;0x02 go 依赖模块问题&lt;/h3&gt;
+
+&lt;p&gt;如果遇到&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;exec&lt;/span&gt;/model.go:22:2: missing go.sum entry &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;module providing package github.com/chaosblade-io/chaosblade-exec-os/exec &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;imported by github.com/chaosblade-io/chaosblade-exec-docker/exec&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; to add:
+        go get github.com/chaosblade-io/chaosblade-exec-docker/exec
+&lt;span class=&quot;nb&quot;&gt;exec&lt;/span&gt;/executor_execin.go:29:2: missing go.sum entry &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;module providing package github.com/chaosblade-io/chaosblade-spec-go/channel &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;imported by github.com/chaosblade-io/chaosblade-exec-docker/exec&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; to add:
+        go get github.com/chaosblade-io/chaosblade-exec-docker/exec
+&lt;span class=&quot;nb&quot;&gt;exec&lt;/span&gt;/client.go:29:2: missing go.sum entry &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;module providing package github.com/chaosblade-io/chaosblade-spec-go/spec&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; to add:
+        go mod download github.com/chaosblade-io/chaosblade-spec-go
+&lt;span class=&quot;nb&quot;&gt;exec&lt;/span&gt;/container.go:24:2: missing go.sum entry &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;module providing package github.com/chaosblade-io/chaosblade-spec-go/util&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; to add:
+        go mod download github.com/chaosblade-io/chaosblade-spec-go
+make[1]: &lt;span class=&quot;k&quot;&gt;***&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;build_yaml] Error 1
+make: &lt;span class=&quot;k&quot;&gt;***&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;docker] Error 2
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;到 target/cache/chaosblade-exec-docker 和 target/cache/chaosblade-exec-os 目录下执行&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;go mod tidy
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;整理依赖，参考 &lt;a href=&quot;https://stackoverflow.com/questions/67203641/missing-go-sum-entry-for-module-providing-package-package-name&quot;&gt;https://stackoverflow.com/questions/67203641/missing-go-sum-entry-for-module-providing-package-package-name&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;0x03-java-编译问题&quot;&gt;0x03 Java 编译问题&lt;/h3&gt;
+
+&lt;p&gt;如果遇到报错：&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.1:compile (default-compile) on project chaosblade-exec-spi: Compilation failure: Compilation failure:
+[ERROR] 不再支持源选项 6。请使用 7 或更高版本。
+[ERROR] 不再支持目标选项 6。请使用 7 或更高版本。
+[ERROR] -&amp;gt; [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[ERROR]
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn &amp;lt;args&amp;gt; -rf :chaosblade-exec-spi
+make[1]: *** [build_java] Error 1
+make: *** [java] Error 2
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;修改 target/cache/chaosblade-exec-jvm/chaosblade-exec-spi/pom.xml 里的&lt;/p&gt;
+
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;configuration&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;source&amp;gt;&lt;/span&gt;6&lt;span class=&quot;nt&quot;&gt;&amp;lt;/source&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;target&amp;gt;&lt;/span&gt;6&lt;span class=&quot;nt&quot;&gt;&amp;lt;/target&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/configuration&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;为&lt;/p&gt;
+
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;configuration&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;source&amp;gt;&lt;/span&gt;8&lt;span class=&quot;nt&quot;&gt;&amp;lt;/source&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;target&amp;gt;&lt;/span&gt;8&lt;span class=&quot;nt&quot;&gt;&amp;lt;/target&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/configuration&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;同理，后面还会遇到类似的报错，对应还要修改：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;target/cache/chaosblade-exec-jvm/chaosblade-exec-common/pom.xml&lt;/li&gt;
+  &lt;li&gt;target/cache/chaosblade-exec-jvm/chaosblade-exec-service/pom.xml&lt;/li&gt;
+  &lt;li&gt;target/cache/chaosblade-exec-jvm/chaosblade-exec-bootstrap/chaosblade-exec-bootstrap-jvmsandbox/pom.xml&lt;/li&gt;
+  &lt;li&gt;target/cache/chaosblade-exec-jvm/chaosblade-exec-plugin/chaosblade-exec-plugin-dubbo/pom.xml&lt;/li&gt;
+  &lt;li&gt;target/cache/chaosblade-exec-jvm/chaosblade-exec-plugin/chaosblade-exec-plugin-jvm/pom.xml&lt;/li&gt;
+  &lt;li&gt;target/cache/chaosblade-exec-jvm/chaosblade-exec-plugin/chaosblade-exec-plugin-mysql/pom.xml&lt;/li&gt;
+  &lt;li&gt;target/cache/chaosblade-exec-jvm/chaosblade-exec-plugin/chaosblade-exec-plugin-postgrelsql/pom.xml&lt;/li&gt;
+  &lt;li&gt;target/cache/chaosblade-exec-jvm/chaosblade-exec-plugin/chaosblade-exec-plugin-servlet/pom.xml&lt;/li&gt;
+  &lt;li&gt;target/cache/chaosblade-exec-jvm/chaosblade-exec-plugin/chaosblade-exec-plugin-jedis/pom.xml&lt;/li&gt;
+  &lt;li&gt;target/cache/chaosblade-exec-jvm/chaosblade-exec-plugin/chaosblade-exec-plugin-elasticsearch/pom.xml&lt;/li&gt;
+  &lt;li&gt;target/cache/chaosblade-exec-jvm/chaosblade-exec-plugin/chaosblade-exec-plugin-hbase/pom.xml&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;另外：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;target/cache/chaosblade-exec-jvm/chaosblade-exec-plugin/pom.xml&lt;/li&gt;
+  &lt;li&gt;target/cache/chaosblade-exec-jvm/chaosblade-exec-plugin/chaosblade-exec-plugin-dubbo/pom.xml（存疑）&lt;/li&gt;
+  &lt;li&gt;target/cache/chaosblade-exec-jvm/chaosblade-exec-plugin/chaosblade-exec-plugin-http/pom.xml（存疑）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;里是需要添加&lt;/p&gt;
+
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;build&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;plugins&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;plugin&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.apache.maven.plugins&lt;span class=&quot;nt&quot;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;maven-compiler-plugin&lt;span class=&quot;nt&quot;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;configuration&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;nt&quot;&gt;&amp;lt;source&amp;gt;&lt;/span&gt;8&lt;span class=&quot;nt&quot;&gt;&amp;lt;/source&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;nt&quot;&gt;&amp;lt;target&amp;gt;&lt;/span&gt;8&lt;span class=&quot;nt&quot;&gt;&amp;lt;/target&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;/configuration&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/plugin&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/plugins&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/build&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;如果遇到&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.1:compile (default-compile) on project chaosblade-exec-plugin-redisson: Compilation failure
+[ERROR] /Users/mazhuang/github/chaosblade/target/cache/chaosblade-exec-jvm/chaosblade-exec-plugin/chaosblade-exec-plugin-redisson/src/main/java/com/alibaba/chaosblade/exec/plugin/redisson/RedissonEnhancer.java:[52,23] 对info的引用不明确
+[ERROR]   org.slf4j.Logger 中的方法 info(java.lang.String,java.lang.Object...) 和 org.slf4j.Logger 中的方法 info(java.lang.String,java.lang.Throwable) 都匹配
+[ERROR]
+[ERROR] -&amp;gt; [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[ERROR]
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn &amp;lt;args&amp;gt; -rf :chaosblade-exec-plugin-redisson
+make[1]: *** [build_java] Error 1
+make: *** [java] Error 2
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;修改 target/cache/chaosblade-exec-jvm/chaosblade-exec-plugin/chaosblade-exec-plugin-redisson/src/main/java/com/alibaba/chaosblade/exec/plugin/redisson/RedissonEnhancer.java&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;no&quot;&gt;LOGGER&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;method command {}&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ReflectUtil&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;invokeMethod&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;command&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;getName&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Object&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;改成&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nc&quot;&gt;Object&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tmpResult&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;  &lt;span class=&quot;nc&quot;&gt;ReflectUtil&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;invokeMethod&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;command&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;getName&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Object&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;LOGGER&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;method command {}&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tmpResult&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;如果遇到&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.1:compile (default-compile) on project chaosblade-exec-common: Fatal error compiling: java.lang.IllegalAccessError: class lombok.javac.apt.LombokProcessor (in unnamed module @0x45da40ad) cannot access class com.sun.tools.javac.processing.JavacProcessingEnvironment (in module jdk.compiler) because module jdk.compiler does not export com.sun.tools.javac.processing to unnamed module @0x45da40ad -&amp;gt; [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
+[ERROR]
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn &amp;lt;args&amp;gt; -rf :chaosblade-exec-common
+make[1]: *** [build_java] Error 1
+make: *** [java] Error 2
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;将 target/cache/chaosblade-exec-jvm/chaosblade-exec-common/pom.xml&lt;/p&gt;
+
+&lt;p&gt;lombok 版本由 1.18.10 改为 1.18.20，参考 https://www.cnblogs.com/ZZG-GANGAN/p/14789050.html&lt;/p&gt;
+
+&lt;p&gt;如果遇到&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nc&quot;&gt;The&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;JAVA_HOME&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;environment&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;variable&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;not&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;defined&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;correctly&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;environment&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;variable&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;needed&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;run&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;program&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;make&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]:&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;***&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;build_java&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Error&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;nl&quot;&gt;make:&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;***&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;java&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Error&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;那配置 JAVA_HOME：&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/usr/libexec/java_home &lt;span class=&quot;nt&quot;&gt;-V&lt;/span&gt;
+vim ~/.zshrc
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;JAVA_HOME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/Library/Java/JavaVirtualMachines/jdk1.8.0_271.jdk/Contents/Home
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$JAVA_HOME&lt;/span&gt;/bin:&lt;span class=&quot;nv&quot;&gt;$PATH&lt;/span&gt;
+:wq
+&lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt; ~/.zshrc
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;0x04-docker-问题&quot;&gt;0x04 Docker 问题&lt;/h3&gt;
+
+&lt;p&gt;如果遇到&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker: Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?.
+See 'docker run --help'.
+make: *** [upx] Error 125
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;启动 Docker Desktop，然后再开始编译。&lt;/p&gt;
+
+&lt;h3 id=&quot;0x0x-未知&quot;&gt;0x0x 未知&lt;/h3&gt;
+
+&lt;p&gt;编码过程中有个警告，不知道有无影响：&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;WARN[0000] parse java spec failed, so skip it, open build/cache/chaosblade/yaml/chaosblade-jvm-spec-1.5.0.yaml: no such file or directory
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;结果&quot;&gt;结果&lt;/h2&gt;
+
+&lt;p&gt;终于编译成功了，生成了 target/chaosblade-1.5.0.tar.gz 文件。&lt;/p&gt;
+
+&lt;p&gt;但解压后执行 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;./blade&lt;/code&gt;，输出：&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;zsh: killed     ./blade
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;下载官方 Release 的 1.3.0 的 darwin 版本文件，也是报同样的问题。&lt;/p&gt;
+
+&lt;p&gt;到 &lt;a href=&quot;https://github.com/chaosblade-io/chaosblade/issues&quot;&gt;Issues&lt;/a&gt; 里翻到了几个类似的问题，官方给出的 &lt;a href=&quot;https://github.com/chaosblade-io/chaosblade/issues/478&quot;&gt;建议&lt;/a&gt;，比如修改系统【安全与隐私】-【通用】配置等，经验证都无效。&lt;/p&gt;
+
+&lt;p&gt;至此，如文首所述，放弃了在 Mac 平台下折腾，直接用 Linux 或者容器环境来体验。&lt;/p&gt;</content><author><name>Zhuang Ma</name></author><category term="混沌工程" /><summary type="html">首先声明，这不是一份指南，这是一份失败的操作流水记录。我得到的最终结果：编译成功，但是无法运行，放弃在 Mac 平台直接使用此工具，乖乖用 Linux 或者容器环境。</summary></entry><entry><title type="html">给 zsh 自定义命令添加参数自动补全</title><link href="https://mazhuang.org/2022/02/12/zsh-completion/" rel="alternate" type="text/html" title="给 zsh 自定义命令添加参数自动补全" /><published>2022-02-12T00:00:00+08:00</published><updated>2022-02-12T00:00:00+08:00</updated><id>https://mazhuang.org/2022/02/12/zsh-completion</id><content type="html" xml:base="https://mazhuang.org/2022/02/12/zsh-completion/">&lt;p&gt;有时我会自定义一些 zsh 命令，以便提升某些高频操作的效率。本文记录我给一个自定义命令添加参数自动补全的方法。&lt;/p&gt;
 
 &lt;h2 id=&quot;场景&quot;&gt;场景&lt;/h2&gt;
 
@@ -897,66 +1157,4 @@ Caused by: java.lang.ArrayIndexOutOfBoundsException: 1234
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://mazhuang.org/2020/05/01/cdn-for-github-pages/&quot;&gt;使用 jsDelivr 免费加速 GitHub Pages 博客的静态资源&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Zhuang Ma</name></author><category term="GitHub" /><summary type="html">之前写过一篇 使用 jsDelivr 免费加速 GitHub Pages 博客的静态资源，在那之后，又陆续想到并实施了几点利用 jsDelivr 进一步加速静态资源加载的措施，新起一篇作为记录和分享。</summary></entry><entry><title type="html">林丹从国家队退役，带起一波回忆</title><link href="https://mazhuang.org/2020/07/05/lindan-and-badminton/" rel="alternate" type="text/html" title="林丹从国家队退役，带起一波回忆" /><published>2020-07-05T00:00:00+08:00</published><updated>2020-07-05T00:00:00+08:00</updated><id>https://mazhuang.org/2020/07/05/lindan-and-badminton</id><content type="html" xml:base="https://mazhuang.org/2020/07/05/lindan-and-badminton/">&lt;p&gt;昨天朋友圈和微博上有不少人在转发林丹从国家队退役的消息，有一点感慨的同时，我在想，以后新入坑的羽毛球迷们，可能渐渐就都不知道「超级丹」、「林李大战」，还有「四大天王」这些名词了吧。&lt;/p&gt;
-
-&lt;p&gt;不过没有关系，一代人有一代人的关注点，新时代总会诞生新的偶像，就像去年周杰伦和蔡徐坤的粉丝在微博刷超话，这样的场景怕是没少发生过，场面有大有小罢了。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/blog/lindan-retired.png&quot; alt=&quot;lindan-retired&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;这一篇不讲林丹的事，讲一些我与羽毛球之间的那些可以不说的碎碎念。&lt;/p&gt;
-
-&lt;h2 id=&quot;入坑的过程&quot;&gt;入坑的过程&lt;/h2&gt;
-
-&lt;p&gt;羽毛球在国内可能是仅次于乒乓球的国民运动了，小时候哥哥姐姐们就有时候会在门口的空地上打一会儿，而我开始打羽毛球比较晚，是在参加工作以后了。&lt;/p&gt;
-
-&lt;p&gt;依照工作地点变迁的线：&lt;/p&gt;
-
-&lt;h3 id=&quot;十堰&quot;&gt;十堰&lt;/h3&gt;
-
-&lt;p&gt;第一家公司东风汽车有着浓厚的羽毛球氛围，据说与时任董事长热爱这项运动有关。当时一起入职的小伙伴们有些就此入坑，而我那时候，一方面主要运动还是偶尔打一打篮球，另一方面，因为以前基本没打过，去过几次总是接不到球感觉很丢脸，所以参与意愿也比较淡薄。&lt;/p&gt;
-
-&lt;h3 id=&quot;北京&quot;&gt;北京&lt;/h3&gt;
-
-&lt;p&gt;我的「羽毛球生涯」可以说正式开端于北漂期间，那时候跟同学们闲聊起各自公司里的业余活动，发现羽毛球很流行，推测可能是因为身体冲撞少，相比篮球足球受伤的风险更低。在蹭了同学公司的几次活动之后，萌生了一些兴趣，在入职前东家搜狗前几天，跟几个同学一起去买了球拍，打算偶尔组一局。&lt;/p&gt;
-
-&lt;p&gt;然后在前东家发现项目组里的测试童鞋们正谋划组织羽毛球活动，于是果断报名参加。刚开始也是各种接不到球、挥拍挥空，好在这时候逐渐学会了一点自嘲，终于没有退缩，坚持了下来。在这期间刷了一阵李在福的《追球》系列教学视频，对基础技术有了系统一点的了解。再后来就是参加公司和集团俱乐部的活动，基本每周都去清华气膜馆打，从被新手虐慢慢过渡到了能虐新手，然后……水平就止步不前了。&lt;/p&gt;
-
-&lt;p&gt;在那段时期还加了回龙观地区的民间组织情怀羽毛球俱乐部，周末偶尔到回龙观中学被虐一虐。&lt;/p&gt;
-
-&lt;h3 id=&quot;武汉&quot;&gt;武汉&lt;/h3&gt;
-
-&lt;p&gt;加入现东家震坤行后，我从公司羽毛球活动的参与者变成了主要组织者。武汉这边是分部，办公室人数一直不多，从开始的二十来号人到现在的一百多号人，组起一场球来依然不容易。&lt;/p&gt;
-
-&lt;p&gt;以前周末主要是和光谷社区结识的一群小伙伴一起打球，疫情后的这段时间，又组了一个「问道软件园，养生羽毛球」的群，聚集了光谷软件园几个公司的一些有热爱的小伙伴工作日下班后继续活动。&lt;/p&gt;
-
-&lt;h2 id=&quot;收获&quot;&gt;收获&lt;/h2&gt;
-
-&lt;p&gt;长期坚持一项运动收益良多，说一说我体会比较深的几个方面。&lt;/p&gt;
-
-&lt;h3 id=&quot;健康&quot;&gt;健康&lt;/h3&gt;
-
-&lt;p&gt;从事上班时久坐不动的工作，几年之后体检，基本很少有腰椎颈椎没有毛病的。坚持打羽毛球是一种比较好的预防和缓解的方法。&lt;/p&gt;
-
-&lt;p&gt;再就是，几天的工作里可能有比较烦闷的事情积攒下来，通过运动能及时把这口闷气排解出来，有时候感觉每周的这一场球就是生活的寄托了。&lt;/p&gt;
-
-&lt;h3 id=&quot;社交&quot;&gt;社交&lt;/h3&gt;
-
-&lt;p&gt;能坚持一项爱好的一般都是不错的人，在羽毛球这个圈子更是。&lt;/p&gt;
-
-&lt;p&gt;通过参与公司、民间组织的活动，我结识了不少优秀的小伙伴，一起享受运动和生活的乐趣，必要时也能相互提供其它方面的帮助。&lt;/p&gt;
-
-&lt;p&gt;我一直建议身边的年轻人们要有一项爱好，融入对应的圈子。特别建议坚持来打球，能认识一群不错的朋友不说，说不定人生的另一半也能在球场相遇，我们起源于光谷社区的约球小群里，19 个人成就了 3 对情侣的事一直被津津乐道，这可比各种相亲活动靠谱多了。&lt;/p&gt;
-
-&lt;h3 id=&quot;性格与心态&quot;&gt;性格与心态&lt;/h3&gt;
-
-&lt;p&gt;我说我是一个内向的人有很多人不信，但确实就是这样。以前是什么程度呢？上大学英语课时被老师点起来回答个问题脸能红到耳朵根，有个什么事情要找女生说，要在心里鼓好一阵的勇气。现在脸皮稍厚了一点，但内向依旧对我影响深远。&lt;/p&gt;
-
-&lt;p&gt;这样的我有一个缺陷，那就是在擅长的方面会表现得比较自信，也比较愿意去表现，而不擅长的方面就会尽量退避。这在有些时候没有问题，但在职场上，积累得多了可能就会给人一种态度不积极的印象。&lt;/p&gt;
-
-&lt;p&gt;学打羽毛球的过程，对我而言，也是一个磨炼心性的过程，从开始的接不到球、挥空拍时大家善意的嘲笑，到熟能生巧与一些业余球友可以一战，这中间我克服了一些怯懦，建立了一些自信——不擅长的方面，通过练习是可以入门和加强的。&lt;/p&gt;
-
-&lt;h2 id=&quot;资源&quot;&gt;资源&lt;/h2&gt;
-
-&lt;p&gt;最后推荐一个我觉得不错的学习资源吧，作为野路子出身系统入门挺好：&lt;/p&gt;
-
-&lt;p&gt;李在福《追球》全集：&lt;a href=&quot;https://v.youku.com/v_show/id_XMjczOTAyODI4.html&quot;&gt;https://v.youku.com/v_show/id_XMjczOTAyODI4.html&lt;/a&gt;&lt;/p&gt;</content><author><name>Zhuang Ma</name></author><category term="Blog" /><summary type="html">昨天朋友圈和微博上有不少人在转发林丹从国家队退役的消息，有一点感慨的同时，我在想，以后新入坑的羽毛球迷们，可能渐渐就都不知道「超级丹」、「林李大战」，还有「四大天王」这些名词了吧。</summary></entry></feed>
+&lt;/ul&gt;</content><author><name>Zhuang Ma</name></author><category term="GitHub" /><summary type="html">之前写过一篇 使用 jsDelivr 免费加速 GitHub Pages 博客的静态资源，在那之后，又陆续想到并实施了几点利用 jsDelivr 进一步加速静态资源加载的措施，新起一篇作为记录和分享。</summary></entry></feed>
