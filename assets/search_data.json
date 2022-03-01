@@ -1313,6 +1313,14 @@
     } ,
   
     {
+      "title"    : "Awesome Adb",
+      "category" : "",
+      
+      "url"      : "https://mazhuang.org/wiki/android-tools-adb/",
+      "keywords" : "adb, Andriod Debug Bridge"
+    } ,
+  
+    {
       "title"    : "构建和签名",
       "category" : "",
       
