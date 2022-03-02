@@ -202,7 +202,7 @@ Cmd --> Command
 | 切换标签     | Cmd-S-Left/Right |
 | 收藏页面     | Cmd-D            |
 
-## 保存 Safari 里正在播放的视频
+### 保存 Safari 里正在播放的视频
 
 ```sh
 $ su
@@ -217,6 +217,13 @@ zy3770994vqg83xvmbc9pd0m0000gn
 ```
 
 然后复制里面叫 FlashTmp.xxx 的文件，改名为 FlashTmp.flv。（操作过程中保持视频在播放状态）
+
+### 打开 Axure 导出文件
+
+1. Safari 浏览器 - 偏好设置 - 高级 - 勾选「在菜单栏中显示开发菜单」；
+2. 展开「开发」菜单，勾选「停用本地文件限制」；
+
+再将 Axure 导出文件的 index.html 使用 Safari 打开就好了。
 
 ## Terminal
 
