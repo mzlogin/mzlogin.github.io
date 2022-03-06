@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://mazhuang.org/feed.xml" rel="self" type="application/atom+xml" /><link href="https://mazhuang.org/" rel="alternate" type="text/html" /><updated>2022-03-06T19:41:19+08:00</updated><id>https://mazhuang.org/feed.xml</id><title type="html">码志</title><subtitle>马壮的个人博客，公众号：闷骚的程序员</subtitle><author><name>Zhuang Ma</name></author><entry><title type="html">使用 iPhone 感觉不好的几点体验</title><link href="https://mazhuang.org/2022/03/06/iphone-vs-xiaomi/" rel="alternate" type="text/html" title="使用 iPhone 感觉不好的几点体验" /><published>2022-03-06T00:00:00+08:00</published><updated>2022-03-06T00:00:00+08:00</updated><id>https://mazhuang.org/2022/03/06/iphone-vs-xiaomi</id><content type="html" xml:base="https://mazhuang.org/2022/03/06/iphone-vs-xiaomi/">&lt;p&gt;上周有天晚上加完班下雨了，媳妇儿开车顺道带我回家，到家后过了一会儿她突然说，「对了，给你个东西」，然后从包里拿出一个黑盒子递给我，我正坐那刷沙雕视频，也没细看，见挺小一个盒子，随口问了一句「啥？充电宝啊？」，得到的是充满鄙夷的回复，「我们家需要那玩意儿吗，我买那干啥？」，接过来翻面一看，哦豁原来是 iPhone 13Pro。&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://mazhuang.org/feed.xml" rel="self" type="application/atom+xml" /><link href="https://mazhuang.org/" rel="alternate" type="text/html" /><updated>2022-03-06T19:46:27+08:00</updated><id>https://mazhuang.org/feed.xml</id><title type="html">码志</title><subtitle>马壮的个人博客，公众号：闷骚的程序员</subtitle><author><name>Zhuang Ma</name></author><entry><title type="html">使用 iPhone 感觉不好的几点体验</title><link href="https://mazhuang.org/2022/03/06/iphone-vs-xiaomi/" rel="alternate" type="text/html" title="使用 iPhone 感觉不好的几点体验" /><published>2022-03-06T00:00:00+08:00</published><updated>2022-03-06T00:00:00+08:00</updated><id>https://mazhuang.org/2022/03/06/iphone-vs-xiaomi</id><content type="html" xml:base="https://mazhuang.org/2022/03/06/iphone-vs-xiaomi/">&lt;p&gt;上周有天晚上加完班下雨了，媳妇儿开车顺道带我回家，到家后过了一会儿她突然说，「对了，给你个东西」，然后从包里拿出一个黑盒子递给我，我正坐那刷沙雕视频，也没细看，见挺小一个盒子，随口问了一句「啥？充电宝啊？」，得到的是充满鄙夷的回复，「我们家需要那玩意儿吗，我买那干啥？」，接过来翻面一看，哦豁原来是 iPhone 13Pro。&lt;/p&gt;
 
 &lt;p&gt;使用这几天后，对比原来用小米手机，感觉有几点不那么方便的地方，记录一下，看后面用习惯之后是否会有改观。&lt;/p&gt;
 
@@ -13,14 +13,14 @@
   &lt;li&gt;
     &lt;p&gt;NFC 相关功能&lt;/p&gt;
 
-    &lt;p&gt;以刷公交卡为例（这个可能跟地域性体验相关），苹果钱包里目前不支持添加武汉通公交卡，这样用 NFC 刷地铁只能直接刷 Apple Pay 从银行卡里扣，这样就需要先解锁手机，先要手动输入一波密码（因为在外面都戴着口罩无法面容解锁），然后还要按键确认，体验不好，这个估计得等支持武汉通了才会有改善。&lt;/p&gt;
+    &lt;p&gt;以刷公交卡为例（这个可能跟地域性体验相关），苹果钱包里目前不支持添加武汉通公交卡，这样用 NFC 刷地铁只能直接刷 Apple Pay 从银行卡里扣，这就需要先解锁手机，手动输入一波密码（因为在外面都戴着口罩无法面容解锁），然后还要按键确认，体验不好，这个得等啥时候支持武汉通了才会有改善。&lt;/p&gt;
 
-    &lt;p&gt;另外，貌似也无法支持写入加密门禁卡。&lt;/p&gt;
+    &lt;p&gt;另外，貌似也不支持写入加密门禁卡。&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;充电&lt;/p&gt;
 
-    &lt;p&gt;现在支持快充的安卓手机充电确实比苹果要快得多，这个对特定硬件来讲，暂时应该没有啥改善的可能性。&lt;/p&gt;
+    &lt;p&gt;现在支持快充的安卓手机充电比苹果要快得多，这个对特定硬件来讲，暂时应该没有啥改善的可能性。&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ol&gt;
 
