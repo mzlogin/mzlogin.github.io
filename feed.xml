@@ -1,4 +1,30 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://mazhuang.org/feed.xml" rel="self" type="application/atom+xml" /><link href="https://mazhuang.org/" rel="alternate" type="text/html" /><updated>2022-03-02T17:36:42+08:00</updated><id>https://mazhuang.org/feed.xml</id><title type="html">码志</title><subtitle>马壮的个人博客，公众号：闷骚的程序员</subtitle><author><name>Zhuang Ma</name></author><entry><title type="html">在 Mac 下编译 chaosblade</title><link href="https://mazhuang.org/2022/02/19/compile-chaosblade-on-mac/" rel="alternate" type="text/html" title="在 Mac 下编译 chaosblade" /><published>2022-02-19T00:00:00+08:00</published><updated>2022-02-19T00:00:00+08:00</updated><id>https://mazhuang.org/2022/02/19/compile-chaosblade-on-mac</id><content type="html" xml:base="https://mazhuang.org/2022/02/19/compile-chaosblade-on-mac/">&lt;p&gt;首先声明，这不是一份指南，这是一份失败的操作流水记录。我得到的最终结果：编译成功，但是无法运行，放弃在 Mac 平台直接使用此工具，乖乖用 Linux 或者容器环境。&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://mazhuang.org/feed.xml" rel="self" type="application/atom+xml" /><link href="https://mazhuang.org/" rel="alternate" type="text/html" /><updated>2022-03-06T19:41:19+08:00</updated><id>https://mazhuang.org/feed.xml</id><title type="html">码志</title><subtitle>马壮的个人博客，公众号：闷骚的程序员</subtitle><author><name>Zhuang Ma</name></author><entry><title type="html">使用 iPhone 感觉不好的几点体验</title><link href="https://mazhuang.org/2022/03/06/iphone-vs-xiaomi/" rel="alternate" type="text/html" title="使用 iPhone 感觉不好的几点体验" /><published>2022-03-06T00:00:00+08:00</published><updated>2022-03-06T00:00:00+08:00</updated><id>https://mazhuang.org/2022/03/06/iphone-vs-xiaomi</id><content type="html" xml:base="https://mazhuang.org/2022/03/06/iphone-vs-xiaomi/">&lt;p&gt;上周有天晚上加完班下雨了，媳妇儿开车顺道带我回家，到家后过了一会儿她突然说，「对了，给你个东西」，然后从包里拿出一个黑盒子递给我，我正坐那刷沙雕视频，也没细看，见挺小一个盒子，随口问了一句「啥？充电宝啊？」，得到的是充满鄙夷的回复，「我们家需要那玩意儿吗，我买那干啥？」，接过来翻面一看，哦豁原来是 iPhone 13Pro。&lt;/p&gt;
+
+&lt;p&gt;使用这几天后，对比原来用小米手机，感觉有几点不那么方便的地方，记录一下，看后面用习惯之后是否会有改观。&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;屏幕解锁不方便&lt;/p&gt;
+
+    &lt;p&gt;Face ID 挺好用的，但是，戴上口罩它不好使了，又不支持指纹解锁，在外面每次使用手机就要手动输入 6 位数字密码，就很尴尬。&lt;/p&gt;
+
+    &lt;p&gt;不过听说开发版已经支持口罩解锁了，这一点后续应该会得到改善。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;NFC 相关功能&lt;/p&gt;
+
+    &lt;p&gt;以刷公交卡为例（这个可能跟地域性体验相关），苹果钱包里目前不支持添加武汉通公交卡，这样用 NFC 刷地铁只能直接刷 Apple Pay 从银行卡里扣，这样就需要先解锁手机，先要手动输入一波密码（因为在外面都戴着口罩无法面容解锁），然后还要按键确认，体验不好，这个估计得等支持武汉通了才会有改善。&lt;/p&gt;
+
+    &lt;p&gt;另外，貌似也无法支持写入加密门禁卡。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;充电&lt;/p&gt;
+
+    &lt;p&gt;现在支持快充的安卓手机充电确实比苹果要快得多，这个对特定硬件来讲，暂时应该没有啥改善的可能性。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;后续有想到的其它的点，或者这几个点体验有变化了，我再更新。&lt;/p&gt;</content><author><name>Zhuang Ma</name></author><category term="Blog" /><summary type="html">上周有天晚上加完班下雨了，媳妇儿开车顺道带我回家，到家后过了一会儿她突然说，「对了，给你个东西」，然后从包里拿出一个黑盒子递给我，我正坐那刷沙雕视频，也没细看，见挺小一个盒子，随口问了一句「啥？充电宝啊？」，得到的是充满鄙夷的回复，「我们家需要那玩意儿吗，我买那干啥？」，接过来翻面一看，哦豁原来是 iPhone 13Pro。</summary></entry><entry><title type="html">在 Mac 下编译 chaosblade</title><link href="https://mazhuang.org/2022/02/19/compile-chaosblade-on-mac/" rel="alternate" type="text/html" title="在 Mac 下编译 chaosblade" /><published>2022-02-19T00:00:00+08:00</published><updated>2022-02-19T00:00:00+08:00</updated><id>https://mazhuang.org/2022/02/19/compile-chaosblade-on-mac</id><content type="html" xml:base="https://mazhuang.org/2022/02/19/compile-chaosblade-on-mac/">&lt;p&gt;首先声明，这不是一份指南，这是一份失败的操作流水记录。我得到的最终结果：编译成功，但是无法运行，放弃在 Mac 平台直接使用此工具，乖乖用 Linux 或者容器环境。&lt;/p&gt;
 
 &lt;p&gt;以下问题的遇到和解决记录，基本是按时间序。&lt;/p&gt;
 
@@ -1011,150 +1037,4 @@ Caused by: java.lang.ArrayIndexOutOfBoundsException: 1234
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://blog.csdn.net/u013069892/article/details/83147239&quot;&gt;https://blog.csdn.net/u013069892/article/details/83147239&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Zhuang Ma</name></author><category term="VSCode" /><summary type="html">最终的实现效果是在文件 / 文件夹上右击时，会出现菜单项「用 VSCode 打开」，点击后会启动 Visual Studio Code 打开对应的文件 / 文件夹。</summary></entry><entry><title type="html">使用 jsDelivr 免费加速 GitHub Pages 博客的静态资源（二）</title><link href="https://mazhuang.org/2020/10/07/cdn-for-github-pages-2/" rel="alternate" type="text/html" title="使用 jsDelivr 免费加速 GitHub Pages 博客的静态资源（二）" /><published>2020-10-07T00:00:00+08:00</published><updated>2020-10-07T00:00:00+08:00</updated><id>https://mazhuang.org/2020/10/07/cdn-for-github-pages-2</id><content type="html" xml:base="https://mazhuang.org/2020/10/07/cdn-for-github-pages-2/">&lt;p&gt;之前写过一篇 &lt;a href=&quot;https://mazhuang.org/2020/05/01/cdn-for-github-pages/&quot;&gt;使用 jsDelivr 免费加速 GitHub Pages 博客的静态资源&lt;/a&gt;，在那之后，又陆续想到并实施了几点利用 jsDelivr 进一步加速静态资源加载的措施，新起一篇作为记录和分享。&lt;/p&gt;
-
-&lt;p&gt;继上一轮改造过后，比较拖页面加载速度的主要有三点：&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;页面首个请求响应时间；&lt;/li&gt;
-  &lt;li&gt;图片资源加载时间；&lt;/li&gt;
-  &lt;li&gt;站内搜索引用的 JSON 资源加载时间。&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;第 1 点在页面仍然托管在 GitHub Pages 的前提下，似乎没有什么好办法能产生质的飞跃；本篇主要改善了第 2 点和第 3 点。&lt;/p&gt;
-
-&lt;h2 id=&quot;0x01-图片资源加速&quot;&gt;0x01 图片资源加速&lt;/h2&gt;
-
-&lt;p&gt;这里所说的图片主要是指文章里引用的图片。&lt;/p&gt;
-
-&lt;p&gt;我一直将图片放在博客源码根目录的 images 文件夹下，引用图片的习惯写法是这样的：&lt;/p&gt;
-
-&lt;div class=&quot;language-markdown highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;![&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;after use cdn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;](&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;/images/posts/github/cdn-after.png&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;如果想将这个图片地址替换为 jsDelivr 的地址，需要做的就是将 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/images&lt;/code&gt; 替换为 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/images&lt;/code&gt;。&lt;/p&gt;
-
-&lt;p&gt;一处一处替换行不行？当然也行，但后面写新文章时要引用图片，还得手动写这一长串，不方便；万一 jsDeliver 出状况，也不好一键切换回来。有没有一劳永逸的方法？当然也有，我们从 Jekyll 的 layout 机制来想办法。&lt;/p&gt;
-
-&lt;p&gt;Jekyll 的 layout 可以理解为页面模板，它是可以继承的，比如我的博客的所有页面模板有一个共同的祖先模板 _layouts/default.html，模板里可以使用 &lt;a href=&quot;https://github.com/Shopify/liquid/wiki/Liquid-for-Designers&quot;&gt;Liquid&lt;/a&gt; 语法对内容进行处理，我们可以利用这一点，来自动完成批量替换的工作。&lt;/p&gt;
-
-&lt;p&gt;关键代码如下：&lt;/p&gt;
-
-&lt;div class=&quot;language-liquid highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;assign&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;assets_base_url&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;site&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;%}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;{%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kr&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;site&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;cdn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;jsdelivr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;enabled&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;%}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;{%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;assign&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;assets_base_url&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;https://cdn.jsdelivr.net/gh/&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;site&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;repository&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'@master'&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;%}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;{%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kr&quot;&gt;endif&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;%}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;{%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;assign&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;assets_images_url&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'src=&quot;'&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;assets_base_url&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;/images&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;%}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;{%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;header.html&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;%}&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;{{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;replace&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'src=&quot;/images'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;assets_images_url&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;{%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;footer.html&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;%}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;大意就是，如果打开了启用 jsDelivr 加速的开关，就将 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;content&lt;/code&gt; 里的 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;src=&quot;/images&quot;&lt;/code&gt; 替换为 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;src=&quot;https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/images&quot;&lt;/code&gt;，否则替换为 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;src=&quot;https://mazhuang.org/images&quot;&lt;/code&gt;。&lt;/p&gt;
-
-&lt;p&gt;以上便达成了我们的目的。&lt;/p&gt;
-
-&lt;h2 id=&quot;0x02-站内搜索引用的-json-资源加速&quot;&gt;0x02 站内搜索引用的 JSON 资源加速&lt;/h2&gt;
-
-&lt;p&gt;我是使用 &lt;a href=&quot;https://github.com/christian-fei/Simple-Jekyll-Search&quot;&gt;Simple-Jekyll-Search&lt;/a&gt; 这个 JavaScript 库来实现站内搜索的，它的搜索数据是来自一个动态生成的 JSON 文件。&lt;/p&gt;
-
-&lt;p&gt;这个 JSON 文件编译前长这样：&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://github.com/mzlogin/mzlogin.github.io/blob/master/assets/search_data.json&quot;&gt;https://github.com/mzlogin/mzlogin.github.io/blob/master/assets/search_data.json&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Jekyll 编译后长这样：&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://mazhuang.org/assets/search_data.json&quot;&gt;https://mazhuang.org/assets/search_data.json&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;这样的资源是没有办法直接通过替换网址来用 jsDelivr 加速的，因为 jsDelivr 上缓存的是编译前的文件，而我们需要的是编译后的。&lt;/p&gt;
-
-&lt;p&gt;那我们就想办法：&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;将博客源码编译；&lt;/li&gt;
-  &lt;li&gt;将编译结果保存到另一个分支；&lt;/li&gt;
-  &lt;li&gt;通过 jsDelivr 引用新分支上的这个文件。&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;这些步骤可以通过 GitHub 去年推出的新特性 &lt;a href=&quot;https://github.com/features/actions&quot;&gt;Actions&lt;/a&gt; 来完成，在我们每一次向博客源码仓库 push 代码时自动触发。&lt;/p&gt;
-
-&lt;p&gt;关键步骤如下：&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;在 GitHub 新建一个 Personal access Token：&lt;/p&gt;
-
-    &lt;p&gt;Settings –&amp;gt; Developer settings –&amp;gt; Personal access tokens –&amp;gt; Generate new token –&amp;gt; 填写 note，勾选 public_repo，生成之后复制 token 值备用。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;在博客源码仓库的 Settings –&amp;gt; Secrets –&amp;gt; New secret，Name 填 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ACCESS_TOKEN&lt;/code&gt;，Value 填第 1 步里复制的 token 值；&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;在博客源码根目录下新建文件 .github/workflows/ci.yml，内容如下：&lt;/p&gt;
-
-    &lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Build and Deploy&lt;/span&gt;
-
- &lt;span class=&quot;na&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-   &lt;span class=&quot;na&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-     &lt;span class=&quot;na&quot;&gt;branches&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;pi&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;master&lt;/span&gt; &lt;span class=&quot;pi&quot;&gt;]&lt;/span&gt;
-
- &lt;span class=&quot;na&quot;&gt;jobs&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-   &lt;span class=&quot;na&quot;&gt;build-and-deploy&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-     &lt;span class=&quot;na&quot;&gt;runs-on&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;ubuntu-latest&lt;/span&gt;
-     &lt;span class=&quot;na&quot;&gt;steps&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-       &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Checkout&lt;/span&gt;
-         &lt;span class=&quot;na&quot;&gt;uses&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;actions/checkout@v2.3.1&lt;/span&gt;
-         &lt;span class=&quot;na&quot;&gt;with&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; 
-           &lt;span class=&quot;na&quot;&gt;persist-credentials&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;false&lt;/span&gt;
-
-       &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Set Ruby &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2.7&lt;/span&gt;
-         &lt;span class=&quot;na&quot;&gt;uses&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;actions/setup-ruby@v1&lt;/span&gt;
-         &lt;span class=&quot;na&quot;&gt;with&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-           &lt;span class=&quot;na&quot;&gt;ruby-version&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2.7&lt;/span&gt;
-
-       &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Install and Build&lt;/span&gt;
-         &lt;span class=&quot;na&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;pi&quot;&gt;|&lt;/span&gt;
-           &lt;span class=&quot;s&quot;&gt;gem install bundler&lt;/span&gt;
-           &lt;span class=&quot;s&quot;&gt;bundle install&lt;/span&gt;
-           &lt;span class=&quot;s&quot;&gt;bundle exec jekyll build&lt;/span&gt;
-           &lt;span class=&quot;no&quot;&gt; &lt;/span&gt;
-       &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Deploy&lt;/span&gt;
-         &lt;span class=&quot;na&quot;&gt;uses&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;JamesIves/github-pages-deploy-action@3.6.2&lt;/span&gt;
-         &lt;span class=&quot;na&quot;&gt;with&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-           &lt;span class=&quot;na&quot;&gt;ACCESS_TOKEN&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;
-           &lt;span class=&quot;na&quot;&gt;BRANCH&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;built&lt;/span&gt;
-           &lt;span class=&quot;na&quot;&gt;FOLDER&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;_site&lt;/span&gt;
-           &lt;span class=&quot;na&quot;&gt;CLEAN&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;true&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;大意就是在向 master 分支 push 代码时，自动执行 checkout、初始化 ruby 环境、安装 Jekyll 并编译博客源码的工作，最后将编译生成的 _site 目录里的内容推送到 built 分支。对 GitHub Actions 感兴趣的同学可以自行参考官方说明学习。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;修改引用 JSON 文件的地方，比如我的 _includes/sidebar-search.html 里的写法由：&lt;/p&gt;
-
-    &lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;nx&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;https://mazhuang.org/assets/search_data.json&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;改为了&lt;/p&gt;
-
-    &lt;div class=&quot;language-liquid highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;p&quot;&gt;{%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kr&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;site&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;cdn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;jsdelivr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;enabled&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;ow&quot;&gt;and&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;site&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;ow&quot;&gt;contains&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'mazhuang.org'&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;%}&lt;/span&gt;
-   json: 'https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@built/assets/search_data.json',
- &lt;span class=&quot;p&quot;&gt;{%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kr&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;%}&lt;/span&gt;
-   json: '&lt;span class=&quot;p&quot;&gt;{{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;site&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}}&lt;/span&gt;/assets/search_data.json',
- &lt;span class=&quot;p&quot;&gt;{%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kr&quot;&gt;endif&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;%}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;将以上更改推送到源码仓库，等待处理完成即可。&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&quot;0x03-结语&quot;&gt;0x03 结语&lt;/h2&gt;
-
-&lt;p&gt;经过以上改造，博客页面的加载速度又得到了小小的提升，所有相关源码可以在 &lt;a href=&quot;https://github.com/mzlogin/mzlogin.github.io&quot;&gt;https://github.com/mzlogin/mzlogin.github.io&lt;/a&gt; 找到，有相关心得或建议的朋友欢迎交流指正。&lt;/p&gt;
-
-&lt;p&gt;相关文章：&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://mazhuang.org/2020/05/01/cdn-for-github-pages/&quot;&gt;使用 jsDelivr 免费加速 GitHub Pages 博客的静态资源&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Zhuang Ma</name></author><category term="GitHub" /><summary type="html">之前写过一篇 使用 jsDelivr 免费加速 GitHub Pages 博客的静态资源，在那之后，又陆续想到并实施了几点利用 jsDelivr 进一步加速静态资源加载的措施，新起一篇作为记录和分享。</summary></entry></feed>
+&lt;/ul&gt;</content><author><name>Zhuang Ma</name></author><category term="VSCode" /><summary type="html">最终的实现效果是在文件 / 文件夹上右击时，会出现菜单项「用 VSCode 打开」，点击后会启动 Visual Studio Code 打开对应的文件 / 文件夹。</summary></entry></feed>
