@@ -494,5 +494,13 @@ Supplied javaHome is not a valid folder.
 
 2. 将 NDK 版本退回 16b，或将 16b 以下的对应 mips 工具链的文件夹拷贝到 r17 的对应目录下。
 
+## 报错 NDK not configured
+
+```
+Caused by: org.gradle.api.InvalidUserDataException: NDK not configured.
+```
+
+经检查发现是 local.properties 里配置的 NDK 路径不存在，修改为正确的就好了。
+
 [1]: http://developer.android.com/tools/publishing/app-signing.html
 [2]: https://stackoverflow.com/questions/46949622/android-studio-3-0-unable-to-resolve-dependency-for-appdexoptions-compilecla#answer-47426050
