@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://mazhuang.org/feed.xml" rel="self" type="application/atom+xml" /><link href="https://mazhuang.org/" rel="alternate" type="text/html" /><updated>2022-03-16T09:41:56+08:00</updated><id>https://mazhuang.org/feed.xml</id><title type="html">码志</title><subtitle>马壮的个人博客，公众号：闷骚的程序员</subtitle><author><name>Zhuang Ma</name></author><entry><title type="html">使用 iPhone 感觉不好的几点体验</title><link href="https://mazhuang.org/2022/03/06/iphone-vs-xiaomi/" rel="alternate" type="text/html" title="使用 iPhone 感觉不好的几点体验" /><published>2022-03-06T00:00:00+08:00</published><updated>2022-03-06T00:00:00+08:00</updated><id>https://mazhuang.org/2022/03/06/iphone-vs-xiaomi</id><content type="html" xml:base="https://mazhuang.org/2022/03/06/iphone-vs-xiaomi/">&lt;p&gt;上周有天晚上加完班下雨了，媳妇儿开车顺道带我回家，到家后过了一会儿她突然说，「对了，给你个东西」，然后从包里拿出一个黑盒子递给我，我正坐那刷沙雕视频，也没细看，见挺小一个盒子，随口问了一句「啥？充电宝啊？」，得到的是充满鄙夷的回复，「我们家需要那玩意儿吗，我买那干啥？」，接过来翻面一看，哦豁原来是 iPhone 13 Pro。&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://mazhuang.org/feed.xml" rel="self" type="application/atom+xml" /><link href="https://mazhuang.org/" rel="alternate" type="text/html" /><updated>2022-03-18T05:58:20+08:00</updated><id>https://mazhuang.org/feed.xml</id><title type="html">码志</title><subtitle>马壮的个人博客，公众号：闷骚的程序员</subtitle><author><name>Zhuang Ma</name></author><entry><title type="html">使用 iPhone 感觉不好的几点体验</title><link href="https://mazhuang.org/2022/03/06/iphone-vs-xiaomi/" rel="alternate" type="text/html" title="使用 iPhone 感觉不好的几点体验" /><published>2022-03-06T00:00:00+08:00</published><updated>2022-03-06T00:00:00+08:00</updated><id>https://mazhuang.org/2022/03/06/iphone-vs-xiaomi</id><content type="html" xml:base="https://mazhuang.org/2022/03/06/iphone-vs-xiaomi/">&lt;p&gt;上周有天晚上加完班下雨了，媳妇儿开车顺道带我回家，到家后过了一会儿她突然说，「对了，给你个东西」，然后从包里拿出一个黑盒子递给我，我正坐那刷沙雕视频，也没细看，见挺小一个盒子，随口问了一句「啥？充电宝啊？」，得到的是充满鄙夷的回复，「我们家需要那玩意儿吗，我买那干啥？」，接过来翻面一看，哦豁原来是 iPhone 13 Pro。&lt;/p&gt;
 
 &lt;p&gt;使用这几天后，对比原来用小米手机，感觉有几点不那么方便的地方，记录一下，看后面用习惯之后是否会有改观。&lt;/p&gt;
 
@@ -9,6 +9,8 @@
     &lt;p&gt;Face ID 挺好用的，但是，戴上口罩它不好使了，又不支持指纹解锁，在外面每次使用手机就要手动输入 6 位数字密码，就很尴尬。&lt;/p&gt;
 
     &lt;p&gt;不过听说开发版已经支持口罩解锁了，这一点后续应该会得到改善。&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;Update 2022/03/14:&lt;/strong&gt; iOS 更新到 15.4 之后，已经支持戴口罩解锁，虽然有少量时候不是那么灵敏，但总体体验已经不错了。&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;NFC 相关功能&lt;/p&gt;
@@ -16,6 +18,8 @@
     &lt;p&gt;以刷公交卡为例（这个可能跟地域性体验相关），苹果钱包里目前不支持添加武汉通公交卡，这样用 NFC 刷地铁只能直接刷 Apple Pay 从银行卡里扣，这就需要先解锁手机，手动输入一波密码（因为在外面都戴着口罩无法面容解锁），然后还要按键确认，体验不好，这个得等啥时候支持武汉通了才会有改善。&lt;/p&gt;
 
     &lt;p&gt;另外，貌似也不支持写入加密门禁卡。&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;Update 2022/03/14:&lt;/strong&gt; iOS 更新到 15.4 之后，支持戴口罩面容解锁了，NFC 刷武汉地铁的操作变成了唤起 Apple Pay - 面容解锁 - 刷卡，体验好了一些，当然比直接盲刷还是有差距。&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;充电&lt;/p&gt;
