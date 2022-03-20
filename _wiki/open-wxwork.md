@@ -31,6 +31,32 @@ keywords: 企业微信
 
 将应用在企业微信服务商管理后台提交上线审核通过后恢复正常。
 
+### 企业微信回调报 Base64 错误
+
+具体报错信息：
+
+```
+java.lang.IllegalArgumentException: Last encoded character (before the paddings if any) is a valid base 64 alphabet but not a possible value. Expected the discarded bits to be zero.
+	at org.apache.commons.codec.binary.Base64.validateCharacter(Base64.java:803)
+	at org.apache.commons.codec.binary.Base64.decode(Base64.java:482)
+	at org.apache.commons.codec.binary.BaseNCodec.decode(BaseNCodec.java:481)
+	at org.apache.commons.codec.binary.BaseNCodec.decode(BaseNCodec.java:465)
+	at org.apache.commons.codec.binary.Base64.decodeBase64(Base64.java:699)
+	at com.qq.weixin.mp.aes.WXBizMsgCrypt.<init>(WXBizMsgCrypt.java:63)
+```
+
+在网上找到一个记录相同报错的链接：<https://blog.csdn.net/qq_36830575/article/details/106646545>
+
+最终确认确实是由于项目依赖的 commons-codec 包被升级到 1.13 以上（我们是升到了 1.14），导致 EncodingAESKey 解码失败。我采用了不同于上面那个链接的另一种解决办法，将 WXBizMsgCrypt 里的 `Base64.decodeBase64` 改为了 `Base64Utils.decodeFromString`，其中 `Base64Utils` 是 Spring 自带的工具类，经测试可以正常兼容。
+
+更进一步的原因，大致意思是 commons-codec Base64 在解码时，面对非法的输入（比如最后的几个补位应该都是 0，但是混入了 1）的情况，应该拒绝，但老版本还是尝试给它解码了一个结果出来，而这个解码后的结果再次编码会生成另一个值，这可能会产生安全漏洞。
+
+相关讨论见：
+
+- <https://issues.apache.org/jira/browse/CODEC-134>
+- <https://issues.apache.org/jira/browse/CODEC-270>
+- <https://issues.apache.org/jira/browse/CODEC-279>
+
 ## 参考链接
 
 - [企业微信开发中，可信域名可以修改吗？][1]
