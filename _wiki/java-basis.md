@@ -135,6 +135,12 @@ i = (int) Math.ceil(f)
 | -2.22 | -2  |
 | -2.68 | -2  |
 
+### 如何排除依赖包里的某一个类
+
+用 Maven 管理依赖时，可以用 `<exclude>` 排除 jar 包维度的间接依赖，但是如果想要排除某一个类，如何处理？
+
+有一种方法是在项目里写一个同名类，如果不想要它，就把它写成空类，如果想修改它的行为，就重写这个类。
+
 ## 参考
 
 * [How to convert float to int with Java](http://stackoverflow.com/questions/1295424/how-to-convert-float-to-int-with-java)
