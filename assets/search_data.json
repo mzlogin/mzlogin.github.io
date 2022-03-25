@@ -1657,6 +1657,14 @@
     } ,
   
     {
+      "title"    : "Maven",
+      "category" : "",
+      
+      "url"      : "https://mazhuang.org/wiki/java-maven/",
+      "keywords" : "Java, Maven"
+    } ,
+  
+    {
       "title"    : "MyBatis-Plus",
       "category" : "",
       
