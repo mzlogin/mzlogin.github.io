@@ -35,3 +35,9 @@ public class User {
 
 - <https://mybatis.org/mybatis-3/zh/dynamic-sql.html>
 - <https://www.jianshu.com/p/eee6832628ce>
+
+## 字段 on update CURRENT_TIMESTAMP 无效
+
+如果 update 操作中 set 了该字段，比如很多时候我们用 updateById 等，不会触发。
+
+可以添加注解 `@TableField(update = "NOW()")`。
