@@ -3,17 +3,11 @@
 [
   
   
-    {
-      "title"    : "页面没有找到",
-      "url"      : "https://mazhuang.org/404.html",
-      "keywords" : "404"
-    } ,
-  
   
   
     {
       "title"    : "About",
-      "url"      : "https://mazhuang.org/about/",
+      "url"      : "https://uangjw.github.io/about/",
       "keywords" : "Zhuang Ma, 马壮"
     } ,
   
@@ -21,7 +15,7 @@
   
     {
       "title"    : "归档",
-      "url"      : "https://mazhuang.org/archives/",
+      "url"      : "https://uangjw.github.io/archives/",
       "keywords" : "归档"
     } ,
   
@@ -29,7 +23,7 @@
   
     {
       "title"    : "Categories",
-      "url"      : "https://mazhuang.org/categories/",
+      "url"      : "https://uangjw.github.io/categories/",
       "keywords" : "分类"
     } ,
   
@@ -37,17 +31,11 @@
   
   
   
-    {
-      "title"    : "Links",
-      "url"      : "https://mazhuang.org/links/",
-      "keywords" : "友情链接"
-    } ,
-  
   
   
     {
       "title"    : "mindmap",
-      "url"      : "https://mazhuang.org/mindmap-viewer/",
+      "url"      : "https://uangjw.github.io/mindmap-viewer/",
       "keywords" : "mindmap"
     } ,
   
@@ -55,35 +43,9 @@
   
     {
       "title"    : "Open Source Projects",
-      "url"      : "https://mazhuang.org/open-source/",
+      "url"      : "https://uangjw.github.io/open-source/",
       "keywords" : "开源,open-source,GitHub,开源项目"
     } ,
-  
-  
-  
-  
-  
-    {
-      "title"    : "Wiki",
-      "url"      : "https://mazhuang.org/wiki/",
-      "keywords" : "维基, Wiki"
-    } ,
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   
   
   
@@ -103,1227 +65,139 @@
 
   
     {
-      "title"    : "使用 VBA 将 Excel 数据导入到 Word 表格中",
-      "category" : "Excel",
+      "title"    : "读书笔记||The Algorithms and Principles of Non-photorealistic Graphics 1",
+      "category" : "BookReport",
       
-      "url"      : "https://mazhuang.org/2011/05/25/export-data-from-excel-to-word-by-vba/",
-      "keywords" : "Excel, VBA, Word"
+      "url"      : "https://uangjw.github.io/2020/11/19/book1-chap1/",
+      "keywords" : "book1, NPG"
     } ,
   
     {
-      "title"    : "用 VBA 将多个 Excel 文件里的数据汇总到一个 Excel 表",
-      "category" : "Excel",
+      "title"    : "论文笔记||Imaging Vector Fields Using Line Integral Convolution(LIC)",
+      "category" : "PaperNotes",
       
-      "url"      : "https://mazhuang.org/2011/05/25/gather-multi-excel-to-one-by-vba/",
-      "keywords" : "VBA, Excel"
+      "url"      : "https://uangjw.github.io/2020/11/26/paper-LIC/",
+      "keywords" : "paper, LIC"
     } ,
   
     {
-      "title"    : "青蛙跳台阶的问题——Fibonacci",
-      "category" : "Algorithm",
+      "title"    : "图像处理基础 1",
+      "category" : "Basics",
       
-      "url"      : "https://mazhuang.org/2011/10/11/fibonacci/",
-      "keywords" : "算法，Fibonacci"
+      "url"      : "https://uangjw.github.io/2020/12/03/basic-image-processing/",
+      "keywords" : "image processing"
     } ,
   
     {
-      "title"    : "C++ 语言基础",
-      "category" : "Basis",
+      "title"    : "了解Kuwahara Filter",
+      "category" : "Basics",
       
-      "url"      : "https://mazhuang.org/2011/11/04/basis/",
-      "keywords" : "C++"
+      "url"      : "https://uangjw.github.io/2020/12/17/basic-KuwaharaFilter/",
+      "keywords" : "KuwaharaFilter, Basics"
     } ,
   
     {
-      "title"    : "操作系统和数据库基础",
-      "category" : "Basis",
+      "title"    : "论文笔记||Image and Video Abstraction by Anisotropic Kuwahara Filtering",
+      "category" : "PaperNotes",
       
-      "url"      : "https://mazhuang.org/2011/11/06/basis/",
-      "keywords" : "操作系统, 数据库"
+      "url"      : "https://uangjw.github.io/2020/12/17/paper-KuwaharaFilter1/",
+      "keywords" : "paper, KuwaharaFilter"
     } ,
   
     {
-      "title"    : "简单的全排列算法实现",
-      "category" : "Algorithm",
+      "title"    : "论文笔记||Artistic Edge and Corner Enhancing Smoothing",
+      "category" : "PaperNotes",
       
-      "url"      : "https://mazhuang.org/2011/11/20/permutation/",
-      "keywords" : "算法, 全排列, 递归"
+      "url"      : "https://uangjw.github.io/2020/12/17/paper-KuwaharaFilter2/",
+      "keywords" : "PaperNotes, KuwaharaFilter"
     } ,
   
     {
-      "title"    : "HGE 引擎学习笔记 1——如何模拟物理碰撞",
-      "category" : "HGE",
+      "title"    : "复现||c++/opencv实现简单LIC",
+      "category" : "reproduction",
       
-      "url"      : "https://mazhuang.org/2012/02/12/hge/",
-      "keywords" : "HGE, 物理碰撞"
+      "url"      : "https://uangjw.github.io/2020/12/17/reproduction-LIC/",
+      "keywords" : "复现, LIC, opencv"
     } ,
   
     {
-      "title"    : "将 Mozilla 源码里的 winEmbed 工程移植到 VC",
-      "category" : "Gecko",
+      "title"    : "论文笔记/复现||python-opencv实现数字绘画重打光（relighting）",
+      "category" : "reproduction",
       
-      "url"      : "https://mazhuang.org/2012/02/24/gecko-embed/",
-      "keywords" : "winEmbed, Mozilla"
+      "url"      : "https://uangjw.github.io/2021/03/01/reproduction-PaintingLight/",
+      "keywords" : "python, opencv"
     } ,
   
     {
-      "title"    : "Moziila 文件结构概览（译）",
-      "category" : "Gecko",
+      "title"    : "论文笔记||Customizing Painterly Rendering Styles Using Stroke Processes",
+      "category" : "PaperNotes",
       
-      "url"      : "https://mazhuang.org/2012/03/01/mozilla-file-tree/",
-      "keywords" : "Mozilla"
+      "url"      : "https://uangjw.github.io/2021/04/05/paper-NPR-stroke-processes/",
+      "keywords" : "stochastic reaction-diffusion process"
     } ,
   
     {
-      "title"    : "Firefox 和内嵌 Gecko 程序的 Plugins",
-      "category" : "Gecko",
+      "title"    : "论文笔记||三个基于深度学习的音乐转录模型",
+      "category" : "Deep Learning",
       
-      "url"      : "https://mazhuang.org/2012/03/15/gecko-plugin/",
-      "keywords" : "Gecko, Mozilla, Plugin"
+      "url"      : "https://uangjw.github.io/2021/10/21/AMT-DL-3models/",
+      "keywords" : "Deep Learning, AMT"
     } ,
   
     {
-      "title"    : "VBA 在 Excel 中的常用操作",
-      "category" : "Excel",
+      "title"    : "读书笔记||神经网络与深度学习5、6章",
+      "category" : "Deep Learning",
       
-      "url"      : "https://mazhuang.org/2012/03/22/vba-knowledge/",
-      "keywords" : "VBA, Excel"
+      "url"      : "https://uangjw.github.io/2021/10/21/book2-chap56/",
+      "keywords" : "Deep Learning"
     } ,
   
     {
-      "title"    : "Python 核心编程中文第二版课后练习 2.21 答案",
-      "category" : "Python",
+      "title"    : "读书笔记||神经网络与深度学习第3章",
+      "category" : "Deep Learning",
       
-      "url"      : "https://mazhuang.org/2012/04/05/learn-python-practise/",
-      "keywords" : "Python"
+      "url"      : "https://uangjw.github.io/2021/10/22/book2-chap3/",
+      "keywords" : "Deep Learning"
     } ,
   
     {
-      "title"    : "Python 核心编程中文第二版课后练习 3.8 答案",
-      "category" : "Python",
+      "title"    : "不基于模型的预测与控制",
+      "category" : "Reinforcement Learning",
       
-      "url"      : "https://mazhuang.org/2012/04/08/learn-python-practise/",
-      "keywords" : "Python"
+      "url"      : "https://uangjw.github.io/2021/10/24/RL-model-free-control/",
+      "keywords" : "Reinforce Learning, MDP"
     } ,
   
     {
-      "title"    : "Windows 实用技巧汇总",
-      "category" : "Windows",
+      "title"    : "论文笔记||Sketch Generation with Drawing Process Guided by Vector Flow and Grayscale",
+      "category" : "PaperNotes",
       
-      "url"      : "https://mazhuang.org/2012/06/17/windows-skills/",
-      "keywords" : "Windows, Skill"
+      "url"      : "https://uangjw.github.io/2021/11/12/paper-sktech-generation/",
+      "keywords" : "NPR"
     } ,
   
     {
-      "title"    : "为基于 xulrunner 的内嵌 Gecko 程序启用 Profile",
-      "category" : "Gecko",
+      "title"    : "论文笔记||Attention Is All You Need",
+      "category" : "PaperNotes",
       
-      "url"      : "https://mazhuang.org/2012/06/19/gecko-use-profile/",
-      "keywords" : "Gecko, Profile"
+      "url"      : "https://uangjw.github.io/2022/02/07/paper-transformer/",
+      "keywords" : "Transformer"
     } ,
   
     {
-      "title"    : "Windows 界面相关小知识点",
-      "category" : "Windows",
+      "title"    : "",
+      "category" : "",
       
-      "url"      : "https://mazhuang.org/2013/04/18/windows-ui-notes/",
-      "keywords" : "Windows, UI"
-    } ,
-  
-    {
-      "title"    : "可执行文件名中包含 install 或 setup",
-      "category" : "Windows",
-      
-      "url"      : "https://mazhuang.org/2013/05/19/when-your-exe-name-contains-install-or-setup/",
-      "keywords" : "EXE, Windows"
-    } ,
-  
-    {
-      "title"    : "文件被多个中间文件输出目录相同的工程包含",
-      "category" : "CPlusPlus",
-      
-      "url"      : "https://mazhuang.org/2013/06/22/multi-included-source-file/",
-      "keywords" : "C++"
-    } ,
-  
-    {
-      "title"    : "有 static 变量的 namespace 被多个 cpp 包含",
-      "category" : "CPlusPlus",
-      
-      "url"      : "https://mazhuang.org/2013/10/26/namespace-with-a-static-variable/",
-      "keywords" : "C++"
-    } ,
-  
-    {
-      "title"    : "设计模式学习之策略模式",
-      "category" : "DesignPattern",
-      
-      "url"      : "https://mazhuang.org/2013/11/23/HFDP-Notes1/",
-      "keywords" : "设计模式"
-    } ,
-  
-    {
-      "title"    : "设计模式学习之观察者模式",
-      "category" : "DesignPattern",
-      
-      "url"      : "https://mazhuang.org/2013/12/03/HFDP-Notes2/",
-      "keywords" : "设计模式"
-    } ,
-  
-    {
-      "title"    : "设计模式学习之装饰者模式",
-      "category" : "DesignPattern",
-      
-      "url"      : "https://mazhuang.org/2013/12/22/HFDP-Notes3/",
-      "keywords" : "设计模式"
-    } ,
-  
-    {
-      "title"    : "Excel 常用操作",
-      "category" : "Excel",
-      
-      "url"      : "https://mazhuang.org/2014/02/19/excel-incommonuse/",
-      "keywords" : "Excel"
-    } ,
-  
-    {
-      "title"    : "Windows API 中的坑",
-      "category" : "Windows",
-      
-      "url"      : "https://mazhuang.org/2014/03/07/pits-in-windows/",
-      "keywords" : "API"
-    } ,
-  
-    {
-      "title"    : "C++ 中的#，##，和&quot;",
-      "category" : "CPlusPlus",
-      
-      "url"      : "https://mazhuang.org/2014/05/10/numbersign/",
-      "keywords" : "宏，C++"
-    } ,
-  
-    {
-      "title"    : "对象内存结构及虚函数表分析",
-      "category" : "CPlusPlus",
-      
-      "url"      : "https://mazhuang.org/2014/05/24/virtualfunctions/",
-      "keywords" : "C++"
-    } ,
-  
-    {
-      "title"    : "设计模式学习之单件模式",
-      "category" : "DesignPattern",
-      
-      "url"      : "https://mazhuang.org/2014/05/31/HFDP-Note4/",
-      "keywords" : "设计模式"
-    } ,
-  
-    {
-      "title"    : "COM 原理与应用学习笔记",
-      "category" : "COM",
-      
-      "url"      : "https://mazhuang.org/2014/06/01/comsketch/",
-      "keywords" : "COM"
-    } ,
-  
-    {
-      "title"    : "ANSI Common Lisp 第二章习题解答",
-      "category" : "Lisp",
-      
-      "url"      : "https://mazhuang.org/2014/06/29/acl-chapter2/",
-      "keywords" : "Lisp"
-    } ,
-  
-    {
-      "title"    : "C++ 类成员变量初始化",
-      "category" : "CPlusPlus",
-      
-      "url"      : "https://mazhuang.org/2014/07/13/cppinit/",
-      "keywords" : "初始化，C++"
-    } ,
-  
-    {
-      "title"    : "默认的 DLL 搜索路径优先级",
-      "category" : "Windows",
-      
-      "url"      : "https://mazhuang.org/2014/07/13/dllsearch/",
-      "keywords" : "Dll, Windows"
-    } ,
-  
-    {
-      "title"    : "定制 Fiddler 之抓获 WinHTTP 请求",
-      "category" : "Fiddler",
-      
-      "url"      : "https://mazhuang.org/2014/07/19/fiddlerwithwinhttp/",
-      "keywords" : "Fiddler, WinHTTP"
-    } ,
-  
-    {
-      "title"    : "定制 Fiddler 之将请求发往另一服务器",
-      "category" : "Fiddler",
-      
-      "url"      : "https://mazhuang.org/2014/07/20/fiddlercontextmenu/",
-      "keywords" : "Fiddler"
-    } ,
-  
-    {
-      "title"    : "TaobaoProtectSE.dll 注入引起的死锁分析",
-      "category" : "WinDbg",
-      
-      "url"      : "https://mazhuang.org/2014/08/01/deadlock/",
-      "keywords" : "WinDbg, TaobaoProtectSE.dll"
-    } ,
-  
-    {
-      "title"    : "摄影教训总结",
-      "category" : "Blog",
-      
-      "url"      : "https://mazhuang.org/2014/08/26/takephotos/",
-      "keywords" : "摄影, 教训"
-    } ,
-  
-    {
-      "title"    : "我所理解的生活",
-      "category" : "Blog",
-      
-      "url"      : "https://mazhuang.org/2014/08/30/aboutlife/",
-      "keywords" : "自我认识, 改进"
-    } ,
-  
-    {
-      "title"    : "如何让你的 EXE/DLL 足够小",
-      "category" : "Windows",
-      
-      "url"      : "https://mazhuang.org/2014/09/13/make-exe-small/",
-      "keywords" : "Windows"
-    } ,
-  
-    {
-      "title"    : "眼中的自己",
-      "category" : "Blog",
-      
-      "url"      : "https://mazhuang.org/2014/09/27/myself/",
-      "keywords" : "优点, 缺点"
-    } ,
-  
-    {
-      "title"    : "获取运行过程中改名的文件的路径",
-      "category" : "Windows",
-      
-      "url"      : "https://mazhuang.org/2014/10/09/path-after-rename/",
-      "keywords" : "Windows"
-    } ,
-  
-    {
-      "title"    : "CSDN 已下载资源自动批量评论脚本",
-      "category" : "Python",
-      
-      "url"      : "https://mazhuang.org/2014/10/12/csdnresautocomment/",
-      "keywords" : "Python, CSDN"
-    } ,
-  
-    {
-      "title"    : "习惯成就高效能",
-      "category" : "Blog",
-      
-      "url"      : "https://mazhuang.org/2014/10/28/sevenhabits/",
-      "keywords" : "高效能, 七个习惯"
-    } ,
-  
-    {
-      "title"    : "Jestem",
-      "category" : "Blog",
-      
-      "url"      : "https://mazhuang.org/2014/11/25/jestem/",
-      "keywords" : "Jestem"
-    } ,
-  
-    {
-      "title"    : "情绪管理的建议",
-      "category" : "Blog",
-      
-      "url"      : "https://mazhuang.org/2014/12/06/emotion-manage/",
-      "keywords" : "情绪管理"
-    } ,
-  
-    {
-      "title"    : "好习惯 one by one 之一",
-      "category" : "Blog",
-      
-      "url"      : "https://mazhuang.org/2014/12/07/habit-training-1/",
-      "keywords" : "好习惯, 计划"
-    } ,
-  
-    {
-      "title"    : "工科男难找对象的那点事儿",
-      "category" : "Blog",
-      
-      "url"      : "https://mazhuang.org/2014/12/14/find-a-girl-friend/",
-      "keywords" : "工科男, 找对象"
-    } ,
-  
-    {
-      "title"    : "使用 gVim 的 Python 自动补全时遇到的问题",
-      "category" : "Vim",
-      
-      "url"      : "https://mazhuang.org/2014/12/21/vim-python-autocomplete/",
-      "keywords" : "gVim, Python"
-    } ,
-  
-    {
-      "title"    : "如何让 HelloWorld.apk 体积最小",
-      "category" : "Android",
-      
-      "url"      : "https://mazhuang.org/2014/12/31/simplify-apk/",
-      "keywords" : "Android"
-    } ,
-  
-    {
-      "title"    : "一个 printf 引发的基础复习",
-      "category" : "CPlusPlus",
-      
-      "url"      : "https://mazhuang.org/2015/01/19/printf/",
-      "keywords" : "printf, IEEE 表示法"
-    } ,
-  
-    {
-      "title"    : "生活这件小事，烦请费思量",
-      "category" : "Blog",
-      
-      "url"      : "https://mazhuang.org/2015/02/01/some-impressions/",
-      "keywords" : "生活感悟"
-    } ,
-  
-    {
-      "title"    : "乱弹一气人生",
-      "category" : "Blog",
-      
-      "url"      : "https://mazhuang.org/2015/02/14/strum-life/",
-      "keywords" : "人生"
-    } ,
-  
-    {
-      "title"    : "工作中得来的教训",
-      "category" : "Blog",
-      
-      "url"      : "https://mazhuang.org/2015/03/30/work-lesson/",
-      "keywords" : "教训"
-    } ,
-  
-    {
-      "title"    : "Windows 实现单实例进程的两种方法",
-      "category" : "Windows",
-      
-      "url"      : "https://mazhuang.org/2015/03/31/singleton-process/",
-      "keywords" : "Windows, Process"
-    } ,
-  
-    {
-      "title"    : "Java 日期类常用写法小结",
-      "category" : "Java",
-      
-      "url"      : "https://mazhuang.org/2015/04/03/java-date/",
-      "keywords" : "Java, 日期"
-    } ,
-  
-    {
-      "title"    : "Android UI 开发里的尺寸单位理解",
-      "category" : "Android",
-      
-      "url"      : "https://mazhuang.org/2015/04/06/dp-sp-px/",
-      "keywords" : "Android, sp, dp"
-    } ,
-  
-    {
-      "title"    : "Android Studio 遇到问题集锦",
-      "category" : "Android",
-      
-      "url"      : "https://mazhuang.org/2015/05/06/android-studio/",
-      "keywords" : "Android, Android Studio"
-    } ,
-  
-    {
-      "title"    : "一些不必纠结的事情",
-      "category" : "Blog",
-      
-      "url"      : "https://mazhuang.org/2015/05/09/no-need-to-tangle/",
-      "keywords" : "纠结"
-    } ,
-  
-    {
-      "title"    : "Emacs 折腾记",
-      "category" : "Emacs",
-      
-      "url"      : "https://mazhuang.org/2015/05/10/emacs/",
-      "keywords" : "Emacs, Lisp"
-    } ,
-  
-    {
-      "title"    : "Java 中的比较运算符",
-      "category" : "Java",
-      
-      "url"      : "https://mazhuang.org/2015/05/15/java-compare/",
-      "keywords" : "Java, Compare"
-    } ,
-  
-    {
-      "title"    : "TortoiseSVN 从 GitHub 更新时发生异常",
-      "category" : "SVN",
-      
-      "url"      : "https://mazhuang.org/2015/05/27/svn-exception/",
-      "keywords" : "TortoiseSVN, github"
-    } ,
-  
-    {
-      "title"    : "领导与员工的艺术",
-      "category" : "Blog",
-      
-      "url"      : "https://mazhuang.org/2015/05/28/leader-art/",
-      "keywords" : "领导, 员工"
-    } ,
-  
-    {
-      "title"    : "黑客马拉松参赛总结",
-      "category" : "Blog",
-      
-      "url"      : "https://mazhuang.org/2015/06/01/sogou-hackathon/",
-      "keywords" : "Hackathon"
-    } ,
-  
-    {
-      "title"    : "去看特立独行的猪",
-      "category" : "Blog",
-      
-      "url"      : "https://mazhuang.org/2015/06/12/wangxiaobo/",
-      "keywords" : "王小波"
-    } ,
-  
-    {
-      "title"    : "Win7 下部署 Discuz!",
-      "category" : "PHP",
-      
-      "url"      : "https://mazhuang.org/2015/06/14/win-discuz/",
-      "keywords" : "PHP, Discuz"
-    } ,
-  
-    {
-      "title"    : "为 Vim 添加 Smali 语法高亮和 Taglist 支持",
-      "category" : "Vim",
-      
-      "url"      : "https://mazhuang.org/2015/06/23/vim-taglist-smali/",
-      "keywords" : "Vim, Smali, Taglist, Ctags, Tagbar"
-    } ,
-  
-    {
-      "title"    : "定制 Fiddler 之按设备过滤请求",
-      "category" : "Fiddler",
-      
-      "url"      : "https://mazhuang.org/2015/07/08/fiddler-filter-by-device/",
-      "keywords" : "Fiddler, Filter, Device"
-    } ,
-  
-    {
-      "title"    : "你忙得踏实吗？",
-      "category" : "Blog",
-      
-      "url"      : "https://mazhuang.org/2015/07/23/busy-smart/",
-      "keywords" : "生活的艺术"
-    } ,
-  
-    {
-      "title"    : "爱你就像爱生命",
-      "category" : "Blog",
-      
-      "url"      : "https://mazhuang.org/2015/09/02/love/",
-      "keywords" : "王小波"
-    } ,
-  
-    {
-      "title"    : "Mac 遇到问题集锦",
-      "category" : "Mac",
-      
-      "url"      : "https://mazhuang.org/2015/10/25/mac/",
-      "keywords" : "Mac"
-    } ,
-  
-    {
-      "title"    : "断网之后",
-      "category" : "Blog",
-      
-      "url"      : "https://mazhuang.org/2015/10/25/without-internet/",
-      "keywords" : "internet, 断网"
-    } ,
-  
-    {
-      "title"    : "Vimscript 中的坑",
-      "category" : "Vim",
-      
-      "url"      : "https://mazhuang.org/2015/10/31/pits-in-vimscript/",
-      "keywords" : "Vim, Vimscript"
-    } ,
-  
-    {
-      "title"    : "Excel 保留行号的去重",
-      "category" : "Excel",
-      
-      "url"      : "https://mazhuang.org/2015/12/02/excel-sift/",
-      "keywords" : "Excel, Numbers"
-    } ,
-  
-    {
-      "title"    : "GFM 与 Redcarpet 的不同点",
-      "category" : "Markdown",
-      
-      "url"      : "https://mazhuang.org/2015/12/05/diff-between-gfm-and-redcarpet/",
-      "keywords" : "markdown, GFM, Redcarpet"
-    } ,
-  
-    {
-      "title"    : "Java 对象释放与 finalize 方法",
-      "category" : "Java",
-      
-      "url"      : "https://mazhuang.org/2015/12/15/java-object-finalize/",
-      "keywords" : "java, finalize, release"
-    } ,
-  
-    {
-      "title"    : "为 Markdown 生成 TOC 的 Vim 插件",
-      "category" : "Vim",
-      
-      "url"      : "https://mazhuang.org/2015/12/19/vim-markdown-toc/",
-      "keywords" : "vim, markdown, toc"
-    } ,
-  
-    {
-      "title"    : "Ubuntu 使用笔记",
-      "category" : "Linux",
-      
-      "url"      : "https://mazhuang.org/2016/01/12/use-ubuntu-notes/",
-      "keywords" : "Linux, Ubuntu"
-    } ,
-  
-    {
-      "title"    : "Android 系统缓存扫描与清理方法分析",
-      "category" : "Android",
-      
-      "url"      : "https://mazhuang.org/2016/01/14/android-system-cache/",
-      "keywords" : "Android, Cache, Cleaner, System Cache"
-    } ,
-  
-    {
-      "title"    : "Build Zeal for Mac OS X",
-      "category" : "Mac",
-      
-      "url"      : "https://mazhuang.org/2016/01/16/build-zeal-for-mac-osx/",
-      "keywords" : "Mac OS X, Zeal"
-    } ,
-  
-    {
-      "title"    : "将 GitHub Pages 从 Redcarpet 切换到 kramdown",
-      "category" : "Markdown",
-      
-      "url"      : "https://mazhuang.org/2016/02/04/switch-to-kramdown-from-redcarpet/",
-      "keywords" : "GitHub Pages, markdown, Redcarpet, kramdown"
-    } ,
-  
-    {
-      "title"    : "从 am start 的 --user 参数说到 Android 多用户",
-      "category" : "Android",
-      
-      "url"      : "https://mazhuang.org/2016/02/10/am-start-user-parameter/",
-      "keywords" : "am start, user, adb, INTERACT_ACROSS_USERS_FULL"
-    } ,
-  
-    {
-      "title"    : "不藏拙的人生",
-      "category" : "Blog",
-      
-      "url"      : "https://mazhuang.org/2016/03/14/show-chump/",
-      "keywords" : "思维, 深度"
-    } ,
-  
-    {
-      "title"    : "如何有效使用 GitHub",
-      "category" : "GitHub",
-      
-      "url"      : "https://mazhuang.org/2016/04/07/how-to-use-github-effective/",
-      "keywords" : "GitHub"
-    } ,
-  
-    {
-      "title"    : "配置 Node.js 开发环境——使用 Atom",
-      "category" : "Node.js",
-      
-      "url"      : "https://mazhuang.org/2016/04/18/develop-nodejs-with-atom/",
-      "keywords" : "Atom, Node.js, ternjs"
-    } ,
-  
-    {
-      "title"    : "判断前台 Activity 是否属于本进程",
-      "category" : "Android",
-      
-      "url"      : "https://mazhuang.org/2016/04/20/determine-if-my-activities-foreground/",
-      "keywords" : "Android, Activity, Foreground"
-    } ,
-  
-    {
-      "title"    : "为绑定域名的 GitHub Pages 启用 HTTPS",
-      "category" : "GitHub",
-      
-      "url"      : "https://mazhuang.org/2016/05/21/enable-https-for-github-pages/",
-      "keywords" : "GitHub Pages, SSL, Let&#39;s Encrypt"
-    } ,
-  
-    {
-      "title"    : "简化 kramdown 列表嵌套内容缩进的 Vim 插件",
-      "category" : "Vim",
-      
-      "url"      : "https://mazhuang.org/2016/06/28/vim-kramdown-tab/",
-      "keywords" : "kramdown, Vim, indent"
-    } ,
-  
-    {
-      "title"    : "Kloudsec 挂了，GitHub Pages 去 HTTPS 化",
-      "category" : "GitHub",
-      
-      "url"      : "https://mazhuang.org/2016/07/11/remove-https/",
-      "keywords" : "Kloudsec, GitHub Pages"
-    } ,
-  
-    {
-      "title"    : "在 Vim 里为 Markdown 文档展示导航窗格",
-      "category" : "Vim",
-      
-      "url"      : "https://mazhuang.org/2016/08/03/add-outline-for-markdown-in-vim/",
-      "keywords" : "Vim, Markdown, Outline"
-    } ,
-  
-    {
-      "title"    : "C++ 程序员的 Java 指南",
-      "category" : "Java",
-      
-      "url"      : "https://mazhuang.org/2016/08/30/java-guide-to-cpp-programmers/",
-      "keywords" : "C++, Java"
-    } ,
-  
-    {
-      "title"    : "一道在知乎很火的 Java 题——如何输出 ab",
-      "category" : "Java",
-      
-      "url"      : "https://mazhuang.org/2016/09/20/java-output-ab/",
-      "keywords" : "Java"
-    } ,
-  
-    {
-      "title"    : "vim-markdown-toc 发布 v1.0 版",
-      "category" : "Vim",
-      
-      "url"      : "https://mazhuang.org/2016/10/22/vim-markdown-toc-release/",
-      "keywords" : "Vim, Markdown, Table of Contents"
-    } ,
-  
-    {
-      "title"    : "搭建大型源码阅读环境——使用 OpenGrok",
-      "category" : "Tools",
-      
-      "url"      : "https://mazhuang.org/2016/12/14/rtfsc-with-opengrok/",
-      "keywords" : "OpenGrok, RTFSC"
-    } ,
-  
-    {
-      "title"    : "我的 2016 盘点",
-      "category" : "Blog",
-      
-      "url"      : "https://mazhuang.org/2017/01/01/my-2016/",
-      "keywords" : "2016, 计划, 总结"
-    } ,
-  
-    {
-      "title"    : "读书：追风筝的人",
-      "category" : "Blog",
-      
-      "url"      : "https://mazhuang.org/2017/02/19/the-kite-runner/",
-      "keywords" : "追风筝的人"
-    } ,
-  
-    {
-      "title"    : "我做了一个有点艰难的决定",
-      "category" : "Blog",
-      
-      "url"      : "https://mazhuang.org/2017/04/09/a-difficult-decision/",
-      "keywords" : "北漂"
-    } ,
-  
-    {
-      "title"    : "从一个 NullPointerException 探究 Java 的自动装箱拆箱机制",
-      "category" : "Java",
-      
-      "url"      : "https://mazhuang.org/2017/08/20/java-auto-boxing-unboxing/",
-      "keywords" : "Java, 自动装箱, 自动拆箱"
-    } ,
-  
-    {
-      "title"    : "关于 Markdown 的一些奇技淫巧",
-      "category" : "Markdown",
-      
-      "url"      : "https://mazhuang.org/2017/09/01/markdown-odd-skills/",
-      "keywords" : "Markdown, 奇技淫巧"
-    } ,
-  
-    {
-      "title"    : "图解 SQL 里的各种 JOIN",
-      "category" : "Database",
-      
-      "url"      : "https://mazhuang.org/2017/09/11/joins-in-sql/",
-      "keywords" : "SQL, Database, 文氏图"
-    } ,
-  
-    {
-      "title"    : "Android 源码分析开篇",
-      "category" : "Android",
-      
-      "url"      : "https://mazhuang.org/2017/09/23/rtfsc-android-start/",
-      "keywords" : "Android, RTFSC"
-    } ,
-  
-    {
-      "title"    : "阅读源码的意义与方法",
-      "category" : "Android",
-      
-      "url"      : "https://mazhuang.org/2017/10/05/rtfsc-methods-and-meaning/",
-      "keywords" : "Android, 源码, rtfsc"
-    } ,
-  
-    {
-      "title"    : "发布一款光谷社区第三方 Android App",
-      "category" : "Android",
-      
-      "url"      : "https://mazhuang.org/2017/10/14/guanggoo-android-app/",
-      "keywords" : "Android, 光谷社区"
-    } ,
-  
-    {
-      "title"    : "程序员节的过节姿势大全",
-      "category" : "Blog",
-      
-      "url"      : "https://mazhuang.org/2017/10/24/1024-poses/",
-      "keywords" : "1024, 程序员节"
-    } ,
-  
-    {
-      "title"    : "Android 源码分析 —— 从 Toast 出发",
-      "category" : "Android",
-      
-      "url"      : "https://mazhuang.org/2017/11/12/start-from-toast/",
-      "keywords" : "RTFSC, Android, Toast"
-    } ,
-  
-    {
-      "title"    : "解决两个 Android 模拟器之间无法网络通信的问题",
-      "category" : "Android",
-      
-      "url"      : "https://mazhuang.org/2017/12/03/tcp-connect-between-android-emulators/",
-      "keywords" : "Android, Emulator, TCP"
-    } ,
-  
-    {
-      "title"    : "光谷社区第三方 Android 客户端 v2.0 发布",
-      "category" : "Android",
-      
-      "url"      : "https://mazhuang.org/2018/04/30/guanggoo-android-app-new-version/",
-      "keywords" : "光谷, guanggoo, Android"
-    } ,
-  
-    {
-      "title"    : "Android 源码分析 —— Handler、Looper 和 MessageQueue",
-      "category" : "Android",
-      
-      "url"      : "https://mazhuang.org/2018/06/11/handler-looper-massagequeue/",
-      "keywords" : "Android, Handler, Looper, Message, MessageQueue"
-    } ,
-  
-    {
-      "title"    : "一份简明的 Markdown 笔记与教程",
-      "category" : "Markdown",
-      
-      "url"      : "https://mazhuang.org/2018/09/06/markdown-intro/",
-      "keywords" : "Markdown, VSCode"
-    } ,
-  
-    {
-      "title"    : "我的 2018 盘点",
-      "category" : "Blog",
-      
-      "url"      : "https://mazhuang.org/2019/01/20/my-2018/",
-      "keywords" : "2018, 计划, 总结"
-    } ,
-  
-    {
-      "title"    : "记一个折磨了我一天半的 Bug",
-      "category" : "Java",
-      
-      "url"      : "https://mazhuang.org/2019/05/25/a-stupid-bug/",
-      "keywords" : "Java, Bug"
-    } ,
-  
-    {
-      "title"    : "让 Tapd 的源码关联功能支持 Gitee 平台",
-      "category" : "Tools",
-      
-      "url"      : "https://mazhuang.org/2019/09/14/gitee-and-tapd/",
-      "keywords" : "Gitee, webhook, Tapd"
-    } ,
-  
-    {
-      "title"    : "GitHub 用户专属福利，实际到账 3K+，Namebase Airdrop",
-      "category" : "GitHub",
-      
-      "url"      : "https://mazhuang.org/2020/02/21/namebase-airdrop/",
-      "keywords" : "GitHub, Namebase, Airdrop"
-    } ,
-  
-    {
-      "title"    : "记一个 Base64 有关的 Bug",
-      "category" : "Java",
-      
-      "url"      : "https://mazhuang.org/2020/03/01/base64-bug/",
-      "keywords" : "Java, Base64"
-    } ,
-  
-    {
-      "title"    : "一份简明的 Base64 原理解析",
-      "category" : "Java",
-      
-      "url"      : "https://mazhuang.org/2020/03/07/get-an-in-depth-understanding-of-base64/",
-      "keywords" : "Base64"
-    } ,
-  
-    {
-      "title"    : "使用 jsDelivr 免费加速 GitHub Pages 博客的静态资源",
-      "category" : "GitHub",
-      
-      "url"      : "https://mazhuang.org/2020/05/01/cdn-for-github-pages/",
-      "keywords" : "GitHub, CDN, jsdelivr"
-    } ,
-  
-    {
-      "title"    : "本博客模板常见问题 Q &amp; A",
-      "category" : "GitHub",
-      
-      "url"      : "https://mazhuang.org/2020/05/03/blog-template-qna/",
-      "keywords" : "Jekyll, GitHub Pages"
-    } ,
-  
-    {
-      "title"    : "用 Vim 编辑 Markdown 时直接粘贴图片",
-      "category" : "Vim",
-      
-      "url"      : "https://mazhuang.org/2020/05/04/paste-image-in-vim/",
-      "keywords" : "Vim, Markdown, md-image-paste.vim"
-    } ,
-  
-    {
-      "title"    : "更聪明地学习，而不是苦读——《如何高效学习》",
-      "category" : "Blog",
-      
-      "url"      : "https://mazhuang.org/2020/05/17/learn-more-study-less/",
-      "keywords" : "如何高效学习，读书笔记，吐槽"
-    } ,
-  
-    {
-      "title"    : "林丹从国家队退役，带起一波回忆",
-      "category" : "Blog",
-      
-      "url"      : "https://mazhuang.org/2020/07/05/lindan-and-badminton/",
-      "keywords" : "羽毛球, 林丹"
-    } ,
-  
-    {
-      "title"    : "使用 jsDelivr 免费加速 GitHub Pages 博客的静态资源（二）",
-      "category" : "GitHub",
-      
-      "url"      : "https://mazhuang.org/2020/10/07/cdn-for-github-pages-2/",
-      "keywords" : "GitHub, CDN, jsdelivr"
-    } ,
-  
-    {
-      "title"    : "给 Mac 添加右键菜单「使用 VSCode 打开」",
-      "category" : "VSCode",
-      
-      "url"      : "https://mazhuang.org/2020/10/28/add-vscode-to-right-click/",
-      "keywords" : "VSCode, macOS"
-    } ,
-  
-    {
-      "title"    : "Android Studio",
-      "category" : "Android",
-      
-      "url"      : "https://mazhuang.org/wiki/android-studio/",
-      "keywords" : "Android, Android Studio"
-    } ,
-  
-    {
-      "title"    : "Axure",
-      "category" : "tools",
-      
-      "url"      : "https://mazhuang.org/wiki/axure/",
-      "keywords" : "Axure RP"
-    } ,
-  
-    {
-      "title"    : "Badminton",
-      "category" : "Hobbies",
-      
-      "url"      : "https://mazhuang.org/wiki/badminton/",
-      "keywords" : "羽毛球"
-    } ,
-  
-    {
-      "title"    : "中文文案排版指北（简体中文版）",
-      "category" : "Copywriting",
-      
-      "url"      : "https://mazhuang.org/wiki/chinese-copywriting-guidelines/",
-      "keywords" : "中文文案排版指北"
-    } ,
-  
-    {
-      "title"    : "Eclipse",
-      "category" : "Eclipse",
-      
-      "url"      : "https://mazhuang.org/wiki/eclipse/",
-      "keywords" : "Eclipse"
-    } ,
-  
-    {
-      "title"    : "Emacs",
-      "category" : "Emacs",
-      
-      "url"      : "https://mazhuang.org/wiki/emacs/",
-      "keywords" : "Emacs, 快捷键"
-    } ,
-  
-    {
-      "title"    : "Excel",
-      "category" : "Office",
-      
-      "url"      : "https://mazhuang.org/wiki/excel/",
-      "keywords" : "Excel, Office"
-    } ,
-  
-    {
-      "title"    : "Git",
-      "category" : "Git",
-      
-      "url"      : "https://mazhuang.org/wiki/git/",
-      "keywords" : "Git, 版本控制"
-    } ,
-  
-    {
-      "title"    : "GitHub",
-      "category" : "GitHub",
-      
-      "url"      : "https://mazhuang.org/wiki/github/",
-      "keywords" : "GitHub"
-    } ,
-  
-    {
-      "title"    : "善用佳软",
-      "category" : "Recommends",
-      
-      "url"      : "https://mazhuang.org/wiki/good-soft/",
-      "keywords" : "软件, 推荐"
-    } ,
-  
-    {
-      "title"    : "IDA Pro",
-      "category" : "Debug",
-      
-      "url"      : "https://mazhuang.org/wiki/ida-pro/",
-      "keywords" : "debug, IDA Pro"
-    } ,
-  
-    {
-      "title"    : "IntelliJ IDEA",
-      "category" : "Tools",
-      
-      "url"      : "https://mazhuang.org/wiki/intellij-idea/",
-      "keywords" : "IDEA, Java"
-    } ,
-  
-    {
-      "title"    : "Kindle",
-      "category" : "Tools",
-      
-      "url"      : "https://mazhuang.org/wiki/kindle/",
-      "keywords" : "Kindle"
-    } ,
-  
-    {
-      "title"    : "Linux/Unix",
-      "category" : "Linux",
-      
-      "url"      : "https://mazhuang.org/wiki/linux/",
-      "keywords" : "Linux"
-    } ,
-  
-    {
-      "title"    : "Mac OS X",
-      "category" : "Mac",
-      
-      "url"      : "https://mazhuang.org/wiki/mac/",
-      "keywords" : "Mac"
-    } ,
-  
-    {
-      "title"    : "Markdown",
-      "category" : "Markdown",
-      
-      "url"      : "https://mazhuang.org/wiki/markdown/",
-      "keywords" : "Markdown"
-    } ,
-  
-    {
-      "title"    : "MPV",
-      "category" : "Tools",
-      
-      "url"      : "https://mazhuang.org/wiki/mpv/",
-      "keywords" : "mpv"
-    } ,
-  
-    {
-      "title"    : "MySQL",
-      "category" : "MySQL",
-      
-      "url"      : "https://mazhuang.org/wiki/mysql/",
-      "keywords" : "MySQL"
-    } ,
-  
-    {
-      "title"    : "OllyDbg",
-      "category" : "debug",
-      
-      "url"      : "https://mazhuang.org/wiki/ollydbg/",
-      "keywords" : "debug, ollydbg"
-    } ,
-  
-    {
-      "title"    : "OneNote",
-      "category" : "Tools",
-      
-      "url"      : "https://mazhuang.org/wiki/onenote/",
-      "keywords" : "OneNote, GTD"
-    } ,
-  
-    {
-      "title"    : "PHP",
-      "category" : "php",
-      
-      "url"      : "https://mazhuang.org/wiki/php/",
-      "keywords" : "php"
-    } ,
-  
-    {
-      "title"    : "PowerShell",
-      "category" : "Windows",
-      
-      "url"      : "https://mazhuang.org/wiki/powershell/",
-      "keywords" : "Windows, PowerShell"
-    } ,
-  
-    {
-      "title"    : "Python",
-      "category" : "Python",
-      
-      "url"      : "https://mazhuang.org/wiki/python/",
-      "keywords" : "Python"
-    } ,
-  
-    {
-      "title"    : "Qt Creator",
-      "category" : "Qt",
-      
-      "url"      : "https://mazhuang.org/wiki/qt-creator/",
-      "keywords" : "Qt, Qt Creator"
-    } ,
-  
-    {
-      "title"    : "Scoop",
-      "category" : "Windows",
-      
-      "url"      : "https://mazhuang.org/wiki/scoop/",
-      "keywords" : "scoop, windows"
-    } ,
-  
-    {
-      "title"    : "Skill Tree",
-      "category" : "mindmap",
-      
-      "url"      : "https://mazhuang.org/wiki/skill-tree/",
-      "keywords" : "技能树, 思维导图, mindmap, 脑图"
-    } ,
-  
-    {
-      "title"    : "Source Insight",
-      "category" : "Tools",
-      
-      "url"      : "https://mazhuang.org/wiki/source-insight/",
-      "keywords" : "Source Insight"
-    } ,
-  
-    {
-      "title"    : "Swimming",
-      "category" : "Hobbies",
-      
-      "url"      : "https://mazhuang.org/wiki/swimming/",
-      "keywords" : "游泳, 蛙泳"
+      "url"      : "https://uangjw.github.io/2022/04/20/2022-02-21-paper-music-transformer/",
+      "keywords" : ""
     } ,
   
     {
       "title"    : "Wiki Template",
       "category" : "cate1",
       
-      "url"      : "https://mazhuang.org/wiki/template/",
+      "url"      : "https://uangjw.github.io/wiki/template/",
       "keywords" : "keyword1, keyword2"
-    } ,
-  
-    {
-      "title"    : "Vim",
-      "category" : "Vim",
-      
-      "url"      : "https://mazhuang.org/wiki/vim/",
-      "keywords" : "Vim"
-    } ,
-  
-    {
-      "title"    : "Visio",
-      "category" : "Tools",
-      
-      "url"      : "https://mazhuang.org/wiki/visio/",
-      "keywords" : "Visio"
-    } ,
-  
-    {
-      "title"    : "Visual Studio Code",
-      "category" : "Tools",
-      
-      "url"      : "https://mazhuang.org/wiki/visual-studio-code/",
-      "keywords" : "Visual Studio Code"
-    } ,
-  
-    {
-      "title"    : "Visual Studio",
-      "category" : "Tools",
-      
-      "url"      : "https://mazhuang.org/wiki/visual-studio/",
-      "keywords" : "Visual Studio"
-    } ,
-  
-    {
-      "title"    : "Windows Terminal",
-      "category" : "Tools",
-      
-      "url"      : "https://mazhuang.org/wiki/windows-terminal/",
-      "keywords" : "Windows Terminal"
     } 
   
 ]
