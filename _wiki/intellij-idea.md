@@ -187,6 +187,10 @@ File - Invalidate Caches
 
 参考：https://zhuanlan.zhihu.com/p/341969427
 
+### 隐藏 Coverage 结果
+
+Run - Show Coverage Data
+
 ## 参考
 
 - [解决IntelliJ IDEA无法读取配置*.properties文件的问题](http://www.cnblogs.com/zqr99/p/7642712.html)
