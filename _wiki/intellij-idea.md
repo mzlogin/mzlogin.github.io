@@ -191,6 +191,25 @@ File - Invalidate Caches
 
 Run - Show Coverage Data
 
+### 编译项目时报 java.lang.OutOfMemoryError: GC overhead limit exceeded
+
+```
+java.lang.OutOfMemoryError: GC overhead limit exceeded
+```
+
+修改 IDEA 的 Custom VM Options 并没有用。
+
+这是因为运行 IDEA App，和编译的程序，使用不同的 JVM 进程。
+
+此时需要修改编译配置：
+
+Preferences - Build, Execution, Deployment - Compiler - Share build process heap size
+
+默认是 700，我修改成了 4096，单位 Mbytes。
+
+
+参考 <https://intellij-support.jetbrains.com/hc/en-us/community/posts/206166909-java-lang-OutOfMemoryError-GC-overhead-limit-exceeded>
+
 ## 参考
 
 - [解决IntelliJ IDEA无法读取配置*.properties文件的问题](http://www.cnblogs.com/zqr99/p/7642712.html)
