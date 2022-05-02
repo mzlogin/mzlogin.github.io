@@ -103,3 +103,20 @@ _config.yml 里的 components.qrcode 这一段用于控制二维码。
 不显示二维码：将 components.qrcode.enabled 改为 false。
 
 替换二维码图片：替换 assets/images/qrcode.jpg 文件。
+
+## _data 目录下的 yml 文件内容含义
+
+*skills.yml* 文件里的内容对应[「关于」][1]页面里的 Skill Keywords。
+
+![](/images/posts/template/skills.yml.png)
+
+*social.yml* 文件里的内容对应[「关于」][1]页面里的「联系」里的内容。
+
+![](/images/posts/template/social.yml.png)
+
+*links.yml* 文件里的内容对应[「链接」][2]页面里的内容。
+
+![](/images/posts/template/links.yml.png)
+
+[1]: https://mazhuang.org/about/
+[2]: https://mazhuang.org/links/
