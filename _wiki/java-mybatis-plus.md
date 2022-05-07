@@ -41,3 +41,5 @@ public class User {
 如果 update 操作中 set 了该字段，比如很多时候我们用 updateById 等，不会触发。
 
 可以添加注解 `@TableField(update = "NOW()")`。
+
+注：添加了这个注解后，如果 insert 时对应的字段赋值了，会按所赋的值存储。
