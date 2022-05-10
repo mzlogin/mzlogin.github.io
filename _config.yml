@@ -2,7 +2,7 @@
 #   Main Configs   #
 # ---------------- #
 baseurl: # 本地调试使用
-url: https://justcn.cn
+url: https://molincya.github.io
 date_format: "ordinal"
 title: 木易灵兮-Loong's Works
 subtitle: "工业品海外推广"
