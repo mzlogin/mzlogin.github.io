@@ -1,5 +1,9 @@
-﻿- name: 纳狮PVD涂层
+- name: 纳狮PVD涂层
   url: https://www.naxau.com
+  src: work
+  
+- name: 易镀1661
+  url: https://www.coatingrd.com/
   src: work
 
 - name: SteelTailor CNC Cutting Machines
