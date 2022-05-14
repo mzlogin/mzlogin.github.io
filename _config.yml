@@ -127,8 +127,8 @@ collections:
 # ---------------- #
 #      Comments    #
 # ---------------- #
-# support provider: disqus, gitment, gitalk, utterances
-comments_provider: utterances
+# support provider: disqus, gitment, gitalk, utterances, Beaudar
+comments_provider: Beaudar
 # !!!重要!!! 请修改下面这些信息为你自己申请的
 # !!!Important!!! Please modify infos below to yours
 # disqus 配置参考：https://disqus.com
@@ -149,6 +149,9 @@ gitalk:
     clientSecret: b42a4178e5fd4a7cf63189ef4b1453b05c375709
 # utterances 配置参考：https://utteranc.es/
 utterances:
+    repo: mzlogin/blog-comments
+# Beaudar 配置参考：https://beaudar.lipk.org/
+Beaudar:
     repo: mzlogin/blog-comments
 # 在使用其它评论组件时可点击显示 Disqus
 lazy_load_disqus : false

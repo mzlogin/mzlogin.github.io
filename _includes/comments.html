@@ -113,5 +113,16 @@
                 crossorigin="anonymous"
                 async>
         </script>
+  {% when 'Beaudar' %}
+        <script src="https://beaudar.lipk.org/client.js"
+                repo="{{ site.Beaudar.repo }}"
+                issue-term="title"
+                label="gitment"
+                theme="github-light"
+                comment-order="desc"
+                input-position="top"
+                crossorigin="anonymous"
+                async>
+        </script>
   {% endcase %}
 {% endif %}
