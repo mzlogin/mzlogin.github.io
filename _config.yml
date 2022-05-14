@@ -150,8 +150,8 @@ gitalk:
 # utterances 配置参考：https://utteranc.es/
 utterances:
     repo: mzlogin/blog-comments
-# Beaudar 配置参考：https://beaudar.lipk.org/
-Beaudar:
+# beaudar 配置参考：https://beaudar.lipk.org/
+beaudar:
     repo: mzlogin/blog-comments
 # 在使用其它评论组件时可点击显示 Disqus
 lazy_load_disqus : false
