@@ -127,8 +127,8 @@ collections:
 # ---------------- #
 #      Comments    #
 # ---------------- #
-# support provider: disqus, gitment, gitalk, utterances, Beaudar
-comments_provider: Beaudar
+# support provider: disqus, gitment, gitalk, utterances, beaudar
+comments_provider: beaudar
 # !!!重要!!! 请修改下面这些信息为你自己申请的
 # !!!Important!!! Please modify infos below to yours
 # disqus 配置参考：https://disqus.com
