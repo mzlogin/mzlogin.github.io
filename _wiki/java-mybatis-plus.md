@@ -43,3 +43,10 @@ public class User {
 可以添加注解 `@TableField(update = "NOW()")`。
 
 注：添加了这个注解后，如果 insert 时对应的字段赋值了，会按所赋的值存储。
+
+## 查询时 distinct
+
+```java
+List<User> userList = userService.list(new QueryWrapper<User>()
+        .select("distinct id").lambda().isNull(User::getName));
+```
