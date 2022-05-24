@@ -117,18 +117,46 @@ comments: false
         {% else %}
             <button disabled="disabled" href="javascript:;" class="btn btn-outline">&laquo;</button>
         {% endif %}
+
         {% if paginator.page == 1 %}
             <a href="javascript:;" class="active btn btn-outline">1</a>
         {% else %}
             <a href="{{ site.url }}/"  class="btn btn-outline">1</a>
         {% endif %}
-        {% for count in (2..paginator.total_pages) %}
+
+        {% assign aroundSize = 2 %}
+        {% assign midStartPage = paginator.page | minus: aroundSize %}
+        {% if 2 > midStartPage %}
+            {% assign midStartPage = 2 %}
+        {% endif %}
+        {% assign midEndPage = paginator.page | plus: aroundSize %}
+        {% if midEndPage >= paginator.total_pages %}
+            {% assign midEndPage = paginator.total_pages | minus:1 %}
+        {% endif %}
+        {% assign tmpPage = aroundSize | plus: 2 %}
+        {% if paginator.page > tmpPage %}
+          <button disabled="disabled" href="javascript:;" class="btn btn-outline">...</button>
+        {% endif %}
+
+        {% for count in (midStartPage..midEndPage) %}
           {% if count == paginator.page %}
-              <a href="javascript:;"  class="active btn btn-outline">{{count}}</a>
+            <a href="jaavascript:;" class="active btn btn-outline">{{count}}</a>
           {% else %}
-              <a href="{{ site.url }}/page{{count}}"  class="btn btn-outline">{{count}}</a>
+            <a href="{{ site.url }}/page{{count}}"  class="btn btn-outline">{{count}}</a>
           {% endif %}
         {% endfor %}
+
+        {% assign tmpPage = paginator.page | plus: aroundSize | plus: 1 %}
+        {% if paginator.total_pages > tmpPage %}
+          <button disabled="disabled" href="javascript:;" class="btn btn-outline">...</button>
+        {% endif %}
+
+        {% if paginator.page == paginator.total_pages %}
+            <a href="jaavascript:;" class="active btn btn-outline">{{paginator.total_pages}}</a>
+        {% else %}
+            <a href="{{ site.url }}/page{{paginator.total_pages}}"  class="btn btn-outline">{{paginator.total_pages}}</a>
+        {% endif %}
+
         {% if paginator.next_page %}
             <a href="{{ site.url }}/page{{paginator.next_page}}"  class="btn btn-outline">&raquo;</a>
         {% else %}
