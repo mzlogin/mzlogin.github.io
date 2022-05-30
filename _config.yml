@@ -2,7 +2,7 @@
 #   Main Configs   #
 # ---------------- #
 baseurl:
-url: http://blog.jerry1zhang.vip
+url: https://blog.jerry1zhang.vip
 date_format: "ordinal"
 title: 码志
 subtitle: ""
@@ -28,7 +28,7 @@ components:
     # 不蒜子访问统计
     busuanzi:
         enabled: false
-        start_date: 2020-05-03
+        start_date: 2022-05-01
     # My Popular Repositories
     side_bar_repo:
         enabled: true
