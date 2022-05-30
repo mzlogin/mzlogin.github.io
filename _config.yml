@@ -2,18 +2,18 @@
 #   Main Configs   #
 # ---------------- #
 baseurl:
-url: https://mazhuang.org
+url: https://blog.jerry1zhang.github.io
 date_format: "ordinal"
 title: 码志
-subtitle: "公众号：闷骚的程序员"
-description: "马壮的个人博客，公众号：闷骚的程序员"
-keywords: 码志, Zhuang Ma, mzlogin, mazhuang, 闷骚的程序员
+subtitle: ""
+description: "JERRY的个人博客"
+keywords: 码志, JERRY
 timezone: Asia/Shanghai
 encoding: "utf-8"
 # 页面左下角显示的年份
-since: 2015
+since: 2022
 # 源码仓库，请替换成自己的
-repository: mzlogin/mzlogin.github.io
+repository: jerry1zhang/jerry1zhang.github.io
 # 对 css 和 js 资源的 cdn 加速配置
 cdn:
     jsdelivr:
@@ -54,12 +54,12 @@ highlight_theme: github
 # ---------------- #
 #      Author      #
 # ---------------- #
-author: Zhuang Ma
+author: jerry
 organization: 
 organization_url: 
-github_username: mzlogin
-location: Wuhan, China
-email: chumpma@gmail.com
+github_username: jerry1zhang
+location: Changsha, China
+email: jerry1zhang1995@gmail.com
 
 # ---------------- #
 #    Navigation    #
@@ -136,23 +136,23 @@ disqus:
     username: 
 # gitment 配置参考：https://imsun.net/posts/gitment-introduction/
 gitment:
-    owner: mzlogin
-    repo: blog-comments
+    owner: jerry1zhang
+    repo: jerry1zhang.github.io
     oauth:
-        client_id: d2e1cbbd298958076462
-        client_secret: b42a4178e5fd4a7cf63189ef4b1453b05c375709
+        client_id: 4bd5d5fadd1f86c1343f
+        client_secret: d5788ec36a5feecbd21fdd960a895eeb7c4e245d
 # gitalk 配置参考：https://github.com/gitalk/gitalk#install
 gitalk:
-    owner: mzlogin
-    repo: blog-comments
-    clientID: d2e1cbbd298958076462
-    clientSecret: b42a4178e5fd4a7cf63189ef4b1453b05c375709
+    owner: jerry1zhang
+    repo: jerry1zhang.github.io
+    clientID: 4bd5d5fadd1f86c1343f
+    clientSecret: d5788ec36a5feecbd21fdd960a895eeb7c4e245d
 # utterances 配置参考：https://utteranc.es/
 utterances:
-    repo: mzlogin/blog-comments
+    repo: jerry1zhang/jerry1zhang.github.io
 # beaudar 配置参考：https://beaudar.lipk.org/
 beaudar:
-    repo: mzlogin/blog-comments
+    repo: jerry1zhang/jerry1zhang.github.io
 # 在使用其它评论组件时可点击显示 Disqus
 lazy_load_disqus : false
 
