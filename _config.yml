@@ -2,7 +2,7 @@
 #   Main Configs   #
 # ---------------- #
 baseurl:
-url: https://blog.jerry1zhang.github.io
+url: http://blog.jerry1zhang.vip/
 date_format: "ordinal"
 title: 码志
 subtitle: ""
