@@ -1889,6 +1889,14 @@
     } ,
   
     {
+      "title"    : "微信",
+      "category" : "",
+      
+      "url"      : "https://mazhuang.org/wiki/wechat/",
+      "keywords" : "微信, wechat"
+    } ,
+  
+    {
       "title"    : "Windows Terminal",
       "category" : "",
       
