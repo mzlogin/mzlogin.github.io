@@ -23,8 +23,8 @@ link:
 
 手机和电脑微信同时在线时，在手机上打开微信，可以看到顶部有一个条，显示「XX 微信已登录，XXX」：
 
-![/images/wiki/wechat-1.png]
+![](/images/wiki/wechat-1.png)
 
 点击它，可以打开以下界面，圈出来的按钮即可开/关当电脑微信在线时，手机微信消息通知。
 
-![/images/wiki/wechat-2.png]
+![](/images/wiki/wechat-2.png)
