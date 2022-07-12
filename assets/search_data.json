@@ -1649,6 +1649,14 @@
     } ,
   
     {
+      "title"    : "Dubbo",
+      "category" : "",
+      
+      "url"      : "https://mazhuang.org/wiki/java-dubbo/",
+      "keywords" : "Java, Dubbo"
+    } ,
+  
+    {
       "title"    : "内部类",
       "category" : "",
       
