@@ -114,12 +114,9 @@ $(document).ready(function(){
     </script>
     {% endif %}
 {% if page.mindmap2 %}
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mzlogin/kityminder-core@dev/dist/kityminder.core.css">
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/mzlogin/kity@dev/dist/kity.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/mzlogin/kityminder-core@dev/dist/kityminder.core.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/d3@6"></script>
     <script src="https://cdn.jsdelivr.net/npm/markmap-view"></script>
-    <script src="{{ site.url }}/assets/js/autoloader-0.1.2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.1.2/dist/index.min.js"></script>
     <style>
         .markmap > svg {
           width: 100%;
@@ -128,57 +125,52 @@ $(document).ready(function(){
         }
     </style>
     <script>
-        //进入全屏
         function fullScreen(nodeId) {
-            // var element = document.documentElement; //若要全屏页面中div，var element= document.getElementById("divID");  
             var element= document.getElementById(nodeId);  
-            //IE 10及以下ActiveXObject  
             if (window.ActiveXObject) {
-                var WsShell = new ActiveXObject('WScript.Shell')
+                var WsShell = new ActiveXObject('WScript.Shell');
                 WsShell.SendKeys('{F11}');
             }
-            //HTML W3C 提议  
             else if (element.requestFullScreen) {
                 element.requestFullScreen();
             }
-            //IE11  
             else if (element.msRequestFullscreen) {
                 element.msRequestFullscreen();
             }
-            // Webkit (works in Safari5.1 and Chrome 15)  
             else if (element.webkitRequestFullScreen) {
                 element.webkitRequestFullScreen();
             }
-            // Firefox (works in nightly)  
             else if (element.mozRequestFullScreen) {
                 element.mozRequestFullScreen();
             }
         }
 
-        //退出全屏  
         function fullExit() {
-            // var element = document.documentElement; //若要全屏页面中div，var element= document.getElementById("divID");   
             var element= document.getElementById("ddd");  
-            //IE ActiveXObject  
             if (window.ActiveXObject) {
-                var WsShell = new ActiveXObject('WScript.Shell')
+                var WsShell = new ActiveXObject('WScript.Shell');
                 WsShell.SendKeys('{F11}');
             }
-            //HTML5 W3C 提议  
             else if (element.requestFullScreen) {
                 document.exitFullscreen();
             }
-            //IE 11  
             else if (element.msRequestFullscreen) {
                 document.msExitFullscreen();
             }
-            // Webkit (works in Safari5.1 and Chrome 15)  
             else if (element.webkitRequestFullScreen) {
                 document.webkitCancelFullScreen();
             }
-            // Firefox (works in nightly)  
             else if (element.mozRequestFullScreen) {
                 document.mozCancelFullScreen();
+            }
+        }
+
+        function insertAfter(newElement, targetElement) {
+            var parent = targetElement.parentNode;
+            if (parent.lastChild == targetElement) {
+                parent.appendChild(targetElement);
+            } else {
+                parent.insertBefore(newElement, targetElement.nextSibling);
             }
         }
        
@@ -192,16 +184,18 @@ $(document).ready(function(){
                 element.setAttribute('class', "markmap");
                 var nodeName = '.language-mindmap-' + index;
                 element.setAttribute("id", nodeName);
-                var viewerTipNode = document.createElement("a");
-                viewerTipNode.appendChild(document.createTextNode("全屏"));
-                viewerTipNode.setAttribute('onclick', 'fullScreen("' + nodeName + '")');
-                viewerTipNode.setAttribute('href', 'javascript:void(0)');
-                element.parentElement.parentElement.appendChild(viewerTipNode)
-                var viewerTipNode = document.createElement("a");
-                viewerTipNode.appendChild(document.createTextNode(" 语法提示"));
-                viewerTipNode.setAttribute('href', 'https://markmap.js.org/');
-                viewerTipNode.setAttribute('target', '_blank');
-                element.parentElement.parentElement.appendChild(viewerTipNode)
+                var viewerTipNode1 = document.createElement("a");
+                viewerTipNode1.appendChild(document.createTextNode("全屏"));
+                viewerTipNode1.setAttribute('onclick', 'fullScreen("' + nodeName + '")');
+                viewerTipNode1.setAttribute('style', 'font-size:0.8rem;font-style:italic;font-color:grey;');
+                viewerTipNode1.setAttribute('href', 'javascript:void(0)');
+                insertAfter(viewerTipNode1, element.parentNode);
+                var viewerTipNode2 = document.createElement("a");
+                viewerTipNode2.appendChild(document.createTextNode("语法提示"));
+                viewerTipNode2.setAttribute('href', 'https://markmap.js.org/');
+                viewerTipNode2.setAttribute('target', '_blank');
+                viewerTipNode2.setAttribute('style', 'font-size:0.8rem;font-style:italic;font-color:grey;padding-left:0.5rem;');
+                insertAfter(viewerTipNode2, viewerTipNode1);
             });
         });
     </script>
