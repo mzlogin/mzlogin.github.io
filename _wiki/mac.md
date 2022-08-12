@@ -291,6 +291,30 @@ brew linkapps mpv
 
 使用 Mac 自带的“数码测色计”。
 
+## 小技巧
+
+### 程序坞延迟消除
+
+Mac 自动隐藏/显示程序坞是默认有一秒延迟的。
+
+消除延迟方法：
+
+```sh
+defaults write com.apple.Dock autohide-delay -float 0 && killall Dock
+```
+
+恢复默认：
+
+```sh
+defaults delete com.apple.Dock autohide-delay && killall Dock
+```
+
+### 修改默认 shell
+
+```sh
+chsh -s /bin/zsh
+```
+
 ## 问题解决
 
 ### No Xcode or CLT version detected
