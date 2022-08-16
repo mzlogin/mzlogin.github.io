@@ -210,6 +210,22 @@ Preferences - Build, Execution, Deployment - Compiler - Share build process heap
 
 参考 <https://intellij-support.jetbrains.com/hc/en-us/community/posts/206166909-java-lang-OutOfMemoryError-GC-overhead-limit-exceeded>
 
+### 更新时提示错误
+
+```
+IDEA does not have write access to /Application/IntelliJ IDEA.app/Contents. Please run it by a privileged user to update.
+```
+
+原因：最近切换过 MacBook 的用户，IDEA 是在老用户下安装的。
+
+解决方法：
+
+将 IntelliJ IDEA.app 目录的权限修改为当前用户。
+
+```
+sudo chown -R <current_user>:<user_group> "/Application/IntelliJ IDEA.app"
+```
+
 ## 参考
 
 - [解决IntelliJ IDEA无法读取配置*.properties文件的问题](http://www.cnblogs.com/zqr99/p/7642712.html)
