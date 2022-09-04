@@ -151,10 +151,12 @@ comments: false
           <button disabled="disabled" href="javascript:;" class="btn btn-outline">...</button>
         {% endif %}
 
-        {% if paginator.page == paginator.total_pages %}
-            <a href="jaavascript:;" class="active btn btn-outline">{{paginator.total_pages}}</a>
-        {% else %}
-            <a href="{{ site.url }}/page{{paginator.total_pages}}"  class="btn btn-outline">{{paginator.total_pages}}</a>
+        {% if paginator.total_pages > 1 %}
+          {% if paginator.page == paginator.total_pages %}
+              <a href="jaavascript:;" class="active btn btn-outline">{{paginator.total_pages}}</a>
+          {% else %}
+              <a href="{{ site.url }}/page{{paginator.total_pages}}"  class="btn btn-outline">{{paginator.total_pages}}</a>
+          {% endif %}
         {% endif %}
 
         {% if paginator.next_page %}
