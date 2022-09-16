@@ -366,7 +366,26 @@ sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
 
 尝试过插别的接口、换扩展坞、只接以上几种设备之一和之二等，都没解决。最后用了个别的鼠标试了下，好了。欲哭无泪。
 
+### macOS 12.4 Monterey 系统授权弹窗无法点击
+
+自从电脑从本地账号切换到域账号之后，这个系统版本里经常一个程序用着用着，突然弹出个系统授权弹窗，申请访问文件夹、摄像头、麦克风、屏幕录制、System Events 等等，然后弹窗里的两个按钮点击无效，程序就卡在那里了。
+
+比如下面这个弹窗：
+
+![](/images/wiki/mac-request-permissions.png)
+
+解决方法：
+
+1. 打开「活动监视器」，结束掉 UserNotificationCenter 进程；
+
+    ![](/images/wiki/mac-terminate-user-notification-center.png)
+
+2. 打开「系统偏好设置」-「安全性与隐私」，找到刚才提示的对应权限和应用，把左下角的锁打开后，勾选上；
+
+    ![](/images/wiki/mac-safe-and-privilege.png)
+
 ## 参考
 
 * [你可能不知道的 Mac 技巧 - 截图，Gif 制作及 App 推荐](https://zhuanlan.zhihu.com/p/25154768)
 * [terminal-mac-cheatsheet](https://github.com/0nn0/terminal-mac-cheatsheet)
+* [macOS 12.4 系统弹窗无法点点击 SimulatorTrampoline.xpc 无法授权](https://www.jianshu.com/p/d070db9e8af5)
