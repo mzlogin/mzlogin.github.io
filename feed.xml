@@ -1,4 +1,139 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="https://mazhuang.org/feed.xml" rel="self" type="application/atom+xml" /><link href="https://mazhuang.org/" rel="alternate" type="text/html" /><updated>2022-09-16T17:39:35+08:00</updated><id>https://mazhuang.org/feed.xml</id><title type="html">码志</title><subtitle>马壮的个人博客，公众号：闷骚的程序员</subtitle><author><name>Zhuang Ma</name></author><entry><title type="html">使用 iPhone 感觉不好的几点体验</title><link href="https://mazhuang.org/2022/03/06/iphone-vs-xiaomi/" rel="alternate" type="text/html" title="使用 iPhone 感觉不好的几点体验" /><published>2022-03-06T00:00:00+08:00</published><updated>2022-03-06T00:00:00+08:00</updated><id>https://mazhuang.org/2022/03/06/iphone-vs-xiaomi</id><content type="html" xml:base="https://mazhuang.org/2022/03/06/iphone-vs-xiaomi/">&lt;p&gt;上周有天晚上加完班下雨了，媳妇儿开车顺道带我回家，到家后过了一会儿她突然说，「对了，给你个东西」，然后从包里拿出一个黑盒子递给我，我正坐那刷沙雕视频，也没细看，见挺小一个盒子，随口问了一句「啥？充电宝啊？」，得到的是充满鄙夷的回复，「我们家需要那玩意儿吗，我买那干啥？」，接过来翻面一看，哦豁原来是 iPhone 13 Pro。&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="https://mazhuang.org/feed.xml" rel="self" type="application/atom+xml" /><link href="https://mazhuang.org/" rel="alternate" type="text/html" /><updated>2022-09-22T15:03:22+08:00</updated><id>https://mazhuang.org/feed.xml</id><title type="html">码志</title><subtitle>马壮的个人博客，公众号：闷骚的程序员</subtitle><author><name>Zhuang Ma</name></author><entry><title type="html">修复 MacVim 9.0 的 Python3 支持</title><link href="https://mazhuang.org/2022/09/22/enable-python3-in-macvim/" rel="alternate" type="text/html" title="修复 MacVim 9.0 的 Python3 支持" /><published>2022-09-22T00:00:00+08:00</published><updated>2022-09-22T00:00:00+08:00</updated><id>https://mazhuang.org/2022/09/22/enable-python3-in-macvim</id><content type="html" xml:base="https://mazhuang.org/2022/09/22/enable-python3-in-macvim/">&lt;p&gt;前两天刚刚升级到了 MacVim 9.0 的最新版本，日常编辑编辑文字没遇到过什么问题，直到今天动了一下插件。&lt;/p&gt;
+
+&lt;h2 id=&quot;发现问题&quot;&gt;发现问题&lt;/h2&gt;
+
+&lt;p&gt;今早看到一个有意思的 Vim 插件，安装上试用了下，感觉对我来说不太实用，就删掉配置，打算运行 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;:PlugClean&lt;/code&gt; 清理掉它，结果 MacVim 提示我即将删掉的插件有两个——除了试用的这个以外，还有 LeaderF。&lt;/p&gt;
+
+&lt;p&gt;LeaderF 是我用得比较多的插件之一了，我并没有表明意图我要删掉它，是发生了什么让 vim-plug 这样以为呢？肯定是有什么误会。&lt;/p&gt;
+
+&lt;p&gt;我的 _vimrc 文件里，添加 LeaderF 插件是这样写的：&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;if has('python') || has('python3')
+    Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
+endif
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;于是打开一个 MacVim 窗口，试了下 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;:echo has('python')&lt;/code&gt; 和 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;:echo has('python3')&lt;/code&gt;，输出竟然都是 0，那就难怪了……&lt;/p&gt;
+
+&lt;h2 id=&quot;分析问题&quot;&gt;分析问题&lt;/h2&gt;
+
+&lt;p&gt;一开始主要想弄清楚两点：&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;我使用的 MacVim 版本编译时究竟有没有启用 Python 支持？&lt;/p&gt;
+
+    &lt;p&gt;在 MacVim 窗口里运行 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;:version&lt;/code&gt;，可以看到 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;+python/dyn&lt;/code&gt; 和 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;+python3/dyn&lt;/code&gt;，那说明同时启用了 Python 和 Python3 支持。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;我本地有没有安装 Python？&lt;/p&gt;
+
+    &lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;python
+ zsh: &lt;span class=&quot;nb&quot;&gt;command &lt;/span&gt;not found: python
+
+ &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;brew list | &lt;span class=&quot;nb&quot;&gt;grep &lt;/span&gt;python
+ python@3.10
+ python@3.8
+ python@3.9
+
+ &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;python3
+ Python 3.9.12 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;main, Mar 26 2022, 15:51:15&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;Clang 13.1.6 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;clang-1316.0.21.2&lt;span class=&quot;o&quot;&gt;)]&lt;/span&gt; on darwin
+ Type &lt;span class=&quot;s2&quot;&gt;&quot;help&quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;copyright&quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;credits&quot;&lt;/span&gt; or &lt;span class=&quot;s2&quot;&gt;&quot;license&quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;more information.
+ &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;可以看到我本地安装了 Python3 的 3.8、3.9、3.10 三个版本，默认 3.9，没有安装 Python2。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;这没什么问题，那继续找，尝试下在 MacVim 里执行 Python3 语句：&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;:py3 import sys;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;结果输出了一堆报错：&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;E370: 无法加载库 /usr/local/Frameworks/Python.framework/Versions/3.10/Python：dlopen(/usr/local/Frameworks/Python.fram
+ework/Versions/3.10/Python, 0x0009): tried: '/usr/local/Frameworks/Python.framework/Versions/3.10/Python' (no such fil
+e), '/Library/Frameworks/Python.framework/Versions/3.10/Python' (no such file), '/System/Library/Frameworks/Python.fra
+mework/Versions/3.10/Python' (no such file)
+E263: 抱歉，此命令不可用，无法加载 Python 库。
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;它要找的这个文件路径确实不存在……毕竟我默认的是 3.9 版本，所以  /usr/local/Frameworks/Python.framework/Versions/ 下只有 3.9 和 current 目录，没有 3.10。&lt;/p&gt;
+
+&lt;p&gt;它为啥放着配置好的 3.9 版本不用，非得这么头铁去找 3.10 版本呢？这个问题先不回答，留待后面的刨根问底环节。现在先解决问题。&lt;/p&gt;
+
+&lt;h2 id=&quot;解决问题&quot;&gt;解决问题&lt;/h2&gt;
+
+&lt;p&gt;在网上将以上错误信息搜索一番后，了解到了可以通过设置 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pythonthreedll&lt;/code&gt; 来指定动态加载的 Python3 支持库。&lt;/p&gt;
+
+&lt;p&gt;另外，也了解了一下，通过 brew 安装的多个 Python 版本如何切换默认版本。&lt;/p&gt;
+
+&lt;p&gt;所以这个小问题找到了两种解决方法：&lt;/p&gt;
+
+&lt;p&gt;一、在 _vimrc 里添加配置，指定动态加载的 Python3 支持库路径，比如：&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;```vim
+let &amp;amp;pythonthreedll='/usr/local/Frameworks/Python.framework/Versions/3.9/python'
+```
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;二、切换系统默认 Python3 版本，比如这里 MacVim 寻找 3.10 版本，我就把默认的切换到 3.10 版本好了：&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;```sh
+brew unlink python@3.9
+brew link python@3.10
+```
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;经验证以上两个方法都可以解决问题，我最终用了第二种。&lt;/p&gt;
+
+&lt;h2 id=&quot;刨根问底&quot;&gt;刨根问底&lt;/h2&gt;
+
+&lt;p&gt;上面我们遗留了一个问题，为什么 MacVim 那么头铁非要加载 3.10 版本的 Python 支持库呢？&lt;/p&gt;
+
+&lt;p&gt;首先看一下 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pythonthreedll&lt;/code&gt; 的帮助文档说明：&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;:h pythonthreedll
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;可以看到：&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;'pythonthreedll'	string	(default depends on the build)
+			global
+			{only available when compiled with the |+python3/dyn|
+			feature}
+	Specifies the name of the Python 3 shared library. The default is
+	DYNAMIC_PYTHON3_DLL, which was specified at compile time.
+	Environment variables are expanded |:set_env|.
+	This option cannot be set from a |modeline| or in the |sandbox|, for
+	security reasons.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;也就是说默认值是在编译时指定的 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DYNAMIC_PYTHON3_DLL&lt;/code&gt; 值，按我理解那就是说如果没有在配置文件里人为指定，那它就是会按编译时指定的去加载。&lt;/p&gt;
+
+&lt;p&gt;那编译时的 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DYNAMIC_PYTHON3_DLL&lt;/code&gt;，我们可以在 MacVim 的官方仓库 &lt;a href=&quot;https://github.com/macvim-dev/macvim/blob/master/.github/workflows/ci-macvim.yaml&quot;&gt;.github/worflows/ci-macvim.yaml&lt;/a&gt; 里找到，关键内容：&lt;/p&gt;
+
+&lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nn&quot;&gt;...&lt;/span&gt;
+
+  &lt;span class=&quot;na&quot;&gt;vi_cv_dll_name_python3&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;/usr/local/Frameworks/Python.framework/Versions/3.10/Python&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# Make sure to keep src/MacVim/vimrc synced with the Python version here for the Python DLL detection logic.&lt;/span&gt;
+
+&lt;span class=&quot;nn&quot;&gt;...&lt;/span&gt;
+
+          &lt;span class=&quot;s&quot;&gt;grep -q -- &quot;-DDYNAMIC_PYTHON3_DLL=\\\\\&quot;${vi_cv_dll_name_python3}\\\\\&quot;&quot; src/auto/config.mk&lt;/span&gt;
+
+&lt;span class=&quot;nn&quot;&gt;...&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;至此破案了。&lt;/p&gt;
+
+&lt;h2 id=&quot;参考&quot;&gt;参考&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.jianshu.com/p/18f06d12348c&quot;&gt;https://www.jianshu.com/p/18f06d12348c&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Zhuang Ma</name></author><category term="Vim" /><summary type="html">前两天刚刚升级到了 MacVim 9.0 的最新版本，日常编辑编辑文字没遇到过什么问题，直到今天动了一下插件。</summary></entry><entry><title type="html">使用 iPhone 感觉不好的几点体验</title><link href="https://mazhuang.org/2022/03/06/iphone-vs-xiaomi/" rel="alternate" type="text/html" title="使用 iPhone 感觉不好的几点体验" /><published>2022-03-06T00:00:00+08:00</published><updated>2022-03-06T00:00:00+08:00</updated><id>https://mazhuang.org/2022/03/06/iphone-vs-xiaomi</id><content type="html" xml:base="https://mazhuang.org/2022/03/06/iphone-vs-xiaomi/">&lt;p&gt;上周有天晚上加完班下雨了，媳妇儿开车顺道带我回家，到家后过了一会儿她突然说，「对了，给你个东西」，然后从包里拿出一个黑盒子递给我，我正坐那刷沙雕视频，也没细看，见挺小一个盒子，随口问了一句「啥？充电宝啊？」，得到的是充满鄙夷的回复，「我们家需要那玩意儿吗，我买那干啥？」，接过来翻面一看，哦豁原来是 iPhone 13 Pro。&lt;/p&gt;
 
 &lt;p&gt;使用这几天后，对比原来用小米手机，感觉有几点不那么方便的地方，记录一下，看后面用习惯之后是否会有改观。&lt;/p&gt;
 
@@ -1001,71 +1136,4 @@ Caused by: java.lang.ArrayIndexOutOfBoundsException: 1234
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://zh.wikipedia.org/zh-hans/%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8&quot;&gt;线程安全——维基百科&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Zhuang Ma</name></author><category term="Java" /><summary type="html">更新： 此文发到 V2EX 后，有网友指出文中的案例代码改写为 List&amp;lt;String&amp;gt; result = paramList.parallelStream().map(this::doSomething).collect(toList()); 就能很好的解决，确实如此，当时代码审查时意识到这里有线程安全问题，然后我就有点思维定势，只想着用解决线程安全问题的方式去处理，没有换个角度想到这种更好的写法。以下仍然保留原文，阅读重点可以放「线程安全」的分析理解上，parallelStream 权当为了举例而简写的一种多线程写法。实际遇上它时可以优先用 parallelStream.map().collect() 和 parallelStream.flatMap().collect() 这类方案。</summary></entry><entry><title type="html">给 Mac 添加右键菜单「使用 VSCode 打开」</title><link href="https://mazhuang.org/2020/10/28/add-vscode-to-right-click/" rel="alternate" type="text/html" title="给 Mac 添加右键菜单「使用 VSCode 打开」" /><published>2020-10-28T00:00:00+08:00</published><updated>2020-10-28T00:00:00+08:00</updated><id>https://mazhuang.org/2020/10/28/add-vscode-to-right-click</id><content type="html" xml:base="https://mazhuang.org/2020/10/28/add-vscode-to-right-click/">&lt;p&gt;最终的实现效果是在文件 / 文件夹上右击时，会出现菜单项「用 VSCode 打开」，点击后会启动 Visual Studio Code 打开对应的文件 / 文件夹。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/mac/open-with-vscode.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;实现步骤&quot;&gt;实现步骤&lt;/h2&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;打开「自动操作.app」，就是小机器人图标那个；&lt;/p&gt;
-
-    &lt;p&gt;&lt;img src=&quot;/images/posts/mac/auto-operate.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;kbd&gt;command + n&lt;/kbd&gt; 新建文稿，在「选取文稿类型」里选择「快速操作」；&lt;/p&gt;
-
-    &lt;p&gt;&lt;img src=&quot;/images/posts/mac/quick-operate.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;按以下步骤操作：&lt;/p&gt;
-
-    &lt;p&gt;第五步贴入代码&lt;/p&gt;
-
-    &lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;f &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$@&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
- &lt;span class=&quot;k&quot;&gt;do
-     &lt;/span&gt;open &lt;span class=&quot;nt&quot;&gt;-a&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Visual Studio Code&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$f&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
- &lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;&lt;img src=&quot;/images/posts/mac/open-with-vscode-steps.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-    &lt;p&gt;以上代码片段的大概意思是对于传入的一个或多个参数，都使用 Visual Studio Code 这个 APP 打开（将以下步骤配置完成后，可以分别选中一个、多个文件 / 文件夹，然后右键用 VSCode 打开看看效果）。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;kbd&gt;command + s&lt;/kbd&gt; 保存为 「用 VSCode 打开」：&lt;/p&gt;
-
-    &lt;p&gt;&lt;img src=&quot;/images/posts/mac/open-with-vscode-rename.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;好了，现在试试在 Finder 里右键一个文件，就可以直接看到「用 VSCode 打开」菜单，右键一个文件夹，就可以看到「服务」-「用 VSCode 打开」菜单了。&lt;/p&gt;
-
-    &lt;p&gt;&lt;img src=&quot;/images/posts/mac/open-with-vscode-file.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;愉快地使用 Visual Studio Code 和各种文件、文件夹玩耍吧。&lt;/p&gt;
-
-&lt;h2 id=&quot;编辑&quot;&gt;编辑&lt;/h2&gt;
-
-&lt;p&gt;以后如果想修改上面这个快速操作，有两种方法：&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;可以打开「自动操作.app」，然后「文件」-「打开最近使用」 -「用 VSCode 打开.workflow」；&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;如果找不到这个操作，可以「文件」-「打开」-个人目录 / 资源库 / Services / 用 VSCode 打开.workflow&lt;/p&gt;
-
-    &lt;p&gt;&lt;img src=&quot;/images/posts/mac/open-with-vscode-open.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-    &lt;p&gt;如果个人目录下不显示「资源库」，按 &lt;kbd&gt;Command + Shift + .&lt;/kbd&gt;。&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&quot;参考&quot;&gt;参考&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://blog.csdn.net/u013069892/article/details/83147239&quot;&gt;https://blog.csdn.net/u013069892/article/details/83147239&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Zhuang Ma</name></author><category term="VSCode" /><summary type="html">最终的实现效果是在文件 / 文件夹上右击时，会出现菜单项「用 VSCode 打开」，点击后会启动 Visual Studio Code 打开对应的文件 / 文件夹。</summary></entry></feed>
+&lt;/ul&gt;</content><author><name>Zhuang Ma</name></author><category term="Java" /><summary type="html">更新： 此文发到 V2EX 后，有网友指出文中的案例代码改写为 List&amp;lt;String&amp;gt; result = paramList.parallelStream().map(this::doSomething).collect(toList()); 就能很好的解决，确实如此，当时代码审查时意识到这里有线程安全问题，然后我就有点思维定势，只想着用解决线程安全问题的方式去处理，没有换个角度想到这种更好的写法。以下仍然保留原文，阅读重点可以放「线程安全」的分析理解上，parallelStream 权当为了举例而简写的一种多线程写法。实际遇上它时可以优先用 parallelStream.map().collect() 和 parallelStream.flatMap().collect() 这类方案。</summary></entry></feed>

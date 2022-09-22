@@ -1137,6 +1137,14 @@
     } ,
   
     {
+      "title"    : "修复 MacVim 9.0 的 Python3 支持",
+      "category" : "Vim",
+      
+      "url"      : "https://mazhuang.org/2022/09/22/enable-python3-in-macvim/",
+      "keywords" : "MacVim, Python3"
+    } ,
+  
+    {
       "title"    : "JSON",
       "category" : "",
       
