@@ -15,6 +15,12 @@ keywords: IDEA, Java
 
 Preferences -> Editor -> General，勾选 Soft-wrap these files，后面的文件名匹配改为 `*`，表示所有文件都启用自动换行。
 
+### 如何加大控制台日志缓冲区大小？
+
+有时候日志量太大，需要的信息被冲出控制台缓冲区，这种时候可以加大缓冲区大小，让它多缓冲一些行数。
+
+Preferences -> Editor -> General -> Console，勾选 Override console cycle buffer size，然后修改后面的数字大小，默认是 1024（单位 KB），比如我修改为了 102400。
+
 ### 解决导入 Eclipse Maven 工程后无法读取 .xml 文件的问题
 
 IDEA 与 Eclipse 配置文件目录的方式不同，可以将文件夹标记为 Sources、Resources 和 tests 等，而 src/main/java 默认被标记为 Sources，src/main/resources 才默认被标记为 Resources，编译时自动复制。
