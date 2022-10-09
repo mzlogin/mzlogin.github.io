@@ -384,8 +384,27 @@ sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
 
     ![](/images/wiki/mac-safe-and-privilege.png)
 
+### 删除 zip 文件里的隐藏文件
+
+使用 Mac 自带的压缩功能，打出来的 zip 包里面会打入像 .DS_Store 和 __MACOSX 这些东西，在有些场景下需要将它们清除。
+
+这时，可以使用以下命令：
+
+```sh
+zip -d 归档.zip "__MACOSX*"
+zip -d 归档.zip "*.DS_Store"
+```
+
+或者，创建一个如下内容的 cleanzip.sh 文件，放到 PATH 环境变量包含的路径里面，然后在需要时执行 `cleanzip 归档.zip` 即可：
+
+```sh
+zip -d "$1" "__MACOSX*"
+zip -d "$1" "*.DS_Store"
+```
+
 ## 参考
 
-* [你可能不知道的 Mac 技巧 - 截图，Gif 制作及 App 推荐](https://zhuanlan.zhihu.com/p/25154768)
-* [terminal-mac-cheatsheet](https://github.com/0nn0/terminal-mac-cheatsheet)
-* [macOS 12.4 系统弹窗无法点点击 SimulatorTrampoline.xpc 无法授权](https://www.jianshu.com/p/d070db9e8af5)
+- [你可能不知道的 Mac 技巧 - 截图，Gif 制作及 App 推荐](https://zhuanlan.zhihu.com/p/25154768)
+- [terminal-mac-cheatsheet](https://github.com/0nn0/terminal-mac-cheatsheet)
+- [macOS 12.4 系统弹窗无法点点击 SimulatorTrampoline.xpc 无法授权](https://www.jianshu.com/p/d070db9e8af5)
+- [如何取消macOS压缩时生成的「_MACOSX」的隐藏文件夹？ - 知乎](https://www.zhihu.com/question/475167014)
