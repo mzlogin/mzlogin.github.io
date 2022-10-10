@@ -37,17 +37,26 @@ layout: default
 </section>
 <!-- / .banner -->
 <section class="container content">
-  {% include content-header-ad.html %}
-  <article class="article-content markdown-body">
-  {{ content }}
-  {% include copyright.html %}
-  </article>
-  <div class="share">
-    {% include sns-share.html %}
+<div class="columns">
+  <div class="column three-fourths" >
+    {% include content-header-ad.html %}
+    <article class="article-content markdown-body">
+    {{ content }}
+    {% include copyright.html %}
+    </article>
+    <div class="share">
+      {% include sns-share.html %}
+    </div>
+    {% include content-footer-ad.html %}
+    <div class="comment">
+      {% include comments.html %}
+    </div>
   </div>
-  {% include content-footer-ad.html %}
-  <div class="comment">
-    {% include comments.html %}
+  <div class="column one-fourth">
+    {% include sidebar-search.html %}
+    {% include sidebar-post-nav.html %}
+    {% include sidebar-detail-ad.html %}
   </div>
+</div>
 </section>
 <!-- /section.content -->
