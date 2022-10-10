@@ -21,7 +21,7 @@ layout: default
           {% for tag in page.tags %}
           <span class="meta-info">
             <span class="octicon octicon-tag"></span>
-            <a href="{{ site.url }}/fragments/#{{ tag }}" title="{{ tag }}">{{ tag }}</a>
+            <a href="{{ site.url }}/fragments/?tag={{ tag }}" title="{{ tag }}">{{ tag }}</a>
           </span>
           {% endfor %}
         </div>
