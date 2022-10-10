@@ -43,6 +43,14 @@
   
   
   
+    {
+      "title"    : "Fragments",
+      "url"      : "https://mazhuang.org/fragments/",
+      "keywords" : "fragments"
+    } ,
+  
+  
+  
   
   
     {
@@ -1926,6 +1934,14 @@
       
       "url"      : "https://mazhuang.org/wiki/windows-terminal/",
       "keywords" : "Windows Terminal"
+    } ,
+  
+    {
+      "title"    : "Fragment Template",
+      "category" : "",
+      
+      "url"      : "https://mazhuang.org/fragment/template/",
+      "keywords" : "keyword1, keyword2"
     } 
   
 ]
