@@ -1937,6 +1937,14 @@
     } ,
   
     {
+      "title"    : "Mac 下删除 zip 文件里的隐藏文件",
+      "category" : "",
+      
+      "url"      : "https://mazhuang.org/fragment/mac-clean-zip/",
+      "keywords" : "Mac, zip, DS_Store, MACOSX"
+    } ,
+  
+    {
       "title"    : "Fragment Template",
       "category" : "",
       
