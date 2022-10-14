@@ -33,6 +33,22 @@ proj
 </properties>
 ```
 
+### 打包成功启动失败
+
+报错关键信息：
+
+```
+Correct the classpath of your application so that it contains a single, compatible version of
+```
+
+可能的原因：包冲突，同一个类在包里有多个，加载了不正确的版本。
+
+解决方法：
+
+排除冲突包，只留一个版本。
+
+如果有无法从 pom 里面排除的，则调整 pom 里的 dependency 顺序，将想要加载的那个放最上面。
+
 ## 参考
 
 - <https://blog.csdn.net/rjbcxhc/article/details/123062310>

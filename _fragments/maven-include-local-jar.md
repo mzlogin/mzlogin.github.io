@@ -41,4 +41,8 @@ keywords: Maven, Java
 
 好了大功告成。
 
+后续问题：
+
+1. 打包后运行时，报错 `Correct the classpath of your application so that it contains a single, compatible version of`，这是由于包冲突，可以排除冲突包，只保留一个正确版本解决，如果无法排除（比如从本地 jar 包引入的），则可以调整 dependency 顺序，将正确版本放在最前面。
+
 参考：[Maven项目引用本地jar包_xiaowu&amp;的博客-CSDN博客_maven引入本地jar](https://blog.csdn.net/huqiwuhuiju/article/details/122040316)
