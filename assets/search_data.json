@@ -1953,6 +1953,14 @@
     } ,
   
     {
+      "title"    : "Maven 项目引用本地 jar 包",
+      "category" : "",
+      
+      "url"      : "https://mazhuang.org/fragment/maven-include-local-jar/",
+      "keywords" : "Maven, Java"
+    } ,
+  
+    {
       "title"    : "Fragment Template",
       "category" : "",
       
