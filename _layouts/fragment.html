@@ -13,11 +13,6 @@ layout: default
       <div class="collection-title">
         <h1 class="collection-header">{{ page.title }}</h1>
         <div class="collection-info">
-          {% if page.date %}
-          <span class="meta-info">
-            <span class="octicon octicon-calendar"></span> {{ page.date | date: "%Y/%m/%d" }}
-          </span>
-          {% endif %}
           {% for tag in page.tags %}
           <span class="meta-info">
             <span class="octicon octicon-tag"></span>
