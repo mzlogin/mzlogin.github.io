@@ -16,7 +16,7 @@ LeaderF 是我用得比较多的插件之一了，我并没有表明意图我要
 
 我的 _vimrc 文件里，添加 LeaderF 插件是这样写的：
 
-```
+```vim
 if has('python') || has('python3')
     Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 endif
@@ -82,16 +82,16 @@ E263: 抱歉，此命令不可用，无法加载 Python 库。
 
 一、在 _vimrc 里添加配置，指定动态加载的 Python3 支持库路径，比如：
 
-    ```vim
-    let &pythonthreedll='/usr/local/Frameworks/Python.framework/Versions/3.9/python'
-    ```
+```vim
+let &pythonthreedll='/usr/local/Frameworks/Python.framework/Versions/3.9/python'
+```
 
 二、切换系统默认 Python3 版本，比如这里 MacVim 寻找 3.10 版本，我就把默认的切换到 3.10 版本好了：
 
-    ```sh
-    brew unlink python@3.9
-    brew link python@3.10
-    ```
+```sh
+brew unlink python@3.9
+brew link python@3.10
+```
 
 经验证以上两个方法都可以解决问题，我最终用了第二种。
 
