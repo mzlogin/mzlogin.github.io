@@ -1937,6 +1937,14 @@
     } ,
   
     {
+      "title"    : "Mac 清理磁盘空间",
+      "category" : "",
+      
+      "url"      : "https://mazhuang.org/fragment/mac-clean-up-disk-space/",
+      "keywords" : "Mac, clean up disk space"
+    } ,
+  
+    {
       "title"    : "Mac 下删除 zip 文件里的隐藏文件",
       "category" : "",
       
