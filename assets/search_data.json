@@ -1969,6 +1969,14 @@
     } ,
   
     {
+      "title"    : "Maven 项目只在某台机器上报找不到某个类",
+      "category" : "",
+      
+      "url"      : "https://mazhuang.org/fragment/maven-zero-byte-jar/",
+      "keywords" : "Java, Maven"
+    } ,
+  
+    {
       "title"    : "Fragment Template",
       "category" : "",
       
