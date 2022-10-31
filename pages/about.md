@@ -1,18 +1,16 @@
 ---
 layout: page
 title: About
-description: 打码改变世界
-keywords: Zhuang Ma, 马壮
+description: 摸大鱼
+keywords: Zip
 comments: true
 menu: 关于
 permalink: /about/
 ---
 
-我是马壮，码而生，码而立。
+江江，我是有栖，我接接是刹那
 
-仰慕「优雅编码的艺术」。
-
-坚信熟能生巧，努力改变人生。
+布是，我是，BMS 精灵
 
 ## 联系
 
