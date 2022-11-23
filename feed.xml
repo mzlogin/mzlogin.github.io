@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="https://mazhuang.org/feed.xml" rel="self" type="application/atom+xml" /><link href="https://mazhuang.org/" rel="alternate" type="text/html" /><updated>2022-11-23T19:50:44+08:00</updated><id>https://mazhuang.org/feed.xml</id><title type="html">码志</title><subtitle>马壮的个人博客，公众号：闷骚的程序员</subtitle><author><name>Zhuang Ma</name></author><entry><title type="html">修复 MacVim 9.0 的 Python3 支持</title><link href="https://mazhuang.org/2022/09/22/enable-python3-in-macvim/" rel="alternate" type="text/html" title="修复 MacVim 9.0 的 Python3 支持" /><published>2022-09-22T00:00:00+08:00</published><updated>2022-09-22T00:00:00+08:00</updated><id>https://mazhuang.org/2022/09/22/enable-python3-in-macvim</id><content type="html" xml:base="https://mazhuang.org/2022/09/22/enable-python3-in-macvim/">&lt;p&gt;前两天刚刚升级到了 MacVim 9.0 的最新版本，日常编辑编辑文字没遇到过什么问题，直到今天动了一下插件。&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="https://mazhuang.org/feed.xml" rel="self" type="application/atom+xml" /><link href="https://mazhuang.org/" rel="alternate" type="text/html" /><updated>2022-11-23T19:52:42+08:00</updated><id>https://mazhuang.org/feed.xml</id><title type="html">码志</title><subtitle>马壮的个人博客，公众号：闷骚的程序员</subtitle><author><name>Zhuang Ma</name></author><entry><title type="html">修复 MacVim 9.0 的 Python3 支持</title><link href="https://mazhuang.org/2022/09/22/enable-python3-in-macvim/" rel="alternate" type="text/html" title="修复 MacVim 9.0 的 Python3 支持" /><published>2022-09-22T00:00:00+08:00</published><updated>2022-09-22T00:00:00+08:00</updated><id>https://mazhuang.org/2022/09/22/enable-python3-in-macvim</id><content type="html" xml:base="https://mazhuang.org/2022/09/22/enable-python3-in-macvim/">&lt;p&gt;前两天刚刚升级到了 MacVim 9.0 的最新版本，日常编辑编辑文字没遇到过什么问题，直到今天动了一下插件。&lt;/p&gt;
 
 &lt;h2 id=&quot;发现问题&quot;&gt;发现问题&lt;/h2&gt;
 
@@ -8,12 +8,12 @@
 
 &lt;p&gt;我的 _vimrc 文件里，添加 LeaderF 插件是这样写的：&lt;/p&gt;
 
-&lt;div class=&quot;language-vim highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;has&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'python'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;has&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'python3'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    Plug &lt;span class=&quot;s1&quot;&gt;'Yggdroot/LeaderF'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'do'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;':LeaderfInstallCExtension'&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;div class=&quot;language-vim highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;has&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;python&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;has&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;python3&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    Plug &lt;span class=&quot;s1&quot;&gt;&apos;Yggdroot/LeaderF&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;do&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;:LeaderfInstallCExtension&apos;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;endif&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;于是打开一个 MacVim 窗口，试了下 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;:echo has('python')&lt;/code&gt; 和 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;:echo has('python3')&lt;/code&gt;，输出竟然都是 0，那就难怪了……&lt;/p&gt;
+&lt;p&gt;于是打开一个 MacVim 窗口，试了下 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;:echo has(&apos;python&apos;)&lt;/code&gt; 和 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;:echo has(&apos;python3&apos;)&lt;/code&gt;，输出竟然都是 0，那就难怪了……&lt;/p&gt;
 
 &lt;h2 id=&quot;分析问题&quot;&gt;分析问题&lt;/h2&gt;
 
@@ -55,9 +55,9 @@
 &lt;p&gt;结果输出了一堆报错：&lt;/p&gt;
 
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;E370: 无法加载库 /usr/local/Frameworks/Python.framework/Versions/3.10/Python：dlopen(/usr/local/Frameworks/Python.fram
-ework/Versions/3.10/Python, 0x0009): tried: '/usr/local/Frameworks/Python.framework/Versions/3.10/Python' (no such fil
-e), '/Library/Frameworks/Python.framework/Versions/3.10/Python' (no such file), '/System/Library/Frameworks/Python.fra
-mework/Versions/3.10/Python' (no such file)
+ework/Versions/3.10/Python, 0x0009): tried: &apos;/usr/local/Frameworks/Python.framework/Versions/3.10/Python&apos; (no such fil
+e), &apos;/Library/Frameworks/Python.framework/Versions/3.10/Python&apos; (no such file), &apos;/System/Library/Frameworks/Python.fra
+mework/Versions/3.10/Python&apos; (no such file)
 E263: 抱歉，此命令不可用，无法加载 Python 库。
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
@@ -75,7 +75,7 @@ E263: 抱歉，此命令不可用，无法加载 Python 库。
 
 &lt;p&gt;一、在 _vimrc 里添加配置，指定动态加载的 Python3 支持库路径，比如：&lt;/p&gt;
 
-&lt;div class=&quot;language-vim highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &amp;amp;&lt;span class=&quot;nb&quot;&gt;pythonthreedll&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'/usr/local/Frameworks/Python.framework/Versions/3.9/python'&lt;/span&gt;
+&lt;div class=&quot;language-vim highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &amp;amp;&lt;span class=&quot;nb&quot;&gt;pythonthreedll&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;/usr/local/Frameworks/Python.framework/Versions/3.9/python&apos;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;二、切换系统默认 Python3 版本，比如这里 MacVim 寻找 3.10 版本，我就把默认的切换到 3.10 版本好了：&lt;/p&gt;
@@ -97,7 +97,7 @@ brew &lt;span class=&quot;nb&quot;&gt;link &lt;/span&gt;python@3.10
 
 &lt;p&gt;可以看到：&lt;/p&gt;
 
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;'pythonthreedll'	string	(default depends on the build)
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&apos;pythonthreedll&apos;	string	(default depends on the build)
 			global
 			{only available when compiled with the |+python3/dyn|
 			feature}
@@ -221,7 +221,7 @@ make build_darwin
 
 &lt;p&gt;编译过程中需要下载一些源码和二进制文件，首先遇到了网络问题。&lt;/p&gt;
 
-&lt;p&gt;如果遇到 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;timeout&lt;/code&gt; 或者 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fatal: 无法访问 'xxxx'：LibreSSL SSL_connect: Operation timed out in connection to xxx.com:443&lt;/code&gt; 之类的提示，一般是因为有一些资源偶尔需要科学上网才能访问。&lt;/p&gt;
+&lt;p&gt;如果遇到 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;timeout&lt;/code&gt; 或者 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fatal: 无法访问 &apos;xxxx&apos;：LibreSSL SSL_connect: Operation timed out in connection to xxx.com:443&lt;/code&gt; 之类的提示，一般是因为有一些资源偶尔需要科学上网才能访问。&lt;/p&gt;
 
 &lt;p&gt;解决方法：&lt;/p&gt;
 
@@ -420,7 +420,7 @@ vim ~/.zshrc
 &lt;p&gt;如果遇到&lt;/p&gt;
 
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker: Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?.
-See 'docker run --help'.
+See &apos;docker run --help&apos;.
 make: *** [upx] Error 125
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
@@ -480,8 +480,8 @@ make: *** [upx] Error 125
 _git_merge_to_comp&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;nb&quot;&gt;local&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-a&lt;/span&gt; git_branches
-    &lt;span class=&quot;nv&quot;&gt;git_branches&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(@f)&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;git branch &lt;span class=&quot;nt&quot;&gt;--format&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'%(refname:short)'&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-    _describe &lt;span class=&quot;s1&quot;&gt;'command'&lt;/span&gt; git_branches
+    &lt;span class=&quot;nv&quot;&gt;git_branches&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(@f)&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;git branch &lt;span class=&quot;nt&quot;&gt;--format&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;%(refname:short)&apos;&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    _describe &lt;span class=&quot;s1&quot;&gt;&apos;command&apos;&lt;/span&gt; git_branches
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
@@ -493,7 +493,7 @@ _git_merge_to_comp&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
 
 &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;compdef&lt;/code&gt;、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_describe&lt;/code&gt; 等的用法，可以参考 zsh 的官方文档 &lt;a href=&quot;https://zsh.sourceforge.io/Doc/Release/Completion-System.html&quot;&gt;Completion System&lt;/a&gt;。&lt;/p&gt;
 
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git_branches=(&quot;${(@f)$(git branch --format='%(refname:short)')}&quot;)&lt;/code&gt; 的意思是，将 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git branch --format='%(refname:short)'&lt;/code&gt; 命令的输出按行分割后形成一个字符串数组，赋值给 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git_branches&lt;/code&gt; 变量，这部分可以参考 &lt;a href=&quot;https://unix.stackexchange.com/questions/29724/how-to-properly-collect-an-array-of-lines-in-zsh&quot;&gt;How to properly collect an array of lines in zsh&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git_branches=(&quot;${(@f)$(git branch --format=&apos;%(refname:short)&apos;)}&quot;)&lt;/code&gt; 的意思是，将 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git branch --format=&apos;%(refname:short)&apos;&lt;/code&gt; 命令的输出按行分割后形成一个字符串数组，赋值给 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git_branches&lt;/code&gt; 变量，这部分可以参考 &lt;a href=&quot;https://unix.stackexchange.com/questions/29724/how-to-properly-collect-an-array-of-lines-in-zsh&quot;&gt;How to properly collect an array of lines in zsh&lt;/a&gt;。&lt;/p&gt;
 
 &lt;p&gt;我的 zsh 配置都上传到了 &lt;a href=&quot;https://github.com/mzlogin/config-files&quot;&gt;https://github.com/mzlogin/config-files&lt;/a&gt;，有需要可以参考下。&lt;/p&gt;
 
