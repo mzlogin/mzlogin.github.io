@@ -77,3 +77,7 @@
 - name: 梦境迷离
   url: https://dreamylost.cn
   src: www
+
+- name: river's blog
+  url: https://www.river106.cn
+  src: www
