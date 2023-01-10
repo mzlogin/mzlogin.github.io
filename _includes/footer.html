@@ -47,6 +47,18 @@
       });
     </script>
 
+    {% if site.components.fancybox.enabled %}
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+    <script>
+      $(document).ready(function() {
+        $("p img").each(function() {
+          var strA = "<a href='" + this.src + "' itemscope=\"\" itemtype=\"http://schema.org/ImageObject\" itemprop=\"url\" data-fancybox=\"default\" rel=\"default\"></a>";
+          $(this).wrapAll(strA);
+        });
+      });
+    </script>
+    {% endif %}
+
     {% if page.mermaid %}
     <script src="{{ assets_base_url }}/assets/js/mermaid.min.js"></script>
     <script>mermaid.initialize({startOnLoad:true});</script>
