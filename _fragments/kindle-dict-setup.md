@@ -1,7 +1,7 @@
 ---
 layout: fragment
 title: Kindle 字典安装
-tags: [Kindle]
+tags: [kindle]
 description: Kindle 字典安装
 keywords: Kindle, 字典
 ---

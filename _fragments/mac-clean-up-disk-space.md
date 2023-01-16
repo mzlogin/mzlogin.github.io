@@ -1,7 +1,7 @@
 ---
 layout: fragment
 title: Mac 清理磁盘空间
-tags: [Mac]
+tags: [mac]
 description: 一种比较直观的 Mac 下清理磁盘空间的方法。
 keywords: Mac, clean up disk space
 ---

@@ -1,7 +1,7 @@
 ---
 layout: fragment
 title: IDEA 无法 import 自己工程中的类
-tags: [Java, IDEA]
+tags: [java, intellij-idea]
 description: IDEA 一直提示无法找到自己工程中的类，最终通过清缓存解决。
 keywords: Java, IDEA
 ---

@@ -1,7 +1,7 @@
 ---
 layout: fragment
 title: Mac 下让 Spotlight 显示英汉汉英互译
-tags: [Mac]
+tags: [mac]
 description: Mac 下让 Spotlight 显示中英互译
 keywords: Mac, Spotlight, 翻译
 ---

@@ -1,7 +1,7 @@
 ---
 layout: fragment
 title: Maven 项目引用本地 jar 包
-tags: [Java, Maven]
+tags: [java, maven]
 description: Maven 项目引用本地 jar 包、并且将其打包进去的方法。
 keywords: Maven, Java
 ---

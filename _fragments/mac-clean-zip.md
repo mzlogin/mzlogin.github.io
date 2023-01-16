@@ -1,7 +1,7 @@
 ---
 layout: fragment
 title: Mac 下删除 zip 文件里的隐藏文件
-tags: [Mac]
+tags: [mac]
 description: Mac 下清除 zip 文件里的 .DS_Store 和 __MACOSX 文件夹的方法。
 keywords: Mac, zip, DS_Store, MACOSX
 ---

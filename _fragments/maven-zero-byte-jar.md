@@ -1,7 +1,7 @@
 ---
 layout: fragment
 title: Maven 项目只在某台机器上报找不到某个类
-tags: [Java, Maven]
+tags: [java, maven]
 description: Maven 项目在其它机器上一切正常，但在某台机器上报找不到某个类。
 keywords: Java, Maven
 ---
