@@ -118,5 +118,13 @@ _config.yml 里的 components.qrcode 这一段用于控制二维码。
 
 ![](/images/posts/template/links.yml.png)
 
+## 如何置顶文章
+
+在 Markdown 文件头部的元信息里指定 `topmost: true`。
+
+如：
+
+![](https://user-images.githubusercontent.com/1646590/216495045-cfabd732-a029-4f66-a3b8-94d5cedcac7e.png)
+
 [1]: https://mazhuang.org/about/
 [2]: https://mazhuang.org/links/
