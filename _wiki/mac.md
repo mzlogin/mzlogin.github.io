@@ -291,6 +291,10 @@ brew linkapps mpv
 
 使用 Mac 自带的“数码测色计”。
 
+## 翻译光标下的单词
+
+鼠标中键，或 <kbd>Cmd</kbd>-<kbd>Ctrl</kbd>-<kbd>d</kbd>。
+
 ## 小技巧
 
 ### 程序坞延迟消除
