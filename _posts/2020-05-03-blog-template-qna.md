@@ -126,5 +126,20 @@ _config.yml 里的 components.qrcode 这一段用于控制二维码。
 
 ![](https://user-images.githubusercontent.com/1646590/216495045-cfabd732-a029-4f66-a3b8-94d5cedcac7e.png)
 
+## 添加/删除了文章，但是站点没有更新
+
+这种问题一般就是编译出错了。
+
+可以查看自己源码仓库的提交记录，每次提交后面绿色的小勾表示编译没有问题，如果有问题，会看到有红色的小叉：
+
+![](/images/posts/template/jekyll-build-error.png)
+
+点击这个红色的小叉，进 details 可以看到编译报错的具体原因，然后就可以针对性的修改了。
+
+比较常见的可能导致编译出错的问题：
+
+- .yml 文件里有语法错误
+- .md 文件里有无意识引入的 Liquid 语法标记
+
 [1]: https://mazhuang.org/about/
 [2]: https://mazhuang.org/links/
