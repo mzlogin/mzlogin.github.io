@@ -5,6 +5,10 @@ categories: [osu]
 description: dotnet45
 keywords: osu, gosumemory
 ---
+注：这玩意不知道多久没更新了，不知道[StreamCompanion](https://github.com/Piotrekol/StreamCompanion)是否可用
+
+
+
 ### 1. (Archlinux)通过aur安装（包括osu!stable
 
 直接安装gosumemory<sup>aur</sup>（顺带把osu<sup>aur</sup>一起给你安装了（（
