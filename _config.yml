@@ -44,6 +44,9 @@ components:
     # 维基索引页使用哪种视图，支持 列表（list）/分类（cate）
     wiki:
         view: cate
+    # 图片灯箱效果功能
+    fancybox:
+        enabled: false
 # 压缩页面内容
 compress_html:
   clippings: all

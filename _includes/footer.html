@@ -47,9 +47,33 @@
       });
     </script>
 
+    {% if site.components.fancybox.enabled %}
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+    <script>
+      $(document).ready(function() {
+        $("p img").each(function() {
+          var strA = "<a href='" + this.src + "' itemscope=\"\" itemtype=\"http://schema.org/ImageObject\" itemprop=\"url\" data-fancybox=\"default\" rel=\"default\"></a>";
+          $(this).wrapAll(strA);
+        });
+      });
+    </script>
+    {% endif %}
+
     {% if page.mermaid %}
-    <script src="{{ assets_base_url }}/assets/js/mermaid.min.js"></script>
-    <script>mermaid.initialize({startOnLoad:true});</script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mermaid@9.3.0/dist/mermaid.min.js"></script>
+    <script type="text/javascript">
+  (function(){
+    mermaid.init({startOnLoad:true}, "pre code.language-mermaid", function(){
+      $("code.language-mermaid").each(function(index, element) {
+        var preBlock = element.parentNode;
+        element.style.backgroundColor = 'initial';
+        preBlock.style.border = 'none';
+        preBlock.style.textAlign = 'center';
+        preBlock.style.backgroundColor = 'initial';
+      });
+    });
+  })()
+    </script>
     {% endif %}
 
     {% if page.sequence %}
