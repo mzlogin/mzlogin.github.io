@@ -3,7 +3,7 @@ layout: post
 title: 解决 Groovy 引起的一次 OOM 告警
 categories: [Java]
 description: 生产环境出现了一次 OOM 告警，经过排查与 Groovy 有关，最终解决。
-keywords: Groovy, OutOfMemoryError, OOM, Java
+keywords: Groovy, OutOfMemoryError, OOM, Java, 系统稳定性
 ---
 
 线上收到告警，有个服务的一个 pod was OOM killed.
