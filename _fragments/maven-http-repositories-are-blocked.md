@@ -1,7 +1,7 @@
 ---
 layout: fragment
 title: 消除错误 Since Maven 3.8.1 http repositories are blocked
-tags: [maven]
+tags: [java, maven]
 description: 消除错误 Since Maven 3.8.1 http repositories are blocked
 keywords: maven
 mermaid: false
@@ -20,7 +20,7 @@ mindmap2: false
 
 1. 消除自定义的 settings.xml 里的 http repositories；——推荐
 1. 降级到一个 3.8.1 以下版本的 Maven，比如 3.6.3 版本；
-3. 找到 IDEA 自带的 Maven 里的配置文件，注释掉以下内容：
+1. 找到 IDEA 自带的 Maven 里的配置文件，注释掉以下内容：
 
     比如我找到的配置文件路径是 /Applications/IntelliJ IDEA.app/Contents/plugin/maven/lib/maven3/conf/settings.xml
 
