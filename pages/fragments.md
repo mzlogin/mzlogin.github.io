@@ -24,7 +24,7 @@ permalink: /fragments/
 {% endif %}
 {% endfor %}
 
-{% assign taglist = tagliststr | split: ',' %}
+{% assign taglist = tagliststr | split: ',' | sort_natural %}
 
 ```mermaid
 graph TD

@@ -76,17 +76,19 @@ navs:
     href: /categories/
     label: 分类
 
-  # -
-  #   href: /archives/
-  #   label: 归档
-  #
-  # -
-  #   href: /open-source/
-  #   label: 开源
-  #
-  # -
-  #   href: /fragments/
-  #   label: 片段
+  -
+    href: /archives/
+    label: 归档
+    mobile-hidden: true
+
+  -
+    href: /open-source/
+    label: 开源
+    mobile-hidden: true
+
+  -
+    href: /fragments/
+    label: 片段
 
   -
     href: /wiki/
@@ -95,6 +97,7 @@ navs:
   -
     href: /links/
     label: 链接
+    mobile-hidden: true
 
   -
     href: /about/
