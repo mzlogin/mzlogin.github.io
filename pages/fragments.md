@@ -4,13 +4,37 @@ title: Fragments
 description: fragments 索引页
 keywords: fragments
 comments: false
+mermaid: true
 menu: 片段
 permalink: /fragments/
 ---
 
 > 零散的知识，简短的观点，作为片段汇集于此。
 
-<a href="{{ site.url }}/fragments/">全部 <span class="octicon octicon-chevron-right"></span></a>
+{% assign tagliststr = '' %}
+{% for item in site.fragments %}
+{% if item.title != "Fragment Template" %}
+  {% for tag in item.tags %}
+    {% if tagliststr contains tag %}
+    {% else %}
+      {% if tagliststr != '' %}{% assign tagliststr = tagliststr | append: ',' %}{% endif %}
+      {% assign tagliststr = tagliststr | append: tag %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+{% endfor %}
+
+{% assign taglist = tagliststr | split: ',' %}
+
+```mermaid
+graph TD
+    全部
+      {% for tag in taglist %}全部 --> {{ tag }}
+      {% endfor %}
+    click 全部 "/fragments/"
+    {% for tag in taglist %}click {{ tag }} "/fragments/?tag={{ tag }}"
+    {% endfor %}
+```
 
 <ul class="listing">
 {% for item in site.fragments %}
