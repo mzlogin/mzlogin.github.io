@@ -463,6 +463,14 @@ export LESSCHARSET=utf-8
 
 只在 Windows 下遇到，目前尚未找到有效办法。
 
+### git status 中文乱码
+
+目前只在 Mac 下遇到。
+
+```sh
+git config --global core.quotepath false
+```
+
 ### 统计代码行数
 
 CMD 下直接执行可能失败，可以在右键，Git Bash here 里执行。
