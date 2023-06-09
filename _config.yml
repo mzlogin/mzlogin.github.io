@@ -188,10 +188,11 @@ simple_jekyll_search:
 #      Google      #
 # ---------------- #
 google:
-    analytics_id: G-20FLEG5Q2W
+    analytics_id: # G-20FLEG5Q2W
     adsense:
-        footer: true
-        sidebar: true 
-        sidebar-detail: true 
+        enabled: false
+        footer: false
+        sidebar: false
+        sidebar-detail: false
         content_header: false
         content_footer: false
