@@ -4,7 +4,7 @@ layout: compress
 
 {% assign assets_base_url = site.url %}
 {% if site.cdn.jsdelivr.enabled %}
-{% assign assets_base_url = "https://cdn.jsdelivr.net/gh/" | append: site.repository | append: '@master' %}
+{% assign assets_base_url = "https://fastly.jsdelivr.net/gh/" | append: site.repository | append: '@master' %}
 {% endif %}
 {% assign assets_images_url = '<img src="' | append: site.url | append: "/images" %}
 {% include header.html %}

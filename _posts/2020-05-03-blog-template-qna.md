@@ -88,7 +88,7 @@ mathjax: true
 如果是使用本模板最新代码，那不用做什么，会自动引用最新版本。如果一再刷新后还是不行的话，那需要刷新一下你本地的缓存，方法是依次访问以下 2 个链接：
 
 - <https://purge.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js>
-- <https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js?v=1.7.2>
+- <https://fastly.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js?v=1.7.2>
 
 ## Gitalk 评论框部分提示 Error: Not Found
 

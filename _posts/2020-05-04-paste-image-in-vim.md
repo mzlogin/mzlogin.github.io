@@ -27,7 +27,7 @@ keywords: Vim, Markdown, md-image-paste.vim
 
 效果演示：
 
-![](https://cdn.jsdelivr.net/gh/mzlogin/blog-assets/md-img-paste-example.gif)
+![](https://fastly.jsdelivr.net/gh/mzlogin/blog-assets/md-img-paste-example.gif)
 
 ## 使用方法
 

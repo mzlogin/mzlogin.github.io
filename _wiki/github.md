@@ -11,7 +11,7 @@ keywords: GitHub
 
 1. 项目内的文件
 
-    比如要下载 https://github.com/junegunn/vim-plug/plug.vim，那可以将 github.com 替换成 cdn.jsdelivr.net/gh，最终地址 https://cdn.jsdelivr.net/gh/junegunn/vim-plug/plug.vim
+    比如要下载 https://github.com/junegunn/vim-plug/plug.vim，那可以将 github.com 替换成 fastly.jsdelivr.net/gh，最终地址 https://fastly.jsdelivr.net/gh/junegunn/vim-plug/plug.vim
 
     参考 <https://mazhuang.org/2020/05/01/cdn-for-github-pages/>
 

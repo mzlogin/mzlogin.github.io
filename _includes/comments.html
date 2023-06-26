@@ -72,8 +72,8 @@
       {% endif %}
     {% when 'gitment' %}
         <div id="container"></div>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/imsun.github.io/gitment/style/default.css">
-        <script src="https://cdn.jsdelivr.net/gh/imsun.github.io/gitment/dist/gitment.browser.js"></script>
+        <link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/imsun.github.io/gitment/style/default.css">
+        <script src="https://fastly.jsdelivr.net/gh/imsun.github.io/gitment/dist/gitment.browser.js"></script>
         <script>
         var gitment = new Gitment({
             id: '{{ page.url | truncate: 50, '' }}',
@@ -88,9 +88,9 @@
         </script>
     {% when 'gitalk' %}
         <div id="gitalk-container"></div>
-        <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css"> -->
+        <!-- <link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/gitalk@1/dist/gitalk.css"> -->
         <link rel="stylesheet" href="{{ assets_base_url }}/assets/vendor/gitalk/gitalk.css">
-        <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+        <script src="https://fastly.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
         <script>
         var gitalk = new Gitalk({
             id: '{{ page.url | truncate: 50, '' }}',

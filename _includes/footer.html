@@ -48,7 +48,7 @@
     </script>
 
     {% if site.components.fancybox.enabled %}
-    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+    <script src="https://fastly.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
     <script>
       $(document).ready(function() {
         $("p img").each(function() {
@@ -61,7 +61,7 @@
 
     {% if page.mermaid %}
     <script type="module">
-      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+      import mermaid from 'https://fastly.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
       mermaid.initialize({ startOnLoad: false });
       await mermaid.run({
         nodes: document.querySelectorAll('pre code.language-mermaid'),
@@ -82,7 +82,7 @@
     {% if page.sequence %}
     <script src="{{ assets_base_url }}/assets/js/webfont.js"></script>
     <script src="{{ assets_base_url }}/assets/js/snap.svg-min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/underscore@1.13.1/underscore-umd-min.js"></script>
+    <script src="https://fastly.jsdelivr.net/npm/underscore@1.13.1/underscore-umd-min.js"></script>
     <script src="{{ assets_base_url }}/assets/vendor/js-sequence-diagrams/dist/sequence-diagram-min.js"></script>
     <link rel="stylesheet" href="{{ assets_base_url }}/assets/vendor/js-sequence-diagrams/dist/sequence-diagram-min.css">
     <script>
@@ -97,13 +97,13 @@
     {% endif %}
 
     {% if page.mathjax %}
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/mathjax/MathJax@2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://fastly.jsdelivr.net/gh/mathjax/MathJax@2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     {% endif %}
 
     {% if page.mindmap %}
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mzlogin/kityminder-core@dev/dist/kityminder.core.css">
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/mzlogin/kity@dev/dist/kity.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/mzlogin/kityminder-core@dev/dist/kityminder.core.min.js"></script>
+    <link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/mzlogin/kityminder-core@dev/dist/kityminder.core.css">
+    <script type="text/javascript" src="https://fastly.jsdelivr.net/gh/mzlogin/kity@dev/dist/kity.min.js"></script>
+    <script type="text/javascript" src="https://fastly.jsdelivr.net/gh/mzlogin/kityminder-core@dev/dist/kityminder.core.min.js"></script>
     <script>
 $(document).ready(function(){
   $('.language-mindmap').each(function(index, element) {
@@ -141,9 +141,9 @@ $(document).ready(function(){
     </script>
     {% endif %}
 {% if page.mindmap2 %}
-    <script src="https://cdn.jsdelivr.net/npm/d3@6"></script>
-    <script src="https://cdn.jsdelivr.net/npm/markmap-view"></script>
-    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.1.2/dist/index.min.js"></script>
+    <script src="https://fastly.jsdelivr.net/npm/d3@6"></script>
+    <script src="https://fastly.jsdelivr.net/npm/markmap-view"></script>
+    <script src="https://fastly.jsdelivr.net/npm/markmap-autoloader@0.1.2/dist/index.min.js"></script>
     <style>
         .markmap > svg {
           width: 100%;

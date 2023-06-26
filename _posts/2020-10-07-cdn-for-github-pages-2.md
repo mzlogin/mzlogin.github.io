@@ -26,7 +26,7 @@ keywords: GitHub, CDN, jsdelivr
 ![after use cdn](/images/posts/github/cdn-after.png)
 ```
 
-如果想将这个图片地址替换为 jsDelivr 的地址，需要做的就是将 `/images` 替换为 `https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/images`。
+如果想将这个图片地址替换为 jsDelivr 的地址，需要做的就是将 `/images` 替换为 `https://fastly.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/images`。
 
 一处一处替换行不行？当然也行，但后面写新文章时要引用图片，还得手动写这一长串，不方便；万一 jsDeliver 出状况，也不好一键切换回来。有没有一劳永逸的方法？当然也有，我们从 Jekyll 的 layout 机制来想办法。
 
@@ -38,7 +38,7 @@ Jekyll 的 layout 可以理解为页面模板，它是可以继承的，比如�
 ```liquid
 {% assign assets_base_url = site.url %}
 {% if site.cdn.jsdelivr.enabled %}
-{% assign assets_base_url = "https://cdn.jsdelivr.net/gh/" | append: site.repository | append: '@master' %}
+{% assign assets_base_url = "https://fastly.jsdelivr.net/gh/" | append: site.repository | append: '@master' %}
 {% endif %}
 {% assign assets_images_url = 'src="' | append: assets_base_url | append: "/images" %}
 {% include header.html %}
@@ -47,7 +47,7 @@ Jekyll 的 layout 可以理解为页面模板，它是可以继承的，比如�
 ```
 {% endraw %}
 
-大意就是，如果打开了启用 jsDelivr 加速的开关，就将 `content` 里的 `src="/images"` 替换为 `src="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/images"`，否则替换为 `src="https://mazhuang.org/images"`。
+大意就是，如果打开了启用 jsDelivr 加速的开关，就将 `content` 里的 `src="/images"` 替换为 `src="https://fastly.jsdelivr.net/gh/mzlogin/mzlogin.github.io@master/images"`，否则替换为 `src="https://mazhuang.org/images"`。
 
 以上便达成了我们的目的。
 
@@ -132,7 +132,7 @@ Jekyll 编译后长这样：
     {% raw %}
     ```liquid
     {% if site.cdn.jsdelivr.enabled and site.url contains 'mazhuang.org' %}
-      json: 'https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io@built/assets/search_data.json',
+      json: 'https://fastly.jsdelivr.net/gh/mzlogin/mzlogin.github.io@built/assets/search_data.json',
     {% else %}
       json: '{{ site.url }}/assets/search_data.json',
     {% endif %}
