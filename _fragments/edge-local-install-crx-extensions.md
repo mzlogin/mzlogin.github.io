@@ -1,7 +1,7 @@
 ---
 layout: fragment
 title: Edge 浏览器本地安装 crx 插件
-tags: [Edge]
+tags: [edge]
 description: Edge 浏览器本地安装 crx 插件
 keywords: crx
 mermaid: false
