@@ -2,7 +2,7 @@
 #   Main Configs   #
 # ---------------- #
 baseurl:
-url: https://mazhuang.org
+url: https://aiwv.pp.ua
 date_format: "ordinal"
 title: AI智谷
 subtitle: "公众号：魔方效率工作室"
@@ -60,7 +60,7 @@ highlight_theme: github
 author: Eric Chen
 organization: 
 organization_url: 
-github_username: mzlogin
+github_username: EricChen
 location: Tianjin, China
 email: weakchen@gmail.com
 
