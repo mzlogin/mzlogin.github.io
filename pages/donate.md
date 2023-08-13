@@ -8,9 +8,9 @@ menu: 赞助
 permalink: /donate/
 ---
 
-> 做了一些微小的事情，如果对你有帮助，可以考虑请我喝杯咖啡。
+> 我的人工智能分享可能很浅显，如果对你有帮助，可以考虑请我喝杯咖啡。
 > 
-> Did some tiny things, consider buying me a cup of coffee if it helps you.
+> My artificial intelligence sharing might be quite basic. If it's helpful to you, you might consider buying me a cup of coffee.
 
 ## Paypal
 
