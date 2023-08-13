@@ -1,6 +1,6 @@
-# 码志
+# AI慧谷
 
-我的个人博客：<https://mazhuang.org>，欢迎 Star 和 Fork。
+我的个人博客：<https://aiwv.xyz>，欢迎 Star 和 Fork。
 
 ## 概览
 
@@ -17,7 +17,7 @@
 
 ## 效果预览
 
-**[在线预览 &rarr;](https://mazhuang.org)**
+**[在线预览 &rarr;](https://aiwv.xyz)**
 
 ![screenshot home](https://mazhuang.org/assets/images/screenshots/home.png)
 
