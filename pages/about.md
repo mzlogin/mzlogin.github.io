@@ -2,13 +2,13 @@
 layout: page
 title: About
 description: AI智谷
-keywords: Eric Chen, 陈立伟
+keywords: Eric Chen
 comments: true
 menu: 关于
 permalink: /about/
 ---
 
-我是陈立伟，一个过气的微软认证系统工程师，目前致力于人工智能学习。
+我是Eric，一个过气的微软认证系统工程师，目前致力于人工智能学习。
 
 我的人生格言是：
 
