@@ -1,7 +1,7 @@
 ---
 layout: categories
 title: Categories
-description: 哈哈，你找到了我的文章基因库
+description: 你可以看看我的人工智能基因学习库
 keywords: 分类
 comments: false
 menu: 分类
