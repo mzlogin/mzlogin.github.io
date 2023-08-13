@@ -1,18 +1,18 @@
 ---
 layout: page
 title: About
-description: 打码改变世界
-keywords: Zhuang Ma, 马壮
+description: AI智谷
+keywords: Eric Chen, 陈立伟
 comments: true
 menu: 关于
 permalink: /about/
 ---
 
-我是马壮，码而生，码而立。
+我是陈立伟，一个过气的微软认证系统工程师，目前致力于人工智能学习。
 
-仰慕「优雅编码的艺术」。
+我的人生格言是：
 
-坚信熟能生巧，努力改变人生。
+不抛弃、不放弃坚持到底就是胜利。
 
 ## 联系
 
@@ -23,7 +23,7 @@ permalink: /about/
 {% if site.url contains 'mazhuang.org' %}
 <li>
 微信公众号：<br />
-<img style="height:192px;width:192px;border:1px solid lightgrey;" src="{{ site.url }}/assets/images/qrcode.jpg" alt="闷骚的程序员" />
+<img style="height:192px;width:192px;border:1px solid lightgrey;" src="{{ site.url }}/assets/images/qrcode.jpg" alt="魔方效率工作室" />
 </li>
 {% endif %}
 </ul>
