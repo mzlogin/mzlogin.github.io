@@ -1,145 +1,46 @@
 ---
 layout: post
-title: 本博客模板常见问题 Q & A
+title: 人工智能
 categories: GitHub
-description: 使用这个博客模板的朋友们时不时会提出一些问题，我将它们的解决方案逐渐整理归纳，汇总到这一篇帖子里。
+description: 什么是人工智能？
 keywords: Jekyll, GitHub Pages
 topmost: true
 ---
 
-使用这个博客模板的朋友们时不时会提出一些问题，我将它们以及对应的解决方案逐渐整理归纳，汇总到这一篇帖子里。
+很多人都在学习和研究人工智能，但是很多人都没有从本源上理解人工智能，到底什么是人工智能。
 
-## 如何本地预览
+## 人工智能的概念
+
+人工智能（Artificial Intelligence，简称AI）是一门研究如何使计算机系统能够模拟人类智能行为和思维过程的科学和技术领域。它旨在开发能够执行需要人类智能的任务的计算机程序和系统。
+
+具体来说，人工智能关注以下几个方面：
+
+1、 学习和适应： 人工智能的目标是使计算机能够从经验中学习，逐步改进自己的性能。这包括从数据中识别模式、调整参数以提高性能等。
+
+2、推理和问题解决： 人工智能致力于使计算机能够进行逻辑推理和问题解决，从而能够理解和处理复杂的情境和任务。
+
+3、感知和理解： 计算机视觉和自然语言处理等领域旨在使计算机能够理解和处理图像、声音、文本等人类感知的信息。
+
+4、决策和规划： 人工智能致力于使计算机能够做出基于信息和目标的决策，以及规划行动来实现预定的目标。
+
+5、交互和沟通： 人工智能研究如何使计算机与人类进行自然的交互和沟通，包括语音识别、自然语言生成等。
+
+人工智能涵盖了许多子领域和技术，如机器学习、深度学习、神经网络、强化学习等。它在各个领域都有广泛的应用，包括医疗、金融、交通、娱乐等。人工智能的发展不断推动技术和社会的进步，但也引发了一系列伦理和道德的问题和讨论。
 
 参考 GitHub 的官方说明：
 
 - [Setting up your Pages site locally with Jekyll](https://help.github.com/articles/setting-up-your-pages-site-locally-with-jekyll/)
 
-## 本地预览报错 undefined method map for false
+## 人工智能的字面理解
 
-```
-GitHub Metadata: Failed to open TCP connection to api.github.com:443 (Connection refused - connect(2) for "api.github.com" port 443)
-Liquid Exception: undefined method `map' for false:FalseClass Did you mean? tap in /_layouts/page.html
-jekyll 3.8.5 | Error:  undefined method `map' for false:FalseClass
-Did you mean?  tap
-```
+人工智能这个词的字面理解由两部分组成：
 
-``undefined method `map` for false:FalseClass`` 这条报错之前总是伴随着 `Failed to open TCP connection to api.github.com:443` 一起出现，是在获取 GitHub Metadata 出错后，导致这一句报错：
+人工（Artificial）： 这一部分指的是由人类设计、创造或构建的，而不是自然产生的。在人工智能中，"人工"表示这种智能是通过计算机程序、算法和模型来模拟人类智能的。
 
-{% raw %}
-```liquid
-{% assign repos = site.github.public_repositories | sort: "stargazers_count" | reverse %}
-```
-{% endraw %}
+智能（Intelligence）： 这一部分指的是具有理解、学习、推理、解决问题等智能行为的能力。在人工智能中，"智能"表示计算机系统能够执行复杂的任务，以及像人类一样思考和做出决策的能力。
 
-解决方法：
+因此，"人工智能"指的是通过计算机技术和算法，创造出能够模拟人类智能行为和思维过程的系统和程序。这些系统可以在处理数据、做出预测、解决问题等方面表现出与人类相似的智能水平。
 
-模板里主要是 _includes/sidebar-popular-repo.html 和 _pages/open-source.md 两个文件里用到了 Metadata，将以上这一句前的判断条件做一下修改后问题解决，将
 
-{% raw %}
-```liquid
-{% if site.github.public_repositories != null %}
-```
-{% endraw %}
-
-改为
-
-{% raw %}
-```liquid
-{% if site.github.public_repositories != false %}
-```
-{% endraw %}
-
-模板最新代码已经做了修改。
-
-## 是否支持画流程图、时序图、mermaid 和 MathJax
-
-支持。因为相关的引入文件比较大可能影响加载速度，没有默认对所有文件开启，需要在要想开启的文件的 Front Matter 里加上声明：
-
-```yaml
----
-flow: true
-sequence: true
-mermaid: true
-mathjax: true
----
-```
-
-以上四个开关分别对应 flowchart.js（流程图）、sequence-diagram.js（时序图）、mermaid 和 MathJax 的支持，按需开启即可，然后就可以在正文里正常画图了，展示效果可以参见 <https://mazhuang.org/wiki/markdown/>，对应写法参考源文件 <https://github.com/mzlogin/mzlogin.github.io/blob/master/_wiki/markdown.md>。
-
-## 如何修改代码高亮风格
-
-可以通过 _config.yml 文件里的配置项 `highlight_theme` 来指定代码高亮风格，支持的风格名称列表参考我维护的另一个项目：
-
-- <https://github.com/mzlogin/rouge-themes>
-
-在项目主页可以看到每种风格的预览效果。
-
-## 代码高亮支持哪些语言
-
-语言列表见 <https://github.com/rouge-ruby/rouge/wiki/List-of-supported-languages-and-lexers>，也可以自己运行 `rougify list` 命令查看最新列表。
-
-## Gitalk 授权登录后提示 403 错误
-
-具体看到的错误信息为 `Error: Requrest failed with status code 403`。
-
-详细的讨论可以参考 <https://github.com/gitalk/gitalk/issues/429>，这个 Issue 里也提到了问题原因和解决方案：更新 Gitalk 到 1.7.2 版本，或者自行搭建 CORS proxy service 并增加配置 `proxy: '<你的 proxy 地址>'`。
-
-如果是使用本模板最新代码，那不用做什么，会自动引用最新版本。如果一再刷新后还是不行的话，那需要刷新一下你本地的缓存，方法是依次访问以下 2 个链接：
-
-- <https://purge.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js>
-- <https://fastly.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js?v=1.7.2>
-
-## Gitalk 评论框部分提示 Error: Not Found
-
-页面上提示 `Error: Not Found.`，浏览器控制台可以看到报错信息 `GET https://api.github.com/repos/<用户名>/<repo>/issues?labels=gitment,xxx 404`。
-
-这种情况一般是 _config.yml 的 gitalk.repo 这个配置项填写的不对。这个配置项是要填写一个利用其 Issues 存储评论内容的代码仓库名称，请确保填写的名称对应的代码仓库存在，如果想省事点可以直接填写博客源码对应的仓库名称，比如 `<用户名>.github.io`。
-
-## 修改二维码图片
-
-_config.yml 里的 components.qrcode 这一段用于控制二维码。
-
-不显示二维码：将 components.qrcode.enabled 改为 false。
-
-替换二维码图片：替换 assets/images/qrcode.jpg 文件。
-
-## _data 目录下的 yml 文件内容含义
-
-*skills.yml* 文件里的内容对应[「关于」][1]页面里的 Skill Keywords。
-
-![](/images/posts/template/skills.yml.png)
-
-*social.yml* 文件里的内容对应[「关于」][1]页面里的「联系」里的内容。
-
-![](/images/posts/template/social.yml.png)
-
-*links.yml* 文件里的内容对应[「链接」][2]页面里的内容。
-
-![](/images/posts/template/links.yml.png)
-
-## 如何置顶文章
-
-在 Markdown 文件头部的元信息里指定 `topmost: true`。
-
-如：
-
-![](https://user-images.githubusercontent.com/1646590/216495045-cfabd732-a029-4f66-a3b8-94d5cedcac7e.png)
-
-## 添加/删除了文章，但是站点没有更新
-
-这种问题一般就是编译出错了。
-
-可以查看自己源码仓库的提交记录，每次提交后面绿色的小勾表示编译没有问题，如果有问题，会看到有红色的小叉：
-
-![](/images/posts/template/jekyll-build-error.png)
-
-点击这个红色的小叉，进 details 可以看到编译报错的具体原因，然后就可以针对性的修改了。
-
-比较常见的可能导致编译出错的问题：
-
-- .yml 文件里有语法错误
-- .md 文件里有无意识引入的 Liquid 语法标记
-
-[1]: https://mazhuang.org/about/
-[2]: https://mazhuang.org/links/
+[1]: https://aiwv.pp.ua/about/
+[2]: https://aiwv.pp.ua/links/
