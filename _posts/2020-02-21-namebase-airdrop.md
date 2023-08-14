@@ -1,7 +1,7 @@
 ---
 layout: post
 title: GitHub 《人工智能通识》
-categories: [GitHub]
+categories: [阅读]
 description: 人工智能读书笔记01——人工智能包含了哪些内容？
 keywords: AI, 人工智能，阅读
 ---
