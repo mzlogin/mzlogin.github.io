@@ -12,7 +12,9 @@ keywords: ChatGPT,OpenAI注册
 
 ### 1、访问 OpenAI 官方网站： 
 
-打开浏览器，前往OpenAI的官方网站（https://openai.com）。如果在国内想注册，必须使用美国IP。
+打开浏览器，前往OpenAI的官方网站（https://openai.com）。 
+
+如果在国内想注册，必须使用美国IP。这里可能会牵涉到科学上网，这个可以见我的开源程序。否则即使能注册，也可能面临被封号！
 
 ### 2、导航至注册页面： 
 
