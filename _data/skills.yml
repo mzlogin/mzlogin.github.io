@@ -1,9 +1,10 @@
-- name: Software Engineer Keywords
+- name: 人工智能
   keywords:
-      - Java
-      - C++
-      - Python
-      - Design Patterns
+      - AI
+      - ChatGPT
+      - Newbing
+      - Bardgoogle
+      - Claude2
 
 - name: Mobile Developer Keywords
   keywords:
