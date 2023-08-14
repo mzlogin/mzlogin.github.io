@@ -2,6 +2,7 @@
 layout: fragment
 title: 人工智能（一）机器学习和神经网络
 categories: study
+tags: [AI]
 description: 李永乐-人工智能学习和神经网络
 keywords: AI, 人工智能，机器学习，神经网络
 ---
