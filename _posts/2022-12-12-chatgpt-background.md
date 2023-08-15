@@ -6,6 +6,8 @@ description: chatgpt背景
 keywords: ChatGPT
 ---
 
+## ChatGPT的背景
+
 ChatGPT是由OpenAI开发的一种基于GPT-3.5架构的大型语言模型。GPT代表"Generative Pre-trained Transformer"，它是一种基于Transformer架构的深度学习模型，专门用于自然语言处理任务。
 
 GPT模型的训练过程分为两个阶段：预训练和微调。
