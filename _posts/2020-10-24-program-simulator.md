@@ -21,6 +21,7 @@ keywords: program simulator，程序管制模拟机
 未从业人员的800课时培训中上机实操；
 
 院校空中交通管理专业学生实训和培训机构实操教员培训。
+
 ![image](https://github.com/weakchen007/aiwv.github.io/assets/58799395/869f66f8-eb60-4431-afd7-db97b2c93eb8)
 
 ### 席位组成：
