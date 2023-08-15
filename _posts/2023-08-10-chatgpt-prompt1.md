@@ -8,20 +8,31 @@ keywords: ChatGPT，prompt
 ## 超赞的ChatGPT提示（一）
 
 Welcome to the "Awesome ChatGPT Prompts" repository! This is a collection of prompt examples to be used with the ChatGPT model.
+
 欢迎来到《超赞的ChatGPT提示》存储库！这是一系列可以用于ChatGPT模型的提示示例集合。
+
 The ChatGPT model is a large language model trained by OpenAI that is capable of generating human-like text. By providing it with a prompt, it can generate responses that continue the conversation or expand on the given prompt.
+
 ChatGPT模型是由OpenAI训练的大型语言模型，能够生成类似人类的文本。通过提供提示，它可以生成继续对话或拓展给定提示的回复。
+
 In this repository, you will find a variety of prompts that can be used with ChatGPT. We encourage you to add your own prompts to the list, and to use ChatGPT to generate new prompts as well.
+
 在这个存储库中，您会找到各种可以与ChatGPT一起使用的提示。我们鼓励您将自己的提示添加到列表中，并且还可以使用ChatGPT生成新的提示。
+
 To get started, simply clone this repository and use the prompts in the README.md file as input for ChatGPT. You can also use the prompts in this file as inspiration for creating your own.
+
 要开始使用，只需克隆此存储库并将README.md文件中的提示作为ChatGPT的输入即可。您还可以使用此文件中的提示来启发自己创建新的提示。
+
 We hope you find these prompts useful and have fun using ChatGPT!
+
 我们希望您发现这些提示很有用，并在使用ChatGPT时玩得开心！
 
 NOTE: Sometimes, some of the prompts may not be working as you expected or may be rejected by the AI. Please try again, start a new thread, or log out and log back in. If these solutions do not work, please try rewriting the prompt using your own sentences while keeping the instructions same.
+
 注意：有时候，某些提示可能无法按照您期望的方式工作，或者可能被AI拒绝。请尝试重新尝试，启动新线程，或者退出登录再登录。如果这些解决方案不奏效，请尝试使用自己的句子重新写提示，同时保持指示相同。
 
 ## Prompts
+
 ### Act as a Linux Terminal 
 充当Linux终端
 
