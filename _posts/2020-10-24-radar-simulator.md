@@ -2,7 +2,7 @@
 layout: post
 title: 雷达管制模拟机
 categories: airport
-description: 235座民航机场的名单
+description: 雷达管制模拟机
 keywords: radar simulator，雷达管制模拟机
 ---
 
@@ -52,13 +52,3 @@ keywords: radar simulator，雷达管制模拟机
 #### 1、区域/进近管制岗位培训
 
 ![image](https://github.com/weakchen007/aiwv.github.io/assets/58799395/b617dec8-3134-489f-b3f8-e89d0158d20c)
-
-
-
-
-
-
-
-
-
-
