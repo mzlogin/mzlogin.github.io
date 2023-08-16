@@ -19,7 +19,7 @@
 
 **[在线预览 &rarr;](https://aiwv.pp.ua)**
 
-![screenshot home](https://aiwv.pp.u/assets/images/screenshots/home.png)
+![screenshot home](https://aiwv.pp.ua/assets/images/screenshots/home.png)
 
 ## Fork 指南
 
