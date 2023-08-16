@@ -10,23 +10,23 @@ keywords: Cloudflare，github，反代CF，Telegram，
 
 ## 一、介绍2种workers搭建veless节点代码
 
-https://github.com/zizifn/edgetunnel/blob/main/src/worker-vless.js
+    https://github.com/zizifn/edgetunnel/blob/main/src/worker-vless.js
 
-https://github.com/Misaka-blog/cf-wkrs-pages-vless/blob/main/_worker.js
+    https://github.com/Misaka-blog/cf-wkrs-pages-vless/blob/main/_worker.js
 
 ## 二、介绍2种IP测速工具：
 
-https://github.com/XIU2/CloudflareSpeedTest
+    https://github.com/XIU2/CloudflareSpeedTest
 
-https://github.com/badafans/better-cloudflare-ip
+    https://github.com/badafans/better-cloudflare-ip
 
 前者给没有配置反代CF的IP,需要自己去添加。后者代码配置了反代CF的IP，可直接使用。而且作者还对域名进行了伪装。
 
 ## 三、获得worker代码中的反代CF的IP：
 
- 1.zip.baipiao.eu.org
+### 1.zip.baipiao.eu.org
 
- 2.Telegram频道：https://t.me/cf_push  有某大佬维护。
+###2.Telegram频道：https://t.me/cf_push  有某大佬维护。
 
 ## 四、优选反代CF的IP。
 
@@ -46,7 +46,7 @@ https://github.com/badafans/better-cloudflare-ip
 
 比如：
 
-CloudflareST.exe -url https://cfspeed1.kkiyomi.top/200mb.bin -tl 250 -sl 10 -tlr 0.10 -f tokyo.txt
+    CloudflareST.exe -url https://cfspeed1.kkiyomi.top/200mb.bin -tl 250 -sl 10 -tlr 0.10 -f tokyo.txt
 
 表示启动cloudflare工具，利用https://cfspeed1.kkiyomi.top/200mb.bin测速地址测速。延迟上限是250,最低速度10M,丢包率小于0.1，针对toyko.txt文件内IP测速。
 
@@ -54,7 +54,7 @@ CloudflareST.exe -url https://cfspeed1.kkiyomi.top/200mb.bin -tl 250 -sl 10 -tlr
 
 ### 1.打开fofa网站搜索
 
- server="cloudflare" && country="JP" && city="Tokyo" && port="443"
+     server="cloudflare" && country="JP" && city="Tokyo" && port="443"
 
 （ 意思是筛选CF的IP，国家是日本，地区是东京，端口443）
 
