@@ -1,6 +1,6 @@
 ---
 layout: post
-title 听刀郎的罗刹海市有感
+title: 听刀郎的罗刹海市有感
 categories: Blog
 description: 刀郎的罗刹海市有感
 keywords: 刀郎，罗刹海市
