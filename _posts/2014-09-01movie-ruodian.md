@@ -2,7 +2,7 @@
 layout: post
 title: 电影《弱点》观后感 
 categories: Blog
-description:电影弱点观后感
+description: 电影弱点观后感
 keywords: 电影，movie，弱点，the blind side
 ---
 
