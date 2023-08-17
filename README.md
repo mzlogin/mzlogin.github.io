@@ -1,6 +1,6 @@
 # AI慧谷X
 
-我的个人博客：<https://aiwv.pp.ua>，欢迎 Star 和 Fork。
+我的个人博客：<https://www.aiwv.xyz>，欢迎 Star 和 Fork。
 
 ## 概览
 
@@ -17,9 +17,9 @@
 
 ## 效果预览
 
-**[在线预览 &rarr;](https://aiwv.pp.ua)**
+**[在线预览 &rarr;](https://aiwv.xyz)**
 
-![screenshot home](https://aiwv.pp.ua/assets/images/screenshots/home.png)
+![screenshot home](https://aiwv.xyz/assets/images/screenshots/home.png)
 
 ## Fork 指南
 
@@ -59,7 +59,7 @@ Fork 本项目之后，还需要做一些事情才能让你的页面「正确」
 
 ## 使用文档
 
-- [本博客模板常见问题 Q & A](https://mazhuang.org/2020/05/03/blog-template-qna/)。
+- [本博客模板常见问题 Q & A](https://aiwv.xyz/2020/05/03/blog-template-qna/)。
 
 - 在本地预览博客效果可以参考 [Setting up your Pages site locally with Jekyll][2]。
 
@@ -83,7 +83,7 @@ Fork 本项目之后，还需要做一些事情才能让你的页面「正确」
 
 如果对本博客模板或者内容有任何建议，可以通过 [Issues](https://github.com/weakchen007/aiwv.github.io/issues) 或者微信公众号「AI智谷X」与我取得联系。
 
-<img width="192px" height="192px" src="https://aiwv.pp.ua/assets/images/qrcode.jpg"/>
+<img width="192px" height="192px" src="https://aiwv.xyz/assets/images/qrcode.jpg"/>
 
 ## 致谢
 
