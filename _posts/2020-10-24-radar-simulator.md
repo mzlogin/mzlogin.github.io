@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 雷达管制模拟机
-categories: airport
+categories: Airport
 description: 雷达管制模拟机
 keywords: radar simulator，雷达管制模拟机
 ---
