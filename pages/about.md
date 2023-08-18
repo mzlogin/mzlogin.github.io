@@ -28,6 +28,8 @@ permalink: /about/
 {% endif %}
 </ul>
 
+Email：weakchen@gmail.com
+
 
 ## Skill Keywords
 
