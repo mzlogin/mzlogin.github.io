@@ -1,9 +1,9 @@
 ---
 layout: post
 title: 人工智能
-categories: GitHub
+categories: AI
 description: 什么是人工智能？
-keywords: Jekyll, GitHub Pages
+keywords: AI
 topmost: true
 ---
 
