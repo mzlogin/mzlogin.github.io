@@ -28,8 +28,15 @@ keywords: 电影，movie，弱点，the blind side
 
 ![image](https://github.com/weakchen007/aiwv.github.io/assets/58799395/6aa1c6c6-14e6-42a5-b53b-c3dfaf1b11e3)
 
+![image](https://github.com/weakchen007/aiwv.github.io/assets/58799395/8d606301-abb9-4475-9abe-dcec2f9de745)
+
 电影通过感人的场景和情感丰富的对话，展现了家庭的温暖和人性的善良。它不仅强调了迈克尔的成长和奋斗，还描绘了杰安妮的无私爱心和坚持不懈的精神。这部电影让观众深刻体会到，通过爱、关怀和信任，一个人的命运可以得到根本性的改变，而家庭的力量是无与伦比的。
 
 总的来说，《弱电》通过感人的故事情节、出色的表演以及深刻的人生哲理，向观众传达了希望、奋斗和人性的美好。这是一部令人难以忘怀的电影，它向我们展示了生活中真正重要的价值和意义。
 
 ![image](https://github.com/weakchen007/aiwv.github.io/assets/58799395/cf9feaaa-19b7-4154-be4a-fe7e64818147)
+
+真实生活的一家人
+
+![image](https://github.com/weakchen007/aiwv.github.io/assets/58799395/f54a9e52-feab-4522-a6ff-4a088534d249)
+
