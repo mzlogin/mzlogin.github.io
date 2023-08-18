@@ -57,13 +57,13 @@ https://github.com/pengzhile/pandora-cloud-serverless
 
 ### 6.2 token登录
 
-6.2.1、登陆  chat.openai.com 
+#### 6.2.1、登陆  chat.openai.com 
 
-6.2.2、获取token    
+#### 6.2.2、获取token    
 
 chat.openai.com/api/auth/session 
 
-6.2.3、输入token
+#### 6.2.3、输入token
 
 https://chat.magictube.link
 
