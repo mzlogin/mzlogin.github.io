@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 人工智能
+title: 人工智能的概念
 categories: AI
 description: 什么是人工智能？
 keywords: AI
