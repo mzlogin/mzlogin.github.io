@@ -1,5 +1,5 @@
 ---
-layout: fragment
+layout: post
 title: 人工智能（一）机器学习和神经网络
 categories: study
 tags: [AI]
