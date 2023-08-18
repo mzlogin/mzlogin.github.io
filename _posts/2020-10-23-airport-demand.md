@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 公司产品面向的需求单位
-categories: airport
+categories: Airport
 description: 空管模拟机、空管训练系统、机场运行类产品、机场训练类产品、通航机场
 keywords: airport，产品需求
 ---
