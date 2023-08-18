@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 机场管制模拟机
-categories: airport
+categories: Airport
 description: 机场管制模拟机
 keywords: airport simulator，机场管制模拟机
 ---
