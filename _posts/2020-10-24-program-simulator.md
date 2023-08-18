@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 程序管制模拟机
-categories: airport
+categories: Airport
 description: 程序管制模拟机
 keywords: program simulator，程序管制模拟机
 ---
