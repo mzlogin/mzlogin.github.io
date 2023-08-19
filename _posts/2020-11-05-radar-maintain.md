@@ -15,7 +15,9 @@ keywords: radar control simulate，maintain
 本手册编写目的是明确雷达管制运行仿真实验平台各模块软件在各个平台下的安装说明。
 
 ### 1.2	总体介绍
+
 ![image](https://github.com/weakchen007/aiwv.github.io/assets/58799395/fd82959f-c020-4c50-a089-91ba4efa853a)
+
 房间布局图
 
 雷达管制模拟系统设备部署在1个房间：
@@ -25,7 +27,9 @@ keywords: radar control simulate，maintain
 2)	部署机长席位1—机长席位2的设备；
 
 3)	部署服务器设备、数据准备席位和系统运行控制席位；
+
 ![image](https://github.com/weakchen007/aiwv.github.io/assets/58799395/06fc2adc-5f74-4c70-9932-d0b14235716c)
+
 网络拓扑图
 
 ### 1.3	环境要求
