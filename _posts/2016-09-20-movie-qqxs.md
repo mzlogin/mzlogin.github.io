@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 电影《丘奇先生》观后感
-categories: Blog
+categories: Movie
 description: 电影《丘奇先生》观后感
 keywords: movie,Mr。Cburcb
 ---
