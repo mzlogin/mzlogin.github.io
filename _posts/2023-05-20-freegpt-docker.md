@@ -18,13 +18,13 @@ keywords: FreeGPT,Docker
 
 ## 3、在Powershell命令行输入如下指令：
 
-   docker pull ramonvc/freegpt-webui
+  > docker pull ramonvc/freegpt-webui
 
 ![image](https://github.com/weakchen007/aiwv.github.io/assets/58799395/7254e834-2d7d-494c-b44f-fd2e34030a9a)
 
 ## 4、在第一条指令运行完毕后，接着输入如下指令：
 
-docker run -p 1338:1338 ramonvc/freegpt-webui
+  > docker run -p 1338:1338 ramonvc/freegpt-webui
 
 ![image](https://github.com/weakchen007/aiwv.github.io/assets/58799395/244776a8-9f66-46ab-a6fb-14f8c8367534)
 
