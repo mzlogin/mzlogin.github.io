@@ -10,6 +10,8 @@ keywords: freecodecamp, programmer
 
 FreeCodeCamp 是获得第一份软件开发工作的有效途径。
 
+https://www.freecodecamp.org/
+
 超过 40,000 人在完成这些课程后获得了开发者工作——包括进入谷歌、微软、阿里巴巴、腾讯等大型公司。
 
 如果刚开始学习编程，建议从头开始，按顺序获得认证。
