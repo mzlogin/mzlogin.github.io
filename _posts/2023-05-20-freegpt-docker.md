@@ -8,7 +8,7 @@ keywords: FreeGPT,Docker
 
 # 在本地Docker上部署FreeGPT
 
-## 1、首先确保本地已经安装了Docker，兵器启动Docker
+## 1、首先确保本地已经安装了Docker，并且启用Docker
 
 ![image](https://github.com/weakchen007/aiwv.github.io/assets/58799395/34c7ed09-210f-4dc8-896d-19995c3fd8ba)
 
