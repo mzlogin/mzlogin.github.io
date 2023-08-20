@@ -35,3 +35,6 @@ https://www.freecodecamp.org/
 编程愉快！
 
 - Quincy Larson，freeCodeCamp.org 创始人、老师
+-
+- ![image](https://github.com/weakchen007/aiwv.github.io/assets/58799395/f5cda925-876c-4613-a2e3-6aaa474baadd)
+
