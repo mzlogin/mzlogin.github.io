@@ -18,8 +18,9 @@ HTML标记元素是用于定义和组织网页内容的基本构建块。以下�
 
 2、链接和图像：
 
-<a href="https://www.example.com">点击这里</a>：创建一个链接到其他网页的超链接。
-<img src="image.jpg" alt="图像描述">：插入图像，src属性指定图像文件的路径，alt属性提供替代文本。
+`<a href="https://www.example.com">点击这里</a>：创建一个链接到其他网页的超链接。`
+
+`<img src="image.jpg" alt="图像描述">：插入图像，src属性指定图像文件的路径，alt属性提供替代文本。`
 
 3、列表：
 
