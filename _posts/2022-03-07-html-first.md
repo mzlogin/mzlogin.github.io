@@ -42,7 +42,7 @@ HTML标记元素是用于定义和组织网页内容的基本构建块。以下�
 
 有序列表：
 
-```
+```html
 html
 Copy code
 <ol>
@@ -75,7 +75,7 @@ Copy code
 
 5、表单：
 
-```
+```html
 html
 Copy code
 <form action="/submit" method="post">
@@ -103,7 +103,7 @@ Copy code
 
 无序列表：
 
-```
+```html
 html
 Copy code
 <ul>
@@ -115,7 +115,7 @@ Copy code
 
 有序列表：
 
-```
+```html
 html
 Copy code
 <ol>
@@ -127,7 +127,7 @@ Copy code
 
 9、表格：
 
-```
+```html
 html
 Copy code
 <table>
@@ -148,7 +148,7 @@ Copy code
 
 10、表单：
 
-```
+```html
 html
 Copy code
 <form action="/submit" method="post">
