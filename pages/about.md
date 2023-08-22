@@ -22,7 +22,7 @@ permalink: /about/
 {% endfor %}
 {% if site.url contains 'aiwv.xyz' %}
 <li>
-微信公众号：<br />
+微信：<br />
 <img style="height:192px;width:192px;border:1px solid lightgrey;" src="{{ site.url }}/assets/images/qrcode.jpg" alt="AI智谷X" />
 </li>
 {% endif %}
