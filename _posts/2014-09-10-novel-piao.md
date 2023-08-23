@@ -1,14 +1,14 @@
 ---
 layout: post
-title: 再读 《飘》
+title: 再读 《飘》（Gone with the wind）
 categories: Blog
 description:  飘 读后感
 keywords: 飘
 ---
 
-# 《飘》：爱与坚韧的传世经典
+# 《飘》（Gone with the Wind）：爱与坚韧的传世经典
 
-前言，初恋当年送我的第一本名著就是飘，而且在一些经典的章节还配上了紫色的小卡片，虽然，当年阅读过，但是映像却并不深，只记得那些小卡片上手写的温暖，国图借的这本《飘》正好借出差好好阅读了一遍。
+前言，初恋当年送我的第一本名著就是《飘》，而且在一些经典的章节还配上了紫色的小卡片，虽然，当年阅读过，但是映像却并不深，只记得那些小卡片上手写的温暖，国图借的这本《飘》正好借出差好好阅读了一遍。
 
 ![image](https://github.com/weakchen007/aiwv.github.io/assets/58799395/5e3ed797-b4cb-4ea2-8b6d-3fad914d54c5)
 
