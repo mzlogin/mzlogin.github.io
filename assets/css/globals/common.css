@@ -737,6 +737,7 @@ div.footnotes::before {
 
 img + em {
   color: grey;
+  display: block;
 }
 
 .content-header-ad { display:inline-block; width: 320px; height: 50px; }
