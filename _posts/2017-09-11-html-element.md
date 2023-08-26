@@ -70,4 +70,4 @@ HTML中存在以下几种类型的标记元素：
 
 超文本标记使文档的一部分链接到其他文档
 
-锚元素在文档中创建超链接，其 `href` 属性设置链接的目标URL。例如：HTML标记 `<a href="https://zh.wikipedia.org/">中文维基百科</a>` 会将文字"中文维基百科（页面存档备份，存于互联网档案馆）"渲染为超链接。要将图片渲染为超链接，`img` 元素要作为内容插入到 `a`` 元素中：`<a href="https://example.org"><img src="image.gif" alt="说明文字" width="50" height="50" border="0"></a>`。
+锚元素在文档中创建超链接，其 `href` 属性设置链接的目标URL。例如：HTML标记 `<a href="https://zh.wikipedia.org/">中文维基百科</a>` 会将文字"中文维基百科（页面存档备份，存于互联网档案馆）"渲染为超链接。要将图片渲染为超链接，`img` 元素要作为内容插入到 `a` 元素中：`<a href="https://example.org"><img src="image.gif" alt="说明文字" width="50" height="50" border="0"></a>`。
