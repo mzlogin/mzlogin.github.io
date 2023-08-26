@@ -33,12 +33,14 @@ HTML文档的页眉：`<head>...</head>` 。标题被包含在头部，例如：
 
 标题：HTML标题由 `<h1>` 到 `<h6>` 六个标签构成，字体由大到小递减：
 
-```<h1>Heading level 1</h1>
+```
+<h1>Heading level 1</h1>
 <h2>Heading level 2</h2>
 <h3>Heading level 3</h3>
 <h4>Heading level 4</h4>
 <h5>Heading level 5</h5>
-<h6>Heading level 6</h6>```
+<h6>Heading level 6</h6>
+```
 
 段落：
 
@@ -69,5 +71,7 @@ HTML中存在以下几种类型的标记元素：
 例如，'''粗体'''表示视觉输出设备应将文本“粗体”加粗，但如果设备无法做到这一点（如朗读文本的听觉设备），就不会发生什么现象。在这种情况下，'''粗体'''与''斜体''也可能有相同的视觉效果，但在本质上它们更加语义化。如同'''加强文字'''与''强调文字''的区别。为支持CSS的使用，大多数表现式标记在HTML 4.0规范中不再被推荐使用。
 
 超文本标记使文档的一部分链接到其他文档
+
+
 
 锚元素在文档中创建超链接，其 `href` 属性设置链接的目标URL。例如：HTML标记 `<a href="https://zh.wikipedia.org/">中文维基百科</a>` 会将文字"中文维基百科（页面存档备份，存于互联网档案馆）"渲染为超链接。要将图片渲染为超链接，`img` 元素要作为内容插入到 `a` 元素中：`<a href="https://example.org"><img src="image.gif" alt="说明文字" width="50" height="50" border="0"></a>`。
