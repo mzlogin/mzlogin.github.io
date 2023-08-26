@@ -26,6 +26,6 @@ HTML文档由嵌套的HTML元素构成。它们用HTML标签表示，包含于�
 
 HTML文档的页眉：`<head>...</head>` 。标题被包含在头部，例如：
 
-`<head>
-  <title>The Title</title>
-</head>`
+`<head>`
+  `<title>The Title</title>`
+`</head>`
