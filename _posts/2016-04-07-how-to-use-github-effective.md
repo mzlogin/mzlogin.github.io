@@ -60,7 +60,6 @@ GitHub 是很多「modern」程序员使用频度很高的网站，但各人从�
 
 7. 如果可以，发动你身边的朋友们跟你一起用起来，有适当的好友互动会更有趣。
 
-   **tip:** 不要把它玩成了纯社交，不停刷 timeline 那就不如玩朋友圈了。[@mzlogin][2]，欢迎互动。
+   **tip:** 不要把它玩成了纯社交，不停刷 timeline 那就不如玩朋友圈了。
 
-[1]: https://www.zhihu.com/question/21248859/answer/93859653
-[2]: https://github.com/mzlogin
+
