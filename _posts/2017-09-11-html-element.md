@@ -25,7 +25,6 @@ HTML文档由嵌套的HTML元素构成。它们用HTML标签表示，包含于�
 例子：
 
 HTML文档的页眉：`<head>...</head>` 。标题被包含在头部，例如：
-
 ```
 `<head>
   <title>The Title</title>
@@ -41,3 +40,7 @@ HTML文档的页眉：`<head>...</head>` 。标题被包含在头部，例如：
 <h5>Heading level 5</h5>
 <h6>Heading level 6</h6>
 ```
+
+段落：
+
+`<p>第一段</p>  <p>第二段</p>`
