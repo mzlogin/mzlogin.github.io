@@ -1,7 +1,7 @@
 ---
 layout: post
 title: HTML标记元素示例
-categories: Study
+categories: HTML
 description:  HTML标记元素示例
 keywords: HTML，元素，示例
 ---
