@@ -1,389 +1,177 @@
 ---
 layout: post
-title: 从一个 NullPointerException 探究 Java 的自动装箱拆箱机制
-categories: Java
-description: 因为遇到一个 NullPointerException，弄清了 Java 的自动装箱拆箱的原理。
-keywords: Java, 自动装箱, 自动拆箱
+title: 《Ultralearning》（超速学习）
+categories: Blog
+description: 《Ultralearning》（超速学习）
+keywords: Ultralearning，超速学习
 ---
 
-前天遇到了一个 NullPointerException，触发的代码类似下面这样：
-
-```java
-public class Test {
-    public static long test(long value) {
-        return value;
-    }
-
-    public static void main(String[] args) {
-        Long value = null;
-        // ...
-        test(value);
-    }
-}
-```
-
-main 方法里的代码实际上相当于调用 `test(null);`，为什么不直接这样写呢？因为编译不过，会报 `错误: 不兼容的类型: <空值>无法转换为long`。
-
-## 抛出问题
-
-运行时提示 `test(value);` 这一行抛出 NullPointerException，但是看着以上代码会有些许困惑：以上代码里一个对象方法都没有调用啊，NullPointerException 从何而来？
-
-## 原因分析
+# 《Ultralearning》（超速学习）
 
-这时，如果留意到 test 方法接受的参数是 long 类型，而我们传入的是 Long 类型（虽然其实是 null），就会想到这会经历一次从类型 Long 到基本数据类型 long 的自动拆箱过程，那会不会是这个过程中抛出的 NullPointerException 呢？因为以前只知道 Java 为一些基础数据类型与对应的包装器类型之间提供了自动装箱拆箱机制，而并不知这机制的具体实现方法是怎么样的，正好学习一下。
-
-用命令 `javap -c Test` 将以上代码编译出的 Test.class 文件进行反汇编，可以看到如下输出：
-
-```java
-Compiled from "Test.java"
-public class Test {
-  public Test();
-    Code:
-       0: aload_0
-       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
-       4: return
-
-  public static long test(long);
-    Code:
-       0: lload_0
-       1: lreturn
-
-  public static void main(java.lang.String[]);
-    Code:
-       0: aconst_null
-       1: astore_1
-       2: aload_1
-       3: invokevirtual #2                  // Method java/lang/Long.longValue:()J
-       6: invokestatic  #3                  // Method test:(J)J
-       9: pop2
-      10: return
-}
-```
+《Ultralearning》是由斯科特·亨斯勒（Scott H. Young）所著的一本书，它主要关注的是一种高效学习的方法，这种方法被称为“超速学习”（Ultralearning）。以下是对该书主要内容的详细解析：
 
-从以上字节码及对应的注释可以看出，`test(value);` 这一行被编译后等同于如下代码：
+## 一、什么是Ultralearning？
 
-```java
-long primitive = value.longValue();
-test(promitive);
-```
+书的开篇介绍了Ultralearning 的核心概念：一种注重深度、速度和效率的学习方法。Ultralearning 是一种自主学习的方法，旨在帮助人们更快速、更深入地掌握新的知识和技能。
 
-相比实际代码，多出的 `long primitive = value.longValue();` 这一行看起来就是自动拆箱的过程了，而我们传入的 `value` 为 null，`value.longValue()` 会抛出 NullPointerException，一切就解释得通了。用更简洁的代码表达出了更丰富的含义，这就是所谓的语法糖了。
+## 二、Ultralearning 的原则：
 
-## 证实猜想
+书中详细探讨了一系列Ultralearning 的原则和策略，其中包括：
 
-那么我们上面得出的自动拆箱机制的结论是否正确呢？选择一种其它基本数据类型，比如 int，来佐证一下：
+### 1、焦点学习（Focused Learning）： 
 
-```java
-public class Test {
-    public static void main(String[] args) {
-        Integer value = 10;
-        int primitive = value;
-    }
-}
-```
+将学习时间集中在特定主题或技能上，以深入理解和掌握。
 
-反汇编后对应的字节码：
+### 2、自主学习（Self-Directed Learning）：
 
-```java
-Compiled from "Test.java"
-public class Test {
-  public Test();
-    Code:
-       0: aload_0
-       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
-       4: return
+自己选择学习材料、目标和方法，积极主动地学习。
 
-  public static void main(java.lang.String[]);
-    Code:
-       0: bipush        10
-       2: invokestatic  #2                  // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
-       5: astore_1
-       6: aload_1
-       7: invokevirtual #3                  // Method java/lang/Integer.intValue:()I
-      10: istore_2
-      11: return
-}
-```
+### 3、跨学科学习（Interdisciplinary Learning）：
 
-由以上字节码我们可以印证下文里的知识点了。
+跨足不同领域的知识，促进创新和更深刻的理解。
 
-## 自动装箱与拆箱
+### 4、深度理解（Deep Understanding）： 
 
-自动装箱与拆箱是 Java 1.5 引入的新特性，是一种语法糖。
+不仅仅是记住知识，而是理解其背后的原理和概念。
 
-在此之前，我们要创建一个值为 10 的 Integer 对象，只能写作：
+### 5、集中学习（Concentrated Learning）： 
 
-```java
-Integer value = new Integer(10);
-```
+将学习时间集中在短期内，以更快速地掌握知识和技能。
 
-而现在，我们可以更方便地写为：
+## 三、Ultralearning 的9个法则
 
-```java
-Integer value = 10;
-```
+这些法则是关于如何实施高效学习（Ultralearning）的原则和策略。以下是这些法则的概要：
 
-### 定义与实现机制
+1、项目法则（Metalearning Rule）： 
 
-**自动装箱**，是指从基本数据类型值到其对应的包装类对象的自动转换。比如 `Integer value = 10;`，是通过调用 Integer.valueOf 方法实现转换的。
+学习如何学习。在开始学习之前，了解学习目标，选择适当的学习策略和资源，以及制定学习计划。
 
-**自动拆箱**，是指从包装类对象到其对应的基本数据类型值的自动转换。比如 `int primitive = value;`，是通过调用 Integer.intValue 方法实现转换的。
+2、焦点法则（Focus Rule）： 
 
-| 基本数据类型 | 包装类型  | 装箱方法                 | 拆箱方法               |
-|--------------|-----------|--------------------------|------------------------|
-| boolean      | Boolean   | Boolean.valueOf(boolean) | Boolean.booleanValue() |
-| byte         | Byte      | Byte.valueOf(byte)       | Byte.byteValue()       |
-| char         | Character | Character.valueOf(char)  | Character.charValue()  |
-| short        | Short     | Short.valueOf(short)     | Short.shortValue()     |
-| int          | Integer   | Integer.valueOf(int)     | Integer.intValue()     |
-| long         | Long      | Long.valueOf(long)       | Long.longValue()       |
-| float        | Float     | Float.valueOf(float)     | Float.floatValue()     |
-| double       | Double    | Double.valueOf(double)   | Double.doubleValue()   |
+在学习过程中保持高度专注。避免分心，减少干扰，以便更深入地理解和掌握知识。
 
-### 发生时机
+3、直接法则（Directness Rule）： 
 
-自动装箱与拆箱主要发生在以下四种时机：
+学习过程中追求直接的实践和应用。通过实际操作来学习，而不仅仅是被动地阅读或听课。
 
-1. 赋值时；
+4、重述法则（Retrieval Rule）： 
 
-2. 比较时；
+反复提取和回顾所学知识。通过测试和回忆来巩固学习成果，促进长期记忆。
 
-3. 算术运算时；
+5、习惯法则（Retention Rule）： 
 
-4. 方法调用时。
+培养积极的学习习惯。定期复习和实践所学，以保持知识的持久性。
 
-### 常见应用场景
+6、交错法则（Interleaving Rule）： 
 
-**Case 1:**
+在不同的主题之间交替学习。这有助于加强对不同主题之间关系的理解，避免过于局限的学习。
 
-```java
-Integer value = 10; // 自动装箱（赋值时）
+7、拥抱不确定性法则（Experimentation Rule）： 
 
-int primitive = value; // 自动拆箱（方法调用时）
-```
+接受学习过程中的挑战和失败。将学习看作是实验，从错误中学习，并不断调整学习方法。
 
-**Case 2:**
+8、压力法则（Intensity Rule）： 
 
-```java
-Integer value = 1000;
-// ...
-if (value <= 1000) { // 自动拆箱（比较时）
-    // ...
-}
-```
+将学习过程变得更具挑战性。设定高标准和要求，推动自己进一步提升。
 
-**Case 3:**
+9、态度法则（Embracing the Unknown Rule）： 
 
-```java
-List<Integer> list = new ArrayList<>();
-list.add(10); // 自动装箱（方法调用时）
+培养积极的学习态度。对新领域持开放态度，愿意探索和面对未知，以便快速适应变化。
 
-int i = list.get(0); // 自动拆箱（赋值时）
-```
+这些法则旨在帮助人们更加智慧地实施高效学习方法，以快速获得新的知识和技能。每个法则都涵盖了不同的学习方面，从制定计划到应对挑战，都提供了实用的指导。通过遵循这些法则，人们可以更好地应对学习过程中的挑战，以及在更短的时间内实现更大的学习成果。
 
-*注：集合（Collections）里不能直接放入原始类型，集合只接收对象。*
+## 四、案例研究：
 
-**Case 4:**
+书中包括了一些成功的案例研究，这些案例展示了不同人如何应用Ultralearning 方法来实现卓越的学习成果。这些案例涵盖了各种领域，包括语言学习、数学、音乐、编程等。
 
-```java
-ThreadLocal<Integer> local = new ThreadLocal<Integer>();
-local.set(10); // 自动装箱（方法调用时）
+## 五、工具和技术：
 
-int i = local.get(); // 自动拆箱（赋值时）
-```
+作者还介绍了一些实际的工具和技术，以帮助读者实施Ultralearning。这些包括时间管理、目标设定、自我评估和反馈等方面的方法。
 
-*注：ThreadLocal 不能存储基本数据类型，只接收引用类型。*
+## 六、应用Ultralearning：
 
-**Case 5:**
+书中还讨论了如何应用Ultralearning 方法来解决具体的学习挑战，包括提高工作效率、备考考试、提升职业技能等。
 
-```java
-public void fun1(Integer value) {
-    //
-}
+总之，《Ultralearning》提供了一个全面的框架，教导人们如何通过深度、自主和高效的学习方法来快速获得新知识和技能。这本书不仅提供了理论基础，还通过案例研究和实用技术帮助读者应用这些原则。它适用于任何希望在学习中取得卓越成果的人，无论他们是学生、职场人士还是自我学习者。
 
-public void fun2(int value) {
-    //
-}
+# 关于作者Scott H. Young，他利用自己这套学习方法：
 
-public void test() {
-    fun1(10); // 自动装箱（方法调用时）
+1、仅12个月就完成了麻省理工学院信息科学4年的课程；
 
-    Integer value = 10;
-    fun2(value); // 自动拆箱（方法调用时）
-}
-```
+2、1年内，从0开始学会西班牙语、葡萄牙语、中文和韩文四国语言；
 
-**Case 6:**
+3、1个月内学会达到专业程度的肖像画技巧；
 
-```java
-Integer v1 = new Integer(10);
-Integer v2 = new Integer(20);
-int v3 = 30;
+![image](https://github.com/weakchen007/aiwv.github.io/assets/58799395/d1bba399-b1b4-40b9-ab27-47ff4de74d8b)
 
-int sum = v1 + v2; // 自动拆箱（算术运算时）
-sum = v1 + 30; // 自动拆箱（算术运算时）
-```
 
-### 相关知识点
+9个法则：
 
-#### 比较
+1、后设学习：先画一张学习地图
 
-除 `==` 以外，包装类对象与基本数据类型值的比较，包装类对象与包装类对象之间的比较，都是自动拆箱后对基本数据类型值进行比较，所以，**要注意这些类型间进行比较时自动拆箱可能引发的 NullPointerException**。
+先弄清楚“学习如何学习”这件事
 
-`==` 比较特殊，因为可以用于判断左右是否为同一对象，所以两个包装类对象之间 `==`，会用于判断是否为同一对象，而不会进行自动拆箱操作；包装类对象与基本数据类型值之间 `==`，会自动拆箱。
+2、专心致志：把刀磨利
 
-示例代码：
+培养专注力
 
-```java
-Integer v1 = new Integer(10);
-Integer v2 = new Integer(20);
+3、直接了当：走最短的路，勇往直前
 
-if (v1 < v2) { // 自动拆箱
-    // ...
-}
+透过实际去做来学习
 
-if (v1 == v2) { // 不拆箱
-    // ...
-}
+4、反复操练：直击你最大的弱点
 
-if (v1 == 10) { // 自动拆箱
-    // ...
-}
-```
+把复杂的技能拆解成一个个小部分，练习精通它们
 
-#### 缓存
+5、提取记忆：用测验来学习
 
-Java 为整型值包装类 Byte、Character、Short、Integer、Long 设置了缓存，用于存储一定范围内的值，详细如下：
+督促自己主动学习，非被动学习
 
-| 类型      | 缓存值范围           |
-|-----------|----------------------|
-| Byte      | -128 ~ 127           |
-| Character | 0 ~ 127              |
-| Short     | -128 ~ 127           |
-| Integer   | -128 ~ 127（可配置） |
-| Long      | -128 ~ 127           |
+6、意见回馈：别闪避重拳
 
-在一些情况下，比如自动装箱时，如果值在缓存值范围内，将不创建新对象，直接从缓存里取出对象返回，比如：
+让自己知道该注意哪里，忽略哪里
 
-```java
-Integer v1 = 10;
-Integer v2 = 10;
-Integer v3 = new Integer(10);
-Integer v4 = 128;
-Integer v5 = 128;
-Integer v6 = Integer.valueOf(10);
+7、保留记忆：别让有漏洞的桶子倒水
 
-System.out.println(v1 == v2); // true
-System.out.println(v1 == v3); // false
-System.out.println(v4 == v5); // false
-System.out.println(v1 == v6); // true
-```
+学习不只现在记得，也要永远记得
 
-**缓存实现机制：**
+8、培养直觉：先深掘，再累计
 
-这里使用了设计模式享元模式。
+去了解“理解”是如何发生的
 
-以 Short 类实现源码为例：
+9、勇于实验：往舒适圈外探索
 
-```java
-// ...
-public final class Short extends Number implements Comparable<Short> {
-    // ...
-    private static class ShortCache {
-        private ShortCache(){}
+探索他人从未想象过的可能性
 
-        static final Short cache[] = new Short[-(-128) + 127 + 1];
+步骤：
 
-        static {
-            for(int i = 0; i < cache.length; i++)
-                cache[i] = new Short((short)(i - 128));
-        }
-    }
+1、制定学习地图：
 
-    // ...
-    public static Short valueOf(short s) {
-        final int offset = 128;
-        int sAsInt = s;
-        if (sAsInt >= -128 && sAsInt <= 127) { // must cache
-            return ShortCache.cache[sAsInt + offset];
-        }
-        return new Short(s);
-    }
-    // ...
-}
-```
+任何有效率的计划，在开始前必定有个基本研究，想超速学习，首先就需要制定一个“学习地图”，但并不需要很完美的“地图”。你需要做得是清楚自己学习的动机、该学习什么和如何学习。
 
-在第一次调用到 `Short.valueOf(short)` 方法时，将创建 -128 ~ 127 对应的 256 个对象缓存到堆内存里。
+2、在做中学习：
 
-这种设计，在频繁用到这个范围内的值的时候效率较高，可以避免重复创建和回收对象，否则有可能闲置较多对象在内存中。
+想要超速学习，就要走“学习地图”中最短的路线，直接到“学习终点”看你要的是什么？
 
-#### 使用不当的情况
+3、反复练习弱点：
 
-自动装箱和拆箱这种语法糖为我们写代码带来了简洁和便利，但如果使用不当，也有可能带来负面影响。
+想要走最短的路线，自然就要面对较高的挑战，不是偷懒的捷径，不过这条路有个优势，你会清楚地发现你对这项学习的弱点和瓶颈，要学什么，就大力对每隔出现的弱点反复练习，向前突破就好。
 
-1. 性能的损耗
+步骤4、专心致志：
 
-   ```java
-   Integer sum = 0;
-   for (int i = 1000; i < 5000; i++) {
-       // 1. 先对 sum 进行自动拆箱
-       // 2. 加法
-       // 3. 自动装箱赋值给 sum，无法命中缓存，会 new Integer(int)
-       sum = sum + i;
-   }
-   ```
-   
-   在循环过程中会分别调用 4000 次 Integer.intValue() 和 Integer.valueOf(int)，并 new 4000 个 Integer 对象，而这些操作将 sum 的类型改为 int 即可避免，节约运行时间和空间，提升性能。
+练习、练习再反复练习，很快就出现了干扰，每次你要开始学习的时候，心理的声音搞死你“好累啊，晚一些再学吧”。每次你在学习过程中“好无聊啊，去看一下手机”。拖延和分心开始替你做主，这是每个人都会遇到的问题。这里可以试看“5秒法则”，改变拖延症的方法。给自己5秒的时间准备，心理倒数5...4...3...2...1，立即开始做。因为普遍发现，只要熬过开始前后的前几分钟，通常那懒惰和不舒服感就会消失。而那些无法持续专注的人，往往是没有体会到专注带来的好处。专注能缩短你的学习或工作的时间。
 
-2. java.lang.NullPointerException
+5、接受反馈：
 
-   尝试对一个值为 null 的包装类对象进行自动拆箱，就有可能造成 NullPointerException。
+意见反馈是最显著的，可以注意这三种反馈类型：结果型反馈、信息型反馈和修正型反馈。
 
-   比如：
+6、牢固记忆：
 
-   ```java
-   Integer v1 = null;
-   int v2 = v1; // NullPointerException
+只复习一次、不断复习、画概念图和自由回想，这几张学习方法，哪一种学习方法更高效。答案是自由回想。比其他成绩高50%，回想是主动学习方法。有一种方法叫间隔练习法，趁你对所学的记忆还未大幅消退前，再次复习并提高相关记忆。可以把一次性学习5小时，改成5天，每天学习一小时，连续频繁接触，学习记忆的内容更长久。
 
-   if (v1 > 10) { // NullPointerException
-       // ...
-   }
+7、超速学习：
 
-   int v3 = v1 + 10; // NullPointerException
-   ```
+跟着这一系列步骤下来，你就已经在超速学习了，新手往往需要较多的尝试，才能瞄准正确的方向。而高手立即就能找到对的方法开始解题，是因为高手拥有大量有条理的学习大片的知识经验。当它们联通的时候，就像直觉一样，直接能快速找到答案或方法。
 
-   还有一种更隐蔽的情形，感谢 [@周少](https://www.zhihu.com/people/zhou-shao-68-55) 补充：
+这套方法听起来好像是在说学习的方法，但它非常强调自主性和自学性，学会超速学习不是一天两天的事情，建议是重复练习
 
-   ```java
-   public class Test {
-       public static void main(String[] args) {
-           long value = true ? null : 1; // NullPointerException
-       }
-   }
-   ```
-
-   这实际上还是对一个值为 null 的 Long 类型进行自动拆箱，反汇编代码：
-
-   ```java
-   Compiled from "Test.java"
-   public class Test {
-     public Test();
-       Code:
-          0: aload_0
-          1: invokespecial #1                  // Method java/lang/Object."<init>":()V
-          4: return
-
-     public static void main(java.lang.String[]);
-       Code:
-          0: aconst_null
-          1: checkcast     #2                  // class java/lang/Long
-          4: invokevirtual #3                  // Method java/lang/Long.longValue:()J
-          7: lstore_1
-          8: return
-   }
-   ```
-
-## 参考
-
-* [Java中的自动装箱与拆箱](http://droidyue.com/blog/2015/04/07/autoboxing-and-autounboxing-in-java/index.html)
-* [深入剖析Java中的装箱和拆箱](http://www.cnblogs.com/dolphin0520/p/3780005.html)
