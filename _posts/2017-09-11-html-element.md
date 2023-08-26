@@ -31,3 +31,13 @@ HTML文档的页眉：`<head>...</head>` 。标题被包含在头部，例如：
   <title>The Title</title>
 </head>`
 ```
+
+标题：HTML标题由<h1>到<h6>六个标签构成，字体由大到小递减：
+```
+`<h1>Heading level 1</h1>
+<h2>Heading level 2</h2>
+<h3>Heading level 3</h3>
+<h4>Heading level 4</h4>
+<h5>Heading level 5</h5>
+<h6>Heading level 6</h6>`
+```
