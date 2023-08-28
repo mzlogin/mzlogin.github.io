@@ -1,8 +1,8 @@
 ---
 layout: post
-title: 如何超过99%的人: 时间管理的奥秘
+title: 如何超过99%的人-时间管理的奥秘
 categories: [BLOG]
-description:  如何超过99%的人: 时间管理的奥秘
+description:  如何超过99%的人-时间管理的奥秘
 keywords: 时间，管理
 ---
 
