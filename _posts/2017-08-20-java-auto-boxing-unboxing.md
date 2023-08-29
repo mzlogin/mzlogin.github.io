@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 《Ultralearning》（超速学习）
-categories: Blog
+categories: Read
 description: 《Ultralearning》（超速学习）
 keywords: Ultralearning，超速学习
 ---
