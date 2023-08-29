@@ -4,7 +4,7 @@ title: Fragments
 description: fragments 索引页
 keywords: fragments
 comments: false
-mermaid: true
+mermaid: false
 menu: 片段
 permalink: /fragments/
 ---
@@ -26,15 +26,7 @@ permalink: /fragments/
 
 {% assign taglist = tagliststr | split: ',' | sort_natural %}
 
-```mermaid
-graph TD
-    全部
-      {% for tag in taglist %}全部 --> {{ tag }}
-      {% endfor %}
-    click 全部 "/fragments/"
-    {% for tag in taglist %}click {{ tag }} "/fragments/?tag={{ tag }}"
-    {% endfor %}
-```
+<a href="{{ site.url }}/fragments/" style="color:#888;display:inline-block;margin:0 8px;">全部</a>{% for tag in taglist %}<a href="{{ site.url }}/fragments/?tag={{ tag }}" style="color:#888;display:inline-block;margin:0 8px;">{{ tag }}</a>{% endfor %}
 
 <ul class="listing">
 {% for item in site.fragments %}
