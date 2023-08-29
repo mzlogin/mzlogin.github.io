@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 《丑陋的中国人》读后感
-categories: Blog
+categories: Read
 description:  《丑陋的中国人》读后感
 keywords: 丑陋的中国人，劣根
 ---
