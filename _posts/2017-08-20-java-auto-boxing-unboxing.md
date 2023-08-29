@@ -8,7 +8,7 @@ keywords: Ultralearning，超速学习
 
 # 《Ultralearning》（超速学习）
 
-《Ultralearning》是由斯科特·亨斯勒（Scott H. Young）所著的一本书，它主要关注的是一种高效学习的方法，这种方法被称为“超速学习”（Ultralearning）。以下是对该书主要内容的详细解析：
+《Ultralearning》是由斯科特·亨斯勒·杨（Scott H. Young）所著的一本书，它主要关注的是一种高效学习的方法，这种方法被称为“超速学习”（Ultralearning）。以下是对该书主要内容的详细解析：
 
 ## 一、什么是Ultralearning？
 
