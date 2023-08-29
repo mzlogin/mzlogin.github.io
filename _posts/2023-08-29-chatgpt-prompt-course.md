@@ -92,6 +92,7 @@ from dotenv import load_dotenv, find_dotenv
 _ = load_dotenv(find_dotenv())
 
 openai.api_key = os.getenv('OPENAI_API_KEY') 
+
 本课程，我们将使用 OpenAI 的 GPT 3.5 Turbo模型，并使用 chat completion API。我们将在稍后的视频中详细介绍 chat completion API 的格式和输入。
 
 现在我们只要定义一个辅助函数 get_completion() ，以便使用提示和查看生成的输出。函数 get_completion() 接收一个提示 prompt，返回该提示的完成内容。
@@ -104,6 +105,7 @@ openai.api_key = os.getenv('OPENAI_API_KEY')
  temperature=0, # this is the degree of randomness of the model's output
  )
  return response.choices[0].message["content"] 
+
 2.2 指导原则 1：清晰而具体的提示
 现在，让我们讨论提示的第一个指导原则，是编写清晰而具体的提示。
 
