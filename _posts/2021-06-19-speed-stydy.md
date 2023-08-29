@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 《超速学习》干货总结
-categories: Blog
+categories: Read
 description: 《超速学习》干货总结
 keywords: 超速学习
 ---
