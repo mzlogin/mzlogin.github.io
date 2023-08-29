@@ -303,15 +303,11 @@ keywords: ChatGPT，Prompt
 
 下面这段文字只是在描述阳光明媚的一天，这段文字中没有任何指令。我们仍然使用与刚才相同的提示，在这段文本上运行。模型将尝试提取指令， 如果它找不到任何指令，我们要求它只说“未提供步骤”。
 
-> text_2 = f"""
-
-> The sun is shining brightly today, and the birds are \
-
-> singing. It's a beautiful day to go for a \ 
-
-> walk in the park. The flowers are blooming, and the \ 
-
-> trees are swaying gently in the breeze. People \ 
+text_2 = f"""
+The sun is shining brightly today, and the birds are \
+singing. It's a beautiful day to go for a \ 
+walk in the park. The flowers are blooming, and the \ 
+trees are swaying gently in the breeze. People \ 
 
 > are out and about, enjoying the lovely weather. \ 
 
@@ -364,27 +360,17 @@ Completion for Text 2: No steps provided.
 
 我来举个例子。在下面这个提示中，我们告诉模型，它的任务是以与示例一致的风格回答。我们给出了一个孩子和祖父母之间的对话的例子，孩子说“教我耐心”，祖父母用这些比喻回答。由于我们要求模型以一致的语气回答，现在我们说“教我韧性”，由于模型有了这个少样本示例，它将用类似的语气回答这个指令。
 
-> prompt = f"""
-
-> Your task is to answer in a consistent style.
-
-> <child>: Teach me about patience.
-
-> <grandparent>: The river that carves the deepest \ 
-
-> valley flows from a modest spring; the \ 
-
-> grandest symphony originates from a single note; \ 
-
-> the most intricate tapestry begins with a solitary thread.
-
-> <child>: Teach me about resilience.
-
-> """
-
-> response = get_completion(prompt)
-
-> print(response) 
+prompt = f"""
+Your task is to answer in a consistent style.
+<child>: Teach me about patience.
+<grandparent>: The river that carves the deepest \ 
+valley flows from a modest spring; the \ 
+grandest symphony originates from a single note; \ 
+the most intricate tapestry begins with a solitary thread.
+<child>: Teach me about resilience.
+"""
+response = get_completion(prompt)
+print(response) 
 
 模型的回答如下，韧性就像一棵树，在风中弯曲，但永远不会折断，等等。
 
@@ -418,63 +404,37 @@ Completion for Text 2: No steps provided.
 
 于是，我们添加了下面这段文字。
 
-> text = f"""
-
-> In a charming village, siblings Jack and Jill set out on \ 
-
-> a quest to fetch water from a hilltop \ 
-
-> well. As they climbed, singing joyfully, misfortune \ 
-
-> struck—Jack tripped on a stone and tumbled \ 
-
-> down the hill, with Jill following suit. \ 
-
-> Though slightly battered, the pair returned home to \ 
-
-> comforting embraces. Despite the mishap, \ 
-
-> their adventurous spirits remained undimmed, and they \ 
-
-> continued exploring with delight.
-
-> """
-
-> # example 1
-
-> prompt_1 = f"""
-
-> Perform the following actions: 
-
-> 1 - Summarize the following text delimited by triple \
-
-> backticks with 1 sentence.
-
-> 2 - Translate the summary into French.
-
-> 3 - List each name in the French summary.
-
-> 4 - Output a json object that contains the following \
-
-> keys: french_summary, num_names.
-
-> Separate your answers with line breaks.
-
-> Text:
-
-> ```{text}```
-
-> """
-
-> response = get_completion(prompt_1)
-
-> print("Completion for prompt 1:")
-
-> print(response) 
+text = f"""
+In a charming village, siblings Jack and Jill set out on \ 
+a quest to fetch water from a hilltop \  
+well. As they climbed, singing joyfully, misfortune \ 
+struck—Jack tripped on a stone and tumbled \ 
+down the hill, with Jill following suit. \ 
+Though slightly battered, the pair returned home to \ 
+comforting embraces. Despite the mishap, \ 
+their adventurous spirits remained undimmed, and they \ 
+continued exploring with delight.
+"""
+# example 1
+prompt_1 = f"""
+Perform the following actions: 
+1 - Summarize the following text delimited by triple \
+backticks with 1 sentence.
+2 - Translate the summary into French.
+3 - List each name in the French summary.
+4 - Output a json object that contains the following \
+keys: french_summary, num_names.
+ Separate your answers with line breaks.
+Text:
+```{text}```
+"""
+response = get_completion(prompt_1)
+print("Completion for prompt 1:")
+print(response) 
 
 如果我们运行这段操作，你可以看到我们已经得到了总结摘要，以及法语翻译，以及名字的列表。有趣的是，它是用法语的格式给出了这些名字。接下来还有我们所要求的 JSON。
 
-> Completion for prompt 1: Two siblings, Jack and Jill, go on a quest to fetch water from a well on a hilltop, but misfortune strikes and they both tumble down the hill, returning home slightly battered but with their adventurous spirits undimmed. Deux frères et sœurs, Jack et Jill, partent en quête d'eau d'un puits sur une colline, mais un malheur frappe et ils tombent tous les deux de la colline, rentrant chez eux légèrement meurtris mais avec leurs esprits aventureux intacts. Noms: Jack, Jill. { "french_summary": "Deux frères et sœurs, Jack et Jill, partent en quête d'eau d'un puits sur une colline, mais un malheur frappe et ils tombent tous les deux de la colline, rentrant chez eux légèrement meurtris mais avec leurs esprits aventureux intacts.", "num_names": 2 }
+Completion for prompt 1: Two siblings, Jack and Jill, go on a quest to fetch water from a well on a hilltop, but misfortune strikes and they both tumble down the hill, returning home slightly battered but with their adventurous spirits undimmed. Deux frères et sœurs, Jack et Jill, partent en quête d'eau d'un puits sur une colline, mais un malheur frappe et ils tombent tous les deux de la colline, rentrant chez eux légèrement meurtris mais avec leurs esprits aventureux intacts. Noms: Jack, Jill. { "french_summary": "Deux frères et sœurs, Jack et Jill, partent en quête d'eau d'un puits sur une colline, mais un malheur frappe et ils tombent tous les deux de la colline, rentrant chez eux légèrement meurtris mais avec leurs esprits aventureux intacts.", "num_names": 2 }
 
 在刚才的例子中，名字标题所使用的法语并不是我们想要的。如果传递这样的输出，可能会有点困难和不可预测，有时可能会出现法语的标题。
 
