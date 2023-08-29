@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 全球公认的高效学习法----费曼学习法
-categories: [Study]
+categories: Read
 description: 自创2.0版费曼学习方法
 keywords: 学习方法，弗曼学习法
 ---
