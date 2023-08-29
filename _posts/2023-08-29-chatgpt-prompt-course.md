@@ -87,11 +87,11 @@ keywords: ChatGPT，Prompt
 
 如果你还没有安装这个Python库，你可以像这样使用PIP来安装它。
 
-** pip install openai
+> pip install openai
 
 接下来需要导入 OpenAI，设置 OpenAI API key。这是一个密钥，你可以从 OpenAI 网站获得 API key。然后，你可以这样设置 API 密钥。如果需要，你也可以将其设置为环境变量。
 
-** import openai openai.api_key = "sk-ea...Ke3a"
+> import openai openai.api_key = "sk-ea...Ke3a"
 
 在本课程中你不需要设置 API key，可以直接运行下面这段代码，因为我们已经在环境中设置了 API key。直接复制这段代码， 不用考虑这是怎么工作的。
 
