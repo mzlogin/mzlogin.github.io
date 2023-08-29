@@ -242,72 +242,119 @@ keywords: ChatGPT，Prompt
 
 现在我复制一段文本，这是一段描述泡茶步骤的段落。然后复制提示，提示的内容是：你将获得由三个引号"""分隔的文本；如果它包含一系列指令，请按以下格式重写这些指令，只写出步骤；如果不包含一系列指令，则只需写出"未提供步骤"。
 
-text_1 = f"""
-Making a cup of tea is easy! First, you need to get some \ 
-water boiling. While that's happening, \ 
-grab a cup and put a tea bag in it. Once the water is \ 
-hot enough, just pour it over the tea bag. \ 
-Let it sit for a bit so the tea can steep. After a \ 
-few minutes, take out the tea bag. If you \ 
-like, you can add some sugar or milk to taste. \ 
-And that's it! You've got yourself a delicious \ 
-cup of tea to enjoy.
-"""
-prompt = f"""
-You will be provided with text delimited by triple quotes. 
-If it contains a sequence of instructions, \ 
-re-write those instructions in the following format:
+> text_1 = f"""
 
-Step 1 - ...
-Step 2 - …
-…
-Step N - …
+> Making a cup of tea is easy! First, you need to get some \ 
 
-If the text does not contain a sequence of instructions, \ 
-then simply write \"No steps provided.\"
+> water boiling. While that's happening, \ 
 
-\"\"\"{text_1}\"\"\"
-"""
-response = get_completion(prompt)
-print("Completion for Text 1:")
-print(response)
+> grab a cup and put a tea bag in it. Once the water is \ 
+
+> hot enough, just pour it over the tea bag. \ 
+
+> Let it sit for a bit so the tea can steep. After a \ 
+
+> few minutes, take out the tea bag. If you \ 
+
+> like, you can add some sugar or milk to taste. \ 
+
+> And that's it! You've got yourself a delicious \ 
+
+> cup of tea to enjoy.
+
+> """
+
+> prompt = f"""
+
+> You will be provided with text delimited by triple quotes. 
+
+> If it contains a sequence of instructions, \ 
+
+> re-write those instructions in the following format:
+
+> Step 1 - ...
+
+> Step 2 - …
+> …
+
+> Step N - …
+
+> If the text does not contain a sequence of instructions, \ 
+
+> then simply write \"No steps provided.\"
+
+> \"\"\"{text_1}\"\"\"
+
+> """
+
+> response = get_completion(prompt)
+
+> print("Completion for Text 1:")
+
+> print(response)
  
 如果我们运行这段程序，可以得到如下的输出，说明该模型能够从文本中提取指令。
 
-Completion for Text 1: Step 1 - Get some water boiling. Step 2 - Grab a cup and put a tea bag in it. Step 3 - Once the water is hot enough, pour it over the tea bag. Step 4 - Let it sit for a bit so the tea can steep. Step 5 - After a few minutes, take out the tea bag. Step 6 - Add some sugar or milk to taste. Step 7 - Enjoy your delicious cup of tea!
+>Completion for Text 1: Step 1 - Get some water boiling. Step 2 - Grab a cup and put a tea bag in it. Step 3 - Once the water is hot enough, pour it over the tea bag. Step 4 - Let it sit for a bit so the tea can steep.
+
+>Step 5 - After a few minutes, take out the tea bag. Step 6 - Add some sugar or milk to taste. Step 7 - Enjoy your delicious cup of tea!
+
 接下来，我将尝试对不同的段落使用相同的提示命令。
 
 下面这段文字只是在描述阳光明媚的一天，这段文字中没有任何指令。我们仍然使用与刚才相同的提示，在这段文本上运行。模型将尝试提取指令， 如果它找不到任何指令，我们要求它只说“未提供步骤”。
 
-text_2 = f"""
-The sun is shining brightly today, and the birds are \
-singing. It's a beautiful day to go for a \ 
-walk in the park. The flowers are blooming, and the \ 
-trees are swaying gently in the breeze. People \ 
-are out and about, enjoying the lovely weather. \ 
-Some are having picnics, while others are playing \ 
-games or simply relaxing on the grass. It's a \ 
-perfect day to spend time outdoors and appreciate the \ 
-beauty of nature.
-"""
-prompt = f"""
-You will be provided with text delimited by triple quotes. 
-If it contains a sequence of instructions, \ 
-re-write those instructions in the following format:
+> text_2 = f"""
 
-Step 1 - ...
-Step 2 - …
-…
-Step N - …
+> The sun is shining brightly today, and the birds are \
 
-If the text does not contain a sequence of instructions, \ 
-then simply write \"No steps provided.\"
+> singing. It's a beautiful day to go for a \ 
 
-\"\"\"{text_2}\"\"\"
-"""
-response = get_completion(prompt)
-print("Completion for Text 2:")
-print(response) 
+> walk in the park. The flowers are blooming, and the \ 
+
+> trees are swaying gently in the breeze. People \ 
+
+> are out and about, enjoying the lovely weather. \ 
+
+> Some are having picnics, while others are playing \ 
+
+> games or simply relaxing on the grass. It's a \ 
+
+> perfect day to spend time outdoors and appreciate the \ 
+
+> beauty of nature.
+
+> """
+
+> prompt = f"""
+
+> You will be provided with text delimited by triple quotes. 
+
+> If it contains a sequence of instructions, \ 
+
+> re-write those instructions in the following format:
+
+> Step 1 - ...
+
+> Step 2 - …
+
+> …
+
+> Step N - …
+
+> If the text does not contain a sequence of instructions, \ 
+
+> then simply write \"No steps provided.\"
+
+> \"\"\"{text_2}\"\"\"
+
+> """
+
+> response = get_completion(prompt)
+
+> print("Completion for Text 2:")
+
+> print(response) 
+
 让我们运行它，模型确定第二段文字中没有指令，输出结果如下。
 
 Completion for Text 2: No steps provided.
@@ -317,26 +364,36 @@ Completion for Text 2: No steps provided.
 
 我来举个例子。在下面这个提示中，我们告诉模型，它的任务是以与示例一致的风格回答。我们给出了一个孩子和祖父母之间的对话的例子，孩子说“教我耐心”，祖父母用这些比喻回答。由于我们要求模型以一致的语气回答，现在我们说“教我韧性”，由于模型有了这个少样本示例，它将用类似的语气回答这个指令。
 
-prompt = f"""
-Your task is to answer in a consistent style.
+> prompt = f"""
 
-<child>: Teach me about patience.
+> Your task is to answer in a consistent style.
 
-<grandparent>: The river that carves the deepest \ 
-valley flows from a modest spring; the \ 
-grandest symphony originates from a single note; \ 
-the most intricate tapestry begins with a solitary thread.
+> <child>: Teach me about patience.
 
-<child>: Teach me about resilience.
-"""
-response = get_completion(prompt)
-print(response) 
+> <grandparent>: The river that carves the deepest \ 
+
+> valley flows from a modest spring; the \ 
+
+> grandest symphony originates from a single note; \ 
+
+> the most intricate tapestry begins with a solitary thread.
+
+> <child>: Teach me about resilience.
+
+> """
+
+> response = get_completion(prompt)
+
+> print(response) 
+
 模型的回答如下，韧性就像一棵树，在风中弯曲，但永远不会折断，等等。
 
-<grandparent>: Resilience is like a tree that bends with the wind but never breaks. It is the ability to bounce back from adversity and keep moving forward, even when things get tough. Just like a tree that grows stronger with each storm it weathers, resilience is a quality that can be developed and strengthened over time.
+> <grandparent>: Resilience is like a tree that bends with the wind but never breaks. It is the ability to bounce back from adversity and keep moving forward, even when things get tough. Just like a tree that grows stronger with each storm it weathers, resilience is a quality that can be developed and strengthened over time.
+
 以上就是我们第一个原则的四种策略，即为模型提供清晰和具体的指示。
 
 2.3 指导原则 2：给模型思考的时间
+
 如果模型匆忙得出错误结论，从而导致推理错误，你可以尝试重新构建查询，以请求一系列相关推理，然后模型提供其最终答案。
 
 另一种思考方式是，如果你给模型一个太复杂的任务，模型无法在短时间内或用少量文字完成，就可能会做出一个不正确的猜测。这种情况也会发生在人身上。如果让一个人在没时间算出答案的情况下，完成一道复杂的数学题，他们也很可能会犯错误。因此，在这些情况下，你可以指示模型更长时间地思考问题，这意味着它在任务上花费了更多的计算量。
@@ -344,50 +401,81 @@ print(response)
 现在我们将讨论第二个原则的一些具体策略，我们也将给出一些案例。
 
 第一个策略：指定完成任务所需的步骤
+
 我们的第一个策略是指定完成任务所需的步骤。
 
 首先，复制一段文字，在这段文字中我们描述了 Jack 和 Jill 的故事。然后，我将复制一份提示。在这个提示中，说明执行以下操作：
 
 首先，用一句话总结由三个反引号```分隔的以下文本。
+
 其次，将摘要翻译成法语。
+
 第三，在法语摘要中列出每个名字。
+
 第四，输出一个 JSON 对象，包括以下字段：法语摘要和名字的数量。
+
 然后，我们希望用换行符分隔答案。
 
 于是，我们添加了下面这段文字。
 
-text = f"""
-In a charming village, siblings Jack and Jill set out on \ 
-a quest to fetch water from a hilltop \ 
-well. As they climbed, singing joyfully, misfortune \ 
-struck—Jack tripped on a stone and tumbled \ 
-down the hill, with Jill following suit. \ 
-Though slightly battered, the pair returned home to \ 
-comforting embraces. Despite the mishap, \ 
-their adventurous spirits remained undimmed, and they \ 
-continued exploring with delight.
-"""
-# example 1
-prompt_1 = f"""
-Perform the following actions: 
-1 - Summarize the following text delimited by triple \
-backticks with 1 sentence.
-2 - Translate the summary into French.
-3 - List each name in the French summary.
-4 - Output a json object that contains the following \
-keys: french_summary, num_names.
+> text = f"""
 
-Separate your answers with line breaks.
+> In a charming village, siblings Jack and Jill set out on \ 
 
-Text:
- ```{text}```
-"""
-response = get_completion(prompt_1)
-print("Completion for prompt 1:")
-print(response) 
+> a quest to fetch water from a hilltop \ 
+
+> well. As they climbed, singing joyfully, misfortune \ 
+
+> struck—Jack tripped on a stone and tumbled \ 
+
+> down the hill, with Jill following suit. \ 
+
+> Though slightly battered, the pair returned home to \ 
+
+> comforting embraces. Despite the mishap, \ 
+
+> their adventurous spirits remained undimmed, and they \ 
+
+> continued exploring with delight.
+
+> """
+
+> # example 1
+
+> prompt_1 = f"""
+
+> Perform the following actions: 
+
+> 1 - Summarize the following text delimited by triple \
+
+> backticks with 1 sentence.
+
+> 2 - Translate the summary into French.
+
+> 3 - List each name in the French summary.
+
+> 4 - Output a json object that contains the following \
+
+> keys: french_summary, num_names.
+
+> Separate your answers with line breaks.
+
+> Text:
+
+> ```{text}```
+
+> """
+
+> response = get_completion(prompt_1)
+
+> print("Completion for prompt 1:")
+
+> print(response) 
+
 如果我们运行这段操作，你可以看到我们已经得到了总结摘要，以及法语翻译，以及名字的列表。有趣的是，它是用法语的格式给出了这些名字。接下来还有我们所要求的 JSON。
 
-Completion for prompt 1: Two siblings, Jack and Jill, go on a quest to fetch water from a well on a hilltop, but misfortune strikes and they both tumble down the hill, returning home slightly battered but with their adventurous spirits undimmed. Deux frères et sœurs, Jack et Jill, partent en quête d'eau d'un puits sur une colline, mais un malheur frappe et ils tombent tous les deux de la colline, rentrant chez eux légèrement meurtris mais avec leurs esprits aventureux intacts. Noms: Jack, Jill. { "french_summary": "Deux frères et sœurs, Jack et Jill, partent en quête d'eau d'un puits sur une colline, mais un malheur frappe et ils tombent tous les deux de la colline, rentrant chez eux légèrement meurtris mais avec leurs esprits aventureux intacts.", "num_names": 2 }
+> Completion for prompt 1: Two siblings, Jack and Jill, go on a quest to fetch water from a well on a hilltop, but misfortune strikes and they both tumble down the hill, returning home slightly battered but with their adventurous spirits undimmed. Deux frères et sœurs, Jack et Jill, partent en quête d'eau d'un puits sur une colline, mais un malheur frappe et ils tombent tous les deux de la colline, rentrant chez eux légèrement meurtris mais avec leurs esprits aventureux intacts. Noms: Jack, Jill. { "french_summary": "Deux frères et sœurs, Jack et Jill, partent en quête d'eau d'un puits sur une colline, mais un malheur frappe et ils tombent tous les deux de la colline, rentrant chez eux légèrement meurtris mais avec leurs esprits aventureux intacts.", "num_names": 2 }
+
 在刚才的例子中，名字标题所使用的法语并不是我们想要的。如果传递这样的输出，可能会有点困难和不可预测，有时可能会出现法语的标题。
 
 下面我展示另一个提示来完成相同的任务。在这个提示中，我使用了我非常喜欢的格式来指定模型的输出结构。这个提示的要求跟原来差不多。提示的开始部分跟原来相同，我们要求相同的步骤。而在提示的后一部分，我们要求模型使用指定的格式，我们指定了具体的格式，包括文本、摘要、翻译、名称和输出 JSON 等内容。最后，我们要求总结文本，或者只说文本， 这与之前完全相同。
