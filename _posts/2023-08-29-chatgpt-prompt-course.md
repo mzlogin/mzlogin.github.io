@@ -96,9 +96,11 @@ keywords: ChatGPT，Prompt
 在本课程中你不需要设置 API key，可以直接运行下面这段代码，因为我们已经在环境中设置了 API key。直接复制这段代码， 不用考虑这是怎么工作的。
 
 > import openai
+
 > import os
 
 > from dotenv import load_dotenv, find_dotenv
+
 > _ = load_dotenv(find_dotenv())
 
 > openai.api_key = os.getenv('OPENAI_API_KEY') 
@@ -108,12 +110,19 @@ keywords: ChatGPT，Prompt
 现在我们只要定义一个辅助函数 get_completion() ，以便使用提示和查看生成的输出。函数 get_completion() 接收一个提示 prompt，返回该提示的完成内容。
 
 > def get_completion(prompt, model="gpt-3.5-turbo"):
+
 > messages = [{"role": "user", "content": prompt}]
+
 > response = openai.ChatCompletion.create(
+
 > model=model,
+
 > messages=messages,
+
 > temperature=0, # this is the degree of randomness of the model's output
+
 > )
+
 > return response.choices[0].message["content"] 
 
 2.2 指导原则 1：清晰而具体的提示
@@ -186,25 +195,44 @@ keywords: ChatGPT，Prompt
 如你所见，这里有三个虚构的书名，格式为漂亮的 JSON 结构化输出。这样做的好处是，你实际上可以在 Python 中将其读入字典（dict）或列表（list）中。
 
 > [
+
 >  {
+
 >    "book_id": 1,
+
 >    "title": "The Lost City of Zorath",
+
 >    "author": "Aria Blackwood",
+
 >    "genre": "Fantasy"
+
 >  },
+
 >  {
+
 >    "book_id": 2,
+
 >    "title": "The Last Survivors",
+
 >    "author": "Ethan Stone",
+
 >    "genre": "Science Fiction"
+
 >  },
+
 >  {
+
 >    "book_id": 3,
+
 >    "title": "The Secret of the Haunted Mansion",
+
 >    "author": "Lila Rose",
+
 >    "genre": "Mystery"
+
 >  }
-]
+
+> ]
 
 第三个策略：要求模型检查是否满足条件
 
