@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 读书：追风筝的人
-categories: Blog
+categories: Read
 description: 希望自己有输入必有输出，这是开篇。
 keywords: 追风筝的人
 ---
