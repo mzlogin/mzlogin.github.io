@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 再读 《傲慢与偏见》 
-categories: Blog
+categories: Read
 description:  傲慢与偏见 读后感
 keywords: 傲慢与偏见
 ---
