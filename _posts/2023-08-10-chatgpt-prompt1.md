@@ -31,7 +31,7 @@ NOTE: Sometimes, some of the prompts may not be working as you expected or may b
 
 注意：有时候，某些提示可能无法按照您期望的方式工作，或者可能被AI拒绝。请尝试重新尝试，启动新线程，或者退出登录再登录。如果这些解决方案不奏效，请尝试使用自己的句子重新写提示，同时保持指示相同。
 
-## Prompts
+## Prompts（提示）
 
 ### 1.Act as a Linux Terminal 
 充当Linux终端
