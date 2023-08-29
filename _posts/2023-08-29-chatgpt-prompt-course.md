@@ -87,34 +87,34 @@ keywords: ChatGPT，Prompt
 
 如果你还没有安装这个Python库，你可以像这样使用PIP来安装它。
 
- pip install openai
+   pip install openai
 
 接下来需要导入 OpenAI，设置 OpenAI API key。这是一个密钥，你可以从 OpenAI 网站获得 API key。然后，你可以这样设置 API 密钥。如果需要，你也可以将其设置为环境变量。
 
- import openai openai.api_key = "sk-ea...Ke3a"
+   import openai openai.api_key = "sk-ea...Ke3a"
 
 在本课程中你不需要设置 API key，可以直接运行下面这段代码，因为我们已经在环境中设置了 API key。直接复制这段代码， 不用考虑这是怎么工作的。
 
-import openai
-import os
+  import openai
+  import os
 
-from dotenv import load_dotenv, find_dotenv
-_ = load_dotenv(find_dotenv())
+  from dotenv import load_dotenv, find_dotenv
+  _ = load_dotenv(find_dotenv())
 
-openai.api_key = os.getenv('OPENAI_API_KEY') 
+  openai.api_key = os.getenv('OPENAI_API_KEY') 
 
 本课程，我们将使用 OpenAI 的 GPT 3.5 Turbo模型，并使用 chat completion API。我们将在稍后的视频中详细介绍 chat completion API 的格式和输入。
 
 现在我们只要定义一个辅助函数 get_completion() ，以便使用提示和查看生成的输出。函数 get_completion() 接收一个提示 prompt，返回该提示的完成内容。
 
- def get_completion(prompt, model="gpt-3.5-turbo"):
- messages = [{"role": "user", "content": prompt}]
- response = openai.ChatCompletion.create(
- model=model,
- messages=messages,
- temperature=0, # this is the degree of randomness of the model's output
- )
- return response.choices[0].message["content"] 
+   def get_completion(prompt, model="gpt-3.5-turbo"):
+   messages = [{"role": "user", "content": prompt}]
+   response = openai.ChatCompletion.create(
+   model=model,
+   messages=messages,
+   temperature=0, # this is the degree of randomness of the model's output
+   )
+   return response.choices[0].message["content"] 
 
 2.2 指导原则 1：清晰而具体的提示
 现在，让我们讨论提示的第一个指导原则，是编写清晰而具体的提示。
