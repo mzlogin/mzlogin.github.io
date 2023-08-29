@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 微观内蒙古（汉英版） 读后感
-categories: Blog
+categories: Read
 description: 微观内蒙古（汉英版） 读后感
 keywords: 微观内蒙古，内蒙古
 ---
