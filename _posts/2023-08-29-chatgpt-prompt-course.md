@@ -95,26 +95,26 @@ keywords: ChatGPT，Prompt
 
 在本课程中你不需要设置 API key，可以直接运行下面这段代码，因为我们已经在环境中设置了 API key。直接复制这段代码， 不用考虑这是怎么工作的。
 
-  import openai
-  import os
+> import openai
+> import os
 
-  from dotenv import load_dotenv, find_dotenv
-  _ = load_dotenv(find_dotenv())
+> from dotenv import load_dotenv, find_dotenv
+> _ = load_dotenv(find_dotenv())
 
-  openai.api_key = os.getenv('OPENAI_API_KEY') 
+> openai.api_key = os.getenv('OPENAI_API_KEY') 
 
 本课程，我们将使用 OpenAI 的 GPT 3.5 Turbo模型，并使用 chat completion API。我们将在稍后的视频中详细介绍 chat completion API 的格式和输入。
 
 现在我们只要定义一个辅助函数 get_completion() ，以便使用提示和查看生成的输出。函数 get_completion() 接收一个提示 prompt，返回该提示的完成内容。
 
-   def get_completion(prompt, model="gpt-3.5-turbo"):
-   messages = [{"role": "user", "content": prompt}]
-   response = openai.ChatCompletion.create(
-   model=model,
-   messages=messages,
-   temperature=0, # this is the degree of randomness of the model's output
-   )
-   return response.choices[0].message["content"] 
+> def get_completion(prompt, model="gpt-3.5-turbo"):
+> messages = [{"role": "user", "content": prompt}]
+> response = openai.ChatCompletion.create(
+> model=model,
+> messages=messages,
+> temperature=0, # this is the degree of randomness of the model's output
+> )
+> return response.choices[0].message["content"] 
 
 2.2 指导原则 1：清晰而具体的提示
 现在，让我们讨论提示的第一个指导原则，是编写清晰而具体的提示。
@@ -126,28 +126,30 @@ keywords: ChatGPT，Prompt
 第一个策略：使用分隔符来清楚地表示输入的不同部分
 我来举个例子。我们有一段话，我们想要完成的任务就是总结这段话。因此，我在提示中要求，将由三重反引号```分隔的文本总结为一句话。
 
-text = f"""
-You should express what you want a model to do by \ 
-providing instructions that are as clear and \ 
-specific as you can possibly make them. \ 
-This will guide the model towards the desired output, \ 
-and reduce the chances of receiving irrelevant \ 
-or incorrect responses. Don't confuse writing a \ 
-clear prompt with writing a short prompt. \ 
-In many cases, longer prompts provide more clarity \ 
-and context for the model, which can lead to \ 
-more detailed and relevant outputs.
-"""
-prompt = f"""
-Summarize the text delimited by triple backticks \ 
-into a single sentence.
-```{text}```
-"""
-response = get_completion(prompt)
-print(response) 
+> text = f"""
+> You should express what you want a model to do by \ 
+> providing instructions that are as clear and \ 
+> specific as you can possibly make them. \ 
+> This will guide the model towards the desired output, \ 
+> and reduce the chances of receiving irrelevant \ 
+> or incorrect responses. Don't confuse writing a \ 
+> clear prompt with writing a short prompt. \ 
+> In many cases, longer prompts provide more clarity \ 
+> and context for the model, which can lead to \ 
+> more detailed and relevant outputs.
+> """
+> prompt = f"""
+> Summarize the text delimited by triple backticks \ 
+> into a single sentence.
+> ```{text}```
+> """
+> response = get_completion(prompt)
+> print(response) 
+
 在提示中，我们使用三重反引号```把将文本{text}括起来，使用 get_completion 函数获得响应，然后打印输出响应。如果我们运行这段程序，就可以得到下面这个输出的句子。
 
-To guide a model towards the desired output and reduce the chances of irrelevant or incorrect responses, it is important to provide clear and specific instructions, which may be longer prompts that provide more clarity and context for the model.
+> To guide a model towards the desired output and reduce the chances of irrelevant or incorrect responses, it is important to provide clear and specific instructions, which may be longer prompts that provide more clarity and context for the model.
+
 在本例中我们使用这些分隔符，向模型非常清楚地指定它应该使用的确切文本。
 
 分隔符可以是任何明确的标点符号，将特定的文本片段部分与提示的其它部分分隔开来。分隔符可以使用三重双引号、单引号、XML标记、章节标题，或者任何可以向模型表明这是一个单独部分的符号或标记。例如我们可以使用这些分隔符： """，---，< >，<tag> </tag>。
@@ -165,26 +167,27 @@ To guide a model towards the desired output and reduce the chances of irrelevant
 
 如你所见，这里有三个虚构的书名，格式为漂亮的 JSON 结构化输出。这样做的好处是，你实际上可以在 Python 中将其读入字典（dict）或列表（list）中。
 
-[
-  {
-    "book_id": 1,
-    "title": "The Lost City of Zorath",
-    "author": "Aria Blackwood",
-    "genre": "Fantasy"
-  },
-  {
-    "book_id": 2,
-    "title": "The Last Survivors",
-    "author": "Ethan Stone",
-    "genre": "Science Fiction"
-  },
-  {
-    "book_id": 3,
-    "title": "The Secret of the Haunted Mansion",
-    "author": "Lila Rose",
-    "genre": "Mystery"
-  }
+> [
+>  {
+>    "book_id": 1,
+>    "title": "The Lost City of Zorath",
+>    "author": "Aria Blackwood",
+>    "genre": "Fantasy"
+>  },
+>  {
+>    "book_id": 2,
+>    "title": "The Last Survivors",
+>    "author": "Ethan Stone",
+>    "genre": "Science Fiction"
+>  },
+>  {
+>    "book_id": 3,
+>    "title": "The Secret of the Haunted Mansion",
+>    "author": "Lila Rose",
+>    "genre": "Mystery"
+>  }
 ]
+
 第三个策略：要求模型检查是否满足条件
 
 如果任务的结果不一定满足假设条件，那么我们可以要求模型先检查这些假设条件，如果它们不满足，就指出这一点，并停止尝试完成完整的任务。
