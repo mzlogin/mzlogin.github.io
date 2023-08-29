@@ -127,23 +127,41 @@ keywords: ChatGPT，Prompt
 我来举个例子。我们有一段话，我们想要完成的任务就是总结这段话。因此，我在提示中要求，将由三重反引号```分隔的文本总结为一句话。
 
 > text = f"""
+
 > You should express what you want a model to do by \ 
+
 > providing instructions that are as clear and \ 
+
 > specific as you can possibly make them. \ 
+
 > This will guide the model towards the desired output, \ 
+
 > and reduce the chances of receiving irrelevant \ 
+
 > or incorrect responses. Don't confuse writing a \ 
+
 > clear prompt with writing a short prompt. \ 
+
 > In many cases, longer prompts provide more clarity \ 
+
 > and context for the model, which can lead to \ 
+
 > more detailed and relevant outputs.
+
 > """
+
 > prompt = f"""
+
 > Summarize the text delimited by triple backticks \ 
+
 > into a single sentence.
+
 > ```{text}```
+
 > """
+
 > response = get_completion(prompt)
+
 > print(response) 
 
 在提示中，我们使用三重反引号```把将文本{text}括起来，使用 get_completion 函数获得响应，然后打印输出响应。如果我们运行这段程序，就可以得到下面这个输出的句子。
