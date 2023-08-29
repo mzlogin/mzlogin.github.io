@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 微观西藏（汉英版） 读后感
-categories: Blog
+categories: Read
 description: 西藏（汉英版） 读后感
 keywords: 微观西藏，西藏
 ---
