@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 日本再次成为战犯
+title: 日本排污入海就是向全世界开战
 categories: Blog
 description: 日本排核污水就是向全世界开战
 keywords: 日本，日本排污，战犯
