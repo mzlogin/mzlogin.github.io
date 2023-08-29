@@ -16,7 +16,7 @@ keywords: 线程
 CreateThread(NULL, 0, ThreadFunc, pParam, 0, NULL);
 ```
 
-后来读到了《Windows 核心编程》里关于线程的相关章节，知道了链接 CRT 的 C/C++ 程序应该使用`_beginthreadex`而非`CreateThread`来创建线程，于是代码变成了这样：
+后来读到了《Windows 核心编程》里关于线程的 相关章节，知道了链接 CRT 的 C/C++ 程序应该使用`_beginthreadex`而非`CreateThread`来创建线程，于是代码变成了这样：
 
 ```
 _beginthreadex(NULL, 0, ThreadFunc, 0, NULL);
