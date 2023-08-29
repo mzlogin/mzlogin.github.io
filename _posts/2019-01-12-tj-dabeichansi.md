@@ -24,7 +24,7 @@ keywords: 大悲禅院，天津
 
 ![image](https://github.com/weakchen007/aiwv.github.io/assets/58799395/08a45941-2ef5-472b-8703-f1e6bf1df320)
 
-##　3、正门
+## 3、正门
 
 ![image](https://github.com/weakchen007/aiwv.github.io/assets/58799395/c0ac2105-0826-47fa-b431-65b1ce025240)
 
