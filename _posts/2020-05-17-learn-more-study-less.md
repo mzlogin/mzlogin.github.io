@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 更聪明地学习，而不是苦读——《如何高效学习》
-categories: Blog
+categories: Read
 description: 《如何高效学习》的吐槽与读书笔记。
 keywords: 如何高效学习，读书笔记，吐槽
 ---
