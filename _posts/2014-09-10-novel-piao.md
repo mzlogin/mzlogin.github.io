@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 再读 《飘》（Gone with the wind）
-categories: Blog
+categories: Read
 description:  飘 读后感
 keywords: 飘
 ---
