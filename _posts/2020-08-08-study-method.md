@@ -7,7 +7,7 @@ keywords: 学习方法，弗曼学习法
 ---
 # 全球公认的高效学习法----费曼学习法
     
-      用正确的方法，做正确的事。----李笑来
+* 用正确的方法，做正确的事。----李笑来
 
 ![image](https://github.com/weakchen007/aiwv.github.io/assets/58799395/c202b89e-ca58-4652-8d08-e2c4e6e3545a)
 
