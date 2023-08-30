@@ -1,16 +1,14 @@
 ---
 layout: post
-title: 读书：追风筝的人
+title: 《追风筝的人》读后感
 categories: Read
 description: 希望自己有输入必有输出，这是开篇。
 keywords: 追风筝的人
 ---
 
-> 《追风筝的人》确实是一部相当优秀而又深刻的作品。——小别老师
+# 《追风筝的人》读后感
 
 ![](/images/blog/the-kite-runner.png)
-
-图 1. 《追风筝的人》/卡勒德.胡赛尼 封面
 
 当在我用一整个下午读完这本书，印象最深的句子是下面这两个：
 
