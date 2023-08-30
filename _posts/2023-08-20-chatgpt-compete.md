@@ -1,7 +1,7 @@
 ---
 layout: post
 title: ChatGPT的竞争对手
-categories: [ChatGPT]
+categories: ChatGPT
 description: ChatGPT的竞争对手
 keywords: ChatGPT，文心一言，MOSS，通义千问，星火，Claude
 ---
