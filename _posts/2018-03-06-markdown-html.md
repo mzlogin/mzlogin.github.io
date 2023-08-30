@@ -214,10 +214,10 @@ Markdown 格式生成的图片默认居左对齐，大小受图片实际大小�
 
 | 字符	| 实体 | 描述 |
 |:------:|:------:|:------:|
-| 	     |&nbsp; | non-breaking space |
-| ©	| &copy; |	copyright sign |
-¥	&yen;	yen sign = yuan sign
-¦	&brvbar;	broken vertical bar
+| 	     |```&nbsp;``` | non-breaking space |
+| ©	| ```&copy;```|	copyright sign |
+| ¥	| ```&yen;``` | yen sign = yuan sign |
+| ¦	|```&brvbar;```	| broken vertical bar |
 §	&sect;	section sign
 ¶	&para;	paragraph sign
 ↵	&crarr;	carriage return
