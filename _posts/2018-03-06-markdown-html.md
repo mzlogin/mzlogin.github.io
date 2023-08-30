@@ -22,7 +22,7 @@ keywords: markdown，html
 
  实现效果如下所示：
 
-`&ensp;&ensp;&ensp;&ensp;半角空格用```&ensp;```表示；
+&ensp;&ensp;&ensp;&ensp;半角空格用```&ensp;```表示；
 
 &emsp;&emsp;全角空格用```&emsp;```表示。
 
