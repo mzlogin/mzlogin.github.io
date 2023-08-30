@@ -69,5 +69,5 @@ keywords: markdown，html
 
 <font face="黑体" size=4 color=red> 实现字体效果：黑体、4号、红色 </font>
 
-<span style="background-color: #D3D3D3"><font size=4 color=#DC143C> 默认字体，4号，使用十六进制表示颜色值 </font></span>
+<span style="background-color: #D3D3D3"><font size=4 color=#DC143C> 默认字体，4号，使用十六进制表示颜色值 </font> </span>
 
