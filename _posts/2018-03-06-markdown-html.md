@@ -142,12 +142,12 @@ H<sub>2</sub>O、注册商标<sup>&reg;</sup>、(x<sub>1</sub>+x<sub>2</sub>)<su
 
 一些常用的特殊符号，比如 § 、→ 、© 、π 等等，均可借助 HTML 语言很容易地实现，具体可参考 w3school 有关HTML 符号、HTML 实体等相关的页面，下表摘录了部分常用字符作为示例：
 
-&emsp;&emsp;  | 字符	| 实体 | 描述 |
-&emsp;&emsp;  |:--------:|:--------:|:--------:|
-&emsp;&emsp;  | 	     |```&nbsp;``` | non-breaking space |
-&emsp;&emsp;  | ©	| ```&copy;```|	copyright sign |
-&emsp;&emsp;  | ¥	| ```&yen;``` | yen sign = yuan sign |
-&emsp;&emsp;  | ¦	|```&brvbar;```	| broken vertical bar |
+&emsp;&emsp;| 字符	| 实体 | 描述 |
+&emsp;&emsp;|:--------:|:--------:|:--------:|
+&emsp;&emsp;| 	     |```&nbsp;``` | non-breaking space |
+&emsp;&emsp;| ©	| ```&copy;```|	copyright sign |
+&emsp;&emsp;| ¥	| ```&yen;``` | yen sign = yuan sign |
+&emsp;&emsp;| ¦	|```&brvbar;```	| broken vertical bar |
  
   
   
