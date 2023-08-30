@@ -49,7 +49,7 @@ keywords: markdown，html
   
   ```11 <span style="background-color: #D3D3D3"><font size=4 color=#DC143C>默认字体，4号，使用十六进制表示颜色值</font></span>```
 
-实现字体为黑体
+<font face="黑体">实现字体为黑体</font>
 
 <small> 比默认字体小一号 </small>
 
@@ -61,9 +61,13 @@ keywords: markdown，html
 
 <font color=红色> 实现字体颜色为红色 </font>
 
-实现背景填充为橙色
-字体颜色值也可以用十六进制表示
-背景颜色值也可以用十六进制表示
-实现字体效果：黑体、4号、红色
-默认字体，4号，使用十六进制表示颜色值
+<span style="background-color: orange">实现背景填充为橙色</span>
+
+<font color=#FF69B4>字体颜色值也可以用十六进制表示</font>
+
+<span style="background-color: #D3D3D3">背景颜色值也可以用十六进制表示</span>
+
+<font face="黑体" size=4 color=red>实现字体效果：黑体、4号、红色</font>
+
+<span style="background-color: #D3D3D3"><font size=4 color=#DC143C>默认字体，4号，使用十六进制表示颜色值</font></span>
 
