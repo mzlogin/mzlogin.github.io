@@ -77,3 +77,5 @@ keywords: markdown，html
 
 Markdown 支持上标和下标：上标使用 ```^xxx^ ```表示，下标使用 ```~xxx~ ```表示，如 ```X~1~^2^ ```则显示为 X<sub>1</sub><sup>2</sup> 。另外，也可以用 HTML 中的```<sup>xxx</sup>```实现上标、```<sub>xxx</sub>```实现下标。
 
+    H<sub>2</sub>O、注册商标<sup>&reg;</sup>、(x<sub>1</sub>+x<sub>2</sub>)<sup>2</sup> = x<sub>1</sub><sup>2</sup>+x<sub>2</sub><sup>2</sup>+2x<sub>1</sub>x<sub>2</sub>
+
