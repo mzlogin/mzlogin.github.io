@@ -21,15 +21,15 @@ keywords: ChatGPT
 
 &emsp;&emsp;这一特点旨在减轻那些担心员工使用ChatGPT的企业的担忧。OpenAI承诺不会使用发送到ChatGPT Enterprise的商业数据或任何使用数据来训练模型，并确保所有与ChatGPT Enterprise的对话在传输和休息时都受到加密保护。
 
-2、其次，它具备适用于大规模部署的功能。
+### 2、其次，它具备适用于大规模部署的功能。
 
 &emsp;&emsp;ChatGPT Enterprise提供了一个管理控制台，支持批量成员管理，包括单点登录、域名验证和分析仪表板的集成。
 
-3、此外，它提供了迄今为止最强大的性能体验。
+### 3、此外，它提供了迄今为止最强大的性能体验。
 
 &emsp;&emsp;ChatGPT Enterprise由GPT-4支持，ChatGPT企业客户可以优先访问GPT-4，它的性能是标准GPT-4的两倍，并且具有扩展的32000个token上下文窗口。此外，ChatGPT Enterprise还可以无限制地访问高级数据分析，这一功能以前被称为代码解释器，它允许ChatGPT分析数据、创建图表、解决数学问题等，包括从上传的文件中提取信息。
 
-4、最后，ChatGPT Enterprise允许员工使用可共享的对话模板构建内部工作流程，并通过OpenAI的API平台创建完全自定义的ChatGPT解决方案，以满足公司的需求。
+### 4、最后，ChatGPT Enterprise允许员工使用可共享的对话模板构建内部工作流程，并通过OpenAI的API平台创建完全自定义的ChatGPT解决方案，以满足公司的需求。
 
 &emsp;&emsp;需要注意的是，之前OpenAI推出了ChatGPT Plus，这是一个每月付费19.99美元的订阅计划，它为用户提供了高级数据分析功能。ChatGPT Plus仍然在继续，并且OpenAI将ChatGPT Enterprise视为对其的补充。
 
@@ -45,7 +45,7 @@ keywords: ChatGPT
 
 &emsp;&emsp;OpenAI去年花费了超过5.4亿美元来开发ChatGPT，但在2022财年的收入仅为3000万美元。因此，希望推出ChatGPT Enterprise 等商业化举措成为OpenAI寻求商业成功的重要部分。
 
-## 结语：OpenAI的商业化困局并非个例
+## 三、结语：OpenAI的商业化困局并非个例
 
 &emsp;&emsp;OpenAI的商业化过程面临着巨大的挑战。尽管大模型领域有着巨大的潜力，但其运营成本高昂，竞争激烈，用户增速放缓，这使得商业化变得更加困难。
 
