@@ -22,48 +22,48 @@ keywords: Markdown, VSCode
 
 <!-- vim-markdown-toc GFM -->
 
-* [背景](#背景)
-    * [优点](#优点)
-    * [使用场景](#使用场景)
-    * [编辑工具](#编辑工具)
-* [语法](#语法)
-    * [标题](#标题)
-    * [段落](#段落)
-    * [行内格式](#行内格式)
-    * [引用块](#引用块)
-    * [超链接](#超链接)
-    * [图片](#图片)
-    * [列表](#列表)
-    * [代码块](#代码块)
-    * [水平分割线](#水平分割线)
-    * [嵌入 HTML](#嵌入-html)
-* [扩展语法](#扩展语法)
-    * [表格](#表格)
-    * [任务列表](#任务列表)
-    * [删除线](#删除线)
-    * [自动链接](#自动链接)
-    * [emoji](#emoji)
-* [奇技淫巧](#奇技淫巧)
-    * [画流程图和时序图](#画流程图和时序图)
-    * [插入数学公式](#插入数学公式)
-    * [用 Markdown 做 PPT](#用-markdown-做-ppt)
-    * [用 Markdown 写微信公众号](#用-markdown-写微信公众号)
-    * [更多](#更多)
-* [参考](#参考)
+* [一、背景](#背景)
+    * [1、优点](#优点)
+    * [2、使用场景](#使用场景)
+    * [3、编辑工具](#编辑工具)
+* [二、语法](#语法)
+    * [1、标题](#标题)
+    * [2、段落](#段落)
+    * [3、行内格式](#行内格式)
+    * [4、引用块](#引用块)
+    * [5、超链接](#超链接)
+    * [6、图片](#图片)
+    * [7、列表](#列表)
+    * [8、代码块](#代码块)
+    * [9、水平分割线](#水平分割线)
+    * [10、嵌入 HTML](#嵌入-html)
+* [三、扩展语法](#扩展语法)
+    * [1、表格](#表格)
+    * [2、任务列表](#任务列表)
+    * [3、删除线](#删除线)
+    * [4、自动链接](#自动链接)
+    * [5、emoji](#emoji)
+* [四、奇技](#奇技淫巧)
+    * [1、画流程图和时序图](#画流程图和时序图)
+    * [2、插入数学公式](#插入数学公式)
+    * [3、用 Markdown 做 PPT](#用-markdown-做-ppt)
+    * [4、用 Markdown 写微信公众号](#用-markdown-写微信公众号)
+    * [5、更多](#更多)
+* [五、参考](#参考)
 
 <!-- vim-markdown-toc -->
 
-## 背景
+## 一、背景
 
-### 优点
+### 1、优点
 
-1. 专注于文字内容；
+#### （1）专注于文字内容；
 
-2. 纯文本，易读易写，可以方便地纳入版本控制；
+#### （2）纯文本，易读易写，可以方便地纳入版本控制；
 
-3. 语法简单，没有什么学习成本，能轻松在码字的同时做出美观大方的排版。
+#### （3）语法简单，没有什么学习成本，能轻松在码字的同时做出美观大方的排版。
 
-### 使用场景
+### 2、使用场景
 
 * 各类代码托管平台
 
@@ -79,7 +79,7 @@ keywords: Markdown, VSCode
 
 个人感觉比较遗憾的一点是各平台可能采用不同语言实现的 Markdown 解析引擎，或采用同一解析引擎的不同版本，而且可能有不同程度的定制与扩展，这导致在不同平台上使用 Markdown 写作时体验并不完全一致。不过幸好对于大家公认的一些标准语法，各家都是支持的。
 
-### 编辑工具
+### 3、编辑工具
 
 理论上任何一款文本编辑器都能用于编辑 Markdown 文档，它们分别提供了不同程度的语法高亮、预览等功能，以下只是列举其中一部分，选择自己称手的即可。
 
@@ -103,9 +103,9 @@ keywords: Markdown, VSCode
 
     各种支持 Markdown 的网站都提供了在线编辑器
 
-## 语法
+## 二、语法
 
-### 标题
+### 1、标题
 
 **Markdown：**
 
@@ -151,7 +151,7 @@ Setext-style 一级标题
 <h2>二级标题</h2>
 ```
 
-### 段落
+### 2、段落
 
 中间没有空行的连续不断的几行文字被视为一个段落。
 
@@ -198,7 +198,7 @@ Setext-style 一级标题
 </p>
 ```
 
-### 行内格式
+### 3、行内格式
 
 对段落或者部分文本的强调效果。
 
@@ -229,7 +229,7 @@ Setext-style 一级标题
 </p>
 ```
 
-### 引用块
+### 4、引用块
 
 **Markdown：**
 
@@ -265,7 +265,7 @@ Setext-style 一级标题
 </blockquote>
 ```
 
-### 超链接
+### 5、超链接
 
 Markdown 支持行内式链接和引用式链接。
 
@@ -309,7 +309,7 @@ Markdown 支持行内式链接和引用式链接。
 <p>引用式 <a href="https://github.com/mzlogin" title="我的 GitHub 主页">GitHub</a> 链接，带 title。</p>
 ```
 
-### 图片
+### 6、图片
 
 在超链接的写法前加一个 `!`，就是引用图片的方法。
 
@@ -329,7 +329,7 @@ Markdown 支持行内式链接和引用式链接。
 <img src="https://mazhuang.org/favicon.ico" alt="Alt text" title="favicon">
 ```
 
-### 列表
+### 7、列表
 
 包括有序列表和无序列表。
 
@@ -372,7 +372,7 @@ Markdown 支持行内式链接和引用式链接。
 
 其中无序列表的标记可以使用 `+`、`-` 或 `*`，有序列表前的数字可以是乱序的。
 
-### 代码块
+### 8、代码块
 
 支持行内代码和代码块。
 
@@ -410,7 +410,7 @@ if (TextUtils.isEmpty(text)) {
 
 块式代码也可以对整个代码段缩进四个空格，或一个 Tab 来实现。
 
-### 水平分割线
+### 9、水平分割线
 
 使用一个单独行里的三个或以上 `*`、`-` 来生产一条水平分割线，它们之间可以有空格。
 
@@ -442,17 +442,17 @@ if (TextUtils.isEmpty(text)) {
 <hr />
 ```
 
-### 嵌入 HTML
+### 10、嵌入 HTML
 
 Markdown 标记语言的目的不是替代 HTML，也不是发明一种更便捷的插入 HTML 标签的方式。它对应的只是 HTML 标签的一个很小的子集。
 
 对于那些没有办法用 Markdown 语法来对应的 HTML 标签，直接使用 HTML 来写就好了。
 
-## 扩展语法
+三、## 扩展语法
 
 本节的内容是介绍一些受到广泛支持的 Markdown 扩展语法。
 
-### 表格
+### 1、表格
 
 **Markdown：**
 
@@ -497,7 +497,7 @@ Markdown 标记语言的目的不是替代 HTML，也不是发明一种更便捷
 </table>
 ```
 
-### 任务列表
+### 2、任务列表
 
 在 GitHub / GitLab 里有较好的支持。
 
@@ -533,7 +533,7 @@ Markdown 标记语言的目的不是替代 HTML，也不是发明一种更便捷
 
 ![task list 2](https://raw.githubusercontent.com/mzlogin/markdown-intro/master/assets/task-list-2.png)
 
-### 删除线
+### 3、删除线
 
 **Markdown：**
 
@@ -551,7 +551,7 @@ Markdown 标记语言的目的不是替代 HTML，也不是发明一种更便捷
 <p>后面三个字打上<del>删除线</del>。</p>
 ```
 
-### 自动链接
+### 4、自动链接
 
 自动链接扩展，即：当识别到 URL，或用 `<`、`>` 包括的 URL 时，会自动为其生成 `a` 标签。
 
@@ -577,7 +577,7 @@ https://github.com
 <p><a href="mailto:example@gmail.com">example@gmail.com</a></p>
 ```
 
-### emoji
+### 5、emoji
 
 以 GitHub Pages 为例。
 
@@ -601,11 +601,11 @@ https://github.com
 </p>
 ```
 
-## 奇技淫巧
+## 四、奇技
 
 脑洞清奇的工程师们还发掘了很多使用 Markdown 的方法，大部分都是引入第三方 JavaScript 插件来实现。对这部分我只做简述，对其中的部分功能比如作图等，还是推荐用专门的可视化工具去做。
 
-### 画流程图和时序图
+### 1、画流程图和时序图
 
 有部分网站和编辑器实现了对 Markdown 里流程图和时序图的支持，比如我们使用的项目管理工具 TAPD 的在线编辑器，还有 VSCode + 插件 Markdown Preview Enhanced 等。
 
@@ -615,7 +615,7 @@ https://github.com
 
 ![时序图](https://raw.githubusercontent.com/mzlogin/markdown-intro/master/assets/tapd-markdown-seq.png)
 
-### 插入数学公式
+### 2、插入数学公式
 
 仍然以 TAPD 为例：
 
@@ -623,11 +623,11 @@ https://github.com
 
 应该是利用 JavaScript 支持了 LaTeX 公式语法。
 
-### 用 Markdown 做 PPT
+### 3、用 Markdown 做 PPT
 
 有专门的工具 [Marp](https://github.com/yhatt/marp)，另外使用 VSCode + 插件 Markdown Preview Enhanced 也可以实现。
 
-### 用 Markdown 写微信公众号
+### 4、用 Markdown 写微信公众号
 
 可以将公众号素材用 Markdown 编辑好后，贴到在线排版工具以后，复制到公众号编辑器里即可。有多种页面主题和代码主题可选择。
 
@@ -635,7 +635,7 @@ https://github.com
 
 ![微信公众号](https://raw.githubusercontent.com/mzlogin/markdown-intro/master/assets/wechat-markdown.png)
 
-### 更多
+### 5、更多
 
 想象力丰富的工程师们还扩展了很多基于 Markdown 的玩法，包括但不限于：
 
@@ -648,17 +648,12 @@ https://github.com
 
 以上功能基本都可以用 VSCode + 插件 Markdown Preview Enhanced 实现。
 
-另外可以参考我以前的一篇博客 [关于 Markdown 的一些奇技淫巧](https://mazhuang.org/2017/09/01/markdown-odd-skills/)。
-
-## 参考
+## 五、参考
 
 * [Markdown: Syntax - DARING FIREBALL](https://daringfireball.net/projects/markdown/syntax)
 * [Markdown - 维基百科](https://zh.wikipedia.org/wiki/Markdown)
 * [GitHub Flavored Markdown Spec](https://github.github.com/gfm/)
-* [关于 Markdown 的一些奇技淫巧](https://mazhuang.org/2017/09/01/markdown-odd-skills/)
+
 
 ---
 
-欢迎关注我的微信公众号，接收 markdown-intro 最新动态。
-
-<div align="center"><img width="192px" height="192px" src="https://mazhuang.org/assets/images/qrcode.jpg"/></div>
