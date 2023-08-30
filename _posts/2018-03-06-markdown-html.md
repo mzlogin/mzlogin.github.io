@@ -37,13 +37,13 @@ keywords: markdown，html
   
   ```5 <big>比默认字体大一号</big>```
   
-  ```6 <font color=red>实现字体颜色为红色</font>```
+  ```6 <font color=red> 实现字体颜色为红色</font>```
   
   ```7 <span style="background-color: orange">实现背景填充为橙色</span>```
   
-  ```8 <font color=#FF69B4>字体颜色值也可以用十六进制表示</font>```
+  ```8 <font color=#FF69B4> 字体颜色值也可以用十六进制表示</font>```
   
-  ```9 <span style="background-color: #D3D3D3">背景颜色值也可以用十六进制表示</span>```
+  ```9 <span style="background-color: #D3D3D3"> 背景颜色值也可以用十六进制表示</span>```
   
   ```10 <font face="黑体" size=4 color=red>实现字体效果：黑体、4号、红色</font>```
   
