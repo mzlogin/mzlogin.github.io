@@ -71,3 +71,9 @@ keywords: markdown，html
 
 <span style="background-color: #D3D3D3"><font size=4 color=#DC143C> 默认字体，4号，使用十六进制表示颜色值 </font> </span>
 
+    注意：其中，字号size的值可取 1 ~ 7，浏览器的默认值为 3。
+
+3、 实现上标、下标
+
+Markdown 支持上标和下标：上标使用 ```^xxx^ ```表示，下标使用 ```~xxx~ ```表示，如 ```X~1~^2^ ```则显示为 X~1~^2^ 。另外，也可以用 HTML 中的```<sup>xxx</sup>```实现上标、```<sub>xxx</sub>```实现下标。
+
