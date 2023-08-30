@@ -113,4 +113,20 @@ H<sub>2</sub>O、注册商标<sup>&reg;</sup>、(x<sub>1</sub>+x<sub>2</sub>)<su
 
 <img width=256 height=256 src="https://bitnotes.oss-cn-shanghai.aliyuncs.com/assets/20200715225103.png" />
 
+    可以用 <div> 标签结合 "align" 属性来控制图片居中对齐
+    <div align="center"><img src="https://bitnotes.oss-cn-shanghai.aliyuncs.com/assets/20200715225103.png" /></div>
+
+ <div align="center"><img src="https://bitnotes.oss-cn-shanghai.aliyuncs.com/assets/20200715225103.png" /></div>
+
+    若要在图片下方加标注，可以用如下方式实现：
+    <center>
+    <img width=256 height=256 src="https://bitnotes.oss-cn-shanghai.aliyuncs.com/assets/20200715225103.png" />
+    图 1 数字图像处理的标准图
+    </center>
+
+<center>
+<img width=256 height=256 src="https://bitnotes.oss-cn-shanghai.aliyuncs.com/assets/20200715225103.png" />
+图 1 数字图像处理的标准图
+</center>
+
 
