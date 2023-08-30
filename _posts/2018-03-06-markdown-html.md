@@ -148,6 +148,9 @@ H<sub>2</sub>O、注册商标<sup>&reg;</sup>、(x<sub>1</sub>+x<sub>2</sub>)<su
 &emsp;&emsp;  | ©	| ```&copy;```|	copyright sign |
 &emsp;&emsp;  | ¥	| ```&yen;``` | yen sign = yuan sign |
 &emsp;&emsp;  | ¦	|```&brvbar;```	| broken vertical bar |
+ 
+  
+  
   | §	|```&sect;```	| section sign |
   | ¶	|```&para;```	| paragraph sign |
   | ↵	|```&crarr;```	| carriage return |
