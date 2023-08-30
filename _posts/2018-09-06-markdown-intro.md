@@ -272,41 +272,41 @@ Markdown 支持行内式链接和引用式链接。
 **Markdown：**
 
 ```
-行内式 [博客](https://mazhuang.org "我的个人博客") 链接，带 title。
+行内式 [博客](https://aiwv.xyz "AI智谷X") 链接，带 title。
 
-行内式 [GitHub](https://github.com/mzlogin) 链接。
+行内式 [GitHub](https://github.com/weakchen) 链接。
 
 引用式 [博客][1] 链接。
 
 引用式 [GitHub][2] 链接，带 title。
 
-[1]: https://mazhuang.org
-[2]: https://github.com/mzlogin "我的 GitHub 主页"
+[1]: https://aiwv.xyz
+[2]: https://github.com/weakchen007 "我的 GitHub 主页"
 ```
 
 **预览效果：**
 
-行内式 [博客](https://mazhuang.org "我的个人博客") 链接，带 title。
+行内式 [博客](https://aiwv.xyz "AI智谷") 链接，带 title。
 
-行内式 [GitHub](https://github.com/mzlogin) 链接。
+行内式 [GitHub](https://github.com/weakchen007) 链接。
 
 引用式 [博客][1] 链接。
 
 引用式 [GitHub][2] 链接，带 title。
 
-[1]: https://mazhuang.org
-[2]: https://github.com/mzlogin "我的 GitHub 主页"
+[1]: https://aiwv.xyz
+[2]: https://github.com/weakchen007 "我的 GitHub 主页"
 
 **对应 HTML：**
 
 ```html
-<p>行内式 <a href="https://mazhuang.org" title="我的个人博客">博客</a> 链接，带 title。</p>
+<p>行内式 <a href="https://aiwv.xyz" title="AI智谷">博客</a> 链接，带 title。</p>
 
-<p>行内式 <a href="https://github.com/mzlogin">GitHub</a> 链接。</p>
+<p>行内式 <a href="https://github.com/weakchen007">GitHub</a> 链接。</p>
 
-<p>引用式 <a href="https://mazhuang.org">博客</a> 链接。</p>
+<p>引用式 <a href="https://aiwv.xyz">博客</a> 链接。</p>
 
-<p>引用式 <a href="https://github.com/mzlogin" title="我的 GitHub 主页">GitHub</a> 链接，带 title。</p>
+<p>引用式 <a href="https://github.com/weakchen007" title="我的 GitHub 主页">GitHub</a> 链接，带 title。</p>
 ```
 
 ### 6、图片
@@ -316,17 +316,17 @@ Markdown 支持行内式链接和引用式链接。
 **Markdown：**
 
 ```
-![Alt text](https://mazhuang.org/favicon.ico "favicon")
+![Alt text](https://aiwv.xyz/favicon.ico "favicon")
 ```
 
 **预览效果：**
 
-![Alt text](https://mazhuang.org/favicon.ico "favicon")
+![Alt text](https://aiwv.xyz/favicon.ico "favicon")
 
 **对应 HTML：**
 
 ```html
-<img src="https://mazhuang.org/favicon.ico" alt="Alt text" title="favicon">
+<img src="https://aiwv.xyz/favicon.ico" alt="Alt text" title="favicon">
 ```
 
 ### 7、列表
@@ -524,14 +524,6 @@ Markdown 标记语言的目的不是替代 HTML，也不是发明一种更便捷
   <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox"> 拖地</li>
 </ul>
 ```
-
-如果是在 GitHub / GitLab 的 Issue 里，会附赠任务完成比例提示效果：
-
-![task list 1](https://raw.githubusercontent.com/mzlogin/markdown-intro/master/assets/task-list-1.png)
-
-还可以直接在网页上拖动调整顺序，勾选和取消勾选。
-
-![task list 2](https://raw.githubusercontent.com/mzlogin/markdown-intro/master/assets/task-list-2.png)
 
 ### 3、删除线
 
