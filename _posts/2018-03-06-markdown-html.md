@@ -104,6 +104,13 @@ H<sub>2</sub>O、注册商标<sup>&reg;</sup>、(x<sub>1</sub>+x<sub>2</sub>)<su
 5、关于图片处理的技巧
      
       Markdown 格式生成的图片默认居左对齐，大小受图片实际大小限制
+      ![](https://bitnotes.oss-cn-shanghai.aliyuncs.com/assets/20200715225103.png)
 
 ![](https://bitnotes.oss-cn-shanghai.aliyuncs.com/assets/20200715225103.png)
+
+     可以用 HTML 中 <img> 标签的 "width" 及 "height" 属性来固定图片的大小
+     <img width=256 height=256 src="https://bitnotes.oss-cn-shanghai.aliyuncs.com/assets/20200715225103.png" />
+
+<img width=256 height=256 src="https://bitnotes.oss-cn-shanghai.aliyuncs.com/assets/20200715225103.png" />
+
 
