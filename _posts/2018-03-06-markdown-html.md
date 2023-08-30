@@ -29,22 +29,22 @@ keywords: markdown，html
 
   ```<font face="黑体">实现字体为黑体</font>```
   
-  <small>比默认字体小一号</small>
+  ```<small>比默认字体小一号</small>```
  
-  这里显示的是浏览器默认字体大小
+  ```这里显示的是浏览器默认字体大小```
   
-  <font size=4>实现字体大小改变</font>
+  ```<font size=4>实现字体大小改变</font>```
   
-  <big>比默认字体大一号</big>
+  ```<big>比默认字体大一号</big>```
   
-  <font color=red>实现字体颜色为红色</font>
+  ```<font color=red>实现字体颜色为红色</font>```
   
-  <span style="background-color: orange">实现背景填充为橙色</span>
+  ```<span style="background-color: orange">实现背景填充为橙色</span>```
   
-  <font color=#FF69B4>字体颜色值也可以用十六进制表示</font>
+  ```<font color=#FF69B4>字体颜色值也可以用十六进制表示</font>```
   
-  <span style="background-color: #D3D3D3">背景颜色值也可以用十六进制表示</span>
+  ```<span style="background-color: #D3D3D3">背景颜色值也可以用十六进制表示</span>```
   
-  <font face="黑体" size=4 color=red>实现字体效果：黑体、4号、红色</font>
+  ```<font face="黑体" size=4 color=red>实现字体效果：黑体、4号、红色</font>```
   
-  <span style="background-color: #D3D3D3"><font size=4 color=#DC143C>默认字体，4号，使用十六进制表示颜色值</font></span>
+  ```<span style="background-color: #D3D3D3"><font size=4 color=#DC143C>默认字体，4号，使用十六进制表示颜色值</font></span>```
