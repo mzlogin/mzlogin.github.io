@@ -57,7 +57,7 @@ keywords: markdown，html
 
 实现字体大小改变
 
-<big>比默认字体大一号</big>
+<big> 比默认字体大一号 </big>
 
 实现字体颜色为红色
 实现背景填充为橙色
