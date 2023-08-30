@@ -7,7 +7,7 @@ keywords: ChatGPT
 ---
 
 
-# OpenAI推出ChatGPT企业版上线
+# OpenAI推出ChatGPT企业版上线:屹今最强，速度加倍
 
 ![image](https://github.com/weakchen007/aiwv.github.io/assets/58799395/3c7bb854-1e33-43b8-a579-73a12f77f3d4)
 
