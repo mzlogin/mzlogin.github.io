@@ -79,3 +79,6 @@ Markdown 支持上标和下标：上标使用 ```^xxx^ ```表示，下标使用 
 
     H<sub>2</sub>O、注册商标<sup>&reg;</sup>、(x<sub>1</sub>+x<sub>2</sub>)<sup>2</sup> = x<sub>1</sub><sup>2</sup>+x<sub>2</sub><sup>2</sup>+2x<sub>1</sub>x<sub>2</sub>
 
+实现的效果如下所示：
+
+H<sub>2</sub>O、注册商标<sup>&reg;</sup>、(x<sub>1</sub>+x<sub>2</sub>)<sup>2</sup> = x<sub>1</sub><sup>2</sup>+x<sub>2</sub><sup>2</sup>+2x<sub>1</sub>x<sub>2</sub>
