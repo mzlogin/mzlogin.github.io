@@ -8,7 +8,7 @@ keywords: markdown，html
 
 # Markdown 内嵌 HTML 语法
 
-    Markdown是一种可以使用普通文本编辑器编写的标记语言，通过简单的标记语法，它可以使普通文本内容具有一定的格式，具体请参考 Markdown 语法说明 。在Markdown中可以内嵌HTML语法，本文总结了一些常用的HTML标记用于扩展Markdown语法。
+```Markdown是一种可以使用普通文本编辑器编写的标记语言，通过简单的标记语法，它可以使普通文本内容具有一定的格式，具体请参考 Markdown 语法说明 。在Markdown中可以内嵌HTML语法，本文总结了一些常用的HTML标记用于扩展Markdown语法。```
 
 ## 1、缩进与换行
 
@@ -78,7 +78,7 @@ keywords: markdown，html
 
 Markdown 支持上标和下标：上标使用 ```^xxx^ ```表示，下标使用 ```~xxx~ ```表示，如 ```X~1~^2^ ```则显示为 X<sub>1</sub><sup>2</sup> 。另外，也可以用 HTML 中的```<sup>xxx</sup>```实现上标、```<sub>xxx</sub>```实现下标。
 
-    H<sub>2</sub>O、注册商标<sup>&reg;</sup>、(x<sub>1</sub>+x<sub>2</sub>)<sup>2</sup> = x<sub>1</sub><sup>2</sup>+x<sub>2</sub><sup>2</sup>+2x<sub>1</sub>x<sub>2</sub>
+```H<sub>2</sub>O、注册商标<sup>&reg;</sup>、(x<sub>1</sub>+x<sub>2</sub>)<sup>2</sup> = x<sub>1</sub><sup>2</sup>+x<sub>2</sub><sup>2</sup>+2x<sub>1</sub>x<sub>2</sub>```
 
 实现的效果如下所示：
 
@@ -88,7 +88,7 @@ H<sub>2</sub>O、注册商标<sup>&reg;</sup>、(x<sub>1</sub>+x<sub>2</sub>)<su
 
 可以使用```<u>```标签为文本添加下划线。
 
-    如果文本不是超链接，就不要<u>对其使用下划线</u>。
+```如果文本不是超链接，就不要<u>对其使用下划线</u>。```
 
 显示效果如下：
 
@@ -96,7 +96,7 @@ H<sub>2</sub>O、注册商标<sup>&reg;</sup>、(x<sub>1</sub>+x<sub>2</sub>)<su
 
 可以使用```<span style="text-decoration: overline;"></span>```为文本添加上划线。
 
-    <span style="text-decoration: overline;">RESET</span>是复位信号，输入低电平有效。
+```<span style="text-decoration: overline;">RESET</span>是复位信号，输入低电平有效。```
 
 显示效果如下：
 
@@ -104,26 +104,26 @@ H<sub>2</sub>O、注册商标<sup>&reg;</sup>、(x<sub>1</sub>+x<sub>2</sub>)<su
 
 ## 5、关于图片处理的技巧
      
-      Markdown 格式生成的图片默认居左对齐，大小受图片实际大小限制
-      ![](https://bitnotes.oss-cn-shanghai.aliyuncs.com/assets/20200715225103.png)
+```Markdown 格式生成的图片默认居左对齐，大小受图片实际大小限制```
+```![](https://bitnotes.oss-cn-shanghai.aliyuncs.com/assets/20200715225103.png)```
 
 ![](https://bitnotes.oss-cn-shanghai.aliyuncs.com/assets/20200715225103.png)
 
-     可以用 HTML 中 <img> 标签的 "width" 及 "height" 属性来固定图片的大小
-     <img width=256 height=256 src="https://bitnotes.oss-cn-shanghai.aliyuncs.com/assets/20200715225103.png" />
+```可以用 HTML 中 <img> 标签的 "width" 及 "height" 属性来固定图片的大小```
+```<img width=256 height=256 src="https://bitnotes.oss-cn-shanghai.aliyuncs.com/assets/20200715225103.png" />```
 
 <img width=256 height=256 src="https://bitnotes.oss-cn-shanghai.aliyuncs.com/assets/20200715225103.png" />
 
-    可以用 <div> 标签结合 "align" 属性来控制图片居中对齐
-    <div align="center"><img src="https://bitnotes.oss-cn-shanghai.aliyuncs.com/assets/20200715225103.png" /></div>
+```可以用 <div> 标签结合 "align" 属性来控制图片居中对齐```
+```<div align="center"><img src="https://bitnotes.oss-cn-shanghai.aliyuncs.com/assets/20200715225103.png" /></div>```
 
  <div align="center"><img src="https://bitnotes.oss-cn-shanghai.aliyuncs.com/assets/20200715225103.png" /></div>
 
-    若要在图片下方加标注，可以用如下方式实现：
-    <center>
-    <img width=256 height=256 src="https://bitnotes.oss-cn-shanghai.aliyuncs.com/assets/20200715225103.png" />
-    图 1 数字图像处理的标准图
-    </center>
+```若要在图片下方加标注，可以用如下方式实现：```
+```<center>```
+```<img width=256 height=256 src="https://bitnotes.oss-cn-shanghai.aliyuncs.com/assets/20200715225103.png" />```
+```图 1 数字图像处理的标准图```
+```</center>```
 
 <center>
 <img width=256 height=256 src="https://bitnotes.oss-cn-shanghai.aliyuncs.com/assets/20200715225103.png" />
