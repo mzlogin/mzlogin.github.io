@@ -32,7 +32,7 @@ mindmap2: false
 
 主要利用 Dubbo 支持多注册中心的特性来进行设计。
 
-Dubbo 多注册中心的用法参考 [多注册中心 | Apache Dubbo](https://cn.dubbo.apache.org/zh-cn/overview/mannual/java-sdk/reference-manual/registry/multiple-registry/)。
+Dubbo 多注册中心的用法参考 [多注册中心 - Apache Dubbo](https://cn.dubbo.apache.org/zh-cn/overview/mannual/java-sdk/reference-manual/registry/multiple-registry/)。
 
 ![](/images/posts/java/move-to-new-zookeeper.drawio.png)
 
