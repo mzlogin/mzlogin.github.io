@@ -204,10 +204,5 @@ H<sub>2</sub>O、注册商标<sup>&reg;</sup>、(x<sub>1</sub>+x<sub>2</sub>)<su
   | ⇔|```&hArr;```	| left right double arrow |
   | ⇕	|```&vArr;```	| up down double arrow |
 
-    作者：bitlogic
-
-    出处：https://www.cnblogs.com/bitlogic/p/7705258.html
-
-    版权：本作品采用「署名-非商业性使用-相同方式共享 4.0 国际」许可协议进行许可。
-
+  
 ---------
