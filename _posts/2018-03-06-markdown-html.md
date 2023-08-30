@@ -91,5 +91,19 @@ H<sub>2</sub>O、注册商标<sup>&reg;</sup>、(x<sub>1</sub>+x<sub>2</sub>)<su
 
 显示效果如下：
 
-如果文本不是超链接，就不要 <u> 对其使用下划线 </u>。
+如果文本不是超链接，就不要 <u> 对其使用下划线 </u> 。
+
+可以使用```<span style="text-decoration: overline;"></span>```为文本添加上划线。
+
+    <span style="text-decoration: overline;">RESET</span>是复位信号，输入低电平有效。
+
+显示效果如下：
+
+<span style="text-decoration: overline;">RESET</span>是复位信号，输入低电平有效。
+
+5、关于图片处理的技巧
+     
+      Markdown 格式生成的图片默认居左对齐，大小受图片实际大小限制
+
+![](https://bitnotes.oss-cn-shanghai.aliyuncs.com/assets/20200715225103.png)
 
