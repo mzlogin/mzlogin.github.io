@@ -7,3 +7,5 @@ _site/
 Gemfile.lock
 .vscode/
 .jekyll-metadata
+.\$*.png.bkp
+.\$*.png.dtmp
