@@ -51,7 +51,7 @@ keywords: markdown，html
 
 实现字体为黑体
 
-<small>比默认字体小一号</small>
+<small> 比默认字体小一号 </small>
 
 这里显示的是浏览器默认字体大小
 
