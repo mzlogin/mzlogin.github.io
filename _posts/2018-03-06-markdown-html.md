@@ -27,7 +27,7 @@ keywords: markdown，html
 
 ## 2、字体、字号、颜色、背景
 
-  <font face="黑体">实现字体为黑体</font>
+  ```<font face="黑体">实现字体为黑体</font>```
   
   <small>比默认字体小一号</small>
  
