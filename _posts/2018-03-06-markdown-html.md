@@ -143,7 +143,7 @@ H<sub>2</sub>O、注册商标<sup>&reg;</sup>、(x<sub>1</sub>+x<sub>2</sub>)<su
 <center>
 <img width=256 height=256 src="https://bitnotes.oss-cn-shanghai.aliyuncs.com/assets/20200715225103.png" />
 
- 图 1 数字图像处理的标准图
+图 1 数字图像处理的标准图
 </center>
 
 ## 6. 特殊字符
