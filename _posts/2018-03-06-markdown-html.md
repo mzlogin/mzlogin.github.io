@@ -50,8 +50,11 @@ keywords: markdown，html
   ```11 <span style="background-color: #D3D3D3"><font size=4 color=#DC143C>默认字体，4号，使用十六进制表示颜色值</font></span>```
 
 实现字体为黑体
+
 <small>比默认字体小一号</small>
+
 这里显示的是浏览器默认字体大小
+
 实现字体大小改变
 比默认字体大一号
 实现字体颜色为红色
