@@ -7,7 +7,7 @@ keywords: markdown，html
 ---
 # Markdown 内嵌 HTML 语法
 
-    "#FF0000" Markdown是一种可以使用普通文本编辑器编写的标记语言，通过简单的标记语法，它可以使普通文本内容具有一定的格式，具体请参考 Markdown 语法说明 。在"#FF0000" Markdown中可以内嵌HTML语法，本文总结了一些常用的HTML标记用于扩展"#FF0000" Markdown语法。
+    Markdown是一种可以使用普通文本编辑器编写的标记语言，通过简单的标记语法，它可以使普通文本内容具有一定的格式，具体请参考 Markdown 语法说明 。在Markdown中可以内嵌HTML语法，本文总结了一些常用的HTML标记用于扩展Markdown语法。
 
 ## 1、缩进与换行
 
@@ -28,13 +28,23 @@ keywords: markdown，html
 ## 2、字体、字号、颜色、背景
 
   <font face="黑体">实现字体为黑体</font>
+  
   <small>比默认字体小一号</small>
+ 
   这里显示的是浏览器默认字体大小
+  
   <font size=4>实现字体大小改变</font>
+  
   <big>比默认字体大一号</big>
+  
   <font color=red>实现字体颜色为红色</font>
+  
   <span style="background-color: orange">实现背景填充为橙色</span>
+  
   <font color=#FF69B4>字体颜色值也可以用十六进制表示</font>
+  
   <span style="background-color: #D3D3D3">背景颜色值也可以用十六进制表示</span>
+  
   <font face="黑体" size=4 color=red>实现字体效果：黑体、4号、红色</font>
+  
   <span style="background-color: #D3D3D3"><font size=4 color=#DC143C>默认字体，4号，使用十六进制表示颜色值</font></span>
