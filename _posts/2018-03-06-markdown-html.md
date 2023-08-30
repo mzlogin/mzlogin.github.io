@@ -63,7 +63,7 @@ keywords: markdown，html
 <big> 比默认字体大一号 </big>
 
 
-<font color=红色> 实现字体颜色为红色 </font>
+<font color=红色> 实现字体颜色为红色</font>
 
 
 <span style="background-color: orange"> 实现背景填充为橙色 </span>
