@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Google Bard 真的太神奇了
-categories: [Bard]
+categories: Bard
 description: google bard都能做什么
 keywords: bard，google bard
 ---
