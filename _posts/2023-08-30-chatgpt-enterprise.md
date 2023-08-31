@@ -53,4 +53,7 @@ keywords: ChatGPT
 
 &emsp;&emsp;当前，人工智能大模型领域还处于早期阶段，随着竞争的加剧和市场的逐渐成熟，泡沫破裂可能是不可避免的。在这个过程中，哪些公司将能够脱颖而出，仍然是一个未知数。
 
+![image](https://github.com/weakchen007/aiwv.github.io/assets/58799395/bb037661-08d0-4e6a-9de9-763da36c9c2b)
+
+
 -------------
