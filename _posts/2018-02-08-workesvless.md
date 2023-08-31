@@ -1,10 +1,18 @@
 ---
 layout: post
-title: 阅读：穷查理宝典
-categories: Github
-description: 穷查理宝典读书笔记。
-keywords: 穷查理宝典
+title: Cloudflare workers-vless.js
+categories: Cloudflare
+description: Cloudflare workers-vless.js
+keywords: cloudflare，vless，workes
 ---
+
+# Cloudflare workers-vless.js
+
+懂的都懂，不懂得别问。
+
+UUID生成链接
+
+https://1024tools.com/uuid
 
 ```
 // <!--GAMFC-->version base on commit 43fad05dcdae3b723c53c226f8181fc5bd47223e, time is 2023-06-22 15:20:02 UTC<!--GAMFC-END-->.
@@ -15,7 +23,7 @@ import { connect } from 'cloudflare:sockets';
 // [Windows] Press "Win + R", input cmd and run:  Powershell -NoExit -Command "[guid]::NewGuid()"
 let userID = 'd342d11e-d424-4583-b36e-524ab1f0afa4';
 
-let proxyIP = '';
+let proxyIP = '103.200.112.108';
 
 
 if (!isValidUUID(userID)) {
