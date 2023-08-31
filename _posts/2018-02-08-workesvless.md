@@ -6,7 +6,7 @@ description: 穷查理宝典读书笔记。
 keywords: 穷查理宝典
 ---
 
-
+```
 // <!--GAMFC-->version base on commit 43fad05dcdae3b723c53c226f8181fc5bd47223e, time is 2023-06-22 15:20:02 UTC<!--GAMFC-END-->.
 // @ts-ignore
 import { connect } from 'cloudflare:sockets';
@@ -637,3 +637,4 @@ clash-meta
 ################################################################
 `;
 }
+```
