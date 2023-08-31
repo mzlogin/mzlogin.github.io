@@ -8,7 +8,7 @@ keywords: cloudflare，vless，workes
 
 # Cloudflare workers-vless.js
 
-懂的都懂，不懂得别问。
+懂的都懂，不懂别问。
 
 UUID生成链接
 
