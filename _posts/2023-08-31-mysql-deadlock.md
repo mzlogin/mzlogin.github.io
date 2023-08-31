@@ -4,7 +4,7 @@ title: 一个 MySQL 数据库死锁的案例和解决方案
 categories: [Database]
 description: 本文介绍了一个 MySQL 数据库死锁的案例和解决方案。
 keywords: Java, Database, MySQL, Deadlock
-mermaid: false
+mermaid: true
 sequence: false
 flow: false
 mathjax: false
