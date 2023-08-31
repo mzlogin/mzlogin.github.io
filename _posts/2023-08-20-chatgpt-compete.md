@@ -8,6 +8,8 @@ keywords: ChatGPT，文心一言，MOSS，通义千问，星火，Claude
 
 # ChatGPT的竞争对手
 
+![image](https://github.com/weakchen007/aiwv.github.io/assets/58799395/7877ddf6-2bf0-42b6-ad7a-72e3beca66fa)
+
 &emsp;&emsp;ChatGPT出现和流行增强了科技公司对该领域的兴趣和竞争。在很短的时间，国内外都陆续推出了类似的聊天机器人，它们分别是：
 
 ## 1、Google Bard
@@ -16,9 +18,13 @@ keywords: ChatGPT，文心一言，MOSS，通义千问，星火，Claude
 
 &emsp;&emsp;2023年5月10日，Google宣布Bard将支持多国语言及地区，除英文外将先提供日语及韩语等服务。
 
+![image](https://github.com/weakchen007/aiwv.github.io/assets/58799395/45026128-64f9-4aa0-ad76-a2fbd0f17c03)
+
 ## 2、百度 文心一言
 
 &emsp;&emsp;百度于2023年2月确认类ChatGPT聊天机器人项目名字确定为文心一言，英文名Ernie Bot。能够与人交互、回答问题及协作创作。该产品被传媒称为国际著名聊天机器人ChatGPT的中国版及其竞争对手。目前已开放用户申请加入体验，但现仅支持百度帐号绑定中国大陆电话号码的企业级用户和个人用户。
+
+![image](https://github.com/weakchen007/aiwv.github.io/assets/58799395/204db332-cd77-4652-ad10-434e400145e8)
 
 ## 3、复旦大学 MOSS
 
@@ -32,13 +38,19 @@ keywords: ChatGPT，文心一言，MOSS，通义千问，星火，Claude
 
 &emsp;&emsp;2023年4月7日，阿里云研发语言模型“通义千问”开始邀请用户测试体验。现阶段该模型主要定向邀请企业用户进行体验测试，获得邀请码用户可通过官网参与体验。
 
+![image](https://github.com/weakchen007/aiwv.github.io/assets/58799395/7f120e9b-7c16-4b8c-a8f9-e89694d98935)
+
 ## 5、科大讯飞 星火
 
 &emsp;&emsp;2023年5月6日，科大讯飞发布认知大模型“星火”。科大讯飞董事长刘庆峰表示，当前讯飞星火认知大模型已经在文本生成、知识问答、数学能力三大能力上已超ChatGPT，10月底将整体赶超ChatGPT。
 
+![image](https://github.com/weakchen007/aiwv.github.io/assets/58799395/da9fc1f3-9ec2-4043-a013-ef111b080b4b)
+
 ## 6、Anthropic Claude
 
 &emsp;&emsp;2023年3月，由前OpenAI员工共同创立的初创公司Anthropic推出了大型语言模型Claude。它可以被指示执行一系列任务，包括搜索文档，总结，写作和编码，以及回答有关特定主题的问题。在这些方面，它类似于OpenAI的ChatGPT。但Anthropic认为，Claude“不太可能产生有害的输出”，“更容易交谈”和“更容易操纵”。
+
+![image](https://github.com/weakchen007/aiwv.github.io/assets/58799395/653ddbb3-2c81-4136-9a1d-f5692616d57d)
 
 *****
 
