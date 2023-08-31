@@ -14,7 +14,7 @@ keywords: ChatGPT
 
 ## 我们看到企业内部对 ChatGPT 的需求空前高涨
 
-&emsp;&emsp;自从 ChatGPT 在九个月前推出以来，我们已经看到超过 80% 的财富 500 强公司的团队采用了 ChatGPT。
+&emsp;&emsp;自从 ChatGPT 在九个月前推出以来，我们已经看到超过 80% 的财富 500 强公司的团队使用了 ChatGPT。
 
 &emsp;&emsp;我们从企业领导者那里了解到，他们希望有一种简单安全的方式在他们的组织中部署 ChatGPT。ChatGPT 企业版的早期用户--Block、Canva、Carlyle、雅诗兰黛公司、普华永道和 Zapier 等行业领导者--正在重新定义他们的运营方式，并正在使用 ChatGPT 进行更清晰的沟通、加速编码任务、快速探索复杂业务问题的答案、协助创意工作等。
 
