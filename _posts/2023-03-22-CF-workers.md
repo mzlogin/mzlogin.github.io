@@ -1,7 +1,7 @@
 ---
 layout: post
 title: CF的Workers免费节点IP固定
-categories: [ScienceOnline]
+categories: Cloudflare
 description: CF的Workers免费节点IP固定，一次跑满宽带
 keywords: science online，反代cf，ip值段
 ---
