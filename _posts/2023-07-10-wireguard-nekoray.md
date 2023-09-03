@@ -16,7 +16,9 @@ https://github.com/MatsuriDayo/nekoray/releases
 
 https://replit.com/@misaka-blog/wgcf-profile-generator
 
+<center>
 ![image](https://github.com/weakchen007/aiwv.github.io/assets/58799395/c2aaaa2b-9fe7-49eb-a471-d99a814c6f1c)
+<center>
 
 ![image](https://github.com/weakchen007/aiwv.github.io/assets/58799395/7a30436a-a8a1-4ae9-8e5d-699bd310af23)
 
