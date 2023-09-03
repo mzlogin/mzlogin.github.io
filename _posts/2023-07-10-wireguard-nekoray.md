@@ -18,7 +18,7 @@ https://replit.com/@misaka-blog/wgcf-profile-generator
 
 ## 替换私钥和V6地址，并就进行CloudFlare IP优选
 
-'''
+```
 {
     "interface_name": "WARP",
     "local_address": [
@@ -34,3 +34,8 @@ https://replit.com/@misaka-blog/wgcf-profile-generator
     "tag": "proxy",
     "type": "wireguard"
 }
+```
+
+** 注意的是进行节点配置时要判断自己的warp的不同类型，进行正确选择，这样才能得到自己的Token，这一步。再就是IP节点优选时，要IP地址和端口在不同位置进行填写，要注意“：”的删减。**
+
+--------------
