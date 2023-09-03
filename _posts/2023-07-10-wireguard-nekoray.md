@@ -16,6 +16,14 @@ https://github.com/MatsuriDayo/nekoray/releases
 
 https://replit.com/@misaka-blog/wgcf-profile-generator
 
+![image](https://github.com/weakchen007/aiwv.github.io/assets/58799395/c2aaaa2b-9fe7-49eb-a471-d99a814c6f1c)
+
+![image](https://github.com/weakchen007/aiwv.github.io/assets/58799395/7a30436a-a8a1-4ae9-8e5d-699bd310af23)
+
+得到Team Token，通过地址得到公钥和私钥
+
+![image](https://github.com/weakchen007/aiwv.github.io/assets/58799395/c0e864d0-524b-42dc-a840-e7e14dca440c)
+
 ## 替换私钥和V6地址，并就进行CloudFlare IP优选
 
 ```
