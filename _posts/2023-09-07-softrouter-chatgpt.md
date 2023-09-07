@@ -8,11 +8,11 @@ keywords: chatgpt，softrouter
 
 # 在软路由中搭建自己的ChatGPT，无需梯子
 
-首先获取自己的OpenAI 中API Key
+## 1、首先获取自己的OpenAI中API Key
 
 ![image](https://github.com/weakchen007/aiwv.github.io/assets/58799395/302ca2fd-c678-4846-9d72-2a489b35fe99)
 
-打开软路由中Docker，创建新的Docker容器，打开命令行，输入如下命令：
+## 2、打开软路由中Docker，创建新的Docker容器，打开命令行，输入如下命令：
 
 ```
 docker run \
