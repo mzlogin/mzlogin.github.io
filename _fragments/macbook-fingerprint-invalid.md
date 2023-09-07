@@ -1,7 +1,7 @@
 ---
 layout: fragment
 title: MacBook Pro 使用 PD 充电时，指纹解锁失效
-tags: [Mac]
+tags: [mac]
 description: MacBook Pro 使用 PD 充电时，指纹解锁失效
 keywords: Mac, 指纹
 mermaid: false
