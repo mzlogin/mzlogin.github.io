@@ -4,6 +4,7 @@ title: 电影《我不是药神》观后感
 categories: Movie
 description:  电影我不是药神观后感
 keywords: 电影，movie，我不是药神
+---
 
 ## 电影《我不是药神》观后感----医者仁心，生命的伟大舞台
 
