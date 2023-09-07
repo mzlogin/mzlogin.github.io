@@ -1,9 +1,9 @@
 ---
 layout: post
-title: 解决 IntelliJ IDEA 启动报 Unsupported Java Version 的问题
-categories: Java
-description: 解决 IntelliJ IDEA 启动报 Unsupported Java Version 的问题
-keywords: IntelliJ IDEA, Unsupported Java Version
+title: 芯片制造的过程
+categories: Chip
+description: 芯片制造的过程
+keywords: chip, manufacturing
 ---
 
 # 芯片的制造过程：
