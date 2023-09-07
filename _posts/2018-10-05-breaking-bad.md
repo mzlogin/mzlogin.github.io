@@ -46,6 +46,7 @@ keywords: 电影，movie，绝命毒师，breaking bad
 
 《绝命毒师》是一部非常优秀的电视剧集，它具有精彩的剧情、丰满的人物、精湛的演技和深刻的主题。该剧不仅是一部娱乐作品，也是一部值得深思的警世佳作。
 
+![image](https://github.com/weakchen007/aiwv.github.io/assets/58799395/9e4c33e4-be45-4de2-bc74-1635abc4e7bc)
 
 ## 第一季（2008）
 
