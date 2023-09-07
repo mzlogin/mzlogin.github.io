@@ -1,7 +1,7 @@
 ---
 layout: post
 title: vim-markdown-toc 发布 v1.0 版
-categories: Vim
+categories: Markdown
 description: 我写的第一款 Vim 插件的 Release 版本。
 keywords: Vim, Markdown, Table of Contents
 ---
