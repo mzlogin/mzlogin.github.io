@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 为 Markdown 生成 TOC 的 Vim 插件
-categories: Vim
+categories: Markdown
 description: 为 Markdown 自动生成 Table of Contents 的 Vim 插件
 keywords: vim, markdown, toc
 ---
