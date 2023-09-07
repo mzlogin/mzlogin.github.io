@@ -6,7 +6,7 @@ description: 芯片制造的原理
 keywords: chip, principles
 ---
 
-芯片制造的原理
+# 芯片制造的原理
 
 芯片的制造原理涉及多个方面，以下是一个更加详细的解释：
 
