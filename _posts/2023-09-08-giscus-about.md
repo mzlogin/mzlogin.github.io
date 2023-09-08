@@ -1,4 +1,12 @@
-# [giscus][giscus]
+---
+layout: post
+title: 关于Giscus需要了解的事情
+categories: GitHub
+description: Giscus需要了解的事情
+keywords: giscus，github
+---
+
+# 关于Giscus需要了解的事情
 
 利用 [GitHub Discussions][discussions] 实现的评论系统，让访客借助 GitHub 在你的网站上留下评论和反应吧！本项目深受 [utterances][utterances] 的启发。
 
@@ -45,3 +53,6 @@ giscus 加载时，会使用 [GitHub Discussions 搜索 API][search-api] 根据�
 ## 迁移
 
 如果你使用过利用 GitHub Issue 实现的评论系统（如 [utterances][utterances]、[gitalk][gitalk]），你可[将已有的 issue 转换成 discussion][convert]。转换后，只要确保 discussion 标题与页面的映射关系正确，giscus 就会自动使用这些 discussion。
+
+
+--------------
