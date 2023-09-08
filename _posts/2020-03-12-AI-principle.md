@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 人工智能的工作原理
-categories: [AI]
+categories: AI
 description: 人工智能工作原理
 keywords: AI
 ---
