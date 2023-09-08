@@ -40,7 +40,7 @@ keywords: 电影，movie，我不是药神
 
 ![image](https://github.com/weakchen007/aiwv.github.io/assets/58799395/ed72662c-d39d-422b-94c6-ee3b30e3003b)
 
-&emsp;&emsp;**电影最后的字幕显示国家因为这个真实故事，改变了医药品价格的改革，并且推进了新的药品价格改革，希望这样的价格改变帮助那些因为疾病面临家庭困难的家庭真的解决问题。
+# 电影最后的字幕显示国家因为这个真实故事，改变了医药品价格的改革，并且推进了新的药品价格改革，希望这样的价格改变帮助那些因为疾病面临家庭困难的家庭真的解决问题。
 
 ![image](https://github.com/weakchen007/aiwv.github.io/assets/58799395/200619eb-e4b1-4fb3-8689-f9f9a53de834)
 
