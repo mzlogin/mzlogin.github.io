@@ -16,6 +16,7 @@ keywords: OpenWrt, VPS, deploy
 
     ```
     apt update && apt install -y wget 
+    
     ```
 
 ## 步骤：
@@ -26,12 +27,14 @@ keywords: OpenWrt, VPS, deploy
 
     ```
     bash -c "$(wget -O- https://git.io/JZOn0)"
+    
     ```
 
 ### 3、如果你的http证书有问题，请尝试如下操作：
 
     ```
     wget --no-check-certificate -O- https://git.io/JZOn0|bash
+    
     ```
 
     
