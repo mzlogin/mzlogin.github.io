@@ -30,6 +30,10 @@ permalink: /about/
 
 Email：weakchen@gmail.com
 
+## Donate 
+
+https://aiwv.xyz/donate/
+
 
 ## Skill Keywords
 
@@ -41,3 +45,5 @@ Email：weakchen@gmail.com
 {% endfor %}
 </div>
 {% endfor %}
+
+----------
