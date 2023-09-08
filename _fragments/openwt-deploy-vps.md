@@ -15,8 +15,7 @@ keywords: OpenWrt, VPS, deploy
 ### 2. 已经安装**wget**，或者使用下面命令安装**wget**
 
 ```
-apt update && apt install -y wget 
-    
+apt update && apt install -y wget    
 ```
 
 ## 步骤：
@@ -26,15 +25,13 @@ apt update && apt install -y wget
 ### 2、运行下面这个命令
 
 ```
-bash -c "$(wget -O- https://git.io/JZOn0)"
-    
+bash -c "$(wget -O- https://git.io/JZOn0)"  
 ```
 
 ### 3、如果你的http证书有问题，请尝试如下操作：
 
 ```
-wget --no-check-certificate -O- https://git.io/JZOn0|bash
-    
+wget --no-check-certificate -O- https://git.io/JZOn0|bash   
 ```
 
     
