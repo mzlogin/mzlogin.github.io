@@ -1,12 +1,12 @@
 ---
 layout: fragment
-title: Mac 下让 Spotlight 显示英汉汉英互译
+title: Mac 系统中让 Spotlight 显示英汉汉英互译
 tags: [mac]
 description: Mac 下让 Spotlight 显示中英互译
 keywords: Mac, Spotlight, 翻译
 ---
 
-Mac 下的 Spotlight（即「聚焦」）可以很方便地启动应用、搜索文件等，我常用的还有一个功能就是当作英汉汉英词典使用。
+Mac系统中的 Spotlight（即「聚焦」）可以很方便地启动应用、搜索文件等，我常用的还有一个功能就是当作英汉汉英词典使用。
 
 我期望的行为：
 
