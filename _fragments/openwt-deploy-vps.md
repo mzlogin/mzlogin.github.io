@@ -1,6 +1,6 @@
 ---
 layout: fragment
-title: OpenWrt deploy VPS
+title: OpenWrt 部署 VPS
 tags: [OpenWrt]
 description: OpenWrt部署到VPS
 keywords: OpenWrt, VPS, deploy
