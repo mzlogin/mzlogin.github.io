@@ -18,7 +18,7 @@ permalink: /donate/
 
 ## 微信 / Wechat
 
-<img style="width:256px;border:1px solid lightgrey;" src="{{ assets_base_url }}/assets/images/receipt-code-wechat.jpeg" alt="wechat receipt code" />
+![image](https://github.com/weakchen007/aiwv.github.io/assets/58799395/7029acb9-3a66-414e-8e94-05a5f25b198d)
 
 ## 支付宝 / Alipay
 <!-- ## 支付宝 / Alipay -->
