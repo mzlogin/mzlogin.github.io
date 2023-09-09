@@ -1,0 +1,15 @@
+---
+layout: post
+title: Github上基本撰写和格式语法
+categories: Markdown
+description: Github上基本撰写和格式语法
+keywords: github，markdown，format
+---
+
+# Github上基本撰写和格式语法
+
+可以使用简单的语法在GitHub上写散文和以及用代码创建复杂的格式。
+
+## 一、标题的格式
+
+要创建标题，需要在标题文本前添加一至六个 <#> 符号。 你使用的 <#> 数量将决定层次结构级别和标题的大小。
