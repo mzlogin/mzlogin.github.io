@@ -70,3 +70,17 @@ keywords: github，markdown，format
  ```为了演示一下 <sub>下标</sub> 所以这样```
 
  显示为： 为了演示一下 <sub>下标</sub> 所以这样
+
+## 三、引用文本
+
+可以使用 ```>``` 来引用文本。
+
+```> Text that is not a quote```
+
+    ```> Text that is a quote```
+
+显示为：
+
+> Text that is not a quote
+
+    > Text that is a quote
