@@ -13,7 +13,7 @@ keywords: 三字经
 |            |            |            |            |
 |:----------:|:----------:|:----------:|:----------:|
 |rén zhī chū |xìng běn shàn|xìng xiāng jìn|xí xiāng yuǎn|
-|人 之 初|性 本 善|性 相 近|习 相 远|
+|**人 之 初**|**性 本 善**|**性 相 近**|**习 相 远**|
 |gǒu bú jiào|xìng nǎi qiān|jiào zhī dào|guì yǐ zhuān|
 |苟 不 教|性 乃 迁|教 之 道|贵 以 专|
 |xī mèng mǔ|zé lín chǔ|zǐ bù xué|duàn jī zhù|
