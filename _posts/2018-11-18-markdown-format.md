@@ -12,7 +12,7 @@ keywords: github，markdown，format
 
 ## 一、标题的格式
 
-要创建标题，需要在标题文本前添加一至六个```#```符号。 你使用的```#```数量将决定层次结构级别和标题的大小。
+要创建标题，需要在标题文本前添加一至六个`#`符号。 你使用的`#`数量将决定层次结构级别和标题的大小。
 
 ```
 # 标题一、
@@ -33,7 +33,7 @@ keywords: github，markdown，format
 
 ## 二、文本的样式
 
-可以在评论字段和```.md```文件中以粗体、斜体、删除线、下标或上标文本表示强调。
+可以在评论字段和`.md`文件中以粗体、斜体、删除线、下标或上标文本表示强调。
 
 ### 1、加粗： ```** **``` 或 ```__ __```
 
@@ -75,12 +75,10 @@ keywords: github，markdown，format
 
 可以使用 ```>``` 来引用文本。
 
-```> Text that is not a quote```
-
-    ```> Text that is a quote```
+```> 显示引用文本的格式```
 
 显示为：
 
 > Text that is not a quote
 
-    > Text that is a quote
+
