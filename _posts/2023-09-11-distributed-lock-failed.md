@@ -4,7 +4,7 @@ title: 一个分布式锁「失效」的案例分析
 categories: [Java]
 description: 一个分布式锁没有锁住，分析下原因，找到解决方案。
 keywords: Java, 分布式锁
-mermaid: true
+mermaid: false
 sequence: false
 flow: false
 mathjax: false
@@ -67,17 +67,11 @@ public void updateBalance(String accountNo, AmountOperateParam param) {
 
 也就是说期望是这样的执行顺序：
 
-```mermaid
-flowchart LR
-    加锁 --> 开启事务 --> 业务操作 --> 提交事务 --> 释放锁
-```
+![](/images/posts/java/aop-expected-order1.drawio.png)
 
 但实际的执行顺序：
 
-```mermaid
-flowchart LR
-    开启事务 --> 加锁 --> 业务操作 --> 释放锁 --> 提交事务
-```
+![](/images/posts/java/aop-actual-order1.drawio.png)
 
 分布式锁和事务，都是通过 AOP 来实现的，而 AOP 的执行顺序是根据切面的优先级来的，而小猿的分布式锁切面的优先级比事务切面的优先级低，所以就出现了上面的时序问题。
 
