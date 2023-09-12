@@ -14,7 +14,7 @@ keywords: data, small data, big trends
 
 > **在大数据时代学会掌握小数据，往往能更准确的挖掘商业趋势，直击客户的痛点，这就是这本书的主要观点。**
 
-![image](https://github.com/weakchen007/aiwv.github.io/assets/58799395/bc4e63e5-843a-4ee6-95af-35332b488596)
+<img align="right" src="https://github.com/weakchen007/aiwv.github.io/assets/58799395/bc4e63e5-843a-4ee6-95af-35332b488596">
 
 &emsp;&emsp;《痛点》书名不好理解，但是这本书的英文更能体现这本书的观点以及价值，直译为《小数据，那些揭示巨大趋势的微小线索》。
 
