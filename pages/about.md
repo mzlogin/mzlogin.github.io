@@ -30,10 +30,9 @@ permalink: /about/
 
 Email：weakchen@gmail.com
 
-## 赞助一下
+## 赞助
 
-https://aiwv.xyz/donate/
-
+行内式 [赞助](https://aiwv.xyz/donate/ "AI智谷X") 链接，带 title。
 
 ## Skill Keywords
 
