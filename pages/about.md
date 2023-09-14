@@ -14,7 +14,7 @@ permalink: /about/
 
 不抛弃、不放弃坚持到底就是胜利。
 
-## 联系
+## <font color=yellow>联系</font>
 
 <ul>
 {% for website in site.data.social %}
