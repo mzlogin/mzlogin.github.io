@@ -30,7 +30,7 @@ permalink: /about/
 
 Email：weakchen@gmail.com
 
-## Donate 
+## 赞助一下
 
 https://aiwv.xyz/donate/
 
