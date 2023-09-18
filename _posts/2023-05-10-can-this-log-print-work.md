@@ -1,7 +1,7 @@
 ---
 layout: post
 title: AI 自动补全的这句日志能正常打印吗？
-categories: [java]
+categories: [Java]
 description: 一句 GitHub Copilot 自动生成的代码让我产生了疑惑，于是探索了一番。
 keywords: java, GitHub Copilot
 mermaid: false
