@@ -70,3 +70,16 @@ $ defaults delete -g ApplePressAndHoldEnabled                                   
 ```
 
 如果有需要，调整「系统偏好设置」—「键盘」里的「按键重复」和「重复前延迟」。
+
+## 在命令行使用 code 命令启动 VSCode
+
+默认并不支持，但可以使用以下方式开启：
+
+<kbd>command</kbd>+<kbd>shift</kbd>+<kbd>p</kbd> 打开命令面板，输入 `shell`，选择 `Shell Command: Install 'code' command in PATH`。
+
+- `code .` 打开当前目录；
+- `code -n .` 在窗口打开当前目录；
+- `code -r .` 复用现有窗口打开当前目录；
+- `code -g <file:line:column>` 打开指定文件并跳转到指定行列；
+
+`code -h` 查看更多命令。
