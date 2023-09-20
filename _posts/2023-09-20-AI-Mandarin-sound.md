@@ -40,7 +40,7 @@ https://ffmpeg.org/download.html#build-windows
 
 https://github.com/weakchen007/MockingBird007
 
-下载code，下载压缩包，解压缩为MockingBird007-main文件夹，打开文件夹，找到文件requirements.txt，将其中==0.03删除掉，保存文件。
+下载code，压缩包，解压缩为MockingBird007-main文件夹，打开文件夹，找到文件requirements.txt，将其中==0.03删除掉，保存文件。
 
 文件夹cmd，然后依次输入如下两条命令：
 
