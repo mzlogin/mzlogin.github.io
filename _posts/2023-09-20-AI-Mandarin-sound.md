@@ -60,6 +60,7 @@ https://github.com/weakchen007/MockingBird007
 
 如果想启动程序运行，则文件夹cmd输入 > python demo_toolbox.py，而在程序中则可以输入各种类型声音样本
 
+![image](https://github.com/weakchen007/aiwv.github.io/assets/58799395/01d843b6-3241-4000-ab1f-3cbadf403fd9)
 
 **不管以上选择怎样的运行模式，都只能选择75k模型，其他模型都不能正常运行**
 
