@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 后端｜List.subList 踩坑小记
+title: Java｜List.subList 踩坑小记
 categories: [Java]
 description: List.subList 容易误用，这里记录一下正确的用法。
 keywords: Java, ArrayList, subList
