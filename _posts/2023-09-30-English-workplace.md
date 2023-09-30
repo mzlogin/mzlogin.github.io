@@ -6,6 +6,9 @@ description:  商务英语中级写作必备
 keywords: English, workplace English
 ---
 
+尤兄：
+
+知道你的英语大多还给老师了，以下就是为你准备的职场英语写作句型，你可以参考一下，欢迎你的访问
 
 
 |商务英语中级写作必背 50 句|
