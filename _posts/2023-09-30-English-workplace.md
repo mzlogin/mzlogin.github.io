@@ -7,19 +7,13 @@ keywords: English, workplace English
 ---
 
 |# 商务英语中级写作必背 50 句|
-|--------------------------+
-
+|:--------------------------|
 |### 1. According to a recent survey, four-million people die each year from diseases linked to smoking.|
-
 |依照最近的一项调查，每年有4,000,000 人死于与吸烟相关的疾病。|
-
 |### 2. The latest surveys show that quite a few children have unpleasant associations with homework.|
-
 |最近的调查显示相当多的孩子对家庭作业没什么好感。|
-
-### 3. No invention has received more praise and abuse than Internet.
-
-没有一项发明像互联网同时受到如此多的赞扬和批评。
+|### 3. No invention has received more praise and abuse than Internet.|
+|没有一项发明像互联网同时受到如此多的赞扬和批评。|
 
 ### 4. People seem to fail to take into account the fact that education does not end with graduation.
 
