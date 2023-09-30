@@ -5,7 +5,9 @@ categories: English
 description:  商务英语中级写作必备
 keywords: English, workplace English
 ---
-|
+
+
+
 |商务英语中级写作必背 50 句|
 |:--------------------------|
 |**1. According to a recent survey, four-million people die each year from diseases linked to smoking.**|
