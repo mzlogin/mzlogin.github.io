@@ -6,26 +6,20 @@ description:  商务英语中级写作必备
 keywords: English, workplace English
 ---
 
-|# 商务英语中级写作必背 50 句|
+|商务英语中级写作必背 50 句|
 |:--------------------------|
-|### 1. According to a recent survey, four-million people die each year from diseases linked to smoking.|
+|1. According to a recent survey, four-million people die each year from diseases linked to smoking.|
 |依照最近的一项调查，每年有4,000,000 人死于与吸烟相关的疾病。|
-|### 2. The latest surveys show that quite a few children have unpleasant associations with homework.|
+|2. The latest surveys show that quite a few children have unpleasant associations with homework.|
 |最近的调查显示相当多的孩子对家庭作业没什么好感。|
-|### 3. No invention has received more praise and abuse than Internet.|
+|3. No invention has received more praise and abuse than Internet.|
 |没有一项发明像互联网同时受到如此多的赞扬和批评。|
-
-### 4. People seem to fail to take into account the fact that education does not end with graduation.
-
-人们似乎忽视了教育不应该随着毕业而结束这一事实。
-
-### 5. Many experts point out that physical exercise contributes directly to a person’s physical fitness.
-
-许多专家指出体育锻炼直接有助于身体健康。
-
-### 6. Nowadays, many students always go into raptures at the mere mention of the coming life of high school or college they will begin. Unfortunately, for most young people, it is not pleasant experience on their first day on campus.
-
-当前，一提到即将开始的学校生活，许多学生都会兴高采烈。然而，对多数年轻人来说，校园刚开始的日子并不是什么愉快的经历。
+|4. People seem to fail to take into account the fact that education does not end with graduation.|
+|人们似乎忽视了教育不应该随着毕业而结束这一事实。|
+|5. Many experts point out that physical exercise contributes directly to a person’s physical fitness.|
+|许多专家指出体育锻炼直接有助于身体健康。|
+|6. Nowadays, many students always go into raptures at the mere mention of the coming life of high school or college they will begin. Unfortunately, for most young people, it is not pleasant experience on their first day on campus.|
+|当前，一提到即将开始的学校生活，许多学生都会兴高采烈。然而，对多数年轻人来说，校园刚开始的日子并不是什么愉快的经历。|
 
 ### 7. In view of the seriousness of this problem ,effective measures should be taken before things get worse.
 
