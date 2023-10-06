@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  鬼谷子：說話要有技巧，牢記這9句口訣，幫你的人會越來越多
+title:  鬼谷子：说话要有技巧，牢记这9句口决，帮你的人会越来越多
 categories: Read
 description:  鬼谷子说话的技巧
 keywords: 鬼谷子，鬼谷子说话的技巧
