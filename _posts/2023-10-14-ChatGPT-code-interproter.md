@@ -1,6 +1,11 @@
-rompt
-# ChatGPT Code Interpreter code interpreter common function list
-
+---
+layout: post
+title: ChatGPT Code Interpreter代码解释器常用功能清单
+categories: ChatGPT
+description: ChatGPT Code Interpreter代码解释器常用功能清单
+keywords: ChatGPT，Code Interpreter
+---
+# ChatGPT Code Interpreter代码解释器常用功能清单
 
 |   编号  | 类型  |  功能    |    Prompt|
 |：-----：| ：---------|：---------|：----------|
