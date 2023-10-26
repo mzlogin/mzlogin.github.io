@@ -24,7 +24,7 @@ mindmap2: false
 
 做过 Java 后端开发的同学，对于 slf4j + logback 的组合一般不陌生，而 Android 开发的同学则可能不一定听过它们。所以，本文将从零开始，记录如何在 Android APP 中集成 slf4j + logback 作为日志框架，并使用 Lombok 注解生成日志对象。
 
-## 1. 集成 slf4j + logback
+## 集成 slf4j + logback
 
 logback-android 项目地址：<https://github.com/tony19/logback-android>
 
@@ -111,7 +111,7 @@ log.info("number {}, boolean {}, string {}, object {}", 1, true, "string", new O
 
 当对配置有疑问，需要调试时，可以将上面配置文件里的 `debug="false"` 改为 `debug="true"`，这样 logback 就会输出详细的信息，方便我们定位问题。
 
-## 2. 使用 Lombok 注解生成日志对象
+## 使用 Lombok 注解生成日志对象
 
 在上一部分的第 3 步，在每一个需要使用 logger 的类里，都需要手动去声明 logger，如 `Logger log = LoggerFactory.getLogger(MainActivity.class);`，不算方便。
 
@@ -157,7 +157,7 @@ public class Test {
 
 ## 相关链接
 
-- https://github.com/tony19/logback-android
-- https://projectlombok.org/setup/android
-- https://gitee.com/sgpublic/lombok-plugin-repository
-- https://github.com/mzlogin/AndroidPractices/tree/master/android-studio/LogbackDemo
+- <https://github.com/tony19/logback-android>
+- <https://projectlombok.org/setup/android>
+- <https://gitee.com/sgpublic/lombok-plugin-repository>
+- <https://github.com/mzlogin/AndroidPractices/tree/master/android-studio/LogbackDemo>
