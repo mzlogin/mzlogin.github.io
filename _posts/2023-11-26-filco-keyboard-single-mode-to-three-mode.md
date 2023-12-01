@@ -26,7 +26,7 @@ mindmap2: false
 
 ![](/images/posts/diy/filco-keyboard-split.jpg)
 
-模块到了以后，改装过程主要参考了下面的两个视频，在此不赘述：
+模块到了以后，改装过程主要参考了下面的两个视频，比较简单，在此不赘述：
 
 - 有线键盘改无线3模键盘视频：<https://www.bilibili.com/video/BV1au4y1k7bq/>
 - Filco 圣手二代有线改装蓝牙，加装猫爪：<https://www.bilibili.com/video/BV1PN411Z7Ms/>
