@@ -29,7 +29,7 @@ code----Creat codeesspace on main
 使用Node启动
 
 ```
-git clone https://github.com/weaigc/bingo.gggit
+git clone https://github.com/weaigc/bingo.git
 npm i
 cd bingo
 npm run build
