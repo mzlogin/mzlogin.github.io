@@ -6,7 +6,7 @@ description: 本地搭建Google Gemini Pro
 keywords: Google Gemini Pro，Google，AI
 ---
 
-Google的AI模型一直都在高速推进，最近他们开放了自己的AI模型API接口，也就是最近Google比较火热大的Gemini Pro，根据则是，说性能上已经超过了GPT3.5。
+Google的AI模型一直都在高速推进，最近他们开放了自己的AI模型API接口，也就是最近Google比较火热大的Gemini Pro，根据测试，说性能上已经超过了GPT3.5。
 
 现在为了让大家体验它，并且是无需科学上网的辅助使用，我们一起来看看搭建过程。
 
