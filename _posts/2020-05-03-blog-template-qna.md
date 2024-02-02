@@ -96,6 +96,18 @@ mathjax: true
 
 这种情况一般是 _config.yml 的 gitalk.repo 这个配置项填写的不对。这个配置项是要填写一个利用其 Issues 存储评论内容的代码仓库名称，请确保填写的名称对应的代码仓库存在，如果想省事点可以直接填写博客源码对应的仓库名称，比如 `<用户名>.github.io`。
 
+## giscus 配置注意事项
+
+参考官方文档：<https://giscus.app/zh-CN>。
+
+主要注意事项：
+
+1. 用于存放评论的仓库要是 public 的；
+2. giscus app 已经安装到 GitHub 账户；
+3. Discussions 功能已在仓库里启用；
+4. 如果存放评论的仓库里使用 giscus.json 文件限制加载的域名，要确保你的博客域名在这个文件里。
+
+
 ## 修改二维码图片
 
 _config.yml 里的 components.qrcode 这一段用于控制二维码。
@@ -140,6 +152,10 @@ _config.yml 里的 components.qrcode 这一段用于控制二维码。
 
 - .yml 文件里有语法错误
 - .md 文件里有无意识引入的 Liquid 语法标记
+
+## 自定义域名
+
+参考 GitHub 的官方说明：<https://docs.github.com/zh/pages/configuring-a-custom-domain-for-your-github-pages-site/about-custom-domains-and-github-pages>
 
 [1]: https://mazhuang.org/about/
 [2]: https://mazhuang.org/links/
