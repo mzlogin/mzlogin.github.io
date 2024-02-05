@@ -1,6 +1,6 @@
 ---
 layout: post
-title: DIY｜ikbc C87 机械键盘改蓝牙小结
+title: DIY｜ikbc C87 机械键盘有线改蓝牙小结
 categories: [DIY]
 description: ikbc C87 机械键盘单模改三模
 keywords: DIY, ikbc, C87, 机械键盘, 单模改三模
