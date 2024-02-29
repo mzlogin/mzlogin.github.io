@@ -20,6 +20,13 @@ Starknet 基金会启动了第一轮 Starknet 供应计划，将向近 130 万�
 
 可以通过 <https://provisions.starknet.io> 网站查询是否有资格领取 STRK。
 
+> Update 2024/02/29 ref <https://www.guozaoke.com/t/107113#reply7>
+>
+> 符合条件的 GitHub 用户可以在下面两个文件之一搜到自己的 ID：
+>
+> - <https://raw.githubusercontent.com/starknet-io/provisions-data/main/github/github-0.json>
+> - <https://raw.githubusercontent.com/starknet-io/provisions-data/main/github/github-1.json>
+
 如果发现有资格，可以继续阅读；如果没有资格，就不用浪费时间继续看了。另外，可以推荐给你在 GitHub 活跃的朋友试试。
 
 ## 领取资格查询
