@@ -43,10 +43,14 @@ mindmap2: false
 
 ## 实现
 
+效果如下：
+
+![](/images/posts/frontend/fe-search-select.gif)
+
 示例代码如下：
 
 - 其中 `mockData` 实现应按需替换成 ajax 请求，成功拿到数据之后再 `reloadData`；
-- 如果表单提交时需要使用 id 作为参数值，可以在 click 的时候给 input 添加自定义属性如 `data-id`，在输入监听事件里删除该属性值。
+- 表单提交时需要使用 id 作为参数值，可以在 click 的时候给 input 添加自定义属性如 `data-id`，在输入监听事件里删除该属性值。
 
 ```html
 <!DOCTYPE html>
@@ -58,7 +62,7 @@ mindmap2: false
   <link href="https://unpkg.com/layui@2.9.6/dist/css/layui.css" rel="stylesheet">
 </head>
 <body>
-<div class="layui-inline">
+<div class="layui-inline layui-padding-5">
   <input name="" placeholder="请搜索或选择" class="layui-input" id="ID-dropdown-demo">
 </div>
   
@@ -72,17 +76,27 @@ layui.use(function(){
     data: [],
     click: function(obj){
       this.elem.val(obj.title);
+      this.elem.attr('data-id', obj.id)
     }
   });
 
-  $(inst.config.elem).on('input propertychange', function(){
+  $(inst.config.elem).on('input propertychange', function() {
     var elem = $(this);
     var value = elem.val().trim();
+    elem.removeAttr('data-id');
 
     var dataNew = mockData(value);
     dropdown.reloadData(inst.config.id, {
       data: dataNew
     })
+  });
+
+  $(inst.config.elem).on('blur', function() {
+    var elem = $(this);
+    var dataId = elem.attr('data-id');
+    if (!dataId) {
+        elem.val('');
+    }
   });
   
   function mockData(value) {
