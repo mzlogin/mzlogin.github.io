@@ -686,3 +686,9 @@ $ git remote prune origin
 ```
 
 清除完成。
+
+### 删除已经合并的本地分支
+
+```sh
+git branch --merged | ggrep -E -v "(^\*|master|main|dev|develop|support/fat)" | xargs git branch -d
+```
