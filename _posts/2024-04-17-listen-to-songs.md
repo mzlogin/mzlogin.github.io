@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 听歌
+title: 一些与听歌有关的回忆
 categories: [Blog]
 description: 一些与听歌有关的回忆。
 keywords: 听歌, 音乐, 生活感悟
