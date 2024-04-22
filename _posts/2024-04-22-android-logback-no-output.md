@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 记 Android 项目中导致 logback 无法输出日志的一个问题
+title: Android｜记一个导致 logback 无法输出日志的问题
 categories: [Android]
 description: 在给一个 Android 项目添加 logback 日志框架时，遇到一个导致无法正常输出日志的问题，这里记录一下。
 keywords: Android, logback
