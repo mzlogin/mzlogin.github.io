@@ -1,0 +1,43 @@
+---
+layout: post
+---
+
+<style>
+  .gallery {
+    margin-top: 8px;
+  }
+
+  .gallery img {
+    height: 160px;
+    transition: -webkit-filter .4s, filter .4s;
+    filter: grayscale(0%);
+    -webkit-filter: grayscale(0%);
+  }
+
+  .gallery img:hover {
+    filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
+  }
+
+  .gallery a {
+    width: 200px;
+    height: 160px;
+    display: inline-block;
+    overflow: hidden;
+    margin: 4px;
+    box-shadow: 0 0 4px -1px #000;
+  }
+</style>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.css" integrity="sha512-NVt7pmp5f+3eWRPO1h4A1gCf4opn4r5z2wS1mi7AaVcTzE9wDJ6RzMqSygjDzYHLp+mAJ2/qzXXDHar6IQwddQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.js" integrity="sha512-7KzSt4AJ9bLchXCRllnyYUDjfhO2IFEWSa+a5/3kPGQbr+swRTorHQfyADAhSlVHCs1bpFdB1447ZRzFyiiXsg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<div class="baguetteBoxOne gallery">
+{{ content }}
+</div>
+
+<script>
+  window.onload = function() {
+    baguetteBox.run('.baguetteBoxOne');
+  };
+</script>
