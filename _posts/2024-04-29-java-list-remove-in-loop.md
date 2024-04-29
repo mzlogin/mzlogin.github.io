@@ -174,7 +174,7 @@ public void remove() {
 }
 ```
 
-可以看到 `ArrayList#remove` 里 `modCount++`，并不会修改到 Itr 的 `expectedModCount`——它们当然就不相等了。而 `ArrayList$Itr#remove` 在先调用了 `ArrayList#remove` 后，又将 `modCount` 的最新值赋给了 `modCount`，这样就保证了 `modCount` 和 `expectedModCount` 的一致性。
+可以看到 `ArrayList#remove` 里 `modCount++`，但并不会修改到 Itr 的 `expectedModCount`——它们当然就不相等了。而 `ArrayList$Itr#remove` 在先调用了 `ArrayList#remove` 后，又将 `modCount` 的最新值赋给了 `modCount`，这样就保证了 `modCount` 和 `expectedModCount` 的一致性。
 
 同时，`ArrayList$Itr#remove` 里还有一个 `cursor = lastRet`，实际上是将迭代器的游标做了修正，前移一位，以实现后续调用 `next()` 的行为正确。
 
