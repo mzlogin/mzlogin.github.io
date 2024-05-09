@@ -53,7 +53,7 @@ private void setErrorListener(final AliMediaDownloader jniDownloader, final Aliy
 
 通过一番艰苦的排查，久久没有思路，只好闷闷不乐地下班回家了。晚上洗澡的时候，突然想到，会不会是 downloader 被 GC 了？赶紧拿小本本记下思路，第二天一早翻出这块代码一看，果然如此。
 
-downloader 是在方法内部创建的局部变量，方法执行完毕后，downloader 就会被释放，如果此时发生 GC，就会回收它对应的对象。到了回调时机，发现 downloader 对应的对象已经被回收了，回调也就无从谈起了。
+downloader 是在方法内部创建的局部变量，方法执行完毕后，downloader 就会被释放，如果此时发生 GC，就会回收它对应的对象。到了回调时机，发现 **downloader 对应的对象已经被回收了，回调也就无从谈起了**。
 
 那要打破这个局面，就需要将 downloader 的引用保持住，在必要的回调发生以后再释放。比如我们可以想到，这段代码所在类是一个单例，那么在它里面声明一个 List，将 downloader 放进去，等回调结束后再移除。这样就能保证 downloader 在回调发生时还没有被回收。
 
