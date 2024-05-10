@@ -3,7 +3,7 @@
 }
 
 .markdown-body,body {
-    font-family: Arial,"Hiragino Sans GB","冬青黑","Microsoft YaHei","微软雅黑",SimSun,"宋体",Helvetica,Tahoma,Arial sans-serif;
+    font-family: -apple-system, "system-ui", "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     font-size: 16px;
     line-height: 1.6;
     word-wrap: break-word;
@@ -505,16 +505,15 @@
 }
 
 .markdown-body code,.markdown-body tt {
-    padding: .2em 0;
+    font-family: monospace, Consolas, "Liberation Mono", Menlo, Courier;
+    padding: 0 2px 0 2px;
     margin: 0;
-    font-size: 85%;
-    background-color: rgba(0,0,0,.04);
-    /* border-radius: 3px */
-}
-
-.markdown-body code:after,.markdown-body code:before,.markdown-body tt:after,.markdown-body tt:before {
-    letter-spacing: -.2em;
-    content: " "
+    font-size: 100%;
+    background-color: #f8f8f8;
+    color: #393a34;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    border: solid 1px #dddddd;
 }
 
 .markdown-body code br,.markdown-body tt br {
