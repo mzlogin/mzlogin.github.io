@@ -95,7 +95,7 @@ public Page getPage(Object parameterObject, RowBounds rowBounds) {
 
 可以看到，除了显式地提前调用 PageHelper.startPage、传递 rowBounds 参数进行分页外，还有一个 `else if(supportMethodsArguments)` 的分支，会从传递给查询的参数里尝试读取 `pageNum` 和 `pageSize` 字段的值作为分页参数。
 
-随后我查询了 PageHelper 的官方文档，果然找到了相关的说明：
+随后我查阅了 PageHelper 的官方文档，果然找到了相关的说明：
 
 > supportMethodsArguments：支持通过 Mapper 接口参数来传递分页参数，默认值 false，分页插件会从查询方法的参数值中，自动根据上面 params 配置的字段中取值，查找到合适的值时就会自动分页。 使用方法可以参考测试代码中的 com.github.pagehelper.test.basic 包下的 ArgumentsMapTest 和 ArgumentsObjTest。
 
