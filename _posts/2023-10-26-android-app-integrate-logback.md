@@ -70,17 +70,14 @@ dependencies {
         </rollingPolicy>
     </appender>
 
-    <root level="DEBUG">
-        <appender-ref ref="logcat" />
-    </root>
-
     <root level="INFO">
+        <appender-ref ref="logcat" />
         <appender-ref ref="local_file" />
     </root>
 </configuration>
 ```
 
-以上配置表示 DEBUG 及以上级别的日志输出到控制台，INFO 及以上级别的日志输出到文件，文件按照日期切割，最多保留 15 天的日志。
+以上配置表示 INFO 及以上级别的日志输出到控制台和文件，文件按照日期切割，最多保留 15 天的日志。
 
 大家可以按需配置，比如还可以限定单个文件大小、自定义日志输出的格式等等。
 
