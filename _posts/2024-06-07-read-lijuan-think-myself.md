@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 读读李娟，想想自己
+title: 当我读李娟时我在想些什么
 categories: [Blog]
 description: 读李娟的书的感受。
 keywords: 李娟, 阿勒泰
