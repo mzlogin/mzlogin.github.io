@@ -1,5 +1,5 @@
 ---
-layout: wiki
+layout: post
 title: JSON
 cate1: Android
 cate2:
