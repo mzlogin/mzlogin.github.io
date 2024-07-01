@@ -162,7 +162,7 @@ comments_provider: giscus
 # !!!Important!!! Please modify infos below to yours
 # disqus 配置参考：https://disqus.com
 disqus:
-    username: 
+    username: Orderly2233
 # gitment 配置参考：https://imsun.net/posts/gitment-introduction/
 gitment:
     owner: 
@@ -189,7 +189,7 @@ giscus:
     category: Q&A
     category-id: DIC_kwDOMPRtRM4CgfsN
 # 在使用其它评论组件时可点击显示 Disqus
-lazy_load_disqus : false
+lazy_load_disqus : ture
 
 # ---------------- #
 #      Search      #
