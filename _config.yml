@@ -162,7 +162,7 @@ comments_provider: giscus
 # !!!Important!!! Please modify infos below to yours
 # disqus 配置参考：https://disqus.com
 disqus:
-    username: orderly2233
+    username: 
 # gitment 配置参考：https://imsun.net/posts/gitment-introduction/
 gitment:
     owner: 
