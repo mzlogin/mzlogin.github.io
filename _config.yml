@@ -182,7 +182,7 @@ utterances:
 # beaudar 配置参考：https://beaudar.lipk.org/
 beaudar:
     repo: 
-giscus 配置参考：https://giscus.app/zh-CN
+# giscus 配置参考：https://giscus.app/zh-CN
 giscus:
     repo: Aone2233/Aone2233.github.io
     repo-id: MR_kgDOMPRtRA
