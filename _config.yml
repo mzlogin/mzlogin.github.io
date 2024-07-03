@@ -27,7 +27,7 @@ components:
         hide-platforms: qq,facebook
     # 不蒜子访问统计
     busuanzi:
-        enabled: false
+        enabled: ture
         start_date: 2024-6-28
     # My Popular Repositories
     side_bar_repo:
