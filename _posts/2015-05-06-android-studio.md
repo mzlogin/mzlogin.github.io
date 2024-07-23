@@ -502,5 +502,11 @@ Caused by: org.gradle.api.InvalidUserDataException: NDK not configured.
 
 经检查发现是 local.properties 里配置的 NDK 路径不存在，修改为正确的就好了。
 
+## 修改代码后，Run / Debug 都不生效
+
+在 Run / Debug Configurations 里，勾选 Always install with package manager (disables deploy optimizations on Android 11 and later)。
+
+![](/images/posts/android/android-studio-code-changes-not-effect.png)
+
 [1]: http://developer.android.com/tools/publishing/app-signing.html
 [2]: https://stackoverflow.com/questions/46949622/android-studio-3-0-unable-to-resolve-dependency-for-appdexoptions-compilecla#answer-47426050
