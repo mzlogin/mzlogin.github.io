@@ -69,7 +69,7 @@
       if (this_level === level) {// same level as before; same indenting
         html += "<li class=\"toc-item toc-level-" + this_level + "\">";
         html += "<a class=\"jumper\" href='#" + fixedEncodeURIComponent(header.id) + "'>";
-        html += "<span class='toc-text'>" + header.innerHTML + "</span>";
+        html += "<span class='toc-text'>" + header.textContent + "</span>";
         html += "</a>";
 
       } else if (this_level <= level){ // higher level than before; end parent ol
@@ -77,7 +77,7 @@
           html += "</li></"+settings.listType+">"
         }
         html += "<li class='toc-item toc-level-" + this_level + "'><a class=\"jumper\" href='#" + fixedEncodeURIComponent(header.id) + "'>";
-        html += "<span class='toc-text'>" + header.innerHTML + "</span>";
+        html += "<span class='toc-text'>" + header.textContent + "</span>";
         html += "</a>";
       }
       else if (this_level > level) { // lower level than before; expand the previous to contain a ol
@@ -85,7 +85,7 @@
           html += "<"+settings.listType+" class='toc-child'><li class='toc-item toc-level-" + i + "'>"
         }
         html += "<a class=\"jumper\" href='#" + fixedEncodeURIComponent(header.id) + "'>";
-        html += "<span class='toc-text'>" + header.innerHTML + "</span>";
+        html += "<span class='toc-text'>" + header.textContent + "</span>";
         html += "</a>";
       }
       level = this_level; // update for the next one
