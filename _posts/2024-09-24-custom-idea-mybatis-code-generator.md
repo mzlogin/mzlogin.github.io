@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 后端｜在 IDEA 里自动生成 MyBatis 模板代码
+title: Java｜在 IDEA 里自动生成 MyBatis 模板代码
 categories: [Java]
 description: 除了使用 MyBatis Generator，还可以在 IDEA 里自定义代码生成器，实现自动生成 MyBatis 模板代码。
 keywords: 后端, Java, MyBatis, IDEA, 代码生成器
