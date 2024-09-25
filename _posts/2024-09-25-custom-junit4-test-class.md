@@ -12,6 +12,8 @@ mindmap: false
 mindmap2: false
 ---
 
+本文介绍如何通过自定义 IDEA 的 JUnit4 Test Class 模板，实现生成测试类时自动注入 logger 和被测 Service。
+
 ## 背景
 
 在 IntelliJ IDEA 中，通过快捷键可以快速生成 JUnit4 测试类，但是生成测试类以后，总是需要手动添加 logger 和被测 Service 的注入，虽然是一个很小的「重复动作」，但程序员还是不能忍（其实忍了很多年了）。
