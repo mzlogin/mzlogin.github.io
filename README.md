@@ -1,6 +1,6 @@
 # AI智谷X
 
-我的个人博客：<https://www.aiwv.xyz>，欢迎 Star 和 Fork。
+我的个人博客：<https://aiwv.tech>，欢迎 Star 和 Fork。
 
 ## 概览
 
