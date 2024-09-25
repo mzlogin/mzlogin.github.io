@@ -16,7 +16,7 @@ mindmap2: false
 
 ## 背景
 
-在 IntelliJ IDEA 中，通过快捷键可以快速生成 JUnit4 测试类，但是生成测试类以后，总是需要手动添加 logger 和被测 Service 的注入，虽然是一个很小的「重复动作」，但程序员还是不能忍（其实忍了很多年了）。
+在 IntelliJ IDEA 中，通过快捷键可以快速生成 JUnit4 测试类，但是生成测试类以后，总是需要手动添加 logger 和被测 Service 的注入。虽然这是一个很小的「重复动作」，但程序员还是不能忍（*其实已经忍了很多年了*）。
 
 ## 需求
 
@@ -66,7 +66,7 @@ public class UserSourceServiceTest extends BaseTests {
 }
 ```
 
-但在写测试用例的过程中，总是需要用到 logger 和 Service，所以最终期望的测试类实际是这样的：
+然而在写测试用例的过程中，总是需要用到 logger 和 Service，所以期望中的测试类默认长这样：
 
 ```java
 package com.test.data.user.service;
@@ -127,7 +127,7 @@ public class ${NAME} {
 }
 ```
 
-其中，`${CLASS_NAME}` 是测试类的全限定名，`${CamelCaseName}` 是根据 `${CLASS_NAME}` 生成的测试类的驼峰命名。
+其中，`${CLASS_NAME}` 是被测试类的全限定名，`${CamelCaseName}` 是根据 `${CLASS_NAME}` 生成的被测试类的驼峰命名。
 
 至此，经过一点微小的努力，我们实现了一个小小的自动化，工作效率又提高了一点点，程序员又开心了一点点。
 
@@ -135,4 +135,4 @@ public class ${NAME} {
 
 察觉到重复动作，并消除——也许可以称之为「偷懒」，这是程序员的日常小乐趣，也是 *人类进步的动力* 吧。
 
-本文所述完整脚本已上传至 GitHub，仓库地址：<https://github.com/mzlogin/code-generator> ，以后如果有更新，或者新的代码生成脚本，也会放在这个仓库里。
+文中完整脚本已上传至 GitHub，仓库地址：<https://github.com/mzlogin/code-generator> ，以后如果有更新，或者新的代码生成脚本，也会放在这个仓库里。
