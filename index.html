@@ -1,9 +1,56 @@
 ---
 layout: default
 class: home
-css: ['pages/index.css']
 comments: false
 ---
+
+<style>
+.home .banner,
+.home .site-header,
+.home .banner .collection-head,
+.home .banner .collection-head a,
+.home .site-header h1 a,
+.home .site-header .site-header-nav-item:hover {
+    color: {{ site.index.banner.color | default: '#fff' }};
+}
+
+.home .site-header .site-header-nav-item {
+    color: {{ site.index.banner.nav-color | default: 'rgba(255, 255, 255, .5)' }};
+}
+
+.home .banner,
+.home .site-header {
+    background-color: {{ site.index.banner.background-color | default: '#4183c4'}};
+}
+
+{% if site.index.banner.background-image %}
+.home .banner {
+    background-image: url("{{ site.index.banner.background-image }}");
+    background-repeat: {{ site.index.banner.background-repeat | default: 'no-repeat' }};
+    background-size: {{ site.index.banner.background-size | default: 'cover' }};
+}
+{% endif %}
+
+.home .banner .collection-head {
+    background: 0 0;
+    box-shadow: none;
+    -webkit-box-shadow: none
+}
+
+.home .site-header {
+    border-bottom: none
+}
+
+@media (max-width:50em) {
+  .home .collapsed .icon-bar {
+    background-color: white;
+  }
+
+  .home .collection-head .collection-header {
+    font-size: 1.25em;
+  }
+}
+</style>
 
 {% assign assets_base_url = site.url %}
 {% if site.cdn.jsdelivr.enabled %}
@@ -169,6 +216,3 @@ comments: false
     <!-- /pagination -->
 </section>
 <!-- /section.content -->
-
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-<span id="busuanzi_value_page_pv">本文总阅读量<i class="fa fa-spinner fa-spin"></i>次</span>
