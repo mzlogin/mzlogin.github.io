@@ -184,27 +184,13 @@ beaudar:
     repo: mzlogin/blog-comments
 # giscus 配置参考：https://giscus.app/zh-CN
 giscus:
-    repo: mzlogin/blog-comments
-    repo-id: MDEwOlJlcG9zaXRvcnk5MzEyNzkxNw==
-    category: Announcements
-    category-id: DIC_kwDOBY0E7c4CRtg9
+    repo: Myh11/Myh11.github.io
+    repo-id: R_kgDOM3iJ-w
+    category:  Q&A
+    category-id: DIC_kwDOM3iJ-84Ci0EA
 # 在使用其它评论组件时可点击显示 Disqus
 lazy_load_disqus : false
-<script src="https://giscus.app/client.js"
-        data-repo="[在此输入仓库]"
-        data-repo-id="[在此输入仓库 ID]"
-        data-category="[在此输入分类名]"
-        data-category-id="[在此输入分类 ID]"
-        data-mapping="pathname"
-        data-strict="0"
-        data-reactions-enabled="1"
-        data-emit-metadata="0"
-        data-input-position="bottom"
-        data-theme="preferred_color_scheme"
-        data-lang="zh-CN"
-        crossorigin="anonymous"
-        async>
-</script>
+
 # ---------------- #
 #      Search      #
 # ---------------- #
