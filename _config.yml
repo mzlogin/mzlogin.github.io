@@ -57,12 +57,12 @@ highlight_theme: github
 # ---------------- #
 #      Author      #
 # ---------------- #
-author: Zhuang Ma
+author:myh
 organization: 
 organization_url: 
 github_username: mzlogin
-location: Wuhan, China
-email: chumpma@gmail.com
+location:Beijing, China
+email:myh@gmail.com
 
 # ---------------- #
 #    Navigation    #
@@ -84,7 +84,7 @@ navs:
   -
     href: /open-source/
     label: 开源
-    mobile-hidden: true
+    mobile-hidden: false
 
   -
     href: /fragments/
