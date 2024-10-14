@@ -1,6 +1,6 @@
 ---
 layout: post
-title: ,为什么 GitHub Pages 的文章标题不能以 @ 开头？
+title: 为什么 GitHub Pages 的文章标题不能以 @ 开头？
 categories: [GitHub]
 description: 为什么 GitHub Pages 的文章标题不能以 @ 开头？追究原因，发现是 YAML 的语法规则。
 keywords: GitHub, Pages 
@@ -13,6 +13,8 @@ mindmap2: false
 ---
 
 本文记录了一个 GitHub Pages 博客网页上文章标题以 `@` 开头导致的问题，并分析了原因，提供了解决方法。
+
+*TL;NR：因为 YAML 的语法规则，GitHub Pages 的文章标题不能直接以 `` ,[]{}#&*!|>'"%@` `` 或 `-?:加空格` 开头。可以用引号将标题括起来，或者修改标题，将这些字符不放在开头。*
 
 ## 接到问题
 
@@ -49,11 +51,22 @@ Error: YAML Exception reading /Users/mazhuang/github/mzlogin.github.io/_posts/20
 
 报错信息里提到是 YAML Exception——Jekyll 的文章头部是 YAML Front Matter，是 Jekyll 用来定义文章元数据的部分。报错提示 line 3 column 8，即 title 的第一个字符 `@`，is character that cannot start any token。
 
-根据这个信息，其实已经可以想办法规避这个问题——将 title 里的 `@` 去掉，或者换个位置，经验证确实也可以正常显示。
+根据这个信息，其实已经可以想办法规避这个问题——将 title 里的 `@` 去掉，或者换个位置，经验证可以正常显示了。
 
 继续深究一下，为什么 YAML 里的 title 不能以 `@` 开头呢？
 
-然后我找到了如下链接和内容：
+然后找到了如下链接：
 
 - <https://docs.ansible.com/ansible/latest/reference_appendices/YAMLSyntax.html>
 - <https://yaml.org/spec/1.2.2/#53-indicator-characters>
+
+提炼一下要点：
+
+- YAML 里有一些指示字符，具有特殊语义，如 `` -?:,[]{}#&*!|>'"%@` ``；
+- 这些特殊（或保留）字符不能用作不带引号的标量的第一个字符：`` ,[]{}#&*!|>'"%@` ``；
+- `?:-` 后面如果跟着非空格字符，可以放在字符串的开头，但 YAML 处理器的不同实现可能带来不同行为，稳妥起见最好也用引号括起来。
+
+## 解决方法
+
+- 将 title 用引号括起来，如 `title: "@EnableconfigurationProperties注解使用方式与作用"`；（推荐）
+- 修改 title ，将上述不能直接放在开头的字符换个位置。
