@@ -73,12 +73,12 @@ public class PromotionChannel extends BaseEntity {
     private static final long serialVersionUID = 5495175453870776988L;
     /**
      * 用户ID
-    */
+     */
     private Long fkUserId;
 
     /**
      * 渠道名称
-    */
+     */
     private String channelName;
 
 }
@@ -208,7 +208,7 @@ static def generateEntity(out, tableName, className, fields, packageName) {
             return
         }
         if (it.annos != "") out.println "  ${it.annos}"
-        if (it.comment != null) out.println "    /**\n     * ${it.comment}\n    */"
+        if (it.comment != null) out.println "    /**\n     * ${it.comment}\n     */"
         out.println "    private ${it.type} ${it.name};\n"
     }
 
