@@ -8,7 +8,7 @@ keywords: Java, Spring, Resource, Autowired
 
 @Resource 和 @Autowired 是在 Java 开发中经常用到的两个注解，我知道它们都可以完成依赖注入的工作，但对它们之间的异同点，却一直没有确切的了解，今天来通过一些静态对比与代码测试一探究竟。
 
-本文相关的测试代码上传到了 <https://github.com/mzlogin/spring-practices> 的 inject-test 文件夹里。
+本文相关的测试代码上传到了 <https://github.com/mzlogin/learn-spring> 的 inject-test 文件夹里。
 
 ## 分析
 
