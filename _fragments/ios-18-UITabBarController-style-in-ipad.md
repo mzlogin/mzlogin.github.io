@@ -1,12 +1,9 @@
 ---
-layout: wiki
+layout: fragment
 title: 让 UITabBarController 在 iOS 18 的 iPad 上显示在底部
-cate1: iOS
-cate2:
-description: 让 UITabBarController 在 iOS 18 的 iPad 上显示在底部。
+tags: [iOS]
+description: 让 UITabBarController 在 iOS 18 的 iPad 上显示在底部
 keywords: iOS, iPad, UITabBarController
-type:
-link:
 mermaid: false
 sequence: false
 flow: false
