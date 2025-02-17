@@ -1,7 +1,7 @@
 ---
 layout: fragment
 title: 让 UITabBarController 在 iOS 18 的 iPad 上显示在底部
-tags: [iOS]
+tags: [ios]
 description: 让 UITabBarController 在 iOS 18 的 iPad 上显示在底部
 keywords: iOS, iPad, UITabBarController
 mermaid: false
