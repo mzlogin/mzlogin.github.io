@@ -75,7 +75,7 @@ API_DEPRECATED("Use a UIScreen instance found through context instead: i.e, view
 
 我找到安装了以前老版本 App 的一个老平板（iOS 10.3.3），在上面测试了一下，发现在这个版本上，0.01 的调节粒度是可以生效的。
 
-**也就是说，在 iOS 10.3.3 之后的某个版本上，[UIScreen mainScreen].brightness 的调节粒度发生了变化，由 0.01 变为了 0.05。**
+**也就是说，在 iOS (10.3.3, 18.2) 之间靠近后者的某个版本上，[UIScreen mainScreen].brightness 的调节粒度发生了变化，由 0.01 变为了 0.05。**
 
 至此破案了，顺便吐槽一下，官方文档里对此毫无提及，实在是……略坑。
 
