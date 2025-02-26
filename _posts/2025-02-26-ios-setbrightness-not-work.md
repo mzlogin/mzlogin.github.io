@@ -36,7 +36,7 @@ mindmap2: false
 }
 ```
 
-这个实现在较早之前是没有问题的，那我首先想到比较可能是因为系统的更新，对这个 API 做了变更。于是先查阅了 [UIKit/UIScreen/brightness 的官方文档][1]，里面只提到了 brightness 属性只在 main screen 上被支持，取值范围是 [0.0, 1.0]，以及亮度调节后，直到锁屏后才会失效，即使用户在锁屏之前已经关闭了 App，并没有看到什么值得特别留意的。
+这个实现在较早之前是没有问题的，那我首先想到比较可能是因为系统的更新，对这个 API 做了变更。于是先查阅了 [UIKit/UIScreen/brightness 的官方文档][1]，里面只提到了 brightness 属性只在 main screen 上被支持，取值范围是 [0.0, 1.0]，以及亮度调节后，直到锁屏后才会失效——即使用户在锁屏之前已经关闭了 App。并没有看到什么值得特别留意的。
 
 然后继续看代码里的 UIScreen.mainScreen，这个属性被标记为：
 
@@ -48,9 +48,9 @@ API_DEPRECATED("Use a UIScreen instance found through context instead: i.e, view
 
 在 Google 和 StackOverflow 找了一圈，大家讨论亮度调节不生效主要集中以下方面：
 
-- [后台调用不生效][2]；
-- [模拟器上调节不生效][3]；
-- [viewDidLoad and viewWillAppear 中调用不生效][4]；
+- [后台调用不生效；][2]
+- [模拟器上调节不生效；][3]
+- [viewDidLoad and viewWillAppear 中调用不生效；][4]
 - 如何优雅地在 App 退出后恢复原有亮度；
 
 也没有找到什么能匹配我的场景的解决方案。
@@ -81,10 +81,10 @@ API_DEPRECATED("Use a UIScreen instance found through context instead: i.e, view
 
 ## 参考
 
-- [brightness | Apple Developer Documentation][1]
-- [not able to set Brightness when app enter in Background, can any one have any idea about it?][2]
-- [iOS - UIScreen setBrightness doesn't work][3]
-- [Why cannot I set UIScreen.main.brightness?][4]
+- [https://developer.apple.com/documentation/uikit/uiscreen/brightness?language=objc][1]
+- [https://stackoverflow.com/questions/54229300/not-able-to-set-brightness-when-app-enter-in-background-can-any-one-have-any-id][2]
+- [https://stackoverflow.com/questions/12362885/ios-uiscreen-setbrightness-doesnt-work][3]
+- [https://stackoverflow.com/questions/61765014/why-cannot-i-set-uiscreen-main-brightness][4]
 
 [1]: https://developer.apple.com/documentation/uikit/uiscreen/brightness?language=objc
 [2]: https://stackoverflow.com/questions/54229300/not-able-to-set-brightness-when-app-enter-in-background-can-any-one-have-any-id
