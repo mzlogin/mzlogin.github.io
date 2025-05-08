@@ -9,6 +9,8 @@ keywords: Visual Studio Code
 
 ## 快捷键
 
+<https://code.visualstudio.com/docs/reference/default-keybindings>
+
 C --> Ctrl
 
 S --> Shift
@@ -17,19 +19,53 @@ M --> Alt
 
 Cmd --> Command
 
-| 功能              | Windows | Mac OS X |
-|:------------------|:--------|:---------|
-| 打开文件          | C-o     |          |
-| 打开文件夹        | C-k C-o |          |
-| 关闭文件夹        | C-k f   |          |
-| 命令面板          | C-S-p   |          |
-| 资源管理器        | C-S-e   |          |
-| 搜索              | C-S-f   |          |
-| Git               | C-S-g   |          |
-| 调试              | C-S-d   |          |
-| 插件              | C-S-x   |          |
-| Markdown 侧边预览 | C-k v   |          |
-| Markdown 预览     | C-S-v   |          |
+### 基础编辑
+
+|功能|Mac OS X|
+|:--|:--|
+|在下方插入行|Cmd-Enter|
+|在上方插入行|Cmd-S-Enter|
+|行下移|Option-Down|
+|行上移|Option-Up|
+|行注释|Cmd-/|
+|块注释|Option-S-a|
+|文件格式化|Option-S-f|
+|选中内容格式化|Cmd-k f|
+|跳到定义|F12|
+|查看定义|Option-F12|
+|查看引用|S-F12|
+|跳到实现|Cmd-F12|
+|Quick Fix|Cmd-.|
+|参数提示|Cmd-S-Space|
+
+### 导航
+
+|功能|Mac OS X|
+|:--|:--|
+|搜索 Symbols| Cmd-t|
+|搜索文件|Cmd-p|
+|命令面板|Cmd-S-p|
+|后退|C--|
+|前进|C-S--|
+
+### 文件管理
+
+|功能|Mac OS X|
+|:--|:--|
+| 打开文件|Cmd-o|
+
+### 显示
+
+|功能|Mac OS X|
+|:--|:--|
+|开关侧边栏|Cmd-b|
+|资源管理器|Cmd-S-e|
+|搜索|Cmd-S-f|
+|运行和调试|Cmd-S-d|
+|面板|Cmd-j|
+|Output面板|Cmd-S-u|
+|Markdown 侧边预览|Cmd-k v|
+|Terminal|C-`|
 
 ## 使用 VSCode 作为 mergetool
 
