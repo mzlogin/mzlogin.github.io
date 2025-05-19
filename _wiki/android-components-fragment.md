@@ -71,3 +71,11 @@ public class MyFragment extends Fragment {
         }
 }
 ```
+
+### 暂存和恢复的数据太大
+
+onSaveInstanceState 里向 Bundle 保存的数据不能太大，这边遇到的实际场景是到 700KB 左右就会报 android.os.TransactionTooLargeException 了。
+
+解决办法：
+
+将大的数据缓存到本地文件，Bundle 里只传递对应的 ID。
