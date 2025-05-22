@@ -119,3 +119,7 @@ $ defaults delete -g ApplePressAndHoldEnabled                                   
 - `code -g <file:line:column>` 打开指定文件并跳转到指定行列；
 
 `code -h` 查看更多命令。
+
+## 查看 Java 项目依赖的 jar 包的源码
+
+跟进 .class 文件后，右键，选择 Attach Source，选择 jar 包对应的源码文件。
