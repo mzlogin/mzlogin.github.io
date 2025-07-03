@@ -31,6 +31,7 @@ keywords: 软件, 推荐
 | 打开 CHM 文档                        |                          | ichm                      |
 | 阅读 EPUB 电子书                     | Neat Reader              | iBook                     |
 | 手机投屏                             |                          | 幕享 / AirServer / Macast |
+| 将 Android 平板作为副屏              |                          | AirScreen|
 
 ## 亮点
 
