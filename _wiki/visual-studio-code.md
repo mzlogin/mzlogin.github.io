@@ -37,6 +37,7 @@ Cmd --> Command
 |跳到实现|Cmd-F12|
 |Quick Fix|Cmd-.|
 |参数提示|Cmd-S-Space|
+|列选择|M-S-鼠标左键|
 
 ### 导航
 
@@ -66,6 +67,7 @@ Cmd --> Command
 |Output面板|Cmd-S-u|
 |Markdown 侧边预览|Cmd-k v|
 |Terminal|C-`|
+|开/关自动换行|M-z|
 
 ## 使用 VSCode 作为 mergetool
 
