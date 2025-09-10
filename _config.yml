@@ -1,6 +1,7 @@
 # ---------------- #
 #   Main Configs   #
 # ---------------- #
+excerpt_separator: "<!-- more -->"
 baseurl:
 url:  
 date_format: "ordinal"
