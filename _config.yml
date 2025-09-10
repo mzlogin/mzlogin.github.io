@@ -208,6 +208,8 @@ google:
     adsense:
         enabled: false
         footer: false
+
+        excerpt_separator: "<!-- more -->"
         sidebar: false
         sidebar-detail: false
         content_header: false
