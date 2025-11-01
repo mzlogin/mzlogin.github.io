@@ -1,0 +1,116 @@
+##### vibecoding
+
+作用：写作业 打比赛 
+
+每个项目在桌面建一个文件夹 把文件夹拖入vscode 
+
+三个点-终端-新建终端
+
+wsl-回车-claude-回车-复制token-回车
+
+输入需求，要有前后端，并成功部署运行
+
+有网址可以直接访问
+
+报错复制给他 让他改
+
+不断完善功能 最后交到曾老师的库里
+
+也可以问他问题：我不懂后端原理，帮我解释
+
+学习搭建网站的框架 能明白ai是怎么做的 B站搜搭建网站黑马
+
+
+
+之前的vpn老师超时
+
+购买新vpn clash-verge 双击打开，虚拟网卡模式，可换节点 在右下角退出
+
+
+
+曾老师提供/自己购买claude code token
+
+跟曾老师说我学会了什么（成果），有没有科研/比赛/实验室实习可以去
+
+
+
+用虚拟环境管理项目：
+
+项目要有虚拟环境：包不会冲突 一个项目用一个虚拟环境
+
+用uv包管理器工具 windows系统 安装（问AI
+
+cd 目录
+
+uv venv .venv(起名)
+
+复制激活命令
+
+pip install -r requirements.txt不要
+
+uv(用uv工具安装包) pip install -r requirements.txt（装的快）
+
+python main.py运行
+
+
+
+python如何创建虚拟环境
+
+git本地
+
+github远程仓库
+
+subagent
+
+ vscode命令
+
+/agents 生成agent
+
+@agent-
+
+
+
+codex claude code cursor
+
+用极端提示词让ai在你睡觉时工作8小时
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
