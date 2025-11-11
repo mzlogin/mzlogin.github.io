@@ -178,18 +178,43 @@ This is a text with footnote[^1].
 
 ### mermaid
 
-```mermaid
-sequenceDiagram
-    Alice-->>John: Hello John, how are you?  
-    John-->>Alice: Great!
-```
+#### sequence
 
 ```mermaid
-graph TD;
-  A-->B;
-  A-->C;
-  B-->D;
-  C-->D;
+sequenceDiagram
+    Andrew-->>China: Says Hello  
+    Note right of China: China thinks<br/>about it
+    China-->>Andrew: How are you?
+    Andrew->>China: I am good thanks!
+```
+
+#### flowchart
+
+```mermaid
+flowchart TD
+  A([Start]) --> B[My Operation]
+  B --> C{Yes or No?}
+  C --> Yes --> D[/catch something.../]
+  C --> No --> E[[My Subroutine]]
+  E --> B
+  D --> F([End])
+```
+
+#### mindmap
+
+```mermaid
+mindmap
+  root((mindmap))
+    Origins
+      Long history
+      Popularisation
+        British popular psychology author Tony Buzan
+    Research
+      On effectiveness
+      On creativity
+    Applications
+      Education
+      Business
 ```
 
 ### sequence
