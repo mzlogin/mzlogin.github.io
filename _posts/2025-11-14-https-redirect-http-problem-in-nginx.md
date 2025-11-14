@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 解决访问 https 网站时，后端重定向或获取 URL 变成 http 的问题
-categories: [Nginx]
+categories: [Java]
 description: 解决访问 https 网站时，后端重定向或获取 URL 变成 http 的问题
 keywords: https, http, Nginx, 反向代理, 重定向
 mermaid: false
