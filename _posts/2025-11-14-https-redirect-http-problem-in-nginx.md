@@ -12,7 +12,7 @@ mindmap: false
 mindmap2: false
 ---
 
-一种常见的服务的部署架构是 Nginx 反向代理后端 Java 应用服务器，Nginx 监听 443 端口处理 https 请求，然后转发给后端服务器。
+一种常见的服务部署架构是 Nginx 反向代理后端 Java 应用服务器，Nginx 监听 443 端口处理 https 请求，然后转发给后端服务器。
 
 ![](/images/posts/nginx/https-nginx-http-java.drawio.png)
 
