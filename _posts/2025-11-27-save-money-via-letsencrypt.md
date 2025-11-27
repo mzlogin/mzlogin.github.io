@@ -12,53 +12,59 @@ mindmap: false
 mindmap2: false
 ---
 
-向服务商购买一张最常见的 DV 通配符 SSL 证书一年大概在几百到一千多人民币不等，名下如果有多个域名需要申请证书，每年也得花个几千块。
+向服务商购买一张常见的 DV 通配符 SSL 证书，通常每年价格在数百至一千多元人民币不等；若名下有多个域名需要使用证书，总费用每年可能达到数千元。
 
-如今各行各业都在降本增效，能省则省。对于小公司和个人网站来说，如果评估过后觉得免费证书能满足需求，那么就可以省下对应的费用。
+在当前强调降本增效的环境下，若评估后认为免费证书能够满足需求，小公司和个人网站即可节省相应成本。
 
 ## Let's Encrypt 简介
 
-Let's Encrypt 是一家免费、开放、自动化的公益性证书颁发机构 (CA)， 由互联网安全研究组 (ISRG) 运作，属于非营利组织，旨在推广 HTTPS 技术的应用，从而构建更加安全且尊重隐私的互联网环境。致力于提供免费便捷的服务，以此帮助所有网站部署 HTTPS。
+Let's Encrypt 是一家免费、开放、自动化的公益性证书颁发机构（CA），由互联网安全研究组（ISRG）运作，属于非营利组织。其目标是推广 HTTPS 的应用，为构建更安全、尊重隐私的互联网提供免费而便捷的支持。
 
 ## 操作方法
 
-根据不同的使用环境，Let's Encrypt 提供了多种验证和证书获取方式。最常用的方式是使用 Certbot。详细的使用介绍可以参考文档 <https://eff-certbot.readthedocs.io/en/stable/> 。
+根据不同使用环境，Let's Encrypt 提供多种验证与获取证书的方式。常用工具是 Certbot，详见文档：<https://eff-certbot.readthedocs.io/en/stable/>。
 
-有一些环境可以直接配置让工具定期自动更新证书，一劳永逸。
+在部分环境中，可配置工具定期自动续期，减少维护工作。
 
-我这边因为服务器环境比较老旧，且需要将证书上传到阿里云然后部署到多个不同的云服务，所以目前暂时采用本地生成证书-手动上传和更新的方式。
+由于服务器环境较为老旧，且需要将证书上传至阿里云并部署到多个云服务，本文暂采用“本地生成证书—手动上传与更新”的方式。
 
 ### 0x01 在本地生成证书
 
-我这里使用 Docker 来运行 Certbot 工具，对应文档：<https://eff-certbot.readthedocs.io/en/stable/install.html#alternative-1-docker> 。
+本文使用 Docker 运行 Certbot，参见文档：<https://eff-certbot.readthedocs.io/en/stable/install.html#alternative-1-docker>。
 
-我这边是生成通配符证书，采用的命令如下：
+生成通配符证书的示例命令如下：
 
 ```bash
-docker run -it --rm --name certbot -v '/Users/mazhuang/some/path/letsencrypt:/etc/letsencrypt' certbot/certbot certonly --preferred-challenges dns --manual --server https://acme-v02.api.letsencrypt.org/directory --key-type rsa --rsa-key-size 2048
+docker run -it --rm --name certbot \
+  -v '/Users/mazhuang/some/path/letsencrypt:/etc/letsencrypt' \
+  certbot/certbot certonly \
+  --preferred-challenges dns \
+  --manual \
+  --server https://acme-v02.api.letsencrypt.org/directory \
+  --key-type rsa --rsa-key-size 2048
 ```
 
-- `--preferred-challenges dns` 参数，表示使用 DNS 方式进行域名验证；
-- `--manual` 参数，表示使用交互式方式询问和操作；
-- `--key-type rsa --rsa-key-size 2048` 参数，表示生成 RSA 加密类型的私钥，长度为 2048 位；（这里是因为阿里云有些云服务不支持默认生成的 ECC 类型的证书）
+- `--preferred-challenges dns`：使用 DNS 方式进行域名验证；
+- `--manual`：以交互式方式进行询问与操作；
+- `--key-type rsa --rsa-key-size 2048`：生成 2048 位 RSA 私钥（部分阿里云服务不支持默认的 ECC 证书）。
 
-执行后会依次询问邮箱、同意协议、输入域名等信息，最后会提示添加 DNS TXT 记录以完成域名所有权验证，按提示操作即可。
+执行后会依次询问邮箱、协议授权、域名等信息，随后提示添加 DNS TXT 记录以完成域名所有权验证，按提示操作即可。
 
-若执行成功，证书和私钥会保存在挂载的本地目录中，比如上面命令中的 `/Users/mazhuang/some/path/letsencrypt/archive/{domain name}`。关于生成的文件的说明可以参考 <https://eff-certbot.readthedocs.io/en/stable/using.html#where-certs>。
+生成成功后，证书与私钥保存在挂载的本地目录中，例如上述命令中的 `/Users/mazhuang/some/path/letsencrypt/archive/{domain name}`。各文件的说明可参考：<https://eff-certbot.readthedocs.io/en/stable/using.html#where-certs>。
 
 ### 0x02 上传和部署证书
 
-将证书上传到阿里云的 数字证书管理服务，然后可以使用它提供的一键部署功能（付费），也可以自行到各个云服务中手动选择使用该证书（免费），丰俭由人。
+将证书上传到阿里云的数字证书管理服务。可使用其一键部署功能（付费），或在各云服务中手动选择使用该证书（免费），按需取用。
 
 ### 0x03 定期更新证书
 
-Let's Encrypt 颁发的证书有效期为 90 天，建议在到期前的 30 天内更新证书。可以重复步骤 0x01 来生成新的证书，然后再上传和部署。
+Let's Encrypt 颁发的证书有效期为 90 天，建议在到期前 30 天内更新。可重复步骤 0x01 生成新证书，然后上传并部署。
 
 ## 小结
 
-以上步骤并不复杂，且完全免费。对于小公司和个人网站来说，是一个不错的节省 SSL 证书费用的选择。
+以上步骤简单、成本为零。对小公司和个人网站而言，是节省 SSL 证书费用的可行方案。
 
-如果环境允许，可以配置自动化更新，进一步降低维护成本。有需要的朋友可以酌情考虑使用。
+若环境允许，建议配置自动化续期，进一步降低维护成本，按需采用。
 
 ## 参考链接
 
