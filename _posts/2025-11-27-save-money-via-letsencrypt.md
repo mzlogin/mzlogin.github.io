@@ -60,6 +60,31 @@ docker run -it --rm --name certbot \
 
 Let's Encrypt 颁发的证书有效期为 90 天，建议在到期前 30 天内更新。可重复步骤 0x01 生成新证书，然后上传并部署。
 
+## 注意事项
+
+部分极为老旧的平台有可能不支持 Let's Encrypt 颁发的证书，建议评估后再决定是否使用，具体的兼容情况可以参考：<https://letsencrypt.org/zh-cn/docs/certificate-compatibility/> 。
+
+比如我这边就遇到了因为使用的是 JDK 8 的低于 141 的版本，部署完证书后，发现 xxl-job 定时任务执行器没有注册上，报错 `sun.security.validator.ValidatorException: PKIX path building failed`。
+
+解决方法：
+
+1. 下载 ISRG Root X1 证书
+
+    在这里可以找到： https://letsencrypt.org/certificates/
+
+    ```sh
+    cd /opt
+    get https://letsencrypt.org/certs/isrgrootx1.pem
+    ```
+
+2. 导入证书到 JDK 的 cacerts 中
+
+    ```sh
+    keytool -trustcacerts -keystore "/opt/jdk/jre/lib/security/cacerts" -storepass changeit -noprompt -importcert -alias lets-encrypt-x1 -file "/opt/isrgrootx1.pem"
+    ```
+
+3. 重启服务
+
 ## 小结
 
 以上步骤简单、成本为零。对小公司和个人网站而言，是节省 SSL 证书费用的可行方案。
