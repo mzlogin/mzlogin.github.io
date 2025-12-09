@@ -42,7 +42,7 @@ mindmap2: false
 
 ### 使用免费证书替代付费证书
 
-对于一些小公司和个人网站，可以考虑使用 Let's Encrypt 等免费证书颁发机构提供的 SSL 证书，以节省证书费用。详见我的另一篇文章：[借助 Let's Encrypt 节省 SSL 证书费用](./2025-11-27-save-money-via-letsencrypt.md)。
+对于一些小公司和个人网站，可以考虑使用 Let's Encrypt 等免费证书颁发机构提供的 SSL 证书，以节省证书费用。详见我的另一篇文章：[借助 Let's Encrypt 节省 SSL 证书费用](https://mazhuang.org/2025/11/27/save-money-via-letsencrypt/)。
 
 ## 0x04 优策略
 
