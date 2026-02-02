@@ -32,6 +32,7 @@ keywords: 软件, 推荐
 | 阅读 EPUB 电子书                     | Neat Reader              | iBook                     |
 | 手机投屏                             |                          | 幕享 / AirServer / Macast |
 | 将 Android 平板作为副屏              |                          | AirScreen|
+| 多主机共享键盘鼠标 | Synergy | Synergy |
 
 ## 亮点
 
